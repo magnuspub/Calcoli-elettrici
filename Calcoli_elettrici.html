@@ -171,12 +171,50 @@ hr.sep{border:none;border-top:1px solid var(--grid);margin:14px 0}
 .tip.d::before{bottom:auto;top:150%;transform:translate(-50%,-95%) rotate(180deg)}
 .tip.r::after{left:auto;right:-6px;transform:none}
 .tip.r::before{left:auto;right:1px;transform:translate(0,95%)}
+
+/* ---- modulo rischio fulmini (CEI EN IEC 62305-2) ---- */
+#modLP .layout{grid-template-columns:1fr 470px}
+@media (max-width:1040px){#modLP .layout{grid-template-columns:1fr}}
+#modLP>.modhead{flex-wrap:wrap;margin-bottom:10px}
+#modLP .expbtns{flex-wrap:wrap;align-items:center}
+#modLP .expbtns select{font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);color:var(--text-secondary);cursor:pointer;font-family:inherit;width:auto}
+#modLP .grid3{align-items:end}
+#modLP .results{max-height:calc(100vh - 28px);overflow:auto}
+@media (max-width:1040px){#modLP .results{position:static;max-height:none}}
+#modLP .rowbtn{font-family:inherit}
+#modLP .toggle input{margin:0}
+#modLP .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px;font-family:inherit}
+#modLP .del:hover{border-color:var(--crit)}
+#modLP .kpi .v{font-size:21px}
+#modLP .badge{white-space:nowrap}
+#modLP table.z td.bar{width:70px;padding-left:0}
+#modLP .tip::after,#modLP .tip::before{display:none}
+#modLP .tip:hover::after,#modLP .tip:focus::after,#modLP .tip:hover::before,#modLP .tip:focus::before{display:block}
+.lp-item{border:1px solid var(--grid);border-radius:9px;padding:12px 12px 10px;margin-bottom:10px;background:var(--surface-2)}
+.lp-item>.hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.lp-item>.hd b{font-size:13px}
+.lp-sec{display:grid;grid-template-columns:.7fr 1fr 1fr 1.2fr .7fr auto;gap:8px;align-items:end;margin-top:8px;padding-left:12px;border-left:2px solid var(--accent)}
+@media (max-width:760px){.lp-sec{grid-template-columns:1fr 1fr}}
+.lp-sys{display:grid;grid-template-columns:minmax(150px,.9fr) 1.2fr 1.2fr;gap:8px;align-items:end;margin-top:8px}
+@media (max-width:760px){.lp-sys{grid-template-columns:1fr}}
+.lp-tg{display:inline-flex;align-items:center;max-width:100%;min-width:0}
+.lp-tg .toggle{min-width:0}
+.lp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.lp-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text-secondary);cursor:pointer;background:var(--field-bg)}
+.lp-chip input{margin:0;accent-color:var(--accent)}
+.lp-chip.on{border-color:var(--accent);color:var(--accent)}
+.lp-bar{height:6px;border-radius:3px;background:var(--accent);min-width:1px}
+.lp-warn{font-size:12px;color:var(--warn);margin-top:8px;line-height:1.5}
+details.adv{margin-top:10px;border-top:1px solid var(--grid);padding-top:10px}
+details.adv>summary{cursor:pointer;color:var(--accent);font-size:12.5px;font-weight:600}
+details.adv>.in{margin-top:10px}
+@media print{#printArea th{border:1px solid #bbb;padding:3px 7px;text-align:left;vertical-align:top;background:#eee;font-weight:600}#printArea .pv{font-size:13px;font-weight:700;margin:8px 0}}
 </style>
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="ver" title="Versione del programma">v 0.1.3</span></div>
-  <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="ver" title="Versione del programma">v 0.1.4</span></div>
+  <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
 </header>
 
 <main>
@@ -846,6 +884,28 @@ hr.sep{border:none;border-top:1px solid var(--grid);margin:14px 0}
     </details>
 </div>
 
+<!-- Rischio fulmini (CEI EN IEC 62305-2) -->
+<section class="module" id="modLP">
+<div class="modhead"><span class="ttl">Rischio da fulmine</span><span class="pill">CEI EN IEC 62305-2</span>
+  <span class="expbtns">
+    <select id="lpEx" title="Carica un esempio dell'Allegato F della norma">
+      <option value="">Esempi della norma…</option>
+      <option value="casa">F.2 — Fabbricato residenziale</option>
+      <option value="uffici">F.3 — Edificio per uffici</option>
+      <option value="ospedale">F.4 — Ospedale</option>
+    </select>
+    <button type="button" id="lpNew">Nuovo</button>
+    <button type="button" id="lpOpen">Apri…</button>
+    <button type="button" id="lpSave">Salva</button>
+    <button type="button" id="lpPdf">↧ PDF</button>
+    <input type="file" id="lpFile" accept=".json,application/json" style="display:none">
+  </span></div>
+<div class="layout">
+  <div class="inputs" id="lpInputs"></div>
+  <div class="results" id="lpResults"></div>
+</div>
+</section>
+
 <!-- ===================== NORME E FORMULE ===================== -->
 <footer class="card" style="max-width:1360px;margin:14px auto 40px;border-left:3px solid var(--accent)">
   <h2><span class="ttl">Norme di riferimento e formule utilizzate</span></h2>
@@ -867,6 +927,12 @@ hr.sep{border:none;border-top:1px solid var(--grid);margin:14px 0}
     <div><b>IEC 60364-4-41 / 4-43</b> — Impianti BT: interruzione automatica (sistemi TT/TN) e verifica termica dei cavi K²S² ≥ I²t</div>
     <div><b>IEC 60269-1 / -2</b> — Fusibili BT: caratteristiche tempo‑corrente, limitazione (cut‑off) ed energia passante I²t</div>
     <div><b>IEC 60947-2 / EN 60898-1</b> — Interruttori BT: caratteristiche di intervento, potere di interruzione I<sub>cu</sub>/I<sub>cn</sub>, limitazione ed energia passante I²t</div>
+    <div><b>CEI EN IEC 62305-2:2024</b> (CEI 81-10/2) — Gestione del rischio: art. 6–9, Allegati A, B, C, E</div>
+    <div><b>CEI EN IEC 62305-1:2024</b> — Principi generali, livelli di protezione LPL</div>
+    <div><b>CEI EN IEC 62305-3:2024</b> — LPS: requisiti che rendono validi P<sub>LPS</sub>, P<sub>EB</sub>, P<sub>am</sub></div>
+    <div><b>CEI EN IEC 62305-4:2024</b> — SPM: requisiti che rendono validi P<sub>SPD</sub>, K<sub>S1</sub>, K<sub>S2</sub>, K<sub>S3</sub></div>
+    <div><b>CEI EN IEC 62858</b> — Densità di fulminazione da reti LLS (origine di N<sub>G</sub>, N<sub>SG</sub>)</div>
+    <div><b>IEC 62793</b> — Sistemi di allerta temporali (P<sub>TWS</sub>)</div>
   </div>
 
   <div class="subh" style="margin-top:16px">Formule utilizzate</div>
@@ -929,6 +995,35 @@ hr.sep{border:none;border-top:1px solid var(--grid);margin:14px 0}
       <p>Sganciatori elettronici (LSI), banda calcolata: L con soglia 1,05–1,2·I<sub>r</sub> e t = k·t<sub>r</sub>·(6·I<sub>r</sub>/I)<sup>n</sup> (k dalle tolleranze dichiarate; n = 2, oppure 0,5 · 1 · 4 dove previsto); S a I<sub>sd</sub>(1 ± tol) con tempo costante o I²t fino a 8·I<sub>r</sub> (aperti: tempo massimo t<sub>sd</sub>, minimo −40 %; scatolati: t<sub>sd</sub> ± 10 % + 40 ms, senza ritardo 70 ms); I a I<sub>i</sub>(1 ± tol) con apertura entro 60 ms (aperti) o 40 ms.</p>
       <p>ABB Ekip LSI, banda calcolata: L con soglia 1,05–1,3·I<sub>1</sub> (Touch 1,05–1,2) e t = t<sub>1</sub>·(3·I<sub>1</sub>/I)², ± 10 % fino a 4·I<sub>n</sub> (6·I<sub>n</sub> per XT7 e Touch) e ± 20 % oltre, tempo minimo 0,5 s (1 s per XT7); S a I<sub>2</sub> ± 10 % con t<sub>2</sub> ± 20 % (XT7 e Touch: ± 10 % o ± 40 ms) oppure I²t riferito a 10·I<sub>n</sub>; I a I<sub>3</sub> ± 10 % con apertura entro 40 ms (30 ms per XT7 e Touch).</p>
     </div>
+    <div class="fblk"><h4>Rischio da fulmine — eventi pericolosi (62305-2 All. A)</h4>
+      <p>N<sub>SG</sub> = k·N<sub>G</sub> (k = 2 se non fornito)</p>
+      <p>A<sub>D</sub> = L·W + 2·(3H)·(L+W) + π·(3H)²</p>
+      <p>N<sub>D</sub> = N<sub>SG</sub>·A<sub>D</sub>·C<sub>D</sub>·10⁻⁶</p>
+      <p>N<sub>M</sub> = (N<sub>SG</sub>/k)·A<sub>M</sub>·10⁻⁶, A<sub>M</sub> = 2·r<sub>M</sub>·(L+W) + π·r<sub>M</sub>², r<sub>M</sub> = 350/U<sub>w</sub></p>
+      <p>N<sub>L</sub> = N<sub>SG</sub>·40·L<sub>L</sub>·C<sub>I</sub>·C<sub>E</sub>·C<sub>T</sub>·10⁻⁶</p>
+      <p>N<sub>I</sub> = (N<sub>SG</sub>/k)·2·r<sub>I</sub>·L<sub>L</sub>·C<sub>I</sub>·C<sub>E</sub>·C<sub>T</sub>·10⁻⁶, r<sub>I</sub> = 2000/U<sub>w</sub><sup>1,8</sup></p>
+      <p>N<sub>DJ</sub> = N<sub>SG</sub>·A<sub>DJ</sub>·C<sub>DJ</sub>·C<sub>T</sub>·10⁻⁶</p></div>
+    <div class="fblk"><h4>Rischio da fulmine — probabilità di danno (All. B)</h4>
+      <p>P<sub>AT</sub> = P<sub>LPS</sub>·P<sub>am</sub>·r<sub>t</sub>·P<sub>TWS</sub></p>
+      <p>P<sub>AD</sub> = P<sub>TWS</sub>·P<sub>am</sub>·P<sub>O</sub>·P<sub>LPS</sub></p>
+      <p>P<sub>B</sub> = P<sub>S</sub>·P<sub>LPS</sub>·r<sub>f</sub>·r<sub>p</sub> (P<sub>S</sub> = 1 con LPS)</p>
+      <p>P<sub>C</sub> = 1 − Π(1 − P<sub>SPD</sub>·C<sub>LD</sub>)</p>
+      <p>P<sub>M</sub> = 1 − Π(1 − P<sub>SPD</sub>·(K<sub>S1</sub>·K<sub>S2</sub>·K<sub>S3</sub>)²)</p>
+      <p>P<sub>U</sub> = P<sub>am</sub>·P<sub>EB</sub>·P<sub>LD</sub>·P<sub>TWS</sub>·C<sub>LD</sub>·r<sub>t</sub></p>
+      <p>P<sub>V</sub> = P<sub>EB</sub>·P<sub>LD</sub>·P<sub>TWS</sub>·C<sub>LD</sub>·r<sub>f</sub>·r<sub>p</sub></p>
+      <p>P<sub>W</sub> = P<sub>SPD</sub>·P<sub>TWS</sub>·P<sub>LD</sub>·C<sub>LD</sub> · P<sub>Z</sub> = P<sub>SPD</sub>·P<sub>TWS</sub>·C<sub>LI</sub></p>
+      <p>P<sub>P</sub> = t<sub>z</sub>/8760 · P<sub>e</sub> = t<sub>e</sub>/8760</p></div>
+    <div class="fblk"><h4>Rischio da fulmine — rischio R e frequenza F (art. 6–9)</h4>
+      <p>R<sub>X</sub> = N<sub>X</sub>·P<sub>X</sub>·L<sub>X</sub> (Tabella 3)</p>
+      <p>R<sub>L1</sub> = R<sub>AT</sub>+R<sub>AD</sub>+R<sub>B1</sub>+R<sub>C1</sub>+R<sub>M1</sub>+R<sub>U</sub>+R<sub>V1</sub>+R<sub>W1</sub>+R<sub>Z1</sub></p>
+      <p>R<sub>L2</sub> = R<sub>B2</sub>+R<sub>C2</sub>+R<sub>M2</sub>+R<sub>V2</sub>+R<sub>W2</sub>+R<sub>Z2</sub></p>
+      <p>R = R<sub>L1</sub> + R<sub>L2</sub> ≤ R<sub>T</sub>, per ciascuna zona</p>
+      <p>F = F<sub>C</sub>+F<sub>M</sub>+F<sub>W</sub>+F<sub>Z</sub> ≤ F<sub>T</sub> (Tabella 4)</p>
+      <p>F<sub>C</sub> = N<sub>D</sub>·P<sub>C</sub>·P<sub>e</sub> · F<sub>M</sub> = N<sub>M</sub>·P<sub>M</sub>·P<sub>e</sub></p>
+      <p>F<sub>W</sub> = (N<sub>L</sub>+N<sub>DJ</sub>)·P<sub>W</sub>·P<sub>e</sub> · F<sub>Z</sub> = N<sub>I</sub>·P<sub>Z</sub>·P<sub>e</sub></p>
+      <p>Ambiente (All. E): L<sub>BT</sub> = L<sub>B</sub> + L<sub>E</sub></p></div>
+    <div class="fblk"><h4>Rischio da fulmine — limiti del modulo</h4>
+      <p>Gli Allegati A, B, C della norma sono informativi e riportano valori tipici: ogni valore proposto resta modificabile («Altro valore…») e la scelta spetta al progettista. P<sub>SPD</sub> usa i valori delle Tabelle B.7 e B.8; la valutazione di dettaglio dell'Allegato D (grafici) non è implementata e, se serve, il valore va inserito a mano. N<sub>M</sub> è calcolato per zona con la tenuta più bassa fra gli impianti presenti. Il motore è stato verificato sugli esempi F.2, F.3 e F.4 della norma (scostamenti entro 0,1 %, dovuti agli arrotondamenti). Strumento di supporto: non sostituisce la valutazione del progettista né il testo vigente delle norme.</p></div>
   </div>
   <p class="mini" style="margin-top:14px">Strumento di ausilio al calcolo: i risultati vanno sempre verificati rispetto ai dati di targa, ai valori comunicati dal distributore e al testo vigente delle norme citate. Le curve e i valori tipici (U<sub>Tp</sub>, fattore r, P<sub>cu</sub>, correnti di inserzione, curve di fusibili e interruttori) sono indicativi.</p>
 </footer>
@@ -937,14 +1032,14 @@ hr.sep{border:none;border-top:1px solid var(--grid);margin:14px 0}
 <div class="foot">
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni aggiungono il proprio contributo, sommato su tutti i motori inseriti (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.3 · Federico Magnani · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.4 · Federico Magnani · 2026</p>
 </div>
 
 <div id="printArea"></div>
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.3";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.4";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -3454,6 +3549,528 @@ motRow({desc:"Motore 1",P:200,U:400,eta:0.80,klr:6,rx:0.42,poles:2});
 autoC(); syncSeg();
 collapse("cardGrid","onGrid");collapse("cardTr","onTr");collapse("cardCab","onCab");collapse("cardMot","onMot");collapse("cardLE","onLE");
 fillInrush(); fusInit(); cbInit(); recompute();
+
+/* ===================== MOTORE DI CALCOLO — CEI EN IEC 62305-2:2024 (Ed. 3) =====================
+   Nessuna dipendenza dal DOM: LPR.compute(progetto) -> risultati. Riutilizzabile in altri moduli. */
+const LPR=(function(){
+'use strict';
+const H8760=8760;
+const TAB={
+  // Tab. A.1
+  CD:[[0.25,'Circondata da oggetti più alti'],[0.5,'Circondata da oggetti di altezza uguale o inferiore'],[1,'Isolata: nessun oggetto nelle vicinanze'],[2,'Isolata in cima a una collina o montagna']],
+  // Tab. A.2
+  CI:[[1,'Aerea'],[0.3,'Interrata'],[0.01,'Interrata dentro un dispersore magliato']],
+  // Tab. A.3
+  CT:[[1,'BT, telecomunicazione o dati'],[0.2,'AT con trasformatore AT/BT ad avvolgimenti separati']],
+  // Tab. A.4
+  CE:[[1,'Rurale'],[0.5,'Suburbano'],[0.1,'Urbano'],[0.01,'Urbano con edifici oltre 20 m']],
+  // Tab. B.2
+  rt:[[1e-2,'Terreno agricolo, cemento (≤ 1 kΩ)'],[1e-3,'Marmo, ceramica (1–10 kΩ)'],[1e-4,'Pietrisco, moquette, tappeti (10–100 kΩ)'],[1e-5,'Asfalto, linoleum, legno (≥ 100 kΩ)'],[0,'Strato isolante ≥ 5 cm (es. asfalto)']],
+  // Tab. B.1 (prodotto se più misure)
+  pam:{c:[0.1,'Cartelli ammonitori'],i:[0.01,'Isolamento delle calate'],e:[0.01,'Equipotenzializzazione del suolo'],n:[0.001,'LPS naturale'],a:[0,'Accesso impedito']},
+  // Tab. B.3
+  PLPS:[[1,'Nessun LPS'],[0.2,'LPS classe IV'],[0.1,'LPS classe III'],[0.05,'LPS classe II'],[0.02,'LPS classe I'],[0.01,'Classe I + calate naturali (struttura metallica o c.a.)'],[0.001,'Classe I + copertura metallica e calate naturali']],
+  // Tab. B.4
+  PS:[[1,'Legno o muratura'],[0.5,'Cemento armato continuo o struttura metallica interconnessa']],
+  // Tab. B.5
+  rp:[[1,'Nessuna misura'],[0.5,'Estintori, idranti, allarme manuale, compartimentazione, vie di fuga protette'],[0.2,'Estinzione automatica o allarme automatico']],
+  // Tab. B.6
+  rf:[[0,'Nessun rischio di incendio o esplosione'],[1e-3,'Incendio basso (< 400 MJ/m²) · esplosione zone 2, 22'],[1e-2,'Incendio ordinario (400–800 MJ/m²)'],[1e-1,'Incendio alto (> 800 MJ/m²) · esplosione zone 1, 21'],[1,'Esplosione: zone 0, 20, esplosivi solidi']],
+  // Tab. B.7 / B.8
+  PSPD:[[1,'Nessun sistema coordinato di SPD'],[0.05,'LPL III–IV'],[0.02,'LPL II'],[0.01,'LPL I'],[0.005,'Migliore di LPL I (0,005)'],[0.002,'Migliore di LPL I (0,002)'],[0.001,'Migliore di LPL I (0,001)']],
+  // Tab. B.13
+  PEB:[[1,'Nessun SPD all’ingresso'],[0.05,'SPD per LPL III–IV'],[0.02,'SPD per LPL II'],[0.01,'SPD per LPL I']],
+  // Tab. B.10
+  KS3:[[1,'Non schermati, percorsi diversi (spire ~50 m²)'],[0.5,'Non schermati, spire ~25 m²'],[0.2,'Non schermati, stesso condotto (spire ~10 m²)'],[0.01,'Non schermati, stesso cavo (spire ~0,5 m²)'],[0.0001,'Schermati o in condotti metallici']],
+  // Tab. B.9: chiave -> [CLD, CLI, descrizione, schermo collegato?]
+  conn:{
+    ns:[1,1,'Non schermata (aerea o interrata)',0],
+    nt:[1,0.2,'Energia con neutro a terra in più punti',0],
+    si:[1,0.3,'Schermata interrata, schermo non collegato alla barra degli apparecchi',0],
+    sa:[1,0.1,'Schermata aerea, schermo non collegato alla barra degli apparecchi',0],
+    sc:[1,0,'Schermata, schermo collegato alla stessa barra degli apparecchi',1],
+    cp:[0,0,'Cavo di protezione contro il fulmine o condotto di protezione',0],
+    fo:[1,0,'Fibra ottica o nessuna linea esterna; impianto interno non schermato',0],
+    fs:[0,0,'Fibra ottica o nessuna linea esterna; impianto interno schermato',0],
+    is:[0,0,'Interfaccia di separazione (IEC 62305-4)',0]
+  },
+  // Tab. B.11 e B.12
+  UwCols:[0.35,0.5,1,1.5,2.5,4,6,12,16,20,40,60,75,95],
+  PLD:{
+    'r20':[1,1,1,1,0.95,0.9,0.8,0.4,0.3,0.15,0.03,0.01,0.007,0.005],
+    'r5':[1,1,0.9,0.8,0.6,0.3,0.1,0.02,0.01,0.007,0.0015,0.001,4e-4,2e-4],
+    'r1':[1,0.85,0.6,0.4,0.2,0.04,0.02,0.005,0.002,0.0015,4e-4,1.5e-4,1e-4,0.7e-4]
+  },
+  rs:[['r20','5 < RS ≤ 20 Ω/km'],['r5','1 < RS ≤ 5 Ω/km'],['r1','RS ≤ 1 Ω/km']],
+  // Tab. C.2: categoria -> LF (max della fascia), LO (max della fascia), descrizione
+  loss:{
+    b:[2e-2,1e-4,'Bassa (edifici privati: condomini, fattorie)'],
+    n:[5e-2,5e-4,'Normale (aperti al pubblico: uffici, scuole, alberghi, negozi)'],
+    e:[1e-1,1e-3,'Elevata (degenze, carceri, sale controllo, musei)'],
+    m:[2e-1,1e-2,'Molto elevata (rischio esplosione, sale operatorie, terapie intensive)']
+  }
+};
+function n(x,d){ x=+x; return isFinite(x)?x:(d===undefined?0:d); }
+function c01(x){ return Math.max(0,Math.min(1,x)); }
+function areaD(L,W,H){ return L*W+2*(3*H)*(L+W)+Math.PI*(3*H)*(3*H); }
+function pld(conn,rs,Uw){
+  const c=TAB.conn[conn]; if(!c||!c[3]) return 1;
+  const row=TAB.PLD[rs]||TAB.PLD.r20; let j=-1;
+  for(let i=0;i<TAB.UwCols.length;i++){ if(Uw>=TAB.UwCols[i]-1e-9) j=i; }
+  return j<0?1:row[j];
+}
+function pamOf(z){ let p=1; const m=z.pam||{}; for(const k in TAB.pam){ if(m[k]) p*=TAB.pam[k][0]; } return p; }
+function ks1Of(st){
+  let k;
+  if(st.ks1Mode==='mesh') k=0.12*n(st.wm1,0);
+  else if(st.ks1Mode==='cont') k=1e-4;
+  else if(st.ks1Mode==='val') k=n(st.KS1,1);
+  else k=1;
+  if(st.bondNet) k=k/2;
+  return Math.min(1,Math.max(0,k));
+}
+
+function compute(p){
+  const site=p.site||{}, st=p.st||{}, thr=p.thr||{}, W=[];
+  const k=n(site.k,2)>0?n(site.k,2):2;
+  const NSG=site.mode==='NSG'?n(site.NSG):k*n(site.NG);
+  const L=n(st.L), Wd=n(st.W), H=n(st.H);
+  let AD;
+  if(st.adMode==='man') AD=n(st.AD);
+  else { AD=areaD(L,Wd,H); const Hp=n(st.Hp); if(Hp>0){ const a2=Math.PI*(3*Hp)*(3*Hp); if(a2>AD) AD=a2; } }
+  const CD=n(st.CD,1), ND=NSG*AD*CD*1e-6;
+  const PLPS=n(st.PLPS,1), hasLPS=PLPS<1, PS=hasLPS?1:n(st.PS,1), PTWS=c01(n(st.PTWS,1)), KS1=ks1Of(st);
+  const out={k,NSG,NG:NSG/k,AD,ND,CD,PLPS,PS,PTWS,KS1,hasLPS,svc:{},zones:[],warn:W};
+
+  // --- linee / impianti
+  (p.svc||[]).forEach(s=>{
+    const Uw=n(s.Uw,2.5)>0?n(s.Uw,2.5):2.5, cn=TAB.conn[s.conn]||TAB.conn.ns;
+    const rI=2000/Math.pow(Uw,1.8);
+    let NL=0,NI=0,AL=0,AI=0,len=0,lastCT=1; const secs=[];
+    (s.sec||[]).forEach(q=>{
+      const LL=n(q.LL); if(!(LL>0)) return;
+      let CI=n(q.CI,1); const CE=n(q.CE,1), CT=n(q.CT,1), rho=n(q.rho);
+      if(Math.abs(CI-0.3)<1e-9 && rho>400) CI=0.6*Math.sqrt(rho)/40;   // A.4 Nota 3
+      const al=40*LL, ai=2*rI*LL;
+      const nl=NSG*al*CI*CE*CT*1e-6, ni=(NSG/k)*ai*CI*CE*CT*1e-6;
+      NL+=nl; NI+=ni; AL+=al; AI+=ai; len+=LL; lastCT=CT;
+      secs.push({LL,CI,CE,CT,AL:al,AI:ai,NL:nl,NI:ni});
+    });
+    let NDJ=0,ADJ=0; const a=s.adj||{};
+    if(a.on && len>0){ ADJ=areaD(n(a.L),n(a.W),n(a.H)); NDJ=NSG*ADJ*n(a.CDJ,1)*lastCT*1e-6; }
+    const PLD=pld(s.conn,s.rs,Uw), PEB=n(s.PEB,1);
+    out.svc[s.id]={id:s.id,name:s.name,Uw,rI,NL,NI,AL,AI,len,NDJ,ADJ,PLD,PEB,CLD:cn[0],CLI:cn[1],secs};
+    if(hasLPS && PEB>=1 && len>0 && cn[0]>0) W.push('«'+s.name+'»: con un LPS il collegamento equipotenziale con SPD all’ingresso della linea è obbligatorio (IEC 62305-3): impostare P_EB.');
+  });
+
+  // --- zone
+  let allOk=true;
+  (p.zones||[]).forEach(z=>{
+    const zw=[];
+    const PP=c01(n(z.tz,H8760)/H8760), Pe=c01(n(z.te,H8760)/H8760);
+    const Pam=pamOf(z), rt=n(z.rt,1e-2), rf=n(z.rf), rp=n(z.rp,1);
+    const LT=n(z.LT,1e-2), LD=n(z.LD,1e-1), LF1=n(z.LF1), LF2=n(z.LF2), LO1=n(z.LO1), LO2=n(z.LO2);
+    const KS2=Math.min(1,Math.max(0,n(z.KS2,1)));
+    const PAT=PLPS*Pam*rt*PTWS, PAD=PTWS*Pam*n(z.PO,1)*PLPS, PB=PS*PLPS*rf*rp;
+    const env=z.env||{}, eOn=!!env.on, PPE=eOn?c01(n(env.tzE,H8760)/H8760):0;
+    const LF1E=eOn?n(env.LF1E):0, LF2E=eOn?n(env.LF2E):0, LO1E=eOn?n(env.LO1E):0, LO2E=eOn?n(env.LO2E):0;
+    // impianti presenti nella zona
+    const sys=[]; let UwMin=Infinity;
+    (p.svc||[]).forEach(s=>{ const c=(z.sys||{})[s.id]; if(c&&c.on){ const o=out.svc[s.id]; sys.push({o,KS3:n(c.KS3,1),PSPD:n(c.PSPD,1)}); if(o.Uw<UwMin) UwMin=o.Uw; } });
+    let rM=0,AM=0,NM=0,qc=1,qm=1;
+    if(sys.length){ rM=350/UwMin; AM=2*rM*(L+Wd)+Math.PI*rM*rM; NM=(NSG/k)*AM*1e-6; }
+    const det=[];
+    let sU=0,sV=0,sW=0,sZ=0;
+    sys.forEach(x=>{
+      const o=x.o, PMS=Math.pow(Math.min(1,KS1*KS2*x.KS3),2);
+      const PCi=x.PSPD*o.CLD, PMi=x.PSPD*PMS;
+      qc*=(1-PCi); qm*=(1-PMi);
+      const NLs=o.NL+o.NDJ;
+      const PU=Pam*o.PEB*o.PLD*PTWS*o.CLD*rt, PV=o.PEB*o.PLD*PTWS*o.CLD*rf*rp;
+      const PW=x.PSPD*PTWS*o.PLD*o.CLD, PZ=x.PSPD*PTWS*o.CLI;
+      sU+=NLs*PU; sV+=NLs*PV; sW+=NLs*PW; sZ+=o.NI*PZ;
+      det.push({id:o.id,name:o.name,KS3:x.KS3,PSPD:x.PSPD,PMS,PC:PCi,PM:PMi,PU,PV,PW,PZ,FW:NLs*PW*Pe,FZ:o.NI*PZ*Pe});
+      if(x.PSPD<1 && !hasLPS && o.CLD>0) zw.push('«'+o.name+'»: senza LPS (o LPS naturale) il sistema di SPD non è efficace per i fulmini sulla struttura, componente C (B.5 Nota 1).');
+    });
+    const PC=1-qc, PM=1-qm;
+    const R={AT:0,AD:0,B1:0,B2:0,C1:0,C2:0,M1:0,M2:0,U:0,V1:0,V2:0,W1:0,W2:0,Z1:0,Z2:0};
+    const E={L1:0,L2:0};
+    R.AT=ND*PAT*PP*LT;
+    if(z.type==='roof') R.AD=ND*PAD*PP*LD;
+    if(z.type==='int'){
+      R.B1=ND*PB*PP*LF1; R.B2=ND*PB*LF2;
+      R.U=sU*PP*LT; R.V1=sV*PP*LF1; R.V2=sV*LF2;
+      E.L1+=(ND*PB+sV)*PPE*LF1E; E.L2+=(ND*PB+sV)*LF2E;
+    }
+    if(sys.length){
+      const fC=ND*PC, fM=NM*PM;
+      R.C1=fC*PP*Pe*LO1; R.C2=fC*Pe*LO2; R.M1=fM*PP*Pe*LO1; R.M2=fM*Pe*LO2;
+      R.W1=sW*PP*Pe*LO1; R.W2=sW*Pe*LO2; R.Z1=sZ*PP*Pe*LO1; R.Z2=sZ*Pe*LO2;
+      E.L1+=(fC+fM+sW+sZ)*PPE*Pe*LO1E; E.L2+=(fC+fM+sW+sZ)*Pe*LO2E;
+    }
+    const RL1=R.AT+R.AD+R.B1+R.C1+R.M1+R.U+R.V1+R.W1+R.Z1+E.L1;
+    const RL2=R.B2+R.C2+R.M2+R.V2+R.W2+R.Z2+E.L2;
+    const Rt=RL1+RL2;
+    const split=thr.mode==='split';
+    const RT=n(thr.RT,1e-5), RT1=n(thr.RT1,1e-5), RT2=n(thr.RT2,1e-3);
+    const okR=split?(RL1<=RT1 && RL2<=RT2):(Rt<=RT);
+    const F={C:ND*PC*Pe,M:NM*PM*Pe,W:sW*Pe,Z:sZ*Pe}; F.tot=F.C+F.M+F.W+F.Z;
+    const hasF=sys.length>0 && z.evalF!==false, FT=n(z.FT,0.1), okF=!hasF||F.tot<=FT;
+    if(Pam<1 && !hasLPS && (z.type!=='int')) zw.push('Senza LPS (o LPS naturale) le misure contro tensioni di contatto e di passo non riducono P_AT (B.2 Nota 2).');
+    if(rp<1) zw.push('r_p < 1: le misure antincendio devono essere operative al momento del fulmine e l’utente va informato (B.4).');
+    if(!okR||!okF) allOk=false;
+    // componenti in ordine di peso
+    const comp=[['AT',R.AT],['AD',R.AD],['B',R.B1+R.B2],['C',R.C1+R.C2],['M',R.M1+R.M2],['U',R.U],['V',R.V1+R.V2],['W',R.W1+R.W2],['Z',R.Z1+R.Z2],['E',E.L1+E.L2]];
+    const dom=comp.slice().sort((a,b)=>b[1]-a[1])[0];
+    out.zones.push({id:z.id,name:z.name,type:z.type,PP,Pe,Pam,rt,rf,rp,KS2,PAT,PAD,PB,PC,PM,rM,AM,NM,UwMin:isFinite(UwMin)?UwMin:0,
+      LT,LD,LF1,LF2,LO1,LO2,R,E,RL1,RL2,Rt,okR,F,hasF,FT,okF,det,comp,dom:dom&&dom[1]>0?dom[0]:'',warn:zw,nsys:sys.length});
+  });
+  out.split=thr.mode==='split'; out.RT=n(thr.RT,1e-5); out.RT1=n(thr.RT1,1e-5); out.RT2=n(thr.RT2,1e-3);
+  out.ok=allOk && out.zones.length>0;
+  return out;
+}
+
+/* ---------- progetto predefinito ed esempi dell'Allegato F ---------- */
+function sec(LL,CI,CE,CT){ return {LL,CI,CE,CT,rho:0}; }
+function svc(id,name,kind,Uw,conn,secs,PEB){ return {id,name,kind,Uw,conn,rs:'r20',PEB:PEB||1,sec:secs,adj:{on:false,L:10,W:10,H:5,CDJ:1}}; }
+function zone(id,name,type,o){
+  const z={id,name,type,tz:8760,rt:1e-2,pam:{},PO:1,rf:1e-2,rp:1,lossCat:'n',LT:1e-2,LD:1e-1,LF1:5e-2,LF2:5e-2,LO1:0,LO2:0,te:8760,KS2:1,FT:0.1,evalF:true,sys:{},env:{on:false,LF1E:0,LF2E:0,LO1E:0,LO2E:0,tzE:8760}};
+  if(type!=='int'){ z.rf=0; z.LF1=0; z.LF2=0; }
+  return Object.assign(z,o||{});
+}
+function defaults(){
+  return {v:1,name:'Nuova valutazione',site:{mode:'NG',NG:2.5,NSG:5,k:2},
+    st:{L:20,W:15,H:8,adMode:'auto',AD:0,Hp:0,CD:0.5,PS:1,PLPS:1,ks1Mode:'none',wm1:5,KS1:1,bondNet:false,PTWS:1},
+    thr:{mode:'R',RT:1e-5,RT1:1e-5,RT2:1e-3},
+    svc:[svc('s1','Linea di energia BT','P',2.5,'ns',[sec(1000,0.3,0.5,1)]),svc('s2','Linea telefonica / dati','T',1.5,'ns',[sec(1000,0.3,0.5,1)])],
+    zones:[zone('z1','Interno edificio','int',{rt:1e-3,sys:{s1:{on:true,KS3:0.2,PSPD:1},s2:{on:true,KS3:1,PSPD:1}}})]};
+}
+const EX={
+  casa:function(){ return {v:1,name:'Esempio F.2 — Fabbricato residenziale',site:{mode:'NSG',NG:4,NSG:8,k:2},
+    st:{L:15,W:20,H:6,adMode:'auto',AD:0,Hp:0,CD:1,PS:1,PLPS:1,ks1Mode:'none',wm1:5,KS1:1,bondNet:false,PTWS:1},
+    thr:{mode:'R',RT:1e-5,RT1:1e-5,RT2:1e-3},
+    svc:[svc('s1','Linea di energia BT (aerea)','P',2.5,'ns',[sec(1000,1,1,1)]),svc('s2','Linea telefonica (aerea)','T',1.5,'ns',[sec(800,1,1,1)])],
+    zones:[zone('z2','Z2 — Interno edificio','int',{tz:4380,rt:1e-5,rf:1e-3,rp:1,lossCat:'b',LF1:2e-2,LF2:2e-2,FT:0.1,evalF:false,sys:{s1:{on:true,KS3:0.2,PSPD:1},s2:{on:true,KS3:1,PSPD:1}}})]}; },
+  uffici:function(){ const sy={s1:{on:true,KS3:0.2,PSPD:1},s2:{on:true,KS3:1,PSPD:1}};
+    return {v:1,name:'Esempio F.3 — Edificio per uffici',site:{mode:'NSG',NG:2,NSG:4,k:2},
+    st:{L:20,W:40,H:25,adMode:'auto',AD:0,Hp:0,CD:1,PS:0.5,PLPS:1,ks1Mode:'none',wm1:5,KS1:1,bondNet:false,PTWS:1},
+    thr:{mode:'R',RT:1e-5,RT1:1e-5,RT2:1e-3},
+    svc:[svc('s1','Linea di energia (AT 1000 m + BT 100 m, interrata)','P',2.5,'ns',[sec(100,0.3,0.5,1),sec(1000,0.3,0.5,0.2)]),
+         svc('s2','Telecomunicazione (fibra esterna, rame interno)','T',1.5,'fo',[sec(0,1,0.5,1)])],
+    zones:[zone('z1','Z1 — Ingresso esterno','ext',{tz:175,rt:1e-3,lossCat:'b'}),
+      zone('z2','Z2 — Tetto','roof',{tz:18,rt:1e-5,lossCat:'b',PO:1,LD:1e-1}),
+      zone('z3','Z3 — Archivio','int',{tz:440,rt:1e-5,rf:1e-1,rp:0.2,lossCat:'n',LF1:5e-2,LF2:5e-2,FT:0.05,sys:JSON.parse(JSON.stringify(sy))}),
+      zone('z4','Z4 — Uffici','int',{tz:2630,rt:1e-5,rf:1e-3,rp:0.5,lossCat:'n',LF1:5e-2,LF2:5e-2,FT:0.05,sys:JSON.parse(JSON.stringify(sy))}),
+      zone('z5','Z5 — Centro di calcolo','int',{tz:2200,rt:1e-5,rf:1e-3,rp:0.2,lossCat:'e',LF1:1e-1,LF2:1e-1,FT:0.05,sys:JSON.parse(JSON.stringify(sy))})]}; },
+  ospedale:function(){
+    return {v:1,name:'Esempio F.4 — Ospedale',site:{mode:'NSG',NG:4,NSG:8,k:2},
+    st:{L:50,W:150,H:10,adMode:'auto',AD:0,Hp:0,CD:1,PS:0.5,PLPS:1,ks1Mode:'none',wm1:5,KS1:1,bondNet:false,PTWS:1},
+    thr:{mode:'R',RT:1e-5,RT1:1e-5,RT2:1e-3},
+    svc:[svc('s1','Linea di energia (AT 1000 m + BT 50 m, interrata)','P',2.5,'ns',[sec(50,0.3,0.5,1),sec(1000,0.3,0.5,0.2)])],
+    zones:[zone('z1','Z1 — Ingresso esterno','ext',{tz:175,rt:1e-2,lossCat:'b'}),
+      zone('z2','Z2 — Tetto','roof',{tz:90,rt:1e-5,lossCat:'b',PO:1,LD:1e-1}),
+      zone('z3','Z3 — Camere di degenza','int',{tz:8760,rt:1e-5,rf:1e-2,rp:0.2,lossCat:'e',LF1:1e-1,LF2:1e-1,LO1:1e-3,FT:0.05,sys:{s1:{on:true,KS3:0.2,PSPD:1}}}),
+      zone('z4','Z4 — Blocco operatorio','int',{tz:3100,rt:1e-5,rf:1e-3,rp:0.2,lossCat:'m',LF1:2e-1,LF2:2e-1,LO1:1e-2,FT:0.01,sys:{s1:{on:true,KS3:0.01,PSPD:1}}}),
+      zone('z5','Z5 — Terapia intensiva','int',{tz:8760,rt:1e-5,rf:1e-3,rp:0.2,lossCat:'m',LF1:2e-1,LF2:2e-1,LO1:1e-2,FT:0.01,sys:{s1:{on:true,KS3:0.01,PSPD:1}}})]}; }
+};
+return {TAB,compute,areaD,pld,defaults,EX,newSvc:svc,newSec:sec,newZone:zone};
+})();
+
+/* ===================== INTERFACCIA ===================== */
+(function(){
+'use strict';
+const T=LPR.TAB, KEY='lpr62305_v1';
+const $=id=>document.getElementById(id);
+let S=null; const UI={custom:{},open:{}}; let uid=0;
+function nid(p){ uid++; return p+Date.now().toString(36)+uid; }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function get(path){ return path.split('.').reduce((o,k)=>o==null?o:o[k],S); }
+function set(path,v){ const ks=path.split('.'); let o=S; for(let i=0;i<ks.length-1;i++){ if(o[ks[i]]==null) o[ks[i]]={}; o=o[ks[i]]; } o[ks[ks.length-1]]=v; }
+function fmt(x,d){ if(!isFinite(x)) return '—'; return x.toLocaleString('it-IT',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+const SUP={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+function sig(x,n){ // cifre significative, notazione italiana
+  if(!isFinite(x)) return '—'; if(x===0) return '0'; n=n||3;
+  const a=Math.abs(x);
+  if(a>=1e-4 && a<1e6){ const d=Math.max(0,n-1-Math.floor(Math.log10(a))); return x.toLocaleString('it-IT',{maximumFractionDigits:Math.min(d,8)}); }
+  const e=Math.floor(Math.log10(a)), m=x/Math.pow(10,e);
+  const ms=m.toLocaleString('it-IT',{maximumFractionDigits:n-1});
+  return (ms==='1'?'':ms+' × ')+'10'+String(e).split('').map(c=>SUP[c]||c).join('');
+}
+function e5(x){ const v=x*1e5; if(v===0) return '0'; if(v<0.0005) return '≈ 0'; return fmt(v,3); }
+function tip(t){ return t?`<span class="tip" tabindex="0" data-tip="${esc(t)}">i</span>`:''; }
+function same(a,b){ return Math.abs(a-b)<=1e-9*Math.max(1e-9,Math.abs(a),Math.abs(b)) || a===b; }
+
+/* ---------- campi ---------- */
+function fNum(label,path,o){ o=o||{}; const v=get(path);
+  return `<label class="f">${label}${o.u?` <span class="u">(${o.u})</span>`:''}${tip(o.tip)}<input type="number" data-p="${path}" value="${isFinite(v)?v:''}" step="any"${o.min!=null?` min="${o.min}"`:''}></label>`; }
+function fTxt(label,path){ return `<label class="f">${label}<input type="text" data-p="${path}" value="${esc(get(path))}"></label>`; }
+function fSel(label,path,opts,o){ o=o||{}; const cur=+get(path);
+  const idx=opts.findIndex(a=>same(a[0],cur)), cus=!!UI.custom[path]||idx<0;
+  let h=`<label class="f">${label}${tip(o.tip)}<select data-p="${path}" data-t="n">`+
+    opts.map((a,i)=>`<option value="${a[0]}"${!cus&&i===idx?' selected':''}>${esc(a[1])}${o.noval?'':' — '+sig(a[0],3)}</option>`).join('')+
+    `<option value="__c"${cus?' selected':''}>Altro valore…</option></select>`;
+  if(cus) h+=`<input type="number" data-p="${path}" value="${isFinite(cur)?cur:''}" step="any" style="margin-top:6px">`;
+  return h+'</label>'; }
+function fSelK(label,path,opts,o){ o=o||{}; const cur=get(path);
+  return `<label class="f">${label}${tip(o.tip)}<select data-p="${path}" data-t="s">`+opts.map(a=>`<option value="${a[0]}"${a[0]===cur?' selected':''}>${esc(a[1])}</option>`).join('')+`</select></label>`; }
+function fTog(label,path,o){ o=o||{}; return `<span class="lp-tg"><label class="toggle"><input type="checkbox" data-p="${path}"${get(path)?' checked':''}><span>${label}</span></label>${tip(o.tip)}</span>`; }
+function fSeg(path,opts){ const cur=get(path);
+  return `<div class="seg">`+opts.map(a=>`<label class="${a[0]===cur?'on':''}"><input type="radio" name="${path}" data-p="${path}" data-t="s" value="${a[0]}"${a[0]===cur?' checked':''}>${a[1]}</label>`).join('')+`</div>`; }
+function adv(key,title,inner){ return `<details class="adv" data-lk="${key}"${UI.open[key]?' open':''}><summary>${title}</summary><div class="in">${inner}</div></details>`; }
+
+/* ---------- ingressi ---------- */
+function renderInputs(){
+  const st='st.', h=[];
+  // progetto e soglie
+  h.push(`<div class="card"><h2><span class="ttl">Progetto e soglie</span></h2>
+    <p class="hint">La protezione è necessaria quando in una zona il rischio supera il valore tollerabile (art. 7.3) o la frequenza di danno supera F<sub>T</sub> (art. 9.3). Le soglie sono fissate dal progettista o dalle autorità competenti.</p>
+    <div class="grid2">${fTxt('Nome della valutazione','name')}
+      <label class="f">Confronto del rischio${tip('Testo della norma: un solo rischio R = RL1 + RL2 confrontato con RT (valore rappresentativo 10⁻⁵ all’anno, 7.3 Nota 1). In alternativa i due rischi si confrontano separatamente: la bozza della Guida CEI 81-29 Ed. 3 indica RT1 = 10⁻⁵ per le persone e RT2 = 10⁻³ per beni e servizi. Verificare il testo definitivo della Guida.')}
+        ${fSeg('thr.mode',[['R','R unico'],['split','R<sub>L1</sub> e R<sub>L2</sub> separati']])}</label></div>
+    <div class="grid3" style="margin-top:10px">${S.thr.mode==='split'
+      ? fNum('R<sub>T1</sub> — persone','thr.RT1',{u:'1/anno'})+fNum('R<sub>T2</sub> — beni e servizi','thr.RT2',{u:'1/anno'})
+      : fNum('Rischio tollerabile R<sub>T</sub>','thr.RT',{u:'1/anno',tip:'Valore rappresentativo 10⁻⁵ all’anno (7.3 Nota 1).'})}</div></div>`);
+  // sito e struttura
+  const sm=S.site.mode;
+  h.push(`<div class="card"><h2><span class="ttl">Sito e struttura</span></h2>
+    <p class="hint">Dimensioni in metri. Con N<sub>G</sub> il programma ricava N<sub>SG</sub> = k·N<sub>G</sub> (All. A.1); il coefficiente k è quello del fornitore dei dati di fulminazione, 2 se non disponibile.</p>
+    <div class="grid3">
+      <label class="f">Dato disponibile${fSeg('site.mode',[['NG','N<sub>G</sub>'],['NSG','N<sub>SG</sub>']])}</label>
+      ${sm==='NSG'?fNum('Densità punti di impatto N<sub>SG</sub>','site.NSG',{u:'1/km²·anno'}):fNum('Densità di fulmini N<sub>G</sub>','site.NG',{u:'1/km²·anno'})}
+      ${fNum('Coefficiente k','site.k',{tip:'Rapporto N_SG/N_G. Serve anche con N_SG noto: i fulmini vicino alla struttura e alle linee (N_M, N_I) usano N_SG/k.'})}
+      ${fNum('Lunghezza L',st+'L',{u:'m'})}${fNum('Larghezza W',st+'W',{u:'m'})}${fNum('Altezza H',st+'H',{u:'m'})}
+      ${fSel('Posizione (C<sub>D</sub>)',st+'CD',T.CD,{tip:'Tabella A.1. Considera gli oggetti entro una distanza 3·H dalla struttura.'})}
+      ${fSel('Tipo di struttura (P<sub>S</sub>)',st+'PS',T.PS,{tip:'Tabella B.4: probabilità di scariche pericolose. Con un LPS conforme il programma usa P_S = 1 e l’effetto è in P_LPS (Nota 1).'})}
+      ${fSel('LPS (P<sub>LPS</sub>)',st+'PLPS',T.PLPS,{tip:'Tabella B.3. Riduce R_AT, R_AD, R_B. I valori valgono solo se l’LPS è conforme alla IEC 62305-3.'})}
+    </div>
+    ${adv('st','Parametri avanzati della struttura',`<div class="grid3">
+      ${fSelK('Area di raccolta A<sub>D</sub>',st+'adMode',[['auto','Calcolata (struttura rettangolare)'],['man','Inserita a mano']],{tip:'Per forme complesse l’area va determinata graficamente (A.2.1.3) e inserita a mano.'})}
+      ${S.st.adMode==='man'?fNum('A<sub>D</sub>',st+'AD',{u:'m²'}):fNum('Protrusione sul tetto H<sub>P</sub>',st+'Hp',{u:'m',tip:'Se indicata, A_D è il massimo fra l’area della struttura e π·(3·H_P)² (A.2.1.3). Inserire in H l’altezza minima.'})}
+      ${fNum('Allerta temporali P<sub>TWS</sub>',st+'PTWS',{tip:'Probabilità che un TWS conforme IEC 62793 non rilevi l’evento. 1 se assente o se le misure attivate non sono garantite (B.1).'})}
+      ${fSelK('Schermatura della struttura (K<sub>S1</sub>)',st+'ks1Mode',[['none','Nessuna — 1'],['mesh','LPS o schermo a maglia: 0,12 × lato maglia'],['cont','Schermo continuo ≥ 0,1 mm — 10⁻⁴'],['val','Altro valore…']],{tip:'Art. B.6: riduce P_M (fulmini vicino alla struttura).'})}
+      ${S.st.ks1Mode==='mesh'?fNum('Lato di maglia w<sub>m1</sub>',st+'wm1',{u:'m'}):(S.st.ks1Mode==='val'?fNum('K<sub>S1</sub>',st+'KS1'):'<span></span>')}
+      <div>${fTog('Rete equipotenziale magliata',st+'bondNet',{tip:'Con rete di collegamento equipotenziale magliata conforme IEC 62305-4, K_S1 si dimezza (B.6 Nota 5).'})}</div>
+    </div>`)}</div>`);
+  // linee
+  let hs=`<div class="card"><h2><span class="ttl">Linee entranti e impianti interni</span><button type="button" class="rowbtn" data-act="addSvc">＋ Aggiungi linea</button></h2>
+    <p class="hint">Una voce per ogni linea metallica entrante con l'impianto interno che alimenta. Elencare le sezioni dalla struttura verso il nodo (cabina, centrale); se la lunghezza non è nota usare 1000 m (All. A.4).</p>`;
+  S.svc.forEach((s,i)=>{ const b='svc.'+i+'.';
+    hs+=`<div class="lp-item"><div class="hd"><b>${esc(s.name)||'Linea'}</b><button type="button" class="del" data-act="delSvc" data-i="${i}" title="Elimina linea">✕</button></div>
+      <div class="grid3">${fTxt('Nome',b+'name')}
+        ${fSelK('Tipo',b+'kind',[['P','Energia'],['T','Telecomunicazione / dati']])}
+        ${fNum('Tenuta all’impulso U<sub>w</sub>',b+'Uw',{u:'kV',tip:'Tensione nominale di tenuta all’impulso dell’apparecchio più debole collegato. Tipici: 2,5 kV energia BT, 1,5 kV segnale. Determina r_M, r_I e P_LD.'})}
+        ${fSelK('Schermatura e collegamento',b+'conn',Object.keys(T.conn).map(k=>[k,T.conn[k][2]]),{tip:'Tabella B.9: fissa C_LD e C_LI.'})}
+        ${T.conn[s.conn]&&T.conn[s.conn][3]?fSelK('Resistenza dello schermo',b+'rs',T.rs,{tip:'Tabelle B.11 e B.12: con U_w fissa P_LD.'}):'<span></span>'}
+        ${fSel('SPD all’ingresso (P<sub>EB</sub>)',b+'PEB',T.PEB,{tip:'Tabella B.13: SPD di collegamento equipotenziale all’ingresso della linea, secondo IEC 62305-3. Riduce R_U e R_V.'})}
+      </div>`;
+    s.sec.forEach((q,j)=>{ const c=b+'sec.'+j+'.';
+      hs+=`<div class="lp-sec">${fNum('Lunghezza',c+'LL',{u:'m'})}${fSel('Posa (C<sub>I</sub>)',c+'CI',T.CI)}${fSel('Ambiente (C<sub>E</sub>)',c+'CE',T.CE)}${fSel('Tipo (C<sub>T</sub>)',c+'CT',T.CT)}
+        ${fNum('ρ suolo',c+'rho',{u:'Ω·m',tip:'Facoltativo, solo per sezioni interrate: se ρ > 400 Ω·m l’area di raccolta diventa 0,6·√ρ·L_L (A.4 Nota 3). Lasciare 0 altrimenti.'})}
+        <button type="button" class="del" data-act="delSec" data-i="${i}" data-j="${j}" title="Elimina sezione"${s.sec.length<2?' disabled style="opacity:.35"':''}>✕</button></div>`; });
+    hs+=`<div style="margin-top:8px"><button type="button" class="rowbtn" data-act="addSec" data-i="${i}">＋ Sezione di linea</button></div>`+
+      adv('adj'+s.id,'Struttura adiacente all’altro capo della linea',`<div style="margin-bottom:8px">${fTog('Considera la struttura adiacente (N<sub>DJ</sub>)',b+'adj.on',{tip:'A.2.5: fulmini sulla struttura collegata all’estremità lontana della linea. Usa il C_T dell’ultima sezione elencata.'})}</div>
+        <div class="grid3">${fNum('L<sub>J</sub>',b+'adj.L',{u:'m'})}${fNum('W<sub>J</sub>',b+'adj.W',{u:'m'})}${fNum('H<sub>J</sub>',b+'adj.H',{u:'m'})}${fSel('Posizione (C<sub>DJ</sub>)',b+'adj.CDJ',T.CD)}</div>`)+`</div>`; });
+  if(!S.svc.length) hs+=`<p class="note">Nessuna linea: restano le sole componenti dovute ai fulmini sulla struttura.</p>`;
+  h.push(hs+'</div>');
+  // zone
+  let hz=`<div class="card"><h2><span class="ttl">Zone di rischio</span><button type="button" class="rowbtn" data-act="addZone">＋ Aggiungi zona</button></h2>
+    <p class="hint">Per un edificio semplice basta una zona interna. Aggiungere zone quando cambiano pavimento, compartimento antincendio, presenza di persone o perdite (art. 8.3): il rischio si confronta con la soglia zona per zona.</p>`;
+  S.zones.forEach((z,i)=>{ const b='zones.'+i+'.', int=z.type==='int';
+    hz+=`<div class="lp-item"><div class="hd"><b>${esc(z.name)||'Zona'}</b><span style="display:inline-flex;gap:6px"><button type="button" class="rowbtn" data-act="dupZone" data-i="${i}">Duplica</button><button type="button" class="del" data-act="delZone" data-i="${i}" title="Elimina zona">✕</button></span></div>
+      <div class="grid3">${fTxt('Nome',b+'name')}
+        ${fSelK('Tipo di zona',b+'type',[['int','Interna'],['ext','Esterna, entro 3 m dalla struttura'],['roof','Tetto o terrazza accessibile']],{tip:'Interna: R_AT, R_B, R_U, R_V e, se pertinenti, R_C, R_M, R_W, R_Z. Esterna: R_AT. Tetto: R_AT e R_AD (persone esposte al fulmine diretto).'})}
+        ${fNum('Presenza di persone t<sub>z</sub>',b+'tz',{u:'ore/anno',tip:'P_P = t_z/8760 (B.11). Se non noto usare 8760.'})}
+        ${fSel('Pavimento o suolo (r<sub>t</sub>)',b+'rt',T.rt,{tip:'Tabella B.2: riduce le tensioni di contatto e di passo.'})}
+        ${int?fSel('Rischio di incendio o esplosione (r<sub>f</sub>)',b+'rf',T.rf,{tip:'Tabella B.6.'}):''}
+        ${int?fSel('Misure antincendio (r<sub>p</sub>)',b+'rp',T.rp,{tip:'Tabella B.5. Valide solo se operative al momento del fulmine; in caso di dubbio 1. In zone con rischio di esplosione o batterie al litio usare 1.'}):''}
+        ${z.type==='roof'?fNum('Perdita per fulmine diretto L<sub>D</sub>',b+'LD',{tip:'Tabella C.2: da 10⁻² a 10⁻¹.'}):''}
+        ${int?fSelK('Categoria di perdita',b+'lossCat',Object.keys(T.loss).map(k=>[k,T.loss[k][2]]),{tip:'Tabella C.2: imposta L_F1 e L_F2 al valore più alto della fascia, come raccomandato. Modificabili nei parametri avanzati.'}):''}
+      </div>`;
+    if(int) hz+=`<div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:10px">
+        <span class="lp-tg"><label class="toggle"><input type="checkbox" data-act="lo1" data-i="${i}"${z.LO1>0?' checked':''}><span>Il guasto degli impianti mette in pericolo le persone</span></label>${tip('Attiva R_C1, R_M1, R_W1, R_Z1 (ospedali, apparecchi salvavita, rischio di esplosione). Imposta L_O1 dalla Tabella C.2.')}</span>
+        <span class="lp-tg"><label class="toggle"><input type="checkbox" data-act="lo2" data-i="${i}"${z.LO2>0?' checked':''}><span>Il guasto degli impianti può causare danni materiali o ambientali</span></label>${tip('Attiva R_C2, R_M2, R_W2, R_Z2 (in genere strutture con rischio di esplosione). Imposta L_O2 dalla Tabella C.2.')}</span></div>`;
+    hz+=`<div class="subh">Misure contro tensioni di contatto e di passo (P<sub>am</sub>)${tip('Tabella B.1; con più misure si usa il prodotto. Efficaci solo con LPS o LPS naturale.')}</div><div class="lp-chips">`+
+      Object.keys(T.pam).map(k=>`<label class="lp-chip${z.pam&&z.pam[k]?' on':''}"><input type="checkbox" data-p="${b}pam.${k}"${z.pam&&z.pam[k]?' checked':''}>${T.pam[k][1]} (${sig(T.pam[k][0],1)})</label>`).join('')+`</div>`;
+    if(S.svc.length){
+      hz+=`<div class="subh">Impianti interni nella zona</div>`;
+      S.svc.forEach(s=>{ const c=b+'sys.'+s.id+'.', on=z.sys[s.id]&&z.sys[s.id].on;
+        hz+=`<div class="lp-sys"><div style="padding-bottom:8px">${fTog(esc(s.name),c+'on')}</div>`+(on?
+          fSel('Cablaggio interno (K<sub>S3</sub>)',c+'KS3',T.KS3,{tip:'Tabella B.10, riferita a circuiti di 100 m.'})+fSel('SPD coordinati (P<sub>SPD</sub>)',c+'PSPD',T.PSPD,{tip:'Tabelle B.7 e B.8: sistema coordinato di SPD conforme IEC 62305-4. Riduce C, M, W, Z e la frequenza di danno.'}):'<span></span><span></span>')+`</div>`; });
+      if(S.svc.some(s=>z.sys[s.id]&&z.sys[s.id].on)) hz+=`<div class="lp-sys" style="margin-top:12px;align-items:start"><div style="padding-top:26px">${fTog('Valuta la frequenza di danno F',b+'evalF')}</div>${z.evalF!==false?fSel('Frequenza tollerabile F<sub>T</sub>',b+'FT',[[0.1,'Impianti critici'],[1,'Impianti non critici']],{tip:'Valori tipici (9.3 Nota 1). La scelta spetta al proprietario o gestore.'}):''}<span></span></div>`;
+    }
+    hz+=adv('z'+z.id,'Parametri avanzati della zona',`<div class="grid3">
+        ${fNum('L<sub>T</sub> contatto e passo',b+'LT')}${int?fNum('L<sub>F1</sub> incendio, persone',b+'LF1')+fNum('L<sub>F2</sub> incendio, beni',b+'LF2')+fNum('L<sub>O1</sub> guasti, persone',b+'LO1')+fNum('L<sub>O2</sub> guasti, beni',b+'LO2'):''}
+        ${z.type==='roof'?fNum('Posizione P<sub>O</sub>',b+'PO',{tip:'1 se la persona è esposta, 0 se non c’è nessuno (B.3).'}):''}
+        ${fNum('Schermo di zona K<sub>S2</sub>',b+'KS2',{tip:'B.6: 0,12 × lato maglia dello schermo interno; 10⁻⁴ per schermo continuo; 1 senza schermo.'})}
+        ${fNum('Esposizione apparecchi t<sub>e</sub>',b+'te',{u:'ore/anno',tip:'P_e = t_e/8760 (B.12).'})}</div>
+        ${int?`<hr class="sep"><div style="margin-bottom:8px">${fTog('Danni all’ambiente circostante (Allegato E)',b+'env.on',{tip:'Perdite aggiuntive L_E all’esterno della struttura: L_BT = L_B + L_E. Valori dalle Tabelle E.2, E.3, E.4.'})}</div>`+
+          (z.env&&z.env.on?`<div class="grid3">${fNum('L<sub>F1E</sub>',b+'env.LF1E')}${fNum('L<sub>F2E</sub>',b+'env.LF2E')}${fNum('Presenza all’esterno t<sub>zE</sub>',b+'env.tzE',{u:'ore/anno'})}${fNum('L<sub>O1E</sub>',b+'env.LO1E')}${fNum('L<sub>O2E</sub>',b+'env.LO2E')}</div>`:''):''}`)+`</div>`; });
+  h.push(hz+'</div>');
+  $('lpInputs').innerHTML=h.join('');
+}
+
+/* ---------- risultati ---------- */
+const CN={AT:['R<sub>AT</sub>','contatto e passo, fulmine sulla struttura'],AD:['R<sub>AD</sub>','fulmine diretto su persone esposte'],B:['R<sub>B</sub>','incendio o esplosione, fulmine sulla struttura'],C:['R<sub>C</sub>','guasto impianti, fulmine sulla struttura'],M:['R<sub>M</sub>','guasto impianti, fulmine vicino alla struttura'],U:['R<sub>U</sub>','contatto, fulmine sulla linea'],V:['R<sub>V</sub>','incendio o esplosione, fulmine sulla linea'],W:['R<sub>W</sub>','guasto impianti, fulmine sulla linea'],Z:['R<sub>Z</sub>','guasto impianti, fulmine vicino alla linea'],E:['R<sub>E</sub>','ambiente circostante (All. E)']};
+const HINT={AT:'pavimentazione isolante, cartelli, equipotenzializzazione del suolo, LPS',AD:'LPS a protezione dell’area esposta, cartelli ammonitori, sistema di allerta temporali',B:'LPS di classe adeguata, misure antincendio',C:'LPS con sistema coordinato di SPD',M:'sistema coordinato di SPD, schermatura, cablaggio con spire ridotte',U:'SPD all’ingresso della linea (collegamento equipotenziale), linea schermata',V:'SPD all’ingresso della linea (collegamento equipotenziale), linea schermata',W:'sistema coordinato di SPD, linea schermata, interfacce di separazione',Z:'sistema coordinato di SPD, linea schermata, interfacce di separazione',E:'ridurre le componenti che generano il danno all’esterno'};
+let RES=null;
+function badge(ok,t){ return `<span class="badge ${ok?'ok':'no'}">${t||(ok?'entro la soglia':'oltre la soglia')}</span>`; }
+function renderResults(){
+  const r=RES=LPR.compute(S), h=[];
+  // esito
+  let e=`<div class="card"><h2><span class="ttl">Esito</span>${r.zones.length?badge(r.ok,r.ok?'Protezione adeguata':'Protezione necessaria'):''}</h2>`;
+  if(!r.zones.length) e+=`<p class="note">Aggiungere almeno una zona.</p>`;
+  r.zones.forEach(z=>{
+    const rl=r.split?`R<sub>L1</sub> ${e5(z.RL1)} · R<sub>L2</sub> ${e5(z.RL2)}`:`R = ${e5(z.Rt)}`;
+    e+=`<div class="check"><span class="lbl"><b>${esc(z.name)}</b><br>${rl} <span style="color:var(--text-muted)">× 10⁻⁵</span>${z.hasF?` · F = ${sig(z.F.tot,3)} /anno`:''}</span>
+      <span style="display:flex;flex-direction:column;gap:4px;align-items:flex-end">${badge(z.okR,'R '+(z.okR?'ok':'oltre soglia'))}${z.hasF?badge(z.okF,'F '+(z.okF?'ok':'oltre soglia')):''}</span></div>`; });
+  e+=`<div class="note">Soglie: ${r.split?`R<sub>T1</sub> = ${sig(r.RT1,2)}, R<sub>T2</sub> = ${sig(r.RT2,2)}`:`R<sub>T</sub> = ${sig(r.RT,2)}`} all’anno; F<sub>T</sub> per zona.</div>`;
+  r.warn.forEach(w=>{ e+=`<div class="lp-warn">⚠ ${esc(w)}</div>`; });
+  h.push(e+'</div>');
+  // eventi pericolosi
+  let n=`<div class="card"><h2><span class="ttl">Eventi pericolosi all’anno</span><span class="pill">Allegato A</span></h2>
+    <div class="res-main"><div class="kpi"><div class="k">N<sub>SG</sub> (N<sub>G</sub> = ${sig(r.NG,3)})</div><div class="v">${sig(r.NSG,3)} <small>/km²·anno</small></div></div>
+    <div class="kpi"><div class="k">N<sub>D</sub> — sulla struttura</div><div class="v">${sig(r.ND,3)} <small>/anno</small></div></div></div>
+    <table class="z"><thead><tr><th>Linea</th><th>N<sub>L</sub> sulla linea</th><th>N<sub>I</sub> vicino</th><th>P<sub>LD</sub></th></tr></thead><tbody>`;
+  S.svc.forEach(s=>{ const o=r.svc[s.id]; n+=`<tr><td>${esc(s.name)}</td><td>${sig(o.NL,3)}${o.NDJ>0?' + '+sig(o.NDJ,3):''}</td><td>${sig(o.NI,3)}</td><td>${sig(o.PLD,2)}</td></tr>`; });
+  if(!S.svc.length) n+=`<tr><td colspan="4">Nessuna linea</td></tr>`;
+  n+=`</tbody></table><div class="note">A<sub>D</sub> = ${fmt(r.AD,0)} m²${r.hasLPS?' · con LPS: P<sub>S</sub> = 1':''} · K<sub>S1</sub> = ${sig(r.KS1,2)}. Un fulmine sulla struttura ogni ${r.ND>0?fmt(1/r.ND,0):'—'} anni circa.</div></div>`;
+  h.push(n);
+  // zone
+  r.zones.forEach(z=>{
+    const tot=z.Rt, rows=z.comp.filter(c=>c[1]>0);
+    let c=`<div class="card"><h2><span class="ttl">${esc(z.name)}</span><span style="display:inline-flex;gap:6px">${badge(z.okR,'R')}${z.hasF?badge(z.okF,'F'):''}</span></h2>
+      <table class="z"><thead><tr><th>Componente</th><th>× 10⁻⁵</th><th>%</th><th></th></tr></thead><tbody>`;
+    rows.forEach(x=>{ const pc=tot>0?100*x[1]/tot:0; c+=`<tr><td title="${CN[x[0]][1]}">${CN[x[0]][0]} <span style="color:var(--text-muted);font-size:11.5px">${CN[x[0]][1]}</span></td><td>${e5(x[1])}</td><td>${fmt(pc,0)}</td><td class="bar"><div class="lp-bar" style="width:${Math.max(1,pc).toFixed(0)}%"></div></td></tr>`; });
+    if(!rows.length) c+=`<tr><td colspan="4">Nessuna componente di rischio</td></tr>`;
+    c+=`</tbody><tfoot><tr><td>R<sub>L1</sub> — persone</td><td>${e5(z.RL1)}</td><td colspan="2">${r.split?badge(z.RL1<=r.RT1,'≤ '+sig(r.RT1*1e5,2)):''}</td></tr>
+      <tr><td>R<sub>L2</sub> — danni materiali</td><td>${e5(z.RL2)}</td><td colspan="2">${r.split?badge(z.RL2<=r.RT2,'≤ '+sig(r.RT2*1e5,2)):''}</td></tr>
+      <tr><td>R totale</td><td>${e5(z.Rt)}</td><td colspan="2">${r.split?'':badge(z.okR,'≤ '+sig(r.RT*1e5,2))}</td></tr></tfoot></table>`;
+    if(z.hasF) c+=`<table class="z" style="margin-top:12px"><thead><tr><th>Frequenza di danno</th><th>F<sub>C</sub></th><th>F<sub>M</sub></th><th>F<sub>W</sub></th><th>F<sub>Z</sub></th><th>F</th></tr></thead>
+      <tbody><tr><td>eventi/anno</td><td>${sig(z.F.C,2)}</td><td>${sig(z.F.M,2)}</td><td>${sig(z.F.W,2)}</td><td>${sig(z.F.Z,2)}</td><td><b>${sig(z.F.tot,3)}</b></td></tr></tbody></table>
+      <div class="note">F<sub>T</sub> = ${sig(z.FT,2)} /anno: ${z.okF?'entro la soglia':'oltre la soglia'}${z.F.tot>0?` (un guasto ogni ${sig(1/z.F.tot,2)} anni circa)`:''}.</div>`;
+    if(!z.okR && z.dom) c+=`<div class="note"><b>Componente dominante ${CN[z.dom][0]}.</b> Misure che la riducono: ${HINT[z.dom]}.</div>`;
+    if(z.okR && z.hasF && !z.okF){ const d=[['C',z.F.C],['M',z.F.M],['W',z.F.W],['Z',z.F.Z]].sort((a,b)=>b[1]-a[1])[0][0]; c+=`<div class="note"><b>Frequenza dominata da F<sub>${d}</sub>.</b> Misure: ${HINT[d]}.</div>`; }
+    z.warn.forEach(w=>{ c+=`<div class="lp-warn">⚠ ${esc(w)}</div>`; });
+    c+=adv('r'+z.id,'Probabilità e parametri calcolati',`<table class="z"><tbody>
+      <tr><td>P<sub>P</sub> · P<sub>e</sub> · P<sub>am</sub></td><td>${sig(z.PP,3)} · ${sig(z.Pe,3)} · ${sig(z.Pam,2)}</td></tr>
+      <tr><td>P<sub>AT</sub> · P<sub>AD</sub></td><td>${sig(z.PAT,2)} · ${z.type==='roof'?sig(z.PAD,2):'—'}</td></tr>
+      <tr><td>P<sub>B</sub></td><td>${z.type==='int'?sig(z.PB,2):'—'}</td></tr>
+      <tr><td>P<sub>C</sub> · P<sub>M</sub></td><td>${z.nsys?sig(z.PC,2)+' · '+sig(z.PM,2):'—'}</td></tr>
+      <tr><td>N<sub>M</sub> (r<sub>M</sub> = ${fmt(z.rM,0)} m)</td><td>${z.nsys?sig(z.NM,3):'—'}</td></tr>`+
+      z.det.map(d=>`<tr><td>${esc(d.name)}: P<sub>U</sub> · P<sub>V</sub> · P<sub>W</sub> · P<sub>Z</sub></td><td>${sig(d.PU,2)} · ${sig(d.PV,2)} · ${sig(d.PW,2)} · ${sig(d.PZ,2)}</td></tr>`).join('')+`</tbody></table>`);
+    h.push(c+'</div>');
+  });
+  $('lpResults').innerHTML=h.join('');
+  try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(_){}
+}
+
+/* ---------- eventi ---------- */
+function syncSys(){ // ogni zona ha una voce per ogni linea
+  S.zones.forEach(z=>{ z.sys=z.sys||{}; const ids=S.svc.map(s=>s.id);
+    Object.keys(z.sys).forEach(k=>{ if(ids.indexOf(k)<0) delete z.sys[k]; });
+    S.svc.forEach(s=>{ if(!z.sys[s.id]) z.sys[s.id]={on:z.type==='int',KS3:s.kind==='P'?0.2:1,PSPD:1}; }); });
+}
+function hook(path,v){
+  let m;
+  if((m=path.match(/^zones\.(\d+)\.lossCat$/))){ const z=S.zones[m[1]], L=T.loss[v]; z.LF1=L[0]; z.LF2=L[0]; if(z.LO1>0) z.LO1=L[1]; if(z.LO2>0) z.LO2=L[1]; }
+  if((m=path.match(/^zones\.(\d+)\.type$/))){ const z=S.zones[m[1]];
+    if(v==='int'){ const L=T.loss[z.lossCat]||T.loss.n; z.LF1=L[0]; z.LF2=L[0]; if(!(z.rf>0)) z.rf=1e-2; }
+    else { z.rf=0; z.LF1=0; z.LF2=0; z.LO1=0; z.LO2=0; Object.keys(z.sys||{}).forEach(k=>z.sys[k].on=false); } }
+  if((m=path.match(/^svc\.(\d+)\.kind$/))){ S.svc[m[1]].Uw=v==='P'?2.5:1.5; }
+}
+function refocus(path){ if(!path) return; const el=document.querySelector('#lpInputs [data-p="'+path+'"]'); if(el && el.type!=='radio') el.focus(); }
+function onInput(ev){
+  const el=ev.target, p=el.getAttribute&&el.getAttribute('data-p'); if(!p) return;
+  if(el.tagName==='SELECT'||el.type==='checkbox'||el.type==='radio') return;
+  set(p, el.type==='number'?(el.value===''?0:parseFloat(el.value.replace(',','.'))):el.value);
+  renderResults();
+}
+function onChange(ev){
+  const el=ev.target, p=el.getAttribute&&el.getAttribute('data-p'), act=el.getAttribute&&el.getAttribute('data-act');
+  if(act==='lo1'||act==='lo2'){ const z=S.zones[+el.getAttribute('data-i')], L=T.loss[z.lossCat]||T.loss.n; z[act==='lo1'?'LO1':'LO2']=el.checked?L[1]:0; renderInputs(); renderResults(); return; }
+  if(!p) return;
+  if(el.tagName==='SELECT'){
+    if(el.value==='__c'){ UI.custom[p]=true; renderInputs(); const i=document.querySelector('#lpInputs input[data-p="'+p+'"]'); if(i) i.focus(); return; }
+    UI.custom[p]=false;
+    const v=el.getAttribute('data-t')==='n'?parseFloat(el.value):el.value; set(p,v); hook(p,v);
+    renderInputs(); renderResults(); refocus(p); return;
+  }
+  if(el.type==='checkbox'){ set(p,el.checked); renderInputs(); renderResults(); return; }
+  if(el.type==='radio'){ set(p,el.value); renderInputs(); renderResults(); return; }
+  if(p.slice(-5)==='.name'){ renderInputs(); renderResults(); }
+}
+function onClick(ev){
+  const b=ev.target.closest&&ev.target.closest('[data-act]'); if(!b||b.tagName!=='BUTTON') return;
+  const a=b.getAttribute('data-act'), i=+b.getAttribute('data-i'), j=+b.getAttribute('data-j');
+  if(a==='addSvc'){ S.svc.push(LPR.newSvc(nid('s'),'Nuova linea','P',2.5,'ns',[LPR.newSec(1000,0.3,0.5,1)])); syncSys(); }
+  else if(a==='delSvc'){ S.svc.splice(i,1); syncSys(); }
+  else if(a==='addSec'){ const q=S.svc[i].sec, l=q[q.length-1]||LPR.newSec(1000,0.3,0.5,1); q.push(LPR.newSec(100,l.CI,l.CE,l.CT)); }
+  else if(a==='delSec'){ if(S.svc[i].sec.length>1) S.svc[i].sec.splice(j,1); }
+  else if(a==='addZone'){ S.zones.push(LPR.newZone(nid('z'),'Nuova zona','int',{})); syncSys(); }
+  else if(a==='dupZone'){ const z=JSON.parse(JSON.stringify(S.zones[i])); z.id=nid('z'); z.name+=' (copia)'; S.zones.splice(i+1,0,z); }
+  else if(a==='delZone'){ S.zones.splice(i,1); }
+  else return;
+  renderInputs(); renderResults();
+}
+function load(p){ S=p; UI.custom={}; S.thr=S.thr||{mode:'R',RT:1e-5,RT1:1e-5,RT2:1e-3}; S.svc=S.svc||[]; S.zones=S.zones||[]; syncSys(); renderInputs(); renderResults(); }
+
+/* ---------- salvataggio ---------- */
+const saveFile=_saveFile;   // salvataggio condiviso con gli altri moduli
+function fname(){ return (S.name||'rischio_fulmini').replace(/[^\wàèéìòù.-]+/gi,'_').slice(0,60); }
+
+/* ---------- relazione PDF (stampa del browser) ---------- */
+function tbl(head,rows){ return '<table>'+(head?'<tr>'+head.map(x=>`<th>${x}</th>`).join('')+'</tr>':'')+rows.map(r=>'<tr>'+r.map((c,k)=>`<td${k>0?' class="v"':''}>${c}</td>`).join('')+'</tr>').join('')+'</table>'; }
+function lab(opts,v){ const o=opts.find(a=>same(a[0],+v)); return (o?o[1]+' — ':'')+sig(+v,3); }
+function exportPDF(){
+  const r=LPR.compute(S), st=S.st; let h=`<h1>Valutazione del rischio da fulmine — ${esc(S.name)}</h1><div class="pmeta">${APP_NAME} ${APP_VER} · CEI EN IEC 62305-2:2024 · generato il ${_now()}</div>`;
+  h+=`<div class="pv">Esito: ${r.ok?'protezione adeguata — rischio e frequenza di danno entro le soglie in tutte le zone':'protezione necessaria — soglia superata in almeno una zona'}</div>`;
+  h+='<h2>Sito e struttura</h2>'+tbl(null,[
+    ['Densità di fulmini al suolo N<sub>G</sub>',sig(r.NG,3)+' /km²·anno'],['Coefficiente k',sig(r.k,3)],['Densità dei punti di impatto N<sub>SG</sub>',sig(r.NSG,3)+' /km²·anno'],
+    ['Dimensioni L × W × H',`${sig(+st.L,4)} × ${sig(+st.W,4)} × ${sig(+st.H,4)} m`],['Area di raccolta A<sub>D</sub>',fmt(r.AD,0)+' m²'],
+    ['Posizione C<sub>D</sub>',lab(T.CD,st.CD)],['Tipo di struttura P<sub>S</sub>',lab(T.PS,st.PS)+(r.hasLPS?' (con LPS si usa 1)':'')],['LPS — P<sub>LPS</sub>',lab(T.PLPS,st.PLPS)],
+    ['Schermatura K<sub>S1</sub>',sig(r.KS1,3)],['Allerta temporali P<sub>TWS</sub>',sig(r.PTWS,3)],['Eventi sulla struttura N<sub>D</sub>',sig(r.ND,3)+' /anno']]);
+  if(S.svc.length){
+    h+='<h2>Linee entranti e impianti interni</h2>'+tbl(['Linea','U<sub>w</sub> kV','Sezioni (m · C<sub>I</sub> · C<sub>E</sub> · C<sub>T</sub>)','C<sub>LD</sub> / C<sub>LI</sub>','P<sub>LD</sub>','P<sub>EB</sub>','N<sub>L</sub>','N<sub>DJ</sub>','N<sub>I</sub>'],
+      S.svc.map(s=>{ const o=r.svc[s.id]; return [esc(s.name)+'<br><small>'+esc(T.conn[s.conn][2])+'</small>',sig(o.Uw,3),o.secs.map(q=>`${sig(q.LL,4)} · ${sig(q.CI,2)} · ${sig(q.CE,2)} · ${sig(q.CT,2)}`).join('<br>')||'—',sig(o.CLD,2)+' / '+sig(o.CLI,2),sig(o.PLD,2),sig(o.PEB,2),sig(o.NL,3),sig(o.NDJ,3),sig(o.NI,3)]; }));
+  }
+  r.zones.forEach((z,i)=>{ const zi=S.zones[i];
+    h+=`<h2>Zona: ${esc(z.name)}</h2>`+tbl(null,[
+      ['Tipo',{int:'interna',ext:'esterna',roof:'tetto o terrazza'}[z.type]],['Presenza t<sub>z</sub> → P<sub>P</sub>',sig(+zi.tz,4)+' ore/anno → '+sig(z.PP,3)],
+      ['r<sub>t</sub> · P<sub>am</sub>',sig(z.rt,2)+' · '+sig(z.Pam,2)],['r<sub>f</sub> · r<sub>p</sub>',sig(z.rf,2)+' · '+sig(z.rp,2)],
+      ['L<sub>T</sub> · L<sub>D</sub> · L<sub>F1</sub> · L<sub>F2</sub> · L<sub>O1</sub> · L<sub>O2</sub>',[z.LT,z.LD,z.LF1,z.LF2,z.LO1,z.LO2].map(x=>sig(x,2)).join(' · ')],
+      ['K<sub>S2</sub> · P<sub>e</sub>',sig(z.KS2,2)+' · '+sig(z.Pe,3)],
+      ['P<sub>AT</sub> · P<sub>AD</sub> · P<sub>B</sub> · P<sub>C</sub> · P<sub>M</sub>',[z.PAT,z.type==='roof'?z.PAD:0,z.type==='int'?z.PB:0,z.PC,z.PM].map(x=>sig(x,2)).join(' · ')],
+      ['N<sub>M</sub>',z.nsys?sig(z.NM,3)+' /anno (r<sub>M</sub> = '+fmt(z.rM,0)+' m)':'—']].concat(
+      z.det.map(d=>[esc(d.name)+': K<sub>S3</sub> · P<sub>SPD</sub> → P<sub>U</sub> · P<sub>V</sub> · P<sub>W</sub> · P<sub>Z</sub>',sig(d.KS3,2)+' · '+sig(d.PSPD,2)+' → '+[d.PU,d.PV,d.PW,d.PZ].map(x=>sig(x,2)).join(' · ')])));
+    h+=tbl(['Componente di rischio','× 10⁻⁵','%'],z.comp.filter(c=>c[1]>0).map(c=>[CN[c[0]][0]+' — '+CN[c[0]][1],e5(c[1]),fmt(z.Rt>0?100*c[1]/z.Rt:0,0)]).concat([
+      ['<b>R<sub>L1</sub> — persone</b>','<b>'+e5(z.RL1)+'</b>',r.split?(z.RL1<=r.RT1?'ok':'oltre R<sub>T1</sub>'):''],['<b>R<sub>L2</sub> — danni materiali</b>','<b>'+e5(z.RL2)+'</b>',r.split?(z.RL2<=r.RT2?'ok':'oltre R<sub>T2</sub>'):''],
+      ['<b>R totale</b> (soglia '+(r.split?sig(r.RT1,2)+' / '+sig(r.RT2,2):sig(r.RT,2))+')','<b>'+e5(z.Rt)+'</b>','<b>'+(z.okR?'entro la soglia':'oltre la soglia')+'</b>']]));
+    if(z.hasF) h+=tbl(['Frequenza di danno','F<sub>C</sub>','F<sub>M</sub>','F<sub>W</sub>','F<sub>Z</sub>','F','F<sub>T</sub>','Esito'],[['eventi/anno',sig(z.F.C,2),sig(z.F.M,2),sig(z.F.W,2),sig(z.F.Z,2),sig(z.F.tot,3),sig(z.FT,2),z.okF?'entro la soglia':'oltre la soglia']]);
+    z.warn.forEach(w=>{ h+=`<div class="pmeta">Nota: ${esc(w)}</div>`; });
+  });
+  r.warn.forEach(w=>{ h+=`<div class="pmeta">Nota: ${esc(w)}</div>`; });
+  h+=`<div class="pnote">Calcolo secondo CEI EN IEC 62305-2:2024, art. 6–9 e Allegati A, B, C, E. I valori dei parametri sono quelli tipici degli allegati informativi, scelti o modificati dal progettista; valgono solo se le misure di protezione sono conformi alle IEC 62305-3 e 62305-4. Strumento di supporto: i risultati vanno verificati rispetto al testo vigente delle norme.</div>`;
+  const pa=$('printArea'); pa.innerHTML=h; document.body.classList.add('printing');
+  const done=()=>{ document.body.classList.remove('printing'); pa.innerHTML=''; window.removeEventListener('afterprint',done); };
+  window.addEventListener('afterprint',done); setTimeout(()=>window.print(),80);
+}
+
+/* ---------- avvio ---------- */
+const inp=$('lpInputs');
+inp.addEventListener('input',onInput); inp.addEventListener('change',onChange); inp.addEventListener('click',onClick);
+document.addEventListener('toggle',ev=>{ const d=ev.target; if(d.tagName==='DETAILS'&&d.getAttribute('data-lk')) UI.open[d.getAttribute('data-lk')]=d.open; },true);
+$('lpEx').addEventListener('change',function(){ if(this.value){ load(LPR.EX[this.value]()); this.value=''; } });
+$('lpNew').addEventListener('click',()=>load(LPR.defaults()));
+$('lpSave').addEventListener('click',()=>saveFile(fname()+'.json',JSON.stringify(S,null,1),'application/json'));
+$('lpPdf').addEventListener('click',exportPDF);
+$('lpOpen').addEventListener('click',()=>$('lpFile').click());
+$('lpFile').addEventListener('change',function(){ const f=this.files[0]; if(!f) return; const rd=new FileReader();
+  rd.onload=()=>{ try{ const p=JSON.parse(rd.result); if(!p||!p.site||!p.st) throw 0; load(p); }catch(_){ $('lpResults').innerHTML='<div class="card"><div class="lp-warn">⚠ File non riconosciuto: serve un file .json salvato da questo calcolatore.</div></div>'; } };
+  rd.readAsText(f); this.value=''; });
+let init=null; try{ const t=localStorage.getItem(KEY); if(t){ const p=JSON.parse(t); if(p&&p.site&&p.st) init=p; } }catch(_){}
+load(init||LPR.defaults());
+window.LPUI={getState:()=>S,load:load,results:()=>RES};
+})();
 </script>
 </body>
 </html>
