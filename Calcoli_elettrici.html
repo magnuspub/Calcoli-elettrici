@@ -213,7 +213,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="ver" title="Versione del programma">v 0.1.4</span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="ver" title="Versione del programma">v 0.1.5</span></div>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
 </header>
 
@@ -1032,14 +1032,14 @@ details.adv>.in{margin-top:10px}
 <div class="foot">
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni aggiungono il proprio contributo, sommato su tutti i motori inseriti (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.4 · Federico Magnani · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.5 · Federico Magnani · 2026</p>
 </div>
 
 <div id="printArea"></div>
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.4";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.5";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -1864,7 +1864,12 @@ function fusExportHTML(){
   if(st.Imin>0) it.push(`I guasto minima ${fmtA(st.Imin)}`);
   if(st.mot) it.push("spunto motore (punteggiata)");
   if(st.inr) it.push("inserzione trasformatore (tratto‑punto)");
-  return fusMainSVG(st,FUS_PAL_PRINT,"p")+`<div style="font-size:10px;color:#555;margin:-6px 0 10px">${it.join(" · ")}</div>`;
+  // sotto il grafico tempo-corrente: limitazione e I²t affiancati, come nella scheda
+  const box=(t,svg,no)=>`<div style="flex:1 1 0;min-width:0"><div style="font-size:11px;font-weight:600;margin:0 0 2px">${t}</div>${svg||`<div style="font-size:10px;color:#555">${no}</div>`}</div>`;
+  return fusMainSVG(st,FUS_PAL_PRINT,"p")+`<div style="font-size:10px;color:#555;margin:-6px 0 10px">${it.join(" · ")}</div>`+
+    `<div style="display:flex;gap:14px;align-items:flex-start;break-inside:avoid;page-break-inside:avoid;margin:0 0 6px">`+
+    box("Limitazione — picco lasciato passare",fusLimSVG(st,FUS_PAL_PRINT,"pl",400),"Curva di limitazione non disponibile per questo fusibile.")+
+    box("Energia specifica passante I²t",fusI2tSVG(st,FUS_PAL_PRINT,"pe",400),"Energia passante non determinabile per questo fusibile.")+`</div>`;
 }
 function fusInit(){
   fusFillGroups("fu_grpA"); fusFillGroups("fu_grpB");
@@ -2326,7 +2331,12 @@ function cbExportHTML(){
   if(st.Imin>0) it.push(`I guasto minima ${fmtA(st.Imin)}`);
   if(st.mot) it.push("spunto motore (punteggiata)");
   if(st.inr) it.push("inserzione trasformatore (tratto‑punto)");
-  return cbMainSVG(st,FUS_PAL_PRINT,"cp")+`<div style="font-size:10px;color:#555;margin:-6px 0 10px">${it.join(" · ")}</div>`;
+  // sotto il grafico tempo-corrente: limitazione e I²t affiancati, come nella scheda
+  const box=(t,svg,no)=>`<div style="flex:1 1 0;min-width:0"><div style="font-size:11px;font-weight:600;margin:0 0 2px">${t}</div>${svg||`<div style="font-size:10px;color:#555">${no}</div>`}</div>`;
+  return cbMainSVG(st,FUS_PAL_PRINT,"cp")+`<div style="font-size:10px;color:#555;margin:-6px 0 10px">${it.join(" · ")}</div>`+
+    `<div style="display:flex;gap:14px;align-items:flex-start;break-inside:avoid;page-break-inside:avoid;margin:0 0 6px">`+
+    box("Limitazione — picco lasciato passare",cbLimSVG(st,FUS_PAL_PRINT,"cpl",400),"Curva di limitazione non disponibile per questo interruttore.")+
+    box("Energia specifica passante I²t",cbI2tSVG(st,FUS_PAL_PRINT,"cpe",400),"Energia passante non determinabile per questo interruttore.")+`</div>`;
 }
 
 /* ---- interruttori aggiunti dall'utente (blocco CB_USER in cima allo script) ---- */
