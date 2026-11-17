@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestione curve — Calcoli elettrici</title>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f4f4f2; --surface-1:#fcfcfb; --surface-2:#efeeeb; --border:#dcdbd6;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#7b7a75;
+  --grid:#e6e5e1; --axis:#9a9993;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#6250d6;
+  --accent:#2a78d6; --warn:#c98500; --crit:#d93a3a; --good:#1e8a4c;
+  --radius:10px; --field-bg:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --bg:#121211; --surface-1:#1a1a19; --surface-2:#242422; --border:#353532;
+    --text-primary:#f0efec; --text-secondary:#c3c2b7; --text-muted:#8f8e86;
+    --grid:#2c2c2a; --axis:#6d6c66;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#9085e9;
+    --accent:#3987e5; --warn:#e0a020; --crit:#e66767; --good:#3fb06d;
+    --field-bg:#111110;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text-primary);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.top{padding:18px 24px 8px;max-width:1480px;margin:0 auto}
+h1{font-size:20px;margin:0 0 2px;font-weight:650}
+.toprow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.sub{color:var(--text-secondary);margin:0;font-size:13px}
+main{max-width:1480px;margin:0 auto;padding:8px 24px 64px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin:14px 0}
+.btn{display:inline-flex;gap:6px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:6px 11px;font:inherit;font-size:12.5px;color:var(--text-secondary);cursor:pointer;white-space:nowrap}
+.btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.pri:hover:not(:disabled){color:#fff;filter:brightness(1.08)}
+.btn.dan:hover:not(:disabled){border-color:var(--crit);color:var(--crit)}
+.btn.sm{padding:4px 8px;font-size:11.5px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=search],select,textarea{background:var(--field-bg);color:var(--text-primary);border:1px solid var(--border);border-radius:7px;padding:6px 8px;font:inherit;font-size:13px;min-width:0}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px;border-color:var(--accent)}
+label.f{display:block;font-size:12px;color:var(--text-secondary)}
+label.f>input,label.f>select,label.f>textarea{display:block;width:100%;margin-top:4px}
+label.f .u{color:var(--text-muted)}
+label.ck{display:flex;gap:7px;align-items:center;font-size:12.5px;color:var(--text-secondary);cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px 14px;align-items:end}
+.wide{grid-column:span 2}
+.full{grid-column:1/-1}
+.subh{font-size:12px;font-weight:650;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.03em;margin:16px 0 8px}
+.mini{font-size:12px;color:var(--text-secondary)}
+.note{font-size:12px;color:var(--text-muted);line-height:1.5;margin:8px 0 0}
+.pill{font-size:11px;color:var(--text-muted);border:1px solid var(--border);border-radius:20px;padding:1px 8px;white-space:nowrap}
+.pill.on{color:var(--warn);border-color:var(--warn)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin:6px 0 0}
+.tabs button{font:inherit;font-size:13.5px;padding:8px 14px;border:1px solid transparent;border-bottom:none;border-radius:8px 8px 0 0;background:none;color:var(--text-secondary);cursor:pointer}
+.tabs button.on{background:var(--surface-1);border-color:var(--border);color:var(--text-primary);font-weight:650;margin-bottom:-1px}
+.two{display:grid;grid-template-columns:330px 1fr;gap:16px;align-items:start}
+@media (max-width:980px){.two{grid-template-columns:1fr}}
+.side{position:sticky;top:8px}
+.side select[size]{width:100%;height:340px;padding:2px;font-size:12.5px}
+.side select,.side input{width:100%}
+.side .acts{margin-top:8px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:12.5px;padding:6px 12px;border:none;background:var(--surface-2);color:var(--text-secondary);cursor:pointer;border-right:1px solid var(--border)}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--accent);color:#fff}
+.ce{display:grid;grid-template-columns:1fr 268px;gap:14px;align-items:start;margin-top:8px}
+@media (max-width:1100px){.ce{grid-template-columns:1fr}}
+.ce svg{display:block;width:100%;touch-action:none;user-select:none}
+.ce svg circle{cursor:grab}
+.pt{max-height:372px;overflow:auto;border:1px solid var(--border);border-radius:8px}
+.pt table{border-collapse:collapse;width:100%;font-size:12px}
+.pt th{position:sticky;top:0;background:var(--surface-2);font-weight:600;color:var(--text-secondary);padding:5px 6px;text-align:left;z-index:1}
+.pt td{padding:1px 3px;border-top:1px solid var(--grid)}
+.pt td:first-child{color:var(--text-muted);text-align:right;padding-right:6px;width:30px;font-variant-numeric:tabular-nums;cursor:pointer}
+.pt input{width:100%;border:1px solid transparent;background:none;padding:3px 5px;font-size:12px;border-radius:5px;font-variant-numeric:tabular-nums}
+.pt tr.sel td{background:color-mix(in srgb,var(--accent) 13%,transparent)}
+.pt input.bad{border-color:var(--crit)}
+.gr{border:1px solid var(--border);border-radius:8px;overflow:auto;max-height:520px;margin-top:8px}
+.gr table{border-collapse:collapse;width:100%;font-size:12.5px}
+.gr th{position:sticky;top:0;background:var(--surface-2);font-weight:600;color:var(--text-secondary);padding:6px 8px;text-align:left;z-index:1;white-space:nowrap}
+.gr td{padding:1px 3px;border-top:1px solid var(--grid)}
+.gr td.n{color:var(--text-muted);text-align:right;padding:0 8px;width:34px;cursor:pointer;font-variant-numeric:tabular-nums}
+.gr input{width:100%;min-width:70px;border:1px solid transparent;background:none;padding:4px 6px;font-size:12.5px;border-radius:5px;font-variant-numeric:tabular-nums}
+.gr tr.sel td{background:color-mix(in srgb,var(--accent) 13%,transparent)}
+.gr input.bad{border-color:var(--crit)}
+.msg{font-size:12px;margin-top:6px}
+.msg.bad{color:var(--crit)} .msg.ok{color:var(--good)}
+.chk{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--grid);font-size:13px}
+.chk:last-child{border-bottom:none}
+.badge{display:inline-flex;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.badge.ok{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
+.badge.no{background:color-mix(in srgb,var(--crit) 16%,transparent);color:var(--crit)}
+.badge.wa{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.badge.in{background:var(--surface-2);color:var(--text-secondary)}
+.lnk{color:var(--accent);cursor:pointer;text-decoration:underline;background:none;border:none;font:inherit;padding:0}
+.drop{border:2px dashed var(--border);border-radius:var(--radius);padding:42px 20px;text-align:center;color:var(--text-secondary)}
+.drop.over{border-color:var(--accent);color:var(--accent)}
+dialog{border:1px solid var(--border);border-radius:12px;background:var(--surface-1);color:var(--text-primary);padding:18px 20px;max-width:min(640px,92vw);width:560px}
+dialog::backdrop{background:rgba(0,0,0,.42)}
+dialog h3{margin:0 0 10px;font-size:15px}
+dialog .acts{justify-content:flex-end;margin-top:14px}
+dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.foot{font-size:11.5px;color:var(--text-muted);margin-top:22px;padding-top:10px;border-top:1px solid var(--border)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="toprow">
+    <div>
+      <h1>Gestione curve</h1>
+      <p class="sub">Editor dei dati di «Calcoli elettrici»: curve e dispositivi di fusibili e interruttori, tabelle del programma.</p>
+    </div>
+    <div class="acts">
+      <span class="mini" id="fileInfo">Nessun file aperto</span>
+      <span class="pill" id="dirty" hidden>modifiche non salvate</span>
+      <button class="btn" id="bOpen">Apri Calcoli_elettrici.html…</button>
+      <button class="btn" id="bUndo" disabled title="Annulla l'ultima modifica">↶ Annulla</button>
+      <button class="btn pri" id="bSave" disabled>Salva…</button>
+      <input type="file" id="file" accept=".html,.htm" hidden>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="card" id="start">
+    <div class="drop" id="drop">
+      <p style="font-size:15px;margin:0 0 6px"><b>Apri il file <span style="white-space:nowrap">Calcoli_elettrici.html</span></b></p>
+      <p style="margin:0 0 14px">Trascinalo qui oppure usa il pulsante. Il file è letto e modificato solo su questo computer.</p>
+      <button class="btn pri" id="bOpen2">Scegli il file…</button>
+      <p class="msg bad" id="startMsg"></p>
+    </div>
+    <p class="note">L'editor legge i database interni del programma (fusibili, interruttori) e le sue tabelle, permette di modificarli e riscrive il file con i dati aggiornati. Il resto del programma non viene toccato. Tieni una copia del file prima di sovrascriverlo.</p>
+  </div>
+
+  <div id="app" hidden>
+    <div class="tabs" id="tabs">
+      <button data-t="F" class="on">Fusibili <span class="pill" id="nF"></span></button>
+      <button data-t="C">Interruttori <span class="pill" id="nC"></span></button>
+      <button data-t="T">Tabelle <span class="pill" id="nT"></span></button>
+      <button data-t="K">Controlli <span class="pill" id="nK"></span></button>
+    </div>
+
+    <!-- FUSIBILI -->
+    <section class="card" id="tabF" style="margin-top:0;border-top-left-radius:0">
+      <div class="two">
+        <div class="side">
+          <input type="search" id="fQ" placeholder="Cerca per tipo o famiglia…">
+          <label class="f" style="margin-top:8px">Famiglia<select id="fG"></select></label>
+          <label class="f" style="margin-top:8px">Fusibili <span class="u" id="fCount"></span><select id="fP" size="14"></select></label>
+          <div class="acts">
+            <button class="btn sm" id="fDup" title="Copia il fusibile scelto con curve proprie">Duplica</button>
+            <button class="btn sm" id="fNew" title="Nuovo fusibile con una curva di due punti da completare">Nuovo</button>
+            <button class="btn sm dan" id="fDel">Elimina</button>
+            <button class="btn sm" id="fSort" title="Ordina i fusibili della famiglia per corrente nominale">Ordina per In</button>
+          </div>
+          <div class="subh">Famiglia</div>
+          <div class="acts">
+            <button class="btn sm" id="gNew">Nuova…</button>
+            <button class="btn sm" id="gRen">Rinomina…</button>
+            <button class="btn sm dan" id="gDel">Elimina…</button>
+          </div>
+        </div>
+        <div id="fDet"></div>
+      </div>
+    </section>
+
+    <!-- INTERRUTTORI -->
+    <section class="card" id="tabC" hidden style="margin-top:0">
+      <div class="two">
+        <div class="side">
+          <input type="search" id="cQ" placeholder="Cerca per nome (almeno 2 caratteri)…">
+          <label class="f" style="margin-top:8px">Serie<select id="cS"></select></label>
+          <label class="f" style="margin-top:8px">Esecuzione<select id="cG"></select></label>
+          <label class="f" style="margin-top:8px">Interruttori <span class="u" id="cCount"></span><select id="cP" size="12"></select></label>
+          <div class="acts">
+            <button class="btn sm" id="cDup" title="Copia l'interruttore con specifica e curve proprie">Duplica</button>
+            <button class="btn sm" id="cVar" title="Nuovo nome che usa la stessa specifica (es. altra polarità)">Aggiungi variante</button>
+            <button class="btn sm dan" id="cDel">Elimina</button>
+          </div>
+          <div class="subh">Serie</div>
+          <div class="acts"><button class="btn sm" id="sNew">Nuova…</button><button class="btn sm" id="sRen">Rinomina…</button><button class="btn sm dan" id="sDel">Elimina…</button></div>
+          <div class="subh">Esecuzione</div>
+          <div class="acts"><button class="btn sm" id="eNew">Nuova…</button><button class="btn sm" id="eRen">Rinomina…</button><button class="btn sm dan" id="eDel">Elimina…</button></div>
+        </div>
+        <div id="cDet"></div>
+      </div>
+    </section>
+
+    <!-- TABELLE -->
+    <section class="card" id="tabT" hidden style="margin-top:0">
+      <div class="two">
+        <div class="side">
+          <label class="f">Tabella<select id="tL" size="12" style="height:260px"></select></label>
+          <p class="note" id="tSideNote"></p>
+        </div>
+        <div id="tDet"></div>
+      </div>
+    </section>
+
+    <!-- CONTROLLI -->
+    <section class="card" id="tabK" hidden style="margin-top:0">
+      <div class="acts"><button class="btn" id="kRun">Ripeti i controlli</button><span class="mini" id="kSum"></span></div>
+      <div id="kList" style="margin-top:10px"></div>
+      <div class="subh">Modifiche di questa sessione</div>
+      <div id="kLog" class="mini"></div>
+    </section>
+  </div>
+  <p class="foot"><b>Gestione curve</b> · versione 0.2.0 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · 2026</p>
+</main>
+
+<dialog id="dlg"><form method="dialog" id="dlgF"><h3 id="dlgT"></h3><div id="dlgB"></div><div class="acts" id="dlgA"></div></form></dialog>
+
+<script>
+"use strict";
+const ED_VER="0.2.0";
+/* =========================================================================================
+   Formato dei database (definito in Calcoli_elettrici.html)
+   FUS_DB: g = famiglie [gruppo, descrizione] · p = [tipo, famiglia, Un (V), In (A), Icn (kA), caratteristica, curva t-I, curva limitazione, curva I²t, I min di interruzione (A)]
+           t / l / i = curve piatte [x0,y0,x1,y1,…]
+   CB_DB:  s = serie [gruppo, descrizione] · g = esecuzioni [serie, [voci gt]] · p = [tipo, esecuzione, specifica] (≥0 → x, <0 → xe[-n-1])
+           x  = [categoria, caratteristica, Un, Iu, Ir rif., lista Ir, Ii rif., lista Ii, Icu, Icn, tabella Icu, curva c, [curve d], [curve e], ha termico]
+           xe = [categoria, caratteristica, Un, Iu, lista Ir, lista tr, k min, k max, tr non indicato, pendenze, Isd, tol. Isd %, tsd, I²t su S, lista Ii, tol. Ii %, Ii escludibile,
+                 Icu, tabella Icu, [curve d], [curve e], Icw, {regole proprie}]
+           c = [banda minima | 0, banda massima], banda = [parte termica, corrente del salto, coda] · d / e = [U, punti] · ir / ii / ls = liste · ic = tabelle [U, Icu, Ics]
+   ========================================================================================= */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const clone=o=>JSON.parse(JSON.stringify(o));
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+// numeri: accetta virgola o punto decimale; con la virgola i punti sono separatori delle migliaia
+const pn=s=>{ s=String(s==null?"":s).trim().replace(/\s/g,""); if(!s) return NaN; if(s.indexOf(",")>=0) s=s.replace(/\./g,"").replace(",","."); return Number(s); };
+const fn=v=>(typeof v==="number"&&isFinite(v))?String(v).replace(".",","):"";
+const fl=a=>(a||[]).map(fn).join("; ");
+const pl=s=>{ const t=String(s||"").trim(); return t?t.split(/[;\s]+/).filter(Boolean).map(pn):[]; };
+const sig=(v,n)=>Number(v.toPrecision(n));
+
+const S={src:"",name:"",ver:"",handle:null,F:null,C:null,T:{},dirty:false,undo:[],log:[],cat:["modulare","scatolato","salvamotore","salvamotore per trasformatori","aperto"]};
+const UI={tab:"F", t:{id:""}, f:{g:0,p:-1,k:"t",q:"",fam:false}, c:{s:0,g:-1,p:-1,part:"",q:""}};
+
+/* ---------------- finestre di dialogo ---------------- */
+function dlg(title,body,buttons){
+  return new Promise(res=>{
+    const d=$("dlg"); $("dlgT").textContent=title; $("dlgB").innerHTML=body;
+    $("dlgA").innerHTML=buttons.map((b,i)=>`<button class="btn ${b.pri?"pri":""} ${b.dan?"dan":""}" value="${i}" ${b.cancel?"formnovalidate":""}>${esc(b.t)}</button>`).join("");
+    d.returnValue=""; d.onclose=()=>{ const i=parseInt(d.returnValue,10); res(isNaN(i)?null:(buttons[i].cancel?null:(buttons[i].v||true))); };
+    d.showModal(); const f=d.querySelector("#dlgB input,#dlgB textarea,#dlgB select"); if(f) f.focus();
+  });
+}
+const confirmDlg=(title,text,okT,dan)=>dlg(title,`<p style="margin:0">${text}</p>`,[{t:"Annulla",cancel:true},{t:okT||"Conferma",pri:!dan,dan:!!dan}]);
+const alertDlg=(title,text)=>dlg(title,`<p style="margin:0">${text}</p>`,[{t:"Chiudi",pri:true}]);
+// campi di testo: fields = [{k, l, v, list}] → oggetto {k: testo} oppure null
+async function askDlg(title,fields,okT){
+  const body=fields.map((f,i)=>`<label class="f" style="margin-bottom:10px">${esc(f.l)}<input type="text" id="ask${i}" value="${esc(f.v||"")}" ${f.list?`list="askL${i}"`:""}>${f.list?`<datalist id="askL${i}">${f.list.map(v=>`<option value="${esc(v)}">`).join("")}</datalist>`:""}</label>`).join("");
+  const p=dlg(title,body,[{t:"Annulla",cancel:true},{t:okT||"Conferma",pri:true}]);
+  const els=fields.map((f,i)=>$("ask"+i)); const r=await p; if(!r) return null;
+  const o={}; fields.forEach((f,i)=>o[f.k]=els[i].value.trim()); return o;
+}
+
+/* ---------------- apertura del file ---------------- */
+function grabLine(src,name){
+  const a=src.indexOf("const "+name+"="); if(a<0) return null;
+  let e=src.indexOf("\n",a); if(e<0) e=src.length;
+  const raw=src.slice(a,e).replace(/\r$/,""), body=raw.slice(name.length+7).replace(/;\s*$/,"");
+  return {a,e:a+raw.length,obj:JSON.parse(body)};
+}
+function load(text,name,handle){
+  let F,C;
+  try{
+    F=grabLine(text,"FUS_DB"); C=grabLine(text,"CB_DB");
+    if(!F||!C) throw new Error("nel file non ci sono i database FUS_DB e CB_DB: non sembra «Calcoli elettrici»");
+    ["g","p","t","l","i"].forEach(k=>{ if(!Array.isArray(F.obj[k])) throw new Error("database dei fusibili senza la parte «"+k+"»"); });
+    ["s","g","gt","p","x","xe","ls","c","ir","ii","ic","d","e"].forEach(k=>{ if(!Array.isArray(C.obj[k])) throw new Error("database degli interruttori senza la parte «"+k+"»"); });
+    if(C.obj.x.some(r=>r.length!==15)||C.obj.xe.some(r=>r.length<22||r.length>23)) throw new Error("formato delle specifiche degli interruttori diverso da quello previsto da questo editor");
+  }catch(err){ $("startMsg").textContent="Impossibile aprire «"+name+"»: "+err.message+"."; $("start").hidden=false; return false; }
+  S.src=text; S.name=name; S.handle=handle||null; S.F=F.obj; S.C=C.obj; S.dirty=false; S.undo=[]; S.log=[];
+  S.T={}; TNAMES.forEach(n=>{ try{ const g=grabLine(text,n); if(g&&g.obj&&typeof g.obj==="object") S.T[n]=g.obj; }catch(e){} });
+  const v=text.match(/APP_VER="([^"]+)"/); S.ver=v?v[1]:"?";
+  const cat=text.match(/const CB_CAT=(\[[^\]]*\]);/); if(cat){ try{ S.cat=JSON.parse(cat[1]); }catch(e){} }
+  Object.assign(UI.f,{g:0,p:-1,k:"t",q:"",fam:false}); Object.assign(UI.c,{s:0,g:-1,p:-1,part:"",q:""}); UI.tab="F"; $("fQ").value=""; $("cQ").value="";
+  $("start").hidden=true; $("app").hidden=false; $("startMsg").textContent="";
+  head(); refresh(); return true;
+}
+async function openPick(){
+  if(S.dirty && !(await confirmDlg("Aprire un altro file?","Le modifiche non salvate andranno perse.","Apri comunque",true))) return;
+  if(window.showOpenFilePicker){
+    try{ const [h]=await window.showOpenFilePicker({types:[{description:"Calcoli elettrici",accept:{"text/html":[".html",".htm"]}}]});
+      const f=await h.getFile(); load(await f.text(),f.name,h); return; }
+    catch(e){ if(e&&e.name==="AbortError") return; }
+  }
+  $("file").value=""; $("file").click();
+}
+function readFile(f){ const r=new FileReader(); r.onload=()=>load(String(r.result),f.name,null); r.readAsText(f,"utf-8"); }
+
+/* ---------------- modifica con annullamento ---------------- */
+// k = "F" (fusibili), "C" (interruttori) oppure "T" (tabelle); light = non ridisegnare tutto (lo fa chi chiama)
+function edit(label,k,fnc,light){
+  S.undo.push({k,j:JSON.stringify(S[k]),label}); if(S.undo.length>25) S.undo.shift();
+  fnc(); S.dirty=true; S.log.push([new Date(),label]); head(); if(!light) refresh();
+}
+function undo(){
+  const u=S.undo.pop(); if(!u) return;
+  S[u.k]=JSON.parse(u.j); S.log.push([new Date(),"annullato: "+u.label]); S.dirty=S.undo.length>0||S.dirty; head(); refresh();
+}
+function head(){
+  $("fileInfo").textContent=S.F?`${S.name} · versione ${S.ver}`:"Nessun file aperto";
+  $("dirty").hidden=!S.dirty; $("dirty").classList.toggle("on",S.dirty);
+  $("bUndo").disabled=!S.undo.length; $("bUndo").title=S.undo.length?"Annulla: "+S.undo[S.undo.length-1].label:"Nessuna modifica da annullare";
+  $("bSave").disabled=!S.F;
+  if(S.F){ $("nF").textContent=S.F.p.length; $("nC").textContent=S.C.p.length; $("nT").textContent=tDefs().length||"—"; badgeK(runChecks()); }
+}
+function badgeK(r){ const e=r.filter(x=>x.lv==="err").length, w=r.filter(x=>x.lv==="warn").length; $("nK").textContent=e?(e===1?"1 errore":`${e} errori`):(w?(w===1?"1 avviso":`${w} avvisi`):"ok"); $("nK").classList.toggle("on",e>0); }
+function refresh(){
+  if(!S.F) return;
+  document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===UI.tab));
+  $("tabF").hidden=UI.tab!=="F"; $("tabC").hidden=UI.tab!=="C"; $("tabT").hidden=UI.tab!=="T"; $("tabK").hidden=UI.tab!=="K";
+  if(UI.tab==="F") drawF(); else if(UI.tab==="C") drawC(); else if(UI.tab==="T") drawT(); else drawK();
+}
+
+/* =================== grafico log-log e editor di una curva =================== */
+function decs(a,b){ let lo=Math.floor(Math.log10(a)+1e-9), hi=Math.ceil(Math.log10(b)-1e-9); if(hi<=lo) hi=lo+1; return [lo,hi]; }
+function tick(v){ const e=Math.round(Math.log10(v)); if(e>=6) return fn(v/1e6)+" M"; if(e>=3) return fn(v/1e3)+" k"; return fn(Number(v.toPrecision(1))); }
+// o = {main, others:[{c,col,dash,w}], vl:[{x,lab}], sel, xl, yl, fix}; restituisce {svg, sc} con sc = scala per il trascinamento
+function plot(o){
+  const W=660,H=390,L=56,R=14,T=24,B=36,pw=W-L-R,ph=H-T-B,f1=v=>v.toFixed(1);
+  let sc=o.fix;
+  if(!sc){
+    const xs=[],ys=[]; const add=c=>{ for(let i=0;i<c.length;i+=2){ if(c[i]>0&&c[i+1]>0){ xs.push(c[i]); ys.push(c[i+1]); } } };
+    add(o.main||[]); (o.others||[]).forEach(s=>add(s.c)); (o.vl||[]).forEach(v=>{ if(v.x>0) xs.push(v.x); });
+    if(!xs.length){ xs.push(1,100); } if(!ys.length){ ys.push(0.01,100); }
+    const [x0,x1]=decs(Math.min.apply(null,xs),Math.max.apply(null,xs)), [y0,y1]=decs(Math.min.apply(null,ys),Math.max.apply(null,ys));
+    sc={x0,x1,y0,y1,W,H,L,T,pw,ph};
+  }
+  const X=v=>L+(Math.log10(v)-sc.x0)/(sc.x1-sc.x0)*pw, Y=v=>T+(1-(Math.log10(v)-sc.y0)/(sc.y1-sc.y0))*ph;
+  let g=`<defs><clipPath id="ceclip"><rect x="${L}" y="${T}" width="${pw}" height="${ph}"/></clipPath></defs><rect x="${L}" y="${T}" width="${pw}" height="${ph}" fill="var(--surface-1)" stroke="var(--border)"/>`;
+  for(let d=sc.x0;d<sc.x1;d++) for(let m=1;m<10;m++){ const x=f1(X(m*Math.pow(10,d))); g+=`<line x1="${x}" y1="${T}" x2="${x}" y2="${T+ph}" stroke="var(--border)" stroke-width="${m===1?1:0.5}" opacity="${m===1?1:0.45}"/>`; }
+  for(let d=sc.y0;d<sc.y1;d++) for(let m=1;m<10;m++){ const y=f1(Y(m*Math.pow(10,d))); g+=`<line x1="${L}" y1="${y}" x2="${L+pw}" y2="${y}" stroke="var(--border)" stroke-width="${m===1?1:0.5}" opacity="${m===1?1:0.45}"/>`; }
+  for(let d=sc.x0;d<=sc.x1;d++) g+=`<text x="${f1(X(Math.pow(10,d)))}" y="${T+ph+15}" text-anchor="middle" font-size="11" fill="var(--text-muted)">${tick(Math.pow(10,d))}</text>`;
+  for(let d=sc.y0;d<=sc.y1;d++) g+=`<text x="${L-6}" y="${f1(Y(Math.pow(10,d))+3.5)}" text-anchor="end" font-size="11" fill="var(--text-muted)">${tick(Math.pow(10,d))}</text>`;
+  g+=`<text x="${L+pw}" y="${T+ph+30}" text-anchor="end" font-size="10.5" fill="var(--text-muted)">${o.xl}</text><text x="4" y="10" font-size="10.5" fill="var(--text-muted)">${o.yl}</text>`;
+  const path=c=>{ let d=""; for(let i=0;i<c.length;i+=2){ if(!(c[i]>0&&c[i+1]>0)) continue; d+=(d?"L":"M")+f1(X(c[i]))+" "+f1(Y(c[i+1]))+" "; } return d; };
+  (o.others||[]).forEach(s=>{ const d=path(s.c); if(d) g+=`<path d="${d}" fill="none" stroke="${s.col||"var(--axis)"}" stroke-width="${s.w||1.2}" ${s.dash?`stroke-dasharray="${s.dash}"`:""} opacity="${s.op||0.7}" clip-path="url(#ceclip)"/>`; });
+  (o.vl||[]).forEach(v=>{ if(!(v.x>0)) return; const x=X(v.x); if(x<L||x>L+pw) return; g+=`<line x1="${f1(x)}" y1="${T}" x2="${f1(x)}" y2="${T+ph}" stroke="var(--s2)" stroke-width="1.2" stroke-dasharray="5 3"/><text x="${f1(x+4)}" y="${T+12}" font-size="10.5" fill="var(--s2)">${v.lab}</text>`; });
+  const m=o.main||[], n=m.length/2, d=path(m);
+  if(d) g+=`<path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" clip-path="url(#ceclip)"/>`;
+  const r=n>90?2.4:(n>40?3:3.8);
+  for(let i=0;i<n;i++){ if(!(m[2*i]>0&&m[2*i+1]>0)) continue; const on=i===o.sel;
+    g+=`<circle data-i="${i}" cx="${f1(X(m[2*i]))}" cy="${f1(Y(m[2*i+1]))}" r="${on?r+2.2:r}" fill="${on?"var(--s2)":"var(--accent)"}" stroke="var(--surface-1)" stroke-width="1.2"/>`; }
+  return {svg:`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}</svg>`,sc};
+}
+// semplificazione Douglas-Peucker in coordinate logaritmiche: tol = scarto relativo ammesso
+function rdp(c,tol){
+  const n=c.length/2; if(n<3) return c.slice();
+  const P=[]; for(let i=0;i<n;i++) P.push([Math.log(c[2*i]),Math.log(c[2*i+1])]);
+  const keep=new Array(n).fill(false), lt=Math.log(1+tol); keep[0]=keep[n-1]=true;
+  const st=[[0,n-1]];
+  while(st.length){ const [a,b]=st.pop(); let mi=-1,md=0; const dx=P[b][0]-P[a][0],dy=P[b][1]-P[a][1],len=Math.hypot(dx,dy)||1e-300;
+    for(let i=a+1;i<b;i++){ const d=Math.abs(dy*(P[i][0]-P[a][0])-dx*(P[i][1]-P[a][1]))/len; if(d>md){md=d;mi=i;} }
+    if(md>lt){ keep[mi]=true; st.push([a,mi],[mi,b]); } }
+  const o=[]; for(let i=0;i<n;i++) if(keep[i]) o.push(c[2*i],c[2*i+1]); return o;
+}
+// controlli di forma: mono = "t" (correnti non decrescenti, tempi non crescenti) · "x" (correnti strettamente crescenti) · min = punti minimi
+function curveProblems(c,mono,min){
+  const n=c.length/2, out=[];
+  if(c.length%2) out.push("numero di valori dispari");
+  if(n<(min==null?2:min)) out.push(`servono almeno ${min==null?2:min} punti`);
+  for(let i=0;i<n;i++) if(!(c[2*i]>0&&c[2*i+1]>0)){ out.push(`punto ${i+1}: i valori devono essere numeri maggiori di zero`); break; }
+  for(let i=1;i<n;i++){
+    if(mono==="t" && c[2*i]<c[2*i-2]){ out.push(`punto ${i+1}: la corrente deve essere uguale o maggiore di quella del punto precedente`); break; }
+    if(mono==="t" && c[2*i+1]>c[2*i-1]){ out.push(`punto ${i+1}: il tempo deve essere uguale o minore di quello del punto precedente`); break; }
+    if(mono==="x" && c[2*i]<=c[2*i-2]){ out.push(`punto ${i+1}: la corrente deve essere maggiore di quella del punto precedente`); break; }
+    if(mono==="u" && c[2*i]<=c[2*i-2]){ out.push(`punto ${i+1}: la durata deve essere maggiore di quella del punto precedente`); break; }
+    if(mono==="u" && c[2*i+1]>c[2*i-1]){ out.push(`punto ${i+1}: la tensione deve essere uguale o minore di quella del punto precedente`); break; }
+  }
+  return out;
+}
+function parsePoints(txt){
+  const out=[], bad=[];
+  String(txt).split(/\r?\n/).forEach((ln,k)=>{ const s=ln.trim(); if(!s) return;
+    let a; if(/[\t;]/.test(s)) a=s.split(/[\t;]+/); else if(/\s/.test(s)) a=s.split(/\s+/); else a=s.split(",");
+    a=a.map(v=>v.trim()).filter(Boolean); const x=pn(a[0]), y=pn(a[1]);
+    if(a.length>=2&&x>0&&y>0) out.push(x,y); else if(out.length||!/[a-zA-Z]/.test(s)) bad.push(k+1); });
+  return {c:out,bad};
+}
+async function copyText(t){ try{ await navigator.clipboard.writeText(t); return true; }catch(e){ const a=document.createElement("textarea"); a.value=t; document.body.appendChild(a); a.select(); let ok=false; try{ ok=document.execCommand("copy"); }catch(_){} a.remove(); return ok; } }
+
+/* editor di una curva. o = {host, get():array, set(array,label), xl, yl, vh (intestazione della colonna valori), mono, min, others():[], vl():[], empty (testo se assente)} */
+function curveEd(o){
+  let arr=o.get().slice(), sel=-1, sc=null, drag=null;
+  const host=o.host;
+  host.innerHTML=`<div class="acts" style="margin-top:6px">
+      <button type="button" class="btn sm" data-a="add" title="Aggiunge un punto dopo quello scelto">+ punto</button>
+      <button type="button" class="btn sm dan" data-a="del" title="Toglie il punto scelto">− punto</button>
+      <button type="button" class="btn sm" data-a="paste" title="Incolla due colonne da Excel o da un file di testo">Incolla punti…</button>
+      <button type="button" class="btn sm" data-a="copy">Copia punti</button>
+      <button type="button" class="btn sm" data-a="scale" title="Moltiplica correnti e valori per un fattore">Scala…</button>
+      <button type="button" class="btn sm" data-a="simp" title="Toglie i punti superflui entro uno scarto dato">Semplifica…</button>
+      <button type="button" class="btn sm" data-a="sort" title="Ordina i punti per corrente crescente">Ordina</button>
+      <span class="mini" data-r="n"></span>
+    </div>
+    <div class="ce"><div><div data-r="svg"></div><div class="msg" data-r="msg"></div></div>
+      <div class="pt"><table><thead><tr><th>n.</th><th>${o.xh||"Corrente (A)"}</th><th>${o.vh}</th></tr></thead><tbody data-r="tb"></tbody></table></div></div>
+    <p class="note">Clic su un punto per sceglierlo, trascinalo per spostarlo; doppio clic sul grafico per aggiungerne uno. Nella tabella si può scrivere con la virgola o con il punto.</p>`;
+  const R=k=>host.querySelector(`[data-r="${k}"]`);
+  const commit=label=>{ o.set(arr.slice(),label); arr=o.get().slice(); if(sel>=arr.length/2) sel=arr.length/2-1; draw(); };
+  function chart(fix){ const r=plot({main:arr,others:o.others?o.others():[],vl:o.vl?o.vl():[],sel,xl:o.xl,yl:o.yl,fix}); sc=r.sc; R("svg").innerHTML=r.svg; }
+  function table(){
+    let h=""; const n=arr.length/2;
+    for(let i=0;i<n;i++) h+=`<tr data-i="${i}" class="${i===sel?"sel":""}"><td>${i+1}</td><td><input type="text" data-c="0" value="${fn(arr[2*i])}"></td><td><input type="text" data-c="1" value="${fn(arr[2*i+1])}"></td></tr>`;
+    R("tb").innerHTML=h||`<tr><td colspan="3" style="text-align:left;padding:8px;color:var(--text-muted)">${o.empty||"Nessun punto"}</td></tr>`;
+  }
+  function status(){
+    const pr=curveProblems(arr,o.mono,o.min); R("n").textContent=`${arr.length/2} punti`;
+    R("msg").className="msg "+(pr.length?"bad":""); R("msg").textContent=pr.length?"Da correggere: "+pr.join("; ")+".":"";
+  }
+  function draw(){ chart(); table(); status(); }
+  function pick(i,scroll){ sel=i; chart(sc); host.querySelectorAll("tbody tr").forEach(tr=>tr.classList.toggle("sel",+tr.dataset.i===sel)); if(scroll){ const tr=host.querySelector(`tbody tr[data-i="${i}"]`); if(tr) tr.scrollIntoView({block:"nearest"}); } }
+  // dal punto dello schermo ai valori sugli assi
+  function at(ev){ const svg=R("svg").firstElementChild, b=svg.getBoundingClientRect(), px=(ev.clientX-b.left)*sc.W/b.width, py=(ev.clientY-b.top)*sc.H/b.height;
+    const fx=Math.min(1,Math.max(0,(px-sc.L)/sc.pw)), fy=Math.min(1,Math.max(0,(py-sc.T)/sc.ph));
+    return [sig(Math.pow(10,sc.x0+fx*(sc.x1-sc.x0)),4), sig(Math.pow(10,sc.y0+(1-fy)*(sc.y1-sc.y0)),4)]; }
+  R("svg").addEventListener("pointerdown",ev=>{ const c=ev.target.closest("circle"); if(!c) return; ev.preventDefault();
+    drag={i:+c.dataset.i,moved:false,x:ev.clientX,y:ev.clientY}; pick(drag.i,true); R("svg").setPointerCapture(ev.pointerId); });
+  R("svg").addEventListener("pointermove",ev=>{ if(!drag) return; if(!drag.moved&&Math.hypot(ev.clientX-drag.x,ev.clientY-drag.y)<3) return; drag.moved=true;
+    const [x,y]=at(ev); arr[2*drag.i]=x; arr[2*drag.i+1]=y; chart(sc);
+    const tr=host.querySelector(`tbody tr[data-i="${drag.i}"]`); if(tr){ const ins=tr.querySelectorAll("input"); ins[0].value=fn(x); ins[1].value=fn(y); } status(); });
+  const endDrag=()=>{ if(!drag) return; const m=drag.moved; drag=null; if(m) commit("punto spostato sul grafico"); };
+  R("svg").addEventListener("pointerup",endDrag); R("svg").addEventListener("pointercancel",endDrag);
+  R("svg").addEventListener("dblclick",ev=>{ if(ev.target.closest("circle")||!sc) return; const [x,y]=at(ev); let k=0; while(k<arr.length/2&&arr[2*k]<=x) k++; arr.splice(2*k,0,x,y); sel=k; commit("punto aggiunto sul grafico"); });
+  R("tb").addEventListener("focusin",ev=>{ const tr=ev.target.closest("tr[data-i]"); if(tr&&+tr.dataset.i!==sel) pick(+tr.dataset.i,false); });
+  R("tb").addEventListener("click",ev=>{ const tr=ev.target.closest("tr[data-i]"); if(tr&&ev.target.tagName==="TD") pick(+tr.dataset.i,false); });
+  R("tb").addEventListener("change",ev=>{ const inp=ev.target, tr=inp.closest("tr[data-i]"); if(!tr) return; const v=pn(inp.value);
+    if(!(v>0)){ inp.classList.add("bad"); return; } inp.classList.remove("bad"); const i=+tr.dataset.i, c=+inp.dataset.c; if(arr[2*i+c]===v) return; arr[2*i+c]=v; sel=i; commit("punto modificato"); });
+  host.querySelector(".acts").addEventListener("click",async ev=>{ const b=ev.target.closest("button[data-a]"); if(!b) return; const a=b.dataset.a, n=arr.length/2;
+    if(a==="add"){ let k=sel>=0?sel:n-1, x,y;
+      if(n===0){ x=10; y=1; k=-1; } else if(k<n-1){ x=sig(Math.sqrt(arr[2*k]*arr[2*k+2]),4); y=sig(Math.sqrt(arr[2*k+1]*arr[2*k+3]),4); } else { x=sig(arr[2*k]*1.5,4); y=arr[2*k+1]; }
+      arr.splice(2*(k+1),0,x,y); sel=k+1; commit("punto aggiunto"); }
+    else if(a==="del"){ if(sel<0||n<=(o.min==null?2:o.min)) return; arr.splice(2*sel,2); commit("punto eliminato"); }
+    else if(a==="sort"){ const P=[]; for(let i=0;i<n;i++) P.push([arr[2*i],arr[2*i+1],i]); P.sort((p,q)=>p[0]-q[0]||p[2]-q[2]); const c=[]; P.forEach(p=>c.push(p[0],p[1])); if(same(c,arr)) return; arr=c; sel=-1; commit("punti ordinati per corrente"); }
+    else if(a==="copy"){ let t=""; for(let i=0;i<n;i++) t+=fn(arr[2*i])+"\t"+fn(arr[2*i+1])+"\n"; const ok=await copyText(t); R("msg").className="msg ok"; R("msg").textContent=ok?`${n} punti copiati: si possono incollare in Excel.`:"Copia non riuscita."; }
+    else if(a==="paste"){
+      const p=dlg("Incolla i punti della curva",`<p class="mini" style="margin:0 0 8px">Una riga per punto, due colonne: <b>${o.xh||"corrente (A)"}</b> e <b>${o.vh.toLowerCase()}</b>. Vanno bene le celle copiate da Excel, il punto e virgola o gli spazi; le righe di intestazione sono ignorate.</p><textarea id="pasteT" placeholder="100\t1000&#10;150\t120&#10;300\t4,5"></textarea><label class="f" style="margin-top:8px">oppure da un file di testo o .csv<input type="file" id="pasteF" accept=".csv,.txt,.tsv"></label>`,
+        [{t:"Annulla",cancel:true},{t:"Aggiungi ai punti esistenti",v:"add"},{t:"Sostituisci la curva",pri:true,v:"rep"}]);
+      const ta=$("pasteT"); $("pasteF").addEventListener("change",e=>{ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ ta.value=String(r.result); }; r.readAsText(f); });
+      const mode=await p; if(!mode) return; const q=parsePoints(ta.value);
+      if(!q.c.length){ R("msg").className="msg bad"; R("msg").textContent="Nessun punto riconosciuto nel testo incollato."; return; }
+      if(mode==="rep") arr=q.c; else { const P=[]; const all=arr.concat(q.c); for(let i=0;i<all.length;i+=2) P.push([all[i],all[i+1],i]); P.sort((a,b)=>a[0]-b[0]||a[2]-b[2]); arr=[]; P.forEach(v=>arr.push(v[0],v[1])); }
+      sel=-1; commit(`${q.c.length/2} punti incollati`+(q.bad.length?` (${q.bad.length} righe ignorate)`:"")); }
+    else if(a==="scale"){ const r=await askDlg("Scala la curva",[{k:"x",l:"Moltiplica le correnti per",v:"1"},{k:"y",l:"Moltiplica i valori ("+o.vh.toLowerCase()+") per",v:"1"}],"Applica"); if(!r) return;
+      const kx=pn(r.x), ky=pn(r.y); if(!(kx>0&&ky>0)||(kx===1&&ky===1)) return; arr=arr.map((v,i)=>sig(v*(i%2?ky:kx),6)); commit(`curva scalata (correnti × ${fn(kx)}, valori × ${fn(ky)})`); }
+    else if(a==="simp"){ const r=await askDlg("Semplifica la curva",[{k:"t",l:"Scarto massimo ammesso dalla curva attuale (%)",v:"1"}],"Semplifica"); if(!r) return; const t=pn(r.t); if(!(t>0)) return;
+      const c=rdp(arr,t/100); if(c.length===arr.length){ R("msg").className="msg ok"; R("msg").textContent="Nessun punto superfluo entro lo scarto indicato."; return; } const n0=n; arr=c; sel=-1; commit(`curva semplificata da ${n0} a ${c.length/2} punti (±${fn(t)} %)`); }
+  });
+  draw();
+  return {reload(){ arr=o.get().slice(); sel=-1; draw(); }};
+}
+
+/* =============================== FUSIBILI =============================== */
+const FCOL={t:6,l:7,i:8}, FNAME={t:"tempo‑corrente",l:"di limitazione",i:"I²t"};
+const fUsers=(k,idx)=>S.F.p.filter(p=>p[FCOL[k]]===idx);
+function drawF(){
+  const F=S.F, u=UI.f;
+  if(u.g>=F.g.length) u.g=Math.max(0,F.g.length-1);
+  let h="", last=null; F.g.forEach((g,i)=>{ if(g[0]!==last){ if(last!==null) h+="</optgroup>"; h+=`<optgroup label="${esc(g[0])}">`; last=g[0]; } h+=`<option value="${i}">${esc(g[1])}</option>`; });
+  $("fG").innerHTML=h+(last!==null?"</optgroup>":""); $("fG").value=u.g;
+  const q=u.q.toLowerCase(); let list=[];
+  F.p.forEach((p,i)=>{ if(q){ if((p[0]+" "+F.g[p[1]][0]+" "+F.g[p[1]][1]).toLowerCase().indexOf(q)>=0) list.push(i); } else if(p[1]===u.g) list.push(i); });
+  if(list.indexOf(u.p)<0) u.p=list.length?list[0]:-1;
+  $("fP").innerHTML=list.map(i=>`<option value="${i}">${fn(F.p[i][3])} A — ${esc(F.p[i][0])}</option>`).join(""); $("fP").value=u.p;
+  $("fCount").textContent=q?`(${list.length} trovati)`:`(${list.length})`;
+  ["fDup","fDel"].forEach(id=>$(id).disabled=u.p<0); $("fSort").disabled=!!q; $("gRen").disabled=$("gDel").disabled=!F.g.length;
+  drawFDet();
+}
+function drawFDet(){
+  const F=S.F, u=UI.f, host=$("fDet"), p=F.p[u.p];
+  if(!p){ host.innerHTML=`<p class="mini">Nessun fusibile in questa famiglia: usa «Nuovo» per crearne uno${u.q?" oppure cambia la ricerca":""}.</p>`; return; }
+  const famOpt=F.g.map((g,i)=>`<option value="${i}" ${i===p[1]?"selected":""}>${esc(g[0])} · ${esc(g[1])}</option>`).join("");
+  const chs=[...new Set(F.p.map(r=>r[5]))];
+  let h=`<div class="subh" style="margin-top:0">Dati di targa</div><div class="grid">
+    <label class="f wide">Tipo<input type="text" data-f="0" value="${esc(p[0])}"></label>
+    <label class="f wide">Famiglia<select data-f="1">${famOpt}</select></label>
+    <label class="f">Tensione nominale U<sub>n</sub> <span class="u">(V)</span><input type="text" data-f="2" value="${fn(p[2])}"></label>
+    <label class="f">Corrente nominale I<sub>n</sub> <span class="u">(A)</span><input type="text" data-f="3" value="${fn(p[3])}"></label>
+    <label class="f">Potere di interruzione I<sub>cn</sub> <span class="u">(kA)</span><input type="text" data-f="4" value="${fn(p[4])}"></label>
+    <label class="f">Caratteristica<input type="text" data-f="5" value="${esc(p[5])}" list="fChL"><datalist id="fChL">${chs.map(c=>`<option value="${esc(c)}">`).join("")}</datalist></label>
+    <label class="f wide">Corrente minima di interruzione <span class="u">(A · solo fusibili di back‑up MT, 0 = non prevista)</span><input type="text" data-f="9" value="${fn(p[9]||0)}"></label>
+  </div><div class="msg bad" id="fMsg"></div>
+  <div class="subh">Curve</div>
+  <div class="acts"><div class="seg" id="fK">${["t","l","i"].map(k=>`<button type="button" data-k="${k}" class="${u.k===k?"on":""}">${k==="t"?"Tempo‑corrente":(k==="l"?"Limitazione":"I²t")}${p[FCOL[k]]<0?" (assente)":""}</button>`).join("")}</div>
+    <label class="ck"><input type="checkbox" id="fFam" ${u.fam?"checked":""}>mostra le altre taglie della famiglia</label></div>
+  <div class="acts mini" id="fInfo" style="margin-top:8px"></div><div id="fCE"></div>`;
+  host.innerHTML=h;
+  // dati di targa
+  host.querySelectorAll("[data-f]").forEach(inp=>inp.addEventListener("change",()=>{
+    const j=+inp.dataset.f; let v;
+    if(j===0||j===5){ v=inp.value.trim(); if(!v){ $("fMsg").textContent="Il campo non può essere vuoto."; return; } }
+    else if(j===1) v=+inp.value;
+    else { v=pn(inp.value); if(!(v>=0)||(j!==9&&!(v>0))){ $("fMsg").textContent="Valore non valido: serve un numero maggiore di zero."; return; } }
+    if(p[j]===v||(j===9&&!v&&p.length<10)) return;
+    edit(`fusibile ${p[0]}: ${["tipo","famiglia","Un","In","Icn","caratteristica",,,,"corrente minima di interruzione"][j]} modificato`,"F",()=>{ if(j===9){ if(v>0) p[9]=v; else p.length=9; } else p[j]=v; if(j===1) UI.f.g=v; });
+  }));
+  $("fK").addEventListener("click",ev=>{ const b=ev.target.closest("button"); if(!b) return; u.k=b.dataset.k; drawFDet(); });
+  $("fFam").addEventListener("change",ev=>{ u.fam=ev.target.checked; drawFDet(); });
+  // curva scelta
+  const k=u.k, col=FCOL[k], idx=p[col], info=$("fInfo");
+  if(idx<0){
+    info.innerHTML=`<span>Questo fusibile non ha la curva ${FNAME[k]}.</span><button type="button" class="btn sm" id="fMk">Crea la curva</button><button type="button" class="btn sm" id="fLnk">Usa la curva di un altro fusibile…</button>`;
+    $("fMk").onclick=()=>edit(`fusibile ${p[0]}: curva ${FNAME[k]} creata`,"F",()=>{ F[k].push(k==="l"?[100,283,100000,10000]:[100,100,100000,10000]); p[col]=F[k].length-1; });
+    $("fLnk").onclick=()=>fLink(p,k);
+    $("fCE").innerHTML=""; return;
+  }
+  const us=fUsers(k,idx);
+  info.innerHTML=`<span>Curva n. ${idx+1}${us.length>1?` · <b>condivisa da ${us.length} fusibili</b> (${esc(us.slice(0,4).map(r=>r[0]).join(", "))}${us.length>4?", …":""}): le modifiche valgono per tutti`:" · usata solo da questo fusibile"}</span>`+
+    (us.length>1?`<button type="button" class="btn sm" id="fDet1">Rendi indipendente</button>`:"")+`<button type="button" class="btn sm" id="fLnk">Usa la curva di un altro fusibile…</button>`+(k!=="t"?`<button type="button" class="btn sm dan" id="fRm">Togli la curva</button>`:"");
+  if(us.length>1) $("fDet1").onclick=()=>edit(`fusibile ${p[0]}: curva ${FNAME[k]} resa indipendente`,"F",()=>{ F[k].push(F[k][idx].slice()); p[col]=F[k].length-1; });
+  $("fLnk").onclick=()=>fLink(p,k);
+  if(k!=="t") $("fRm").onclick=()=>edit(`fusibile ${p[0]}: curva ${FNAME[k]} tolta`,"F",()=>{ p[col]=-1; });
+  curveEd({host:$("fCE"), get:()=>F[k][p[col]], set:(a,label)=>edit(`fusibile ${p[0]}, curva ${FNAME[k]}: ${label}`,"F",()=>{ F[k][p[col]]=a; },true),
+    xl:k==="t"?"corrente (A)":"corrente presunta (A)", yl:k==="t"?"tempo (s)":(k==="l"?"picco lasciato passare (A)":"I²t (A²s)"), xh:k==="t"?"Corrente (A)":"Corrente presunta (A)",
+    vh:k==="t"?"Tempo (s)":(k==="l"?"Picco (A)":"I²t (A²s)"), mono:k==="t"?"t":"x",
+    others:()=>u.fam?F.p.filter(r=>r[1]===p[1]&&r!==p&&r[col]>=0&&r[col]!==p[col]).map(r=>({c:F[k][r[col]]})):[],
+    vl:()=>(k==="t"&&p[9]>0)?[{x:p[9],lab:"I min interr."}]:[]});
+}
+async function fLink(p,k){
+  const F=S.F, col=FCOL[k];
+  let h="", last=-1; F.p.forEach((r,i)=>{ if(r===p||r[col]<0||r[col]===p[col]) return; if(r[1]!==last){ if(last>=0) h+="</optgroup>"; h+=`<optgroup label="${esc(F.g[r[1]][0]+" · "+F.g[r[1]][1])}">`; last=r[1]; } h+=`<option value="${i}">${fn(r[3])} A — ${esc(r[0])}</option>`; });
+  const pr=dlg(`Usa la curva ${FNAME[k]} di un altro fusibile`,`<p class="mini" style="margin:0 0 8px">Il fusibile «${esc(p[0])}» userà la stessa curva di quello scelto: da quel momento le modifiche alla curva varranno per entrambi.</p><select id="lnkS" size="12" style="width:100%">${h}</optgroup></select>`,[{t:"Annulla",cancel:true},{t:"Usa questa curva",pri:true}]);
+  const s=$("lnkS"); const r=await pr; if(!r||s.value==="") return; const o=F.p[+s.value];
+  edit(`fusibile ${p[0]}: curva ${FNAME[k]} collegata a quella di ${o[0]}`,"F",()=>{ p[col]=o[col]; });
+}
+function fActions(){
+  const F=()=>S.F, u=UI.f;
+  $("fQ").addEventListener("input",ev=>{ u.q=ev.target.value.trim(); drawF(); });
+  $("fG").addEventListener("change",ev=>{ u.g=+ev.target.value; u.q=""; $("fQ").value=""; u.p=-1; drawF(); });
+  $("fP").addEventListener("change",ev=>{ u.p=+ev.target.value; if(u.q){ u.g=F().p[u.p][1]; drawF(); } else drawFDet(); });
+  $("fDup").onclick=()=>{ const p=F().p[u.p]; if(!p) return;
+    edit(`fusibile ${p[0]} duplicato`,"F",()=>{ const n=p.slice(); n[0]=p[0]+" (copia)";
+      ["t","l","i"].forEach(k=>{ const c=FCOL[k]; if(p[c]>=0){ S.F[k].push(S.F[k][p[c]].slice()); n[c]=S.F[k].length-1; } });
+      S.F.p.splice(u.p+1,0,n); u.p=u.p+1; u.g=n[1]; u.q=""; $("fQ").value=""; }); };
+  $("fNew").onclick=()=>{ if(!F().g.length) return; const g=u.q&&F().p[u.p]?F().p[u.p][1]:u.g, ref=F().p.find(r=>r[1]===g);
+    edit("nuovo fusibile","F",()=>{ const In=10; S.F.t.push([In*2,1000,In*5,10,In*20,0.01]);
+      let pos=-1; S.F.p.forEach((r,i)=>{ if(r[1]===g) pos=i; }); if(pos<0) pos=S.F.p.length-1;
+      S.F.p.splice(pos+1,0,["Nuovo fusibile",g,ref?ref[2]:500,In,ref?ref[4]:100,ref?ref[5]:"gG",S.F.t.length-1,-1,-1]); u.p=pos+1; u.g=g; u.q=""; $("fQ").value=""; u.k="t"; }); };
+  $("fDel").onclick=async()=>{ const p=F().p[u.p]; if(!p) return; if(!(await confirmDlg("Eliminare il fusibile?",`«${esc(p[0])}» (${fn(p[3])} A) sarà tolto dal database. Le curve non più usate da altri fusibili vengono tolte al salvataggio.`,"Elimina",true))) return;
+    edit(`fusibile ${p[0]} eliminato`,"F",()=>{ S.F.p.splice(u.p,1); u.p=-1; }); };
+  $("fSort").onclick=()=>{ const idx=[]; F().p.forEach((r,i)=>{ if(r[1]===u.g) idx.push(i); }); const sorted=idx.map(i=>F().p[i]).sort((a,b)=>a[3]-b[3]);
+    if(sorted.every((r,k)=>r===F().p[idx[k]])) return; const cur=F().p[u.p];
+    edit(`famiglia ${F().g[u.g][1]}: fusibili ordinati per In`,"F",()=>{ idx.forEach((i,k)=>{ S.F.p[i]=sorted[k]; }); u.p=S.F.p.indexOf(cur); }); };
+  $("gNew").onclick=async()=>{ const groups=[...new Set(F().g.map(g=>g[0]))], cur=F().g[u.g];
+    const r=await askDlg("Nuova famiglia di fusibili",[{k:"a",l:"Gruppo (titolo nel menu «Famiglia»)",v:cur?cur[0]:"",list:groups},{k:"b",l:"Descrizione della famiglia",v:""}],"Crea"); if(!r||!r.a||!r.b) return;
+    edit(`famiglia «${r.b}» creata`,"F",()=>{ let pos=-1; S.F.g.forEach((g,i)=>{ if(g[0]===r.a) pos=i; }); pos=pos<0?S.F.g.length:pos+1;
+      S.F.g.splice(pos,0,[r.a,r.b]); S.F.p.forEach(p=>{ if(p[1]>=pos) p[1]++; }); u.g=pos; u.p=-1; u.q=""; $("fQ").value=""; }); };
+  $("gRen").onclick=async()=>{ const g=F().g[u.g]; if(!g) return; const groups=[...new Set(F().g.map(x=>x[0]))];
+    const r=await askDlg("Rinomina la famiglia",[{k:"a",l:"Gruppo",v:g[0],list:groups},{k:"b",l:"Descrizione",v:g[1]}],"Rinomina"); if(!r||!r.a||!r.b||(r.a===g[0]&&r.b===g[1])) return;
+    edit(`famiglia «${g[1]}» rinominata`,"F",()=>{ g[0]=r.a; g[1]=r.b; }); };
+  $("gDel").onclick=async()=>{ const g=F().g[u.g]; if(!g) return; const n=F().p.filter(p=>p[1]===u.g).length;
+    if(!(await confirmDlg("Eliminare la famiglia?",`«${esc(g[0])} · ${esc(g[1])}» sarà eliminata`+(n?` insieme ai suoi <b>${n} fusibili</b>.`:"."),"Elimina",true))) return;
+    edit(`famiglia «${g[1]}» eliminata (${n} fusibili)`,"F",()=>{ const gi=u.g; S.F.p=S.F.p.filter(p=>p[1]!==gi); S.F.p.forEach(p=>{ if(p[1]>gi) p[1]--; }); S.F.g.splice(gi,1); u.g=Math.max(0,gi-1); u.p=-1; }); };
+}
+
+/* =============================== INTERRUTTORI =============================== */
+const cIu=p=>p[2]>=0?S.C.x[p[2]][3]:S.C.xe[-p[2]-1][3];
+const cFam=g=>g[1].map(i=>S.C.gt[i]).join(" · ");
+const cSpec=p=>p[2]>=0?S.C.x[p[2]]:S.C.xe[-p[2]-1];
+const cSpecUsers=sp=>S.C.p.filter(p=>p[2]===sp);
+// liste e tabelle condivise: non si modificano sul posto, si cerca una uguale o se ne aggiunge una nuova
+function poolList(store,arr){ if(!arr||!arr.length) return -1; const j=JSON.stringify(arr); const i=store.findIndex(v=>JSON.stringify(v)===j); if(i>=0) return i; store.push(arr); return store.length-1; }
+function drawC(){
+  const C=S.C, u=UI.c;
+  if(u.s>=C.s.length) u.s=Math.max(0,C.s.length-1);
+  let h="", last=null; C.s.forEach((v,i)=>{ if(v[0]!==last){ if(last!==null) h+="</optgroup>"; h+=`<optgroup label="${esc(v[0])}">`; last=v[0]; } h+=`<option value="${i}">${esc(v[1])}</option>`; });
+  $("cS").innerHTML=h+(last!==null?"</optgroup>":""); $("cS").value=u.s;
+  const gs=[]; C.g.forEach((g,i)=>{ if(g[0]===u.s) gs.push(i); }); if(gs.indexOf(u.g)<0) u.g=gs.length?gs[0]:-1;
+  $("cG").innerHTML=gs.map(i=>`<option value="${i}">${esc(cFam(C.g[i]))}</option>`).join(""); $("cG").value=u.g;
+  const q=u.q.toLowerCase(); let list=[], more=0;
+  if(q.length>=2){ C.p.forEach((p,i)=>{ if(p[0].toLowerCase().indexOf(q)>=0){ if(list.length<400) list.push(i); else more++; } }); }
+  else C.p.forEach((p,i)=>{ if(p[1]===u.g) list.push(i); });
+  if(list.indexOf(u.p)<0) u.p=list.length?list[0]:-1;
+  $("cP").innerHTML=list.map(i=>`<option value="${i}">${fn(cIu(C.p[i]))} A — ${esc(C.p[i][0])}</option>`).join(""); $("cP").value=u.p;
+  $("cCount").textContent=q.length>=2?`(${list.length+more} trovati${more?", primi 400":""})`:`(${list.length})`;
+  ["cDup","cVar","cDel"].forEach(id=>$(id).disabled=u.p<0); $("eRen").disabled=$("eDel").disabled=u.g<0; $("sRen").disabled=$("sDel").disabled=!C.s.length; $("eNew").disabled=!C.s.length;
+  drawCDet();
+}
+const XL=["Categoria","Caratteristica","Un","Iu","Ir di riferimento","regolazioni Ir","Ii di riferimento","regolazioni Ii","Icu","Icn","tabella Icu","curva","curve di picco","curve I²t","sganciatore termico"];
+function icText(i){ return i>=0?S.C.ic[i].map(r=>r.map(fn).join("  ")).join("\n"):""; }
+function drawCDet(){
+  const C=S.C, u=UI.c, host=$("cDet"), p=C.p[u.p];
+  if(!p){ host.innerHTML=`<p class="mini">Nessun interruttore in questa esecuzione: duplica un interruttore esistente e spostalo qui con il campo «Esecuzione»${u.q?", oppure cambia la ricerca":""}.</p>`; return; }
+  const el=p[2]<0, x=cSpec(p), us=cSpecUsers(p[2]);
+  let gOpt=""; C.s.forEach((sv,si)=>{ let o=""; C.g.forEach((g,i)=>{ if(g[0]===si) o+=`<option value="${i}" ${i===p[1]?"selected":""}>${esc(cFam(g))}</option>`; }); if(o) gOpt+=`<optgroup label="${esc(sv[0]+" · "+sv[1])}">${o}</optgroup>`; });
+  const catOpt=S.cat.map((c,i)=>`<option value="${i}" ${i===x[0]?"selected":""}>${esc(c)}</option>`).join("");
+  const chs=[...new Set((el?C.xe:C.x).map(r=>r[1]))];
+  const T=(j,lab,unit,cls)=>`<label class="f ${cls||""}">${lab}${unit?` <span class="u">(${unit})</span>`:""}<input type="text" data-x="${j}" value="${fn(x[j])}"></label>`;
+  const LST=(j,store,lab,unit,cls)=>`<label class="f ${cls||"wide"}">${lab} <span class="u">(${unit})</span><input type="text" data-l="${j}" data-s="${store}" value="${esc(x[j]>=0?fl(C[store][x[j]]):"")}"></label>`;
+  const CK=(j,lab)=>`<label class="ck"><input type="checkbox" data-b="${j}" ${x[j]?"checked":""}>${lab}</label>`;
+  let h=`<div class="subh" style="margin-top:0">Interruttore</div><div class="grid">
+      <label class="f wide">Nome (tipo)<input type="text" id="cName" value="${esc(p[0])}"></label>
+      <label class="f wide">Esecuzione<select id="cMove">${gOpt}</select></label></div>
+    <div class="acts mini" style="margin-top:10px"><span><b>${el?"Sganciatore elettronico a curva calcolata":"Curva di catalogo per punti"}</b> · specifica ${us.length>1?`<b>condivisa da ${us.length} interruttori</b> (${esc(us.slice(0,4).map(r=>r[0]).join(", "))}${us.length>4?", …":""}): le modifiche qui sotto valgono per tutti`:"usata solo da questo interruttore"}</span>
+      ${us.length>1?`<button type="button" class="btn sm" id="cDet1">Rendi indipendente</button>`:""}</div>
+    <div class="subh">Dati di targa e regolazioni</div><div class="grid">
+      <label class="f">Categoria<select data-x="0" data-sel="1">${catOpt}</select></label>
+      <label class="f">Caratteristica<input type="text" data-x="1" data-txt="1" value="${esc(x[1])}" list="cChL"><datalist id="cChL">${chs.map(c=>`<option value="${esc(c)}">`).join("")}</datalist></label>
+      ${T(2,"Tensione nominale U<sub>n</sub>","V")}${T(3,"Corrente nominale I<sub>u</sub>","A")}`;
+  if(!el){
+    h+=`${T(4,"I<sub>r</sub> di riferimento della curva","A")}${LST(5,"ir","Regolazioni I<sub>r</sub>","A · vuoto = fissa")}
+      ${T(6,"I<sub>i</sub> di riferimento della curva","A")}${LST(7,"ii","Regolazioni I<sub>i</sub>","A · vuoto = fissa")}
+      ${T(8,"I<sub>cu</sub>","kA · EN 60947-2")}${T(9,"I<sub>cn</sub>","kA · EN 60898")}
+      <label class="f wide">Tabella I<sub>cu</sub> per tensione <span class="u">(una riga per tensione: U&nbsp;&nbsp;Icu&nbsp;&nbsp;Ics · vuoto = usa i valori sopra)</span><textarea data-ic="10" rows="4">${esc(icText(x[10]))}</textarea></label>
+      <div>${CK(14,"ha lo sganciatore termico")}</div></div>`;
+  } else {
+    h+=`${LST(4,"ir","Regolazioni I<sub>r</sub>","A")}${LST(5,"ls","Tempi di lungo ritardo t<sub>r</sub>","s · vuoto = lista generica")}
+      ${T(6,"Tolleranza su t<sub>r</sub>: fattore minimo","es. 0,7")}${T(7,"Tolleranza su t<sub>r</sub>: fattore massimo","es. 1,4")}
+      ${LST(9,"ls","Pendenze ammesse","esponenti · vuoto = solo I²t")}${LST(10,"ls","Soglie di corto ritardo I<sub>sd</sub>","multipli · vuoto = assente")}${T(11,"Tolleranza I<sub>sd</sub>","%")}
+      ${LST(12,"ls","Tempi di corto ritardo t<sub>sd</sub>","s")}${LST(14,"ii","Soglie istantanee I<sub>i</sub>","A · vuoto = assente")}${T(15,"Tolleranza I<sub>i</sub>","%")}
+      ${T(17,"I<sub>cu</sub>","kA")}${T(21,"I<sub>cw</sub>","kA · 0 = non indicata")}
+      <label class="f wide">Tabella I<sub>cu</sub> per tensione <span class="u">(U&nbsp;&nbsp;Icu&nbsp;&nbsp;Ics per riga · vuoto = usa Icu)</span><textarea data-ic="18" rows="4">${esc(icText(x[18]))}</textarea></label>
+      <label class="f wide">Regole proprie dello sganciatore <span class="u">(avanzato, formato JSON · vuoto = regole predefinite)</span><input type="text" id="cQ22" value="${esc(x[22]?JSON.stringify(x[22]):"")}"></label>
+      <div class="full acts">${CK(8,"t<sub>r</sub> non indicato dal catalogo")}${CK(13,"corto ritardo impostabile a I²t")}${CK(16,"istantanea escludibile")}</div></div>`;
+  }
+  h+=`<div class="msg bad" id="cMsg"></div><div class="subh">Curve</div>
+    <div class="acts"><label class="f" style="min-width:320px">Curva da modificare<select id="cPart"></select></label>
+      <button type="button" class="btn sm" id="cAddD">+ curva di picco</button><button type="button" class="btn sm" id="cAddE">+ curva I²t</button></div>
+    <div id="cPartBox"></div><div id="cCE"></div>`;
+  host.innerHTML=h;
+  const msg=t=>{ $("cMsg").textContent=t; };
+  const who=`interruttore ${p[0]}`;
+  $("cName").addEventListener("change",ev=>{ const v=ev.target.value.trim(); if(!v){ msg("Il nome non può essere vuoto."); return; } if(v!==p[0]) edit(`${who} rinominato in ${v}`,"C",()=>{ p[0]=v; }); });
+  $("cMove").addEventListener("change",ev=>{ const g=+ev.target.value; edit(`${who} spostato in «${cFam(C.g[g])}»`,"C",()=>{ p[1]=g; UI.c.g=g; UI.c.s=C.g[g][0]; UI.c.q=""; $("cQ").value=""; }); });
+  if(us.length>1) $("cDet1").onclick=()=>edit(`${who}: specifica resa indipendente`,"C",()=>{ if(el){ C.xe.push(clone(x)); p[2]=-C.xe.length; } else { C.x.push(clone(x)); p[2]=C.x.length-1; } });
+  host.querySelectorAll("[data-x]").forEach(inp=>inp.addEventListener("change",()=>{ const j=+inp.dataset.x; let v;
+    if(inp.dataset.sel) v=+inp.value; else if(inp.dataset.txt){ v=inp.value.trim(); if(!v){ msg("La caratteristica non può essere vuota."); return; } }
+    else { v=pn(inp.value); if(!(v>=0)){ msg("Valore non valido: serve un numero."); return; } }
+    if(x[j]===v) return; msg(""); edit(`${who}: campo modificato (${inp.closest("label").textContent.trim().split("(")[0].trim()})`,"C",()=>{ x[j]=v; }); }));
+  host.querySelectorAll("[data-l]").forEach(inp=>inp.addEventListener("change",()=>{ const j=+inp.dataset.l, st=inp.dataset.s, a=pl(inp.value);
+    if(a.some(v=>!(v>=0))){ msg("Elenco non valido: numeri separati da punto e virgola o da spazi."); return; }
+    if(el&&j===4&&!a.length){ msg("Le regolazioni Ir non possono essere vuote."); return; }
+    a.sort((m,n)=>m-n); const cur=x[j]>=0?C[st][x[j]]:[]; if(same(cur,a)) return; msg("");
+    edit(`${who}: elenco modificato (${inp.closest("label").textContent.trim().split("(")[0].trim()})`,"C",()=>{ x[j]=poolList(C[st],a); }); }));
+  host.querySelectorAll("[data-b]").forEach(inp=>inp.addEventListener("change",()=>{ const j=+inp.dataset.b; edit(`${who}: opzione modificata (${inp.closest("label").textContent.trim()})`,"C",()=>{ x[j]=inp.checked?1:0; }); }));
+  host.querySelectorAll("[data-ic]").forEach(ta=>ta.addEventListener("change",()=>{ const j=+ta.dataset.ic, rows=[];
+    for(const ln of ta.value.split(/\r?\n/)){ const a=pl(ln.replace(/[\t]/g," ")); if(!a.length) continue; if(a.length<2||a.some(v=>!(v>=0))){ msg("Tabella Icu non valida: ogni riga deve avere tensione, Icu e (facoltativo) Ics."); return; } rows.push([a[0],a[1],a.length>2?a[2]:a[1]]); }
+    rows.sort((m,n)=>m[0]-n[0]); const cur=x[j]>=0?C.ic[x[j]]:[]; if(same(cur,rows)) return; msg(""); edit(`${who}: tabella Icu modificata`,"C",()=>{ x[j]=poolList(C.ic,rows); }); }));
+  if(el) $("cQ22").addEventListener("change",ev=>{ const t=ev.target.value.trim(); let q=null; if(t){ try{ q=JSON.parse(t); if(!q||typeof q!=="object"||Array.isArray(q)) throw 0; }catch(e){ msg("Regole proprie non valide: serve un oggetto JSON, es. {\"m\":3}."); return; } }
+    if(same(x[22]||null,q)) return; msg(""); edit(`${who}: regole proprie dello sganciatore modificate`,"C",()=>{ if(q) x[22]=q; else x.length=22; }); });
+  // elenco delle curve
+  const dJ=el?19:12, eJ=el?20:13, parts=[];
+  if(!el){ const cv=C.c[x[11]]; parts.push(["M0","Banda massima · parte termica"],["M2","Banda massima · coda istantanea"]);
+    if(Array.isArray(cv[0])) parts.push(["m0","Banda minima · parte termica"],["m2","Banda minima · coda istantanea"]); }
+  const uTxt=U=>U?`${fn(U)} V`:"tutte le tensioni";
+  x[dJ].forEach((di,k)=>parts.push(["d"+k,`Picco lasciato passare · ${uTxt(C.d[di][0])}`])); x[eJ].forEach((ei,k)=>parts.push(["e"+k,`Energia passante I²t · ${uTxt(C.e[ei][0])}`]));
+  if(!parts.some(q=>q[0]===u.part)) u.part=parts.length?parts[0][0]:"";
+  $("cPart").innerHTML=parts.map(q=>`<option value="${q[0]}">${esc(q[1])}</option>`).join("")||`<option value="">nessuna curva</option>`; $("cPart").value=u.part;
+  $("cPart").addEventListener("change",ev=>{ u.part=ev.target.value; drawCDet(); });
+  const addLT=(kind,j)=>edit(`${who}: nuova curva ${kind==="d"?"di picco":"I²t"}`,"C",()=>{ C[kind].push([0,kind==="d"?[1000,1500,50000,15000]:[1000,5000,50000,500000]]); x[j]=x[j].concat([C[kind].length-1]); u.part=kind+(x[j].length-1); });
+  $("cAddD").onclick=()=>addLT("d",dJ); $("cAddE").onclick=()=>addLT("e",eJ);
+  drawCPart(p,x,el,who);
+}
+function drawCPart(p,x,el,who){
+  const C=S.C, u=UI.c, box=$("cPartBox"), part=u.part; $("cCE").innerHTML=""; box.innerHTML="";
+  if(!part) { box.innerHTML=`<p class="mini">Questo interruttore non ha curve di catalogo: la banda di intervento è calcolata dalle regolazioni. Si possono aggiungere le curve di picco e di I²t.</p>`; return; }
+  if(part[0]==="M"||part[0]==="m"){
+    const ci=x[11], cv=C.c[ci], cu=C.x.filter(r=>r[11]===ci), nT=C.p.filter(q=>q[2]>=0&&C.x[q[2]][11]===ci).length, hasMin=Array.isArray(cv[0]);
+    box.innerHTML=`<div class="acts mini" style="margin-top:8px"><span>Curva n. ${ci+1}${cu.length>1?` · <b>condivisa da ${cu.length} specifiche (${nT} interruttori)</b>: le modifiche valgono per tutti`:` · usata da ${nT} interruttor${nT===1?"e":"i"}`}</span>${cu.length>1?`<button type="button" class="btn sm" id="cvDet">Rendi indipendente</button>`:""}</div>
+      <div class="grid" style="margin-top:8px">
+        <label class="f">Salto magnetico · banda massima <span class="u">(A · 0 = nessuno)</span><input type="text" id="cvJ1" value="${fn(cv[1][1])}"></label>
+        <label class="f">Salto magnetico · banda minima <span class="u">(A)</span><input type="text" id="cvJ0" value="${hasMin?fn(cv[0][1]):""}" ${hasMin?"":"disabled"}></label>
+        <label class="ck"><input type="checkbox" id="cvMin" ${hasMin?"checked":""}>banda minima presente</label></div>
+      <p class="note">La curva è riferita alle regolazioni più alte (I<sub>r</sub> e I<sub>i</sub> di riferimento). Parte termica fino al salto magnetico, poi coda istantanea in ampere; il programma le unisce alle regolazioni scelte. Nel grafico: in blu la parte in modifica, in verde la banda massima, in viola la minima; tratteggiate le code istantanee.</p>`;
+    if(cu.length>1) $("cvDet").onclick=()=>edit(`${who}: curva resa indipendente`,"C",()=>{ C.c.push(clone(cv)); x[11]=C.c.length-1; });
+    const jump=(id,b)=>$(id).addEventListener("change",ev=>{ const v=pn(ev.target.value); if(!(v>=0)){ $("cMsg").textContent="Corrente del salto non valida."; return; } if(cv[b][1]===v) return; edit(`${who}: salto magnetico della banda ${b?"massima":"minima"} modificato`,"C",()=>{ cv[b][1]=v; }); });
+    jump("cvJ1",1); if(hasMin) jump("cvJ0",0);
+    $("cvMin").addEventListener("change",ev=>{ const on=ev.target.checked; edit(`${who}: banda minima ${on?"aggiunta (copia della massima)":"tolta"}`,"C",()=>{ cv[0]=on?clone(cv[1]):0; if(!on&&u.part[0]==="m") u.part="M0"; }); });
+    const b=part[0]==="M"?1:0, k=+part[1];
+    const oth=()=>{ const o=[]; [[1,0],[1,2],[0,0],[0,2]].forEach(([bb,kk])=>{ if(bb===b&&kk===k) return; const band=cv[bb]; if(Array.isArray(band)&&band[kk].length) o.push({c:band[kk],col:bb?"var(--s3)":"var(--s4)",w:1.6,op:0.85,dash:kk?"4 3":""}); }); return o; };
+    curveEd({host:$("cCE"), get:()=>cv[b][k], set:(a,label)=>edit(`${who}, banda ${b?"massima":"minima"} (${k?"coda":"termica"}): ${label}`,"C",()=>{ cv[b][k]=a; },true),
+      xl:"corrente (A)", yl:"tempo (s)", vh:"Tempo (s)", mono:"t", min:k?0:1, others:oth, vl:()=>cv[b][1]>0?[{x:cv[b][1],lab:"salto magnetico"}]:[], empty:"Nessuna coda istantanea"});
+    return;
+  }
+  const kind=part[0], n=+part.slice(1), j=el?(kind==="d"?19:20):(kind==="d"?12:13), idx=x[j][n], rec=C[kind][idx];
+  const cols=kind==="d"?[12,19]:[13,20], shared=C.x.filter(r=>r[cols[0]].indexOf(idx)>=0).length+C.xe.filter(r=>r[cols[1]].indexOf(idx)>=0).length;
+  box.innerHTML=`<div class="acts mini" style="margin-top:8px"><span>Curva n. ${idx+1}${shared>1?` · <b>condivisa da ${shared} specifiche</b>: le modifiche valgono per tutte`:" · usata solo da questa specifica"}</span>
+      ${shared>1?`<button type="button" class="btn sm" id="ltDet">Rendi indipendente</button>`:""}<button type="button" class="btn sm dan" id="ltDel">Togli questa curva</button></div>
+    <div class="grid" style="margin-top:8px"><label class="f">Tensione a cui vale <span class="u">(V · 0 = tutte)</span><input type="text" id="ltU" value="${fn(rec[0])}"></label></div>`;
+  if(shared>1) $("ltDet").onclick=()=>edit(`${who}: curva ${kind==="d"?"di picco":"I²t"} resa indipendente`,"C",()=>{ C[kind].push(clone(rec)); const a=x[j].slice(); a[n]=C[kind].length-1; x[j]=a; });
+  $("ltDel").onclick=()=>edit(`${who}: curva ${kind==="d"?"di picco":"I²t"} tolta`,"C",()=>{ const a=x[j].slice(); a.splice(n,1); x[j]=a; u.part=""; });
+  $("ltU").addEventListener("change",ev=>{ const v=pn(ev.target.value); if(!(v>=0)){ $("cMsg").textContent="Tensione non valida."; return; } if(rec[0]===v) return; edit(`${who}: tensione della curva ${kind==="d"?"di picco":"I²t"} modificata`,"C",()=>{ rec[0]=v; }); });
+  curveEd({host:$("cCE"), get:()=>rec[1], set:(a,label)=>edit(`${who}, curva ${kind==="d"?"di picco":"I²t"}: ${label}`,"C",()=>{ rec[1]=a; },true),
+    xl:"corrente presunta (A)", yl:kind==="d"?"picco lasciato passare (A)":"I²t (A²s)", xh:"Corrente presunta (A)", vh:kind==="d"?"Picco (A)":"I²t (A²s)", mono:"x",
+    others:()=>x[j].filter(i=>i!==idx).map(i=>({c:C[kind][i][1]}))});
+}
+function cActions(){
+  const C=()=>S.C, u=UI.c;
+  $("cQ").addEventListener("input",ev=>{ u.q=ev.target.value.trim(); drawC(); });
+  $("cS").addEventListener("change",ev=>{ u.s=+ev.target.value; u.g=-1; u.p=-1; u.q=""; $("cQ").value=""; drawC(); });
+  $("cG").addEventListener("change",ev=>{ u.g=+ev.target.value; u.p=-1; u.q=""; $("cQ").value=""; drawC(); });
+  $("cP").addEventListener("change",ev=>{ u.p=+ev.target.value; const p=C().p[u.p]; u.part=""; if(u.q.length>=2){ u.g=p[1]; u.s=C().g[p[1]][0]; drawC(); } else drawCDet(); });
+  const insertAfter=(n)=>{ S.C.p.splice(u.p+1,0,n); u.p=u.p+1; u.g=n[1]; u.s=S.C.g[n[1]][0]; u.q=""; $("cQ").value=""; };
+  $("cVar").onclick=()=>{ const p=C().p[u.p]; if(!p) return; edit(`interruttore ${p[0]}: variante aggiunta con la stessa specifica`,"C",()=>insertAfter([p[0]+" (variante)",p[1],p[2]])); };
+  $("cDup").onclick=()=>{ const p=C().p[u.p]; if(!p) return;
+    edit(`interruttore ${p[0]} duplicato`,"C",()=>{ const D=S.C, x=clone(cSpec(p)), el=p[2]<0, dJ=el?19:12, eJ=el?20:13;
+      if(!el){ D.c.push(clone(D.c[x[11]])); x[11]=D.c.length-1; }
+      x[dJ]=x[dJ].map(i=>{ D.d.push(clone(D.d[i])); return D.d.length-1; }); x[eJ]=x[eJ].map(i=>{ D.e.push(clone(D.e[i])); return D.e.length-1; });
+      let sp; if(el){ D.xe.push(x); sp=-D.xe.length; } else { D.x.push(x); sp=D.x.length-1; }
+      insertAfter([p[0]+" (copia)",p[1],sp]); }); };
+  $("cDel").onclick=async()=>{ const p=C().p[u.p]; if(!p) return; if(!(await confirmDlg("Eliminare l'interruttore?",`«${esc(p[0])}» sarà tolto dal database. Specifiche e curve non più usate vengono tolte al salvataggio.`,"Elimina",true))) return;
+    edit(`interruttore ${p[0]} eliminato`,"C",()=>{ S.C.p.splice(u.p,1); u.p=-1; }); };
+  // serie
+  $("sNew").onclick=async()=>{ const groups=[...new Set(C().s.map(v=>v[0]))], cur=C().s[u.s];
+    const r=await askDlg("Nuova serie di interruttori",[{k:"a",l:"Gruppo (titolo nel menu «Serie»)",v:cur?cur[0]:"",list:groups},{k:"b",l:"Descrizione della serie",v:""},{k:"c",l:"Prima esecuzione (voci separate da « · », es. 3 poli · Termomagnetico)",v:"Tutte le taglie"}],"Crea"); if(!r||!r.a||!r.b||!r.c) return;
+    edit(`serie «${r.b}» creata`,"C",()=>{ const D=S.C; let pos=-1; D.s.forEach((v,i)=>{ if(v[0]===r.a) pos=i; }); pos=pos<0?D.s.length:pos+1;
+      D.s.splice(pos,0,[r.a,r.b]); D.g.forEach(g=>{ if(g[0]>=pos) g[0]++; }); D.g.push([pos,gtIdx(r.c)]); u.s=pos; u.g=D.g.length-1; u.p=-1; u.q=""; $("cQ").value=""; }); };
+  $("sRen").onclick=async()=>{ const v=C().s[u.s]; if(!v) return; const groups=[...new Set(C().s.map(q=>q[0]))];
+    const r=await askDlg("Rinomina la serie",[{k:"a",l:"Gruppo",v:v[0],list:groups},{k:"b",l:"Descrizione",v:v[1]}],"Rinomina"); if(!r||!r.a||!r.b||(r.a===v[0]&&r.b===v[1])) return;
+    edit(`serie «${v[1]}» rinominata`,"C",()=>{ v[0]=r.a; v[1]=r.b; }); };
+  $("sDel").onclick=async()=>{ const v=C().s[u.s]; if(!v) return; const gs=new Set(); C().g.forEach((g,i)=>{ if(g[0]===u.s) gs.add(i); }); const n=C().p.filter(p=>gs.has(p[1])).length;
+    if(!(await confirmDlg("Eliminare la serie?",`«${esc(v[0])} · ${esc(v[1])}» sarà eliminata con le sue ${gs.size} esecuzioni`+(n?` e <b>${n} interruttori</b>.`:"."),"Elimina",true))) return;
+    edit(`serie «${v[1]}» eliminata (${n} interruttori)`,"C",()=>{ const si=u.s; [...gs].sort((a,b)=>b-a).forEach(delG); S.C.s.splice(si,1); S.C.g.forEach(g=>{ if(g[0]>si) g[0]--; }); u.s=Math.max(0,si-1); u.g=-1; u.p=-1; }); };
+  // esecuzioni
+  $("eNew").onclick=async()=>{ const r=await askDlg("Nuova esecuzione",[{k:"c",l:"Voci dell'esecuzione separate da « · » (es. 4 poli · Termomagnetico)",v:""}],"Crea"); if(!r||!r.c) return;
+    edit(`esecuzione «${r.c}» creata`,"C",()=>{ S.C.g.push([u.s,gtIdx(r.c)]); u.g=S.C.g.length-1; u.p=-1; u.q=""; $("cQ").value=""; }); };
+  $("eRen").onclick=async()=>{ const g=C().g[u.g]; if(!g) return; const r=await askDlg("Rinomina l'esecuzione",[{k:"c",l:"Voci separate da « · »",v:cFam(g)}],"Rinomina"); if(!r||!r.c||r.c===cFam(g)) return;
+    edit(`esecuzione «${cFam(g)}» rinominata`,"C",()=>{ g[1]=gtIdx(r.c); }); };
+  $("eDel").onclick=async()=>{ const g=C().g[u.g]; if(!g) return; const n=C().p.filter(p=>p[1]===u.g).length;
+    if(!(await confirmDlg("Eliminare l'esecuzione?",`«${esc(cFam(g))}» sarà eliminata`+(n?` con i suoi <b>${n} interruttori</b>.`:"."),"Elimina",true))) return;
+    edit(`esecuzione «${cFam(g)}» eliminata (${n} interruttori)`,"C",()=>{ delG(u.g); u.g=-1; u.p=-1; }); };
+}
+// voci di un'esecuzione: indici in gt, aggiungendo quelle nuove
+function gtIdx(txt){ return txt.split("·").map(s=>s.trim()).filter(Boolean).map(s=>{ let i=S.C.gt.indexOf(s); if(i<0){ S.C.gt.push(s); i=S.C.gt.length-1; } return i; }); }
+function delG(gi){ const D=S.C; D.p=D.p.filter(p=>p[1]!==gi); D.p.forEach(p=>{ if(p[1]>gi) p[1]--; }); D.g.splice(gi,1); }
+
+/* =============================== TABELLE =============================== */
+/* Tabelle di Calcoli elettrici scritte su una riga in formato JSON (const NOME=…;). Ogni definizione converte la tabella in righe e viceversa. */
+const TNAMES=["TR_TYP","INRUSH","GRID_PRESETS","MAT","CABLE_X","CABLE_K","FMT_TR","UTP_TABLE","LP_EX"];
+const colN=(l,o)=>Object.assign({l,t:"n"},o||{}), colS=(l,o)=>Object.assign({l,t:"s"},o||{});
+const KEYNOTE="Le chiavi sono scritte nei file salvati con «Salva tutto»: cambiando o togliendo una chiave, i file che la usano non la ritrovano.";
+const zipI=o=>o.S.map((v,i)=>[v,o.k[i],o.tau[i]]), unzipI=r=>({S:r.map(x=>x[0]),k:r.map(x=>x[1]),tau:r.map(x=>x[2])});
+const FMT_KV=["6","10","15","20","30"];
+const TDEF=[
+  {id:"TR_TYP",src:"TR_TYP",name:"Trasformatori tipici",desc:"Valori proposti nelle righe dei trasformatori del modulo Cortocircuito: scelta la potenza, il programma usa la riga con la potenza più vicina per u<sub>k</sub> e perdite a carico.",
+    cols:[colN("Potenza S (kVA)",{uniq:1}),colN("Perdite a carico Pk (W)"),colN("uk (%)")], sort:1, get:T=>T.TR_TYP.map(r=>[r.S,r.Pk,r.uk]), set:(T,r)=>{ T.TR_TYP=r.map(x=>({S:x[0],Pk:x[1],uk:x[2]})); }},
+  {id:"INRUSH.olio",src:"INRUSH",name:"Inserzione · trasformatori in olio",desc:"Corrente di inserzione del modulo Magnetizzazione: rapporto k tra la cresta e la corrente nominale e costante di tempo τ. Il programma usa la riga con la potenza più vicina.",
+    cols:[colN("Potenza S (kVA)",{uniq:1}),colN("k = cresta / In"),colN("τ (s)")], sort:1, get:T=>zipI(T.INRUSH.olio), set:(T,r)=>{ T.INRUSH.olio=unzipI(r); }},
+  {id:"INRUSH.secco",src:"INRUSH",name:"Inserzione · trasformatori a secco",desc:"Come la precedente, per i trasformatori a secco (in resina).",
+    cols:[colN("Potenza S (kVA)",{uniq:1}),colN("k = cresta / In"),colN("τ (s)")], sort:1, get:T=>zipI(T.INRUSH.secco), set:(T,r)=>{ T.INRUSH.secco=unzipI(r); }},
+  {id:"GRID_PRESETS",src:"GRID_PRESETS",name:"Forniture predefinite",desc:"Voci del menu «Tipo di connessione» del modulo Cortocircuito: scegliendone una il programma imposta tensione, corrente di cortocircuito e cos φ della sorgente. "+KEYNOTE,
+    cols:[colS("Chiave",{key:1}),colS("Descrizione nel menu"),colN("Un (V)"),colN("Ik (kA)"),colN("cos φ di cortocircuito",{max:1}),colN("Monofase (1 = sì, 0 = no)",{bool:1})],
+    get:T=>T.GRID_PRESETS.map(r=>[r.id,r.nome,r.Un,r.Ik,r.cos,r.mono?1:0]), set:(T,r)=>{ T.GRID_PRESETS=r.map(x=>({id:x[0],nome:x[1],Un:x[2],Ik:x[3],cos:x[4],mono:x[5]?1:0})); }},
+  {id:"MAT",src:"MAT",name:"Materiali dei conduttori",desc:"Voci dei menu «Materiale» dei cavi: resistività a 20 °C e coefficiente di temperatura. La chiave «Cu» deve restare: è il materiale usato quando un dato manca. "+KEYNOTE,
+    cols:[colS("Chiave",{key:1}),colS("Nome nel menu"),colN("ρ a 20 °C (Ω·mm²/m)"),colN("Coefficiente di temperatura (1/K)")], need:["Cu"],
+    get:T=>Object.keys(T.MAT).map(k=>[k,T.MAT[k].nome,T.MAT[k].rho,T.MAT[k].a]), set:(T,r)=>{ const o={}; r.forEach(x=>{ o[x[0]]={nome:x[1],rho:x[2],a:x[3]}; }); T.MAT=o; }},
+  {id:"CABLE_X",src:"CABLE_X",name:"Reattanze tipiche delle linee",desc:"Voci dei menu «Tipo» dei cavi: scegliendone una il programma propone la reattanza X. La voce «Personalizzato» è aggiunta dal programma. "+KEYNOTE,
+    cols:[colS("Chiave",{key:1}),colS("Nome nel menu"),colN("X (mΩ/m)")], reserved:["pers"],
+    get:T=>Object.keys(T.CABLE_X).map(k=>[k,T.CABLE_X[k].nome,T.CABLE_X[k].x]), set:(T,r)=>{ const o={}; r.forEach(x=>{ o[x[0]]={nome:x[1],x:x[2]}; }); T.CABLE_X=o; }},
+  {id:"CABLE_K",src:"CABLE_K",name:"Coefficienti K dei cavi",desc:"Voci del menu «Conduttore e isolante» nella verifica K²S² ≥ I²t dei moduli fusibili e interruttori. La prima riga è quella proposta all'apertura.",
+    cols:[colN("K",{uniq:1}),colS("Descrizione nel menu")], get:T=>T.CABLE_K.map(r=>[r[0],r[1]]), set:(T,r)=>{ T.CABLE_K=r.map(x=>[x[0],x[1]]); }},
+  {id:"FMT_TR",src:"FMT_TR",name:"Fusibili FMT per trasformatore",desc:"Tabella Italweber: corrente nominale del fusibile FMT consigliata per potenza del trasformatore e tensione di esercizio. Le cinque tensioni sono fisse; le potenze si possono aggiungere.",
+    cols:[colN("Potenza (kVA)",{uniq:1})].concat(FMT_KV.map(k=>colN(k+" kV · fusibile (A)"))), sort:1,
+    get:T=>T.FMT_TR.S.map((v,i)=>[v].concat(FMT_KV.map(k=>T.FMT_TR[k][i]))), set:(T,r)=>{ const o={S:r.map(x=>x[0])}; FMT_KV.forEach((k,j)=>{ o[k]=r.map(x=>x[j+1]); }); T.FMT_TR=o; }},
+  {id:"UTP_TABLE",src:"UTP_TABLE",name:"Tensione di contatto ammissibile UTp",curve:1,desc:"Curva U<sub>Tp</sub>(t<sub>F</sub>) del modulo «Guasto a terra MT»: tra un punto e l'altro il programma interpola linearmente; sotto il primo punto usa il primo valore, oltre 10 s usa 80 V.",
+    flat:T=>{ const o=[]; T.UTP_TABLE.forEach(p=>o.push(p[0],p[1])); return o; }, unflat:(T,a)=>{ const o=[]; for(let i=0;i<a.length;i+=2) o.push([a[i],a[i+1]]); T.UTP_TABLE=o; }},
+  {id:"LP_EX",src:"LP_EX",name:"Rischio da fulmine · esempi e modelli",list:1,desc:"Voci del menu «Esempi e modelli» del modulo Rischio da fulmine. Ogni voce è una valutazione completa: per aggiungerne una, preparala nel modulo, salvala con il suo «Salva» e importala qui."}
+];
+const tDefs=()=>TDEF.filter(d=>S.T[d.src]!=null);
+// primo problema di una tabella a righe, oppure "" se è valida
+function rowsProblem(d,rows){
+  if(!rows.length) return "serve almeno una riga";
+  for(let i=0;i<rows.length;i++){ const r=rows[i];
+    for(let j=0;j<d.cols.length;j++){ const c=d.cols[j], v=r[j], w=`riga ${i+1}, «${c.l}»`;
+      if(c.t==="s"){ if(typeof v!=="string"||!v.trim()) return `${w}: il testo non può essere vuoto`;
+        if(c.key&&!/^[A-Za-z_][A-Za-z0-9_]*$/.test(v)) return `${w}: la chiave può contenere solo lettere, cifre e «_», e deve iniziare con una lettera`;
+        if(c.key&&(d.reserved||[]).indexOf(v)>=0) return `${w}: «${v}» è una chiave riservata al programma`; }
+      else { if(typeof v!=="number"||!isFinite(v)) return `${w}: serve un numero`;
+        if(c.bool){ if(v!==0&&v!==1) return `${w}: scrivere 1 oppure 0`; } else if(!(v>0)) return `${w}: il valore deve essere maggiore di zero`;
+        if(c.max!=null&&v>c.max) return `${w}: il valore non può superare ${fn(c.max)}`; }
+      if((c.key||c.uniq)&&rows.some((q,k)=>k<i&&q[j]===v)) return `${w}: il valore «${typeof v==="number"?fn(v):v}» è già usato in un'altra riga`; } }
+  for(const k of (d.need||[])) if(!rows.some(r=>r[0]===k)) return `la chiave «${k}» è necessaria al programma e non può mancare`;
+  return "";
+}
+function drawT(){
+  const defs=tDefs(), u=UI.t, host=$("tDet");
+  if(!defs.length){ $("tL").innerHTML=""; $("tSideNote").textContent=""; host.innerHTML=`<p class="mini">Questo file non contiene le tabelle in formato gestibile: serve una versione di «Calcoli elettrici» che le scrive su una riga (0.1.7 con le tabelle, o successive). Fusibili e interruttori si possono modificare comunque.</p>`; return; }
+  if(!defs.some(d=>d.id===u.id)) u.id=defs[0].id;
+  $("tL").innerHTML=defs.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join(""); $("tL").value=u.id;
+  $("tSideNote").textContent="Le tabelle normative (fattore n, tabelle 62305-2, gruppi vettoriali) non sono modificabili da qui.";
+  const d=defs.find(x=>x.id===u.id);
+  host.innerHTML=`<div class="subh" style="margin-top:0">${esc(d.name)}</div><p class="mini" style="margin:0">${d.desc}</p><div id="tBody"></div>`;
+  if(d.curve) drawTCurve(d); else if(d.list) drawTList(d); else gridEd(d);
+}
+// tabella a righe: celle modificabili, righe da aggiungere, togliere, ordinare, incollare
+function gridEd(d){
+  const host=$("tBody"); let rows=d.get(S.T).map(r=>r.slice()), sel=-1;
+  host.innerHTML=`<div class="acts" style="margin-top:10px">
+      <button type="button" class="btn sm" data-a="add" title="Aggiunge una riga dopo quella scelta, copiandone i valori">+ riga</button>
+      <button type="button" class="btn sm dan" data-a="del">− riga</button>
+      <button type="button" class="btn sm" data-a="up" title="Sposta in su la riga scelta">▲</button><button type="button" class="btn sm" data-a="dn" title="Sposta in giù la riga scelta">▼</button>
+      ${d.sort?`<button type="button" class="btn sm" data-a="sort" title="Ordina per la prima colonna">Ordina</button>`:""}
+      <button type="button" class="btn sm" data-a="paste" title="Sostituisce la tabella con le righe incollate da Excel">Incolla tabella…</button>
+      <button type="button" class="btn sm" data-a="copy">Copia tabella</button><span class="mini" data-r="n"></span></div>
+    <div class="gr"><table><thead><tr><th>n.</th>${d.cols.map(c=>`<th>${esc(c.l)}</th>`).join("")}</tr></thead><tbody></tbody></table></div><div class="msg" data-r="msg"></div>`;
+  const tb=host.querySelector("tbody"), R=k=>host.querySelector(`[data-r="${k}"]`);
+  const say=(t,ok)=>{ R("msg").className="msg "+(t?(ok?"ok":"bad"):""); R("msg").textContent=t||""; };
+  const cell=(c,v)=>c.t==="n"?fn(v):v;
+  function draw(){ tb.innerHTML=rows.map((r,i)=>`<tr data-i="${i}" class="${i===sel?"sel":""}"><td class="n">${i+1}</td>${r.map((v,j)=>`<td><input type="text" data-j="${j}" value="${esc(cell(d.cols[j],v))}"></td>`).join("")}</tr>`).join(""); R("n").textContent=`${rows.length} righe`; }
+  const mark=()=>tb.querySelectorAll("tr").forEach(tr=>tr.classList.toggle("sel",+tr.dataset.i===sel));
+  // prova le nuove righe: se non sono valide resta tutto com'era
+  function commit(next,label,keep){ const pr=rowsProblem(d,next); if(pr){ say("Modifica non applicata — "+pr+"."); return false; }
+    edit(`tabella «${d.name}»: ${label}`,"T",()=>{ d.set(S.T,next); },true); rows=d.get(S.T).map(r=>r.slice()); if(!keep) draw(); say(""); return true; }
+  tb.addEventListener("focusin",ev=>{ const tr=ev.target.closest("tr"); if(tr){ sel=+tr.dataset.i; mark(); } });
+  tb.addEventListener("click",ev=>{ const tr=ev.target.closest("tr"); if(tr&&ev.target.classList.contains("n")){ sel=+tr.dataset.i; mark(); } });
+  tb.addEventListener("change",ev=>{ const inp=ev.target, tr=inp.closest("tr"); if(!tr) return; const i=+tr.dataset.i, j=+inp.dataset.j, c=d.cols[j];
+    const v=c.t==="n"?pn(inp.value):inp.value.trim(); if(rows[i][j]===v){ inp.classList.remove("bad"); return; }
+    const next=rows.map(r=>r.slice()); next[i][j]=v; const ok=commit(next,`riga ${i+1} modificata (${c.l})`,true); inp.classList.toggle("bad",!ok); if(ok) inp.value=cell(c,v); });
+  host.querySelector(".acts").addEventListener("click",async ev=>{ const b=ev.target.closest("button[data-a]"); if(!b) return; const a=b.dataset.a, next=rows.map(r=>r.slice());
+    if(a==="add"){ const k=sel>=0?sel:rows.length-1, base=rows[k]||d.cols.map(c=>c.t==="n"?1:""), r=base.slice();
+      d.cols.forEach((c,j)=>{ if(!(c.key||c.uniq)) return;   // i valori che non si possono ripetere ricevono un valore nuovo, da correggere
+        if(c.t==="s"){ let n=1; while(rows.some(q=>q[j]==="nuova"+n)) n++; r[j]="nuova"+n; }
+        else { let v=typeof r[j]==="number"?r[j]:1; while(rows.some(q=>q[j]===v)) v=sig(v*1.25,4); r[j]=v; } });
+      next.splice(k+1,0,r); sel=k+1; if(!commit(next,"riga aggiunta")) sel=k; }
+    else if(a==="del"){ if(sel<0) return; next.splice(sel,1); const s0=sel; sel=Math.min(sel,next.length-1); if(!commit(next,`riga ${s0+1} tolta`)) sel=s0; }
+    else if(a==="up"||a==="dn"){ const k=sel+(a==="up"?-1:1); if(sel<0||k<0||k>=rows.length) return; const t=next[sel]; next[sel]=next[k]; next[k]=t; sel=k; commit(next,"riga spostata"); }
+    else if(a==="sort"){ next.sort((p,q)=>p[0]-q[0]); if(same(next,rows)) return; sel=-1; commit(next,"righe ordinate"); }
+    else if(a==="copy"){ const t=d.cols.map(c=>c.l).join("\t")+"\n"+rows.map(r=>r.map((v,j)=>cell(d.cols[j],v)).join("\t")).join("\n")+"\n"; say((await copyText(t))?`${rows.length} righe copiate: si possono incollare in Excel.`:"Copia non riuscita.",true); }
+    else if(a==="paste"){
+      const pr=dlg("Incolla la tabella",`<p class="mini" style="margin:0 0 8px">Una riga per voce, colonne separate da tabulazione (celle copiate da Excel) o da punto e virgola, nello stesso ordine: <b>${d.cols.map(c=>esc(c.l)).join(" · ")}</b>. La riga di intestazione è ignorata. La tabella attuale viene sostituita.</p><textarea id="pasteG"></textarea>`,[{t:"Annulla",cancel:true},{t:"Sostituisci la tabella",pri:true}]);
+      const ta=$("pasteG"); if(!(await pr)) return; const out=[];
+      ta.value.split(/\r?\n/).forEach(ln=>{ if(!ln.trim()) return; let c=/[\t;]/.test(ln)?ln.split(/[\t;]/):(d.cols.every(x=>x.t==="n")?ln.trim().split(/\s+/):[ln]); c=c.map(x=>x.trim());
+        const r=d.cols.map((col,j)=>col.t==="n"?pn(c[j]):(c[j]||"")); if(!out.length&&d.cols.some((col,j)=>col.t==="n"&&!isFinite(r[j]))&&/[A-Za-zÀ-ú]/.test(ln)) return; out.push(r); });
+      sel=-1; commit(out,`${out.length} righe incollate`); }
+  });
+  draw();
+}
+// riferimento per il confronto: valori della tabella B.3 della EN 50522:2010 (durata in s, tensione in V)
+const UTP_REF=[0.05,716,0.1,654,0.2,537,0.5,220,1,117,2,96,5,86,10,85];
+function drawTCurve(d){
+  $("tBody").innerHTML=`<p class="note">Nel grafico, la linea tratteggiata arancione unisce gli otto valori della tabella B.3 della EN 50522:2010 (0,05 s → 716 V · 0,1 → 654 · 0,2 → 537 · 0,5 → 220 · 1 → 117 · 2 → 96 · 5 → 86 · 10 → 85), come riferimento per il confronto: verificare sull'edizione della norma in uso.</p><div id="tCE"></div>`;
+  curveEd({host:$("tCE"), get:()=>d.flat(S.T), set:(a,label)=>edit(`tabella «${d.name}»: ${label}`,"T",()=>{ d.unflat(S.T,a); },true),
+    xl:"durata del guasto tF (s)", yl:"UTp (V)", xh:"Durata tF (s)", vh:"UTp (V)", mono:"u", others:()=>[{c:UTP_REF,col:"var(--s2)",dash:"6 4",w:1.4,op:0.9}]});
+}
+// esempi e modelli del rischio da fulmine: elenco di valutazioni complete
+function lpValid(o){ return !!(o&&typeof o==="object"&&o.st&&o.site&&o.thr&&Array.isArray(o.svc)&&Array.isArray(o.zones)); }
+function drawTList(d){
+  const host=$("tBody"), X=S.T.LP_EX, keys=Object.keys(X);
+  host.innerHTML=`<div class="acts" style="margin-top:10px"><button type="button" class="btn sm" id="lxImp">Importa da file…</button><input type="file" id="lxFile" accept=".json" hidden><span class="mini">${keys.length} voci</span></div>
+    <div class="gr"><table><thead><tr><th>n.</th><th>Chiave</th><th>Nome nel menu</th><th>Linee</th><th>Zone</th><th></th></tr></thead><tbody>${keys.map((k,i)=>`<tr data-k="${esc(k)}"><td class="n">${i+1}</td><td style="padding:4px 8px">${esc(k)}</td><td style="padding:4px 8px">${esc(X[k].name||"")}</td><td style="padding:4px 8px">${X[k].svc.length}</td><td style="padding:4px 8px">${X[k].zones.length}</td>
+      <td style="padding:3px 6px;white-space:nowrap"><button type="button" class="btn sm" data-a="up">▲</button> <button type="button" class="btn sm" data-a="dn">▼</button> <button type="button" class="btn sm" data-a="ren">Rinomina…</button> <button type="button" class="btn sm" data-a="exp">Esporta</button> <button type="button" class="btn sm dan" data-a="del">Elimina</button></td></tr>`).join("")}</tbody></table></div><div class="msg" id="lxMsg"></div>
+    <p class="note">Il nome compare nel menu senza la parola iniziale «Esempio». Il file da importare è quello salvato dal «Salva» del modulo Rischio da fulmine, oppure un file di «Salva tutto» (se ne prende la parte dei fulmini).</p>`;
+  const say=(t,ok)=>{ $("lxMsg").className="msg "+(ok?"ok":"bad"); $("lxMsg").textContent=t; };
+  const reorder=ks=>{ const o={}; ks.forEach(k=>{ o[k]=S.T.LP_EX[k]; }); S.T.LP_EX=o; };
+  $("lxImp").onclick=()=>{ $("lxFile").value=""; $("lxFile").click(); };
+  $("lxFile").addEventListener("change",ev=>{ const f=ev.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=async()=>{ let o;
+      try{ o=JSON.parse(String(r.result)); }catch(e){ say(`«${f.name}» non è un file .json valido.`); return; }
+      if(o&&o.moduli&&o.moduli.modLP) o=o.moduli.modLP;
+      if(!lpValid(o)){ say(`«${f.name}» non contiene una valutazione del modulo Rischio da fulmine.`); return; }
+      let base=(o.name||f.name.replace(/\.json$/i,"")).toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"").slice(0,24)||"modello"; if(!/^[a-z_]/.test(base)) base="m_"+base;
+      let key=base, n=2; while(S.T.LP_EX[key]) key=base+"_"+(n++);
+      const a=await askDlg("Importa come modello",[{k:"k",l:"Chiave (lettere, cifre e «_»)",v:key},{k:"n",l:"Nome nel menu",v:o.name||f.name}],"Importa"); if(!a) return;
+      if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(a.k)||S.T.LP_EX[a.k]||!a.n){ say("Importazione annullata: chiave non valida o già usata, oppure nome vuoto."); return; }
+      edit(`modello fulmini «${a.n}» importato`,"T",()=>{ o.name=a.n; S.T.LP_EX[a.k]=o; }); }; r.readAsText(f,"utf-8"); });
+  host.querySelector("tbody").addEventListener("click",async ev=>{ const b=ev.target.closest("button[data-a]"); if(!b) return; const k=b.closest("tr").dataset.k, a=b.dataset.a, ks=Object.keys(S.T.LP_EX), i=ks.indexOf(k), it=S.T.LP_EX[k];
+    if(a==="up"||a==="dn"){ const j=i+(a==="up"?-1:1); if(j<0||j>=ks.length) return; ks[i]=ks[j]; ks[j]=k; edit(`modello fulmini «${it.name}» spostato`,"T",()=>reorder(ks)); }
+    else if(a==="del"){ if(!(await confirmDlg("Eliminare il modello?",`«${esc(it.name||k)}» sarà tolto dal menu «Esempi e modelli».`,"Elimina",true))) return; edit(`modello fulmini «${it.name}» eliminato`,"T",()=>{ delete S.T.LP_EX[k]; }); }
+    else if(a==="exp"){ window.saveBlob((it.name||k).replace(/[^\wÀ-ú\-]+/g,"_")+".json",JSON.stringify(it,null,1)); }
+    else if(a==="ren"){ const r=await askDlg("Rinomina il modello",[{k:"k",l:"Chiave",v:k},{k:"n",l:"Nome nel menu",v:it.name||""}],"Rinomina"); if(!r||!r.n||(r.k===k&&r.n===it.name)) return;
+      if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(r.k)||(r.k!==k&&S.T.LP_EX[r.k])){ say("Chiave non valida o già usata."); return; }
+      edit(`modello fulmini «${it.name}» rinominato`,"T",()=>{ it.name=r.n; if(r.k!==k){ const o={}; ks.forEach(q=>{ o[q===k?r.k:q]=S.T.LP_EX[q]; }); S.T.LP_EX=o; } }); }
+  });
+}
+
+/* =============================== CONTROLLI =============================== */
+// restituisce [{lv:"err"|"warn"|"info", t, go}] — gli errori impediscono il salvataggio
+function runChecks(){
+  const F=S.F, C=S.C, out=[], E=(t,go)=>out.push({lv:"err",t,go}), W=(t,go)=>out.push({lv:"warn",t,go}), I=t=>out.push({lv:"info",t});
+  const goF=i=>()=>{ UI.tab="F"; UI.f.q=""; $("fQ").value=""; UI.f.g=F.p[i][1]; UI.f.p=i; refresh(); };
+  const goC=i=>()=>{ UI.tab="C"; UI.c.q=""; $("cQ").value=""; UI.c.g=C.p[i][1]; UI.c.s=C.g[C.p[i][1]][0]; UI.c.p=i; UI.c.part=""; refresh(); };
+  // fusibili
+  const seen=new Map();
+  F.p.forEach((p,i)=>{ const nm=`Fusibile «${p[0]}»`, go=goF(i);
+    if(!(p[1]>=0&&p[1]<F.g.length)){ E(`${nm}: famiglia inesistente`); return; }
+    if(typeof p[0]!=="string"||!p[0]) E(`Fusibile n. ${i+1}: tipo mancante`,go);
+    if(!(p[2]>0)||!(p[3]>0)||!(p[4]>0)) E(`${nm}: Un, In e Icn devono essere maggiori di zero`,go);
+    if(!F.t[p[6]]) E(`${nm}: curva tempo‑corrente mancante`,go); else { const pr=curveProblems(F.t[p[6]],"t"); if(pr.length) E(`${nm}, curva tempo‑corrente: ${pr[0]}`,()=>{ UI.f.k="t"; go(); }); }
+    [["l",7,"di limitazione"],["i",8,"I²t"]].forEach(([k,c,n])=>{ if(p[c]<0) return; if(!F[k][p[c]]){ E(`${nm}: curva ${n} inesistente`,go); return; } const pr=curveProblems(F[k][p[c]],"x"); if(pr.length) E(`${nm}, curva ${n}: ${pr[0]}`,()=>{ UI.f.k=k; go(); }); });
+    if(p[9]>0&&p[9]>=p[4]*1000) W(`${nm}: la corrente minima di interruzione supera il potere di interruzione`,go);
+    const key=p[1]+"|"+p[0]; if(seen.has(key)) W(`${nm}: nome ripetuto nella stessa famiglia (il programma riapre il primo quando si usa «Apri tutto»)`,go); else seen.set(key,i); });
+  const gU=new Set(F.p.map(p=>p[1])); const eg=F.g.filter((g,i)=>!gU.has(i)); if(eg.length) I(`${eg.length} famigli${eg.length===1?"a":"e"} di fusibili senza fusibili (${eg.map(g=>g[1]).join("; ")}): non saranno salvate`);
+  ["t","l","i"].forEach(k=>{ const u=new Set(F.p.map(p=>p[FCOL[k]])); const n=F[k].filter((c,i)=>!u.has(i)).length; if(n) I(`${n} curv${n===1?"a":"e"} ${FNAME[k]} dei fusibili non più usat${n===1?"a":"e"}: saranno tolte al salvataggio`); });
+  // interruttori
+  let dup=0; const seenC=new Map();
+  C.p.forEach((p,i)=>{ const nm=`Interruttore «${p[0]}»`, go=goC(i);
+    if(!(p[1]>=0&&p[1]<C.g.length)){ E(`${nm}: esecuzione inesistente`); return; }
+    if(typeof p[0]!=="string"||!p[0]) E(`Interruttore n. ${i+1}: nome mancante`,go);
+    const x=p[2]>=0?C.x[p[2]]:C.xe[-p[2]-1]; if(!x){ E(`${nm}: specifica inesistente`,go); return; }
+    const key=p[1]+"|"+p[0]; if(seenC.has(key)) dup++; else seenC.set(key,i); });
+  if(dup) I(`${dup} nomi di interruttori ripetuti nella stessa esecuzione`);
+  const first=new Map(); C.p.forEach((p,i)=>{ if(!first.has(p[2])) first.set(p[2],i); });
+  const lt=(nm,go,list,store,what)=>list.forEach(i=>{ const r=store[i]; if(!r){ E(`${nm}: curva ${what} inesistente`,go); return; } const pr=curveProblems(r[1],"x"); if(pr.length) E(`${nm}, curva ${what}: ${pr[0]}`,go); if(!(r[0]>=0)) E(`${nm}, curva ${what}: tensione non valida`,go); });
+  const dupU=(nm,go,list,store,what)=>{ const u=list.map(i=>store[i]&&store[i][0]); if(new Set(u).size<u.length) W(`${nm}: due curve ${what} per la stessa tensione (il programma usa la prima)`,go); };
+  const asc=a=>a.every((v,i)=>v>=0&&(!i||v>=a[i-1]));
+  C.x.forEach((x,k)=>{ if(!first.has(k)) return; const pi=first.get(k), nm=`Interruttore «${C.p[pi][0]}»`, go=goC(pi);
+    if(!(x[2]>0)||!(x[3]>0)) E(`${nm}: Un e Iu devono essere maggiori di zero`,go);
+    if(!(x[0]>=0&&x[0]<S.cat.length)) E(`${nm}: categoria non valida`,go);
+    if(x[14]&&!(x[4]>0)) E(`${nm}: con lo sganciatore termico serve la Ir di riferimento`,go);
+    if(x[5]>=0&&(!C.ir[x[5]]||!asc(C.ir[x[5]]))) E(`${nm}: regolazioni Ir non valide`,go);
+    if(x[7]>=0&&(!C.ii[x[7]]||!asc(C.ii[x[7]]))) E(`${nm}: regolazioni Ii non valide`,go);
+    if(x[10]>=0&&!C.ic[x[10]]) E(`${nm}: tabella Icu inesistente`,go);
+    if(x[10]<0&&!(x[8]>0)&&!(x[9]>0)) W(`${nm}: nessun potere di interruzione indicato`,go);
+    const cv=C.c[x[11]]; if(!cv||!Array.isArray(cv[1])){ E(`${nm}: curva di intervento mancante`,go); return; }
+    [1,0].forEach(b=>{ const band=cv[b]; if(!Array.isArray(band)) return; const bn=b?"massima":"minima";
+      let pr=curveProblems(band[0],"t",1); if(pr.length) E(`${nm}, banda ${bn}, parte termica: ${pr[0]}`,go);
+      pr=curveProblems(band[2],"t",0); if(pr.length) E(`${nm}, banda ${bn}, coda istantanea: ${pr[0]}`,go);
+      if(!(band[1]>=0)) E(`${nm}, banda ${bn}: corrente del salto non valida`,go);
+      if(band[2].length&&!(band[1]>0)) W(`${nm}, banda ${bn}: c'è la coda istantanea ma manca la corrente del salto magnetico`,go); });
+    if(x[7]>=0&&C.ii[x[7]]&&C.ii[x[7]].length>1&&!(cv[1][1]>0&&x[6]>0)) E(`${nm}: con Ii regolabile servono il salto magnetico e la Ii di riferimento`,go);
+    lt(nm,go,x[12],C.d,"di picco"); lt(nm,go,x[13],C.e,"I²t"); dupU(nm,go,x[12],C.d,"di picco"); dupU(nm,go,x[13],C.e,"I²t"); });
+  C.xe.forEach((x,k)=>{ const sp=-k-1; if(!first.has(sp)) return; const pi=first.get(sp), nm=`Interruttore «${C.p[pi][0]}»`, go=goC(pi);
+    if(!(x[2]>0)||!(x[3]>0)) E(`${nm}: Un e Iu devono essere maggiori di zero`,go);
+    if(!(x[0]>=0&&x[0]<S.cat.length)) E(`${nm}: categoria non valida`,go);
+    if(!C.ir[x[4]]||!C.ir[x[4]].length||!asc(C.ir[x[4]])) E(`${nm}: regolazioni Ir mancanti o non valide`,go);
+    [[5,"tr"],[9,"pendenze"],[10,"Isd"],[12,"tsd"]].forEach(([j,n])=>{ if(x[j]>=0&&(!C.ls[x[j]]||!asc(C.ls[x[j]]))) E(`${nm}: elenco ${n} non valido`,go); });
+    if(x[14]>=0&&(!C.ii[x[14]]||!asc(C.ii[x[14]]))) E(`${nm}: soglie Ii non valide`,go);
+    if(x[10]<0&&x[14]<0) E(`${nm}: serve almeno il corto ritardo (Isd) oppure l'istantanea (Ii)`,go);
+    if(!(x[6]>0&&x[7]>=x[6])) E(`${nm}: tolleranza del lungo ritardo non valida (fattore minimo e massimo)`,go);
+    if(x[18]>=0&&!C.ic[x[18]]) E(`${nm}: tabella Icu inesistente`,go);
+    lt(nm,go,x[19],C.d,"di picco"); lt(nm,go,x[20],C.e,"I²t"); dupU(nm,go,x[19],C.d,"di picco"); dupU(nm,go,x[20],C.e,"I²t"); });
+  // tabelle
+  tDefs().forEach(d=>{ const go=()=>{ UI.tab="T"; UI.t.id=d.id; refresh(); };
+    if(d.curve){ const pr=curveProblems(d.flat(S.T),"u"); if(pr.length) E(`Tabella «${d.name}»: ${pr[0]}`,go); }
+    else if(d.cols){ const pr=rowsProblem(d,d.get(S.T)); if(pr) E(`Tabella «${d.name}»: ${pr}`,go); } });
+  const gUsed=new Set(C.p.map(p=>p[1])); const ng=C.g.filter((g,i)=>!gUsed.has(i)).length; if(ng) I(`${ng} esecuzion${ng===1?"e":"i"} di interruttori senza interruttori: non saranno salvate`);
+  const un=first.size, tot=C.x.length+C.xe.length; if(tot>un) I(`${tot-un} specifiche di interruttori non più usate: saranno tolte al salvataggio con le loro curve`);
+  return out;
+}
+function drawK(){
+  const r=runChecks(), e=r.filter(x=>x.lv==="err"), w=r.filter(x=>x.lv==="warn"), inf=r.filter(x=>x.lv==="info");
+  badgeK(r);
+  $("kSum").textContent=`${S.F.p.length} fusibili · ${S.C.p.length} interruttori · ${tDefs().length} tabelle · ${e.length} errori · ${w.length} avvisi`;
+  const host=$("kList"); host.innerHTML="";
+  if(!r.length) host.innerHTML=`<div class="chk"><span class="badge ok">✓ ok</span><span>Nessun problema: tutti gli indici sono coerenti e le curve hanno la forma che il programma si aspetta.</span></div>`;
+  const row=(x,cls,lab)=>{ const d=document.createElement("div"); d.className="chk"; d.innerHTML=`<span class="badge ${cls}">${lab}</span><span>${esc(x.t)}</span>`; if(x.go){ const b=document.createElement("button"); b.className="lnk"; b.type="button"; b.textContent="apri"; b.onclick=x.go; d.appendChild(b); } host.appendChild(d); };
+  e.slice(0,200).forEach(x=>row(x,"no","errore")); w.slice(0,200).forEach(x=>row(x,"wa","avviso")); inf.forEach(x=>row(x,"in","nota"));
+  if(e.length>200||w.length>200) host.insertAdjacentHTML("beforeend",`<p class="mini">Elenco limitato alle prime 200 voci per tipo.</p>`);
+  $("kLog").innerHTML=S.log.length?S.log.slice().reverse().map(l=>`${l[0].toLocaleTimeString("it-IT")} — ${esc(l[1])}`).join("<br>"):"Nessuna modifica.";
+  return {e,w,inf};
+}
+
+/* =============================== SALVATAGGIO =============================== */
+// toglie le voci non più usate e rinumera gli indici; senza voci inutilizzate il risultato è identico all'originale
+function compactF(F0){
+  const F=clone(F0), map=(arr,used)=>{ const m=new Map(), o=[]; arr.forEach((v,i)=>{ if(used.has(i)){ m.set(i,o.length); o.push(v); } }); return [o,m]; };
+  const [g,mg]=map(F.g,new Set(F.p.map(p=>p[1]))), [t,mt]=map(F.t,new Set(F.p.map(p=>p[6]))), [l,ml]=map(F.l,new Set(F.p.map(p=>p[7]))), [i,mi]=map(F.i,new Set(F.p.map(p=>p[8])));
+  F.p.forEach(p=>{ p[1]=mg.get(p[1]); p[6]=mt.get(p[6]); if(p[7]>=0) p[7]=ml.get(p[7]); if(p[8]>=0) p[8]=mi.get(p[8]); });
+  return {g,p:F.p,t,l,i};
+}
+function compactC(C0){
+  const C=clone(C0), map=(arr,used)=>{ const m=new Map(), o=[]; arr.forEach((v,i)=>{ if(used.has(i)){ m.set(i,o.length); o.push(v); } }); return [o,m]; };
+  const [g,mg]=map(C.g,new Set(C.p.map(p=>p[1]))); C.p.forEach(p=>{ p[1]=mg.get(p[1]); });
+  const [s,ms]=map(C.s,new Set(g.map(v=>v[0]))); g.forEach(v=>{ v[0]=ms.get(v[0]); });
+  const [gt,mgt]=map(C.gt,new Set(g.flatMap(v=>v[1]))); g.forEach(v=>{ v[1]=v[1].map(i=>mgt.get(i)); });
+  const [x,mx]=map(C.x,new Set(C.p.filter(p=>p[2]>=0).map(p=>p[2]))), [xe,mxe]=map(C.xe,new Set(C.p.filter(p=>p[2]<0).map(p=>-p[2]-1)));
+  C.p.forEach(p=>{ p[2]=p[2]>=0?mx.get(p[2]):-mxe.get(-p[2]-1)-1; });
+  const ge=v=>v>=0;
+  const [ir,mir]=map(C.ir,new Set([...x.map(r=>r[5]),...xe.map(r=>r[4])].filter(ge))), [ii,mii]=map(C.ii,new Set([...x.map(r=>r[7]),...xe.map(r=>r[14])].filter(ge)));
+  const [ls,mls]=map(C.ls,new Set(xe.flatMap(r=>[r[5],r[9],r[10],r[12]]).filter(ge))), [ic,mic]=map(C.ic,new Set([...x.map(r=>r[10]),...xe.map(r=>r[18])].filter(ge)));
+  const [c,mc]=map(C.c,new Set(x.map(r=>r[11]))), [d,md]=map(C.d,new Set([...x.flatMap(r=>r[12]),...xe.flatMap(r=>r[19])])), [e,me]=map(C.e,new Set([...x.flatMap(r=>r[13]),...xe.flatMap(r=>r[20])]));
+  const rm=(m,v)=>v>=0?m.get(v):-1;
+  x.forEach(r=>{ r[5]=rm(mir,r[5]); r[7]=rm(mii,r[7]); r[10]=rm(mic,r[10]); r[11]=mc.get(r[11]); r[12]=r[12].map(i=>md.get(i)); r[13]=r[13].map(i=>me.get(i)); });
+  xe.forEach(r=>{ r[4]=rm(mir,r[4]); [5,9,10,12].forEach(j=>{ r[j]=rm(mls,r[j]); }); r[14]=rm(mii,r[14]); r[18]=rm(mic,r[18]); r[19]=r[19].map(i=>md.get(i)); r[20]=r[20].map(i=>me.get(i)); });
+  return {s,g,gt,p:C.p,x,xe,ls,c,ir,ii,ic,d,e};
+}
+function buildFile(){
+  const F=compactF(S.F), C=compactC(S.C); let src=S.src;
+  const put=(name,obj)=>{ const a=src.indexOf("const "+name+"="); let e=src.indexOf("\n",a); if(e<0) e=src.length; const cr=src[e-1]==="\r"?1:0; src=src.slice(0,a)+"const "+name+"="+JSON.stringify(obj)+";"+src.slice(e-cr); };
+  put("FUS_DB",F); put("CB_DB",C); Object.keys(S.T).forEach(n=>put(n,S.T[n])); return {text:src,F,C};
+}
+function saveBlob(name,text){ const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([text],{type:"text/html;charset=utf-8"})); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },500); }
+async function save(){
+  if(!S.F) return;
+  const k=runChecks(), e=k.filter(x=>x.lv==="err"), w=k.filter(x=>x.lv==="warn");
+  if(e.length){ UI.tab="K"; refresh(); await alertDlg("Salvataggio non possibile",`${e.length===1?"C'è <b>un errore</b>":`Ci sono <b>${e.length} errori</b>`} nei dati: il programma non funzionerebbe correttamente. L'elenco è nella scheda «Controlli», con il collegamento alla voce da correggere.`); return; }
+  const out=buildFile(), kb=v=>fn(Math.round(v/1024))+" kB";
+  const body=`<p style="margin:0 0 8px">Il file conterrà <b>${out.F.p.length} fusibili</b> e <b>${out.C.p.length} interruttori</b> (${kb(out.text.length)}; all'apertura ${kb(S.src.length)}).${w.length?(w.length===1?" C'è un avviso nella scheda «Controlli».":` Ci sono ${w.length} avvisi nella scheda «Controlli».`):""}</p>
+    <p class="mini" style="margin:0">${S.handle?"«Salva nel file» sovrascrive il file aperto: conviene averne una copia. ":""}«Scarica una copia» salva nella cartella dei download un file con lo stesso nome, da mettere al posto dell'originale.</p>`;
+  const r=await dlg("Salva il database",body,[{t:"Annulla",cancel:true},{t:"Scarica una copia",v:"dl",pri:!S.handle}].concat(S.handle?[{t:"Salva nel file",v:"file",pri:true}]:[]));
+  if(!r) return;
+  try{
+    if(r==="file"){ const wr=await S.handle.createWritable(); await wr.write(out.text); await wr.close(); }
+    else window.saveBlob(S.name||"Calcoli_elettrici.html",out.text);
+  }catch(err){ await alertDlg("Salvataggio non riuscito",esc(err.message||String(err))+". Riprova con «Scarica una copia»."); return; }
+  S.src=out.text; S.F=out.F; S.C=out.C; S.dirty=false; S.undo=[]; S.log.push([new Date(),r==="file"?"salvato nel file":"copia scaricata"]); head(); refresh();
+}
+
+/* =============================== avvio =============================== */
+window.saveBlob=saveBlob;
+$("bOpen").onclick=openPick; $("bOpen2").onclick=openPick; $("bUndo").onclick=undo; $("bSave").onclick=save;
+$("file").addEventListener("change",ev=>{ const f=ev.target.files[0]; if(f) readFile(f); });
+$("tabs").addEventListener("click",ev=>{ const b=ev.target.closest("button[data-t]"); if(!b) return; UI.tab=b.dataset.t; refresh(); });
+$("kRun").onclick=drawK;
+$("dlgB").addEventListener("keydown",ev=>{ if(ev.key==="Enter"&&ev.target.tagName==="INPUT"&&ev.target.type!=="file"){ ev.preventDefault(); const b=$("dlgA").querySelector(".btn.pri"); if(b) b.click(); } });
+const dz=$("drop");
+["dragenter","dragover"].forEach(n=>document.addEventListener(n,ev=>{ ev.preventDefault(); dz.classList.add("over"); }));
+["dragleave","drop"].forEach(n=>document.addEventListener(n,ev=>{ ev.preventDefault(); dz.classList.remove("over"); }));
+document.addEventListener("drop",async ev=>{ const f=ev.dataTransfer&&ev.dataTransfer.files[0]; if(!f) return; if(S.dirty&&!(await confirmDlg("Aprire un altro file?","Le modifiche non salvate andranno perse.","Apri comunque",true))) return; readFile(f); });
+document.addEventListener("keydown",ev=>{ if((ev.ctrlKey||ev.metaKey)&&ev.key==="z"&&!/INPUT|TEXTAREA/.test(ev.target.tagName)){ ev.preventDefault(); undo(); } if((ev.ctrlKey||ev.metaKey)&&ev.key==="s"){ ev.preventDefault(); save(); } });
+window.addEventListener("beforeunload",ev=>{ if(S.dirty){ ev.preventDefault(); ev.returnValue=""; } });
+$("tL").addEventListener("change",ev=>{ UI.t.id=ev.target.value; drawT(); });
+fActions(); cActions();
+</script>
+</body>
+</html>
