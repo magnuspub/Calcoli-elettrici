@@ -60,7 +60,8 @@ label.ck{display:flex;gap:7px;align-items:center;font-size:12.5px;color:var(--te
 .tabs button.on{background:var(--surface-1);border-color:var(--border);color:var(--text-primary);font-weight:650;margin-bottom:-1px}
 .two{display:grid;grid-template-columns:330px 1fr;gap:16px;align-items:start}
 @media (max-width:980px){.two{grid-template-columns:1fr}}
-.side{position:sticky;top:8px}
+/* la colonna di scelta resta ferma solo quando è affiancata al dettaglio; se è più alta della finestra scorre al suo interno */
+@media (min-width:981px){.side{position:sticky;top:8px;max-height:calc(100vh - 16px);overflow-y:auto;padding:0 3px 2px 0}}
 .side select[size]{width:100%;height:340px;padding:2px;font-size:12.5px}
 .side select,.side input{width:100%}
 .side .acts{margin-top:8px}
@@ -210,14 +211,14 @@ dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monosp
       <div id="kLog" class="mini"></div>
     </section>
   </div>
-  <p class="foot"><b>Gestione curve</b> · versione 0.2.0 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · 2026</p>
+  <p class="foot"><b>Gestione curve</b> · versione 0.2.3 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · 2026</p>
 </main>
 
 <dialog id="dlg"><form method="dialog" id="dlgF"><h3 id="dlgT"></h3><div id="dlgB"></div><div class="acts" id="dlgA"></div></form></dialog>
 
 <script>
 "use strict";
-const ED_VER="0.2.0";
+const ED_VER="0.2.3";
 /* =========================================================================================
    Formato dei database (definito in Calcoli_elettrici.html)
    FUS_DB: g = famiglie [gruppo, descrizione] · p = [tipo, famiglia, Un (V), In (A), Icn (kA), caratteristica, curva t-I, curva limitazione, curva I²t, I min di interruzione (A)]
@@ -439,7 +440,10 @@ function curveEd(o){
     if(a==="add"){ let k=sel>=0?sel:n-1, x,y;
       if(n===0){ x=10; y=1; k=-1; } else if(k<n-1){ x=sig(Math.sqrt(arr[2*k]*arr[2*k+2]),4); y=sig(Math.sqrt(arr[2*k+1]*arr[2*k+3]),4); } else { x=sig(arr[2*k]*1.5,4); y=arr[2*k+1]; }
       arr.splice(2*(k+1),0,x,y); sel=k+1; commit("punto aggiunto"); }
-    else if(a==="del"){ if(sel<0||n<=(o.min==null?2:o.min)) return; arr.splice(2*sel,2); commit("punto eliminato"); }
+    else if(a==="del"){ const mn=o.min==null?2:o.min;
+      if(n<=mn){ R("msg").className="msg bad"; R("msg").textContent=mn?`Punto non tolto: la curva deve avere almeno ${mn} punt${mn===1?"o":"i"}.`:"Non ci sono punti da togliere."; return; }
+      if(sel<0){ R("msg").className="msg bad"; R("msg").textContent="Scegli prima il punto da togliere, con un clic sul grafico o sulla sua riga della tabella."; return; }
+      arr.splice(2*sel,2); commit("punto eliminato"); }
     else if(a==="sort"){ const P=[]; for(let i=0;i<n;i++) P.push([arr[2*i],arr[2*i+1],i]); P.sort((p,q)=>p[0]-q[0]||p[2]-q[2]); const c=[]; P.forEach(p=>c.push(p[0],p[1])); if(same(c,arr)) return; arr=c; sel=-1; commit("punti ordinati per corrente"); }
     else if(a==="copy"){ let t=""; for(let i=0;i<n;i++) t+=fn(arr[2*i])+"\t"+fn(arr[2*i+1])+"\n"; const ok=await copyText(t); R("msg").className="msg ok"; R("msg").textContent=ok?`${n} punti copiati: si possono incollare in Excel.`:"Copia non riuscita."; }
     else if(a==="paste"){
@@ -448,8 +452,14 @@ function curveEd(o){
       const ta=$("pasteT"); $("pasteF").addEventListener("change",e=>{ const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ ta.value=String(r.result); }; r.readAsText(f); });
       const mode=await p; if(!mode) return; const q=parsePoints(ta.value);
       if(!q.c.length){ R("msg").className="msg bad"; R("msg").textContent="Nessun punto riconosciuto nel testo incollato."; return; }
-      if(mode==="rep") arr=q.c; else { const P=[]; const all=arr.concat(q.c); for(let i=0;i<all.length;i+=2) P.push([all[i],all[i+1],i]); P.sort((a,b)=>a[0]-b[0]||a[2]-b[2]); arr=[]; P.forEach(v=>arr.push(v[0],v[1])); }
-      sel=-1; commit(`${q.c.length/2} punti incollati`+(q.bad.length?` (${q.bad.length} righe ignorate)`:"")); }
+      let sorted=false;
+      if(mode==="rep"){ const P=[]; for(let i=0;i<q.c.length;i+=2) P.push([q.c[i],q.c[i+1],i]);
+        const up=P.every((v,i)=>!i||v[0]>=P[i-1][0]), down=P.every((v,i)=>!i||v[0]<=P[i-1][0]);
+        if(!up){ if(down) P.reverse(); else P.sort((a,b)=>a[0]-b[0]||a[2]-b[2]); sorted=true; }   // tutta decrescente: si capovolge, così i tratti verticali restano nell'ordine giusto
+        arr=[]; P.forEach(v=>arr.push(v[0],v[1])); }
+      else { const P=[]; const all=arr.concat(q.c); for(let i=0;i<all.length;i+=2) P.push([all[i],all[i+1],i]); P.sort((a,b)=>a[0]-b[0]||a[2]-b[2]); arr=[]; P.forEach(v=>arr.push(v[0],v[1])); }
+      sel=-1; commit(`${q.c.length/2} punti incollati`+(sorted?", messi in ordine di corrente crescente":"")+(q.bad.length?` (${q.bad.length} righe ignorate)`:""));
+      if(sorted&&!R("msg").textContent){ R("msg").className="msg ok"; R("msg").textContent="I punti incollati erano in ordine diverso: sono stati messi in ordine di corrente crescente."; } }
     else if(a==="scale"){ const r=await askDlg("Scala la curva",[{k:"x",l:"Moltiplica le correnti per",v:"1"},{k:"y",l:"Moltiplica i valori ("+o.vh.toLowerCase()+") per",v:"1"}],"Applica"); if(!r) return;
       const kx=pn(r.x), ky=pn(r.y); if(!(kx>0&&ky>0)||(kx===1&&ky===1)) return; arr=arr.map((v,i)=>sig(v*(i%2?ky:kx),6)); commit(`curva scalata (correnti × ${fn(kx)}, valori × ${fn(ky)})`); }
     else if(a==="simp"){ const r=await askDlg("Semplifica la curva",[{k:"t",l:"Scarto massimo ammesso dalla curva attuale (%)",v:"1"}],"Semplifica"); if(!r) return; const t=pn(r.t); if(!(t>0)) return;
@@ -743,7 +753,7 @@ const FMT_KV=["6","10","15","20","30"];
 const TDEF=[
   {id:"TR_TYP",src:"TR_TYP",name:"Trasformatori tipici",desc:"Valori proposti nelle righe dei trasformatori del modulo Cortocircuito: scelta la potenza, il programma usa la riga con la potenza più vicina per u<sub>k</sub> e perdite a carico.",
     cols:[colN("Potenza S (kVA)",{uniq:1}),colN("Perdite a carico Pk (W)"),colN("uk (%)")], sort:1, get:T=>T.TR_TYP.map(r=>[r.S,r.Pk,r.uk]), set:(T,r)=>{ T.TR_TYP=r.map(x=>({S:x[0],Pk:x[1],uk:x[2]})); }},
-  {id:"INRUSH.olio",src:"INRUSH",name:"Inserzione · trasformatori in olio",desc:"Corrente di inserzione del modulo Magnetizzazione: rapporto k tra la cresta e la corrente nominale e costante di tempo τ. Il programma usa la riga con la potenza più vicina.",
+  {id:"INRUSH.olio",src:"INRUSH",name:"Inserzione · trasformatori in olio",desc:"Valori di inserzione proposti nelle righe dei trasformatori del modulo Cortocircuito: rapporto k tra la cresta e la corrente nominale primaria e costante di tempo τ. Scelti potenza e tipo, il programma propone la riga con la potenza più vicina.",
     cols:[colN("Potenza S (kVA)",{uniq:1}),colN("k = cresta / In"),colN("τ (s)")], sort:1, get:T=>zipI(T.INRUSH.olio), set:(T,r)=>{ T.INRUSH.olio=unzipI(r); }},
   {id:"INRUSH.secco",src:"INRUSH",name:"Inserzione · trasformatori a secco",desc:"Come la precedente, per i trasformatori a secco (in resina).",
     cols:[colN("Potenza S (kVA)",{uniq:1}),colN("k = cresta / In"),colN("τ (s)")], sort:1, get:T=>zipI(T.INRUSH.secco), set:(T,r)=>{ T.INRUSH.secco=unzipI(r); }},
@@ -826,9 +836,14 @@ function gridEd(d){
     else if(a==="sort"){ next.sort((p,q)=>p[0]-q[0]); if(same(next,rows)) return; sel=-1; commit(next,"righe ordinate"); }
     else if(a==="copy"){ const t=d.cols.map(c=>c.l).join("\t")+"\n"+rows.map(r=>r.map((v,j)=>cell(d.cols[j],v)).join("\t")).join("\n")+"\n"; say((await copyText(t))?`${rows.length} righe copiate: si possono incollare in Excel.`:"Copia non riuscita.",true); }
     else if(a==="paste"){
-      const pr=dlg("Incolla la tabella",`<p class="mini" style="margin:0 0 8px">Una riga per voce, colonne separate da tabulazione (celle copiate da Excel) o da punto e virgola, nello stesso ordine: <b>${d.cols.map(c=>esc(c.l)).join(" · ")}</b>. La riga di intestazione è ignorata. La tabella attuale viene sostituita.</p><textarea id="pasteG"></textarea>`,[{t:"Annulla",cancel:true},{t:"Sostituisci la tabella",pri:true}]);
+      const pr=dlg("Incolla la tabella",`<p class="mini" style="margin:0 0 8px">Una riga per voce, colonne separate da tabulazione (celle copiate da Excel o da «Copia tabella») oppure da punto e virgola, nello stesso ordine: <b>${d.cols.map(c=>esc(c.l)).join(" · ")}</b>. La riga di intestazione è ignorata. La tabella attuale viene sostituita.</p><textarea id="pasteG"></textarea>`,[{t:"Annulla",cancel:true},{t:"Sostituisci la tabella",pri:true}]);
       const ta=$("pasteG"); if(!(await pr)) return; const out=[];
-      ta.value.split(/\r?\n/).forEach(ln=>{ if(!ln.trim()) return; let c=/[\t;]/.test(ln)?ln.split(/[\t;]/):(d.cols.every(x=>x.t==="n")?ln.trim().split(/\s+/):[ln]); c=c.map(x=>x.trim());
+      const tj=d.cols.map((x,j)=>x.t==="s"&&!x.key?j:-1).filter(j=>j>=0).pop();   // colonna di testo libero (descrizione)
+      ta.value.split(/\r?\n/).forEach(ln=>{ if(!ln.trim()) return; let c;
+        if(ln.indexOf("\t")>=0) c=ln.split("\t");                                  // celle copiate da Excel o da «Copia tabella»
+        else if(ln.indexOf(";")>=0){ c=ln.split(";"); const ex=c.length-d.cols.length; if(ex>0&&tj!=null) c.splice(tj,ex+1,c.slice(tj,tj+ex+1).join(";")); }
+        else c=d.cols.every(x=>x.t==="n")?ln.trim().split(/\s+/):[ln];
+        c=c.map(x=>x.trim());
         const r=d.cols.map((col,j)=>col.t==="n"?pn(c[j]):(c[j]||"")); if(!out.length&&d.cols.some((col,j)=>col.t==="n"&&!isFinite(r[j]))&&/[A-Za-zÀ-ú]/.test(ln)) return; out.push(r); });
       sel=-1; commit(out,`${out.length} righe incollate`); }
   });
