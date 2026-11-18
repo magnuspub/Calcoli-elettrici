@@ -129,10 +129,11 @@ input:disabled{opacity:.45}
 .pmt-head{display:grid;grid-template-columns:1.4fr 1fr .75fr .75fr 1.1fr .8fr .85fr auto;gap:8px;align-items:end}
 .pmt-th{display:grid;grid-template-columns:86px 76px 1fr 1.5fr .8fr 1.6fr;gap:6px 8px;align-items:center;margin-top:6px;font-size:12px}
 .pmt-th .hd{font-size:11px;color:var(--text-muted)}
+.pmt-tol{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:end;margin-top:10px}
 .pmt-th input[type=number],.pmt-th select,.pmt-th input[type=text]{width:100%}
 .pmt-th .o{color:var(--text-secondary);font-variant-numeric:tabular-nums}
 .pmt-prot .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px}
-@media (max-width:860px){.pmt-head{grid-template-columns:1fr 1fr}.pmt-th{grid-template-columns:70px 60px 1fr 1fr}}
+@media (max-width:860px){.pmt-tol{grid-template-columns:1fr 1fr}.pmt-head{grid-template-columns:1fr 1fr}.pmt-th{grid-template-columns:70px 60px 1fr 1fr}}
 .magres .ttlrow{font-size:12px;font-weight:650;color:var(--text-secondary);margin:12px 0 6px}
 .magres .kpi{padding:8px 10px}.magres .kpi .v{font-size:16px}
 .brcab-tgl{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--text-secondary);cursor:pointer;margin-top:8px}
@@ -244,7 +245,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.12</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.13</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -680,7 +681,7 @@ details.adv>.in{margin-top:10px}
 <!-- Protezioni MT -->
 <div class="card" id="modPMT" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
   <h2><span class="ttl">Protezioni MT</span><span class="pill">CEI 0-16 · IEC 60255-151</span><span class="expbtns"><button type="button" onclick="exportModule('modPMT','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modPMT','xls')">↧ Excel</button></span></h2>
-  <p class="hint">Curve di intervento dei relè di massima corrente di fase (50/51) e di terra (51N, 67N) sul lato MT, con più protezioni in cascata per la verifica della selettività, la curva limite comunicata dal distributore e la corrente di inserzione totale dei trasformatori del modulo Cortocircuito. Le soglie si inseriscono in multipli della corrente primaria del TA (o in ampere primari); i grafici sono sempre in ampere primari. I tempi disegnati sono quelli di <b>estinzione</b>: intervento del relè più apertura dell'interruttore.</p>
+  <p class="hint">Curve di intervento dei relè di massima corrente di fase (50/51) e di terra (51N, 67N) sul lato MT, con più protezioni in cascata per la verifica della selettività, la curva limite comunicata dal distributore e la corrente di inserzione totale dei trasformatori del modulo Cortocircuito. Le soglie si inseriscono in multipli della corrente primaria del TA (o in ampere primari); i grafici sono sempre in ampere primari. I tempi disegnati sono quelli di <b>estinzione</b>: intervento del relè più apertura dell'interruttore. Attorno a ogni curva è disegnata la <b>fascia di tolleranza</b> data dagli errori di relè, TA e TO indicati in ogni protezione.</p>
 
   <div class="subh">Rete e limiti comunicati dal distributore</div>
   <div class="grid3" style="align-items:end">
@@ -719,8 +720,10 @@ details.adv>.in{margin-top:10px}
     <div id="pm_trChk" class="mini" style="grid-column:span 2;display:flex;flex-wrap:wrap;gap:4px 16px"></div>
     <label class="toggle"><input type="checkbox" id="pm_onFus"><span>sovrapponi il fusibile A del modulo «Curve dei fusibili»</span></label>
     <label class="toggle"><input type="checkbox" id="pm_onCb"><span>sovrapponi gli interruttori BT del modulo «Curve degli interruttori»</span></label>
-    <label class="f">Trasformatore a monte degli interruttori BT<span class="tip" tabindex="0" data-tip="Le correnti degli interruttori BT sono riportate al lato MT con il rapporto di targa U2/U1 di questo trasformatore, come per un guasto trifase. Con un guasto bifase in BT a valle di un trasformatore Dyn una fase MT porta la stessa corrente del guasto trifase, mentre l'interruttore BT ne vede l'87 %: la selettività reale è un po' più stretta di quella mostrata.">i</span><select id="pm_trSel"></select></label>
-    <label class="f">Margine di selettività tra due protezioni <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Differenza minima richiesta tra il tempo di intervento del relè a monte e il tempo di estinzione della protezione a valle, alla stessa corrente. Copre tolleranze dei tempi e tempo di ricaduta: valori usuali 0,1–0,2 s.">i</span><input type="number" id="pm_dt" value="0.1" step="any"></label>
+    <label class="toggle"><input type="checkbox" id="pm_onWth"><span>sovrapponi la tenuta al cortocircuito del trasformatore (I<sub>k</sub> per 2 s)</span></label>
+    <label class="toggle"><input type="checkbox" id="pm_onTol" checked><span>mostra le fasce di tolleranza e usale nelle verifiche</span></label>
+    <label class="f">Trasformatore di riferimento<span class="tip" tabindex="0" data-tip="Trasformatore usato per la tenuta al cortocircuito e per riportare alla MT gli interruttori BT. Le correnti degli interruttori BT sono riportate al lato MT con il rapporto di targa U2/U1 di questo trasformatore, come per un guasto trifase. Con un guasto bifase in BT a valle di un trasformatore Dyn una fase MT porta la stessa corrente del guasto trifase, mentre l'interruttore BT ne vede l'87 %: la selettività reale è un po' più stretta di quella mostrata.">i</span><select id="pm_trSel"></select></label>
+    <label class="f">Margine di selettività tra due protezioni <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Differenza minima richiesta tra il tempo di intervento del relè a monte e il tempo di estinzione della protezione a valle, alla stessa corrente. Senza fasce di tolleranza copre anche gli errori dei tempi: valori usuali 0,1–0,2 s. Con le fasce attive i tempi sono già al caso peggiore e il margine copre il tempo di ricaduta e una riserva.">i</span><input type="number" id="pm_dt" value="0.1" step="any"></label>
   </div>
 
   <div class="subh" style="margin-top:14px">Massima corrente di fase</div>
@@ -729,7 +732,7 @@ details.adv>.in{margin-top:10px}
   <div id="pm_chartE"></div><div id="pm_legE" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
   <hr class="sep">
   <div id="pm_checks"></div>
-  <p class="note">Curve a tempo dipendente: t = k·(A/((I/I<sub>s</sub>)<sup>p</sup> − 1) + B), con le costanti IEC 60255-151 / IEEE C37.112 (le stesse del manuale tecnico ABB serie 615); tipo RI: t = k/(0,339 − 0,236·I<sub>s</sub>/I); tipo RD: t = 5,8 − 1,35·ln(I/(k·I<sub>s</sub>)). Il tempo resta costante oltre 20 volte la soglia (relè generico e NA016) oppure oltre 50 volte la corrente nominale del relè (REF615). Il tempo minimo delle curve dipendenti è regolabile in ogni protezione (REF615: predefinito 20 ms); per l'NA016 la curva parte da 1,1 volte la soglia e il tempo minimo è fisso a 0,1 s. L'inserzione totale è la somma degli inviluppi efficaci I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup> dei trasformatori scelti: è prudente, perché le creste non coincidono. Le soglie direzionali 67N sono disegnate come soglie di corrente, senza la verifica del settore angolare. Le regolazioni valide sono quelle comunicate dal distributore.</p>
+  <p class="note">Curve a tempo dipendente: t = k·(A/((I/I<sub>s</sub>)<sup>p</sup> − 1) + B), con le costanti IEC 60255-151 / IEEE C37.112 (le stesse del manuale tecnico ABB serie 615); tipo RI: t = k/(0,339 − 0,236·I<sub>s</sub>/I); tipo RD: t = 5,8 − 1,35·ln(I/(k·I<sub>s</sub>)). Il tempo resta costante oltre 20 volte la soglia (relè generico e NA016) oppure oltre 50 volte la corrente nominale del relè (REF615). Il tempo minimo delle curve dipendenti è regolabile in ogni protezione (REF615: predefinito 20 ms); per l'NA016 la curva parte da 1,1 volte la soglia e il tempo minimo è fisso a 0,1 s. L'inserzione totale è la somma degli inviluppi efficaci I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup> dei trasformatori scelti: è prudente, perché le creste non coincidono. La fascia di tolleranza sposta le soglie di ± (errore del relè + errore del TA o del TO) e i tempi di ± (percentuale + quota fissa); il confronto con i limiti del distributore resta sui valori impostati. La tenuta del trasformatore è il punto I<sub>k</sub> = I<sub>n</sub>·100/u<sub>k</sub> per 2 s (CEI EN 60076-5). Le soglie direzionali 67N sono disegnate come soglie di corrente, senza la verifica del settore angolare. Le regolazioni valide sono quelle comunicate dal distributore.</p>
 </div>
 
   <!-- Verifica 61439 (modulo separato) -->
@@ -1063,7 +1066,7 @@ details.adv>.in{margin-top:10px}
 <div class="foot">
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni aggiungono il proprio contributo, sommato su tutti i motori inseriti (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.12 · Federico Magnani · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.13 · Federico Magnani · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1076,7 +1079,7 @@ details.adv>.in{margin-top:10px}
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.12";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.13";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -1494,7 +1497,7 @@ function computeI2t(){
 
 /* ---------- magnetizzazione / inserzione / spunto ---------- */
 /* valori tipici di inserzione per taglia e tipo (Politecnico di Torino): Ie/In e costante di tempo τ */
-const INRUSH={"olio":{"S":[100,160,250,315,400,500,630,800,1000,1250,1600,2000,2500,3130],"k":[11.5,11,10.5,10,9.5,9,8,8,7.5,7.5,7.4,7.2,7.2,7],"tau":[0.07,0.08,0.08,0.1,0.12,0.14,0.15,0.18,0.2,0.22,0.25,0.27,0.3,0.35]},"secco":{"S":[100,160,250,315,400,500,630,800,1000,1250,1600,2000,2500,3130],"k":[10.5,10.5,10.5,10,10,10,10,10,10,10,10,9.5,9.5,9.5],"tau":[0.1,0.13,0.18,0.2,0.25,0.25,0.26,0.3,0.3,0.35,0.4,0.4,0.5,0.6]}};
+const INRUSH={"olio":{"S":[50,100,160,250,400,630,1000,1600,2000],"k":[15,14,12,12,12,11,10,9,8],"tau":[0.1,0.15,0.2,0.22,0.25,0.3,0.35,0.4,0.45]},"secco":{"S":[100,160,250,315,400,500,630,800,1000,1250,1600,2000,2500,3130],"k":[10.5,10.5,10.5,10,10,10,10,10,10,10,10,9.5,9.5,9.5],"tau":[0.1,0.13,0.18,0.2,0.25,0.25,0.26,0.3,0.3,0.35,0.4,0.4,0.5,0.6]}};
 function inrushLookup(S,type){
   const t=INRUSH[type]||INRUSH.olio;
   let idx=0,d=1e9; for(let i=0;i<t.S.length;i++){const dd=Math.abs(t.S[i]-S); if(dd<d){d=dd;idx=i;}}
@@ -1510,7 +1513,7 @@ function fillInrushRow(br){
 function magRows(){
   const v=(d,k)=>{ const e=d.querySelector(`[data-k=${k}]`); return e?(parseFloat(String(e.value).replace(",","."))||0):0; }, tx=(d,k)=>{ const e=d.querySelector(`[data-k=${k}]`); return e?e.value:""; };
   const tr=[...document.querySelectorAll("#trList .tr-branch")].map(d=>{ const S=v(d,"S")*1000, U1=v(d,"uhv"), U2=v(d,"ulv");
-    return {id:d.dataset.id,desc:tx(d,"desc"),SkVA:v(d,"S"),U1,U2,In1:(S>0&&U1>0)?S/(SQ3*U1):0,In2:(S>0&&U2>0)?S/(SQ3*U2):0,i0:v(d,"i0"),k:v(d,"kin"),tau:v(d,"tau"),tipo:tx(d,"tt")}; });
+    return {id:d.dataset.id,desc:tx(d,"desc"),SkVA:v(d,"S"),U1,U2,In1:(S>0&&U1>0)?S/(SQ3*U1):0,In2:(S>0&&U2>0)?S/(SQ3*U2):0,i0:v(d,"i0"),k:v(d,"kin"),tau:v(d,"tau"),tipo:tx(d,"tt"),uk:v(d,"uk")}; });
   const Uf=tr.length?tr[0].U1:0;   // tensione di fornitura: primario del primo trasformatore
   const mo=[...document.querySelectorAll("#motList .mot-row")].map(d=>{ const P=v(d,"P")*1000, U=v(d,"U"), ce=v(d,"eta"), In=(P>0&&U>0&&ce>0)?P/(SQ3*U*ce):0, k=v(d,"klr");
     return {id:d.dataset.id,desc:tx(d,"desc"),PkW:v(d,"P"),U,In,k,Iavv:In*k,kF:(U>0&&Uf>U)?U/Uf:1}; });
@@ -1979,16 +1982,16 @@ const PMT_CUR={DT:{n:"Tempo indipendente"},
 // modello: m0 = multiplo della soglia da cui parte la curva dipendente · sat = multiplo della soglia oltre il quale il tempo resta costante
 //          satIn = come sat, ma in multipli della corrente nominale del relè (TA o TO) · tmin = tempo minimo predefinito delle curve dipendenti (s),
 //          regolabile in ogni protezione · fixMin = tempo minimo fisso del relè, sotto il quale la regolazione non scende
-const PMT_MOD={gen:{n:"Generico",m0:1.03,sat:20,tmin:0,h:""},
-  ref615:{n:"ABB REF615",m0:1.01,sat:Infinity,satIn:50,tmin:0.02,h:"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In."},
-  na016:{n:"Thytronic NA016",m0:1.1,sat:20,tmin:0.1,fixMin:0.1,h:"NA016: I> a tempo dipendente IEC A, B o C (0,1…2,5 In, t>inv 0,02…60 s, asintoto a 1,1 volte la soglia, tempo minimo fisso 0,1 s: il relè non ha la regolazione del tempo minimo); I>> e I>>> a tempo indipendente (0,1…20 In, 0,03…10 s); IE> e IE>> a tempo indipendente (0,005…5 IEn). Non ha soglie direzionali."}};
+const PMT_MOD={gen:{n:"Generico",m0:1.03,sat:20,tmin:0,ei:5,et:3,etm:20,h:""},
+  ref615:{n:"ABB REF615",m0:1.01,sat:Infinity,satIn:50,tmin:0.02,ei:1.5,et:1,etm:20,h:"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente."},
+  na016:{n:"Thytronic NA016",m0:1.1,sat:20,tmin:0.1,fixMin:0.1,ei:4,et:5,etm:10,h:"NA016: I> a tempo dipendente IEC A, B o C (0,1…2,5 In, t>inv 0,02…60 s, asintoto a 1,1 volte la soglia, tempo minimo fisso 0,1 s: il relè non ha la regolazione del tempo minimo); I>> e I>>> a tempo indipendente (0,1…20 In, 0,03…10 s); IE> e IE>> a tempo indipendente (0,005…5 IEn). Non ha soglie direzionali. Precisione dal manuale: soglie ±4 % ±1 % In, tempi 5 % o ±10 ms."}};
 const PMT_TH=[["I1","I&gt;","F"],["I2","I&gt;&gt;","F"],["I3","I&gt;&gt;&gt;","F"],["E1","I<sub>0</sub>&gt;","E"],["E2","I<sub>0</sub>&gt;&gt;","E"],["D1","67N.S1","E"],["D2","67N.S2","E"]];
-const PMT_PAL={bg:'var(--surface-1)',grid:'var(--border)',ink:'var(--text-primary)',muted:'var(--text-muted)',p:['var(--s1)','var(--s3)','var(--s4)','var(--s2)'],dso:'var(--crit)',inr:'var(--warn)',ik:'var(--text-secondary)',fz:'var(--text-muted)',cb:['var(--s4)','var(--s2)']};
-const PMT_PAL_PRINT={bg:'#fff',grid:'#c9c9c9',ink:'#111',muted:'#555',p:['#2a78d6','#1baf7a','#6250d6','#eb6834'],dso:'#d93a3a',inr:'#c98500',ik:'#555',fz:'#888',cb:['#6250d6','#eb6834']};
+const PMT_PAL={bg:'var(--surface-1)',grid:'var(--border)',ink:'var(--text-primary)',muted:'var(--text-muted)',p:['var(--s1)','var(--s3)','var(--s4)','var(--s2)'],dso:'var(--crit)',inr:'var(--warn)',ik:'var(--text-secondary)',fz:'var(--text-muted)',cb:['var(--s4)','var(--s2)'],wth:'var(--text-primary)'};
+const PMT_PAL_PRINT={bg:'#fff',grid:'#c9c9c9',ink:'#111',muted:'#555',p:['#2a78d6','#1baf7a','#6250d6','#eb6834'],dso:'#d93a3a',inr:'#c98500',ik:'#555',fz:'#888',cb:['#6250d6','#eb6834'],wth:'#111'};
 let pmtSeq=0, PMT_ST=null; const PMT_EXC=new Set();   // PMT_EXC: trasformatori esclusi dall'inserzione totale (id di riga)
 function pmtRow(def={}){
   pmtSeq++; const id=pmtSeq, d=document.createElement("div"); d.className="pmt-prot"; d.dataset.id=id;
-  const T=def.th||{}, cur=Object.keys(PMT_CUR).map(k=>`<option value="${k}">${PMT_CUR[k].n}</option>`).join("");
+  const TOL0=PMT_MOD[def.mod||"gen"]||PMT_MOD.gen, T=def.th||{}, cur=Object.keys(PMT_CUR).map(k=>`<option value="${k}">${PMT_CUR[k].n}</option>`).join("");
   let h=`<div class="pmt-head">
       <label class="f">Nome<input type="text" data-k="desc" value="${escH(def.desc||("Protezione "+id))}"></label>
       <label class="f">Relè<select data-k="mod">${Object.keys(PMT_MOD).map(k=>`<option value="${k}">${PMT_MOD[k].n}</option>`).join("")}</select></label>
@@ -2001,6 +2004,12 @@ function pmtRow(def={}){
     <div style="display:flex;gap:6px 22px;flex-wrap:wrap;margin-top:8px">
       <label class="brcab-tgl" style="margin-top:0"><input type="checkbox" data-k="dg" ${def.dg?"checked":""}><span>è la protezione generale: confronta con i limiti del distributore</span></label>
       <label class="brcab-tgl" style="margin-top:0"><input type="checkbox" data-k="h2" ${def.h2?"checked":""}><span>blocco di seconda armonica sulle soglie di fase</span></label></div>
+    <div class="pmt-tol">
+      <label class="f">Errore del relè sulle soglie (± %)<span class="tip" tabindex="0" data-tip="Errori usati per la fascia di tolleranza. Soglie: errore del relè più errore del TA (fase) o del TO (terra), sommati. Tempi: percentuale del tempo più una quota fissa. Valori proposti. Relè generico: limiti della CEI 0-16 per la protezione generale (5 %, 3 % ± 20 ms). REF615: 1,5 % e 1 % ± 20 ms (5 % sulle curve a tempo dipendente). NA016: 4 % (più 1 % di In secondo il manuale) e 5 % ± 10 ms. Cambiando relè vengono riproposti i suoi valori.">i</span><input type="number" data-k="ei" value="${def.ei!=null?def.ei:TOL0.ei}" step="any"></label>
+      <label class="f">Errore del TA (± %)<span class="tip" tabindex="0" data-tip="TA di protezione classe 5P: errore di rapporto ±1 % alla corrente nominale, errore composto 5 % alla corrente limite di precisione (CEI EN 61869-2). La CEI 0-16 considera idonei senza verifica i TA 300/5 da 10 VA, 5P30.">i</span><input type="number" data-k="eta" value="${def.eta!=null?def.eta:1}" step="any"></label>
+      <label class="f">Errore del TO (± %)<span class="tip" tabindex="0" data-tip="Toroide omopolare 100/1 A secondo la CEI 0-16 (tabella degli errori del TO): errore di rapporto ±5 % all'1 % della corrente nominale, ±1 % dal 5 % alla corrente nominale, ±5 % a 20 volte la corrente nominale. Con soglie di pochi ampere vale il valore più alto.">i</span><input type="number" data-k="eto" value="${def.eto!=null?def.eto:5}" step="any"></label>
+      <label class="f">Errore sui tempi (± %)<input type="number" data-k="et" value="${def.et!=null?def.et:TOL0.et}" step="any"></label>
+      <label class="f">Errore sui tempi (± ms)<input type="number" data-k="etm" value="${def.etm!=null?def.etm:TOL0.etm}" step="any"></label></div>
     <div class="pmt-th"><span class="hd">Soglia</span><span class="hd">Attiva</span><span class="hd">Valore</span><span class="hd">Curva</span><span class="hd">Tempo (s) o k</span><span class="hd">In ampere primari · estinzione</span>`;
   PMT_TH.forEach(([k,lab,fam])=>{ const t=T[k]||{};
     h+=`<b>${lab}</b><label class="toggle"><input type="checkbox" data-k="on_${k}" ${t.on?"checked":""}></label>
@@ -2012,17 +2021,20 @@ function pmtRow(def={}){
   d.querySelector('[data-k=mod]').value=def.mod||"gen"; d.querySelector('[data-k=unit]').value=def.unit||"mult";
   PMT_TH.forEach(([k])=>{ d.querySelector(`[data-k=c_${k}]`).value=(T[k]&&T[k].c)||"DT"; });
   d.querySelector(".del").onclick=()=>{ d.remove(); recompute(); };
-  // cambiando relè si propone il suo tempo minimo predefinito
-  d.querySelector('[data-k=mod]').addEventListener("change",ev=>{ d.querySelector('[data-k=tmin]').value=Math.round((PMT_MOD[ev.target.value]||PMT_MOD.gen).tmin*1000); recompute(); });
+  // cambiando relè si propongono il suo tempo minimo predefinito e la sua precisione
+  d.querySelector('[data-k=mod]').addEventListener("change",ev=>{ d.querySelector('[data-k=tmin]').value=Math.round((PMT_MOD[ev.target.value]||PMT_MOD.gen).tmin*1000); pmtTolDef(d); recompute(); });
   d.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",recompute));
   $("pmtList").appendChild(d);
 }
+// precisione dichiarata del relè scelto, proposta nei campi delle tolleranze
+function pmtTolDef(d){ const m=PMT_MOD[d.querySelector('[data-k=mod]').value]||PMT_MOD.gen; ["ei","et","etm"].forEach(k=>{ d.querySelector(`[data-k=${k}]`).value=m[k]; }); }
 // legge una protezione dalla riga: soglie in ampere primari
 function pmtRead(d){
   const g=k=>d.querySelector(`[data-k=${k}]`), n=k=>parseFloat(String(g(k).value).replace(",","."))||0;
   const m0=PMT_MOD[g("mod").value]||PMT_MOD.gen, tmn=Math.max(n("tmin")/1000,0), mod=Object.assign({},m0,{tmin:m0.fixMin?Math.max(tmn,m0.fixMin):tmn}), mult=g("unit").value==="mult", inp=n("inp"), ienp=n("ienp"), tcb=n("tcb")/1000, th={};
   PMT_TH.forEach(([k,lab,fam])=>{ const v=n("v_"+k); th[k]={k,lab,fam,base:fam==="F"?inp:ienp,on:g("on_"+k).checked,c:g("c_"+k).value,t:n("t_"+k),Is:mult?v*(fam==="F"?inp:ienp):v,dir:k[0]==="D",u:k[0]==="D"?n("u_"+k):0,a:k[0]==="D"?g("a_"+k).value:""}; });
-  return {el:d,desc:g("desc").value,modK:g("mod").value,mod,inp,ienp,tcb,dg:g("dg").checked,h2:g("h2").checked,th,mult};
+  const pc=k=>Math.min(Math.max(n(k),0),90)/100, tol={ei:n("ei"),eta:n("eta"),eto:n("eto"),etp:n("et"),etm:n("etm"),eF:Math.min(pc("ei")+pc("eta"),0.9),eE:Math.min(pc("ei")+pc("eto"),0.9),et:pc("et"),tm:Math.max(n("etm"),0)/1000};
+  return {el:d,desc:g("desc").value,modK:g("mod").value,mod,inp,ienp,tcb,dg:g("dg").checked,h2:g("h2").checked,th,mult,tol};
 }
 // tempo di intervento di una soglia alla corrente I (A primari); Infinity se non interviene
 function pmtT(th,I,mod){
@@ -2034,6 +2046,12 @@ function pmtT(th,I,mod){
   return Math.min(1e4,Math.max(t,mod.tmin,0.01));
 }
 function pmtTime(pr,fam,I){ let m=Infinity; PMT_TH.forEach(([k,l,f])=>{ if(f===fam) m=Math.min(m,pmtT(pr.th[k],I,pr.mod)); }); return m; }
+// tempo di intervento al bordo della fascia di tolleranza: sg = +1 intervento più lento (soglie più alte, tempi più lunghi), −1 più rapido
+function pmtTimeB(pr,fam,I,sg){
+  const e=fam==="F"?pr.tol.eF:pr.tol.eE; let m=Infinity;
+  PMT_TH.forEach(([k,l,f])=>{ if(f!==fam) return; const th=pr.th[k], t=pmtT(Object.assign({},th,{Is:th.Is*(1+sg*e)}),I,pr.mod); if(isFinite(t)) m=Math.min(m,Math.max(t*(1+sg*pr.tol.et)+sg*pr.tol.tm,0.01)); });
+  return m;
+}
 // curva composta [I,t,…] con tempi decrescenti: T(I) = funzione tempo, starts = correnti di inizio delle soglie, add = tempo da aggiungere (apertura)
 function pmtCurve(T,starts,add,Imax){
   const s=starts.filter(x=>x>0).sort((a,b)=>a-b); if(!s.length) return null;
@@ -2047,25 +2065,32 @@ function pmtCurve(T,starts,add,Imax){
   return out.length>=4?out:null;
 }
 function pmtStarts(pr,fam){ return PMT_TH.filter(q=>q[2]===fam&&pr.th[q[0]].on&&pr.th[q[0]].Is>0).map(q=>pr.th[q[0]].Is*(pr.th[q[0]].c==="DT"?1:pr.mod.m0)); }
+const TR_WTH=[[25,2],[11.3,10],[6.3,30],[4.75,60],[3,300],[2,1800]];   // sovraccarico ammesso dai trasformatori in olio: multipli di In, secondi (ANSI C57.92, dal Quaderno ABB n. 2)
 const PMT_CBDASH="6 3";   // tratteggio delle curve degli interruttori BT riportate alla MT
 function pmtSw(col,dash){ return `<svg width="26" height="8" style="vertical-align:middle;margin-right:5px" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" stroke="${col}" stroke-width="2.2"${dash?` stroke-dasharray="${dash}"`:""}/></svg>`; }
 function pmtChart(st,fam,pal,uid,W){
   const ser=[], vl=[], xs=[], ys=[], areas=[];
   const add=(c,col,dash,w)=>{ if(!c) return; ser.push({c,col,dash,w}); for(let i=0;i<c.length;i+=2){ xs.push(c[i]); if(c[i+1]<1e4) ys.push(c[i+1]); } };
-  st.prot.forEach((p,i)=>add(p.cv[fam],pal.p[i%pal.p.length],"",2.2));
+  const pts=[];
+  st.prot.forEach((p,i)=>{ const col=pal.p[i%pal.p.length];
+    if(p.bmax&&p.bmin&&p.bmax[fam]&&p.bmin[fam]){ areas.push({c:cbArea(p.bmin[fam],p.bmax[fam]),col}); add(p.bmin[fam],col,"",0.8); add(p.bmax[fam],col,"",0.8); }
+    add(p.cv[fam],col,"",2.2); });
   if(st.dso[fam]) add(st.dso[fam],pal.dso,"8 4",1.8);
   if(fam==="F"){ if(st.inr) add(st.inr.c,pal.inr,"9 3 2 3",2.2); if(st.fus) add(st.fus.t,pal.fz,"2 3",2);
     if(st.cb) st.cb.list.forEach((q,i)=>{ const col=pal.cb[i%pal.cb.length]; if(q.min){ areas.push({c:cbArea(q.min,q.max),col}); add(q.min,col,PMT_CBDASH,1.2); } add(q.max,col,PMT_CBDASH,2); });
+    if(st.wth){ if(st.wth.c) add(st.wth.c,pal.wth,"12 4",1.6); pts.push({x:st.wth.Ikt,y:2,col:pal.wth,lab:"tenuta 2 s"}); xs.push(st.wth.Ikt); ys.push(2); }
     if(st.Ik>0){ vl.push({x:st.Ik,col:pal.ik,dash:"6 3",lab:"I″k MT"}); xs.push(st.Ik); } if(st.Ibt>0){ vl.push({x:st.Ibt,col:pal.ik,dash:"2 3",lab:"guasto BT"}); xs.push(st.Ibt); } }
   else if(st.IF>0){ vl.push({x:st.IF,col:pal.ik,dash:"6 3",lab:"guasto a terra"}); xs.push(st.IF); }
   if(!ser.length) return "";
   ys.push(0.01,10);
-  return fusPlot({uid,pal,W:W||720,H:fam==="F"?400:300,xr:fusMM(xs),yr:fusMM(ys),xlab:fam==="F"?"corrente di fase, ampere primari (A)":"corrente residua, ampere primari (A)",ylab:"tempo di estinzione (s)",areas,series:ser,vl});
+  return fusPlot({uid,pal,W:W||720,H:fam==="F"?400:300,xr:fusMM(xs),yr:fusMM(ys),xlab:fam==="F"?"corrente di fase, ampere primari (A)":"corrente residua, ampere primari (A)",ylab:"tempo di estinzione (s)",areas,series:ser,vl,pts});
 }
 function pmtLegend(st,fam,pal){
   const it=[]; st.prot.forEach((p,i)=>{ if(p.cv[fam]) it.push(pmtSw(pal.p[i%pal.p.length],"")+escH(p.desc)); });
+  if(st.prot.some(p=>p.bmax&&p.bmax[fam])) it.push(`<svg width="26" height="8" style="vertical-align:middle;margin-right:5px" aria-hidden="true"><rect width="26" height="8" fill="${pal.p[0]}" fill-opacity="0.22"/></svg>fasce di tolleranza (relè, ${fam==="F"?"TA":"TO"})`);
   if(st.dso[fam]) it.push(pmtSw(pal.dso,"8 4")+"limite del distributore");
   if(fam==="F"){ if(st.inr) it.push(pmtSw(pal.inr,"9 3 2 3")+`inserzione totale (${st.inr.n} trasformator${st.inr.n===1?"e":"i"}, cresta ${fmtA(st.inr.peak)})`); if(st.fus) it.push(pmtSw(pal.fz,"2 3")+`fusibile ${escH(st.fus.type)}`);
+    if(st.wth) it.push(pmtSw(pal.wth,"12 4")+`<span style="white-space:normal">tenuta di ${escH(st.wth.tr.desc)}: ${fmtAs(st.wth.Ikt)} per 2 s`+(st.wth.c?" e sovraccarico ammesso (ANSI C57.92)":"")+`</span>`);
     if(st.cb) st.cb.list.forEach((q,i)=>it.push(pmtSw(pal.cb[i%pal.cb.length],PMT_CBDASH)+`<span style="white-space:normal">interruttore BT ${escH(q.name)} · ${q.min?"banda min–max":"curva massima"} riportata alla MT (${fusNum(st.cb.tr.U2)}/${fusNum(st.cb.tr.U1)} V, guasto trifase)</span>`)); }
   return it.map(x=>`<span style="white-space:nowrap">${x}</span>`).join("");
 }
@@ -2076,16 +2101,20 @@ function computePMT(){
   const box=$("pm_trChk"), hh=R.tr.map(t=>`<label class="brcab-tgl" style="margin-top:0"><input type="checkbox" data-tr="${t.id}" ${PMT_EXC.has(t.id)?"":"checked"}><span>${escH(t.desc)} — ${fusNum(t.SkVA)} kVA</span></label>`).join("");
   if(box.dataset.h!==hh){ box.innerHTML=hh; box.dataset.h=hh; }
   const prot=[...document.querySelectorAll("#pmtList .pmt-prot")].map(pmtRead);
-  const Imax=Math.max(Ik,Ibt,1)*1.3;
+  const Imax=Math.max(Ik,Ibt,1)*1.3, ImaxE=Math.max(IF*3,300), tolOn=$("pm_onTol").checked;
+  // con le fasce attive: a monte vale l'intervento più rapido, a valle l'estinzione più lenta
+  const tUp=(u,fam,I)=>tolOn?pmtTimeB(u,fam,I,-1):pmtTime(u,fam,I), tDn=(p,fam,I)=>(tolOn?pmtTimeB(p,fam,I,1):pmtTime(p,fam,I))+p.tcb;
   prot.forEach(p=>{ p.cv={F:pmtCurve(I=>pmtTime(p,"F",I),pmtStarts(p,"F"),p.tcb,Imax), E:pmtCurve(I=>pmtTime(p,"E",I),pmtStarts(p,"E"),p.tcb,Math.max(IF*3,300))};
-    p.op={F:pmtCurve(I=>pmtTime(p,"F",I),pmtStarts(p,"F"),0,Imax)};
+    p.op={F:pmtCurve(I=>pmtTime(p,"F",I),pmtStarts(p,"F"),0,Imax)}; p.bmax=p.bmin=null;
+    if(tolOn){ const mk=(fam,sg,add,Im)=>pmtCurve(I=>pmtTimeB(p,fam,I,sg),pmtStarts(p,fam).map(x=>x*(1+sg*p.tol["e"+fam])),add,Im);
+      p.bmax={F:mk("F",1,p.tcb,Imax),E:mk("E",1,p.tcb,ImaxE)}; p.bmin={F:mk("F",-1,p.tcb,Imax),E:mk("E",-1,p.tcb,ImaxE)}; p.op={F:mk("F",-1,0,Imax)}; }
     PMT_TH.forEach(([k])=>{ const t=p.th[k], o=p.el.querySelector(`[data-o="${k}"]`);
-      o.innerHTML=!t.on?"—":`<b>${fmtAs(t.Is)}</b> · `+(t.c==="DT"?`estinzione ${fusFmtT(t.t+p.tcb)}`:`${fusFmtT(Math.min(pmtT(t,t.Is*5,p.mod),1e4)+p.tcb)} a 5 × soglia`)+(t.dir?` · U<sub>0</sub> ${fusNum(t.u)} V, ${escH(t.a)}°`:""); });
+      o.innerHTML=!t.on?"—":`<b>${fmtAs(t.Is)}</b> · `+(t.c==="DT"?`estinzione ${fusFmtT(t.t+p.tcb)}`:`${fusFmtT(Math.min(pmtT(t,t.Is*5,p.mod),1e4)+p.tcb)} a 5 × soglia`)+(tolOn?` · fascia ${fmtAs(t.Is*(1-p.tol["e"+t.fam]))}–${fmtAs(t.Is*(1+p.tol["e"+t.fam]))}`:"")+(t.dir?` · U<sub>0</sub> ${fusNum(t.u)} V, ${escH(t.a)}°`:""); });
     p.el.querySelector('[data-o="hint"]').textContent=p.mod.h; });
   // curva limite del distributore (tempi di estinzione)
   const lim=(a,b)=>{ const ths=a.filter(x=>x[0]>0&&x[1]>0); return ths.length?pmtCurve(I=>{ let m=Infinity; ths.forEach(x=>{ if(I>=x[0]) m=Math.min(m,x[1]); }); return m; },ths.map(x=>x[0]),0,b):null; };
   const dsoF=lim([[num("pm_L2"),num("pm_T2")],[num("pm_L3"),num("pm_T3")]],Imax), dsoE=lim([[num("pm_L0"),num("pm_T0")],[num("pm_L00"),num("pm_T00")]],Math.max(IF*3,300));
-  const st={prot,Ik,Ibt,IF,dso:{F:$("pm_onDSO").checked?dsoF:null,E:$("pm_onDSO").checked?dsoE:null},inr:null,fus:null,cb:null};
+  const st={prot,Ik,Ibt,IF,dso:{F:$("pm_onDSO").checked?dsoF:null,E:$("pm_onDSO").checked?dsoE:null},inr:null,fus:null,cb:null,wth:null,tolOn};
   // inserzione totale: somma degli inviluppi efficaci dei trasformatori scelti
   const trs=R.tr.filter(t=>!PMT_EXC.has(t.id)&&t.In1>0&&t.k>0&&t.tau>0);
   if($("pm_onInr").checked&&trs.length){
@@ -2103,6 +2132,16 @@ function computePMT(){
       st.cb={k,tr:t,U:CB_ST.U,list:res.map((r,i)=>({name:(res.length>1?(i?"B · ":"A · "):"")+cbName(r.b),b:r.b,max:sc(r.b.max),min:sc(r.b.min)}))};
       if(Math.abs(CB_ST.U-t.U2)>0.1*t.U2) checks.push({l:`Interruttori BT · tensione di esercizio ${fusNum(CB_ST.U)} V diversa dal secondario del trasformatore (${fusNum(t.U2)} V)`,warn:true,extra:"le correnti sono riportate con il rapporto del trasformatore: controllare la tensione nel modulo «Curve degli interruttori»"}); }
   }
+  // tenuta termica al cortocircuito del trasformatore di riferimento: Ik del trasformatore per 2 s (CEI EN 60076-5); in olio anche il sovraccarico ammesso
+  if($("pm_onWth").checked){
+    const t=R.tr.find(r=>r.id===$("pm_trSel").value)||R.tr[0];
+    if(!t||!(t.In1>0)||!(t.uk>0)||!(t.U1>1000)) checks.push({l:"Tenuta del trasformatore",dis:true,extra:"serve un trasformatore MT/BT nel modulo Cortocircuito, con potenza e tensione di cortocircuito"});
+    else { const Ikt=t.In1*100/t.uk, c=[];
+      if(t.tipo!=="secco"){ const q=TR_WTH.map(r=>[r[0]*t.In1,r[1]]).sort((a,b)=>a[0]-b[0]);
+        q.forEach((v,j)=>{ if(v[0]<Ikt) c.push(v[0],v[1]); if(j<q.length-1&&v[0]<Ikt&&q[j+1][0]>=Ikt){ const w=q[j+1]; c.push(Ikt,Math.exp(Math.log(v[1])+(Math.log(w[1])-Math.log(v[1]))*Math.log(Ikt/v[0])/Math.log(w[0]/v[0]))); } });
+        if(!(c.length&&Math.abs(c[c.length-1]-2)<1e-6)) c.push(Ikt,2); }
+      st.wth={tr:t,Ikt,c:c.length>=4?c:null}; }
+  }
   // verifiche
   const cmp=(cv,dso,from)=>{ if(!cv||!dso) return null; let bad=null; for(let k=0;k<=160&&!bad;k++){ const I=from*Math.pow(Math.max(Imax,from*40)/from,k/160)*1.0001, a=fusTime(cv,I), b=fusTime(dso,I); if(b.st!=="none"&&(a.st==="none"||a.t>b.t+1e-6)) bad={I,ta:a.st==="none"?Infinity:a.t,tb:b.t}; } return {bad}; };
   prot.forEach((p,i)=>{ const nm=escH(p.desc);
@@ -2116,31 +2155,38 @@ function computePMT(){
       if(p.h2) checks.push({l:`${nm} · inserzione dei trasformatori`,dis:true,disTxt:"blocco 2ª armonica",extra:"le soglie di fase sono bloccate durante l'inserzione: nessuna verifica del margine"});
       else { let marg=Infinity,tAt=0; for(let k=0;k<st.inr.c.length;k+=2){ const m=fusCurrentAt(p.op.F,st.inr.c[k+1])/st.inr.c[k]; if(m<marg){marg=m;tAt=st.inr.c[k+1];} }
         checks.push({l:`${nm} · inserzione totale (cresta ${fmtA(st.inr.peak)}): margine minimo <b>×${fmt(marg,2)}</b> a ${fusFmtT(tAt)}`,ok:marg>1,
-          extra:marg>1?"la curva del relè resta sopra l'inviluppo di inserzione":"l'inviluppo di inserzione incrocia la curva: rischio di scatto alla messa in tensione (ridurre i trasformatori inseriti insieme o usare il blocco di seconda armonica)",
+          extra:marg>1?(tolOn?"anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione":"la curva del relè resta sopra l'inviluppo di inserzione"):"l'inviluppo di inserzione incrocia la curva: rischio di scatto alla messa in tensione (ridurre i trasformatori inseriti insieme o usare il blocco di seconda armonica)",
           tip:"Confronto, istante per istante, tra la corrente che fa intervenire il relè entro quel tempo e l'inviluppo efficace della corrente di inserzione totale. La CEI 0-16 (8.5.14) limita la potenza dei trasformatori inseriti contemporaneamente e ammette il blocco delle soglie basato sulla seconda armonica."}); } }
     if(i>0){ const u=prot[i-1]; ["F","E"].forEach(fam=>{ const su=pmtStarts(u,fam), sd=pmtStarts(p,fam); if(!su.length||!sd.length) return;
         const a=Math.min(...sd), b=fam==="F"?Math.max(Ik,Math.max(...su)*3):Math.max(IF,Math.max(...su)*3); let worst=Infinity, at=0;
-        const pts=[]; for(let k=0;k<=200;k++) pts.push(a*Math.pow(b/a,k/200)); su.concat(sd).forEach(x=>{ if(x>=a&&x<=b) pts.push(x,x*1.0001); });
-        pts.forEach(I=>{ const td=pmtTime(p,fam,I), tu=pmtTime(u,fam,I); if(!isFinite(td)||!isFinite(tu)) return; const m=tu-(td+p.tcb); if(m<worst){worst=m;at=I;} });
+        const pts=[], eu=u.tol["e"+fam], ed=p.tol["e"+fam]; for(let k=0;k<=200;k++) pts.push(a*Math.pow(b/a,k/200));
+        su.concat(sd,tolOn?su.map(x=>x*(1-eu)).concat(sd.map(x=>x*(1+ed))):[]).forEach(x=>{ if(x>=a&&x<=b) pts.push(x,x*1.0001); }); pts.sort((x,y)=>x-y);
+        pts.forEach(I=>{ const td=tDn(p,fam,I), tu=tUp(u,fam,I); if(!isFinite(td)||!isFinite(tu)) return; const m=tu-td; if(m<worst){worst=m;at=I;} });
         const amp=Math.min(...su)>Math.min(...sd);
         if(!isFinite(worst)) checks.push({l:`Selettività ${escH(u.desc)} → ${nm} (${fam==="F"?"fase":"terra"})`,ok:true,extra:"nel campo di correnti considerato la protezione a monte non interviene"});
         else checks.push({l:`Selettività ${escH(u.desc)} → ${nm} (${fam==="F"?"fase":"terra"}): margine minimo <b>${fmt(worst,2)} s</b> a ${fmtAs(at)}`,ok:worst>=dt,warn:worst<dt,
           extra:(worst>=dt?`il relè a monte interviene almeno ${fmt(dt,2)} s dopo l'estinzione della protezione a valle`:`margine inferiore a ${fmt(dt,2)} s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica)`)+(amp?"":" · la soglia più bassa a monte non supera quella a valle"),
-          tip:"Per ogni corrente fino alla massima considerata: tempo di intervento del relè a monte meno tempo di estinzione della protezione a valle (intervento più apertura dell'interruttore). Con i tempi ridotti imposti alla protezione generale la selettività cronometrica spesso non è possibile sulla soglia più alta: la CEI 0-16 (8.5.12.7) prevede in quel caso il coordinamento con scambio di informazioni."}); }); }
+          tip:"Per ogni corrente fino alla massima considerata: tempo di intervento del relè a monte meno tempo di estinzione della protezione a valle (intervento più apertura dell'interruttore). Con le fasce di tolleranza attive si usano l'intervento più rapido a monte e l'estinzione più lenta a valle. Con i tempi ridotti imposti alla protezione generale la selettività cronometrica spesso non è possibile sulla soglia più alta: la CEI 0-16 (8.5.12.7) prevede in quel caso il coordinamento con scambio di informazioni."}); }); }
   });
   // selettività tra la protezione MT più vicina al trasformatore (l'ultima dell'elenco) e gli interruttori BT
   if(st.cb&&prot.length){ const u=prot[prot.length-1], su=pmtStarts(u,"F");
     st.cb.list.forEach(q=>{ const nm=`Selettività ${escH(u.desc)} → interruttore BT ${escH(q.name)}`,
-        tip="Per ogni corrente di guasto in bassa tensione, riportata al lato MT: tempo di intervento del relè MT meno tempo massimo di apertura dell'interruttore BT. Il campo va dalla soglia dell'interruttore al guasto sulle sbarre BT riportato al primario. Il confronto vale per il guasto trifase ed è fatto con l'ultima protezione dell'elenco, la più vicina al trasformatore.";
+        tip="Per ogni corrente di guasto in bassa tensione, riportata al lato MT: tempo di intervento del relè MT meno tempo massimo di apertura dell'interruttore BT. Il campo va dalla soglia dell'interruttore al guasto sulle sbarre BT riportato al primario. Il confronto vale per il guasto trifase ed è fatto con l'ultima protezione dell'elenco, la più vicina al trasformatore. Con le fasce di tolleranza attive si usa l'intervento più rapido del relè MT.";
       if(!su.length){ checks.push({l:nm,dis:true,disTxt:"nessuna soglia",extra:"la protezione MT non ha soglie di fase attive"}); return; }
       const a=q.max[0], b=Ibt>0?Ibt:q.max[q.max.length-2], pts=[]; let worst=Infinity, at=0;
       if(b>a) for(let j=0;j<=240;j++) pts.push(a*Math.pow(b/a,j/240));
-      for(let j=0;j<q.max.length;j+=2) pts.push(q.max[j],q.max[j]*1.0001); su.forEach(x=>pts.push(x,x*1.0001)); pts.push(b); pts.sort((x,y)=>x-y);   // in ordine crescente: a parità di margine si indica la corrente più bassa
-      pts.forEach(I=>{ if(!(I>=a&&I<=b)) return; const tu=pmtTime(u,"F",I), r=fusTime(q.max,I); if(!isFinite(tu)||r.st==="none") return; const m=tu-r.t; if(m<worst){worst=m;at=I;} });
+      for(let j=0;j<q.max.length;j+=2) pts.push(q.max[j],q.max[j]*1.0001); su.concat(tolOn?su.map(x=>x*(1-u.tol.eF)):[]).forEach(x=>pts.push(x,x*1.0001)); pts.push(b); pts.sort((x,y)=>x-y);   // in ordine crescente: a parità di margine si indica la corrente più bassa
+      pts.forEach(I=>{ if(!(I>=a&&I<=b)) return; const tu=tUp(u,"F",I), r=fusTime(q.max,I); if(!isFinite(tu)||r.st==="none") return; const m=tu-r.t; if(m<worst){worst=m;at=I;} });
       const campo=Ibt>0?"":" · campo esteso a tutta la curva dell'interruttore: indicare il guasto sulle sbarre BT riportato al primario per limitarlo";
       if(!isFinite(worst)) checks.push({l:nm,ok:true,extra:"per i guasti in bassa tensione considerati la protezione MT non interviene"+campo,tip});
       else checks.push({l:`${nm}: margine minimo <b>${fmt(worst,2)} s</b> a ${fmtAs(at)} (${fmtA(at/st.cb.k)} in BT)`,ok:worst>=dt,warn:worst<dt,
         extra:(worst>=dt?`il relè MT interviene almeno ${fmt(dt,2)} s dopo l'apertura dell'interruttore BT`:`margine inferiore a ${fmt(dt,2)} s: per quel guasto in bassa tensione può aprire anche la protezione MT`)+campo,tip}); }); }
+  // tenuta del trasformatore: il guasto ai morsetti BT deve essere estinto entro 2 s
+  if(st.wth&&prot.length){ const I=Ibt>0?Ibt:st.wth.Ikt; let best=Infinity, who=null; prot.forEach(p=>{ const t=tDn(p,"F",I); if(t<best){ best=t; who=p; } });
+    const src=Ibt>0?"guasto sulle sbarre BT":"cortocircuito ai morsetti BT con rete di potenza infinita";
+    checks.push({l:`Tenuta termica di ${escH(st.wth.tr.desc)} (${fmtAs(st.wth.Ikt)} per 2 s): `+(isFinite(best)?`${src}, ${fmtAs(I)} al primario, estinto in <b>${fusFmtT(best)}</b> da ${escH(who.desc)}`:`<b>nessuna protezione MT interviene</b> per il ${src} (${fmtAs(I)} al primario)`),
+      ok:best<=2,warn:!isFinite(best),extra:isFinite(best)?(best<=2?"entro i 2 s che il trasformatore sopporta":"oltre i 2 s che il trasformatore sopporta: ridurre il ritardo della protezione"):"il guasto deve essere eliminato entro 2 s dalla protezione BT o da un'altra protezione",
+      tip:"La CEI EN 60076-5 richiede che il trasformatore sopporti per 2 s la propria corrente di cortocircuito, I = In·100/uk. Qui si controlla che la protezione MT più rapida estingua il guasto ai morsetti BT entro quel tempo"+(tolOn?", considerando il bordo più lento della fascia di tolleranza":"")+". Per i trasformatori in olio è disegnata anche la curva indicativa di sovraccarico ammesso (ANSI C57.92): da 25 volte In per 2 s a 2 volte In per 1800 s."}); }
   if(Ibt>0) prot.forEach(p=>{ const t=pmtTime(p,"F",Ibt); checks.push({l:`${escH(p.desc)} · guasto sulle sbarre BT (${fmtAs(Ibt)} al primario): `+(isFinite(t)?`estinzione in <b>${fusFmtT(t+p.tcb)}</b>`:`<b>nessun intervento</b>`),ok:isFinite(t),warn:!isFinite(t),extra:isFinite(t)?"la protezione vede il guasto in bassa tensione":"la corrente è sotto tutte le soglie di fase attive: il guasto BT resta alle protezioni a valle"}); });
   const cc=$("pm_checks"); cc.innerHTML=""; if(!prot.length) cc.innerHTML=`<p class="mini">Nessuna protezione: aggiungine una.</p>`;
   checks.forEach(ch=>{ const d=document.createElement("div"); d.className="check";
@@ -2157,7 +2203,7 @@ function pmtExportHTML(){
   const td='style="border:1px solid #bbb;padding:3px 6px;font-size:10px"';
   let h=`<div style="font-size:11px;font-weight:600;margin:0 0 2px">Massima corrente di fase</div>`+pmtChart(st,"F",PMT_PAL_PRINT,"ppf",720)+`<div style="font-size:10px;color:#555;margin:-4px 0 8px">${pmtLegend(st,"F",PMT_PAL_PRINT)}</div>`+
     `<div style="break-inside:avoid"><div style="font-size:11px;font-weight:600;margin:0 0 2px">Guasto a terra</div>`+pmtChart(st,"E",PMT_PAL_PRINT,"ppe",720)+`<div style="font-size:10px;color:#555;margin:-4px 0 8px">${pmtLegend(st,"E",PMT_PAL_PRINT)}</div></div>`;
-  st.prot.forEach(p=>{ h+=`<div style="break-inside:avoid;margin:8px 0"><div style="font-size:11px;font-weight:600">${escH(p.desc)} — ${p.mod.n} · TA ${fusNum(p.inp)} A · TO ${fusNum(p.ienp)} A · apertura ${fusNum(p.tcb*1000)} ms · tempo minimo curve dipendenti ${fusNum(p.mod.tmin*1000)} ms${p.dg?" · protezione generale":""}${p.h2?" · blocco 2ª armonica":""}</div>
+  st.prot.forEach(p=>{ h+=`<div style="break-inside:avoid;margin:8px 0"><div style="font-size:11px;font-weight:600">${escH(p.desc)} — ${p.mod.n} · TA ${fusNum(p.inp)} A · TO ${fusNum(p.ienp)} A · apertura ${fusNum(p.tcb*1000)} ms · tempo minimo curve dipendenti ${fusNum(p.mod.tmin*1000)} ms${st.tolOn?` · tolleranze: soglie ±${fusNum(p.tol.ei)} % relè, ±${fusNum(p.tol.eta)} % TA, ±${fusNum(p.tol.eto)} % TO; tempi ±${fusNum(p.tol.etp)} % ±${fusNum(p.tol.etm)} ms`:""}${p.dg?" · protezione generale":""}${p.h2?" · blocco 2ª armonica":""}</div>
       <table style="border-collapse:collapse;margin-top:3px"><tr>${["Soglia","Valore (A primari)","Curva","Tempo o k","Estinzione","Note"].map(x=>`<th ${td}>${x}</th>`).join("")}</tr>`+
       PMT_TH.filter(q=>p.th[q[0]].on).map(q=>{ const t=p.th[q[0]]; return `<tr><td ${td}>${q[1]}</td><td ${td}>${fmtAs(t.Is)}</td><td ${td}>${PMT_CUR[t.c].n}</td><td ${td}>${fusNum(t.t)}</td><td ${td}>${t.c==="DT"?fusFmtT(t.t+p.tcb):"secondo curva"}</td><td ${td}>${t.dir?`U0 ${fusNum(t.u)} V · settore ${escH(t.a)}°`:""}</td></tr>`; }).join("")+`</table></div>`; });
   return h;
@@ -2169,9 +2215,12 @@ function xlsPMT(){
   [['I>> corrente massima',num("pm_L2"),'A'],['I>> estinzione massima',num("pm_T2"),'s'],['I>>> corrente massima',num("pm_L3"),'A'],['I>>> estinzione massima',num("pm_T3"),'s'],['I0> corrente massima',num("pm_L0"),'A'],['I0> estinzione massima',num("pm_T0"),'s'],['I0>> corrente massima',num("pm_L00"),'A'],['I0>> estinzione massima',num("pm_T00"),'s'],
    ['I″k massima lato MT',st.Ik,'A'],['Guasto BT riportato al primario',st.Ibt,'A'],['Corrente di guasto a terra',st.IF,'A']].forEach(r=>S.row([{v:r[0]},{v:r[1],s:11},{v:r[2]}]));
   st.prot.forEach(p=>{ S.head(p.desc+' — '+p.mod.n); S.row([{v:'TA primario'},{v:p.inp,s:11},{v:'A'}]); S.row([{v:'TO primario'},{v:p.ienp,s:11},{v:'A'}]); S.row([{v:'Apertura interruttore'},{v:p.tcb,s:11},{v:'s'}]); S.row([{v:'Tempo minimo delle curve dipendenti'},{v:p.mod.tmin,s:11},{v:'s'}]);
+    if(st.tolOn) [['Errore del relè sulle soglie',p.tol.ei,'%'],['Errore del TA',p.tol.eta,'%'],['Errore del TO',p.tol.eto,'%'],['Errore sui tempi',p.tol.etp,'%'],['Errore sui tempi (quota fissa)',p.tol.etm,'ms']].forEach(r=>S.row([{v:r[0]},{v:r[1],s:11},{v:r[2]}]));
     S.thead(['Soglia','Valore (A primari)','Curva','Tempo (s) o k','Estinzione (s)']);
     PMT_TH.forEach(q=>{ const t=p.th[q[0]]; if(!t.on) return; S.row([{v:q[1].replace(/&gt;/g,'>').replace(/<[^>]+>/g,'')},{v:t.Is,s:11},{v:PMT_CUR[t.c].n},{v:t.t,s:11},t.c==="DT"?{v:t.t+p.tcb,s:11}:{v:'secondo curva'}]); }); });
   if(st.inr){ S.head('Inserzione totale dei trasformatori'); S.thead(['Tempo (s)','Corrente efficace (A)']); for(let k=0;k<st.inr.c.length;k+=2) S.row([{v:st.inr.c[k+1],s:11},{v:st.inr.c[k],s:11}]); }
+  if(st.wth){ S.head('Tenuta al cortocircuito del trasformatore'); S.row([{v:'Trasformatore'},{v:st.wth.tr.desc}]); S.row([{v:'Corrente di cortocircuito sopportata per 2 s'},{v:st.wth.Ikt,s:11},{v:'A'}]);
+    if(st.wth.c){ S.thead(['Corrente al primario (A)','Tempo ammesso (s)']); for(let j=0;j<st.wth.c.length;j+=2) S.row([{v:st.wth.c[j],s:11},{v:st.wth.c[j+1],s:11}]); } }
   if(st.cb){ S.head('Interruttori BT riportati alla MT'); S.row([{v:'Trasformatore'},{v:st.cb.tr.desc}]); S.row([{v:'Rapporto U2/U1'},{v:st.cb.k,s:11}]);
     st.cb.list.forEach(q=>{ S.row([{v:q.name}]); S.thead(['Corrente in BT (A)','Corrente al primario (A)','Tempo massimo (s)']); for(let j=0;j<q.max.length;j+=2) S.row([{v:q.b.max[j],s:11},{v:q.max[j],s:11},{v:q.max[j+1],s:11}]); }); }
   S.head('Verifiche'); st.checks.forEach(c=>S.row([{v:c.l.replace(/<[^>]+>/g,'').replace(/&gt;/g,'>')},{v:c.dis?(c.disTxt||'dato mancante'):(c.warn?'da verificare':(c.ok?'OK':'NO'))}]));
@@ -4493,7 +4542,9 @@ function allApply(d){
   allSetRows(cc.cavi,"cableList",()=>cableRow(),rep); allSetRows(cc.motori,"motList",()=>motRow(),rep);
   if(M.modFUS){ allSetFus("A",M.modFUS.A,rep); allSetFus("B",M.modFUS.B,rep); }
   if(M.modCB){ allSetCb("A",M.modCB.A,rep); allSetCb("B",M.modCB.B,rep); }
-  if(M.modPMT){ allSetRows(M.modPMT.protezioni,"pmtList",()=>pmtRow(),rep); PMT_EXC.clear(); const rows=document.querySelectorAll("#trList .tr-branch"); (M.modPMT.trasformatoriEsclusi||[]).forEach(i=>{ if(rows[i]) PMT_EXC.add(rows[i].dataset.id); }); $("pm_trChk").dataset.h=""; }
+  if(M.modPMT){ allSetRows(M.modPMT.protezioni,"pmtList",()=>pmtRow(),rep);
+    if(Array.isArray(M.modPMT.protezioni)) document.querySelectorAll("#pmtList .pmt-prot").forEach((d,i)=>{ const r=M.modPMT.protezioni[i]; if(r&&r.ei==null) pmtTolDef(d); });   /* file senza tolleranze: valori del relè */
+    PMT_EXC.clear(); const rows=document.querySelectorAll("#trList .tr-branch"); (M.modPMT.trasformatoriEsclusi||[]).forEach(i=>{ if(rows[i]) PMT_EXC.add(rows[i].dataset.id); }); $("pm_trChk").dataset.h=""; }
   magFillSel();
   [["modFUS","fu"],["modCB","cb"]].forEach(([m,p])=>{ if(!M[m]) return; [[p+"_trSel","#trList .tr-branch",M[m].trasformatore],[p+"_moSel","#motList .mot-row",M[m].motore]].forEach(([id,sel,i])=>{ if(i==null) return;
       const d=document.querySelectorAll(sel)[i]; if(d){ $(id).value=d.dataset.id; rep.ok++; } else rep.skip.push(id); }); });
