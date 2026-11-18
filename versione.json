@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.14",
+  "versione": "0.1.15",
   "data": "18/11/2026",
-  "novita": "Cortocircuito secondo la CEI EN IEC 60909-0:2026: punto di guasto ricavato dallo schema, correnti massime e minime sempre calcolate, temperatura a fine guasto per ogni cavo, resistività dei conduttori della norma. Interruttori: verifica della protezione del trasformatore. Protezioni MT: soglie leggibili su schermi piccoli."
+  "novita": "Colori dei grafici uniformi (I″k massime rosse, minime arancioni), nomi e aiuti riordinati; corretti il guasto fase-terra con cavo di ramo, il fattore c della rete con trasformatore BT/BT e la verifica del quadro con la sola Icc."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",

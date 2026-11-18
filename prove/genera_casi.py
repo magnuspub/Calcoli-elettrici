@@ -1,0 +1,388 @@
+#!/usr/bin/env python3
+"""Genera i casi campione di prove/casi/ a partire dallo stato predefinito del programma.
+
+Ogni caso è un file nel formato di «Salva tutto»: si può aprire anche a mano con «Apri tutto».
+Va rieseguito solo per aggiungere o cambiare casi; il confronto tra versioni si fa con prova.py.
+
+    python3 prove/genera_casi.py [percorso di Calcoli_elettrici.html]
+"""
+import asyncio, copy, json, os, sys
+from playwright.async_api import async_playwright
+
+QUI = os.path.dirname(os.path.abspath(__file__))
+HTML = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(QUI, '..', 'Calcoli_elettrici.html')
+SALVA = '''(()=>{ let s=null; const o=window._saveFile; window._saveFile=(n,c)=>{s=c}; document.getElementById("allSave").click(); window._saveFile=o; return s; })()'''
+TUTTI = ["modCC", "modFUS", "modCB", "modPMT", "modVK", "modMT", "modREL"]
+CASI = []
+
+
+def caso(nome, moduli):
+    def reg(f):
+        CASI.append((nome, moduli, f)); return f
+    return reg
+
+
+# ---- piccoli aiuti per modificare lo stato -------------------------------------------------
+def cc(s): return s['moduli']['modCC']['campi']
+def ccm(s): return s['moduli']['modCC']
+def fu(s): return s['moduli']['modFUS']
+def cb(s): return s['moduli']['modCB']
+def pm(s): return s['moduli']['modPMT']
+def campi(s, m, **kw):
+    s['moduli'][m]['campi'].update({k: (v if isinstance(v, bool) else str(v)) for k, v in kw.items()})
+def riga(base, **kw):
+    r = copy.deepcopy(base); r.update({k: (v if isinstance(v, bool) else str(v)) for k, v in kw.items()}); return r
+
+
+async def main():
+    async with async_playwright() as pw:
+        b = await pw.chromium.launch()
+        p = await b.new_page(viewport={'width': 1300, 'height': 900})
+        await p.goto('file://' + HTML); await p.wait_for_timeout(900)
+        BASE = json.loads(await p.evaluate(SALVA))
+        TR0 = BASE['moduli']['modCC']['trasformatori'][0]
+        # righe predefinite di cavi e motori (le schede sono escluse: si leggono aggiungendone una)
+        await p.evaluate('document.getElementById("addCable").click(); document.getElementById("addMot").click(); 0')
+        tmp = json.loads(await p.evaluate(SALVA))
+        CAV0 = tmp['moduli']['modCC']['cavi'][-1]; MOT0 = tmp['moduli']['modCC']['motori'][-1]
+        PR0 = BASE['moduli']['modPMT']['protezioni'][0]
+        # descrizione di fusibili e interruttori per nome, come nel file salvato
+        FUS = await p.evaluate('''FUS_DB.p.map(p=>({gruppo:FUS_DB.g[p[1]][0],famiglia:FUS_DB.g[p[1]][1],tipo:p[0],In:p[3]}))''')
+        CB = await p.evaluate('''(()=>{ const m={}; CB_DB.p.forEach(p=>{ const g=CB_DB.g[p[1]]; if(!m[p[0]]) m[p[0]]={gruppo:CB_DB.s[g[0]][0],serie:CB_DB.s[g[0]][1],esecuzione:cbFamTxt(g),tipo:p[0]}; }); return m; })()''')
+        LPEX = await p.evaluate('JSON.parse(JSON.stringify(LP_EX))')
+        await b.close()
+
+    def fus(i): return copy.deepcopy(FUS[i])
+    def fusn(testo, In):   # primo fusibile la cui famiglia contiene il testo, con la corrente nominale indicata
+        return copy.deepcopy(next(f for f in FUS if testo in f['famiglia'] and f['In'] == In))
+    def intr(tipo, **reg):
+        o = copy.deepcopy(CB[tipo])
+        if reg: o['regolazioni'] = {k: str(v) for k, v in reg.items()}
+        return o
+    def tr(**kw): return riga(TR0, **kw)
+    def cav(**kw): return riga(CAV0, **kw)
+    def mot(**kw): return riga(MOT0, **kw)
+    def prot(**kw): return riga(PR0, **kw)
+
+    # ============================ CORTOCIRCUITO ============================
+    @caso('cc01_predefinito', TUTTI + ['modLP'])
+    def _(s): pass
+
+    @caso('cc02_correzione_KT', ['modCC'])
+    def _(s): campi(s, 'modCC', onKT=True, onLE=True)
+
+    @caso('cc03_rete_in_potenza', ['modCC'])
+    def _(s): campi(s, 'modCC', gridMode='Sk', SkQ=350, rxGrid=0.05, SkQmin=200)
+
+    @caso('cc04_due_trasformatori_uguali_metodo_B', ['modCC'])
+    def _(s): ccm(s)['trasformatori'] = [tr(), tr(desc='Trasf. 2')]; campi(s, 'modCC', onLE=True)
+
+    @caso('cc05_due_trasformatori_diversi_metodo_C', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35), tr(desc='Trasf. 2', S=400, uk=4, pcu=4.6, kin=12, tau=0.25)]
+        campi(s, 'modCC', ipMethod='C', onKT=True)
+
+    @caso('cc06_tre_trasformatori_in_resina_gruppi_diversi', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=800, uk=6, pcu=9.4, tt='secco', vg='Dyn', kin=10, tau=0.3), tr(desc='Trasf. 2', S=800, uk=6, pcu=9.4, tt='secco', vg='Yyn', kin=10, tau=0.3),
+                                   tr(desc='Trasf. 3', S=500, uk=6, pcu=6.4, tt='secco', vg='Dzn', kin=10, tau=0.25)]
+        campi(s, 'modCC', onLE=True, onKT=True, le_S=120, le_L=35)
+
+    @caso('cc07_gruppo_senza_neutro_e_fase_terra', ['modCC'])
+    def _(s): ccm(s)['trasformatori'] = [tr(vg='Dd')]; campi(s, 'modCC', onLE=True)
+
+    @caso('cc08_cavo_sorgente_in_alluminio', ['modCC'])
+    def _(s): campi(s, 'modCC', sc_on=True, sc_tipo='mt', sc_mat='Al', sc_S=185, sc_L=1200, sc_n=1, sc_x=0.12, sc_te=160)
+
+    @caso('cc09_cavi_del_trasformatore', ['modCC'])
+    def _(s): ccm(s)['trasformatori'] = [tr(hvcab=True, hvS=50, hvL=400, hvte=90, hascab=True, cS=240, cL=18, cn=3, cte=160)]; campi(s, 'modCC', onLE=True)
+
+    @caso('cc10_due_tratti_di_cavo', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Montante', tipo='uni', mat='Cu', S=240, L=30, n=2, x=0.10, te=250), cav(desc='Dorsale', tipo='mult', mat='Al', S=95, L=60, n=1, x=0.08, te=160)]
+        campi(s, 'modCC', onCab=True, onLE=True, le_mat='Al', le_S=50, le_L=90, le_te=160)
+
+    @caso('cc11_tre_motori', ['modCC'])
+    def _(s):
+        ccm(s)['motori'] = [mot(desc='Pompa', P=200, klr=6, poles=2), mot(desc='Ventilatore', P=90, klr=7, poles=4, eta=0.85), mot(desc='Compressore', P=315, klr=5.5, poles=1, rx=0.3, tmin=0.05)]
+        campi(s, 'modCC', onMot=True)
+
+    @caso('cc12_fase_terra_TN', ['modCC'])
+    def _(s): campi(s, 'modCC', onLE=True, le_mat='Cu', le_S=50, le_L=40, le_n=1, le_x=0.08, le_RE=0, le_te=160)
+
+    @caso('cc13_fase_terra_TT', ['modCC'])
+    def _(s): campi(s, 'modCC', onLE=True, le_RE=5)
+
+    @caso('cc14_60_Hz_guasto_breve', ['modCC'])
+    def _(s): campi(s, 'modCC', freq=60, ccTk=0.2)
+
+    @caso('cc15_guasto_di_3_secondi', ['modCC'])
+    def _(s): campi(s, 'modCC', ccTk=3)
+
+    @caso('cc16_guasto_in_media_tensione', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Linea MT', tipo='mt', S=95, L=850, x=0.12, te=250)]
+        campi(s, 'modCC', onTr=False, UnQ=20000, IkQ=12.5, IkQmin=9, onCab=True, cfac=1.10, cfacMin=1.00)
+
+    @caso('cc17_media_tensione_in_potenza', ['modCC'])
+    def _(s): campi(s, 'modCC', onTr=False, gridMode='Sk', SkQ=500, SkQmin=300, UnQ=15000, cfac=1.10, cfacMin=1.00, rxGrid=0.1)
+
+    @caso('cc18_fornitura_monofase_CEI_0_21', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Montante', S=10, L=25, te=160)]
+        campi(s, 'modCC', gridPreset='cei_mono', gridMode='Ik', IkQ=6, UnQ=230, rxGrid=0.98, onTr=False, onCab=True, IkQmin=4.5)
+
+    @caso('cc19_fornitura_trifase_10_kA', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Montante', S=25, L=40, te=160)]
+        campi(s, 'modCC', gridPreset='cei_tri33', gridMode='Ik', IkQ=10, UnQ=400, rxGrid=0.577, onTr=False, onCab=True)
+
+    @caso('cc20_fornitura_trifase_15_kA_con_motore', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Montante', S=95, L=30, te=250)]; ccm(s)['motori'] = [mot(P=55, klr=7, poles=2)]
+        campi(s, 'modCC', gridPreset='cei_tri33p', gridMode='Ik', IkQ=15, UnQ=400, rxGrid=0.314, onTr=False, onCab=True, onMot=True)
+
+    @caso('cc21_fattori_c_per_reti_10_per_cento', ['modCC'])
+    def _(s): campi(s, 'modCC', cfac=1.10, cfacMin=0.90, onLE=True)
+
+    @caso('cc22_alta_media_tensione', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='AT/MT', S=25000, uk=12, pcu=110, uhv=132000, ulv=20000, vg='Dyn', kin=8, tau=0.45)]
+        campi(s, 'modCC', gridMode='Sk', SkQ=3000, UnQ=132000, cfac=1.10, cfacMin=1.00)
+
+    @caso('cc23_trasformatore_BT_BT', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='Isolamento', S=100, uk=4, pcu=1.75, uhv=400, ulv=230, vg='Dyn', kin=14, tau=0.15)]
+        campi(s, 'modCC', IkQ=10, UnQ=400, rxGrid=0.5, onLE=True)
+
+    @caso('cc24_sistema_690_V_con_motori', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=2000, uk=6, pcu=18, uhv=20000, ulv=690, kin=8, tau=0.45)]
+        ccm(s)['motori'] = [mot(P=400, U=690, klr=6.5, poles=2), mot(desc='Motore 2', P=250, U=690, klr=6, poles=3)]
+        campi(s, 'modCC', UnQ=20000, IkQ=16, onMot=True, onKT=True)
+
+    @caso('cc25_senza_rete_a_monte', ['modCC'])
+    def _(s): campi(s, 'modCC', onGrid=False, onLE=True)
+
+    @caso('cc26_impianto_completo', TUTTI)
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=60, hascab=True, cS=240, cL=12, cn=4),
+                                   tr(desc='Trasf. 2', S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=75, hascab=True, cS=240, cL=15, cn=4)]
+        ccm(s)['cavi'] = [cav(desc='Blindo', tipo='uni', S=300, L=25, n=3, x=0.09, te=160), cav(desc='Partenza', S=120, L=45, te=250)]
+        ccm(s)['motori'] = [mot(P=160, klr=6.5), mot(desc='Motore 2', P=75, klr=7, poles=2)]
+        campi(s, 'modCC', sc_on=True, sc_S=150, sc_L=300, sc_te=250, onKT=True, ipMethod='C', onCab=True, onMot=True, onLE=True, le_S=70, le_L=70, IkQ=16, IkQmin=10, ccTk=0.5)
+        campi(s, 'modFUS', fu_Ik=28, fu_ip=62, fu_Imin=4.2, fu_S=120, fu_onInr=True, fu_onMot=True, fu_tavv=6)
+        campi(s, 'modCB', cb_Ik=28, cb_ip=62, cb_Imin=4.2, cb_S=120, cb_onInr=True, cb_inrSide=2, cb_onOvl=True, cb_onMot=True)
+        cb(s)['A'] = intr('NZMN4-AX1600', Ir=1440)
+        campi(s, 'modPMT', pm_U=15, pm_Ik=16, pm_Ibt=1200, pm_onCb=True, pm_onWth=True)
+        campi(s, 'modVK', vk_Ik=28, vk_ip=62, vk_Ith=28.5, Icw=36, tcw=1, Ipk=75.6, Tk=0.5)
+
+    # ============================ FUSIBILI ============================
+    @caso('fu01_gG_NH_160_con_corrente_minima', ['modFUS'])
+    def _(s): campi(s, 'modFUS', fu_Imin=2, fu_S=50, fu_tmax=5)
+
+    @caso('fu02_due_fusibili_gG_selettivita', ['modFUS'])
+    def _(s): campi(s, 'modFUS', fu_onB=True, fu_Ik=12, fu_ip=24, fu_Imin=1.5, fu_S=70)
+
+    @caso('fu03_aM_con_avviamento_motore', ['modCC', 'modFUS'])
+    def _(s):
+        ccm(s)['motori'] = [mot(P=45, klr=7, poles=2)]; campi(s, 'modCC', onMot=True)
+        fu(s)['A'] = fusn('aM · Grandezza 000, 00', 100); campi(s, 'modFUS', fu_onMot=True, fu_tavv=8, fu_Ik=15, fu_ip=30, fu_Imin=1.2, fu_S=35)
+
+    @caso('fu04_cilindrico_gG_32', ['modFUS'])
+    def _(s): fu(s)['A'] = fusn('gG · C 10', 32); campi(s, 'modFUS', fu_Ik=6, fu_ip=9, fu_Imin=0.3, fu_S=6, fu_K=115, fu_tmax=0.4)
+
+    @caso('fu05_gTr_per_trasformatore', ['modFUS'])
+    def _(s): fu(s)['A'] = fus(264); campi(s, 'modFUS', fu_Ik=20, fu_ip=42, fu_Imin=3, fu_S=240, fu_K=143, fu_onInr=True, fu_inrSide=2)
+
+    @caso('fu06_aR_semiconduttori', ['modFUS'])
+    def _(s): fu(s)['A'] = fus(330); fu(s)['B'] = fus(312); campi(s, 'modFUS', fu_onB=True, fu_Ik=30, fu_ip=63, fu_Imin=2, fu_S=95)
+
+    @caso('fu07_serie_D_e_D0', ['modFUS'])
+    def _(s): fu(s)['A'] = fus(108); fu(s)['B'] = fus(122); campi(s, 'modFUS', fu_onB=True, fu_Ik=4.5, fu_ip=6.8, fu_Imin=0.25, fu_S=10, fu_tmax=0.4)
+
+    @caso('fu08_media_tensione_24_kV_con_inserzione', ['modFUS'])
+    def _(s): fu(s)['A'] = fusn('Un = 24 kV', 40); campi(s, 'modFUS', fu_Ik=12.5, fu_ip=30, fu_Imin=0.2, fu_onInr=True, fu_inrSide=1, fu_S=95, fu_K=143)
+
+    @caso('fu09_media_tensione_12_kV_100_A', ['modFUS'])
+    def _(s): fu(s)['A'] = fusn('Un = 12 kV', 100); fu(s)['B'] = fusn('Un = 12 kV', 63); campi(s, 'modFUS', fu_onB=True, fu_Ik=16, fu_ip=40, fu_Imin=0.6)
+
+    @caso('fu10_NH_690_V_cavo_grande', ['modFUS'])
+    def _(s): fu(s)['A'] = fusn('gG · Un = 690 V · Grandezza 3', 400); campi(s, 'modFUS', fu_Ik=35, fu_ip=77, fu_Imin=5, fu_S=240, fu_K=143, fu_tmax=0.4)
+
+    @caso('fu11_corrente_oltre_il_potere_di_interruzione', ['modFUS'])
+    def _(s): fu(s)['A'] = fus(110); campi(s, 'modFUS', fu_Ik=80, fu_ip=176, fu_Imin=0.05, fu_S=2.5)
+
+    # ============================ INTERRUTTORI ============================
+    @caso('cb01_scatolato_termomagnetico', ['modCB'])
+    def _(s): campi(s, 'modCB', cb_Imin=3, cb_S=95)
+
+    @caso('cb02_due_interruttori', ['modCB'])
+    def _(s): campi(s, 'modCB', cb_onB=True, cb_Ik=12, cb_ip=24, cb_Imin=1.2, cb_S=16)
+
+    @caso('cb03_modulare_residenziale', ['modCB'])
+    def _(s): cb(s)['A'] = intr('PLSM-C16/1N-IN') if 'PLSM-C16/1N-IN' in CB else intr('PLSM-C6/1N-IN'); campi(s, 'modCB', cb_U=230, cb_Ik=4.5, cb_ip=6.8, cb_Imin=0.2, cb_S=2.5, cb_tmax=0.4)
+
+    @caso('cb04_elettronico_LSI_regolato', ['modCB'])
+    def _(s): cb(s)['A'] = intr('NZMN4-AX1000', Ir=900); campi(s, 'modCB', cb_Ik=22, cb_ip=46, cb_Imin=6, cb_S=240, cb_K=143, cb_onOvl=True)
+
+    @caso('cb05_aperto_con_trasformatore_da_1000_kVA', ['modCC', 'modCB'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35)]
+        cb(s)['A'] = intr('IZMX16B3-V16F-1') if 'IZMX16B3-V16F-1' in CB else intr('IZMX16B3-V06F-1')
+        campi(s, 'modCB', cb_Ik=24, cb_ip=52, cb_Imin=8, cb_S=300, cb_onOvl=True, cb_onInr=True, cb_inrSide=2)
+
+    @caso('cb06_con_fusibile_BT_a_confronto', ['modFUS', 'modCB'])
+    def _(s): fu(s)['A'] = fusn('gG · Un = 500 V · Grandezza 02, 2', 250); campi(s, 'modCB', cb_onFus=True, cb_Imin=2)
+
+    @caso('cb07_con_fusibile_MT_riportato', ['modFUS', 'modCB'])
+    def _(s): fu(s)['A'] = fusn('Un = 17,5 kV', 40); campi(s, 'modCB', cb_onFus=True, cb_Imin=4)
+
+    @caso('cb08_salvamotore_con_avviamento', ['modCC', 'modCB'])
+    def _(s):
+        ccm(s)['motori'] = [mot(P=7.5, klr=7.5, poles=2, eta=0.88)]; campi(s, 'modCC', onMot=True)
+        cb(s)['A'] = intr('PKZM0-20'); campi(s, 'modCB', cb_onMot=True, cb_tavv=6, cb_Ik=10, cb_ip=17, cb_Imin=0.4, cb_S=4)
+
+    @caso('cb09_trasformatore_in_resina_e_inserzione', ['modCC', 'modCB'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=400, uk=6, pcu=5.5, tt='secco', kin=10, tau=0.25)]
+        cb(s)['A'] = intr('NZMN3-AE630'); campi(s, 'modCB', cb_onOvl=True, cb_onInr=True, cb_inrSide=2, cb_Ik=9.5, cb_ip=20, cb_Imin=3)
+
+    @caso('cb10_tensione_690_V', ['modCB'])
+    def _(s): cb(s)['A'] = intr('NZMH2-4-A80-SVE'); campi(s, 'modCB', cb_U=690, cb_Ik=8, cb_ip=15, cb_Imin=0.8, cb_S=25)
+
+    @caso('cb11_ABB_termomagnetico_e_elettronico', ['modCB'])
+    def _(s): cb(s)['A'] = intr('XT4H 250 TMA 225'); cb(s)['B'] = intr('XT2N 160 Ekip Dip LSI 10'); campi(s, 'modCB', cb_onB=True, cb_Ik=30, cb_ip=63, cb_Imin=1, cb_S=70)
+
+    @caso('cb12_solo_magnetico_e_limitatore', ['modCB'])
+    def _(s): cb(s)['A'] = intr('NZMC2-S125'); cb(s)['B'] = intr('CL-PKZ0 + FAZ-C3,5/1'); campi(s, 'modCB', cb_onB=True, cb_Ik=40, cb_ip=84, cb_Imin=2.5, cb_S=35, cb_onOvl=True)
+
+    # ============================ PROTEZIONI MT ============================
+    @caso('pm01_neutro_isolato_20_kV', ['modPMT'])
+    def _(s): campi(s, 'modPMT', pm_U=20, pm_neu='i', pm_T0=0.17, pm_L00=70, pm_IF=120, pm_Ik=16)
+
+    @caso('pm02_due_protezioni_con_tempo_dipendente', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(), prot(desc='Linea trasformatore', mod='na016', dg=False, tcb=60, tmin=100, ei=4, et=5, etm=10,
+                                            on_I1=True, v_I1=0.5, c_I1='IEC_VI', t_I1=0.15, on_I2=True, v_I2=2, c_I2='DT', t_I2=0.2, on_I3=True, v_I3=5, t_I3=0.05, on_E1=True, v_E1=0.02, t_E1=0.2, on_E2=False)]
+        campi(s, 'modPMT', pm_Ibt=605, pm_onWth=True)
+
+    @caso('pm03_tre_protezioni_in_ampere_curve_IEC', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(desc='Arrivo', mod='gen', unit='amp', ei=5, et=3, etm=20, tmin=0, on_I1=True, v_I1=120, c_I1='IEC_NI', t_I1=0.2, v_I2=250, t_I2=0.43, v_I3=600, t_I3=0.05, v_E1=2, t_E1=0.38, v_E2=56, t_E2=0.1),
+                               prot(desc='Partenza 1', mod='gen', unit='amp', dg=False, ei=5, et=3, etm=20, tmin=0, on_I1=True, v_I1=60, c_I1='IEC_EI', t_I1=0.3, v_I2=200, t_I2=0.2, v_I3=500, t_I3=0.03, v_E1=1.5, t_E1=0.2, on_E2=False),
+                               prot(desc='Partenza 2', mod='gen', unit='amp', dg=False, ei=5, et=3, etm=20, tmin=0, on_I1=True, v_I1=40, c_I1='IEC_LTI', t_I1=0.1, on_I2=True, v_I2=150, c_I2='IEC_STI', t_I2=0.3, on_I3=False, on_E1=False, on_E2=False)]
+        campi(s, 'modPMT', pm_dt=0.15)
+
+    @caso('pm04_curve_ANSI_RI_RD', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(desc='A', on_I1=True, v_I1=0.8, c_I1='ANSI_EI', t_I1=1, v_I2=3, c_I2='ANSI_VI', t_I2=0.5, on_I3=True, v_I3=8, c_I3='DT', t_I3=0.05),
+                               prot(desc='B', dg=False, on_I1=True, v_I1=0.6, c_I1='ANSI_NI', t_I1=2, v_I2=2, c_I2='ANSI_MI', t_I2=1, on_I3=False),
+                               prot(desc='C', dg=False, mod='gen', on_I1=True, v_I1=0.5, c_I1='RI', t_I1=0.3, v_I2=1.5, c_I2='RD', t_I2=0.6, on_I3=True, v_I3=4, c_I3='LT_VI', t_I3=0.5, on_E1=True, v_E1=0.03, c_E1='LT_I', t_E1=0.2, on_E2=True, v_E2=0.4, c_E2='LT_EI', t_E2=0.3)]
+
+    @caso('pm05_soglie_direzionali_di_terra', ['modPMT'])
+    def _(s): pm(s)['protezioni'] = [prot(on_D1=True, v_D1=0.02, t_D1=0.25, u_D1=5, on_D2=True, v_D2=0.015, t_D2=0.12, u_D2=2, on_E2=False)]; campi(s, 'modPMT', pm_IF=60)
+
+    @caso('pm06_senza_fasce_di_tolleranza', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(), prot(desc='Linea', dg=False, v_I2=2, t_I2=0.25, v_I3=5, t_I3=0.05, v_E1=0.02, t_E1=0.2, on_E2=False)]
+        campi(s, 'modPMT', pm_onTol=False)
+
+    @caso('pm07_interruttori_BT_e_tenuta', ['modCC', 'modCB', 'modPMT'])
+    def _(s):
+        campi(s, 'modCB', cb_onB=True); campi(s, 'modPMT', pm_onCb=True, pm_onWth=True, pm_Ibt=605)
+        pm(s)['protezioni'] = [prot(), prot(desc='Linea', dg=False, v_I2=1.6, t_I2=0.2, v_I3=5, t_I3=0.05, v_E1=0.02, t_E1=0.2, on_E2=False)]
+
+    @caso('pm08_fusibile_MT_a_confronto', ['modFUS', 'modPMT'])
+    def _(s): fu(s)['A'] = fusn('Un = 17,5 kV', 63); campi(s, 'modPMT', pm_onFus=True, pm_Ibt=605)
+
+    @caso('pm09_due_trasformatori_uno_escluso_e_blocco_armonico', ['modCC', 'modPMT'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(), tr(desc='Trasf. 2', S=1000, uk=6, pcu=10.5, kin=10, tau=0.35), tr(desc='Trasf. 3', S=400, uk=4, pcu=4.6, tt='secco', kin=10, tau=0.25)]
+        pm(s)['trasformatoriEsclusi'] = [2]; pm(s)['trasformatore'] = 1
+        pm(s)['protezioni'] = [prot(h2=True, v_I2=1.2, t_I2=0.3)]; campi(s, 'modPMT', pm_onWth=True)
+
+    @caso('pm10_senza_distributore_e_senza_inserzione', ['modPMT'])
+    def _(s): pm(s)['protezioni'] = [prot(dg=False, mod='na016', tmin=100, ei=4, et=5, etm=10, on_I1=True, v_I1=1, c_I1='IEC_STI', t_I1=0.4)]; campi(s, 'modPMT', pm_onDSO=False, pm_onInr=False, pm_IF=0)
+
+    @caso('pm11_tarature_oltre_i_limiti', ['modPMT'])
+    def _(s): pm(s)['protezioni'] = [prot(v_I2=3.2, t_I2=0.6, v_I3=7.5, t_I3=0.1, v_E1=0.04, t_E1=0.5, v_E2=0.9, t_E2=0.2)]
+
+    # ============================ VERIFICA QUADRO ============================
+    @caso('vk01_tenuta_insufficiente', ['modVK'])
+    def _(s): campi(s, 'modVK', vk_Ik=35, vk_ip=77, vk_Ith=36, Icw=25, tcw=1, Ipk=52.5, Tk=1)
+
+    @caso('vk02_guasto_breve_e_tcw_3_s', ['modVK'])
+    def _(s): campi(s, 'modVK', vk_Ik=30, vk_ip=66, vk_Ith=31, Icw=25, tcw=3, Ipk=52.5, Tk=0.3)
+
+    @caso('vk03_con_picco_limitato', ['modVK'])
+    def _(s): campi(s, 'modVK', vk_Ik=50, vk_ip=110, vk_Ith=50, Icw=20, tcw=1, Ipk=40, vk_cutoff=16, Tk=0.2)
+
+    @caso('vk04_con_corrente_condizionata', ['modVK'])
+    def _(s): campi(s, 'modVK', vk_Ik=42, vk_ip=92, vk_Ith=42, Icw=0, Ipk=0, Icc=50, Tk=1)
+
+    # ============================ GUASTO A TERRA MT ============================
+    @caso('mt01_impianto_di_terra_globale', ['modMT'])
+    def _(s): campi(s, 'modMT', mt_global=True)
+
+    @caso('mt02_corrente_elevata_tempo_breve', ['modMT'])
+    def _(s): campi(s, 'modMT', mt_IE=150, mt_tF=0.5, mt_RE=2, mt_r=1)
+
+    @caso('mt03_fattore_di_riduzione', ['modMT'])
+    def _(s): campi(s, 'modMT', mt_IE=300, mt_tF=0.17, mt_RE=0.8, mt_r=0.6)
+
+    @caso('mt04_tempo_lungo_resistenza_alta', ['modMT'])
+    def _(s): campi(s, 'modMT', mt_IE=50, mt_tF=10.01, mt_RE=3.5, mt_r=1)
+
+    @caso('mt05_tempi_intermedi', ['modMT'])
+    def _(s): campi(s, 'modMT', mt_IE=75, mt_tF=0.73, mt_RE=1.6, mt_r=0.85)
+
+    # ============================ RELAZIONI RAPIDE ============================
+    @caso('re01_partenza_dal_picco', ['modREL'])
+    def _(s): s['moduli']['modREL']['datoDiPartenza'] = 'ipk'; campi(s, 'modREL', lk_ipk=105, r_mode='ik', r_rx=0.1, r_ip=80, n_mode='i', n_ipk=73.5, s_mode='icw', s_i=20, s_t=0.5, i2t_mode='I', i2t_val=4e8, i2t_t=0.5)
+
+    @caso('re02_partenza_dalla_energia', ['modREL'])
+    def _(s): s['moduli']['modREL']['datoDiPartenza'] = 'i2t'; campi(s, 'modREL', lk_i2t=1.6e9, lk_t=1, r_mode='ip', r_rx=0.5, r_ik=40, n_mode='ipk', n_i=40, s_mode='t', s_icw=31.5, s_i=50, i2t_mode='t', i2t_I=31.5, i2t_val=9.9e8)
+
+    @caso('re03_partenza_dalla_Icw', ['modREL'])
+    def _(s): s['moduli']['modREL']['datoDiPartenza'] = 'icw'; campi(s, 'modREL', lk_icw=50, lk_tcw=3, r_rx=0.07, r_ik=65, n_i=8, s_mode='i', s_icw=16, s_t=0.2, i2t_I=6, i2t_t=0.1)
+
+    # ============================ RISCHIO DA FULMINE ============================
+    for k in LPEX:
+        @caso('lp_' + k, ['modLP'])
+        def _(s, k=k): s['moduli']['modLP'] = copy.deepcopy(LPEX[k])
+
+    @caso('lp_casa_con_protezioni', ['modLP'])
+    def _(s):
+        d = copy.deepcopy(LPEX['casa']); d['name'] = 'Casa con LPS e SPD'; d['st'].update({'PLPS': 0.05, 'bondNet': True}); d['site'].update({'NG': 4})
+        s['moduli']['modLP'] = d
+
+    @caso('lp_ospedale_isolato_in_altura', ['modLP'])
+    def _(s):
+        d = copy.deepcopy(LPEX['ospedale']); d['name'] = 'Ospedale isolato'; d['st'].update({'CD': 2, 'H': 25}); d['site'].update({'NG': 1.5})
+        s['moduli']['modLP'] = d
+
+    # ---- scrittura dei casi: ogni stato è aperto nel programma e risalvato, così il file è quello che il programma produce
+    os.makedirs(os.path.join(QUI, 'casi'), exist_ok=True)
+    for f in os.listdir(os.path.join(QUI, 'casi')):
+        if f.endswith('.json'): os.remove(os.path.join(QUI, 'casi', f))
+    elenco = []
+    async with async_playwright() as pw:
+        b = await pw.chromium.launch()
+        for nome, moduli, f in CASI:
+            s = copy.deepcopy(BASE); f(s)
+            p = await b.new_page(viewport={'width': 1300, 'height': 900}); err = []
+            p.on('pageerror', lambda e: err.append(str(e))); p.on('dialog', lambda d: asyncio.ensure_future(d.accept()))
+            await p.goto('file://' + HTML); await p.wait_for_timeout(600)
+            rep = await p.evaluate('([t])=>{ const r=allOpenText(t,"caso.json"); return r?{ok:r.ok,skip:r.skip,miss:r.miss}:null; }', [json.dumps(s)])
+            await p.wait_for_timeout(300)
+            out = json.loads(await p.evaluate(SALVA)); out.pop('salvato', None)
+            json.dump({'nome': nome, 'moduli': moduli, 'stato': out}, open(os.path.join(QUI, 'casi', nome + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+            nota = ''
+            if not rep or rep['skip'] or rep['miss'] or err: nota = f"  ATTENZIONE: {rep} {err}"
+            print(f'{nome:58s} {",".join(m[3:] for m in moduli)}{nota}')
+            elenco.append(nome); await p.close()
+        await b.close()
+    print(len(elenco), 'casi scritti in', os.path.join(QUI, 'casi'))
+
+asyncio.run(main())

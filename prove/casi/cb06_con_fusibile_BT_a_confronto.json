@@ -1,0 +1,428 @@
+{
+ "nome": "cb06_con_fusibile_BT_a_confronto",
+ "moduli": [
+  "modFUS",
+  "modCB"
+ ],
+ "stato": {
+  "app": "Calcoli elettrici",
+  "versione": "0.1.14",
+  "formato": 1,
+  "moduli": {
+   "modCC": {
+    "campi": {
+     "cfac": "1.05",
+     "cfacMin": "0.95",
+     "freq": "50",
+     "ipMethod": "B",
+     "ccTk": "1",
+     "onGrid": true,
+     "gridPreset": "",
+     "gridMode": "Ik",
+     "SkQ": "500",
+     "IkQ": "12.5",
+     "SkQmin": "",
+     "IkQmin": "",
+     "UnQ": "15000",
+     "rxGrid": "0.10",
+     "sc_on": false,
+     "sc_tipo": "mt",
+     "sc_mat": "Cu",
+     "sc_S": "95",
+     "sc_L": "30",
+     "sc_n": "1",
+     "sc_x": "0.12",
+     "sc_te": "250",
+     "onTr": true,
+     "onKT": false,
+     "onCab": false,
+     "onMot": false,
+     "onLE": false,
+     "le_mat": "Cu",
+     "le_S": "95",
+     "le_L": "20",
+     "le_n": "1",
+     "le_x": "0.08",
+     "le_te": "250",
+     "le_RE": "0"
+    },
+    "trasformatori": [
+     {
+      "desc": "Trasf. 1",
+      "S": "630",
+      "uk": "4",
+      "pcu": "7.1",
+      "uhv": "15000",
+      "ulv": "400",
+      "vg": "Dyn",
+      "tt": "olio",
+      "i0": "1.5",
+      "kin": "11",
+      "tau": "0.3",
+      "hvcab": false,
+      "hvtype": "mt",
+      "hvmat": "Cu",
+      "hvS": "95",
+      "hvL": "50",
+      "hvn": "1",
+      "hvx": "0.12",
+      "hvte": "250",
+      "hascab": false,
+      "ctype": "mult",
+      "cmat": "Cu",
+      "cS": "240",
+      "cL": "10",
+      "cn": "1",
+      "cx": "0.08",
+      "cte": "250"
+     }
+    ],
+    "cavi": [
+     {
+      "desc": "Cavo di collegamento",
+      "tipo": "mult",
+      "mat": "Cu",
+      "S": "150",
+      "L": "20",
+      "n": "1",
+      "x": "0.08",
+      "te": "250"
+     }
+    ],
+    "motori": [
+     {
+      "desc": "Motore 1",
+      "P": "200",
+      "U": "400",
+      "eta": "0.8",
+      "klr": "6",
+      "rx": "0.42",
+      "poles": "2",
+      "tmin": "0.10"
+     }
+    ]
+   },
+   "modFUS": {
+    "campi": {
+     "fu_onB": false,
+     "fu_Ik": "18.9",
+     "fu_ip": "38.2",
+     "fu_Imin": "0",
+     "fu_tmax": "5",
+     "fu_K": "115",
+     "fu_S": "16",
+     "fu_onMot": false,
+     "fu_tavv": "5",
+     "fu_onInr": false,
+     "fu_inrSide": "1"
+    },
+    "A": {
+     "gruppo": "A coltello serie NH",
+     "famiglia": "gG · Un = 500 V · Grandezza 02, 2 (35-400 A)",
+     "tipo": "250NHG02B",
+     "In": 250
+    },
+    "B": {
+     "gruppo": "A coltello serie NH",
+     "famiglia": "gG · Un = 500 V · Grandezza 01, 1 (6-250 A)",
+     "tipo": "250NHG1B",
+     "In": 250
+    },
+    "trasformatore": 0,
+    "motore": 0
+   },
+   "modCB": {
+    "campi": {
+     "cb_onB": false,
+     "cb_U": "400",
+     "cb_Ik": "18.9",
+     "cb_ip": "38.2",
+     "cb_Imin": "2",
+     "cb_tmax": "5",
+     "cb_onFus": true,
+     "cb_K": "115",
+     "cb_S": "95",
+     "cb_onMot": false,
+     "cb_tavv": "5",
+     "cb_onInr": false,
+     "cb_inrSide": "1",
+     "cb_onOvl": false
+    },
+    "A": {
+     "gruppo": "Eaton · Scatolati (MCCB) fino a 1600 A",
+     "serie": "NZM 1–4 (fino a 1600 A) · Protezione linee; termomagnetico (-A; LI: regolazione Ir, Ii)",
+     "esecuzione": "In = Iu = 125…300 A (tipo NZM2) · Fisso · 3 poli · Icu = 50 kA (415 V)",
+     "tipo": "NZMN2-A250",
+     "regolazioni": {
+      "Ir": "250",
+      "Ii": "2500"
+     }
+    },
+    "B": {
+     "gruppo": "Eaton · Modulari (MCB)",
+     "serie": "Industriali (xEffect) · Icu = 15 kA (EN 60947-2), tipo FAZ",
+     "esecuzione": "Caratteristica C (Ii = 5–10 × In) · 3 poli",
+     "tipo": "FAZ-C32/3",
+     "regolazioni": {
+      "Ir": "32",
+      "Ii": "320"
+     }
+    },
+    "trasformatore": 0,
+    "motore": 0
+   },
+   "modPMT": {
+    "campi": {
+     "pm_U": "15",
+     "pm_neu": "c",
+     "pm_L2": "250",
+     "pm_T2": "0.5",
+     "pm_onDSO": true,
+     "pm_L3": "600",
+     "pm_T3": "0.12",
+     "pm_L0": "2",
+     "pm_T0": "0.45",
+     "pm_L00": "56",
+     "pm_T00": "0.17",
+     "pm_Ik": "12.5",
+     "pm_IF": "40",
+     "pm_Ibt": "0",
+     "pm_onInr": true,
+     "pm_onFus": false,
+     "pm_onCb": false,
+     "pm_onWth": false,
+     "pm_onTol": true,
+     "pm_dt": "0.1"
+    },
+    "trasformatore": 0,
+    "protezioni": [
+     {
+      "desc": "PG — protezione generale",
+      "mod": "ref615",
+      "inp": "100",
+      "ienp": "100",
+      "unit": "mult",
+      "tcb": "70",
+      "tmin": "20",
+      "dg": true,
+      "h2": false,
+      "ei": "1.5",
+      "eta": "1",
+      "eto": "5",
+      "et": "1",
+      "etm": "20",
+      "on_I1": false,
+      "v_I1": "1",
+      "c_I1": "DT",
+      "t_I1": "0.1",
+      "on_I2": true,
+      "v_I2": "2.5",
+      "c_I2": "DT",
+      "t_I2": "0.43",
+      "on_I3": true,
+      "v_I3": "6",
+      "c_I3": "DT",
+      "t_I3": "0.05",
+      "on_E1": true,
+      "v_E1": "0.02",
+      "c_E1": "DT",
+      "t_E1": "0.38",
+      "on_E2": true,
+      "v_E2": "0.56",
+      "c_E2": "DT",
+      "t_E2": "0.1",
+      "on_D1": false,
+      "v_D1": "0.02",
+      "c_D1": "DT",
+      "t_D1": "0.1",
+      "u_D1": "5",
+      "a_D1": "60–250",
+      "on_D2": false,
+      "v_D2": "0.02",
+      "c_D2": "DT",
+      "t_D2": "0.1",
+      "u_D2": "2",
+      "a_D2": "60–120"
+     }
+    ],
+    "trasformatoriEsclusi": []
+   },
+   "modVK": {
+    "campi": {
+     "vk_Ik": "18.9",
+     "vk_ip": "38.2",
+     "vk_Ith": "19",
+     "Icw": "25",
+     "tcw": "1",
+     "Ipk": "52.5",
+     "Icc": "0",
+     "Tk": "1",
+     "vk_cutoff": "0"
+    }
+   },
+   "modMT": {
+    "campi": {
+     "mt_global": false,
+     "mt_IE": "40",
+     "mt_tF": "10.01",
+     "mt_r": "1",
+     "mt_RE": "1"
+    }
+   },
+   "modREL": {
+    "campi": {
+     "lk_ipk": "52.5",
+     "lk_icc": "25",
+     "lk_t": "1",
+     "lk_i2t": "625000000",
+     "lk_icw": "25",
+     "lk_tcw": "1",
+     "r_mode": "ip",
+     "r_rx": "0.2",
+     "r_ik": "25",
+     "r_ip": "55.078",
+     "n_mode": "ipk",
+     "n_i": "25",
+     "n_ipk": "52.5",
+     "s_mode": "i",
+     "s_icw": "25",
+     "s_t": "3",
+     "s_i": "14.434",
+     "i2t_mode": "i2t",
+     "i2t_I": "25",
+     "i2t_t": "1",
+     "i2t_val": "625000000"
+    },
+    "datoDiPartenza": "icc"
+   },
+   "modLP": {
+    "v": 1,
+    "name": "Nuova valutazione",
+    "site": {
+     "mode": "NG",
+     "NG": 2.5,
+     "NSG": 5,
+     "k": 2
+    },
+    "st": {
+     "L": 20,
+     "W": 15,
+     "H": 8,
+     "adMode": "auto",
+     "AD": 0,
+     "Hp": 0,
+     "CD": 0.5,
+     "PS": 1,
+     "PLPS": 1,
+     "ks1Mode": "none",
+     "wm1": 5,
+     "KS1": 1,
+     "bondNet": false,
+     "PTWS": 1
+    },
+    "thr": {
+     "mode": "R",
+     "RT": 1e-05,
+     "RT1": 1e-05,
+     "RT2": 0.001
+    },
+    "svc": [
+     {
+      "id": "s1",
+      "name": "Linea di energia BT",
+      "kind": "P",
+      "Uw": 2.5,
+      "conn": "ns",
+      "rs": "r20",
+      "PEB": 1,
+      "sec": [
+       {
+        "LL": 1000,
+        "CI": 0.3,
+        "CE": 0.5,
+        "CT": 1,
+        "rho": 0
+       }
+      ],
+      "adj": {
+       "on": false,
+       "L": 10,
+       "W": 10,
+       "H": 5,
+       "CDJ": 1
+      }
+     },
+     {
+      "id": "s2",
+      "name": "Linea telefonica / dati",
+      "kind": "T",
+      "Uw": 1.5,
+      "conn": "ns",
+      "rs": "r20",
+      "PEB": 1,
+      "sec": [
+       {
+        "LL": 1000,
+        "CI": 0.3,
+        "CE": 0.5,
+        "CT": 1,
+        "rho": 0
+       }
+      ],
+      "adj": {
+       "on": false,
+       "L": 10,
+       "W": 10,
+       "H": 5,
+       "CDJ": 1
+      }
+     }
+    ],
+    "zones": [
+     {
+      "id": "z1",
+      "name": "Interno edificio",
+      "type": "int",
+      "tz": 8760,
+      "rt": 0.001,
+      "pam": {},
+      "PO": 1,
+      "rf": 0.01,
+      "rp": 1,
+      "lossCat": "n",
+      "LT": 0.01,
+      "LD": 0.1,
+      "LF1": 0.05,
+      "LF2": 0.05,
+      "LO1": 0,
+      "LO2": 0,
+      "te": 8760,
+      "KS2": 1,
+      "FT": 0.1,
+      "evalF": true,
+      "sys": {
+       "s1": {
+        "on": true,
+        "KS3": 0.2,
+        "PSPD": 1
+       },
+       "s2": {
+        "on": true,
+        "KS3": 1,
+        "PSPD": 1
+       }
+      },
+      "env": {
+       "on": false,
+       "LF1E": 0,
+       "LF2E": 0,
+       "LO1E": 0,
+       "LO2E": 0,
+       "tzE": 8760
+      }
+     }
+    ]
+   }
+  }
+ }
+}
