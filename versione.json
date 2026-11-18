@@ -1,12 +1,12 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.17",
+  "versione": "0.1.18",
   "data": "19/11/2026",
-  "novita": "Cortocircuito calcolato in ogni punto della catena (consegna, primario, sbarre, fine di ogni tratto) con tabella a video, PDF e foglio Excel «Punti»; nelle Protezioni MT le correnti minime; tasto «scarica Gestione curve»."
+  "novita": "Nello schema del PDF il punto delle sbarre a valle del trasformatore ha il suo nodo, alla stessa distanza di quello a monte."
  },
  "Gestione_curve.html": {
-  "versione": "0.2.4",
-  "data": "18/11/2026",
-  "novita": "ricerca degli aggiornamenti dal fondo della pagina."
+  "versione": "0.2.5",
+  "data": "19/11/2026",
+  "novita": "collegamento al repository GitHub in fondo alla pagina."
  }
 }
