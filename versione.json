@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.15",
+  "versione": "0.1.16",
   "data": "18/11/2026",
-  "novita": "Colori dei grafici uniformi (I″k massime rosse, minime arancioni), nomi e aiuti riordinati; corretti il guasto fase-terra con cavo di ramo, il fattore c della rete con trasformatore BT/BT e la verifica del quadro con la sola Icc."
+  "novita": "In fondo alla pagina il tasto «scarica Gestione curve», accanto a «cerca aggiornamenti», e il collegamento al repository GitHub."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",
