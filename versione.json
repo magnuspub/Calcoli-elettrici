@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.11",
+  "versione": "0.1.12",
   "data": "18/11/2026",
-  "novita": "corretto l'avviso di nuova versione, che restava sempre visibile e non si chiudeva con «Non ora»."
+  "novita": "nelle Protezioni MT si possono sovrapporre gli interruttori BT riportati alla tensione MT, con la verifica di selettività."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",
