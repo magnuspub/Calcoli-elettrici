@@ -127,10 +127,17 @@ async def esegui():
         for (nome, m), righe in righe_xls.items():
             f = os.path.join(out, f'{nome}__{m}.xlsx'); r = {}
             if os.path.exists(f):
-                ws = openpyxl.load_workbook(f, data_only=True).active
+                wb = openpyxl.load_workbook(f, data_only=True); ws = wb.worksheets[0]
                 for n, lab in righe:
                     v = ws.cell(row=n, column=2).value
                     r[f'{n} · {lab}'] = (float(f'{v:.9g}') if isinstance(v, (int, float)) and not isinstance(v, bool) else v)
+                for ws in wb.worksheets[1:]:   # fogli aggiuntivi (per esempio «Punti»): tabella con intestazione e una riga per voce
+                    tab = [x for x in ws.iter_rows(values_only=True)]; it = next((i for i, x in enumerate(tab) if x and x[0] == 'Punto'), None)
+                    if it is None: continue
+                    for x in tab[it + 1:]:
+                        if not x or not x[0]: break
+                        for j, v in enumerate(x[2:], 2):
+                            if isinstance(v, (int, float)) and not isinstance(v, bool): r[f'{ws.title} · {x[0]} · {tab[it][j]}'] = float(f'{v:.9g}')
             else: r = {'errore': 'foglio non ricalcolato'}
             ris[nome][m]['excel_ricalcolato'] = r
         shutil.rmtree(tmp, ignore_errors=True)
