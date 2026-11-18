@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.13",
+  "versione": "0.1.14",
   "data": "18/11/2026",
-  "novita": "Protezioni MT: interruttori BT riportati alla MT, fasce di tolleranza di relè, TA e TO, tenuta al cortocircuito del trasformatore; inserzione dei trasformatori in olio con i valori ABB."
+  "novita": "Cortocircuito secondo la CEI EN IEC 60909-0:2026: punto di guasto ricavato dallo schema, correnti massime e minime sempre calcolate, temperatura a fine guasto per ogni cavo, resistività dei conduttori della norma. Interruttori: verifica della protezione del trasformatore. Protezioni MT: soglie leggibili su schermi piccoli."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",
