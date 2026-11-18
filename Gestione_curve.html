@@ -211,14 +211,19 @@ dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monosp
       <div id="kLog" class="mini"></div>
     </section>
   </div>
-  <p class="foot"><b>Gestione curve</b> · versione 0.2.3 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · 2026</p>
+  <p class="foot"><b>Gestione curve</b> · versione 0.2.4 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · 2026
+    &nbsp;·&nbsp; <button class="btn sm" id="updNow">cerca aggiornamenti</button> <span id="updMsg"></span></p>
+  <div class="card" id="updBar" hidden style="border-color:var(--accent);border-left:4px solid var(--accent)">
+    <div class="acts" style="justify-content:space-between"><span><b>È disponibile la versione <span id="updVer"></span> di «Gestione curve»</b> <span class="mini" id="updDate"></span><br><span class="mini" id="updNews"></span></span>
+      <span class="acts"><button class="btn pri" id="updGet">↧ Scarica</button><button class="btn" id="updSkip">Non ora</button></span></div>
+  </div>
 </main>
 
 <dialog id="dlg"><form method="dialog" id="dlgF"><h3 id="dlgT"></h3><div id="dlgB"></div><div class="acts" id="dlgA"></div></form></dialog>
 
 <script>
 "use strict";
-const ED_VER="0.2.3";
+const ED_VER="0.2.4";
 /* =========================================================================================
    Formato dei database (definito in Calcoli_elettrici.html)
    FUS_DB: g = famiglie [gruppo, descrizione] · p = [tipo, famiglia, Un (V), In (A), Icn (kA), caratteristica, curva t-I, curva limitazione, curva I²t, I min di interruzione (A)]
@@ -1024,6 +1029,26 @@ document.addEventListener("keydown",ev=>{ if((ev.ctrlKey||ev.metaKey)&&ev.key===
 window.addEventListener("beforeunload",ev=>{ if(S.dirty){ ev.preventDefault(); ev.returnValue=""; } });
 $("tL").addEventListener("change",ev=>{ UI.t.id=ev.target.value; drawT(); });
 fActions(); cActions();
+/* =============================== aggiornamenti dal repository =============================== */
+const UPD_URL="https://raw.githubusercontent.com/magnuspub/Calcoli-elettrici/main/", UPD_FILE="Gestione_curve.html"; let UPD_INFO=null;
+function updCmp(a,b){ const x=String(a).split(".").map(Number), y=String(b).split(".").map(Number); for(let i=0;i<Math.max(x.length,y.length);i++){ const d=(x[i]||0)-(y[i]||0); if(d) return d>0?1:-1; } return 0; }
+function updSay(t,bad){ $("updMsg").textContent=t||""; $("updMsg").style.color=bad?"var(--crit)":""; }
+async function updFetch(path,asText){ const c=new AbortController(), tm=setTimeout(()=>c.abort(),asText?60000:7000);
+  try{ const r=await fetch(UPD_URL+path+"?t="+Date.now(),{cache:"no-store",signal:c.signal}); if(!r.ok) throw new Error("risposta "+r.status); return asText?await r.text():await r.json(); } finally{ clearTimeout(tm); } }
+async function updCheck(){   // solo su richiesta: senza risposta dal repository l'avviso resta nascosto
+  UPD_INFO=null; $("updBar").hidden=true;
+  if(navigator.onLine===false){ updSay("Nessuna connessione: ricerca non eseguita.",true); return; }
+  updSay("Ricerca in corso…");
+  let d; try{ d=await updFetch("versione.json"); }catch(e){ updSay("Ricerca non riuscita: nessuna connessione oppure repository non raggiungibile.",true); return; }
+  const it=d&&d[UPD_FILE]; if(!it||!it.versione){ updSay("Nel repository manca l'indicazione della versione.",true); return; }
+  if(updCmp(it.versione,ED_VER)<=0){ updSay(`Hai già l'ultima versione (${ED_VER}).`); return; }
+  UPD_INFO=it; $("updVer").textContent=it.versione; $("updDate").textContent=(it.data?`del ${it.data} · `:"")+`in uso la ${ED_VER}`; $("updNews").textContent=it.novita?"Novità: "+it.novita:""; $("updBar").hidden=false; updSay(`Disponibile la versione ${it.versione}.`);
+}
+async function updDownload(){ updSay("Scaricamento in corso…");
+  try{ const t=await updFetch(UPD_FILE,true), m=t.match(/const ED_VER="([^"]+)"/); if(t.length<50000||!m) throw new Error("il file scaricato non è «Gestione curve»");
+    window.saveBlob(UPD_FILE,t); updSay("Versione "+m[1]+" scaricata nella cartella dei download: mettila al posto del file attuale."); }
+  catch(e){ updSay("Scaricamento non riuscito ("+(e.message||e)+").",true); } }
+$("updNow").onclick=updCheck; $("updGet").onclick=updDownload; $("updSkip").onclick=()=>{ $("updBar").hidden=true; updSay(""); };
 </script>
 </body>
 </html>
