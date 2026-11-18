@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.10",
+  "versione": "0.1.11",
   "data": "18/11/2026",
-  "novita": "ricerca degli aggiornamenti dal fondo della pagina, con scaricamento o sostituzione diretta del file."
+  "novita": "corretto l'avviso di nuova versione, che restava sempre visibile e non si chiudeva con «Non ora»."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",
