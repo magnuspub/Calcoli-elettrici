@@ -107,6 +107,7 @@ dialog h3{margin:0 0 10px;font-size:15px}
 dialog .acts{justify-content:flex-end;margin-top:14px}
 dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monospace;font-size:12px}
 .foot{font-size:11.5px;color:var(--text-muted);margin-top:22px;padding-top:10px;border-top:1px solid var(--border)}
+.foot a{color:var(--accent)}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -211,7 +212,7 @@ dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monosp
       <div id="kLog" class="mini"></div>
     </section>
   </div>
-  <p class="foot"><b>Gestione curve</b> · versione 0.2.4 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · 2026
+  <p class="foot"><b>Gestione curve</b> · versione 0.2.5 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026
     &nbsp;·&nbsp; <button class="btn sm" id="updNow">cerca aggiornamenti</button> <span id="updMsg"></span></p>
   <div class="card" id="updBar" hidden style="border-color:var(--accent);border-left:4px solid var(--accent)">
     <div class="acts" style="justify-content:space-between"><span><b>È disponibile la versione <span id="updVer"></span> di «Gestione curve»</b> <span class="mini" id="updDate"></span><br><span class="mini" id="updNews"></span></span>
@@ -223,7 +224,7 @@ dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monosp
 
 <script>
 "use strict";
-const ED_VER="0.2.4";
+const ED_VER="0.2.5";
 /* =========================================================================================
    Formato dei database (definito in Calcoli_elettrici.html)
    FUS_DB: g = famiglie [gruppo, descrizione] · p = [tipo, famiglia, Un (V), In (A), Icn (kA), caratteristica, curva t-I, curva limitazione, curva I²t, I min di interruzione (A)]
