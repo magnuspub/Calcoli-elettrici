@@ -62,6 +62,13 @@ main{max-width:1360px;margin:0 auto;padding:8px 24px 64px}
 .expbtns button{font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--surface-2);color:var(--text-secondary);cursor:pointer;font-family:inherit;white-space:nowrap}
 .expbtns button:hover{border-color:var(--accent);color:var(--accent)}
 #printArea{display:none}
+.updbar{max-width:760px;margin:10px auto 0;text-align:left;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:var(--surface-1);border:1px solid var(--accent);border-left:4px solid var(--accent);border-radius:var(--radius);padding:10px 14px;font-size:13px}
+.updbar .mini{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.updact{display:flex;gap:8px;flex-wrap:wrap}
+.updact button,.updrow button{font:inherit;font-size:12px;padding:5px 10px;border:1px solid var(--border);border-radius:7px;background:var(--surface-2);color:var(--text-secondary);cursor:pointer}
+.updact button:hover,.updrow button:hover{border-color:var(--accent);color:var(--accent)}
+.updact #updGet{background:var(--accent);border-color:var(--accent);color:#fff}
+.updrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
 @media print{
   body.printing>*{display:none!important}
   body.printing>#printArea{display:block!important}
@@ -236,7 +243,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.9</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.10</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -1053,14 +1060,20 @@ details.adv>.in{margin-top:10px}
 <div class="foot">
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni aggiungono il proprio contributo, sommato su tutti i motori inseriti (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.9 · Federico Magnani · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.10 · Federico Magnani · 2026</p>
+  <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button> <span id="updMsg"></span></p>
+<div id="updBar" class="updbar" hidden>
+  <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
+    <div class="mini">L'aggiornamento sostituisce tutto il file, comprese curve e tabelle: se le hai modificate con «Gestione curve», tieni una copia del file attuale.</div></div>
+  <div class="updact"><button type="button" id="updGet">↧ Scarica</button><button type="button" id="updPut" hidden>Sostituisci questo file…</button><button type="button" id="updSkip">Non ora</button></div>
+</div>
 </div>
 
 <div id="printArea"></div>
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.9";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.10";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -3810,6 +3823,63 @@ motRow({desc:"Motore 1",P:200,U:400,eta:0.80,klr:6,rx:0.42,poles:2});
 autoC(); syncSeg();
 collapse("cardGrid","onGrid");collapse("cardTr","onTr");collapse("cardCab","onCab");collapse("cardMot","onMot");collapse("cardLE","onLE");
 fusInit(); cbInit(); pmtInit(); recompute();
+/* ============ AGGIORNAMENTI DAL REPOSITORY ============
+   Solo su richiesta («cerca aggiornamenti», in fondo alla pagina) si legge versione.json dal repository pubblico e lo si confronta con APP_VER.
+   All'avvio non si fa nessuna richiesta di rete; se la ricerca non riesce l'avviso di nuova versione non viene mostrato.
+   Il file nuovo si scarica oppure, dove il browser lo permette (Chrome, Edge), sostituisce quello aperto dopo una conferma. */
+const UPD_URL="https://raw.githubusercontent.com/magnuspub/Calcoli-elettrici/main/", UPD_FILE="Calcoli_elettrici.html";
+const UPD={info:null};
+function updCmp(a,b){ const x=String(a).split(".").map(Number), y=String(b).split(".").map(Number); for(let i=0;i<Math.max(x.length,y.length);i++){ const d=(x[i]||0)-(y[i]||0); if(d) return d>0?1:-1; } return 0; }
+function updSay(t,bad){ const m=$("updMsg"); m.textContent=t||""; m.style.color=bad?"var(--crit)":""; }
+async function updFetch(path,asText){
+  const c=new AbortController(), tm=setTimeout(()=>c.abort(),asText?60000:7000);
+  try{ const r=await fetch(UPD_URL+path+"?t="+Date.now(),{cache:"no-store",signal:c.signal}); if(!r.ok) throw new Error("risposta "+r.status); return asText?await r.text():await r.json(); }
+  finally{ clearTimeout(tm); }
+}
+// ricerca richiesta dall'utente: senza risposta dal repository l'avviso di nuova versione resta nascosto
+async function updCheck(){
+  UPD.info=null; $("updBar").hidden=true;
+  if(navigator.onLine===false){ updSay("Nessuna connessione: ricerca non eseguita.",true); return; }
+  updSay("Ricerca in corso…");
+  let d; try{ d=await updFetch("versione.json"); }catch(e){ updSay("Ricerca non riuscita: nessuna connessione oppure repository non raggiungibile.",true); return; }
+  const it=d&&d[UPD_FILE];
+  if(!it||!it.versione){ updSay("Nel repository manca l'indicazione della versione.",true); return; }
+  if(updCmp(it.versione,APP_VER)<=0){ updSay(`Hai già l'ultima versione (${APP_VER}).`); return; }
+  UPD.info=it; $("updVer").textContent=it.versione; $("updDate").textContent=it.data?`del ${it.data} · in uso la ${APP_VER}`:`in uso la ${APP_VER}`; $("updNews").textContent=it.novita?"Novità: "+it.novita:"";
+  $("updPut").hidden=!(window.showOpenFilePicker&&window.isSecureContext!==false); $("updBar").hidden=false; updSay(`Disponibile la versione ${it.versione}.`);
+}
+// scarica il file nuovo e controlla che sia davvero il programma, nella versione annunciata
+async function updText(){
+  const t=await updFetch(UPD_FILE,true), m=t.match(/APP_VER="([^"]+)"/);
+  if(t.length<300000||t.indexOf("const FUS_DB=")<0||!m) throw new Error("il file scaricato non è «Calcoli elettrici»");
+  if(UPD.info&&updCmp(m[1],APP_VER)<=0) throw new Error("il file nel repository non è più recente di quello in uso");
+  return {t,v:m[1]};
+}
+// archivio del file da sostituire, per non doverlo indicare ogni volta (solo dove il browser lo consente)
+function updDb(mode,val){ return new Promise(res=>{ let rq; try{ rq=indexedDB.open("ce_upd",1); }catch(e){ res(null); return; }
+  rq.onupgradeneeded=()=>rq.result.createObjectStore("h"); rq.onerror=()=>res(null);
+  rq.onsuccess=()=>{ try{ const tx=rq.result.transaction("h",mode==="get"?"readonly":"readwrite"), st=tx.objectStore("h"); if(mode==="get"){ const g=st.get("file"); g.onsuccess=()=>res(g.result||null); g.onerror=()=>res(null); } else { st.put(val,"file"); tx.oncomplete=()=>res(true); tx.onerror=()=>res(null); } }catch(e){ res(null); } }; }); }
+async function updReplace(){
+  if(!confirm("Sostituire il file aperto con la versione "+(UPD.info?UPD.info.versione:"nuova")+"?\n\nTutto il file viene riscritto, comprese curve e tabelle: se le hai modificate con «Gestione curve» andranno perse. I dati inseriti nei moduli e non salvati con «Salva tutto» andranno persi al ricaricamento.")) return;
+  updSay("Scaricamento in corso…");
+  try{
+    const f=await updText(); let h=await updDb("get");
+    if(h){ try{ if((await h.requestPermission({mode:"readwrite"}))!=="granted") h=null; }catch(e){ h=null; } }
+    if(!h){ const pick=await window.showOpenFilePicker({types:[{description:"Calcoli elettrici",accept:{"text/html":[".html",".htm"]}}]}); h=pick[0];
+      if(h.name!==UPD_FILE&&!confirm("Il file scelto si chiama «"+h.name+"», non «"+UPD_FILE+"». Sostituirlo comunque?")){ updSay("Sostituzione annullata."); return; } }
+    const w=await h.createWritable(); await w.write(f.t); await w.close(); await updDb("put",h);
+    updSay("File aggiornato alla versione "+f.v+": ricarico la pagina…"); setTimeout(()=>location.reload(),600);
+  }catch(e){ if(e&&e.name==="AbortError"){ updSay("Sostituzione annullata."); return; } updSay("Sostituzione non riuscita ("+(e.message||e)+"): usa «Scarica» e sostituisci il file a mano.",true); }
+}
+async function updDownload(){
+  updSay("Scaricamento in corso…");
+  try{ const f=await updText(); _saveFile(UPD_FILE,f.t,"text/html;charset=utf-8"); updSay("Versione "+f.v+" scaricata nella cartella dei download: mettila al posto del file attuale."); }
+  catch(e){ updSay("Scaricamento non riuscito ("+(e.message||e)+").",true); }
+}
+(function(){
+  $("updNow").addEventListener("click",updCheck); $("updGet").addEventListener("click",updDownload); $("updPut").addEventListener("click",updReplace);
+  $("updSkip").addEventListener("click",()=>{ $("updBar").hidden=true; updSay(""); });
+})();
 /* lettura delle coordinate sui grafici: crocino e valori al passaggio del mouse (tutti i grafici con assi) */
 (function(){
   const tip=document.createElement("div");

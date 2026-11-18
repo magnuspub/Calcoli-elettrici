@@ -1,0 +1,12 @@
+{
+ "Calcoli_elettrici.html": {
+  "versione": "0.1.10",
+  "data": "18/11/2026",
+  "novita": "ricerca degli aggiornamenti dal fondo della pagina, con scaricamento o sostituzione diretta del file."
+ },
+ "Gestione_curve.html": {
+  "versione": "0.2.4",
+  "data": "18/11/2026",
+  "novita": "ricerca degli aggiornamenti dal fondo della pagina."
+ }
+}
