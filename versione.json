@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.12",
+  "versione": "0.1.13",
   "data": "18/11/2026",
-  "novita": "nelle Protezioni MT si possono sovrapporre gli interruttori BT riportati alla tensione MT, con la verifica di selettività."
+  "novita": "Protezioni MT: interruttori BT riportati alla MT, fasce di tolleranza di relè, TA e TO, tenuta al cortocircuito del trasformatore; inserzione dei trasformatori in olio con i valori ABB."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",
