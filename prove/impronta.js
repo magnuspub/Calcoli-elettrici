@@ -41,7 +41,8 @@
         let p=s.parentElement; while(p&&!p.id) p=p.parentElement; return (p?p.id:"")+" linee "+h(geo)+" scritte "+h(tx); })};
     // esportazioni: foglio Excel (celle e formule, senza la riga con data e versione) e contenuto del PDF
     o.esportazioni={};
-    try{ if(xls[m]&&typeof window[xls[m]]==="function"){ const S=window[xls[m]](); o.esportazioni.excel=h(JSON.stringify(S.rows.filter((row,i)=>!(i<3&&row[0]&&row[0].s===7)).map(row=>row.map(c=>c?(c.f!=null?"="+c.f:c.v):"")))); o.esportazioni.righe=S.rows.length; } }catch(e){ o.esportazioni.excel="errore: "+e.message; }
+    try{ if(xls[m]&&typeof window[xls[m]]==="function"){ const S=window[xls[m]](); o.esportazioni.excel=h(JSON.stringify(S.rows.filter((row,i)=>!(i<3&&row[0]&&row[0].s===7)).map(row=>row.map(c=>c?(c.f!=null?"="+c.f:c.v):"")))); o.esportazioni.righe=S.rows.length;
+        (S.more||[]).forEach(Q=>{ o.esportazioni["excel · foglio "+Q.name]=h(JSON.stringify(Q.rows.filter((row,i)=>!(i<3&&row[0]&&row[0].s===7)).map(row=>row.map(c=>c?(c.f!=null?"="+c.f:c.v):"")))); }); } }catch(e){ o.esportazioni.excel="errore: "+e.message; }
     try{ if(typeof collectModule==="function"&&m!=="modLP") o.esportazioni.pdf=h(JSON.stringify(collectModule(m))); }catch(e){ o.esportazioni.pdf="errore: "+e.message; }
     out[m]=o;
   });

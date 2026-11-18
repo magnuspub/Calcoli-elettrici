@@ -4,23 +4,27 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
 
 ## Cosa c'è
 
-- `casi/` — 77 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
-  26 di cortocircuito, 11 di fusibili, 12 di interruttori, 11 di protezioni MT, 4 di verifica quadro,
+- `casi/` — 84 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
+  31 di cortocircuito, 11 di fusibili, 12 di interruttori, 13 di protezioni MT, 4 di verifica quadro,
   5 di guasto a terra MT, 3 di relazioni rapide, 5 di rischio da fulmine.
+  I primi 77 sono stati salvati con la versione 0.1.15: riaperti dalle versioni successive provano anche che
+  i file vecchi danno gli stessi risultati.
 - `riferimento.json` — i risultati della versione di riferimento per ogni caso, più l'impronta della banca dati
   (tabelle, tre fusibili per famiglia, due interruttori per serie).
 - `prova.py` — apre ogni caso nel programma, raccoglie i risultati e li confronta con il riferimento.
 - `impronta.js` — che cosa viene raccolto da ogni modulo.
-- `genera_casi.py` — come sono stati costruiti i casi; va rieseguito solo per aggiungerne o cambiarli.
+- `genera_casi.py` — come sono stati costruiti i casi; per aggiungerne si usa `--solo prefisso`, che scrive
+  solo i casi nuovi e lascia gli altri come sono.
 
 ## Cosa viene confrontato
 
 Per ogni modulo del caso:
 
 - **risultati**: i riquadri, le verifiche con il loro esito, le tabelle e le note mostrate a schermo, e i valori
-  interni a dieci cifre (correnti, impedenze, curve, margini);
-- **esportazioni**: il contenuto del foglio Excel e del PDF; con `--excel` anche i valori dei fogli ricalcolati
-  da LibreOffice, cioè le formule esportate rifatte da un altro programma;
+  interni a dieci cifre (correnti, impedenze, curve, margini); per il cortocircuito anche le correnti massime
+  e minime di ogni punto della catena;
+- **esportazioni**: il contenuto dei fogli Excel (compreso il foglio «Punti») e del PDF; con `--excel` anche
+  i valori dei fogli ricalcolati da LibreOffice, cioè le formule esportate rifatte da un altro programma;
 - **aspetto**: legende e geometria dei grafici.
 
 ## Come si usa

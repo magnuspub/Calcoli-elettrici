@@ -5,12 +5,20 @@ Ogni caso è un file nel formato di «Salva tutto»: si può aprire anche a mano
 Va rieseguito solo per aggiungere o cambiare casi; il confronto tra versioni si fa con prova.py.
 
     python3 prove/genera_casi.py [percorso di Calcoli_elettrici.html]
+    python3 prove/genera_casi.py --solo cc27,pm12      scrive solo i casi con questi prefissi e lascia gli altri come sono
+
+I casi già scritti non vanno rigenerati senza motivo: aperti da una versione più recente provano anche che i file
+salvati con le versioni precedenti si riaprono con gli stessi risultati.
 """
 import asyncio, copy, json, os, sys
 from playwright.async_api import async_playwright
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-HTML = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(QUI, '..', 'Calcoli_elettrici.html')
+ARGV = sys.argv[1:]
+SOLO = None
+if '--solo' in ARGV:
+    i = ARGV.index('--solo'); SOLO = tuple(ARGV[i + 1].split(',')); del ARGV[i:i + 2]
+HTML = os.path.abspath(ARGV[0]) if ARGV else os.path.join(QUI, '..', 'Calcoli_elettrici.html')
 SALVA = '''(()=>{ let s=null; const o=window._saveFile; window._saveFile=(n,c)=>{s=c}; document.getElementById("allSave").click(); window._saveFile=o; return s; })()'''
 TUTTI = ["modCC", "modFUS", "modCB", "modPMT", "modVK", "modMT", "modREL"]
 CASI = []
@@ -164,6 +172,37 @@ async def main():
     @caso('cc25_senza_rete_a_monte', ['modCC'])
     def _(s): campi(s, 'modCC', onGrid=False, onLE=True)
 
+    # ---- punti della catena: consegna, primario, sbarre, fine di ogni tratto ----
+    @caso('cc27_punti_cavo_sorgente_ramo_tre_tratti', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(hascab=True, cS=240, cL=12, cn=3)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160), cav(desc='Terminale', mat='Al', S=10, L=65, te=160)]
+        ccm(s)['motori'] = [mot(P=110), mot(desc='Motore 2', P=45, klr=7, poles=2)]
+        campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, onLE=True, le_S=50, le_L=125, le_RE=0.02, le_te=160, IkQmin=9)
+
+    @caso('cc28_punti_due_trasformatori_metodo_C', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=800, uk=6, pcu=8.5, vg='Dzn', kin=10, tau=0.3), tr(desc='Trasf. 2', S=800, uk=6, pcu=8.5, kin=10, tau=0.3, hascab=True, cS=185, cL=20)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        campi(s, 'modCC', sc_on=True, sc_S=95, sc_L=200, onCab=True, onKT=True, ipMethod='C', onLE=True, le_S=50, le_L=60)
+
+    @caso('cc29_punti_rete_MT_senza_trasformatore', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Linea MT 1', tipo='uni', S=95, L=800, x=0.12), cav(desc='Linea MT 2', tipo='uni', mat='Al', S=50, L=1500, x=0.13)]
+        ccm(s)['motori'] = [mot(P=800, U=20000, klr=5.5)]
+        campi(s, 'modCC', onTr=False, UnQ=20000, IkQ=16, IkQmin=9, cfac=1.10, cfacMin=1.00, sc_on=True, sc_S=95, sc_L=350, onCab=True, onMot=True)
+
+    @caso('cc30_punti_fornitura_monofase', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Dorsale', S=6, L=20), cav(desc='Presa', S=2.5, L=15, te=160)]
+        campi(s, 'modCC', gridPreset='cei_mono', gridMode='Ik', IkQ=6, UnQ=230, rxGrid=0.98, onTr=False, onCab=True, sc_on=True, sc_S=16, sc_L=25)
+
+    @caso('cc31_punti_trasformatore_BT_BT', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='Isolamento', S=100, uk=4, pcu=1.75, uhv=400, ulv=230, vg='Dyn', kin=14, tau=0.15)]
+        ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160), cav(desc='Terminale', S=10, L=30, te=160)]
+        campi(s, 'modCC', IkQ=20, IkQmin=12, UnQ=400, rxGrid=0.5, sc_on=True, sc_S=95, sc_L=80, onCab=True, onLE=True, le_S=50, le_L=72)
+
     @caso('cc26_impianto_completo', TUTTI)
     def _(s):
         ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=60, hascab=True, cS=240, cL=12, cn=4),
@@ -308,6 +347,14 @@ async def main():
     @caso('pm11_tarature_oltre_i_limiti', ['modPMT'])
     def _(s): pm(s)['protezioni'] = [prot(v_I2=3.2, t_I2=0.6, v_I3=7.5, t_I3=0.1, v_E1=0.04, t_E1=0.5, v_E2=0.9, t_E2=0.2)]
 
+    @caso('pm12_correnti_minime_viste_dalla_protezione', ['modPMT'])
+    def _(s): campi(s, 'modPMT', pm_Ik=11.6, pm_IkMin=9.75, pm_Ibt=602, pm_IbtMin=544)
+
+    @caso('pm13_correnti_minime_sotto_le_soglie', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(v_I2=2.4, t_I2=0.5, v_I3=6, t_I3=0.12)]
+        campi(s, 'modPMT', pm_Ik=12.5, pm_IkMin=0.2, pm_Ibt=380, pm_IbtMin=150, pm_onTol=False)
+
     # ============================ VERIFICA QUADRO ============================
     @caso('vk01_tenuta_insufficiente', ['modVK'])
     def _(s): campi(s, 'modVK', vk_Ik=35, vk_ip=77, vk_Ith=36, Icw=25, tcw=1, Ipk=52.5, Tk=1)
@@ -365,11 +412,12 @@ async def main():
     # ---- scrittura dei casi: ogni stato è aperto nel programma e risalvato, così il file è quello che il programma produce
     os.makedirs(os.path.join(QUI, 'casi'), exist_ok=True)
     for f in os.listdir(os.path.join(QUI, 'casi')):
-        if f.endswith('.json'): os.remove(os.path.join(QUI, 'casi', f))
+        if f.endswith('.json') and not SOLO: os.remove(os.path.join(QUI, 'casi', f))
     elenco = []
     async with async_playwright() as pw:
         b = await pw.chromium.launch()
         for nome, moduli, f in CASI:
+            if SOLO and not nome.startswith(SOLO): continue
             s = copy.deepcopy(BASE); f(s)
             p = await b.new_page(viewport={'width': 1300, 'height': 900}); err = []
             p.on('pageerror', lambda e: err.append(str(e))); p.on('dialog', lambda d: asyncio.ensure_future(d.accept()))

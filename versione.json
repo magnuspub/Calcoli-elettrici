@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.16",
-  "data": "18/11/2026",
-  "novita": "In fondo alla pagina il tasto «scarica Gestione curve», accanto a «cerca aggiornamenti», e il collegamento al repository GitHub."
+  "versione": "0.1.17",
+  "data": "19/11/2026",
+  "novita": "Cortocircuito calcolato in ogni punto della catena (consegna, primario, sbarre, fine di ogni tratto) con tabella a video, PDF e foglio Excel «Punti»; nelle Protezioni MT le correnti minime; tasto «scarica Gestione curve»."
  },
  "Gestione_curve.html": {
   "versione": "0.2.4",
