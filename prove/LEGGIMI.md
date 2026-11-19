@@ -13,8 +13,14 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
   (tabelle, tre fusibili per famiglia, due interruttori per serie).
 - `prova.py` — apre ogni caso nel programma, raccoglie i risultati e li confronta con il riferimento.
 - `impronta.js` — che cosa viene raccolto da ogni modulo.
+- `banca.js` — che cosa viene raccolto della banca dati.
 - `genera_casi.py` — come sono stati costruiti i casi; per aggiungerne si usa `--solo prefisso`, che scrive
   solo i casi nuovi e lascia gli altri come sono.
+
+## Senza Python
+
+Le stesse prove si eseguono anche da `Manutenzione.html`, scheda «Prove»: i casi girano nel browser e vengono
+confrontati con `riferimento.json`. Manca solo il ricalcolo dei fogli Excel con LibreOffice, che resta a `prova.py --excel`.
 
 ## Cosa viene confrontato
 

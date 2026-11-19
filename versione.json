@@ -8,5 +8,10 @@
   "versione": "0.2.5",
   "data": "19/11/2026",
   "novita": "collegamento al repository GitHub in fondo alla pagina."
+ },
+ "Manutenzione.html": {
+  "versione": "0.1.0",
+  "data": "19/11/2026",
+  "novita": "Prima versione: indice del codice, controllo della sintassi, anteprima, prove di regressione e preparazione della pubblicazione."
  }
 }
