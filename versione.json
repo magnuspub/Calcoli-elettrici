@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.20",
+  "versione": "0.1.21",
   "data": "19/11/2026",
-  "novita": "Protezioni MT: tra i limiti comunicati dal distributore c'è la I> a tempo dipendente (corrente, K, α, β) con la I>> alternativa per chi non la imposta; le tarature del relè Thytronic NA016 si importano dal suo file."
+  "novita": "Grafici larghi quanto la pagina e apribili in un'altra finestra con un doppio clic, aggiornata dal vivo. Protezioni MT: frecce a centesimi su tempi, soglie e tolleranze; correnti di riferimento in un sotto-modulo a scomparsa. Ritocchi alla scheda del cortocircuito."
  },
  "Gestione_curve.html": {
   "versione": "0.2.5",

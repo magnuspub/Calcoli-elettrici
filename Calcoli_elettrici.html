@@ -121,10 +121,11 @@ input:disabled{opacity:.45}
 .cable-row .del,.mot-row .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px}
 .mot-row .del:hover{border-color:var(--crit)}
 .cable-row .del:hover{border-color:var(--crit)}
-.tr-row{display:grid;grid-template-columns:1fr .65fr .5fr .65fr .7fr .7fr .65fr auto;gap:7px;align-items:end;margin-bottom:8px}
+.tr-row{display:grid;grid-template-columns:1fr .65fr .5fr .65fr .7fr .7fr .65fr;gap:7px;align-items:end;margin-bottom:8px}
 @media (max-width:760px){.tr-row{grid-template-columns:1fr 1fr}}
-.tr-row .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px}
-.tr-row .del:hover{border-color:var(--crit)}
+.tr-row2 .del{justify-self:end;background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px}
+.tr-row2 .del:hover{border-color:var(--crit)}
+@media (max-width:760px){.tr-row2 .del{grid-column:1/-1}}
 .tr-branch{border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
 .tr-branch .tr-row{margin-bottom:0}
 .tr-row2{display:grid;grid-template-columns:.9fr .8fr 1fr 1fr 1.6fr;gap:7px;align-items:end;margin:8px 0 2px}
@@ -147,6 +148,9 @@ input:disabled{opacity:.45}
   .pmt-row .c-l{grid-area:l}.pmt-row .c-on{grid-area:on}.pmt-row .c-v{grid-area:v}.pmt-row .c-t{grid-area:t}.pmt-row .c-c{grid-area:c}.pmt-row .c-o{grid-area:o}
   .pmt-th .c-d{grid-area:d}
   .pmt-row .c-x,.pmt-row.hdr .c-c,.pmt-row.hdr .c-o{display:none}}
+/* telefono: più spazio ai campi «Valore» e «Tempo» delle soglie, che altrimenti tagliano l'ultima cifra */
+@media (max-width:430px){.pmt-row{grid-template-columns:48px 38px minmax(0,1fr) minmax(0,1fr);gap:6px}
+  .pmt-row input.c-v,.pmt-row input.c-t{padding:7px 6px}}
 .magres .ttlrow{font-size:12px;font-weight:650;color:var(--text-secondary);margin:12px 0 6px}
 .magres .kpi{padding:8px 10px}.magres .kpi .v{font-size:16px}
 .brcab-tgl{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--text-secondary);cursor:pointer;margin-top:8px}
@@ -182,6 +186,7 @@ table.pts{margin-top:2px;min-width:316px}
 table.pts th,table.pts td{padding:5px 3px 5px 5px;white-space:nowrap}
 table.pts thead th{text-transform:none}
 table.pts thead tr:first-child th{border-bottom:none;padding-bottom:0}
+table.pts thead tr:last-child th:first-child{text-align:right;color:var(--text-muted)}
 table.pts th.gmx{color:var(--crit);text-align:center}
 table.pts th.gmn{color:var(--kmin);text-align:center}
 table.pts td:first-child{white-space:normal;line-height:1.25;overflow-wrap:anywhere;padding-left:8px}
@@ -223,6 +228,27 @@ table.pts tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:
 .note{font-size:12px;color:var(--text-muted);margin-top:10px;line-height:1.5}
 .formula{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:8px 10px;color:var(--text-secondary);overflow-x:auto}
 .mini{font-size:12px;color:var(--text-secondary)}
+/* protezioni MT · «Opzioni dei grafici e delle verifiche»: curve da mostrare e parametri collegati, in tre gruppi */
+.pmvis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px;align-items:start}
+@media (max-width:760px){.pmvis{grid-template-columns:minmax(0,1fr)}}
+.pmvis-g{display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+.pmvis-t{font-size:11.5px;font-weight:600;color:var(--text-muted)}
+.pmvis-sub{display:flex;flex-wrap:wrap;gap:4px 16px;margin:-3px 0 0 42px}
+.pmvis-sub:empty{display:none}
+.pmvis-g>label.f{align-self:stretch;max-width:340px;margin-top:2px}
+/* sotto-modulo a scomparsa dentro un modulo: si apre e si chiude cliccando sul titolo; i tasti accanto al titolo restano visibili */
+.subfold{border:1px solid var(--border);border-radius:9px;padding:9px 12px 10px;margin:12px 0}
+.subfold.shut{padding-bottom:8px}
+.subfold-h{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;margin:0 0 6px}
+.subfold>:last-child{margin-bottom:0}
+.subfold-h .subh{margin:0;cursor:pointer;user-select:none}
+.subfold-h .subh::before{content:"▾";display:inline-block;width:1.15em;color:var(--text-muted)}
+.subfold.shut .subfold-h .subh::before{content:"▸"}
+.subfold-h .rowbtn{margin-left:auto}
+.subfold.shut>.subfold-b,.subfold:not(.shut)>.subfold-sum{display:none}
+.subfold>.mini:not(:empty){margin:0 0 8px}
+.subfold.shut>.subfold-sum:not(:empty){margin-bottom:0}
+.subfold.shut>.subfold-sum+.mini:not(:empty){margin:6px 0 0}
 /* moduli a scomparsa: si aprono e chiudono cliccando sulla barra del titolo */
 .foldhd{cursor:pointer;user-select:none}
 .foldhd .ttl::before{content:"▾";display:inline-block;width:1.15em;color:var(--text-muted);font-size:.85em}
@@ -295,7 +321,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.20</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.21</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -316,12 +342,14 @@ details.adv>.in{margin-top:10px}
     <h2><span class="ttl">Sistema e fattore di tensione</span></h2>
     <p class="hint">La <b>tensione nel punto di guasto</b> è ricavata dallo schema: con il trasformatore incluso è la sua tensione secondaria, altrimenti quella della rete a monte. Il guasto è calcolato anche in <b>ogni punto a monte</b> (consegna, primario del trasformatore, sbarre, fine di ogni tratto): la tabella «Correnti nei punti» li elenca e mostra il dettaglio di quello scelto. Sono sempre calcolate la corrente <b>massima</b> (c<sub>max</sub>) e la <b>minima</b> (c<sub>min</sub>, senza il contributo dei motori e senza la correzione K<sub>T</sub>, con la rete minima se indicata e i cavi alla loro temperatura a fine guasto). I fattori c (Tab.&nbsp;1 della 60909) si impostano da soli quando cambia il livello di tensione: BT 1,05 e 0,95 · MT 1,10 e 1,00. Per reti BT con tolleranza ±10% usare c<sub>max</sub> 1,10 e c<sub>min</sub> 0,90. Restano modificabili.</p>
     <div class="grid3">
-      <div class="kpi"><div class="k">Punto di guasto<span class="tip" tabindex="0" data-tip="Tensione nominale e livello (BT fino a 1 kV, MT oltre) nel punto di guasto, ricavati dallo schema: secondario del primo trasformatore se il trasformatore è incluso, altrimenti tensione della rete a monte. È l'ultimo punto della catena: i fattori c qui accanto valgono per i punti a questa tensione; quelli a monte del trasformatore usano i valori di tabella del loro livello.">i</span></div><div class="v" style="font-size:18px"><span id="ccPoint">400 V · BT</span></div><div class="mini" id="ccPointSrc"></div></div>
       <label class="f">Fattore di tensione c<sub>max</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente massima (Tab. 1 IEC 60909-0): tiene conto delle variazioni di tensione, delle prese del trasformatore e delle tolleranze. BT 1,05 (reti con tolleranza ±6 %, per esempio 230/400 V) oppure 1,10 (tolleranza ±10 %) · MT 1,10.">i</span>
         <input type="number" id="cfac" value="1.05" step="0.01">
       </label>
       <label class="f">Fattore di tensione c<sub>min</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente minima (Tab. 1 IEC 60909-0): BT 0,95 (reti con tolleranza ±6 %) oppure 0,90 (tolleranza ±10 %) · MT 1,00. La corrente minima è calcolata senza il contributo dei motori e con i fattori di correzione dell'impedenza pari a 1, quindi senza K_T; usa la corrente minima della rete, se indicata, e la temperatura a fine guasto di ogni cavo (IEC 60909-0, 7.1.3).">i</span>
         <input type="number" id="cfacMin" value="0.95" step="0.01">
+      </label>
+      <label class="f">Durata del guasto T<sub>k</sub> <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Durata del guasto usata per la corrente termica equivalente Ith = I″k·√(m+n) di questo modulo. Indipendente dal Tk del modulo Verifica quadro. (IEC 60909-0 §14, integrale di Joule)">i</span>
+        <input type="number" id="ccTk" value="1" step="0.01">
       </label>
       <label class="f">Frequenza <span class="u">(Hz)</span>
         <input type="number" id="freq" value="50" step="any">
@@ -331,9 +359,6 @@ details.adv>.in{margin-top:10px}
           <option value="B" selected>Metodo B — 1,15·κ (conservativo)</option>
           <option value="C">Metodo C — frequenza equivalente</option>
         </select>
-      </label>
-      <label class="f">Durata del guasto T<sub>k</sub> <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Durata del guasto usata per la corrente termica equivalente Ith = I″k·√(m+n) di questo modulo. Indipendente dal Tk del modulo Verifica quadro. (IEC 60909-0 §14, integrale di Joule)">i</span>
-        <input type="number" id="ccTk" value="1" step="0.01">
       </label>
     </div>
   </div>
@@ -752,52 +777,71 @@ details.adv>.in{margin-top:10px}
   <h2><span class="ttl">Protezioni MT</span><span class="pill">CEI 0-16 · IEC 60255-151</span><span class="expbtns"><button type="button" onclick="exportModule('modPMT','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modPMT','xls')">↧ Excel</button></span></h2>
   <p class="hint">Curve di intervento dei relè di massima corrente di fase (50/51) e di terra (51N, 67N) sul lato MT, con più protezioni in cascata per la verifica della selettività, la curva limite comunicata dal distributore (compresa, se richiesta, la I&gt; a tempo dipendente) e la corrente di inserzione totale dei trasformatori del modulo Cortocircuito. Le soglie si inseriscono in multipli della corrente primaria del TA (o in ampere primari); i grafici sono sempre in ampere primari. I tempi disegnati sono quelli di <b>estinzione</b>: intervento del relè più apertura dell'interruttore. Attorno a ogni curva è disegnata la <b>fascia di tolleranza</b> data dagli errori di relè, TA e TO indicati in ogni protezione.</p>
 
-  <div class="subh">Rete e limiti comunicati dal distributore</div>
-  <div class="grid3" style="align-items:end">
+  <div class="subfold shut" id="pm_dsoFold">
+  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_dsoBody" title="Clicca per mostrare o nascondere la rete e i limiti comunicati dal distributore">Rete e limiti comunicati dal distributore</div></div>
+  <div class="mini subfold-sum" id="pm_dsoSum"></div>
+  <div class="grid3 subfold-b" id="pm_dsoBody" style="align-items:end">
     <label class="f">Tensione della rete MT <span class="u">(kV)</span><input type="number" id="pm_U" value="15" step="any"></label>
     <label class="f">Stato del neutro<select id="pm_neu"><option value="c" selected>Compensato</option><option value="i">Isolato</option></select></label>
     <label class="f" style="justify-content:flex-end"><button type="button" id="pm_cei" class="rowbtn">↺ valori minimi CEI 0-16 (8.5.12.3)</button></label>
     <label class="f">I&gt; · corrente massima <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Prima soglia di fase a tempo dipendente (51.S1): va impostata solo se il distributore la comunica. Lasciare 0 se non è richiesta. La curva è t = K · β / ((I / I>)^α − 1): con α = 0,02 e β = 0,14 è la normalmente inversa (NIT). È un tempo del relè: nel confronto e nel grafico gli si somma il tempo di apertura dell'interruttore della protezione generale. La curva è considerata da 1,1 volte la soglia.">i</span><input type="number" id="pm_L1" value="0" step="any"></label>
-    <label class="f">I&gt; · K <span class="u">(moltiplicatore del tempo)</span><input type="number" id="pm_K1" value="0.12" step="any"></label>
-    <div class="duo"><label class="f">I&gt; · α<input type="number" id="pm_A1" value="0.02" step="any"></label><label class="f">I&gt; · β<input type="number" id="pm_B1" value="0.14" step="any"></label></div>
+    <label class="f">I&gt; · K <span class="u">(moltiplicatore del tempo)</span><input type="number" id="pm_K1" value="0.12" step="0.01" min="0"></label>
+    <div class="duo"><label class="f">I&gt; · α<input type="number" id="pm_A1" value="0.02" step="0.01" min="0"></label><label class="f">I&gt; · β<input type="number" id="pm_B1" value="0.14" step="0.01" min="0"></label></div>
     <label class="f">I&gt;&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L2" value="250" step="any"></label>
-    <label class="f">I&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T2" value="0.5" step="any"></label>
+    <label class="f">I&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T2" value="0.5" step="0.01" min="0"></label>
     <label class="f">I&gt;&gt; senza la I&gt; · corrente massima <span class="u">(A)</span><span class="tip r" tabindex="0" data-tip="Valore della I>> da rispettare, con lo stesso tempo di estinzione, quando la I> a tempo dipendente non viene impostata (nelle comunicazioni del distributore è la 51.S2p). Lasciare 0 se il distributore non indica questa alternativa: in quel caso, se comunica la I>, la I> è obbligatoria.">i</span><input type="number" id="pm_L2p" value="0" step="any"></label>
     <label class="f">I&gt;&gt;&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L3" value="600" step="any"></label>
-    <label class="f">I&gt;&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T3" value="0.12" step="any"></label>
-    <label class="toggle"><input type="checkbox" id="pm_onDSO" checked><span>mostra la curva limite del distributore</span></label>
+    <label class="f">I&gt;&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T3" value="0.12" step="0.01" min="0"></label>
+    <span></span>
     <label class="f">I<sub>0</sub>&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L0" value="2" step="any"></label>
-    <label class="f">I<sub>0</sub>&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T0" value="0.45" step="any"></label>
+    <label class="f">I<sub>0</sub>&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T0" value="0.45" step="0.01" min="0"></label>
     <span></span>
     <label class="f">I<sub>0</sub>&gt;&gt; · corrente massima <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="140 % della corrente di guasto monofase a terra comunicata dal distributore: tipicamente 70 A sulle reti a 20 kV e 56 A su quelle a 15 kV (CEI 0-16, 8.5.12.3.2).">i</span><input type="number" id="pm_L00" value="56" step="any"></label>
-    <label class="f">I<sub>0</sub>&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T00" value="0.17" step="any"></label>
+    <label class="f">I<sub>0</sub>&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T00" value="0.17" step="0.01" min="0"></label>
+  </div>
   </div>
 
-  <div class="subh" style="margin-top:14px">Correnti di riferimento sul lato MT</div>
-  <div class="grid3" style="align-items:end">
+  <div class="subfold shut" id="pm_refFold">
+  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_refBody" title="Clicca per mostrare o nascondere le correnti di riferimento">Correnti di riferimento sul lato MT</div>
+    <button type="button" id="pm_copy" class="rowbtn" title="Copia le correnti di cortocircuito dai risultati IEC 60909 e la corrente di guasto a terra della rete">← copia dai risultati IEC 60909</button></div>
+  <div class="mini subfold-sum" id="pm_refSum"></div>
+  <div class="mini" id="pm_copyMsg"></div>
+  <div class="grid3 subfold-b" id="pm_refBody" style="align-items:end">
     <label class="f">I″<sub>k</sub> massima sul lato MT <span class="u">(kA)</span><input type="number" id="pm_Ik" value="12.5" step="any"></label>
     <label class="f">I″<sub>k</sub> minima sul lato MT <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima tra le fasi sul lato MT, al primario del trasformatore: di solito il guasto bifase minimo, I″k2 min = 0,866 × I″k min. Le protezioni di fase devono intervenire anche a questa corrente. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IkMin" value="0" step="any"></label>
     <label class="f">Corrente di guasto a terra della rete <span class="u">(A)</span><input type="number" id="pm_IF" value="40" step="any"></label>
     <label class="f">Guasto sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito ai morsetti BT del trasformatore vista dal lato MT: I″k BT × U2/U1. Serve a controllare quale soglia interviene per un guasto in bassa tensione. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_Ibt" value="0" step="any"></label>
     <label class="f">Guasto minimo sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima sulle sbarre BT vista dal lato MT: I″k min BT × U2/U1 (guasto trifase). Mostra se la protezione MT vede anche il guasto più debole in bassa tensione. Con un trasformatore Dyn il guasto bifase BT dà su una fase MT la stessa corrente del trifase; il fase-terra BT dà I″k1/√3. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IbtMin" value="0" step="any"></label>
-    <label class="f" style="justify-content:flex-end"><button type="button" id="pm_copy" class="rowbtn">← copia dai risultati IEC 60909 e dal guasto a terra</button></label>
-    <span class="mini" id="pm_copyMsg" style="grid-column:1/-1"></span>
+  </div>
   </div>
 
   <div class="subh" style="margin-top:14px">Protezioni — dalla più a monte alla più a valle</div>
   <div id="pmtList"></div>
   <button type="button" id="addPmt" class="rowbtn">+ aggiungi una protezione</button>
 
-  <div class="subh" style="margin-top:16px">Inserzione dei trasformatori, fusibile e selettività</div>
-  <div class="grid3" style="align-items:end">
-    <label class="toggle"><input type="checkbox" id="pm_onInr" checked><span>sovrapponi l'inserzione totale dei trasformatori</span></label>
-    <div id="pm_trChk" class="mini" style="grid-column:span 2;display:flex;flex-wrap:wrap;gap:4px 16px"></div>
-    <label class="toggle"><input type="checkbox" id="pm_onFus"><span>sovrapponi il fusibile A del modulo «Curve dei fusibili»</span></label>
-    <label class="toggle"><input type="checkbox" id="pm_onCb"><span>sovrapponi gli interruttori BT del modulo «Curve degli interruttori»</span></label>
-    <label class="toggle"><input type="checkbox" id="pm_onWth"><span>sovrapponi la tenuta al cortocircuito del trasformatore (I<sub>k</sub> per 2 s)</span></label>
-    <label class="toggle"><input type="checkbox" id="pm_onTol" checked><span>mostra le fasce di tolleranza e usale nelle verifiche</span></label>
-    <label class="f">Trasformatore di riferimento<span class="tip" tabindex="0" data-tip="Trasformatore usato per la tenuta al cortocircuito e per riportare alla MT gli interruttori BT. Le correnti degli interruttori BT sono riportate al lato MT con il rapporto di targa U2/U1 di questo trasformatore, come per un guasto trifase. Con un guasto bifase in BT a valle di un trasformatore Dyn una fase MT porta la stessa corrente del guasto trifase, mentre l'interruttore BT ne vede l'87 %: la selettività reale è un po' più stretta di quella mostrata.">i</span><select id="pm_trSel"></select></label>
-    <label class="f">Margine di selettività tra due protezioni <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Differenza minima richiesta tra il tempo di intervento del relè a monte e il tempo di estinzione della protezione a valle, alla stessa corrente. Senza fasce di tolleranza copre anche gli errori dei tempi: valori usuali 0,1–0,2 s. Con le fasce attive i tempi sono già al caso peggiore e il margine copre il tempo di ricaduta e una riserva.">i</span><input type="number" id="pm_dt" value="0.1" step="any"></label>
+  <div class="subfold" id="pm_visFold">
+  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="true" aria-controls="pm_visBody" title="Clicca per mostrare o nascondere le opzioni dei grafici e delle verifiche">Opzioni dei grafici e delle verifiche</div></div>
+  <div class="mini subfold-sum" id="pm_visSum"></div>
+  <div class="pmvis subfold-b" id="pm_visBody">
+    <div class="pmvis-g">
+      <div class="pmvis-t">Limiti e tolleranze</div>
+      <label class="toggle"><input type="checkbox" id="pm_onDSO" checked><span>limite del distributore</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onTol" checked><span>fasce di tolleranza, usate anche nelle verifiche</span></label>
+      <label class="f">Margine di selettività tra due protezioni <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Differenza minima richiesta tra il tempo di intervento del relè a monte e il tempo di estinzione della protezione a valle, alla stessa corrente. Senza fasce di tolleranza copre anche gli errori dei tempi: valori usuali 0,1–0,2 s. Con le fasce attive i tempi sono già al caso peggiore e il margine copre il tempo di ricaduta e una riserva.">i</span><input type="number" id="pm_dt" value="0.1" step="any"></label>
+    </div>
+    <div class="pmvis-g">
+      <div class="pmvis-t">Trasformatori</div>
+      <label class="toggle"><input type="checkbox" id="pm_onInr" checked><span>inserzione totale dei trasformatori</span></label>
+      <div id="pm_trChk" class="mini pmvis-sub"></div>
+      <label class="toggle"><input type="checkbox" id="pm_onWth"><span>tenuta al cortocircuito del trasformatore (I<sub>k</sub> per 2 s)</span></label>
+      <label class="f">Trasformatore di riferimento<span class="tip" tabindex="0" data-tip="Trasformatore usato per la tenuta al cortocircuito e per riportare alla MT gli interruttori BT. Le correnti degli interruttori BT sono riportate al lato MT con il rapporto di targa U2/U1 di questo trasformatore, come per un guasto trifase. Con un guasto bifase in BT a valle di un trasformatore Dyn una fase MT porta la stessa corrente del guasto trifase, mentre l'interruttore BT ne vede l'87 %: la selettività reale è un po' più stretta di quella mostrata.">i</span><select id="pm_trSel"></select></label>
+    </div>
+    <div class="pmvis-g">
+      <div class="pmvis-t">Protezioni a valle, dagli altri moduli</div>
+      <label class="toggle"><input type="checkbox" id="pm_onFus"><span>fusibile A di «Curve dei fusibili»</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onCb"><span>interruttori BT di «Curve degli interruttori»</span></label>
+    </div>
+  </div>
   </div>
 
   <div class="subh" style="margin-top:14px">Massima corrente di fase</div>
@@ -1142,8 +1186,9 @@ details.adv>.in{margin-top:10px}
 
 <div class="foot">
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
+  <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.20 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.21 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1156,7 +1201,7 @@ details.adv>.in{margin-top:10px}
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.20";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.21";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -1416,13 +1461,13 @@ function trRow(def={}){
         <option value="Dyn">Dyn</option><option value="Yyn">Yyn</option><option value="Dzn">Dzn</option>
         <option value="Dd">Dd</option><option value="Yd">Yd</option>
       </select></label>
-      <button class="del" title="elimina ramo">✕</button>
     </div>
     <div class="tr-row2">
       <label class="f">Tipo<select data-k="tt"><option value="olio">Olio</option><option value="secco">Secco (resina)</option></select></label>
       <label class="f">i<sub>0</sub> a vuoto (%)<input type="number" data-k="i0" value="${def.i0!=null?def.i0:1.5}" step="any"></label>
       <label class="f">Inserzione k (×I<sub>n</sub>)<span class="tip" tabindex="0" data-tip="Rapporto tra la cresta della corrente di inserzione e la corrente nominale primaria. Proposto dalla tabella delle correnti di inserzione per potenza e tipo; modificabile con il dato del costruttore.">i</span><input type="number" data-k="kin" value="${def.kin!=null?def.kin:inrushLookup(def.S!=null?def.S:630,def.tt||'olio').k}" step="any"></label>
       <label class="f">τ inserzione (s)<span class="tip" tabindex="0" data-tip="Costante di tempo con cui si smorza la corrente di inserzione (transitorio esaurito in circa 5τ). Proposta dalla tabella per potenza e tipo; modificabile.">i</span><input type="number" data-k="tau" value="${def.tau!=null?def.tau:inrushLookup(def.S!=null?def.S:630,def.tt||'olio').tau}" step="any"></label>
+      <button class="del" title="elimina ramo">✕</button>
     </div>
     <label class="brcab-tgl"><input type="checkbox" data-k="hvcab" ${def.hvcab?"checked":""}><span>cavo a monte dedicato (collegato al primario)</span><span class="tip" tabindex="0" data-tip="Cavo sul lato primario (MT) del singolo trasformatore, in serie col trasformatore. L'impedenza è riportata al lato BT con il rapporto reale t_r = U prim./U second. (÷t_r²), coerente con la Formula 25 (IEC 60909-0 §6). Con più trasformatori in parallelo, ogni montante MT resta nel proprio ramo.">i</span></label>
     <div class="tr-cab" data-k="hvcabfields" ${def.hvcab?"":"hidden"}>
@@ -1711,9 +1756,14 @@ function computeMT(){
   drawUtpChart(tF, UTp, UE, ueColor);
 }
 // grafico della curva UTp(tF) con punto di lavoro (tF, UE)
+/* Misura dei grafici a video: larghi quanto il loro contenitore (quindi quanto la pagina), con le scritte sempre della stessa
+   grandezza. Oltre la larghezza di base l'altezza cresce in proporzione, senza superare la finestra. Le esportazioni
+   ridisegnano i grafici con le loro misure fisse e non cambiano. */
+function chW(id,W0){ const e=$(id), w=e?e.clientWidth:0; return w>0?Math.max(300,Math.min(1400,Math.round(w))):W0; }
+function chH(W,W0,H0){ return W>W0?Math.max(H0,Math.min(Math.round(H0*W/W0),Math.round((window.innerHeight||900)*0.82))):H0; }
 function drawUtpChart(tF, UTp, UE, ueColor){
   const host=$("mt_chart"); if(!host) return;
-  const W=720,H=300,L=46,R=16,T=14,B=34, pw=W-L-R, ph=H-T-B;
+  const W=Math.max(720,chW("mt_chart",720)),H=chH(W,720,300),L=46,R=16,T=14,B=34, pw=W-L-R, ph=H-T-B;
   const lx=t=>L+(Math.log10(Math.max(0.01,Math.min(10,t)))+2)/3*pw;
   const yMax=Math.max(800, Math.ceil(Math.max(UE,UTp)/200)*200);
   const ystep = yMax<=800?100:200;
@@ -1746,7 +1796,7 @@ function drawUtpChart(tF, UTp, UE, ueColor){
   if(UE>0){ const clamped=UE>yMax; const yE=ly(Math.min(UE,yMax));
     g+=`<circle cx="${xT.toFixed(1)}" cy="${yE.toFixed(1)}" r="4" fill="${ueColor}"/>`+
        `<text x="${(xT+7).toFixed(1)}" y="${(yE+15).toFixed(1)}" font-size="11" fill="${ueColor}">U<tspan font-size="8" dy="2">E</tspan><tspan dy="-2"> ${Math.round(UE)} V${clamped?" ▲":""}</tspan></text>`; }
-  host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:720px;display:block;overflow:visible" data-ax='${axData({W,H,L,T,pw,ph,x0:-2,x1:1,y0:0,y1:yMax,xlog:1,ylog:0},"durata del guasto (s)","tensione (V)")}' xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
+  host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block;overflow:visible" data-ax='${axData({W,H,L,T,pw,ph,x0:-2,x1:1,y0:0,y1:yMax,xlog:1,ylog:0},"durata del guasto (s)","tensione (V)")}' xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
 }
 
 /* ============ CURVE DEI FUSIBILI (dati di catalogo, interpolazione log-log) ============ */
@@ -1908,7 +1958,7 @@ function fusMainSVG(st,pal,uid,W){
   if(st.mot){ ser.push({c:[st.mot.Iavv,1e-12,st.mot.Iavv,st.mot.tavv,st.mot.In,st.mot.tavv,st.mot.In,1e12],col:pal.mot,dash:"2 4",w:2.2}); xs.push(st.mot.In,st.mot.Iavv); ys.push(st.mot.tavv); }
   if(st.inr){ ser.push({c:st.inr.c,col:pal.inr,dash:"9 3 2 3",w:2.2}); xs.push(st.inr.c[0],st.inr.c[st.inr.c.length-2]); ys.push(st.inr.c[1],st.inr.c[st.inr.c.length-1]); }
   W=W||720;
-  return fusPlot({uid,pal,W,H:W<520?340:400,xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",series:ser,vl,pts});
+  return fusPlot({uid,pal,W,H:W<520?340:chH(W,720,400),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",series:ser,vl,pts});
 }
 // curva di limitazione: picco lasciato passare in funzione della corrente presunta
 function fusLimSVG(st,pal,uid,W){
@@ -1918,7 +1968,7 @@ function fusLimSVG(st,pal,uid,W){
     if(r.cut!=null){ pts.push({x:st.Ik,y:r.cut,col:pal.c[i],lab:fmt(r.cut/1000,2)+" kA"}); ys.push(r.cut); } });
   if(!ser.length) return "";
   if(st.Ik>0){ vl.push({x:st.Ik,col:pal.ik,dash:"6 3",lab:"I″k"}); xs.push(st.Ik); }
-  return fusPlot({uid,pal,W:W||520,H:300,xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta I″k (A)",ylab:"picco lasciato passare (A)",series:ser,vl,pts,
+  return fusPlot({uid,pal,W:W||520,H:chH(W||520,520,300),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta I″k (A)",ylab:"picco lasciato passare (A)",series:ser,vl,pts,
     hl:st.res.some(r=>!r.f.mv)?[{y:17000,col:pal.muted,dash:"4 3",lab:"17 kA · esenzione 61439"}]:[]});
 }
 // energia passante in funzione della corrente presunta (stesso criterio del valore calcolato)
@@ -1934,7 +1984,7 @@ function fusI2tSVG(st,pal,uid,W){
   if(st.Ik>0){ vl.push({x:st.Ik,col:pal.ik,dash:"6 3",lab:"I″k"}); xs.push(st.Ik); }
   if(st.Imin>0){ vl.push({x:st.Imin,col:pal.imin,dash:"2 3",lab:"I″k min"}); xs.push(st.Imin); }
   if(st.K2S2>0){ hl.push({y:st.K2S2,col:pal.mot,dash:"8 4",lab:"K²S² del cavo"}); ys.push(st.K2S2); }
-  return fusPlot({uid,pal,W:W||520,H:300,xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"I²t (A²s)",series:ser,vl,hl,pts});
+  return fusPlot({uid,pal,W:W||520,H:chH(W||520,520,300),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"I²t (A²s)",series:ser,vl,hl,pts});
 }
 function fusLegend(st){
   const sw=(col,dash)=>`<svg width="26" height="8" style="vertical-align:middle;margin-right:5px" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" stroke="${col}" stroke-width="2.2"${dash?` stroke-dasharray="${dash}"`:""}/></svg>`;
@@ -2057,7 +2107,7 @@ function computeFus(){
   });
   // grafici
   FUS_ST=st;
-  const cw=(id,max)=>{ const w=$(id).clientWidth; return w>0?Math.max(300,Math.min(max,Math.round(w))):max; };
+  const cw=chW;   // larghezza del contenitore
   $("fu_chart").innerHTML=fusMainSVG(st,FUS_PAL,"m",cw("fu_chart",720));
   $("fu_legend").innerHTML=fusLegend(st);
   $("fu_chartL").innerHTML=fusLimSVG(st,FUS_PAL,"l",cw("fu_chartL",520))||`<p class="mini">Curva di limitazione non disponibile per questo fusibile.</p>`;
@@ -2141,16 +2191,16 @@ function pmtRow(def={}){
       <button type="button" class="rowbtn" data-a="imp" title="Legge il file delle tarature salvato dal programma di configurazione del relè Thytronic NA016 e compila TA, TO e soglie di questa protezione">⭳ importa le tarature dal file del relè (NA016)</button><input type="file" data-a="impf" style="display:none"></div>
     <p class="mini" data-o="imp" style="margin:6px 0 0" hidden></p>
     <div class="pmt-tol">
-      <label class="f">Errore del relè sulle soglie (± %)<span class="tip" tabindex="0" data-tip="Errori usati per la fascia di tolleranza. Soglie: errore del relè più errore del TA (fase) o del TO (terra), sommati. Tempi: percentuale del tempo più una quota fissa. Valori proposti. Relè generico: limiti della CEI 0-16 per la protezione generale (5 %, 3 % ± 20 ms). REF615: 1,5 % e 1 % ± 20 ms (5 % sulle curve a tempo dipendente). NA016: 4 % (più 1 % di In secondo il manuale) e 5 % ± 10 ms. Cambiando relè vengono riproposti i suoi valori.">i</span><input type="number" data-k="ei" value="${def.ei!=null?def.ei:TOL0.ei}" step="any"></label>
-      <label class="f">Errore del TA (± %)<span class="tip" tabindex="0" data-tip="TA di protezione classe 5P: errore di rapporto ±1 % alla corrente nominale, errore composto 5 % alla corrente limite di precisione (CEI EN 61869-2). La CEI 0-16 considera idonei senza verifica i TA 300/5 da 10 VA, 5P30.">i</span><input type="number" data-k="eta" value="${def.eta!=null?def.eta:1}" step="any"></label>
-      <label class="f">Errore del TO (± %)<span class="tip" tabindex="0" data-tip="Toroide omopolare 100/1 A secondo la CEI 0-16 (tabella degli errori del TO): errore di rapporto ±5 % all'1 % della corrente nominale, ±1 % dal 5 % alla corrente nominale, ±5 % a 20 volte la corrente nominale. Con soglie di pochi ampere vale il valore più alto.">i</span><input type="number" data-k="eto" value="${def.eto!=null?def.eto:5}" step="any"></label>
-      <label class="f">Errore sui tempi (± %)<input type="number" data-k="et" value="${def.et!=null?def.et:TOL0.et}" step="any"></label>
+      <label class="f">Errore del relè sulle soglie (± %)<span class="tip" tabindex="0" data-tip="Errori usati per la fascia di tolleranza. Soglie: errore del relè più errore del TA (fase) o del TO (terra), sommati. Tempi: percentuale del tempo più una quota fissa. Valori proposti. Relè generico: limiti della CEI 0-16 per la protezione generale (5 %, 3 % ± 20 ms). REF615: 1,5 % e 1 % ± 20 ms (5 % sulle curve a tempo dipendente). NA016: 4 % (più 1 % di In secondo il manuale) e 5 % ± 10 ms. Cambiando relè vengono riproposti i suoi valori.">i</span><input type="number" data-k="ei" value="${def.ei!=null?def.ei:TOL0.ei}" step="0.01" min="0"></label>
+      <label class="f">Errore del TA (± %)<span class="tip" tabindex="0" data-tip="TA di protezione classe 5P: errore di rapporto ±1 % alla corrente nominale, errore composto 5 % alla corrente limite di precisione (CEI EN 61869-2). La CEI 0-16 considera idonei senza verifica i TA 300/5 da 10 VA, 5P30.">i</span><input type="number" data-k="eta" value="${def.eta!=null?def.eta:1}" step="0.01" min="0"></label>
+      <label class="f">Errore del TO (± %)<span class="tip" tabindex="0" data-tip="Toroide omopolare 100/1 A secondo la CEI 0-16 (tabella degli errori del TO): errore di rapporto ±5 % all'1 % della corrente nominale, ±1 % dal 5 % alla corrente nominale, ±5 % a 20 volte la corrente nominale. Con soglie di pochi ampere vale il valore più alto.">i</span><input type="number" data-k="eto" value="${def.eto!=null?def.eto:5}" step="0.01" min="0"></label>
+      <label class="f">Errore sui tempi (± %)<input type="number" data-k="et" value="${def.et!=null?def.et:TOL0.et}" step="0.01" min="0"></label>
       <label class="f">Errore sui tempi (± ms)<input type="number" data-k="etm" value="${def.etm!=null?def.etm:TOL0.etm}" step="any"></label></div>
     <div class="pmt-th"><div class="pmt-row hdr"><span class="hd c-l">Soglia</span><span class="hd c-on">Attiva</span><span class="hd c-v">Valore</span><span class="hd c-c">Curva</span><span class="hd c-t">Tempo (s) o k</span><span class="hd c-o">In ampere primari · estinzione</span></div>`;
   PMT_TH.forEach(([k,lab,fam])=>{ const t=T[k]||{};
     h+=`<div class="pmt-row${k[0]==="D"?" dir":""}"><b class="c-l">${lab}</b><label class="toggle c-on"><input type="checkbox" data-k="on_${k}" ${t.on?"checked":""}></label>
-      <input class="c-v" type="number" data-k="v_${k}" value="${t.v!=null?t.v:(fam==="F"?1:0.02)}" step="any" aria-label="Valore"><select class="c-c" data-k="c_${k}" aria-label="Curva">${cur}</select>
-      <input class="c-t" type="number" data-k="t_${k}" value="${t.t!=null?t.t:0.1}" step="any" aria-label="Tempo o k"><span class="o c-o" data-o="${k}">—</span>`;
+      <input class="c-v" type="number" data-k="v_${k}" value="${t.v!=null?t.v:(fam==="F"?1:0.02)}" step="0.01" min="0" aria-label="Valore"><select class="c-c" data-k="c_${k}" aria-label="Curva">${cur}</select>
+      <input class="c-t" type="number" data-k="t_${k}" value="${t.t!=null?t.t:0.1}" step="0.01" min="0" aria-label="Tempo o k"><span class="o c-o" data-o="${k}">—</span>`;
     if(k[0]==="D") h+=`<span class="c-x"></span><span class="c-x"></span><label class="f c-d">U<sub>0</sub> (V) e settore di intervento (°)<span style="display:grid;grid-template-columns:1fr 1.4fr;gap:6px;margin-top:4px"><input type="number" data-k="u_${k}" value="${t.u!=null?t.u:(k==="D1"?5:2)}" step="any"><input type="text" data-k="a_${k}" value="${escH(t.a||(k==="D1"?"60–250":"60–120"))}"></span></label><span class="c-x"></span><span class="c-x"></span>`;
     h+=`</div>`; });
   h+=`</div><p class="mini" data-o="hint" style="margin:8px 0 0"></p>`;
@@ -2219,6 +2269,7 @@ function pmtTolDef(d){ const m=PMT_MOD[d.querySelector('[data-k=mod]').value]||P
 function pmtRead(d){
   const g=k=>d.querySelector(`[data-k=${k}]`), n=k=>parseFloat(String(g(k).value).replace(",","."))||0;
   const m0=PMT_MOD[g("mod").value]||PMT_MOD.gen, tmn=Math.max(n("tmin")/1000,0), mod=Object.assign({},m0,{tmin:m0.fixMin?Math.max(tmn,m0.fixMin):tmn}), mult=g("unit").value==="mult", inp=n("inp"), ienp=n("ienp"), tcb=n("tcb")/1000, th={};
+  PMT_TH.forEach(([k,l,f])=>{ const e=g("v_"+k), st=mult?"0.01":(f==="F"?"1":"0.1"); if(e.step!==st) e.step=st; });
   PMT_TH.forEach(([k,lab,fam])=>{ const v=n("v_"+k); th[k]={k,lab,fam,base:fam==="F"?inp:ienp,on:g("on_"+k).checked,c:g("c_"+k).value,t:n("t_"+k),Is:mult?v*(fam==="F"?inp:ienp):v,dir:k[0]==="D",u:k[0]==="D"?n("u_"+k):0,a:k[0]==="D"?g("a_"+k).value:""}; });
   const pc=k=>Math.min(Math.max(n(k),0),90)/100, tol={ei:n("ei"),eta:n("eta"),eto:n("eto"),etp:n("et"),etm:n("etm"),eF:Math.min(pc("ei")+pc("eta"),0.9),eE:Math.min(pc("ei")+pc("eto"),0.9),et:pc("et"),tm:Math.max(n("etm"),0)/1000};
   return {el:d,desc:g("desc").value,modK:g("mod").value,mod,inp,ienp,tcb,dg:g("dg").checked,h2:g("h2").checked,th,mult,tol};
@@ -2280,7 +2331,7 @@ function pmtChart(st,fam,pal,uid,W){
   else if(st.IF>0){ vl.push({x:st.IF,col:pal.ie,dash:"6 3",lab:"guasto a terra"}); xs.push(st.IF); }
   if(!ser.length) return "";
   ys.push(0.01,10);
-  return fusPlot({uid,pal,W:W||720,H:fam==="F"?400:300,xr:fusMM(xs),yr:fusMM(ys),xlab:fam==="F"?"corrente di fase, ampere primari (A)":"corrente residua, ampere primari (A)",ylab:"tempo di estinzione (s)",areas,series:ser,vl,pts});
+  return fusPlot({uid,pal,W:W||720,H:chH(W||720,900,fam==="F"?400:300),xr:fusMM(xs),yr:fusMM(ys),xlab:fam==="F"?"corrente di fase, ampere primari (A)":"corrente residua, ampere primari (A)",ylab:"tempo di estinzione (s)",areas,series:ser,vl,pts});
 }
 function pmtLegend(st,fam,pal){
   const it=[]; st.prot.forEach((p,i)=>{ if(p.cv[fam]) it.push(pmtSw(pal.p[i%pal.p.length],"")+escH(p.desc)); });
@@ -2296,6 +2347,15 @@ function computePMT(){
   if(!$("pmtList")) return;
   const R=magRows(), Ik=num("pm_Ik")*1000, Ibt=num("pm_Ibt"), IF=num("pm_IF"), dt=num("pm_dt"), checks=[];
   const IkMin=num("pm_IkMin")*1000, IbtMin=num("pm_IbtMin");
+  { const A=id=>num(id)>0?fmtAs(num(id)):"—", lt=(a,t)=>(num(a)>0&&num(t)>0)?fmtAs(num(a))+" "+fusFmtT(num(t)):"—";   // riepilogo mostrato quando il sotto-modulo dei limiti è chiuso
+    $("pm_dsoSum").innerHTML=escH(fusNum(num("pm_U")))+" kV · neutro "+($("pm_neu").value==="i"?"isolato":"compensato")+" · I&gt; "+(num("pm_L1")>0?A("pm_L1")+" (K "+escH(fusNum(num("pm_K1")))+")":"non richiesta")
+      +" · I&gt;&gt; "+lt("pm_L2","pm_T2")+(num("pm_L1")>0&&num("pm_L2p")>0?" (senza la I&gt;: "+A("pm_L2p")+")":"")+" · I&gt;&gt;&gt; "+lt("pm_L3","pm_T3")+" · I<sub>0</sub>&gt; "+lt("pm_L0","pm_T0")+" · I<sub>0</sub>&gt;&gt; "+lt("pm_L00","pm_T00"); }
+  { const on=id=>$(id).checked, ts=$("pm_trSel"), tn=ts&&ts.selectedOptions[0]?ts.selectedOptions[0].textContent:"", v=[];   // riepilogo delle opzioni, mostrato da chiuso
+    if(on("pm_onDSO")) v.push("limite del distributore"); if(on("pm_onTol")) v.push("fasce di tolleranza"); if(on("pm_onInr")) v.push("inserzione dei trasformatori");
+    if(on("pm_onWth")) v.push("tenuta"+(tn?" di "+tn:"")); if(on("pm_onFus")) v.push("fusibile A"); if(on("pm_onCb")) v.push("interruttori BT");
+    $("pm_visSum").textContent="Nei grafici: "+(v.length?v.join(" · "):"nessuna curva aggiuntiva")+" — margine di selettività "+fusFmtT(num("pm_dt")); }
+  { const z=v=>v>0?fmtAs(v):"—";   // riepilogo mostrato quando il sotto-modulo delle correnti di riferimento è chiuso
+    $("pm_refSum").textContent="I″k massima "+z(Ik)+" · I″k minima "+z(IkMin)+" · guasto a terra "+z(IF)+" · guasto BT al primario "+z(Ibt)+" · guasto BT minimo "+z(IbtMin); }
   // elenco dei trasformatori per l'inserzione totale
   const box=$("pm_trChk"), hh=R.tr.map(t=>`<label class="brcab-tgl" style="margin-top:0"><input type="checkbox" data-tr="${t.id}" ${PMT_EXC.has(t.id)?"":"checked"}><span>${escH(t.desc)} — ${fusNum(t.SkVA)} kVA</span></label>`).join("");
   if(box.dataset.h!==hh){ box.innerHTML=hh; box.dataset.h=hh; }
@@ -2412,7 +2472,7 @@ function computePMT(){
     const badge=ch.dis?`<span class="badge wa">${ch.disTxt||"dato mancante"}</span>`:(ch.warn?`<span class="badge wa">verifica</span>`:(ch.ok?`<span class="badge ok">✓ ok</span>`:`<span class="badge no">✗ no</span>`));
     d.innerHTML=`<div class="lbl">${ch.l}${ch.tip?` <span class="tip" tabindex="0" data-tip="${ch.tip}">i</span>`:""}${ch.extra?`<br><span style="font-size:11.5px;color:var(--text-muted)">${ch.extra}</span>`:""}</div>${badge}`; cc.appendChild(d); });
   st.checks=checks; PMT_ST=st;
-  const cw=id=>{ const w=$(id).clientWidth; return w>0?Math.max(300,Math.min(900,Math.round(w))):720; };
+  const cw=id=>chW(id,720);
   $("pm_chartF").innerHTML=pmtChart(st,"F",PMT_PAL,"pf",cw("pm_chartF"))||`<p class="mini">Nessuna soglia di fase attiva.</p>`; $("pm_legF").innerHTML=pmtLegend(st,"F",PMT_PAL);
   $("pm_chartE").innerHTML=pmtChart(st,"E",PMT_PAL,"pe2",cw("pm_chartE"))||`<p class="mini">Nessuna soglia di terra attiva.</p>`; $("pm_legE").innerHTML=pmtLegend(st,"E",PMT_PAL);
 }
@@ -2736,7 +2796,7 @@ function cbMainSVG(st,pal,uid,W){
   if(st.ovl){ const o=st.ovl; if(o.c){ ser.push({c:o.c,col:pal.wth,dash:"12 4",w:1.6}); xs.push(o.c[0]); ys.push(o.c[1]); }
     pts.push({x:o.Ikt,y:2,col:pal.wth,lab:"tenuta 2 s"}); xs.push(o.Ikt); ys.push(2); vl.push({x:o.In,col:pal.wth,dash:"1 4",lab:"In trasf."}); xs.push(o.In); }
   W=W||720;
-  return fusPlot({uid,pal,W,H:W<520?360:420,xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",areas,series:ser,vl,pts});
+  return fusPlot({uid,pal,W,H:W<520?360:chH(W,720,420),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",areas,series:ser,vl,pts});
 }
 function cbLimSVG(st,pal,uid,W){
   const ser=[], pts=[], vl=[], xs=[], ys=[];
@@ -2745,7 +2805,7 @@ function cbLimSVG(st,pal,uid,W){
     if(r.cut){ pts.push({x:st.Ik,y:r.cut.v,col:pal.c[i],lab:fmt(r.cut.v/1000,2)+" kA"}); ys.push(r.cut.v); } });
   if(!ser.length) return "";
   if(st.Ik>0){ vl.push({x:st.Ik,col:pal.ik,dash:"6 3",lab:"I″k"}); xs.push(st.Ik); }
-  return fusPlot({uid,pal,W:W||520,H:300,xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta I″k (A)",ylab:"picco lasciato passare (A)",series:ser,vl,pts,
+  return fusPlot({uid,pal,W:W||520,H:chH(W||520,520,300),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta I″k (A)",ylab:"picco lasciato passare (A)",series:ser,vl,pts,
     hl:[{y:17000,col:pal.muted,dash:"4 3",lab:"17 kA · esenzione 61439"}]});
 }
 function cbI2tSVG(st,pal,uid,W){
@@ -2760,7 +2820,7 @@ function cbI2tSVG(st,pal,uid,W){
   if(st.Ik>0){ vl.push({x:st.Ik,col:pal.ik,dash:"6 3",lab:"I″k"}); xs.push(st.Ik); }
   if(st.Imin>0){ vl.push({x:st.Imin,col:pal.imin,dash:"2 3",lab:"I″k min"}); xs.push(st.Imin); }
   if(st.K2S2>0){ hl.push({y:st.K2S2,col:pal.mot,dash:"8 4",lab:"K²S² del cavo"}); ys.push(st.K2S2); }
-  return fusPlot({uid,pal,W:W||520,H:300,xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"I²t (A²s)",series:ser,vl,hl,pts});
+  return fusPlot({uid,pal,W:W||520,H:chH(W||520,520,300),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"I²t (A²s)",series:ser,vl,hl,pts});
 }
 function cbName(b){
   if(b.lsi) return `${b.type} (${fusNum(b.Iu)} A · Ir ${fusNum(b.Ir)} A · tr ${fusNum(b.lsi.tr)} s`+(b.lsi.Isd>0?` · Isd ${fmtA(b.lsi.Isd)} · tsd ${fusNum(Math.round(b.lsi.tsd*1000))} ms`:"")+(b.Ii>0?` · Ii ${fmtA(b.Ii)}`:"")+")";
@@ -2922,7 +2982,7 @@ function computeCb(){
   });
   // grafici
   CB_ST=st;
-  const cw=(id,max)=>{ const w=$(id).clientWidth; return w>0?Math.max(300,Math.min(max,Math.round(w))):max; };
+  const cw=chW;   // larghezza del contenitore
   $("cb_chart").innerHTML=cbMainSVG(st,FUS_PAL,"cm",cw("cb_chart",720));
   $("cb_legend").innerHTML=cbLegend(st);
   $("cb_chartL").innerHTML=cbLimSVG(st,FUS_PAL,"cl",cw("cb_chartL",520))||`<p class="mini">Curva di limitazione non disponibile per questo interruttore.</p>`;
@@ -3005,6 +3065,7 @@ function cbInit(){
   ["A","B"].forEach(s=>["ser","fam","sel","Ir","tr","n","Isd","tsd","si","Ii"].forEach(k=>$("cb_"+k+s).addEventListener("change",computeCb)));
   ["cb_onB","cb_onFus"].forEach(id=>$(id).addEventListener("change",computeCb));
   window.addEventListener("resize",computeCb);
+  { let rz=0; window.addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(()=>{ computePMT(); computeMT(); },120); }); }
   // copia le correnti di guasto dai risultati IEC 60909
   $("cb_copy").addEventListener("click",()=>{
     const v=ccPtVals(parseInt($("cb_pt").value,10)); if(!v) return;   // punto scelto nell'elenco accanto al tasto
@@ -3441,7 +3502,6 @@ function recompute(){
   const L=P[P.length-1];
   CC_ST={sy,max:L.max,min:L.min,pts:P};   // max e min: fine della catena
   if(CC_SEL!=null&&CC_SEL>=P.length-1) CC_SEL=null;
-  $("ccPoint").textContent=fusNum(sy.Un)+" V · "+sy.lvl; $("ccPointSrc").textContent=sy.src;
   ccTable(); ccRender(); ccPtSelects();
 
   // ---- verifica 61439 (modulo autonomo) ----
@@ -3530,7 +3590,8 @@ function collectModule(id){
   const inRows=[];
   root.querySelectorAll('label.f').forEach(lab=>{
     const inp=lab.querySelector('input,select'); if(!inp) return;
-    if(inp.offsetParent===null||inp.classList.contains('ccpt')) return;   // campo nascosto, scheda chiusa o scelta del punto da copiare
+    const sf=inp.closest('.subfold.shut');   // sotto-modulo chiuso: i suoi campi sono dati di ingresso come gli altri
+    if((inp.offsetParent===null&&!(sf&&sf.offsetParent!==null))||inp.classList.contains('ccpt')) return;   // campo nascosto, scheda chiusa o scelta del punto da copiare
     let val;
     if(inp.type==='checkbox') val=inp.checked?'sì':'no';
     else if(inp.tagName==='SELECT') val=inp.options[inp.selectedIndex]?inp.options[inp.selectedIndex].text:inp.value;
@@ -4463,6 +4524,37 @@ async function updEditor(){
   $("updSkip").addEventListener("click",()=>{ $("updBar").hidden=true; updSay(""); });
 })();
 /* lettura delle coordinate sui grafici: crocino e valori al passaggio del mouse (tutti i grafici con assi) */
+/* ---- grafico in un'altra finestra ----
+   Doppio clic su un grafico: si apre una finestra con la sua copia, da tenere per esempio su un secondo schermo. La copia segue
+   il grafico della pagina: a ogni ricalcolo il contenitore viene ridisegnato e un MutationObserver riporta il nuovo disegno
+   (con la legenda, se è in un elemento accanto). Chiudendo o ricaricando la pagina le finestre aperte si chiudono. */
+const CH_TIT={fu_chart:"Curve dei fusibili",fu_chartL:"Fusibili · picco lasciato passare",fu_chartE:"Fusibili · energia specifica passante I²t",cb_chart:"Curve degli interruttori",cb_chartL:"Interruttori · picco lasciato passare",cb_chartE:"Interruttori · energia specifica passante I²t",pm_chartF:"Protezioni MT · massima corrente di fase",pm_chartE:"Protezioni MT · guasto a terra",mt_chart:"Tensione di contatto ammissibile"};
+const CH_WIN={};
+function chPop(host){
+  const id=host.id, old=CH_WIN[id]; if(old&&!old.w.closed){ old.w.focus(); return true; }
+  let w=null; try{ w=window.open("","grafico_"+id,"width=1100,height=720"); }catch(e){}
+  if(!w) return false;
+  const css=[...document.querySelectorAll("style")].map(x=>x.textContent).join("\n"), tit=(CH_TIT[id]||"Grafico")+" — "+APP_NAME;
+  w.document.open(); w.document.write('<!doctype html><html lang="it"><head><meta charset="utf-8"><title>'+escH(tit)+'</title><style>'+css.replace(/<\/style/gi,"<\\/style")+'</style>'
+    +'<style>html,body{height:100%;margin:0}body{display:flex;flex-direction:column;padding:10px 14px;box-sizing:border-box;overflow:hidden}'
+    +'#t{font-size:13px;font-weight:650;color:var(--text-secondary);margin:0 0 4px}#g{flex:1;min-height:0;display:flex}'
+    +'#g svg{width:100%!important;height:100%!important;max-width:none!important;cursor:default}#l{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:12px;color:var(--text-secondary);margin-top:4px}</style></head>'
+    +'<body><p id="t"></p><div id="g"></div><div id="l"></div></body></html>'); w.document.close();
+  const leg=host.nextElementSibling&&/_leg/.test(host.nextElementSibling.id||"")?host.nextElementSibling:null;
+  const draw=()=>{ if(w.closed){ ob.disconnect(); delete CH_WIN[id]; return; }
+    const d=w.document; d.getElementById("t").textContent=CH_TIT[id]||""; d.getElementById("g").innerHTML=host.innerHTML; d.getElementById("l").innerHTML=leg?leg.innerHTML:"";
+    d.querySelectorAll("#g .axh").forEach(e=>e.remove()); };
+  const ob=new MutationObserver(draw); ob.observe(host,{childList:true}); if(leg) ob.observe(leg,{childList:true,subtree:true,characterData:true});
+  CH_WIN[id]={w,ob}; draw(); return true;
+}
+document.addEventListener("dblclick",ev=>{
+  const svg=ev.target&&ev.target.closest?ev.target.closest("svg[data-ax]"):null, host=svg&&svg.parentElement;
+  if(!host||!host.id||document.body.classList.contains("printing")) return;
+  const sel=window.getSelection&&window.getSelection(); if(sel) sel.removeAllRanges();
+  if(!chPop(host)) setTimeout(()=>alert("Il browser ha impedito l'apertura della finestra: consentire le finestre a comparsa per questa pagina e ripetere il doppio clic sul grafico."),0);
+});
+window.addEventListener("pagehide",()=>{ Object.keys(CH_WIN).forEach(k=>{ try{ CH_WIN[k].ob.disconnect(); CH_WIN[k].w.close(); }catch(e){} delete CH_WIN[k]; }); });
+
 (function(){
   const tip=document.createElement("div");
   tip.style.cssText="position:fixed;display:none;pointer-events:none;z-index:70;background:var(--text-primary);color:var(--bg);font-size:11.5px;line-height:1.35;padding:4px 8px;border-radius:6px;white-space:nowrap;font-variant-numeric:tabular-nums";
@@ -5097,6 +5189,21 @@ $("allSave").addEventListener("click",()=>{
 $("allOpen").addEventListener("click",()=>$("allFile").click());
 $("allFile").addEventListener("change",function(){ const f=this.files[0]; if(!f) return; const rd=new FileReader();
   rd.onload=()=>allOpenText(String(rd.result),f.name); rd.readAsText(f); this.value=""; });
+
+/* ===================== SOTTO-MODULI A SCOMPARSA =====================
+   Parti di un modulo che si aprono e si chiudono cliccando sul titolo (classe «subfold»). Alla prima apertura sono chiuse quelle
+   con la classe «shut»; poi vale lo stato ricordato nel browser. Da chiusi mostrano una riga di riepilogo e continuano a
+   entrare nel calcolo e nelle esportazioni. */
+const SUB_KEY="ce_sottomoduli_v1";
+(function(){
+  let mem={}; try{ const v=JSON.parse(localStorage.getItem(SUB_KEY)||"{}"); if(v&&typeof v==="object"&&!Array.isArray(v)) mem=v; }catch(_){}
+  const all=[...document.querySelectorAll(".subfold")];
+  all.forEach(sb=>{ const h=sb.querySelector(".subfold-h .subh");
+    const set=o=>{ sb.classList.toggle("shut",!o); h.setAttribute("aria-expanded",String(o)); };
+    const tog=()=>{ set(sb.classList.contains("shut")); const m={}; all.forEach(x=>{ m[x.id]=!x.classList.contains("shut"); }); try{ localStorage.setItem(SUB_KEY,JSON.stringify(m)); }catch(_){} };
+    h.addEventListener("click",tog); h.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); tog(); } });
+    set(typeof mem[sb.id]==="boolean"?mem[sb.id]:!sb.classList.contains("shut")); });
+})();
 
 /* ===================== MODULI A SCOMPARSA =====================
    Ogni modulo si chiude e si riapre cliccando sulla barra del titolo. Lo stato è ricordato nel browser;
