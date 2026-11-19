@@ -11,16 +11,17 @@
  ],
  "stato": {
   "app": "Calcoli elettrici",
-  "versione": "0.1.14",
+  "versione": "0.1.25",
   "formato": 1,
   "moduli": {
    "modCC": {
     "campi": {
      "cfac": "1.05",
      "cfacMin": "0.95",
+     "ccTk": "0.5",
      "freq": "50",
      "ipMethod": "C",
-     "ccTk": "0.5",
+     "ccUn": "",
      "onGrid": true,
      "gridPreset": "",
      "gridMode": "Ik",
@@ -41,15 +42,7 @@
      "onTr": true,
      "onKT": true,
      "onCab": true,
-     "onMot": true,
-     "onLE": true,
-     "le_mat": "Cu",
-     "le_S": "70",
-     "le_L": "70",
-     "le_n": "1",
-     "le_x": "0.08",
-     "le_te": "250",
-     "le_RE": "0"
+     "onMot": true
     },
     "trasformatori": [
      {
@@ -79,7 +72,9 @@
       "cL": "12",
       "cn": "4",
       "cx": "0.08",
-      "cte": "250"
+      "cte": "250",
+      "cSn": "240",
+      "ckx0": "4"
      },
      {
       "desc": "Trasf. 2",
@@ -108,7 +103,9 @@
       "cL": "15",
       "cn": "4",
       "cx": "0.08",
-      "cte": "250"
+      "cte": "250",
+      "cSn": "240",
+      "ckx0": "4"
      }
     ],
     "cavi": [
@@ -120,7 +117,9 @@
       "L": "25",
       "n": "3",
       "x": "0.09",
-      "te": "160"
+      "te": "160",
+      "Sn": "150",
+      "kx0": "4"
      },
      {
       "desc": "Partenza",
@@ -130,7 +129,9 @@
       "L": "45",
       "n": "1",
       "x": "0.08",
-      "te": "250"
+      "te": "250",
+      "Sn": "70",
+      "kx0": "4"
      }
     ],
     "motori": [
@@ -230,9 +231,13 @@
     "campi": {
      "pm_U": "15",
      "pm_neu": "c",
+     "pm_L1": "0",
+     "pm_K1": "0.12",
+     "pm_A1": "0.02",
+     "pm_B1": "0.14",
      "pm_L2": "250",
      "pm_T2": "0.5",
-     "pm_onDSO": true,
+     "pm_L2p": "0",
      "pm_L3": "600",
      "pm_T3": "0.12",
      "pm_L0": "2",
@@ -240,14 +245,17 @@
      "pm_L00": "56",
      "pm_T00": "0.17",
      "pm_Ik": "16",
+     "pm_IkMin": "0",
      "pm_IF": "40",
      "pm_Ibt": "1200",
-     "pm_onInr": true,
-     "pm_onFus": false,
-     "pm_onCb": true,
-     "pm_onWth": true,
+     "pm_IbtMin": "0",
+     "pm_onDSO": true,
      "pm_onTol": true,
-     "pm_dt": "0.1"
+     "pm_dt": "0.1",
+     "pm_onInr": true,
+     "pm_onWth": true,
+     "pm_onFus": false,
+     "pm_onCb": true
     },
     "trasformatore": 0,
     "protezioni": [

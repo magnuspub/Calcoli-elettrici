@@ -118,8 +118,9 @@ input:disabled{opacity:.45}
 .collapsible[data-off="1"] .body{display:none}
 .rowbtn{display:inline-flex;gap:6px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:6px 10px;font-size:12px;color:var(--text-secondary);cursor:pointer}
 .rowbtn:hover{border-color:var(--accent);color:var(--accent)}
-.cable-row{display:grid;grid-template-columns:1fr .95fr .75fr .7fr .7fr .5fr .75fr .8fr auto;gap:8px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
-@media (max-width:760px){.cable-row{grid-template-columns:1fr 1fr}}
+.cable-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;gap:8px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
+.cable-row .del{grid-column:6;grid-row:1 / span 2;align-self:end}
+@media (max-width:760px){.cable-row{grid-template-columns:1fr 1fr}.cable-row .del{grid-column:1 / -1;grid-row:auto;justify-self:end}}
 .mot-row{display:grid;grid-template-columns:1fr .6fr .6fr .62fr .6fr .55fr .45fr .75fr auto;gap:7px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
 @media (max-width:760px){.mot-row{grid-template-columns:1fr 1fr}}
 .cable-row .del,.mot-row .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px}
@@ -163,7 +164,10 @@ input:disabled{opacity:.45}
 .brcab-tgl input::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:#fff;top:2px;left:2px;transition:.15s}
 .brcab-tgl input:checked::after{left:15px}
 .tr-cab{display:grid;grid-template-columns:.85fr .7fr .7fr .7fr .5fr .8fr .85fr;gap:8px;margin:8px 0 2px;padding-left:12px;border-left:2px solid var(--accent)}
-@media (max-width:760px){.tr-cab{grid-template-columns:1fr 1fr}}
+.tr-cab.c9{grid-template-columns:repeat(5,minmax(0,1fr));align-items:end}   /* cavo di ramo: 9 campi su due file */
+@media (max-width:760px){.tr-cab,.tr-cab.c9{grid-template-columns:1fr 1fr}}
+/* finestra di media larghezza, con dati e risultati affiancati: i cavi a 7 campi vanno su due file, per non stringere i campi */
+@media (min-width:981px) and (max-width:1240px){.tr-cab:not(.c9){grid-template-columns:repeat(4,minmax(0,1fr))}}
 .tr-cab[hidden]{display:none}
 .magwrap{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 @media (max-width:760px){.magwrap{grid-template-columns:1fr}}
@@ -325,10 +329,10 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.24</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.25</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
-  <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
+  <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
 </header>
 
 <main>
@@ -358,9 +362,9 @@ details.adv>.in{margin-top:10px}
       <label class="f">Frequenza <span class="u">(Hz)</span>
         <input type="number" id="freq" value="50" step="any">
       </label>
-      <label class="f">Picco in rete magliata<span class="tip" tabindex="0" data-tip="Metodo per il picco i_p quando più rami sono in parallelo (IEC 60909-0). B: i_p=1,15·κ·√2·I″k, conservativo (limitato a 1,8 BT/2,0 MT). C: frequenza equivalente (reattanze a 20 Hz), più accurato, di solito dà un picco più basso. In rete radiale i due metodi coincidono.">i</span>
+      <label class="f">Picco in rete magliata<span class="tip" tabindex="0" data-tip="Metodo per il picco i_p quando più rami sono in parallelo (IEC 60909-0). B: i_p=1,15·κ·√2·I″k, conservativo (limitato a 1,8 BT/2,0 MT); il fattore 1,15 è applicato solo se almeno un ramo in parallelo ha R/X ≥ 0,3, come prevede la norma. C: frequenza equivalente (reattanze a 20 Hz), più accurato, di solito dà un picco più basso. In rete radiale i due metodi coincidono.">i</span>
         <select id="ipMethod">
-          <option value="B" selected>Metodo B — 1,15·κ (conservativo)</option>
+          <option value="B" selected>Metodo B — κ da R/X, con 1,15 se serve</option>
           <option value="C">Metodo C — frequenza equivalente</option>
         </select>
       </label>
@@ -441,7 +445,7 @@ details.adv>.in{margin-top:10px}
     <h2><span class="ttl">Cavi / linee</span>
       <span class="toggle"><input type="checkbox" id="onCab"><span>includi</span></span></h2>
     <div class="body">
-    <p class="hint">Uno o più tratti in serie dalla sorgente al punto di guasto. Per le correnti massime la resistenza è calcolata a 20 °C; per le minime alla temperatura a fine guasto θ<sub>e</sub> di ogni tratto (250 °C per EPR e XLPE, 160 °C per il PVC).</p>
+    <p class="hint">Uno o più tratti in serie dalla sorgente al punto di guasto. Per le correnti massime la resistenza è calcolata a 20 °C; per le minime alla temperatura a fine guasto θ<sub>e</sub> di ogni tratto (250 °C per EPR e XLPE, 160 °C per il PVC). Il campo <b>N/PE</b> è la sezione del conduttore di ritorno del tratto: dove è indicata per tutti i cavi fino al trasformatore è calcolato anche il <b>guasto fase-terra</b>. <b>X<sub>0</sub>/X</b> è il rapporto tra reattanza omopolare e diretta: 4 per i cavi con il ritorno nel conduttore N/PE.</p>
     <div id="cableList"></div>
     <div style="display:flex;gap:8px;align-items:center;margin-top:4px;flex-wrap:wrap">
       <button class="rowbtn" id="addCable">+ aggiungi tratto</button>
@@ -464,24 +468,6 @@ details.adv>.in{margin-top:10px}
   </div>
 
   <!-- Guasto fase-terra BT -->
-  <div class="card collapsible" id="cardLE" data-off="1">
-    <h2><span class="ttl">Guasto fase-terra (BT)</span>
-      <span class="toggle"><input type="checkbox" id="onLE"><span>includi</span></span></h2>
-    <div class="body">
-    <p class="hint">Guasto monofase a terra a valle del trasformatore (I″<sub>k1</sub> = √3·c·U<sub>n</sub> / |2·Z̄<sub>1</sub> + Z̄<sub>0</sub>|). La Z̄<sub>0</sub> dipende dal <b>gruppo</b> del trasformatore (Dyn/Yyn/Dzn hanno neutro BT; Dd/Yd no) e dal <b>conduttore di ritorno</b> (neutro/PE dal punto di guasto al centro stella). Richiede il trasformatore attivo e un gruppo con neutro.</p>
-    <div class="grid3">
-      <label class="f">Conduttore N/PE — materiale<select id="le_mat"></select></label>
-      <label class="f">Sezione <span class="u">(mm²)</span><input type="number" id="le_S" value="95" step="any"></label>
-      <label class="f">Lunghezza <span class="u">(m)</span><input type="number" id="le_L" value="20" step="any"></label>
-      <label class="f">N° in parallelo<input type="number" id="le_n" value="1" step="1"></label>
-      <label class="f">Reattanza <span class="u">(mΩ/m)</span><input type="number" id="le_x" value="0.08" step="0.01"></label>
-      <label class="f">Temperatura a fine guasto θ<sub>e</sub> <span class="u">(°C)</span><span class="tip" tabindex="0" data-tip="Temperatura del conduttore a fine guasto, usata solo per le correnti minime: R = [1 + α·(θe − 20)]·R20 (IEC 60909-0, 7.1.3). Valori usuali: 250 °C per EPR e XLPE, 160 °C per il PVC. Le correnti massime sono calcolate a 20 °C, come prescrive la norma.">i</span><input type="number" id="le_te" value="250" step="any"></label>
-      <label class="f">Resistenza di terra R<sub>E</sub> <span class="u">(Ω)</span><span class="tip" tabindex="0" data-tip="Resistenza dell'anello di terra (per sistemi TT, dove il ritorno è attraverso il terreno). Per i sistemi TN con ritorno metallico lasciare 0 e usare il conduttore di neutro/PE. (guasto fase-terra IEC 60909-0 §7.5; sistemi TT IEC 60364-4-41)">i</span><input type="number" id="le_RE" value="0" step="any"></label>
-    </div>
-    <p class="mini" style="margin-top:8px">TN (ritorno metallico): usa il conduttore N/PE, R<sub>E</sub>=0. TT (ritorno a terra): R<sub>E</sub> = resistenza dell'anello di terra. Rapporto Z₀/Z₁ del trafo: Dyn 0,95 · Dzn 0,10 · Yyn ~7 (dato costruttore).</p>
-    </div>
-  </div>
-
 </div>
 
 <!-- ===================== COLONNA RISULTATI ===================== -->
@@ -526,7 +512,7 @@ details.adv>.in{margin-top:10px}
       </div>
     </div>
     <div id="leSec" style="display:none">
-      <div class="subh" style="margin:14px 0 8px">Guasto fase-terra (L‑E, BT)<span class="tip d r" tabindex="0" data-tip="Cortocircuito monofase a terra: I″k1 = √3·c·Un / |2·Z̄1 + Z̄0|. Z̄0 = Z̄0T (gruppo trafo, con il cavo di ramo) + Z̄1 cavi comuni + 3·Z̄neutro/PE + 3·RE. Serve per la verifica dell'interruzione automatica dell'alimentazione. (IEC 60909-0 §7.5)">i</span></div>
+      <div class="subh" style="margin:14px 0 8px">Guasto fase-terra (L‑E, BT)<span class="tip d r" tabindex="0" data-tip="Cortocircuito monofase a terra: I″k1 = √3·c·Un / |2·Z̄1 + Z̄0|. Z̄0 = Z̄0T (gruppo del trasformatore) + per ogni cavo, di ramo o di linea, Z̄1 + 3·Z̄ del suo conduttore N/PE. Si calcola da solo nei punti in cui tutti i cavi fino al centro stella hanno la sezione N/PE (sistemi TN). Nella corrente massima, con i motori, Z̄1 è il parallelo tra la rete e il ramo dei motori (IEC 60909-0, art. 13). Serve per la verifica dell'interruzione automatica dell'alimentazione. (IEC 60909-0 §7.5)">i</span></div>
       <div class="res-main" id="leVals">
         <div class="kpi"><div class="k">I″<sub>k1</sub> · fase-terra</div><div class="v" style="font-size:20px"><span id="Ik1">—</span> <small>kA</small></div></div>
         <div class="kpi"><div class="k">i<sub>p1</sub> · picco</div><div class="v" style="font-size:20px"><span id="ip1">—</span> <small>kA</small></div></div>
@@ -1113,14 +1099,15 @@ details.adv>.in{margin-top:10px}
       <p>κ = 1,02 + 0,98·e<sup>−3R/X</sup>; i<sub>p</sub> = κ·√2·I″<sub>k</sub>.</p>
       <p>I<sub>b</sub> = I<sub>k</sub> = I″<sub>k</sub> per la parte di rete (guasto lontano dal generatore); i motori aggiungono μ·q·I″<sub>kM</sub> a I<sub>b</sub> e nulla a I<sub>k</sub> a regime.</p>
       <p>I<sub>th</sub> = I″<sub>k</sub>·√(m+n), con m = [e<sup>4fT<sub>k</sub>ln(κ−1)</sup>−1]/[2fT<sub>k</sub>·ln(κ−1)], n = 1.</p>
-      <p>Picco rete magliata: B) i<sub>p</sub> = 1,15·κ·√2·I″<sub>k</sub> (limitato a 1,8 BT / 2,0 MT); C) frequenza equivalente f<sub>c</sub> = 20 Hz: reattanze ×0,4, R/X = (R<sub>c</sub>/X<sub>c</sub>)·(f<sub>c</sub>/f), poi κ<sub>c</sub> dalla formula di κ.</p>
+      <p>Picco rete magliata: B) i<sub>p</sub> = 1,15·κ·√2·I″<sub>k</sub> (limitato a 1,8 BT / 2,0 MT), con il fattore 1,15 solo se un ramo in parallelo ha R/X ≥ 0,3; C) frequenza equivalente f<sub>c</sub> = 20 Hz: reattanze ×0,4, R/X = (R<sub>c</sub>/X<sub>c</sub>)·(f<sub>c</sub>/f), poi κ<sub>c</sub> dalla formula di κ.</p>
       <p>Fattore di tensione c (Tab. 1): BT c<sub>max</sub> 1,05 / c<sub>min</sub> 0,95; MT c<sub>max</sub> 1,10 / c<sub>min</sub> 1,00.</p>
     </div>
     <div class="fblk">
       <h4>Guasto bifase, fase-terra e monofase</h4>
       <p>Bifase (L-L): I″<sub>k2</sub> = (√3/2)·I″<sub>k3</sub> ≈ 0,866·I″<sub>k3</sub>; i<sub>p2</sub> = 0,866·i<sub>p3</sub>.</p>
       <p>Fase-terra BT: I″<sub>k1</sub> = √3·c·U<sub>n</sub>/|2·Z̄<sub>1</sub> + Z̄<sub>0</sub>|.</p>
-      <p>Z̄<sub>0</sub> = Z̄<sub>0T</sub> + Z̄<sub>1,cavi</sub> + 3·Z̄<sub>N</sub> + 3·R<sub>E</sub>; Z̄<sub>0T</sub> = k<sub>0</sub>·Z̄<sub>1T</sub> (Dyn k<sub>0</sub>≈0,95 · Dzn 0,10 · Yyn ≈7).</p>
+      <p>Z̄<sub>0</sub> = Z̄<sub>0T</sub> + Σ<sub>tratti</sub> (Z̄<sub>1</sub> + 3·Z̄<sub>N</sub>), dove per ogni cavo R<sub>0</sub> = R + 3·R<sub>N</sub>, con R<sub>N</sub> dalla sezione del conduttore N/PE, e X<sub>0</sub> = (X<sub>0</sub>/X)·X; con il ritorno a piena sezione e X<sub>0</sub>/X = 4 è Z̄<sub>0</sub> = 4·Z̄<sub>1</sub> (IEC TR 60909-2). Z̄<sub>0T</sub>: rami dei trasformatori in parallelo, ciascuno con il suo cavo di ramo; trasformatore Dyn R<sub>0</sub> = R<sub>T</sub> e X<sub>0</sub> ≈ 0,95·X<sub>T</sub>, Dzn Z̄<sub>0</sub> ≈ 0,10·Z̄<sub>T</sub>, Yyn ≈ 7·Z̄<sub>T</sub>.</p>
+      <p>Il guasto fase-terra è calcolato nei punti in cui tutti i cavi fino al centro stella hanno la sezione N/PE (ritorno nel conduttore, sistema TN); un ramo con il cavo senza N/PE non entra nella sequenza zero. Con i motori Z̄<sub>1</sub> = Z̄<sub>2</sub> = rete ∥ motori nella corrente massima. Picco: i<sub>p1</sub> = κ·√2·I″<sub>k1</sub>, con lo stesso κ del guasto trifase nel punto.</p>
       <p>Monofase (fase-neutro, fornitura BT monofase): I″<sub>k</sub> = c·U/Z̄<sub>anello</sub>, con Z̄<sub>anello</sub> = Z̄<sub>sorgente</sub> + 2·Z̄<sub>conduttore</sub> (fase + neutro di pari sezione); nessun √3; Z<sub>sorgente</sub> = c·U<sub>nQ</sub>/I″<sub>kQ</sub>; i<sub>p</sub> e I<sub>th</sub> dalle stesse formule del trifase. Attivo con la connessione CEI 0-21 monofase.</p>
     </div>
     <div class="fblk">
@@ -1196,7 +1183,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.24 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.25 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1209,7 +1196,7 @@ details.adv>.in{margin-top:10px}
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.24";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.25";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -1292,7 +1279,7 @@ function kOpts(){ return CABLE_K.map((r,i)=>`<option value="${r[0]}"${i?"":" sel
 function gridMono(){ const e=$("gridPreset"), p=e&&GRID_PRESETS.find(q=>q.id===e.value); return !!(p&&p.mono); }
 // menu fissi della pagina, generati dalle tabelle
 (function(){ const put=(id,h,v)=>{ const e=$(id); if(!e) return; e.innerHTML=h; if(v!=null&&[...e.options].some(o=>o.value===v)) e.value=v; };
-  put("sc_tipo",tipoOpts(true),"mt"); put("sc_mat",matOpts()); put("le_mat",matOpts()); put("fu_K",kOpts()); put("cb_K",kOpts());
+  put("sc_tipo",tipoOpts(true),"mt"); put("sc_mat",matOpts()); put("fu_K",kOpts()); put("cb_K",kOpts());
   $("gridPreset").insertAdjacentHTML("beforeend",GRID_PRESETS.map(p=>`<option value="${escH(p.id)}">${escH(p.nome)}</option>`).join("")); })();
 let cableSeq=0;
 function cableRow(def={}){
@@ -1309,6 +1296,8 @@ function cableRow(def={}){
     <label class="f">N° par.<input type="number" data-k="n" value="${def.n||1}" step="1"></label>
     <label class="f">X (mΩ/m)<input type="number" data-k="x" value="${def.x!=null?def.x:(cabX(tp)||0.08)}" step="0.01"></label>
     <label class="f">θ<sub>e</sub> (°C)<span class="tip r" tabindex="0" data-tip="Temperatura del conduttore a fine guasto, usata solo per le correnti minime: R = [1 + α·(θe − 20)]·R20 (IEC 60909-0, 7.1.3). Valori usuali: 250 °C per EPR e XLPE, 160 °C per il PVC. Le correnti massime sono calcolate a 20 °C, come prescrive la norma.">i</span><input type="number" data-k="te" value="${def.te!=null?def.te:250}" step="any"></label>
+    <label class="f">N/PE <span style="white-space:nowrap">(mm²)<span class="tip r" tabindex="0" data-tip="Sezione del conduttore di ritorno del guasto a terra (neutro o PE) di questo tratto, con materiale, lunghezza, numero di conduttori e temperatura delle fasi. Serve solo al guasto fase-terra: R0 = R + 3·R del ritorno; la reattanza omopolare viene dal campo X0/X. Vuoto o 0: da questo tratto in giù il guasto fase-terra non è calcolato.">i</span></span><input type="number" data-k="Sn" value="${def.Sn!=null?def.Sn:""}" step="any"></label>
+    <label class="f">X<sub>0</sub>/X<span class="tip r" tabindex="0" data-tip="Rapporto tra la reattanza omopolare e la reattanza diretta del cavo, usato solo nel guasto fase-terra: X0 = (X0/X)·X. Vale 4 per i cavi con il ritorno nel conduttore N/PE (IEC TR 60909-2). Per le linee aeree e per i cavi di cui si conosce Z0 si indica il valore del costruttore: nell'esempio di IEC TR 60909-4 la linea aerea ha 3. Vuoto o 0: 4.">i</span><input type="number" data-k="kx0" value="${def.kx0!=null?def.kx0:4}" step="0.1"></label>
     <button class="del" title="elimina">✕</button>`;
   div.querySelector(".del").onclick=()=>{div.remove();recompute();};
   div.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",recompute));
@@ -1320,7 +1309,7 @@ function cableRow(def={}){
 }
 // isMin: correnti minime, con ogni tratto alla sua temperatura a fine guasto; altrimenti 20 °C (IEC 60909-0, 7.1.2 e 7.1.3)
 function readCables(isMin,nMax){   // nMax: solo i primi nMax tratti validi (punto intermedio della catena)
-  let R=0,X=0; const rows=[];
+  let R=0,X=0,R0=0,X0=0,miss=null; const rows=[];   // R0, X0: sequenza zero; miss: primo tratto senza la sezione N/PE (da lì il fase-terra non si calcola)
   document.querySelectorAll("#cableList .cable-row").forEach(d=>{
     if(nMax!=null&&rows.length>=nMax) return;
     const g=k=>d.querySelector(`[data-k=${k}]`);
@@ -1331,9 +1320,12 @@ function readCables(isMin,nMax){   // nMax: solo i primi nMax tratti validi (pun
     const m=MAT[mat], rho=m.rho*(1+m.a*(theta-20));
     const r=rho*L/(n*S);           // ohm
     const x=xpm*L/n/1000;          // ohm
-    R+=r; X+=x; rows.push({desc:g("desc").value,R:r,X:x,L:L});
+    // sequenza zero del tratto, per il guasto fase-terra: R0 = R + 3·R del conduttore di ritorno (N/PE), X0 = (X0/X)·X
+    const sn=parseFloat(g("Sn").value)||0, rn=sn>0?rho*L/(n*sn):0, kx=cabKx0(g("kx0"));
+    if(sn>0){ R0+=r+3*rn; X0+=kx*x; } else if(miss==null) miss=g("desc").value;
+    R+=r; X+=x; rows.push({desc:g("desc").value,R:r,X:x,L:L,R0:sn>0?r+3*rn:null,X0:sn>0?kx*x:null});
   });
-  return {R,X,rows};
+  return {R,X,rows,R0,X0,okN:miss==null,miss};
 }
 
 /* ---------- motori asincroni dinamici ---------- */
@@ -1385,11 +1377,11 @@ function readMotors(cVal){
    delle correnti e lo stesso picco. La corrente di interruzione segue la Formula (77): la riduzione μ·q pesa quanto
    la tensione che resta ai morsetti dei motori. */
 function ccMotAt(sy,c,pt){
-  if(pt.last){ const t=readMotors(c); return {Ik:t.Ik,ip:t.ip,Ib:t.Ib,n:t.n}; }
-  const m=readMotors(1); if(!(m.Ik>0)) return {Ik:0,ip:0,Ib:0,n:m.n};
+  const m=readMotors(1); if(!(m.Ik>0)) return {Ik:0,ip:0,Ib:0,n:m.n,R:0,X:0};
   // motore equivalente alla tensione di fine catena: modulo dalla somma delle correnti, R/X dal picco complessivo
   const Zm=sy.Un/(SQ3*m.Ik), kS=m.ip/(SQ2*m.Ik), rxS=Math.max(0,-Math.log(Math.max(1e-12,(kS-1.02)/0.98))/3);
   const Xm=Zm/Math.sqrt(1+rxS*rxS), Rm=rxS*Xm;
+  if(pt.last){ const t=readMotors(c); return {Ik:t.Ik,ip:t.ip,Ib:t.Ib,n:t.n,R:Rm,X:Xm}; }   // R, X: ramo dei motori visto dal punto (serve al guasto fase-terra)
   let R=Rm, X=Xm, k2=1;
   if($("onCab").checked) readCables(false).rows.slice(pt.tr?pt.nCab:0).forEach(r=>{ R+=r.R; X+=r.X; });   // tratti tra il punto e i motori, a 20 °C
   if(pt.noLv){ const a=readTransformers(false), b=readTransformers(false,{noLv:true}); R+=a.R-b.R; X+=a.X-b.X; }   // dai morsetti secondari: anche il cavo di ramo
@@ -1401,12 +1393,12 @@ function ccMotAt(sy,c,pt){
     if(!pt.sc&&$("sc_on")&&$("sc_on").checked){ const S=num("sc_S"), L=num("sc_L"), n=Math.max(1,num("sc_n"));
       if(S>0&&L>0){ R+=MAT[$("sc_mat").value].rho*L/(n*S); X+=num("sc_x")*L/n/1000; } }
   }
-  const Zd=Math.hypot(R,X); if(!(Zd>0)) return {Ik:0,ip:0,Ib:0,n:m.n};
+  const Zd=Math.hypot(R,X); if(!(Zd>0)) return {Ik:0,ip:0,Ib:0,n:m.n,R:0,X:0};
   const Ik=c*pt.Un/(SQ3*Zd), ip=(1.02+0.98*Math.exp(-3*(X>0?R/X:1e9)))*SQ2*Ik;
   const dU=Zm*k2/Zd;   // quota della tensione che resta ai morsetti dei motori
   let Ib=0; m.list.forEach(q=>{ const mu=muFactor(c*q.klr*dU,q.tmin), red=mu>=1?0:(1-mu*qFactor(q.mMW,q.tmin));   // se μ = 1 nessuna riduzione
     Ib+=Ik*(q.Ik/m.Ik)*(1-red*dU); });
-  return {Ik,ip,Ib,n:m.n};
+  return {Ik,ip,Ib,n:m.n,R,X};
 }
 
 /* ---------- fattore n 61439 ---------- */
@@ -1488,7 +1480,7 @@ function trRow(def={}){
       <label class="f">θ<sub>e</sub> (°C)<span class="tip r" tabindex="0" data-tip="Temperatura del conduttore a fine guasto, usata solo per le correnti minime: R = [1 + α·(θe − 20)]·R20 (IEC 60909-0, 7.1.3). Valori usuali: 250 °C per EPR e XLPE, 160 °C per il PVC. Le correnti massime sono calcolate a 20 °C, come prescrive la norma.">i</span><input type="number" data-k="hvte" value="${hv.te!=null?hv.te:250}" step="any"></label>
     </div>
     <label class="brcab-tgl"><input type="checkbox" data-k="hascab" ${def.hascab?"checked":""}><span>cavo di ramo dedicato (collegato al secondario)</span></label>
-    <div class="tr-cab" data-k="cabfields" ${def.hascab?"":"hidden"}>
+    <div class="tr-cab c9" data-k="cabfields" ${def.hascab?"":"hidden"}>
       <label class="f">Tipo<select data-k="ctype">${tipoOpts(true)}</select></label>
       <label class="f">Materiale<select data-k="cmat">${matOpts()}</select></label>
       <label class="f">Sez. (mm²)<input type="number" data-k="cS" value="${c.S||240}" step="any"></label>
@@ -1496,6 +1488,8 @@ function trRow(def={}){
       <label class="f">N° par.<input type="number" data-k="cn" value="${c.n||1}" step="1"></label>
       <label class="f">X (mΩ/m)<input type="number" data-k="cx" value="${c.x!=null?c.x:(cabX(c.tipo||'mult')||0.08)}" step="0.01"></label>
       <label class="f">θ<sub>e</sub> (°C)<span class="tip r" tabindex="0" data-tip="Temperatura del conduttore a fine guasto, usata solo per le correnti minime: R = [1 + α·(θe − 20)]·R20 (IEC 60909-0, 7.1.3). Valori usuali: 250 °C per EPR e XLPE, 160 °C per il PVC. Le correnti massime sono calcolate a 20 °C, come prescrive la norma.">i</span><input type="number" data-k="cte" value="${c.te!=null?c.te:250}" step="any"></label>
+      <label class="f">N/PE <span style="white-space:nowrap">(mm²)<span class="tip r" tabindex="0" data-tip="Sezione del conduttore di ritorno del guasto a terra (neutro o PE) del cavo di ramo, con materiale, lunghezza, numero di conduttori e temperatura delle fasi. Serve solo al guasto fase-terra: R0 = R + 3·R del ritorno; la reattanza omopolare viene dal campo X0/X (a piena sezione e con X0/X = 4 è Z0 = 4·Z1, IEC TR 60909-2). Vuoto o 0: il ritorno di questo ramo non è noto e il ramo non entra nel guasto fase-terra; se nessun trasformatore ha il ritorno, il guasto fase-terra non è calcolato in nessun punto a valle.">i</span></span><input type="number" data-k="cSn" value="${c.Sn!=null?c.Sn:""}" step="any"></label>
+      <label class="f">X<sub>0</sub>/X<span class="tip r" tabindex="0" data-tip="Rapporto tra la reattanza omopolare e la reattanza diretta del cavo, usato solo nel guasto fase-terra: X0 = (X0/X)·X. Vale 4 per i cavi con il ritorno nel conduttore N/PE (IEC TR 60909-2). Per le linee aeree e per i cavi di cui si conosce Z0 si indica il valore del costruttore: nell'esempio di IEC TR 60909-4 la linea aerea ha 3. Vuoto o 0: 4.">i</span><input type="number" data-k="ckx0" value="${c.kx0!=null?c.kx0:4}" step="0.1"></label>
     </div>`;
   br.querySelector(".del").onclick=()=>{br.remove();recompute();};
   br.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",recompute));
@@ -1525,13 +1519,18 @@ function parallelZ(list){
   return {R:gR/D, X:-gX/D};
 }
 // gruppo vettoriale: rapporto Z0/Z1 del trasformatore (lato secondario) e presenza del neutro BT
-const VG={Dyn:{k0:0.95,ln:true}, Yyn:{k0:7,ln:true}, Dzn:{k0:0.10,ln:true}, Dd:{k0:null,ln:false}, Yd:{k0:null,ln:false}};
+// k0 = X0/X1 (IEC TR 60909-4, Tab. 2), kr = R0/R1. Per il Dyn la resistenza omopolare è quella diretta (R0 = RT, esempio dell'art. 5 del rapporto tecnico).
+const VG={Dyn:{k0:0.95,kr:1,ln:true}, Yyn:{k0:7,kr:7,ln:true}, Dzn:{k0:0.10,kr:0.10,ln:true}, Dd:{k0:null,kr:null,ln:false}, Yd:{k0:null,kr:null,ln:false}};
 // temperatura a fine guasto letta da un campo: se vuota o non valida vale 20 °C
 function ccTe(v){ const t=parseFloat(v); return isFinite(t)?t:20; }
 // isMin: correnti minime, senza fattori di correzione dell'impedenza e con i cavi alla loro temperatura a fine guasto (IEC 60909-0, 7.1.3)
+// sezione del conduttore di ritorno (N/PE) del cavo di ramo: vuoto o 0 = non indicata
+function trCabSn(d){ const e=d.querySelector('[data-k=cSn]'), v=e?parseFloat(e.value):0; return v>0?v:0; }
+// rapporto X0/X di un cavo: vuoto o 0 = 4, il cavo con il ritorno nel conduttore N/PE (IEC TR 60909-2)
+function cabKx0(e){ const v=e?parseFloat(e.value):0; return v>0?v:4; }
 function readTransformers(isMin,opt){ const noKT=isMin;   // opt.noHv / opt.noLv: senza il cavo a monte / senza il cavo di ramo (punti ai morsetti del trasformatore)
   opt=opt||{};
-  const zlist=[], z0list=[]; const applyKT=$("onKT").checked&&!noKT, cm=sysCmax(); let anyCab=false, hasN=false, hvAny=false, lvAny=false;
+  const zlist=[], z0list=[]; const applyKT=$("onKT").checked&&!noKT, cm=sysCmax(); let anyCab=false, hasN=false, hvAny=false, lvAny=false, noRet=false;
   document.querySelectorAll("#trList .tr-branch").forEach(d=>{
     const g=k=>d.querySelector(`[data-k=${k}]`);
     const S=(parseFloat(g("S").value)||0)*1000;   // VA
@@ -1547,7 +1546,7 @@ function readTransformers(isMin,opt){ const noKT=isMin;   // opt.noHv / opt.noLv
     // sequenza zero del trasformatore secondo il gruppo (prima del cavo di ramo)
     const vg=VG[(g("vg")?g("vg").value:"Dyn")]||VG.Dyn;
     let z0=null;
-    if(vg.ln && vg.k0!=null){ z0={R:RT*vg.k0,X:XT*vg.k0}; z0list.push(z0); hasN=true; }
+    if(vg.ln && vg.k0!=null){ z0={R:RT*vg.kr,X:XT*vg.k0}; hasN=true; }
     // cavo a monte (lato primario MT) in serie, riportato al lato BT con t_r² = (U prim./U second.)²
     if(g("hvcab").checked){
       const uhv=parseFloat(g("uhv").value)||0, tr=(uhv>0&&ulv>0)?uhv/ulv:1, tr2=tr*tr;
@@ -1564,15 +1563,21 @@ function readTransformers(isMin,opt){ const noKT=isMin;   // opt.noHv / opt.noLv
       if(cS>0&&cL>0){ lvAny=true;
         if(!opt.noLv){ const m=MAT[mat], rho=m.rho*(1+m.a*((isMin?ccTe(g("cte").value):20)-20)), rc=rho*cL/(cn*cS), xc=cx*cL/cn/1000;
         RT+=rc; XT+=xc; anyCab=true;
-        if(z0){ z0.R+=rc; z0.X+=xc; } } }   // il cavo di ramo è percorso anche dalla corrente omopolare (Z0 del cavo assunta pari a Z1, come per i cavi a valle)
+        // sequenza zero del cavo di ramo: R0 = R + 3·R del conduttore di ritorno (N/PE), X0 = (X0/X)·X. Con il ritorno a piena sezione e X0/X = 4
+        // dà Z0 = 4·Z1, come la Formula (19) di IEC TR 60909-2 per il cavo a quattro conduttori. Senza la sezione N/PE il ritorno non è noto:
+        // il ramo non entra nella sequenza zero (se nessun ramo ha il ritorno, il guasto fase-terra non si calcola).
+        const sN=trCabSn(d);
+        if(z0){ if(sN>0){ z0.R+=rc+3*rho*cL/(cn*sN); z0.X+=cabKx0(g("ckx0"))*xc; } else { z0=null; noRet=true; } } } }
     }
+    if(z0) z0list.push(z0);
     zlist.push({R:RT,X:XT});
   });
+  const rxMax=zlist.reduce((m,z)=>Math.max(m,z.X>0?z.R/z.X:Infinity),0);
   const eq=parallelZ(zlist);
   // combinazione a frequenza equivalente fc (reattanze ×0,4) per il metodo C
   const eqc=parallelZ(zlist.map(z=>({R:z.R,X:z.X*0.4})));
   const eq0=z0list.length?parallelZ(z0list):{R:0,X:0};
-  return {R:eq.R,X:eq.X,Rc:eqc.R,Xc:eqc.X,R0:eq0.R,X0:eq0.X,n:zlist.length,anyCab,hasN,hvAny,lvAny};
+  return {R:eq.R,X:eq.X,Rc:eqc.R,Xc:eqc.X,R0:eq0.R,X0:eq0.X,n:zlist.length,anyCab,hasN,hvAny,lvAny,rxMax,z0ok:z0list.length>0,noRet};
 }
 // cavo a monte dedicato del primo trasformatore valido, alla tensione del primario (punto ai morsetti primari)
 function trHvCable(isMin){
@@ -3289,22 +3294,23 @@ function ccCore(sy,c,withMot,pt){
     const h=trHvCable(isMin); if(h){ Rk+=h.R; Xk+=h.X; RcAcc+=h.R; XcAcc+=h.X*FC; rows.push({name:"Cavo a monte del trasformatore",R:h.R,X:h.X}); }
   }
   // --- trafo (uno o più in parallelo) ---
-  let trN=0, trR0=0, trX0=0, trHasN=false, trCab=false;
+  let trN=0, trR0=0, trX0=0, trHasN=false, trCab=false, trRx=0, trZ0ok=false;
   if(onTr){
     const tr=readTransformers(isMin,pt.noLv?{noLv:true}:null);   // morsetti secondari: senza il cavo di ramo
     if(tr.n>0){
       Rk+=tr.R; Xk+=tr.X; RcAcc+=tr.Rc; XcAcc+=tr.Xc; trN=tr.n;
-      trR0=tr.R0; trX0=tr.X0; trHasN=tr.hasN; trCab=tr.anyCab;
+      trR0=tr.R0; trX0=tr.X0; trHasN=tr.hasN; trCab=tr.anyCab; trRx=tr.rxMax; trZ0ok=tr.z0ok;
       let nm = tr.n>1 ? (tr.anyCab?`Rami trafo+cavo (${tr.n}× ∥)`:`Trasformatori (${tr.n}× ∥)`)
                       : (tr.anyCab?"Trasformatore + cavo ramo":"Trasformatore");
       rows.push({name:nm,R:tr.R,X:tr.X});
     }
   }
   // --- cavi ---
-  let cabR=0, cabX=0;
+  let cabR=0, cabX=0, cabR0=0, cabX0=0, cabOkN=true, cabMiss=null;
   if(onCab){
     const cab=readCables(isMin,pt.nCab===Infinity?null:pt.nCab);
     if(cab.R>0||cab.X>0){ Rk+=cab.R; Xk+=cab.X; cabR=cab.R; cabX=cab.X; RcAcc+=cab.R; XcAcc+=cab.X*FC; rows.push({name:"Cavi/linee",R:cab.R,X:cab.X}); }
+    cabR0=cab.R0; cabX0=cab.X0; cabOkN=cab.okN; cabMiss=cab.miss;
   }
 
   const Zk=Math.sqrt(Rk*Rk+Xk*Xk);
@@ -3313,7 +3319,8 @@ function ccCore(sy,c,withMot,pt){
 
   // correnti parte di rete
   let IkNet = Zk>0 ? c*Un/(SQ3*Zk) : 0;   // A
-  // picco: in rete magliata (più rami in parallelo) si applica il fattore 1,15·κ (metodo B, IEC 60909-0),
+  // picco: in rete magliata (più rami in parallelo) si applica il fattore 1,15·κ (metodo B, IEC 60909-0, 8.1.2 b),
+  // ma solo se almeno un ramo ha R/X ≥ 0,3: sotto questo valore in tutti i rami la norma non lo richiede.
   // con il prodotto limitato a 1,8 in BT e 2,0 in MT
   // monofase se è attiva la connessione CEI 0-21 monofase, altrimenti trifase
   const monoFault = gridMono() && sysLvl==="BT";
@@ -3325,16 +3332,17 @@ function ccCore(sy,c,withMot,pt){
   let kappaIp = kappa, meshNote="";
   if(meshed){
     if(method==="C"){ kappaIp=kappaC; meshNote="C"; }
-    else { kappaIp=Math.min(1.15*kappa, sysLvl==="BT"?1.8:2.0); meshNote="B"; }
+    else if(trRx>=0.3){ kappaIp=Math.min(1.15*kappa, sysLvl==="BT"?1.8:2.0); meshNote="B"; }
+    else { kappaIp=kappa; meshNote="B0"; }
   }
   let ipNet = kappaIp*SQ2*IkNet;
   let IbNet = IkNet, IkStNet = IkNet;      // lontano dal generatore
 
   // --- motori ---
-  let IkMot=0, ipMot=0, IbMot=0, motN=0;
+  let IkMot=0, ipMot=0, IbMot=0, motN=0, motR=0, motX=0;
   if(onMot){
     const m=ccMotAt(sy,c,pt);           // ai morsetti la somma dei singoli motori; a monte il contributo attraverso gli elementi interposti
-    IkMot=m.Ik; ipMot=m.ip; IbMot=m.Ib; motN=m.n;
+    IkMot=m.Ik; ipMot=m.ip; IbMot=m.Ib; motN=m.n; motR=m.R; motX=m.X;
   }
 
   const Ik = IkNet + IkMot;
@@ -3363,21 +3371,30 @@ function ccCore(sy,c,withMot,pt){
     oIk=mo.Ik; oIp=mo.ip; oIb=mo.Ik; oIkSt=mo.Ik; oIth=mo.Ith;
   }
 
-  // guasto fase-terra (BT): I''k1 = √3·c·Un / |2·Z1 + Z0|
+  // guasto fase-terra (BT): I''k1 = √3·c·Un / |2·Z1 + Z0|.
+  // Si calcola da solo dove il ritorno è noto fino al centro stella: gruppo con neutro, almeno un ramo di trasformatore con il suo
+  // ritorno (senza cavo di ramo, oppure con la sezione N/PE del cavo di ramo) e la sezione N/PE di tutti i tratti fino al punto.
+  // Z0 = Z0 dei rami in parallelo + per ogni tratto Z1 + 3·Z del suo conduttore N/PE. Sistemi TN: il ritorno è nel conduttore N/PE.
   let le=null;
-  if($("onLE")&&$("onLE").checked && sysLvl==="BT" && !monoFault && pt.tr){
-    if(onTr && trHasN){
-      const mat=$("le_mat").value, S=num("le_S"), L=num("le_L"), n=Math.max(1,num("le_n")), xpm=num("le_x"), RE=num("le_RE");
-      let RN=0,XN=0;
-      if(S>0&&L>0){ const m=MAT[mat], rho=m.rho*(1+m.a*((isMin?ccTe($("le_te").value):20)-20)); RN=rho*L/(n*S)*pt.frac; XN=xpm*L/n/1000*pt.frac; }   // nei punti intermedi il conduttore di ritorno è in proporzione alla lunghezza dei tratti a monte
-      const Z0R=trR0+cabR+3*RN+3*RE, Z0X=trX0+cabX+3*XN;
-      const denR=2*Rk+Z0R, denX=2*Xk+Z0X, denZ=Math.hypot(denR,denX);
+  if(sysLvl==="BT" && !monoFault && pt.tr && onTr && trN>0){
+    if(!trHasN) le={ok:false,why:"gruppo"};
+    else if(!trZ0ok) le={ok:false,why:"ramo"};
+    else if(!cabOkN) le={ok:false,why:"tratto",desc:cabMiss};
+    else {
+      const Z0R=trR0+cabR0, Z0X=trX0+cabX0;
+      // motori (IEC 60909-0, art. 13): nei sistemi con neutro a terra contano anche nel guasto fase-terra. Il loro ramo è in parallelo
+      // alla rete nelle sequenze diretta e inversa (Z1 = Z2 = rete ∥ motori); non entra nella sequenza zero, perché il centro stella dei motori è isolato.
+      let R1=Rk, X1=Xk;
+      if(IkMot>0&&(motR>0||motX>0)){ const sR=Rk+motR, sX=Xk+motX, d=sR*sR+sX*sX, pR=Rk*motR-Xk*motX, pX=Rk*motX+Xk*motR; if(d>0){ R1=(pR*sR+pX*sX)/d; X1=(pX*sR-pR*sX)/d; } }
+      const denR=2*R1+Z0R, denX=2*X1+Z0X, denZ=Math.hypot(denR,denX);
       const Ik1=denZ>0?SQ3*c*Un/denZ:0;
-      const rx1=denX>0?denR/denX:0, k1=1.02+0.98*Math.exp(-3*rx1);
-      le={ok:true,Ik1,ip1:k1*SQ2*Ik1};
-    } else le={ok:false};
+      // picco: ip1 = κ·√2·I″k1 con lo stesso κ del guasto trifase nel punto, come ammette IEC 60909-0 e come fa l'esempio di IEC TR 60909-4.
+      // κ è il rapporto ip/(√2·I″k) del trifase: senza motori è il κ del metodo scelto, con i motori comprende il loro contributo.
+      const k1=oIk>0?oIp/(SQ2*oIk):kappaIp;
+      le={ok:true,Ik1,ip1:k1*SQ2*Ik1,k1,R0:Z0R,X0:Z0X,mot:IkMot>0&&(R1!==Rk||X1!==Xk)};
+    }
   }
-  return {c,monoFault,meshed,meshNote,kappaC,kappaIp,onGrid,onTr,onCab,onMot,trN,trCab,scCab,IkMot,ipMot,IbMot,motN,Tk,le,
+  return {c,monoFault,meshed,meshNote,trRx,kappaC,kappaIp,onGrid,onTr,onCab,onMot,trN,trCab,scCab,IkMot,ipMot,IbMot,motN,Tk,le,
     oRows,oRk,oXk,oZk,oRx,oKappa,oIk,oIp,oIb,oIkSt,oIth};
 }
 
@@ -3385,7 +3402,7 @@ function ccCore(sy,c,withMot,pt){
 function ccRender(p){
   p=p||CC_ST.pts[ccSelIdx()];
   const A=p.max, B=p.min;
-  const {monoFault,meshed,meshNote,kappaC,kappaIp,onTr,onCab,onMot,onGrid,trN,trCab,scCab,IkMot,ipMot,IbMot,motN,Tk,oRows,oRk,oXk,oZk,oRx,oKappa,oIk,oIp,oIb,oIkSt,oIth}=A;
+  const {monoFault,meshed,meshNote,trRx,kappaC,kappaIp,onTr,onCab,onMot,onGrid,trN,trCab,scCab,IkMot,ipMot,IbMot,motN,Tk,oRows,oRk,oXk,oZk,oRx,oKappa,oIk,oIp,oIb,oIkSt,oIth}=A;
   const sysLvl=p.lvl, mA=x=>p.last?kA(x)+" kA":fmtAs(x);   // contributo dei motori: ai morsetti in kA come sempre, a monte anche in ampere quando è piccolo
   if($("pillFault")) $("pillFault").textContent = "guasto "+(monoFault?"monofase":"trifase")+" "+sysLvl;
   $("ccDet").innerHTML=`Dettaglio del punto <b>${p.id} · ${escH(p.name)}</b> — ${fusNum(p.Un)} V · ${sysLvl}`;
@@ -3403,7 +3420,9 @@ function ccRender(p){
   if(A.le){
     if(A.le.ok){ $("Ik1").textContent=kA(A.le.Ik1); $("ip1").textContent=kA(A.le.ip1); $("leVals").style.display=""; $("leMsg").style.display="none"; }
     else { $("leVals").style.display="none"; $("leMsg").style.display="block";
-      $("leMsg").textContent = $("onTr").checked ? "Il gruppo del trasformatore non ha neutro BT (Dd/Yd): guasto fase-terra non disponibile." : "Serve il trasformatore attivo per il guasto fase-terra BT."; }
+      $("leMsg").textContent = A.le.why==="gruppo" ? "Il gruppo del trasformatore non ha neutro BT (Dd/Yd): guasto fase-terra non disponibile."
+        : A.le.why==="ramo" ? "Guasto fase-terra non calcolato: manca la sezione N/PE del cavo di ramo del trasformatore."
+        : "Guasto fase-terra non calcolato in questo punto: manca la sezione N/PE del tratto «"+(A.le.desc||"")+"»."; }
     leShow=true;
   }
   if($("leSec")) $("leSec").style.display = leShow ? "" : "none";
@@ -3422,7 +3441,9 @@ function ccRender(p){
     $("warnMesh").style.display="block";
     $("warnMesh").innerHTML = (meshNote==="C")
       ? `Rete magliata (rami in parallelo): picco col <b>metodo C</b> (frequenza equivalente f<sub>c</sub>=20&nbsp;Hz, IEC 60909-0) → κ<sub>c</sub> = <b>${fmt(kappaC,3)}</b>.`
-      : `Rete magliata (rami in parallelo): picco col <b>metodo B</b> (1,15·κ = <b>${fmt(kappaIp,3)}</b>, IEC 60909-0), limitato a 1,8 (BT) / 2,0 (MT).`;
+      : (meshNote==="B0")
+      ? `Rete magliata (rami in parallelo): picco col <b>metodo B</b> senza il fattore 1,15, perché R/X è sotto 0,3 in tutti i rami (massimo ${fmt(trRx,2)}) → κ = <b>${fmt(kappaIp,3)}</b> (IEC 60909-0, 8.1.2 b).`
+      : `Rete magliata (rami in parallelo): picco col <b>metodo B</b> (1,15·κ = <b>${fmt(kappaIp,3)}</b>, IEC 60909-0), limitato a 1,8 (BT) / 2,0 (MT). Il fattore 1,15 serve perché un ramo ha R/X = ${fmt(trRx,2)}, non sotto 0,3.`;
   } else $("warnMesh").style.display="none";
 
   // tabella Z
@@ -3569,9 +3590,9 @@ function collapse(cardId,chkId){
 document.addEventListener("input",e=>{
   syncSeg();
 });
-["onGrid","onTr","onCab","onMot","onLE"].forEach(id=>{
+["onGrid","onTr","onCab","onMot"].forEach(id=>{
   $(id).addEventListener("change",()=>{
-    collapse({onGrid:"cardGrid",onTr:"cardTr",onCab:"cardCab",onMot:"cardMot",onLE:"cardLE"}[id],id);
+    collapse({onGrid:"cardGrid",onTr:"cardTr",onCab:"cardCab",onMot:"cardMot"}[id],id);
     recompute();
   });
 });
@@ -3935,37 +3956,47 @@ function _xCabV(S,th,mat,s,l,n,x,fac){
 /* ---- tabella cavi/linee: somma di R e X (moltiplicate per mult) ---- */
 function _xCabTable(S,th,mult){
   const list=[...document.querySelectorAll('#cableList .cable-row')].map(d=>{const g=k=>d.querySelector(`[data-k=${k}]`);
-    return {desc:g('desc').value,mat:g('mat').value,S:_pf(g('S').value),L:_pf(g('L').value),n:Math.max(1,_pf(g('n').value)||1),x:_pf(g('x').value)};}).filter(c=>c.S>0&&c.L>0);
+    return {desc:g('desc').value,mat:g('mat').value,S:_pf(g('S').value),L:_pf(g('L').value),n:Math.max(1,_pf(g('n').value)||1),x:_pf(g('x').value),Sn:Math.max(0,_pf(g('Sn').value)||0),kx:cabKx0(g('kx0'))};}).filter(c=>c.S>0&&c.L>0);
   if(!list.length) return null;
-  S.thead(['Tratto','Materiale','ρ20 (Ω·mm²/m)','α (1/°C)','Sezione (mm²)','Lunghezza (m)','N° parallelo','x (mΩ/m)','R (Ω)','X (Ω)']);
+  const zero=mult==='1';   // sequenza zero di ogni tratto: R0 = R + 3·R del conduttore N/PE, X0 = (X0/X)·X
+  S.thead(['Tratto','Materiale','ρ20 (Ω·mm²/m)','α (1/°C)','Sezione (mm²)','Lunghezza (m)','N° parallelo','x (mΩ/m)','R (Ω)','X (Ω)'].concat(zero?['N/PE (mm²) — 0 = non indicata','X0/X','R del ritorno (Ω)','R0 = R + 3·R ritorno (Ω)','X0 = (X0/X)·X (Ω)']:[]));
   let r0=0,r1=0;
   list.forEach(c=>{ const m=MAT[c.mat]||MAT.Cu, r=S.rows.length+1;
     S.row([{v:c.desc},{v:c.mat==='Al'?'Alluminio':'Rame',s:3},{v:m.rho,s:3},{v:m.a,s:3},{v:c.S,s:3},{v:c.L,s:3},{v:c.n,s:3},{v:c.x,s:3},
-      {f:`${mult}*C${r}*(1+D${r}*(${th}-20))*F${r}/(MAX(1,G${r})*E${r})`,s:9},{f:`${mult}*H${r}*F${r}/MAX(1,G${r})/1000`,s:9}]);
+      {f:`${mult}*C${r}*(1+D${r}*(${th}-20))*F${r}/(MAX(1,G${r})*E${r})`,s:9},{f:`${mult}*H${r}*F${r}/MAX(1,G${r})/1000`,s:9}].concat(zero?[
+      {v:c.Sn,s:3},{v:c.kx,s:3},{f:`IF(K${r}>0,C${r}*(1+D${r}*(${th}-20))*F${r}/(MAX(1,G${r})*K${r}),0)`,s:9},{f:`I${r}+3*M${r}`,s:9},{f:`L${r}*J${r}`,s:9}]:[]));
     if(!r0)r0=r; r1=r; });
   const R=S.calc('Cavi/linee — R totale',`SUM(I${r0}:I${r1})`,'Ω','',9), X=S.calc('Cavi/linee — X totale',`SUM(J${r0}:J${r1})`,'Ω','',9);
-  return {R,X,r0,r1};
+  const o={R,X,r0,r1};
+  if(zero){ o.R0=S.calc('Cavi/linee — R0 totale',`SUM(N${r0}:N${r1})`,'Ω','sequenza zero: vale se tutti i tratti hanno la sezione N/PE',9); o.X0=S.calc('Cavi/linee — X0 totale',`SUM(O${r0}:O${r1})`,'Ω','',9); }
+  return o;
 }
+/* ---- parallelo di due impedenze (R1+jX1) ∥ (R2+jX2) come formule di foglio ---- */
+function _xPar(R1,X1,R2,X2){ const sr=`(${R1}+${R2})`, sx=`(${X1}+${X2})`, pr=`(${R1}*${R2}-${X1}*${X2})`, px=`(${R1}*${X2}+${X1}*${R2})`, d=`(${sr}^2+${sx}^2)`;
+  return {R:`IF(${d}>0,(${pr}*${sr}+${px}*${sx})/${d},${R1})`, X:`IF(${d}>0,(${px}*${sr}-${pr}*${sx})/${d},${X1})`}; }
 /* ---- tabella trasformatori: ogni ramo = cavo a monte + trasformatore + cavo a valle, poi parallelo ---- */
 function _xTrTable(S,th,cmax){
   const brs=[...document.querySelectorAll('#trList .tr-branch')];
   const list=brs.map((d,i)=>{const g=k=>d.querySelector(`[data-k=${k}]`), v=k=>_pf(g(k).value);
     const vg=VG[g('vg').value]||VG.Dyn, hv=g('hvcab').checked, lv=g('hascab').checked;
-    return {first:i===0,desc:g('desc').value,S:v('S'),uk:v('uk'),pcu:v('pcu'),uhv:v('uhv'),ulv:v('ulv'),vgn:g('vg').value,k0:(vg.ln&&vg.k0!=null)?vg.k0:null,
+    return {first:i===0,desc:g('desc').value,S:v('S'),uk:v('uk'),pcu:v('pcu'),uhv:v('uhv'),ulv:v('ulv'),vgn:g('vg').value,k0:(vg.ln&&vg.k0!=null)?vg.k0:null,kr:(vg.ln&&vg.k0!=null)?vg.kr:null,lSn:lv?trCabSn(d):0,lkx:cabKx0(g('ckx0')),
       hm:g('hvmat').value,hS:v('hvS'),hL:hv?v('hvL'):0,hn:Math.max(1,v('hvn')||1),hx:v('hvx'),
       lm:g('cmat').value,lS:v('cS'),lL:lv?v('cL'):0,ln:Math.max(1,v('cn')||1),lx:v('cx')};}).filter(t=>t.S>0&&t.ulv>0&&t.uk>0);
   if(!list.length) return null;
   const kt=S.inp('Correzione KT attiva',$("onKT").checked?1:0,'','1 = sì, 0 = no (IEC 60909-0 §6)');
-  const keys=['desc','S','uk','pcu','uhv','ulv','vg','k0','hr','ha','hS','hL','hn','hx','lr','la','lS','lL','ln','lx','ZT','RT','XT','KT','Rhv','Xhv','Rlv','Xlv','Rb','Xb','G','B','Gc','Bc','G0','B0'];
+  const keys=['desc','S','uk','pcu','uhv','ulv','vg','k0','hr','ha','hS','hL','hn','hx','lr','la','lS','lL','ln','lx','ZT','RT','XT','KT','Rhv','Xhv','Rlv','Xlv','Rb','Xb','G','B','Gc','Bc','G0','B0','kr','lSn','RlvN','rxb','lkx'];
   const cl={}; keys.forEach((k,i)=>cl[k]=_colL(i+1));
-  S.thead(['Trasformatore','SrT (kVA)','ukr (%)','Pcu (kW)','U prim. (V)','U second. (V)','Gruppo','k0 = Z0/Z1',
+  S.thead(['Trasformatore','SrT (kVA)','ukr (%)','Pcu (kW)','U prim. (V)','U second. (V)','Gruppo','k0 = X0/X1',
     'Cavo monte ρ20','Cavo monte α','Cavo monte S (mm²)','Cavo monte L (m) — 0 = assente','Cavo monte N°','Cavo monte x (mΩ/m)',
     'Cavo valle ρ20','Cavo valle α','Cavo valle S (mm²)','Cavo valle L (m) — 0 = assente','Cavo valle N°','Cavo valle x (mΩ/m)',
     'ZT (Ω)','RT (Ω)','XT (Ω)','KT','R cavo monte al BT (Ω)','X cavo monte al BT (Ω)','R cavo valle (Ω)','X cavo valle (Ω)','R ramo (Ω)','X ramo (Ω)',
-    'G ramo (S)','B ramo (S)','G ramo a fc','B ramo a fc','G0','B0']);
+    'G ramo (S)','B ramo (S)','G ramo a fc','B ramo a fc','G0','B0','kr = R0/R1','Cavo valle S N/PE (mm²) — 0 = non indicata: il ramo non entra nella sequenza zero','R del ritorno del cavo valle (Ω)','R/X del ramo','Cavo valle X0/X']);
   let r0=0,r1=0;
   list.forEach(t=>{ const r=S.rows.length+1, a=k=>cl[k]+r, hm=MAT[t.hm]||MAT.Cu, lm=MAT[t.lm]||MAT.Cu;
     const R1=`(${a('RT')}*${a('KT')})`, X1=`(${a('XT')}*${a('KT')})`;
+    // ramo in sequenza zero: trasformatore (kr·R1, k0·X1) + cavo di ramo (R0 = R + 3·R del conduttore N/PE, X0 = (X0/X)·X)
+    const R0b=`(${R1}*${a('kr')}+${a('Rlv')}+3*${a('RlvN')})`, X0b=`(${X1}*${a('k0')}+${a('lkx')}*${a('Xlv')})`;
+    const in0=`AND(ISNUMBER(${a('k0')}),OR(${a('lS')}<=0,${a('lL')}<=0,${a('lSn')}>0))`;   // gruppo con neutro e ritorno noto: senza cavo di ramo, oppure con la sua sezione N/PE
     S.row([{v:t.desc},{v:t.S,s:3},{v:t.uk,s:3},{v:t.pcu,s:3},{v:t.uhv,s:3},{v:t.ulv,s:3},{v:t.vgn,s:11},(t.k0!=null?{v:t.k0,s:3}:{v:'—',s:11}),
       {v:hm.rho,s:3},{v:hm.a,s:3},{v:t.hS,s:3},{v:t.hL,s:3},{v:t.hn,s:3},{v:t.hx,s:3},
       {v:lm.rho,s:3},{v:lm.a,s:3},{v:t.lS,s:3},{v:t.lL,s:3},{v:t.ln,s:3},{v:t.lx,s:3},
@@ -3980,19 +4011,24 @@ function _xTrTable(S,th,cmax){
       {f:`${R1}+${a('Rhv')}+${a('Rlv')}`,s:9},{f:`${X1}+${a('Xhv')}+${a('Xlv')}`,s:9},
       {f:`${a('Rb')}/(${a('Rb')}^2+${a('Xb')}^2)`,s:4},{f:`-${a('Xb')}/(${a('Rb')}^2+${a('Xb')}^2)`,s:4},
       {f:`${a('Rb')}/(${a('Rb')}^2+(0.4*${a('Xb')})^2)`,s:4},{f:`-0.4*${a('Xb')}/(${a('Rb')}^2+(0.4*${a('Xb')})^2)`,s:4},
-      {f:`IF(ISNUMBER(${a('k0')}),(${R1}*${a('k0')}+${a('Rlv')})/((${R1}*${a('k0')}+${a('Rlv')})^2+(${X1}*${a('k0')}+${a('Xlv')})^2),0)`,s:4},
-      {f:`IF(ISNUMBER(${a('k0')}),-(${X1}*${a('k0')}+${a('Xlv')})/((${R1}*${a('k0')}+${a('Rlv')})^2+(${X1}*${a('k0')}+${a('Xlv')})^2),0)`,s:4}]);
+      {f:`IF(${in0},${R0b}/(${R0b}^2+${X0b}^2),0)`,s:4},
+      {f:`IF(${in0},-${X0b}/(${R0b}^2+${X0b}^2),0)`,s:4},
+      (t.kr!=null?{v:t.kr,s:3}:{v:'—',s:11}),{v:t.lSn,s:3},
+      {f:`IF(AND(${a('lSn')}>0,${a('lL')}>0),${a('lr')}*(1+${a('la')}*(${th}-20))*${a('lL')}/(MAX(1,${a('ln')})*${a('lSn')}),0)`,s:9},
+      {f:`IF(${a('Xb')}>0,${a('Rb')}/${a('Xb')},0)`,s:4},{v:t.lkx,s:3}]);
     if(!r0)r0=r; r1=r;
     if(t.first) S.ref.tr1=`($${cl.uhv}$${r}/$${cl.ulv}$${r})`;
   });
   const rg=k=>`${cl[k]}${r0}:${cl[k]}${r1}`, par=(g,b,sgn)=>sgn?`-SUM(${rg(b)})/(SUM(${rg(g)})^2+SUM(${rg(b)})^2)`:`SUM(${rg(g)})/(SUM(${rg(g)})^2+SUM(${rg(b)})^2)`;
-  const o={n:list.length, hasN:list.some(t=>t.k0!=null)};
-  if(list.length===1) o.one={Rhv:`$${cl.Rhv}$${r0}`,Xhv:`$${cl.Xhv}$${r0}`,Rlv:`$${cl.Rlv}$${r0}`,Xlv:`$${cl.Xlv}$${r0}`};   // cavi dedicati dell'unico trasformatore: per i punti ai suoi morsetti
+  const o={n:list.length, hasN:list.some(t=>t.k0!=null&&(!(t.lS>0&&t.lL>0)||t.lSn>0))};   // hasN: almeno un ramo nella sequenza zero
+  if(list.length===1) o.one={Rhv:`$${cl.Rhv}$${r0}`,Xhv:`$${cl.Xhv}$${r0}`,Rlv:`$${cl.Rlv}$${r0}`,Xlv:`$${cl.Xlv}$${r0}`,
+    R0T:`($${cl.RT}$${r0}*$${cl.KT}$${r0}*$${cl.kr}$${r0})`,X0T:`($${cl.XT}$${r0}*$${cl.KT}$${r0}*$${cl.k0}$${r0})`};   // sequenza zero del solo trasformatore, per i suoi morsetti secondari   // cavi dedicati dell'unico trasformatore: per i punti ai suoi morsetti
   o.R=S.calc('Trasformatori in parallelo — R equivalente',par('G','B',0),'Ω','rami combinati in parallelo (somma delle ammettenze)',9);
   o.X=S.calc('Trasformatori in parallelo — X equivalente',par('G','B',1),'Ω','',9);
   o.Rc=S.calc('R equivalente a frequenza fc (metodo C)',par('Gc','Bc',0),'Ω','reattanze × 0,4',9);
   o.Xc=S.calc('X equivalente a frequenza fc (metodo C)',par('Gc','Bc',1),'Ω','',9);
-  if(o.hasN){ o.R0=S.calc('R0 omopolare equivalente',par('G0','B0',0),'Ω','Z0T = k0·Z1T, prima dei cavi',9); o.X0=S.calc('X0 omopolare equivalente',par('G0','B0',1),'Ω','',9); }
+  o.rxMax=S.calc('R/X più alto tra i rami',`MAX($${cl.rxb}$${r0}:$${cl.rxb}$${r1})`,'','con più rami in parallelo decide il fattore 1,15 del picco (metodo B): serve da 0,3 in su');
+  if(o.hasN){ o.R0=S.calc('R0 omopolare equivalente',par('G0','B0',0),'Ω','rami in parallelo: trasformatore (kr·R1, k0·X1) + cavo di ramo con il suo ritorno',9); o.X0=S.calc('X0 omopolare equivalente',par('G0','B0',1),'Ω','',9); }
   return o;
 }
 /* ---- tabella motori: contributi sommati ---- */
@@ -4025,7 +4061,6 @@ function xlsMinInto(S){
   { const te=[]; if($("onGrid").checked&&$("sc_on").checked) te.push(['cavo tra sorgente e trasformatore',$("sc_te").value]);
     if($("onTr").checked) document.querySelectorAll("#trList .tr-branch").forEach(d=>{ const g=k=>d.querySelector(`[data-k=${k}]`), nm=g("desc").value; if(g("hvcab").checked) te.push([nm+' · cavo a monte',g("hvte").value]); if(g("hascab").checked) te.push([nm+' · cavo di ramo',g("cte").value]); });
     if($("onCab").checked) document.querySelectorAll("#cableList .cable-row").forEach(d=>te.push([d.querySelector("[data-k=desc]").value,d.querySelector("[data-k=te]").value]));
-    if(st.min.le&&st.min.le.ok) te.push(['conduttore N/PE',$("le_te").value]);
     te.forEach(r=>S.row([{v:'Temperatura a fine guasto · '+r[0]},{v:ccTe(r[1]),s:11},{v:'°C'}])); }
   if($("onGrid").checked){ const sk=$("gridMode").value==="Sk", v=num(sk?"SkQmin":"IkQmin"); S.row([{v:sk?'S″kQ minima della rete':'I″kQ minima della rete'},v>0?{v:v,s:11}:{v:'come la massima'},{v:v>0?(sk?'MVA':'kA'):''}]); }
   S.row([{v:st.min.monoFault?'I″k min · monofase':'I″k min · trifase'},{v:st.min.oIk/1000,s:11},{v:'kA'}]);
@@ -4127,7 +4162,8 @@ function xlsCC(){
     const rc=S.calc('Rc (frequenza equivalente)',_sum(Rcp),'Ω','',9), xc=S.calc('Xc (frequenza equivalente)',_sum(Xcp),'Ω','',9);
     const kc=S.calc('κc — metodo C',`1.02+0.98*EXP(-3*IF(${xc}>0,${rc}/${xc}*0.4,${rxt}))`,'','R/X = (Rc/Xc)·(fc/f)');
     PX.met=met; PX.lim=lim;
-    kip=S.calc('κ usato per il picco',`IF(${met}="C",${kc},MIN(1.15*${kap},${lim}))`,'',`metodo B: 1,15·κ limitato a ${lim}`);
+    PX.rxMax=tr.rxMax;
+    kip=S.calc('κ usato per il picco',`IF(${met}="C",${kc},IF(${tr.rxMax}>=0.3,MIN(1.15*${kap},${lim}),${kap}))`,'',`metodo B: 1,15·κ limitato a ${lim}, ma solo se un ramo ha R/X ≥ 0,3 (IEC 60909-0, 8.1.2 b)`);
   }
   S.head('Correnti di cortocircuito');
   const In=S.calc('I″k — parte di rete',`IF(${Zk}>0,${c}*${Un}/(SQRT(3)*${Zk}),0)`,'A','I″k = c·Un/(√3·Zk)');
@@ -4138,18 +4174,24 @@ function xlsCC(){
   S.res('Ik · regime',`${In}/1000`,'kA','i motori non contribuiscono a regime'); S.res('Ith · termica equivalente',`${Ik}*SQRT(${m}+1)/1000`,'kA');
   S.head('Guasto bifase (L-L)');
   S.res('I″k2 · bifase iniziale',`SQRT(3)/2*${Ik}/1000`,'kA','I″k2 = (√3/2)·I″k3'); S.res('ip2 · picco bifase',`SQRT(3)/2*${ip}/1000`,'kA');
-  const onLE=$("onLE") && $("onLE").checked;
-  if(onLE && sysLvl==="BT" && tr && tr.hasN){
+  const leOn=!!(CC_ST&&CC_ST.max.le&&CC_ST.max.le.ok);   // il programma lo calcola dove il ritorno è noto fino al centro stella
+  if(leOn && tr && tr.hasN){
     S.head('Guasto fase-terra (L-E, BT)');
-    S.sub('Conduttore di ritorno (neutro/PE)');
-    const lS=num("le_S"), lL=num("le_L");
-    const k=_xCabV(S,th,$("le_mat").value,lS,lL,Math.max(1,num("le_n")),num("le_x"),'1');
-    const RN=(lS>0&&lL>0)?k.R:'0', XN=(lS>0&&lL>0)?k.X:'0';
-    const RE=S.inp('Resistenza di terra RE',num("le_RE"),'Ω'); PX.le={RN,XN,RE};
-    const z0r=S.calc('R0 totale',`${tr.R0}+${cab?cab.R:'0'}+3*${RN}+3*${RE}`,'Ω','Z0 = Z0T + Z1 cavi + 3·ZN + 3·RE',9), z0x=S.calc('X0 totale',`${tr.X0}+${cab?cab.X:'0'}+3*${XN}`,'Ω','',9);
-    const dr=S.calc('R di 2·Z1+Z0',`2*${Rk}+${z0r}`,'Ω','',9), dx=S.calc('X di 2·Z1+Z0',`2*${Xk}+${z0x}`,'Ω','',9);
+    PX.le=true;
+    const z0r=S.calc('R0 totale',`${tr.R0}+${cab?cab.R0:'0'}`,'Ω','Z0 = Z0 dei rami dei trasformatori + per ogni tratto R + 3·R del conduttore N/PE e (X0/X)·X',9), z0x=S.calc('X0 totale',`${tr.X0}+${cab?cab.X0:'0'}`,'Ω','',9);
+    let R1e=Rk, X1e=Xk;
+    if(mot){   // motori: in parallelo alla rete nelle sequenze diretta e inversa (IEC 60909-0, art. 13)
+      S.sub('Motori nel guasto fase-terra: Z1 = Z2 = rete ∥ motori');
+      const zm=S.calc('Motore equivalente — Z',`${c}*${Un}/(SQRT(3)*${mot.Ik})`,'Ω','dalla somma delle correnti dei motori',9);
+      const km=S.calc('Motore equivalente — κ',`${mot.ip}/(SQRT(2)*${mot.Ik})`,'','dal picco complessivo dei motori');
+      const rm=S.calc('Motore equivalente — R/X',`MAX(0,-LN(MAX(0.000000000001,(${km}-1.02)/0.98))/3)`,'');
+      const xm=S.calc('Motore equivalente — X',`${zm}/SQRT(1+${rm}^2)`,'Ω','',9), rmm=S.calc('Motore equivalente — R',`${rm}*${xm}`,'Ω','',9);
+      const pp=_xPar(Rk,Xk,rmm,xm);
+      R1e=S.calc('R1 con i motori',pp.R,'Ω','rete ∥ motori',9); X1e=S.calc('X1 con i motori',pp.X,'Ω','',9);
+    }
+    const dr=S.calc('R di 2·Z1+Z0',`2*${R1e}+${z0r}`,'Ω','',9), dx=S.calc('X di 2·Z1+Z0',`2*${X1e}+${z0x}`,'Ω','',9);
     const i1=S.calc('I″k1',`IF(SQRT(${dr}^2+${dx}^2)>0,SQRT(3)*${c}*${Un}/SQRT(${dr}^2+${dx}^2),0)`,'A','I″k1 = √3·c·Un/|2·Z1+Z0|');
-    const k1=S.calc('κ1',`1.02+0.98*EXP(-3*IF(${dx}>0,${dr}/${dx},0))`,'');
+    const k1=S.calc('κ del guasto trifase',`IF(${Ik}>0,${ip}/(SQRT(2)*${Ik}),${kip})`,'','ip1 = κ·√2·I″k1 con lo stesso κ del guasto trifase nel punto (IEC 60909-0)');
     S.res('I″k1 · fase-terra iniziale',`${i1}/1000`,'kA'); S.res('ip1 · picco fase-terra',`${k1}*SQRT(2)*${i1}/1000`,'kA');
   }
   xlsMinInto(S);
@@ -4209,12 +4251,14 @@ function xlsPunti(S,X){
       : p.last ? [{f:Rd,s:9},{f:Xd,s:9},{f:M(mot.Ik),s:4},{f:M(mot.ip),s:4},{f:M(mot.Ib),s:4}]
       : [{f:Rd,s:9},{f:Xd,s:9},{f:`IF(SQRT(${a('L')}^2+${a('M')}^2)>0,${a('D')}*${a('C')}/(SQRT(3)*SQRT(${a('L')}^2+${a('M')}^2)),0)`,s:4},
          {f:`(1.02+0.98*EXP(-3*IF(${a('M')}>0,${a('L')}/${a('M')},1000000000)))*SQRT(2)*${a('N')}`,s:4},{v:A.IbMot,s:11}];
-    const kip=mesh?`IF(${M(X.met)}="C",1.02+0.98*EXP(-3*IF((${_sum(Xc)})>0,(${_sum(Rc)})/(${_sum(Xc)})*0.4,${a('H')})),MIN(1.15*${a('I')},${X.lim}))`:a('I');
+    const kip=mesh?`IF(${M(X.met)}="C",1.02+0.98*EXP(-3*IF((${_sum(Xc)})>0,(${_sum(Rc)})/(${_sum(Xc)})*0.4,${a('H')})),IF(${M(X.rxMax)}>=0.3,MIN(1.15*${a('I')},${X.lim}),${a('I')}))`:a('I');
     const Ik=X.mono?`IF(${a('G')}>0,${a('D')}*${a('C')}/${a('G')},0)`:`IF(${a('G')}>0,${a('D')}*${a('C')}/(SQRT(3)*${a('G')}),0)`;
     let i1={v:'—',s:11};
-    if(!up&&!X.mono&&X.le&&X.tr&&X.tr.hasN){
-      const fr=p.last?'1':(nC>0?`(${cabSum('F',nC)}/SUM(Cortocircuito!F${X.cab.r0}:F${X.cab.r1}))`:'0'), cr=nC>0?cabSum('I',nC):'0', cx=nC>0?cabSum('J',nC):'0';
-      const dr=`(2*${a('E')}+${M(X.tr.R0)}-${lvR}+${cr}+3*${M(X.le.RN)}*${fr}+3*${M(X.le.RE)})`, dx=`(2*${a('F')}+${M(X.tr.X0)}-${lvX}+${cx}+3*${M(X.le.XN)}*${fr})`;
+    if(!up&&!X.mono&&X.tr&&A.le&&A.le.ok){   // punto con il ritorno noto fino al centro stella
+      const t0R=(p.noLv&&ONE)?M(ONE.R0T):M(X.tr.R0), t0X=(p.noLv&&ONE)?M(ONE.X0T):M(X.tr.X0);   // morsetti secondari: sequenza zero del solo trasformatore
+      const cr=nC>0?cabSum('N',nC):'0', cx=nC>0?cabSum('O',nC):'0';   // sequenza zero dei tratti fino al punto
+      const pm=mot?_xPar(a('E'),a('F'),a('L'),a('M')):{R:a('E'),X:a('F')};   // con i motori Z1 = Z2 = rete ∥ ramo dei motori
+      const dr=`(2*${pm.R}+${t0R}+${cr})`, dx=`(2*${pm.X}+${t0X}+${cx})`;
       i1={f:`IF(SQRT(${dr}^2+${dx}^2)>0,SQRT(3)*${a('D')}*${a('C')}/SQRT(${dr}^2+${dx}^2)/1000,0)`,s:5};
     }
     Q.row([{v:p.id},{v:p.name},Un,cc,{f:_sum(Rs),s:9},{f:_sum(Xs),s:9},{f:`SQRT(${a('E')}^2+${a('F')}^2)`,s:9},{f:`IF(${a('F')}>0,${a('E')}/${a('F')},0)`,s:4},
@@ -4229,7 +4273,8 @@ function xlsPunti(S,X){
   Q.sub('Punti a monte del trasformatore: tensione della rete e fattore c di tabella del loro livello (cella gialla).');
   Q.sub('Motori: collegati alla fine dell\'ultima linea. Negli altri punti contribuiscono attraverso gli elementi che li separano dal punto, con le impedenze riportate alla tensione del punto (IEC 60909-0, 5.2).');
   Q.sub('Ib dei motori nei punti a monte: valore calcolato dal programma con la Formula (77) della IEC 60909-0; negli altri casi è una formula.');
-  Q.sub('I″k1: nei punti intermedi il conduttore N/PE è preso in proporzione alla lunghezza dei tratti a monte.');
+  Q.sub('I″k1: calcolata nei punti in cui tutti i cavi fino al centro stella hanno la sezione N/PE. Sequenza zero: rami dei trasformatori in parallelo più, per ogni tratto, R + 3·R del conduttore N/PE e (X0/X)·X.');
+  Q.sub('I″k1 con i motori: nelle sequenze diretta e inversa il ramo dei motori è in parallelo alla rete (IEC 60909-0, art. 13); non entra nella sequenza zero.');
   Q.sub('Correnti minime: valori calcolati dal programma (c min, senza motori, senza KT, cavi alla temperatura a fine guasto).');
   return Q;
 }
@@ -4471,7 +4516,7 @@ cableRow({desc:"Cavo di collegamento",mat:"Cu",S:150,L:20,n:1,x:0.08});
 trRow({S:630,uk:4,pcu:7.1,ulv:400});
 motRow({desc:"Motore 1",P:200,U:400,eta:0.80,klr:6,rx:0.42,poles:2});
 syncSeg();
-collapse("cardGrid","onGrid");collapse("cardTr","onTr");collapse("cardCab","onCab");collapse("cardMot","onMot");collapse("cardLE","onLE");
+collapse("cardGrid","onGrid");collapse("cardTr","onTr");collapse("cardCab","onCab");collapse("cardMot","onMot");
 fusInit(); cbInit(); pmtInit(); recompute();
 /* ============ AGGIORNAMENTI DAL REPOSITORY ============
    Solo su richiesta («cerca aggiornamenti», in fondo alla pagina; accanto, «scarica Gestione curve») si legge versione.json dal repository pubblico e lo si confronta con APP_VER.
@@ -5156,7 +5201,9 @@ function allApply(d){
   // prima c'era una sola temperatura per tutti i cavi (ed eventualmente una «a fine guasto»): diventa la temperatura a fine guasto di ogni cavo, così le minime restano quelle di allora
   const oldT=(lc.thetaE!=null&&lc.thetaE!=="")?lc.thetaE:lc.theta, oldTmax=parseFloat(lc.theta);
   if(lc.theta!=null){ delete lc.theta; rep.ok++; } if(lc.thetaE!=null) delete lc.thetaE;
-  if(oldT!=null&&oldT!==""){ if(lc.sc_te==null) lc.sc_te=oldT; if(lc.le_te==null) lc.le_te=oldT; }
+  if(oldT!=null&&oldT!==""){ if(lc.sc_te==null) lc.sc_te=oldT; }
+  // la scheda «Guasto fase-terra (BT)» non c'è più: il conduttore di ritorno si indica nel campo N/PE di ogni cavo
+  const oldLE=lc.onLE===true; ["onLE","le_mat","le_S","le_L","le_n","le_x","le_te","le_RE"].forEach(k=>{ if(lc[k]!=null){ delete lc[k]; rep.ok++; } });
   ALL_MODS.forEach(m=>{ if(M[m]) allSetFields(M[m].campi,rep); });
   if(M.modPMT&&M.modPMT.campi) Object.entries({pm_IkMin:"0",pm_IbtMin:"0",pm_L1:"0",pm_K1:"0.12",pm_A1:"0.02",pm_B1:"0.14",pm_L2p:"0"}).forEach(([k,v])=>{ if(M.modPMT.campi[k]==null) $(k).value=v; });   // campi nati dopo: nei file precedenti non ci sono
   allSetRows(cc.trasformatori,"trList",()=>trRow(),rep);
@@ -5174,7 +5221,7 @@ function allApply(d){
   if(M.modREL&&typeof M.modREL.datoDiPartenza==="string") lkDrv=M.modREL.datoDiPartenza;
   if(M.modLP&&M.modLP.site&&M.modLP.st){ LPUI.load(M.modLP); rep.ok++; }
   // riallinea ciò che dipende dai valori senza far scattare preset e compilazioni automatiche
-  const cards={onGrid:"cardGrid",onTr:"cardTr",onCab:"cardCab",onMot:"cardMot",onLE:"cardLE"}; Object.keys(cards).forEach(id=>collapse(cards[id],id));
+  const cards={onGrid:"cardGrid",onTr:"cardTr",onCab:"cardCab",onMot:"cardMot"}; Object.keys(cards).forEach(id=>collapse(cards[id],id));
   gridWraps();
   if($("sc_on").checked) $("sc_fields").removeAttribute("hidden"); else $("sc_fields").setAttribute("hidden","");
   if(oldT!=null&&oldT!==""){ const put=(sel,list,keys)=>document.querySelectorAll(sel).forEach((d,i)=>{ const r=(Array.isArray(list)&&list[i])||{}; keys.forEach(k=>{ if(r[k]==null) d.querySelector(`[data-k=${k}]`).value=oldT; }); });
@@ -5182,6 +5229,7 @@ function allApply(d){
     if(isFinite(oldTmax)&&oldTmax!==20) rep.note=`le correnti massime ora sono calcolate con i conduttori a 20 °C, come prescrive la norma (nel file: ${fusNum(oldTmax)} °C)`; }
   // fattori c: quelli del file; nei file vecchi il fattore salvato era il massimo o il minimo secondo lo scopo scelto allora
   if(M.modCC&&M.modCC.campi&&M.modCC.campi.ccUn==null) $("ccUn").value="";
+  if(M.modCC&&oldLE) rep.note=(rep.note?rep.note+" · ":"")+"il guasto fase-terra ora si calcola indicando la sezione N/PE di ogni cavo: in questo file i campi sono vuoti, quindi è calcolato solo nei punti senza cavi tra il trasformatore e il guasto";
   if(M.modCC){ const sy=ccSys();
     if(legacy){ autoC(sy.lvl); if(oldC!=null&&oldC!=="") $(oldMin?"cfacMin":"cfac").value=oldC;
       if(oldUn>0&&Math.abs(oldUn-sy.Un)>0.005*sy.Un) rep.note=(rep.note?rep.note+" · ":"")+`la tensione nel punto di guasto ora è ricavata dallo schema: ${fusNum(sy.Un)} V invece dei ${fusNum(oldUn)} V salvati`; }

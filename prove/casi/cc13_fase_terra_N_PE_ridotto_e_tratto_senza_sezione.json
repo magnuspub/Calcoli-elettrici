@@ -1,20 +1,21 @@
 {
- "nome": "cc13_fase_terra_TT",
+ "nome": "cc13_fase_terra_N_PE_ridotto_e_tratto_senza_sezione",
  "moduli": [
   "modCC"
  ],
  "stato": {
   "app": "Calcoli elettrici",
-  "versione": "0.1.14",
+  "versione": "0.1.25",
   "formato": 1,
   "moduli": {
    "modCC": {
     "campi": {
      "cfac": "1.05",
      "cfacMin": "0.95",
+     "ccTk": "1",
      "freq": "50",
      "ipMethod": "B",
-     "ccTk": "1",
+     "ccUn": "",
      "onGrid": true,
      "gridPreset": "",
      "gridMode": "Ik",
@@ -34,16 +35,8 @@
      "sc_te": "250",
      "onTr": true,
      "onKT": false,
-     "onCab": false,
-     "onMot": false,
-     "onLE": true,
-     "le_mat": "Cu",
-     "le_S": "95",
-     "le_L": "20",
-     "le_n": "1",
-     "le_x": "0.08",
-     "le_te": "250",
-     "le_RE": "5"
+     "onCab": true,
+     "onMot": false
     },
     "trasformatori": [
      {
@@ -73,19 +66,35 @@
       "cL": "10",
       "cn": "1",
       "cx": "0.08",
-      "cte": "250"
+      "cte": "250",
+      "cSn": "",
+      "ckx0": "4"
      }
     ],
     "cavi": [
      {
-      "desc": "Cavo di collegamento",
+      "desc": "Montante",
       "tipo": "mult",
       "mat": "Cu",
-      "S": "150",
-      "L": "20",
+      "S": "185",
+      "L": "25",
+      "n": "2",
+      "x": "0.08",
+      "te": "250",
+      "Sn": "95",
+      "kx0": "4"
+     },
+     {
+      "desc": "Dorsale",
+      "tipo": "mult",
+      "mat": "Cu",
+      "S": "70",
+      "L": "55",
       "n": "1",
       "x": "0.08",
-      "te": "250"
+      "te": "160",
+      "Sn": "",
+      "kx0": "4"
      }
     ],
     "motori": [
@@ -174,9 +183,13 @@
     "campi": {
      "pm_U": "15",
      "pm_neu": "c",
+     "pm_L1": "0",
+     "pm_K1": "0.12",
+     "pm_A1": "0.02",
+     "pm_B1": "0.14",
      "pm_L2": "250",
      "pm_T2": "0.5",
-     "pm_onDSO": true,
+     "pm_L2p": "0",
      "pm_L3": "600",
      "pm_T3": "0.12",
      "pm_L0": "2",
@@ -184,14 +197,17 @@
      "pm_L00": "56",
      "pm_T00": "0.17",
      "pm_Ik": "12.5",
+     "pm_IkMin": "0",
      "pm_IF": "40",
      "pm_Ibt": "0",
-     "pm_onInr": true,
-     "pm_onFus": false,
-     "pm_onCb": false,
-     "pm_onWth": false,
+     "pm_IbtMin": "0",
+     "pm_onDSO": true,
      "pm_onTol": true,
-     "pm_dt": "0.1"
+     "pm_dt": "0.1",
+     "pm_onInr": true,
+     "pm_onWth": false,
+     "pm_onFus": false,
+     "pm_onCb": false
     },
     "trasformatore": 0,
     "protezioni": [
