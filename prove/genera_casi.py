@@ -210,6 +210,47 @@ async def main():
         ccm(s)['motori'] = [mot(P=90), mot(desc='Motore 2', P=30, klr=7.5, tmin=0.05)]
         campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, onLE=True, le_S=50, le_L=75, le_RE=0.02, le_te=160, IkQmin=8)
 
+    # ---- tensione nominale della rete nel punto di guasto ----
+    # Esempio di IEC TR 60909-4, art. 5: trasformatori da 410 V di targa su rete a 400 V. Le sezioni danno esattamente le resistenze
+    # per chilometro dell'esempio; il conduttore di ritorno equivale a Z0 − Z1 delle linee L3 e L4.
+    # Attesi dal rapporto tecnico: I″k 34,12 kA e ip 69,07 kA alle sbarre, 6,94 kA e 10,36 kA a fine linea.
+    @caso('cc33_esempio_IEC_TR_60909_4_rete_BT', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='T1', S=630, uk=4, pcu=6.5, uhv=20000, ulv=410, hascab=True, cmat='Cu', cS=240.506494, cL=10, cn=2, cx=0.079),
+                                   tr(desc='T2', S=400, uk=4, pcu=4.6, uhv=20000, ulv=410, hascab=True, cmat='Al', cS=141.403846, cL=4, cn=2, cx=0.068)]
+        ccm(s)['cavi'] = [cav(desc='L3', S=68.335793, L=20, x=0.087), cav(desc='L4', S=49.99730, L=50, x=0.297)]
+        campi(s, 'modCC', gridMode='Ik', IkQ=10, UnQ=20000, rxGrid=0.1, onKT=True, ipMethod='C', ccTk=0.06, onCab=True, onLE=True,
+              le_mat='Cu', le_S=132.468, le_L=70, le_n=1, le_x=0.170090, le_RE=0)
+
+    # Esempio di IEC TR 60909-4, art. 6: rete a 6 kV alimentata da due trasformatori 33/6,3 kV, motori asincroni sulle sbarre.
+    # Attesi dal rapporto tecnico: senza motori I″k 14,74 kA; motori I″kM 2,54 + 2,24 kA, ipM 6,27 + 5,53 kA; Ib 17,04 kA.
+    @caso('cc34_esempio_IEC_TR_60909_4_rete_MT_con_motori', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc=d, S=15000, uk=15, pcu=90, uhv=33000, ulv=6300, hvcab=True, hvmat='Cu', hvS=185.19, hvL=4850, hvn=1, hvx=0.1) for d in ('T1', 'T2')]
+        ccm(s)['motori'] = [mot(desc='M1', P=5000, U=6000, eta=0.833333, klr=4, rx=0.1, poles=2, tmin=0.10)] + \
+                           [mot(desc='M2-%d' % i, P=1000, U=6000, eta=0.78125, klr=5.5, rx=0.1, poles=1, tmin=0.10) for i in (1, 2, 3)]
+        campi(s, 'modCC', gridMode='Ik', IkQ=13.12, UnQ=33000, rxGrid=0.1, cfac=1.10, cfacMin=1.00, onKT=True, ipMethod='C', onMot=True)
+
+    @caso('cc35_secondario_a_420_V_rete_a_400_V', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(ulv=420, hvcab=True, hvS=50, hvL=40, hascab=True, cS=240, cL=15, cn=2)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        ccm(s)['motori'] = [mot(P=90), mot(desc='Motore 2', P=30, klr=7.5, tmin=0.05)]
+        campi(s, 'modCC', sc_on=True, sc_S=95, sc_L=350, onKT=True, onCab=True, onMot=True, onLE=True, le_S=50, le_L=75)
+
+    @caso('cc36_secondario_a_380_V_rete_a_400_V', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(ulv=380)]
+        ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160)]
+        campi(s, 'modCC', onCab=True, onLE=True, le_S=50, le_L=42)
+
+    @caso('cc37_tensione_nominale_imposta_690_V', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(ulv=720)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        ccm(s)['motori'] = [mot(P=55, U=690)]
+        campi(s, 'modCC', ccUn=690, onCab=True, onMot=True)
+
     @caso('cc26_impianto_completo', TUTTI)
     def _(s):
         ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=60, hascab=True, cS=240, cL=12, cn=4),
