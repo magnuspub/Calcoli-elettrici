@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.21",
+  "versione": "0.1.22",
   "data": "19/11/2026",
-  "novita": "Grafici larghi quanto la pagina e apribili in un'altra finestra con un doppio clic, aggiornata dal vivo. Protezioni MT: frecce a centesimi su tempi, soglie e tolleranze; correnti di riferimento in un sotto-modulo a scomparsa. Ritocchi alla scheda del cortocircuito."
+  "novita": "Protezioni MT: sotto-moduli con lo sfondo degli altri riquadri e tasto «valori minimi CEI 0-16» sempre visibile accanto al titolo."
  },
  "Gestione_curve.html": {
   "versione": "0.2.5",
