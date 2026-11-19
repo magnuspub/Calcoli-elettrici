@@ -325,7 +325,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.23</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.24</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori BT sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>) e rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -344,7 +344,7 @@ details.adv>.in{margin-top:10px}
   <!-- Sistema -->
   <div class="card">
     <h2><span class="ttl">Sistema e fattore di tensione</span></h2>
-    <p class="hint">La <b>tensione nel punto di guasto</b> è ricavata dallo schema: con il trasformatore incluso è la sua tensione secondaria, altrimenti quella della rete a monte. Il guasto è calcolato anche in <b>ogni punto a monte</b> (consegna, primario del trasformatore, sbarre, fine di ogni tratto): la tabella «Correnti nei punti» li elenca e mostra il dettaglio di quello scelto. Sono sempre calcolate la corrente <b>massima</b> (c<sub>max</sub>) e la <b>minima</b> (c<sub>min</sub>, senza il contributo dei motori e senza la correzione K<sub>T</sub>, con la rete minima se indicata e i cavi alla loro temperatura a fine guasto). I fattori c (Tab.&nbsp;1 della 60909) si impostano da soli quando cambia il livello di tensione: BT 1,05 e 0,95 · MT 1,10 e 1,00. Per reti BT con tolleranza ±10% usare c<sub>max</sub> 1,10 e c<sub>min</sub> 0,90. Restano modificabili.</p>
+    <p class="hint">La <b>tensione nel punto di guasto</b> è la nominale della rete, ricavata dallo schema: con il trasformatore incluso è la tensione più usata vicina al suo secondario (targa a 410 o 420&nbsp;V: 400&nbsp;V), altrimenti quella della rete a monte; si può imporre nel campo «U<sub>n</sub> nel punto di guasto». Il guasto è calcolato anche in <b>ogni punto a monte</b> (consegna, primario del trasformatore, sbarre, fine di ogni tratto): la tabella «Correnti nei punti» li elenca e mostra il dettaglio di quello scelto. Sono sempre calcolate la corrente <b>massima</b> (c<sub>max</sub>) e la <b>minima</b> (c<sub>min</sub>, senza il contributo dei motori e senza la correzione K<sub>T</sub>, con la rete minima se indicata e i cavi alla loro temperatura a fine guasto). I fattori c (Tab.&nbsp;1 della 60909) si impostano da soli quando cambia il livello di tensione: BT 1,05 e 0,95 · MT 1,10 e 1,00. Per reti BT con tolleranza ±10% usare c<sub>max</sub> 1,10 e c<sub>min</sub> 0,90. Restano modificabili.</p>
     <div class="grid3">
       <label class="f">Fattore di tensione c<sub>max</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente massima (Tab. 1 IEC 60909-0): tiene conto delle variazioni di tensione, delle prese del trasformatore e delle tolleranze. BT 1,05 (reti con tolleranza ±6 %, per esempio 230/400 V) oppure 1,10 (tolleranza ±10 %) · MT 1,10.">i</span>
         <input type="number" id="cfac" value="1.05" step="0.01">
@@ -363,6 +363,9 @@ details.adv>.in{margin-top:10px}
           <option value="B" selected>Metodo B — 1,15·κ (conservativo)</option>
           <option value="C">Metodo C — frequenza equivalente</option>
         </select>
+      </label>
+      <label class="f">U<sub>n</sub> nel punto di guasto <span class="u">(V)</span><span class="tip r" tabindex="0" data-tip="Tensione nominale della rete nel punto di guasto, quella della sorgente equivalente c·Un/√3 (IEC 60909-0, 5.2.2). Lasciare vuoto: è ricavata in automatico dal secondario del primo trasformatore. Se il secondario non si scosta più del 6 % da una delle tensioni più usate (230, 400, 3000, 6000, 15000, 20000 V) vale quella: 410 o 420 V danno 400 V. Altrimenti vale il secondario. Scrivere un valore solo per imporre un'altra tensione nominale, per esempio 690 V o 10000 V. La tensione di targa del trasformatore («U second.») continua a servire per l'impedenza e per il rapporto di trasformazione.">i</span>
+        <input type="number" id="ccUn" value="" placeholder="automatica" step="any">
       </label>
     </div>
   </div>
@@ -1190,10 +1193,10 @@ details.adv>.in{margin-top:10px}
 </main>
 
 <div class="foot">
-  <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
+  <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.23 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.24 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1206,7 +1209,7 @@ details.adv>.in{margin-top:10px}
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.23";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.24";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -3142,12 +3145,23 @@ function computeChecks(){
 
 /* ---------- c automatico ---------- */
 // tensione nominale e livello nel punto di guasto, ricavati dallo schema: a valle del trasformatore (se incluso) vale la sua tensione secondaria, altrimenti quella della rete
+/* La sorgente equivalente nel punto di guasto è c·Un/√3 con Un tensione NOMINALE DELLA RETE (IEC 60909-0, 5.2.2 e Tab. 1),
+   non la tensione di targa del trasformatore: quella serve a riferire le impedenze (Z_T e rapporto t_r) e resta nel campo
+   «U second.». Esempi di IEC TR 60909-4: trasformatori da 410 V su rete a 400 V (art. 5) e da 6,3 kV su rete a 6 kV (art. 6).
+   La nominale è ricavata in automatico dal secondario del primo trasformatore: se non si scosta più del 6 % da una delle
+   tensioni più usate vale quella (410 o 420 V → 400 V; 6300 V → 6000 V), altrimenti resta il valore di targa.
+   Il campo «Un nel punto di guasto» la impone, per le reti con un'altra tensione nominale (per esempio 690 V o 10 kV). */
+const CC_UN_STD=[230,400,3000,6000,15000,20000];   // tensioni nominali più usate (V)
+function ccUnStd(u){ let r=u, best=Infinity; CC_UN_STD.forEach(v=>{ const d=Math.abs(u-v)/v; if(d<=0.06+1e-9&&d<best){ best=d; r=v; } }); return r; }
 function ccSys(){
   let Un=0, src="";
-  if($("onTr").checked){ const fb=document.querySelector('#trList .tr-branch'), u=fb?(parseFloat(fb.querySelector('[data-k=ulv]').value)||0):0; if(u>0){ Un=u; src="secondario del trasformatore"; } }
+  if($("onTr").checked){ const fb=document.querySelector('#trList .tr-branch'), u=fb?(parseFloat(fb.querySelector('[data-k=ulv]').value)||0):0;
+    if(u>0){ Un=ccUnStd(u); src=Un===u?"secondario del trasformatore":"nominale della rete · secondario del trasformatore a "+fusNum(u)+" V"; } }
   if(!(Un>0)){ const u=num("UnQ"); if(u>0){ Un=u; src="tensione della rete a monte"; } }
   if(!(Un>0)){ Un=400; src="valore predefinito"; }
-  return {Un,lvl:Un>1000?"MT":"BT",src};
+  const auto=Un, man=$("ccUn")?num("ccUn"):0;
+  if(man>0){ Un=man; src="imposta a mano"+(Math.abs(man-auto)>1e-9?" · in automatico sarebbe "+fusNum(auto)+" V":""); }
+  return {Un,lvl:Un>1000?"MT":"BT",src,auto};
 }
 let CC_LVL=null, CC_ST=null;   // ultimo livello visto (per riproporre i fattori c) e ultimi risultati, massimi e minimi
 // cmax del sistema (per la correzione KT)
@@ -3506,6 +3520,7 @@ function recompute(){
   P.forEach(p=>{ p.max=ccCore(sy,p.cmax,true,p); p.min=ccCore(sy,p.cmin,false,p); });
   const L=P[P.length-1];
   CC_ST={sy,max:L.max,min:L.min,pts:P};   // max e min: fine della catena
+  $("ccUn").placeholder="automatica: "+fusNum(sy.auto)+" V";
   if(CC_SEL!=null&&CC_SEL>=P.length-1) CC_SEL=null;
   ccTable(); ccRender(); ccPtSelects();
 
@@ -4025,7 +4040,7 @@ function xlsCC(){
   S.title('Calcolo corrente di cortocircuito IEC 60909 — guasto '+(mono?'monofase':'trifase')+' '+sysLvl);
   S.sub(APP_NAME+' '+APP_VER+' · '+_now()+' · '+_XNOTE);
   S.head('Sistema');
-  const Un=S.inp('Tensione nominale al punto di guasto Un',ccSys().Un,'V','ricavata dallo schema: '+ccSys().src);
+  const Un=S.inp('Tensione nominale al punto di guasto Un',ccSys().Un,'V','nominale della rete · '+ccSys().src);
   const c=S.inp('Fattore di tensione c max',num("cfac"),'','IEC 60909-0 Tab. 1 · le correnti che seguono sono le massime');
   const f=S.inp('Frequenza f',num("freq")||50,'Hz');
   const Tk=S.inp('Durata del guasto Tk',num("ccTk")||1,'s','per la corrente termica Ith');
@@ -5166,6 +5181,7 @@ function allApply(d){
     put("#trList .tr-branch",cc.trasformatori,["hvte","cte"]); put("#cableList .cable-row",cc.cavi,["te"]);
     if(isFinite(oldTmax)&&oldTmax!==20) rep.note=`le correnti massime ora sono calcolate con i conduttori a 20 °C, come prescrive la norma (nel file: ${fusNum(oldTmax)} °C)`; }
   // fattori c: quelli del file; nei file vecchi il fattore salvato era il massimo o il minimo secondo lo scopo scelto allora
+  if(M.modCC&&M.modCC.campi&&M.modCC.campi.ccUn==null) $("ccUn").value="";
   if(M.modCC){ const sy=ccSys();
     if(legacy){ autoC(sy.lvl); if(oldC!=null&&oldC!=="") $(oldMin?"cfacMin":"cfac").value=oldC;
       if(oldUn>0&&Math.abs(oldUn-sy.Un)>0.005*sy.Un) rep.note=(rep.note?rep.note+" · ":"")+`la tensione nel punto di guasto ora è ricavata dallo schema: ${fusNum(sy.Un)} V invece dei ${fusNum(oldUn)} V salvati`; }

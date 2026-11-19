@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.23",
+  "versione": "0.1.24",
   "data": "19/11/2026",
-  "novita": "Icona della pagina nella scheda del browser."
+  "novita": "Cortocircuito: la tensione nel punto di guasto è la nominale della rete (IEC 60909-0). È ricavata dal secondario del trasformatore: entro il 6 % da 230, 400, 3000, 6000, 15000 o 20000 V vale quella (410 V → 400 V); si può imporre nel campo «Un nel punto di guasto»."
  },
  "Gestione_curve.html": {
   "versione": "0.2.6",
