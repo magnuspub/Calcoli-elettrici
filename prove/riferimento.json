@@ -4796,9 +4796,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 6781ed4a scritte 4aaa1419",
-"cb_chartL linee ef7d7a60 scritte 50621fde",
-"cb_chartE linee 19fcf4ff scritte 9f40d09a"
+"cb_chart linee a194d05e scritte 4aaa1419",
+"cb_chartL linee 34ef8550 scritte 50621fde",
+"cb_chartE linee 4f215989 scritte 9f40d09a"
 ],
 "legende": [
 "NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxI″k massimaI″k minima"
@@ -4940,9 +4940,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 64914523 scritte 634424d5",
-"cb_chartL linee 8f00331c scritte 2fda95cb",
-"cb_chartE linee b3fd1504 scritte 9f79e184"
+"cb_chart linee 9caeb931 scritte 634424d5",
+"cb_chartL linee eb5f3dc5 scritte 2fda95cb",
+"cb_chartE linee a8b981ea scritte 9f79e184"
 ],
 "legende": [
 "A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxB · FAZ-C32/3 (32 A) · banda min–maxI″k massimaI″k minima"
@@ -5176,9 +5176,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee ff8a9008 scritte f179d81b",
-"cb_chartL linee 82dba8d5 scritte 7bf2e7ae",
-"cb_chartE linee cac78b16 scritte 8f42757e"
+"cb_chart linee e2bc9a32 scritte f179d81b",
+"cb_chartL linee c3147248 scritte 7bf2e7ae",
+"cb_chartE linee 248b50e0 scritte 8f42757e"
 ],
 "legende": [
 "PLSM-C16/1N-IN (16 A) · banda min–maxI″k massimaI″k minima"
@@ -5320,8 +5320,8 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 3f79c58f scritte 5dbe1771",
-"cb_chartE linee 7ab4c9fc scritte 069af8a0"
+"cb_chart linee dc4e6481 scritte 5dbe1771",
+"cb_chartE linee 4d8ffa95 scritte 069af8a0"
 ],
 "legende": [
 "NZMN4-AX1000 (1000 A · Ir 900 A · tr 10 s · Ii 12,00 kA) · banda LSI calcolataI″k massimaI″k minimaTrasf. 1: In 909 A al secondario, tenuta 22,73 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
@@ -5468,8 +5468,8 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 69ca31f9 scritte 91fd8615",
-"cb_chartE linee c6df7039 scritte 78448e35"
+"cb_chart linee abf84c94 scritte 91fd8615",
+"cb_chartE linee 6d1bdd3d scritte 78448e35"
 ],
 "legende": [
 "IZMX16B3-V16F-1 (1600 A · Ir 1600 A · tr 24 s · Isd 16,00 kA · tsd 500 ms · Ii 24,00 kA) · banda LSI calcolataI″k massimaI″k minimainserzione trasformatoreTrasf. 1: In 1,44 kA al secondario, tenuta 24,06 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
@@ -5622,7 +5622,7 @@
 "esportazioni": {
 "excel": "6d6c204a",
 "excel · foglio Punti": "7e8226bf",
-"pdf": "7edf9edb",
+"pdf": "4c83e6a9",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -5681,7 +5681,6 @@
 "Trasf. 1 · 1000 kVA · τ inserzione 0,35 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale23,9 kA",
 "ip · corrente di picco54,2 kA",
 "Ib · interruzione23,9 kA",
@@ -5919,9 +5918,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee a4b2e838 scritte 9d0a0764",
-"cb_chartL linee ef7d7a60 scritte 50621fde",
-"cb_chartE linee 19fcf4ff scritte 231947e3"
+"cb_chart linee d9fbcb9b scritte 9d0a0764",
+"cb_chartL linee 34ef8550 scritte 50621fde",
+"cb_chartE linee 4f215989 scritte 231947e3"
 ],
 "legende": [
 "NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile 250NHG02B (250 A gG)I″k massimaI″k minima"
@@ -6089,9 +6088,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee e91de77b scritte 036b7e37",
-"fu_chartL linee 3da3c2cd scritte cfdaa31a",
-"fu_chartE linee d18a4ab5 scritte 0d2cb0c7"
+"fu_chart linee 88eaf8ed scritte 036b7e37",
+"fu_chartL linee cdb44fdc scritte cfdaa31a",
+"fu_chartE linee 6ea7bba9 scritte 0d2cb0c7"
 ],
 "legende": [
 "250NHG02B (250 A gG)I″k massima"
@@ -6195,9 +6194,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 3cdc9f76 scritte e39c57ff",
-"cb_chartL linee ef7d7a60 scritte 50621fde",
-"cb_chartE linee 19fcf4ff scritte 2929fde8"
+"cb_chart linee deeac091 scritte e39c57ff",
+"cb_chartL linee 34ef8550 scritte 50621fde",
+"cb_chartE linee 4f215989 scritte 2929fde8"
 ],
 "legende": [
 "NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile FMT 17,5kV 1901040 (40 A back‑up) riportato al lato BT (× 37,5, guasto trifase)I″k massimaI″k minima"
@@ -6365,9 +6364,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee d2a04744 scritte 604a620f",
-"fu_chartL linee a8cf3c21 scritte a6fa2812",
-"fu_chartE linee 07a9c5a1 scritte 29f4a1eb"
+"fu_chart linee 5e5841cd scritte 604a620f",
+"fu_chartL linee 5c5d79d9 scritte a6fa2812",
+"fu_chartE linee bd82ce51 scritte 29f4a1eb"
 ],
 "legende": [
 "FMT 17,5kV 1901040 (40 A back‑up)I″k massimacorrente minima di interruzione 140 A"
@@ -6469,8 +6468,8 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee f5ed68ab scritte 5e56130a",
-"cb_chartE linee 087d57f2 scritte eaf0afc9"
+"cb_chart linee b54c785c scritte 5e56130a",
+"cb_chartE linee 497fbb3e scritte eaf0afc9"
 ],
 "legende": [
 "PKZM0-20 (20 A, Ir 20 A) · banda min–maxI″k massimaI″k minimaavviamento motore"
@@ -6602,7 +6601,7 @@
 "esportazioni": {
 "excel": "05e9f664",
 "excel · foglio Punti": "e6a52321",
-"pdf": "774cad16",
+"pdf": "df673300",
 "righe": 94
 },
 "excel_ricalcolato": {
@@ -6669,7 +6668,6 @@
 "Motore 2 · 7,5 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,8 kA",
 "ip · corrente di picco46,3 kA",
 "Ib · interruzione22,7 kA",
@@ -6911,9 +6909,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 7a3914b5 scritte 80c447a1",
-"cb_chartL linee 4ea5cb2f scritte 01120577",
-"cb_chartE linee b545e4e8 scritte abf0ab8e"
+"cb_chart linee f49eec47 scritte 80c447a1",
+"cb_chartL linee 44cc4d1d scritte 01120577",
+"cb_chartE linee 17e3f714 scritte abf0ab8e"
 ],
 "legende": [
 "NZMN3-AE630 (630 A, Ir 630 A, Ii 5040 A) · banda min–maxI″k massimaI″k minimainserzione trasformatoreTrasf. 1: In 577 A al secondario, tenuta 9,62 kA per 2 s"
@@ -7067,7 +7065,7 @@
 "esportazioni": {
 "excel": "5ecf072d",
 "excel · foglio Punti": "558cb3d3",
-"pdf": "a3bab6dd",
+"pdf": "c8cc9123",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -7126,7 +7124,6 @@
 "Trasf. 1 · 400 kVA · τ inserzione 0,25 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale9,9 kA",
 "ip · corrente di picco21,1 kA",
 "Ib · interruzione9,9 kA",
@@ -7364,9 +7361,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee a3ef5880 scritte 5ba4fa81",
-"cb_chartL linee 969da83d scritte 17d90bb3",
-"cb_chartE linee a3795391 scritte 6e2abfec"
+"cb_chart linee b610053a scritte 5ba4fa81",
+"cb_chartL linee 7a5ad803 scritte 17d90bb3",
+"cb_chartE linee bfe8c92f scritte 6e2abfec"
 ],
 "legende": [
 "NZMH2-4-A80-SVE (80 A, Ir 80 A, Ii 800 A) · banda min–maxI″k massimaI″k minima"
@@ -7508,9 +7505,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 25af17a0 scritte 3f057a60",
-"cb_chartL linee 937e06e3 scritte 3412fce6",
-"cb_chartE linee 44d3a0b4 scritte c47f1cfd"
+"cb_chart linee 2bef6aa5 scritte 3f057a60",
+"cb_chartL linee 87c1fcb0 scritte 3412fce6",
+"cb_chartE linee e7eb2364 scritte c47f1cfd"
 ],
 "legende": [
 "A · XT4H 250 TMA 225 (225 A, Ir 225 A, Ii 2250 A) · banda min–maxB · XT2N 160 Ekip Dip LSI 10 (10 A · Ir 10 A · tr 60 s · Isd 100 A · tsd 400 ms · Ii 100 A) · banda LSI calcolataI″k massimaI″k minima"
@@ -7757,9 +7754,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 7ffa64d4 scritte 99afcbd7",
-"cb_chartL linee 6996823e scritte 58253f28",
-"cb_chartE linee 701b12f3 scritte 69f52e0c"
+"cb_chart linee 68959bd7 scritte 99afcbd7",
+"cb_chartL linee ee6fcfb2 scritte 58253f28",
+"cb_chartE linee da042b79 scritte 69f52e0c"
 ],
 "legende": [
 "A · NZMC2-S125 (125 A, Ii 1750 A) · curva massimaB · CL-PKZ0 + FAZ-C3,5/1 (3,5 A) · banda min–maxI″k massimaI″k minimaTrasf. 1: In 909 A al secondario, tenuta 22,73 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
@@ -7977,9 +7974,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 6781ed4a scritte 036b7e37",
-"cb_chartL linee ef7d7a60 scritte 50621fde",
-"cb_chartE linee 19fcf4ff scritte 65d208ac"
+"cb_chart linee a194d05e scritte 036b7e37",
+"cb_chartL linee 34ef8550 scritte 50621fde",
+"cb_chartE linee 4f215989 scritte 65d208ac"
 ],
 "legende": [
 "NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxI″k massima"
@@ -8113,7 +8110,7 @@
 "esportazioni": {
 "excel": "9d3d44a9",
 "excel · foglio Punti": "7b49b7f6",
-"pdf": "d7b6c21e",
+"pdf": "a17e0524",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -8172,7 +8169,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -8402,9 +8398,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 35628ab8 scritte 036b7e37",
-"fu_chartL linee 59fa202b scritte 5d87393e",
-"fu_chartE linee 4a3d2291 scritte 08c9f981"
+"fu_chart linee faea857b scritte 036b7e37",
+"fu_chartL linee 41b8650a scritte 5d87393e",
+"fu_chartE linee 216f6511 scritte 08c9f981"
 ],
 "legende": [
 "160NHG01B (160 A gG)I″k massima"
@@ -8741,7 +8737,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte 811ee496"
+"mt_chart linee 24128fcb scritte 811ee496"
 ],
 "legende": []
 },
@@ -8771,8 +8767,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 6a9df180 scritte 754c69f1",
-"pm_chartE linee eea7c556 scritte 0adba7d1"
+"pm_chartF linee 2766f0ac scritte 754c69f1",
+"pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -8781,7 +8777,7 @@
 },
 "esportazioni": {
 "excel": "bc623534",
-"pdf": "7be3d3a3",
+"pdf": "ac3349c9",
 "righe": 97
 },
 "excel_ricalcolato": {},
@@ -9095,7 +9091,7 @@
 "esportazioni": {
 "excel": "2bb7269b",
 "excel · foglio Punti": "2252c781",
-"pdf": "39789dc2",
+"pdf": "3f1cd0e0",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -9158,7 +9154,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale23,2 kA",
 "ip · corrente di picco47,3 kA",
 "Ib · interruzione23,2 kA",
@@ -9412,7 +9407,7 @@
 "esportazioni": {
 "excel": "f299aa5d",
 "excel · foglio Punti": "4097ab9e",
-"pdf": "fef2cadc",
+"pdf": "ad6592c2",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -9471,7 +9466,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,8 kA",
 "ip · corrente di picco46,4 kA",
 "Ib · interruzione22,8 kA",
@@ -9714,7 +9708,7 @@
 "esportazioni": {
 "excel": "6a45eb54",
 "excel · foglio Punti": "95ab897e",
-"pdf": "9e97a67f",
+"pdf": "113d2265",
 "righe": 117
 },
 "excel_ricalcolato": {
@@ -9781,7 +9775,6 @@
 "Trasf. 2 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale43,2 kA",
 "ip · corrente di picco101,9 kA",
 "Ib · interruzione43,2 kA",
@@ -10039,7 +10032,7 @@
 "esportazioni": {
 "excel": "2bb8bc47",
 "excel · foglio Punti": "75f00b01",
-"pdf": "3fa4e24b",
+"pdf": "bb8b5b4b",
 "righe": 94
 },
 "excel_ricalcolato": {
@@ -10102,7 +10095,6 @@
 "Trasf. 2 · 400 kVA · τ inserzione 0,25 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale38,2 kA",
 "ip · corrente di picco83,5 kA",
 "Ib · interruzione38,2 kA",
@@ -10349,7 +10341,7 @@
 "esportazioni": {
 "excel": "ec8e564a",
 "excel · foglio Punti": "5c685452",
-"pdf": "cb4e0cac",
+"pdf": "7c64a75e",
 "righe": 130
 },
 "excel_ricalcolato": {
@@ -10419,7 +10411,6 @@
 "Trasf. 3 · 500 kVA · τ inserzione 0,25 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale49,0 kA",
 "ip · corrente di picco124,8 kA",
 "Ib · interruzione49,0 kA",
@@ -10681,7 +10672,7 @@
 "esportazioni": {
 "excel": "ae940002",
 "excel · foglio Punti": "7b49b7f6",
-"pdf": "bf326421",
+"pdf": "a9577a2f",
 "righe": 74
 },
 "excel_ricalcolato": {
@@ -10741,7 +10732,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -10988,7 +10978,7 @@
 "esportazioni": {
 "excel": "6682d041",
 "excel · foglio Punti": "2ed90349",
-"pdf": "54f6f5fe",
+"pdf": "fa02e4e8",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -11067,7 +11057,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,4 kA",
 "ip · corrente di picco45,2 kA",
 "Ib · interruzione22,4 kA",
@@ -11420,7 +11409,7 @@
 "esportazioni": {
 "excel": "9f9a8164",
 "excel · foglio Punti": "03101b7d",
-"pdf": "a2a2f269",
+"pdf": "de133727",
 "righe": 101
 },
 "excel_ricalcolato": {
@@ -11525,7 +11514,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale21,4 kA",
 "ip · corrente di picco42,1 kA",
 "Ib · interruzione21,4 kA",
@@ -11989,7 +11977,7 @@
 "esportazioni": {
 "excel": "f2d8d3bb",
 "excel · foglio Punti": "5a33aca4",
-"pdf": "68da560b",
+"pdf": "337e5c29",
 "righe": 108
 },
 "excel_ricalcolato": {
@@ -12096,7 +12084,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale8,6 kA",
 "ip · corrente di picco12,7 kA",
 "Ib · interruzione8,6 kA",
@@ -12586,7 +12573,7 @@
 "esportazioni": {
 "excel": "2df442a6",
 "excel · foglio Punti": "804224e9",
-"pdf": "0716e628",
+"pdf": "7c50237a",
 "righe": 118
 },
 "excel_ricalcolato": {
@@ -12659,7 +12646,6 @@
 "Compressore · 315 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale29,4 kA",
 "ip · corrente di picco59,0 kA",
 "Ib · interruzione25,0 kA",
@@ -12914,7 +12900,7 @@
 "esportazioni": {
 "excel": "b004acd9",
 "excel · foglio Punti": "553c2693",
-"pdf": "bc56d2db",
+"pdf": "5fbb1081",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -12977,7 +12963,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -13231,7 +13216,7 @@
 "esportazioni": {
 "excel": "9d2c5e22",
 "excel · foglio Punti": "a1a0f038",
-"pdf": "c32e480f",
+"pdf": "b7f03099",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -13294,7 +13279,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -13548,7 +13532,7 @@
 "esportazioni": {
 "excel": "d042a467",
 "excel · foglio Punti": "7b49b7f6",
-"pdf": "312d603c",
+"pdf": "90b5c052",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -13607,7 +13591,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -13850,7 +13833,7 @@
 "esportazioni": {
 "excel": "e52ab043",
 "excel · foglio Punti": "7b49b7f6",
-"pdf": "7af13a2a",
+"pdf": "f2ac2948",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -13909,7 +13892,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -14152,7 +14134,7 @@
 "esportazioni": {
 "excel": "439ac5d9",
 "excel · foglio Punti": "82d6914c",
-"pdf": "1629d447",
+"pdf": "23fd9bcd",
 "righe": 59
 },
 "excel_ricalcolato": {
@@ -14208,7 +14190,6 @@
 "guasto trifase MT"
 ],
 "riquadri": [
-"Punto di guasto20.000 V · MTtensione della rete a monte",
 "I″k · simmetrica iniziale11,1 kA",
 "ip · corrente di picco23,5 kA",
 "Ib · interruzione11,1 kA",
@@ -14447,7 +14428,7 @@
 "esportazioni": {
 "excel": "522098a1",
 "excel · foglio Punti": "b02f63d8",
-"pdf": "f3309030",
+"pdf": "6b808722",
 "righe": 52
 },
 "excel_ricalcolato": {
@@ -14483,7 +14464,6 @@
 "guasto trifase MT"
 ],
 "riquadri": [
-"Punto di guasto15.000 V · MTtensione della rete a monte",
 "I″k · simmetrica iniziale19,2 kA",
 "ip · corrente di picco47,5 kA",
 "Ib · interruzione19,2 kA",
@@ -14622,7 +14602,7 @@
 "esportazioni": {
 "excel": "4d893137",
 "excel · foglio Punti": "bad9ea2f",
-"pdf": "eea4c884",
+"pdf": "1450c166",
 "righe": 43
 },
 "excel_ricalcolato": {
@@ -14672,7 +14652,6 @@
 "guasto monofase BT"
 ],
 "riquadri": [
-"Punto di guasto230 V · BTtensione della rete a monte",
 "I″k · simmetrica iniziale1,9 kA",
 "ip · corrente di picco2,8 kA",
 "Ib · interruzione1,9 kA",
@@ -14908,7 +14887,7 @@
 "esportazioni": {
 "excel": "6166e53d",
 "excel · foglio Punti": "709ef2a1",
-"pdf": "6bd805dc",
+"pdf": "96817622",
 "righe": 59
 },
 "excel_ricalcolato": {
@@ -14964,7 +14943,6 @@
 "guasto trifase BT"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTtensione della rete a monte",
 "I″k · simmetrica iniziale5,0 kA",
 "ip · corrente di picco7,3 kA",
 "Ib · interruzione5,0 kA",
@@ -15203,7 +15181,7 @@
 "esportazioni": {
 "excel": "1b2717f3",
 "excel · foglio Punti": "71771593",
-"pdf": "3dea022f",
+"pdf": "8083d815",
 "righe": 77
 },
 "excel_ricalcolato": {
@@ -15267,7 +15245,6 @@
 "Motore 2 · 55 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTtensione della rete a monte",
 "I″k · simmetrica iniziale12,4 kA",
 "ip · corrente di picco20,8 kA",
 "Ib · interruzione11,7 kA",
@@ -15510,7 +15487,7 @@
 "esportazioni": {
 "excel": "0a45f633",
 "excel · foglio Punti": "7675ea40",
-"pdf": "d56ef385",
+"pdf": "c3b1521b",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -15573,7 +15550,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale23,8 kA",
 "ip · corrente di picco48,3 kA",
 "Ib · interruzione23,8 kA",
@@ -15827,7 +15803,7 @@
 "esportazioni": {
 "excel": "813983de",
 "excel · foglio Punti": "b821294e",
-"pdf": "fe181867",
+"pdf": "f333f619",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -15886,7 +15862,6 @@
 "AT/MT · 25.000 kVA · τ inserzione 0,45 s"
 ],
 "riquadri": [
-"Punto di guasto20.000 V · MTsecondario del trasformatore",
 "I″k · simmetrica iniziale6,1 kA",
 "ip · corrente di picco16,4 kA",
 "Ib · interruzione6,1 kA",
@@ -16129,7 +16104,7 @@
 "esportazioni": {
 "excel": "0b30a6ba",
 "excel · foglio Punti": "ac355ab3",
-"pdf": "6a016507",
+"pdf": "de4cbcd1",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -16192,7 +16167,6 @@
 "Isolamento · 100 kVA · τ inserzione 0,15 s"
 ],
 "riquadri": [
-"Punto di guasto230 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale4,8 kA",
 "ip · corrente di picco8,4 kA",
 "Ib · interruzione4,8 kA",
@@ -16446,7 +16420,7 @@
 "esportazioni": {
 "excel": "7132790d",
 "excel · foglio Punti": "3e9f7b30",
-"pdf": "645349c1",
+"pdf": "5aed164b",
 "righe": 106
 },
 "excel_ricalcolato": {
@@ -16516,7 +16490,6 @@
 "Motore 2 · 250 kW"
 ],
 "riquadri": [
-"Punto di guasto690 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale33,0 kA",
 "ip · corrente di picco74,6 kA",
 "Ib · interruzione29,5 kA",
@@ -16767,7 +16740,7 @@
 "esportazioni": {
 "excel": "d002fc23",
 "excel · foglio Punti": "559d41e8",
-"pdf": "5bccaf9f",
+"pdf": "20e2de79",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -16810,7 +16783,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale23,9 kA",
 "ip · corrente di picco48,1 kA",
 "Ib · interruzione23,9 kA",
@@ -16959,8 +16931,8 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 2527a213 scritte dca8b294",
-"cb_chartE linee d8aac010 scritte df7190d9"
+"cb_chart linee 3f2402c3 scritte dca8b294",
+"cb_chartE linee 556979d2 scritte df7190d9"
 ],
 "legende": [
 "NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA) · banda LSI calcolataI″k massimaI″k minimaavviamento motoreinserzione trasformatoreTrasf. 1: In 1,44 kA al secondario, tenuta 24,06 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
@@ -17116,7 +17088,7 @@
 "esportazioni": {
 "excel": "29f97cc3",
 "excel · foglio Punti": "17f2cbc3",
-"pdf": "36e60da8",
+"pdf": "9b5b2e58",
 "righe": 172
 },
 "excel_ricalcolato": {
@@ -17264,7 +17236,6 @@
 "Motore 2 · 75 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,0 kA",
 "ip · corrente di picco34,8 kA",
 "Ib · interruzione19,6 kA",
@@ -17883,9 +17854,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee ad7b32de scritte 4c228c9d",
-"fu_chartL linee 59fa202b scritte 18b1dea7",
-"fu_chartE linee 4a3d2291 scritte 27f14733"
+"fu_chart linee 7a52f4f0 scritte 4c228c9d",
+"fu_chartL linee 41b8650a scritte 18b1dea7",
+"fu_chartE linee 216f6511 scritte 27f14733"
 ],
 "legende": [
 "160NHG01B (160 A gG)I″k massimaI″k minimaavviamento motoreinserzione trasformatore"
@@ -17998,7 +17969,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte 811ee496"
+"mt_chart linee 24128fcb scritte 811ee496"
 ],
 "legende": []
 },
@@ -18028,8 +17999,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee b733635f scritte 1f589231",
-"pm_chartE linee eea7c556 scritte 0adba7d1"
+"pm_chartF linee 27a271c9 scritte 1f589231",
+"pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (2 trasformatori, cresta 770 A)tenuta di Trasf. 1: 642 A per 2 s e sovraccarico ammesso (ANSI C57.92)interruttore BT NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA) · banda min–max riportata alla MT (400/15.000 V, guasto trifase)",
@@ -18038,7 +18009,7 @@
 },
 "esportazioni": {
 "excel": "05c20c83",
-"pdf": "7d8b2efc",
+"pdf": "1060c5e0",
 "righe": 123
 },
 "excel_ricalcolato": {},
@@ -18460,7 +18431,7 @@
 "esportazioni": {
 "excel": "3b9ea509",
 "excel · foglio Punti": "38df667f",
-"pdf": "92f7aa7b",
+"pdf": "85ffc94d",
 "righe": 153
 },
 "excel_ricalcolato": {
@@ -18652,7 +18623,6 @@
 "Motore 2 · 45 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale3,0 kA",
 "ip · corrente di picco5,1 kA",
 "Ib · interruzione1,4 kA",
@@ -19527,7 +19497,7 @@
 "esportazioni": {
 "excel": "c5e86350",
 "excel · foglio Punti": "065d7a76",
-"pdf": "5984d209",
+"pdf": "a4950d09",
 "righe": 139
 },
 "excel_ricalcolato": {
@@ -19658,7 +19628,6 @@
 "Trasf. 2 · 800 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale16,2 kA",
 "ip · corrente di picco24,6 kA",
 "Ib · interruzione16,2 kA",
@@ -20282,7 +20251,7 @@
 "esportazioni": {
 "excel": "fe9194e7",
 "excel · foglio Punti": "28829417",
-"pdf": "4e0df834",
+"pdf": "6ae7b3d6",
 "righe": 91
 },
 "excel_ricalcolato": {
@@ -20390,7 +20359,6 @@
 "Motore 2 · 800 kW"
 ],
 "riquadri": [
-"Punto di guasto20.000 V · MTtensione della rete a monte",
 "I″k · simmetrica iniziale8,0 kA",
 "ip · corrente di picco12,0 kA",
 "Ib · interruzione7,8 kA",
@@ -20853,7 +20821,7 @@
 "esportazioni": {
 "excel": "c7f6f13b",
 "excel · foglio Punti": "83679ed2",
-"pdf": "bedbd3c5",
+"pdf": "167cc15b",
 "righe": 57
 },
 "excel_ricalcolato": {
@@ -20939,7 +20907,6 @@
 "guasto monofase BT"
 ],
 "riquadri": [
-"Punto di guasto230 V · BTtensione della rete a monte",
 "I″k · simmetrica iniziale0,6 kA",
 "ip · corrente di picco0,8 kA",
 "Ib · interruzione0,6 kA",
@@ -21395,7 +21362,7 @@
 "esportazioni": {
 "excel": "f5497e13",
 "excel · foglio Punti": "3ee24dd8",
-"pdf": "c4c7ff4f",
+"pdf": "1b91b055",
 "righe": 120
 },
 "excel_ricalcolato": {
@@ -21522,7 +21489,6 @@
 "Isolamento · 100 kVA · τ inserzione 0,15 s"
 ],
 "riquadri": [
-"Punto di guasto230 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale1,6 kA",
 "ip · corrente di picco2,3 kA",
 "Ib · interruzione1,6 kA",
@@ -22142,7 +22108,7 @@
 "esportazioni": {
 "excel": "39a3cace",
 "excel · foglio Punti": "2bd0b6dd",
-"pdf": "972379f0",
+"pdf": "0491d572",
 "righe": 152
 },
 "excel_ricalcolato": {
@@ -22332,7 +22298,6 @@
 "Motore 2 · 30 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale13,9 kA",
 "ip · corrente di picco22,0 kA",
 "Ib · interruzione12,7 kA",
@@ -23185,9 +23150,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 35628ab8 scritte f9ebf388",
-"fu_chartL linee 59fa202b scritte 5d87393e",
-"fu_chartE linee 4a3d2291 scritte c6ea595b"
+"fu_chart linee faea857b scritte f9ebf388",
+"fu_chartL linee 41b8650a scritte 5d87393e",
+"fu_chartE linee 216f6511 scritte c6ea595b"
 ],
 "legende": [
 "160NHG01B (160 A gG)I″k massimaI″k minima"
@@ -23296,9 +23261,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 5e8dc94b scritte f421bc14",
-"fu_chartL linee 7b185de2 scritte 055c42fb",
-"fu_chartE linee f6deb40b scritte 809edefb"
+"fu_chart linee 140a3a75 scritte f421bc14",
+"fu_chartL linee 79e01355 scritte 055c42fb",
+"fu_chartE linee 4eec5f88 scritte 809edefb"
 ],
 "legende": [
 "A · 160NHG01B (160 A gG)B · 250NHG1B (250 A gG)I″k massimaI″k minima"
@@ -23470,7 +23435,7 @@
 "esportazioni": {
 "excel": "365af26d",
 "excel · foglio Punti": "f4dcc2e7",
-"pdf": "766ac893",
+"pdf": "eb4e3481",
 "righe": 94
 },
 "excel_ricalcolato": {
@@ -23537,7 +23502,6 @@
 "Motore 2 · 45 kW"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale23,3 kA",
 "ip · corrente di picco47,2 kA",
 "Ib · interruzione22,7 kA",
@@ -23771,8 +23735,8 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee da431b96 scritte a730d9df",
-"fu_chartE linee 8cc312f6 scritte 8a7dd853"
+"fu_chart linee b299b6db scritte a730d9df",
+"fu_chartE linee e7599b80 scritte 8a7dd853"
 ],
 "legende": [
 "100NHM00B-690 (100 A aM)I″k massimaI″k minimaavviamento motore"
@@ -23878,9 +23842,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee e194614a scritte a91d512a",
-"fu_chartL linee a9bdea04 scritte 9d523046",
-"fu_chartE linee 8194819b scritte 98457990"
+"fu_chart linee b190ca85 scritte a91d512a",
+"fu_chartL linee 40f9f5f4 scritte 9d523046",
+"fu_chartE linee acb90931 scritte 98457990"
 ],
 "legende": [
 "C10G32 (32 A gG)I″k massimaI″k minima"
@@ -23989,9 +23953,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee b303c910 scritte f3a72090",
-"fu_chartL linee 74efe1ff scritte f1f28fd5",
-"fu_chartE linee b4680305 scritte 8ecf3ffa"
+"fu_chart linee 19fbd24a scritte f3a72090",
+"fu_chartL linee fd63450c scritte f1f28fd5",
+"fu_chartE linee 1742d8cb scritte 8ecf3ffa"
 ],
 "legende": [
 "289 NH gTr 3 (200kVA) (289 A gTr)I″k massimaI″k minimainserzione trasformatore"
@@ -24097,9 +24061,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee d9d7640f scritte 96fd6713",
-"fu_chartL linee d71451b5 scritte 7a9e3718",
-"fu_chartE linee ece112a2 scritte 3df27d17"
+"fu_chart linee e07f9918 scritte 96fd6713",
+"fu_chartL linee 3652e49d scritte 7a9e3718",
+"fu_chartE linee cfe04030 scritte 3df27d17"
 ],
 "legende": [
 "A · 170M3813D/125A (125 A aR)B · 170M1560D/20A (20 A gR)I″k massimaI″k minima"
@@ -24273,9 +24237,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 0ea59b1b scritte b7ddeefd",
-"fu_chartL linee 112c65f9 scritte 9e977bf3",
-"fu_chartE linee d7a57cff scritte d7dff9ce"
+"fu_chart linee e2f05895 scritte b7ddeefd",
+"fu_chartL linee 44654a16 scritte 9e977bf3",
+"fu_chartE linee a23feb0a scritte d7dff9ce"
 ],
 "legende": [
 "A · 20D27 (20 A gG)B · 35NZ02 (35 A gG)I″k massimaI″k minima"
@@ -24445,9 +24409,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 9c450950 scritte 6d5728b3",
-"fu_chartL linee a8cf3c21 scritte e89ef4f7",
-"fu_chartE linee 8b7dc0f8 scritte 0695cabb"
+"fu_chart linee e5ae2986 scritte 6d5728b3",
+"fu_chartL linee 5c5d79d9 scritte e89ef4f7",
+"fu_chartE linee 58e41cf2 scritte 0695cabb"
 ],
 "legende": [
 "FMT 24kV 1902040 (40 A back‑up)I″k massimaI″k minimacorrente minima di interruzione 140 Ainserzione trasformatore"
@@ -24561,9 +24525,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee c7918b9d scritte 80d018b9",
-"fu_chartL linee 9bbca74c scritte 2edd58d6",
-"fu_chartE linee 0f7c7c97 scritte 11c09712"
+"fu_chart linee e05826c6 scritte 80d018b9",
+"fu_chartL linee 3a37355c scritte 2edd58d6",
+"fu_chartE linee d7f786bc scritte 11c09712"
 ],
 "legende": [
 "A · FMT 12kV 1900100 (100 A back‑up)B · FMT 12kV 1900063 (63 A back‑up)I″k massimaI″k minimacorrente minima di interruzione 360 A (A)corrente minima di interruzione 220 A (B)"
@@ -24725,9 +24689,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 08634b69 scritte 7f80a82c",
-"fu_chartL linee 8e3fc14a scritte e836741f",
-"fu_chartE linee 714c6ec8 scritte 4addff72"
+"fu_chart linee 07347b18 scritte 7f80a82c",
+"fu_chartL linee 84bb6c6f scritte e836741f",
+"fu_chartE linee 6e6f8aa2 scritte 4addff72"
 ],
 "legende": [
 "400NHG3B-690 (400 A gG)I″k massimaI″k minima"
@@ -24836,9 +24800,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee edcfd58c scritte 6f56dedc",
-"fu_chartL linee 8e656f58 scritte dd22bd34",
-"fu_chartE linee 700bdc3c scritte 47bb1089"
+"fu_chart linee fda4f3e5 scritte 6f56dedc",
+"fu_chartL linee 75c12964 scritte dd22bd34",
+"fu_chartE linee ff553e9b scritte 47bb1089"
 ],
 "legende": [
 "35D33 (35 A gG)I″k massimaI″k minima"
@@ -27603,7 +27567,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte 811ee496"
+"mt_chart linee 24128fcb scritte 811ee496"
 ],
 "legende": []
 },
@@ -27641,7 +27605,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte 5acc2983"
+"mt_chart linee 24128fcb scritte 5acc2983"
 ],
 "legende": []
 },
@@ -27679,7 +27643,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte 9cc02e71"
+"mt_chart linee 24128fcb scritte 9cc02e71"
 ],
 "legende": []
 },
@@ -27717,7 +27681,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte af70149d"
+"mt_chart linee 24128fcb scritte af70149d"
 ],
 "legende": []
 },
@@ -27755,7 +27719,7 @@
 "modMT": {
 "aspetto": {
 "grafici": [
-"mt_chart linee b5cb409d scritte 470a7a96"
+"mt_chart linee 24128fcb scritte 470a7a96"
 ],
 "legende": []
 },
@@ -27793,8 +27757,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee b083da68 scritte 754c69f1",
-"pm_chartE linee 37d2f074 scritte 0adba7d1"
+"pm_chartF linee 4bc235cc scritte 754c69f1",
+"pm_chartE linee 7b1deeea scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -27803,7 +27767,7 @@
 },
 "esportazioni": {
 "excel": "b1f3e43c",
-"pdf": "70971d3f",
+"pdf": "f66dddd9",
 "righe": 97
 },
 "excel_ricalcolato": {},
@@ -28061,8 +28025,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee b8db70e4 scritte 1f589231",
-"pm_chartE linee 77c41a46 scritte 0adba7d1"
+"pm_chartF linee 37665e4a scritte 1f589231",
+"pm_chartE linee 586b7038 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generaleLinea trasformatorefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)tenuta di Trasf. 1: 606 A per 2 s e sovraccarico ammesso (ANSI C57.92)",
@@ -28071,7 +28035,7 @@
 },
 "esportazioni": {
 "excel": "0b47fc39",
-"pdf": "c6243998",
+"pdf": "3fd263e2",
 "righe": 130
 },
 "excel_ricalcolato": {},
@@ -28574,8 +28538,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 81276b79 scritte c5ca2080",
-"pm_chartE linee 90c6c099 scritte 0adba7d1"
+"pm_chartF linee 79fe0605 scritte c5ca2080",
+"pm_chartE linee 08c74be1 scritte 0adba7d1"
 ],
 "legende": [
 "ArrivoPartenza 1Partenza 2fasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -28584,7 +28548,7 @@
 },
 "esportazioni": {
 "excel": "ee01b2e6",
-"pdf": "6a24bc73",
+"pdf": "63023ac3",
 "righe": 133
 },
 "excel_ricalcolato": {},
@@ -29213,8 +29177,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 50ce6d0f scritte 23839c9c",
-"pm_chartE linee 84e1527e scritte 1ac74c8a"
+"pm_chartF linee c49d2358 scritte 23839c9c",
+"pm_chartE linee 8dc7b5c4 scritte 1ac74c8a"
 ],
 "legende": [
 "ABCfasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -29223,7 +29187,7 @@
 },
 "esportazioni": {
 "excel": "795f8326",
-"pdf": "35d24589",
+"pdf": "1a00774f",
 "righe": 137
 },
 "excel_ricalcolato": {},
@@ -29870,8 +29834,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 6a9df180 scritte 754c69f1",
-"pm_chartE linee 7f08f2ba scritte 0adba7d1"
+"pm_chartF linee 2766f0ac scritte 754c69f1",
+"pm_chartE linee 1ba3309c scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -29880,7 +29844,7 @@
 },
 "esportazioni": {
 "excel": "3427dbb4",
-"pdf": "d6115653",
+"pdf": "c0793575",
 "righe": 98
 },
 "excel_ricalcolato": {},
@@ -30145,8 +30109,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 51b589c3 scritte 754c69f1",
-"pm_chartE linee 55953c4a scritte 0adba7d1"
+"pm_chartF linee e2bb6a5c scritte 754c69f1",
+"pm_chartE linee 25482bd1 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generaleLinealimite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -30155,7 +30119,7 @@
 },
 "esportazioni": {
 "excel": "a762cb92",
-"pdf": "784d3040",
+"pdf": "3735d562",
 "righe": 105
 },
 "excel_ricalcolato": {},
@@ -30564,9 +30528,9 @@
 "modCB": {
 "aspetto": {
 "grafici": [
-"cb_chart linee 64914523 scritte 032819f1",
-"cb_chartL linee 8f00331c scritte e84455b8",
-"cb_chartE linee c9fcfd88 scritte 044acc06"
+"cb_chart linee 9caeb931 scritte 032819f1",
+"cb_chartL linee eb5f3dc5 scritte e84455b8",
+"cb_chartE linee 58e48f55 scritte 044acc06"
 ],
 "legende": [
 "A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxB · FAZ-C32/3 (32 A) · banda min–maxI″k massima"
@@ -30788,7 +30752,7 @@
 "esportazioni": {
 "excel": "9d3d44a9",
 "excel · foglio Punti": "7b49b7f6",
-"pdf": "d7b6c21e",
+"pdf": "a17e0524",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -30847,7 +30811,6 @@
 "Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale22,7 kA",
 "ip · corrente di picco46,1 kA",
 "Ib · interruzione22,7 kA",
@@ -31077,8 +31040,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 9b617b63 scritte d729deaa",
-"pm_chartE linee 1b467f9f scritte 0adba7d1"
+"pm_chartF linee efc5315a scritte d729deaa",
+"pm_chartE linee 7f37cd12 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generaleLineafasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)tenuta di Trasf. 1: 606 A per 2 s e sovraccarico ammesso (ANSI C57.92)interruttore BT A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–max riportata alla MT (400/15.000 V, guasto trifase)interruttore BT B · FAZ-C32/3 (32 A) · banda min–max riportata alla MT (400/15.000 V, guasto trifase)",
@@ -31087,7 +31050,7 @@
 },
 "esportazioni": {
 "excel": "91338000",
-"pdf": "42e12f1b",
+"pdf": "37db227d",
 "righe": 203
 },
 "excel_ricalcolato": {},
@@ -31738,9 +31701,9 @@
 "modFUS": {
 "aspetto": {
 "grafici": [
-"fu_chart linee 27c38cff scritte 604a620f",
-"fu_chartL linee 857e03ae scritte c449d3a8",
-"fu_chartE linee d9e57d9f scritte 84c9765b"
+"fu_chart linee 2cff2eaa scritte 604a620f",
+"fu_chartL linee 824789e2 scritte c449d3a8",
+"fu_chartE linee a44e3cb6 scritte 84c9765b"
 ],
 "legende": [
 "FMT 17,5kV 1901063 (63 A back‑up)I″k massimacorrente minima di interruzione 220 A"
@@ -31834,8 +31797,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee dd345448 scritte 9ad25c4a",
-"pm_chartE linee eea7c556 scritte 0adba7d1"
+"pm_chartF linee 57bf70a8 scritte 9ad25c4a",
+"pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)fusibile FMT 17,5kV 1901063",
@@ -31844,7 +31807,7 @@
 },
 "esportazioni": {
 "excel": "60f6be4d",
-"pdf": "a4c79b31",
+"pdf": "bffd0be7",
 "righe": 98
 },
 "excel_ricalcolato": {},
@@ -32143,7 +32106,7 @@
 "esportazioni": {
 "excel": "732115d3",
 "excel · foglio Punti": "f61ddd83",
-"pdf": "900c2c90",
+"pdf": "8e54d66a",
 "righe": 107
 },
 "excel_ricalcolato": {
@@ -32209,7 +32172,6 @@
 "Trasf. 3 · 400 kVA · τ inserzione 0,25 s"
 ],
 "riquadri": [
-"Punto di guasto400 V · BTsecondario del trasformatore",
 "I″k · simmetrica iniziale56,2 kA",
 "ip · corrente di picco138,2 kA",
 "Ib · interruzione56,2 kA",
@@ -32447,8 +32409,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 4f77e150 scritte 76ff73aa",
-"pm_chartE linee eea7c556 scritte 0adba7d1"
+"pm_chartF linee f2fc5579 scritte 76ff73aa",
+"pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (2 trasformatori, cresta 652 A)tenuta di Trasf. 2: 642 A per 2 s e sovraccarico ammesso (ANSI C57.92)",
@@ -32457,7 +32419,7 @@
 },
 "esportazioni": {
 "excel": "fffd4569",
-"pdf": "16d4a0eb",
+"pdf": "2f84dc67",
 "righe": 110
 },
 "excel_ricalcolato": {},
@@ -32741,8 +32703,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 0477ea39 scritte 230cfe70",
-"pm_chartE linee c4eb759d scritte bb833f6b"
+"pm_chartF linee 3b343075 scritte 230cfe70",
+"pm_chartE linee cc382e2b scritte bb833f6b"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)",
@@ -32751,7 +32713,7 @@
 },
 "esportazioni": {
 "excel": "e21ad8b9",
-"pdf": "702a2b88",
+"pdf": "6972f5d2",
 "righe": 41
 },
 "excel_ricalcolato": {},
@@ -32967,8 +32929,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 0b8568be scritte 754c69f1",
-"pm_chartE linee 9e04d6f1 scritte 0adba7d1"
+"pm_chartF linee 72283f6a scritte 754c69f1",
+"pm_chartE linee d8c2347d scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -32977,7 +32939,7 @@
 },
 "esportazioni": {
 "excel": "81206739",
-"pdf": "81d0f633",
+"pdf": "a4222bcd",
 "righe": 97
 },
 "excel_ricalcolato": {},
@@ -33232,8 +33194,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 0fca87e8 scritte 81b6f68d",
-"pm_chartE linee eea7c556 scritte 0adba7d1"
+"pm_chartF linee eb667b00 scritte 81b6f68d",
+"pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -33242,7 +33204,7 @@
 },
 "esportazioni": {
 "excel": "86b39b2a",
-"pdf": "5f0a6dd4",
+"pdf": "0a7f95fe",
 "righe": 100
 },
 "excel_ricalcolato": {},
@@ -33518,8 +33480,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 9037d0e5 scritte 81b6f68d",
-"pm_chartE linee ed560f59 scritte 0adba7d1"
+"pm_chartF linee 19e92957 scritte 81b6f68d",
+"pm_chartE linee 98ca979b scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalelimite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
@@ -33528,7 +33490,7 @@
 },
 "esportazioni": {
 "excel": "6236abb2",
-"pdf": "74c044b3",
+"pdf": "374ef17d",
 "righe": 95
 },
 "excel_ricalcolato": {},
@@ -33782,8 +33744,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 922f3ed4 scritte ed1b3e9f",
-"pm_chartE linee 0d9e83ea scritte 0adba7d1"
+"pm_chartF linee ae1c2c55 scritte ed1b3e9f",
+"pm_chartE linee 5690d25b scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributore con la I>limite senza la I>inserzione totale (1 trasformatore, cresta 267 A)",
@@ -33792,7 +33754,7 @@
 },
 "esportazioni": {
 "excel": "87b6c9c8",
-"pdf": "2feb1615",
+"pdf": "f62c5a17",
 "righe": 98
 },
 "excel_ricalcolato": {},
@@ -34058,8 +34020,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee d207bc3d scritte ed1b3e9f",
-"pm_chartE linee 0d9e83ea scritte 0adba7d1"
+"pm_chartF linee cf89a879 scritte ed1b3e9f",
+"pm_chartE linee 5690d25b scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributore con la I>limite senza la I>inserzione totale (1 trasformatore, cresta 267 A)",
@@ -34068,7 +34030,7 @@
 },
 "esportazioni": {
 "excel": "03dd21c1",
-"pdf": "97f0efe6",
+"pdf": "380f7e2c",
 "righe": 98
 },
 "excel_ricalcolato": {},
@@ -34334,8 +34296,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 5ab5dbf2 scritte 5eef8af2",
-"pm_chartE linee 6e49113e scritte 0adba7d1"
+"pm_chartF linee 5bfbc806 scritte 5eef8af2",
+"pm_chartE linee 361127a7 scritte 0adba7d1"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributore con la I>inserzione totale (1 trasformatore, cresta 267 A)",
@@ -34344,7 +34306,7 @@
 },
 "esportazioni": {
 "excel": "3674370d",
-"pdf": "3f2e2325",
+"pdf": "09da3f0f",
 "righe": 99
 },
 "excel_ricalcolato": {},
@@ -34605,8 +34567,8 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 92271a31 scritte 5eef8af2",
-"pm_chartE linee 538be168 scritte 5e47e33f"
+"pm_chartF linee cae0e401 scritte 5eef8af2",
+"pm_chartE linee 9e640c53 scritte 5e47e33f"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributore con la I>inserzione totale (1 trasformatore, cresta 267 A)",
@@ -34615,7 +34577,7 @@
 },
 "esportazioni": {
 "excel": "bd0a1c02",
-"pdf": "79c9c1fd",
+"pdf": "d66f5f6b",
 "righe": 99
 },
 "excel_ricalcolato": {},
@@ -35111,6 +35073,6 @@
 }
 }
 },
-"programma": "0.1.20",
+"programma": "0.1.21",
 "riferimento_scritto_il": "19/11/2026"
 }
