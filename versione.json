@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.19",
+  "versione": "0.1.20",
   "data": "19/11/2026",
-  "novita": "Cortocircuito: con un cavo dedicato al secondario o al primario del trasformatore, anche i suoi morsetti sono punti della catena, a video, nel PDF e in Excel."
+  "novita": "Protezioni MT: tra i limiti comunicati dal distributore c'è la I> a tempo dipendente (corrente, K, α, β) con la I>> alternativa per chi non la imposta; le tarature del relè Thytronic NA016 si importano dal suo file."
  },
  "Gestione_curve.html": {
   "versione": "0.2.5",

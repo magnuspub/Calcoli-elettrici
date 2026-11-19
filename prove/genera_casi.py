@@ -362,6 +362,32 @@ async def main():
         pm(s)['protezioni'] = [prot(v_I2=2.4, t_I2=0.5, v_I3=6, t_I3=0.12)]
         campi(s, 'modPMT', pm_Ik=12.5, pm_IkMin=0.2, pm_Ibt=380, pm_IbtMin=150, pm_onTol=False)
 
+    # ---- limite del distributore con la I> a tempo dipendente ----
+    DSO_I1 = dict(pm_U=15, pm_L1=59, pm_K1=0.12, pm_A1=0.02, pm_B1=0.14, pm_L2=250, pm_T2=0.5, pm_L2p=104, pm_L3=600, pm_T3=0.12,
+                  pm_L0=2, pm_T0=0.45, pm_L00=56, pm_T00=0.17, pm_Ik=1.4, pm_IkMin=1.2, pm_IF=40)
+    NA016 = dict(mod='na016', inp=150, ienp=100, unit='mult', tcb=70, tmin=100, ei=4, et=5, etm=10, on_I1=False, v_I1=1, c_I1='IEC_VI', t_I1=1, on_I2=True, v_I2=0.6, t_I2=0.43,
+                 on_I3=True, v_I3=4, t_I3=0.05, on_E1=True, v_E1=0.02, t_E1=0.38, on_E2=True, v_E2=0.56, t_E2=0.1)
+
+    @caso('pm14_limite_con_I1_rispettato_senza_I1', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(**NA016)]; campi(s, 'modPMT', **DSO_I1)
+
+    @caso('pm15_limite_con_I1_soglia_I2_troppo_alta', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(**dict(NA016, v_I2=1.6))]; campi(s, 'modPMT', **DSO_I1)
+
+    @caso('pm16_limite_con_I1_curva_dipendente_impostata', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(mod='gen', inp=150, ienp=100, unit='amp', tcb=70, tmin=0, ei=5, et=3, etm=20, on_I1=True, v_I1=59, c_I1='IEC_NI', t_I1=0.12,
+                                    on_I2=True, v_I2=250, t_I2=0.43, on_I3=True, v_I3=600, t_I3=0.05, on_E1=True, v_E1=2, t_E1=0.38, on_E2=True, v_E2=56, t_E2=0.1)]
+        campi(s, 'modPMT', **dict(DSO_I1, pm_L2p=0))
+
+    @caso('pm17_limite_con_I1_curva_troppo_lenta', ['modPMT'])
+    def _(s):
+        pm(s)['protezioni'] = [prot(mod='gen', inp=150, ienp=100, unit='amp', tcb=70, tmin=0, ei=5, et=3, etm=20, on_I1=True, v_I1=59, c_I1='IEC_NI', t_I1=0.2,
+                                    on_I2=True, v_I2=250, t_I2=0.43, on_I3=True, v_I3=600, t_I3=0.05)]
+        campi(s, 'modPMT', **dict(DSO_I1, pm_L2p=0))
+
     # ============================ VERIFICA QUADRO ============================
     @caso('vk01_tenuta_insufficiente', ['modVK'])
     def _(s): campi(s, 'modVK', vk_Ik=35, vk_ip=77, vk_Ith=36, Icw=25, tcw=1, Ipk=52.5, Tk=1)
