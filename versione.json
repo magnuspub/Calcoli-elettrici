@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.18",
+  "versione": "0.1.19",
   "data": "19/11/2026",
-  "novita": "Nello schema del PDF il punto delle sbarre a valle del trasformatore ha il suo nodo, alla stessa distanza di quello a monte."
+  "novita": "Cortocircuito: con un cavo dedicato al secondario o al primario del trasformatore, anche i suoi morsetti sono punti della catena, a video, nel PDF e in Excel."
  },
  "Gestione_curve.html": {
   "versione": "0.2.5",

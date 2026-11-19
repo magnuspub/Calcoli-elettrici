@@ -203,6 +203,13 @@ async def main():
         ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160), cav(desc='Terminale', S=10, L=30, te=160)]
         campi(s, 'modCC', IkQ=20, IkQmin=12, UnQ=400, rxGrid=0.5, sc_on=True, sc_S=95, sc_L=80, onCab=True, onLE=True, le_S=50, le_L=72)
 
+    @caso('cc32_punti_primario_e_secondario_del_trasformatore', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(hvcab=True, hvmat='Al', hvS=50, hvL=40, hvte=180, hascab=True, cS=240, cL=15, cn=2, cte=140)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        ccm(s)['motori'] = [mot(P=90), mot(desc='Motore 2', P=30, klr=7.5, tmin=0.05)]
+        campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, onLE=True, le_S=50, le_L=75, le_RE=0.02, le_te=160, IkQmin=8)
+
     @caso('cc26_impianto_completo', TUTTI)
     def _(s):
         ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=60, hascab=True, cS=240, cL=12, cn=4),
