@@ -1,17 +1,17 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.22",
+  "versione": "0.1.23",
   "data": "19/11/2026",
-  "novita": "Protezioni MT: sotto-moduli con lo sfondo degli altri riquadri e tasto «valori minimi CEI 0-16» sempre visibile accanto al titolo."
+  "novita": "Icona della pagina nella scheda del browser."
  },
  "Gestione_curve.html": {
-  "versione": "0.2.5",
+  "versione": "0.2.6",
   "data": "19/11/2026",
-  "novita": "collegamento al repository GitHub in fondo alla pagina."
+  "novita": "Icona della pagina nella scheda del browser."
  },
  "Manutenzione.html": {
-  "versione": "0.1.0",
+  "versione": "0.1.1",
   "data": "19/11/2026",
-  "novita": "Prima versione: indice del codice, controllo della sintassi, anteprima, prove di regressione e preparazione della pubblicazione."
+  "novita": "Icona della pagina nella scheda del browser."
  }
 }
