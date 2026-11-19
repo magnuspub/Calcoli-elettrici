@@ -1,17 +1,17 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.25",
+  "versione": "0.1.26",
   "data": "19/11/2026",
-  "novita": "Cortocircuito: il guasto fase-terra si calcola dalla sezione N/PE e dal rapporto X0/X di ogni cavo (cavo di ramo e tratti), senza più la scheda dedicata; R0 = RT per il Dyn, motori nella corrente massima, picco con il κ del guasto trifase. Con trasformatori in parallelo il fattore 1,15 del picco (metodo B) si applica solo se un ramo ha R/X ≥ 0,3."
+  "novita": "Icone e dati per installare la pagina come app sulla schermata Home o sul desktop."
  },
  "Gestione_curve.html": {
-  "versione": "0.2.6",
+  "versione": "0.2.7",
   "data": "19/11/2026",
-  "novita": "Icona della pagina nella scheda del browser."
+  "novita": "Icone e dati per installare la pagina come app sulla schermata Home o sul desktop."
  },
  "Manutenzione.html": {
-  "versione": "0.1.1",
+  "versione": "0.1.2",
   "data": "19/11/2026",
-  "novita": "Icona della pagina nella scheda del browser."
+  "novita": "Icone e dati per installare la pagina come app sulla schermata Home o sul desktop."
  }
 }
