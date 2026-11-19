@@ -5,16 +5,17 @@
  ],
  "stato": {
   "app": "Calcoli elettrici",
-  "versione": "0.1.16",
+  "versione": "0.1.25",
   "formato": 1,
   "moduli": {
    "modCC": {
     "campi": {
      "cfac": "1.05",
      "cfacMin": "0.95",
+     "ccTk": "1",
      "freq": "50",
      "ipMethod": "B",
-     "ccTk": "1",
+     "ccUn": "",
      "onGrid": true,
      "gridPreset": "",
      "gridMode": "Ik",
@@ -35,15 +36,7 @@
      "onTr": true,
      "onKT": false,
      "onCab": true,
-     "onMot": false,
-     "onLE": true,
-     "le_mat": "Cu",
-     "le_S": "50",
-     "le_L": "72",
-     "le_n": "1",
-     "le_x": "0.08",
-     "le_te": "250",
-     "le_RE": "0"
+     "onMot": false
     },
     "trasformatori": [
      {
@@ -73,7 +66,9 @@
       "cL": "10",
       "cn": "1",
       "cx": "0.08",
-      "cte": "250"
+      "cte": "250",
+      "cSn": "",
+      "ckx0": "4"
      }
     ],
     "cavi": [
@@ -85,7 +80,9 @@
       "L": "42",
       "n": "1",
       "x": "0.08",
-      "te": "160"
+      "te": "160",
+      "Sn": "50",
+      "kx0": "4"
      },
      {
       "desc": "Terminale",
@@ -95,7 +92,9 @@
       "L": "30",
       "n": "1",
       "x": "0.08",
-      "te": "160"
+      "te": "160",
+      "Sn": "10",
+      "kx0": "4"
      }
     ],
     "motori": [
@@ -184,9 +183,13 @@
     "campi": {
      "pm_U": "15",
      "pm_neu": "c",
+     "pm_L1": "0",
+     "pm_K1": "0.12",
+     "pm_A1": "0.02",
+     "pm_B1": "0.14",
      "pm_L2": "250",
      "pm_T2": "0.5",
-     "pm_onDSO": true,
+     "pm_L2p": "0",
      "pm_L3": "600",
      "pm_T3": "0.12",
      "pm_L0": "2",
@@ -198,12 +201,13 @@
      "pm_IF": "40",
      "pm_Ibt": "0",
      "pm_IbtMin": "0",
-     "pm_onInr": true,
-     "pm_onFus": false,
-     "pm_onCb": false,
-     "pm_onWth": false,
+     "pm_onDSO": true,
      "pm_onTol": true,
-     "pm_dt": "0.1"
+     "pm_dt": "0.1",
+     "pm_onInr": true,
+     "pm_onWth": false,
+     "pm_onFus": false,
+     "pm_onCb": false
     },
     "trasformatore": 0,
     "protezioni": [

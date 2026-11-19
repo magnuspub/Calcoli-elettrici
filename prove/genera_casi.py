@@ -24,9 +24,10 @@ TUTTI = ["modCC", "modFUS", "modCB", "modPMT", "modVK", "modMT", "modREL"]
 CASI = []
 
 
-def caso(nome, moduli):
+def caso(nome, moduli, grezzo=False):
+    # grezzo: lo stato è scritto com'è, senza farlo risalvare dal programma (serve per i file nel formato di versioni precedenti)
     def reg(f):
-        CASI.append((nome, moduli, f)); return f
+        CASI.append((nome, moduli, f, grezzo)); return f
     return reg
 
 
@@ -77,13 +78,13 @@ async def main():
     def _(s): pass
 
     @caso('cc02_correzione_KT', ['modCC'])
-    def _(s): campi(s, 'modCC', onKT=True, onLE=True)
+    def _(s): campi(s, 'modCC', onKT=True)
 
     @caso('cc03_rete_in_potenza', ['modCC'])
     def _(s): campi(s, 'modCC', gridMode='Sk', SkQ=350, rxGrid=0.05, SkQmin=200)
 
     @caso('cc04_due_trasformatori_uguali_metodo_B', ['modCC'])
-    def _(s): ccm(s)['trasformatori'] = [tr(), tr(desc='Trasf. 2')]; campi(s, 'modCC', onLE=True)
+    def _(s): ccm(s)['trasformatori'] = [tr(), tr(desc='Trasf. 2')]
 
     @caso('cc05_due_trasformatori_diversi_metodo_C', ['modCC'])
     def _(s):
@@ -94,32 +95,45 @@ async def main():
     def _(s):
         ccm(s)['trasformatori'] = [tr(S=800, uk=6, pcu=9.4, tt='secco', vg='Dyn', kin=10, tau=0.3), tr(desc='Trasf. 2', S=800, uk=6, pcu=9.4, tt='secco', vg='Yyn', kin=10, tau=0.3),
                                    tr(desc='Trasf. 3', S=500, uk=6, pcu=6.4, tt='secco', vg='Dzn', kin=10, tau=0.25)]
-        campi(s, 'modCC', onLE=True, onKT=True, le_S=120, le_L=35)
+        campi(s, 'modCC', onKT=True)
 
     @caso('cc07_gruppo_senza_neutro_e_fase_terra', ['modCC'])
-    def _(s): ccm(s)['trasformatori'] = [tr(vg='Dd')]; campi(s, 'modCC', onLE=True)
+    def _(s): ccm(s)['trasformatori'] = [tr(vg='Dd')]
 
     @caso('cc08_cavo_sorgente_in_alluminio', ['modCC'])
     def _(s): campi(s, 'modCC', sc_on=True, sc_tipo='mt', sc_mat='Al', sc_S=185, sc_L=1200, sc_n=1, sc_x=0.12, sc_te=160)
 
     @caso('cc09_cavi_del_trasformatore', ['modCC'])
-    def _(s): ccm(s)['trasformatori'] = [tr(hvcab=True, hvS=50, hvL=400, hvte=90, hascab=True, cS=240, cL=18, cn=3, cte=160)]; campi(s, 'modCC', onLE=True)
+    def _(s): ccm(s)['trasformatori'] = [tr(hvcab=True, hvS=50, hvL=400, hvte=90, hascab=True, cS=240, cL=18, cn=3, cte=160, cSn=120)]
 
     @caso('cc10_due_tratti_di_cavo', ['modCC'])
     def _(s):
-        ccm(s)['cavi'] = [cav(desc='Montante', tipo='uni', mat='Cu', S=240, L=30, n=2, x=0.10, te=250), cav(desc='Dorsale', tipo='mult', mat='Al', S=95, L=60, n=1, x=0.08, te=160)]
-        campi(s, 'modCC', onCab=True, onLE=True, le_mat='Al', le_S=50, le_L=90, le_te=160)
+        ccm(s)['cavi'] = [cav(desc='Montante', tipo='uni', mat='Cu', S=240, L=30, n=2, x=0.10, te=250, Sn=120), cav(desc='Dorsale', tipo='mult', mat='Al', S=95, L=60, n=1, x=0.08, te=160, Sn=50)]
+        campi(s, 'modCC', onCab=True)
 
     @caso('cc11_tre_motori', ['modCC'])
     def _(s):
         ccm(s)['motori'] = [mot(desc='Pompa', P=200, klr=6, poles=2), mot(desc='Ventilatore', P=90, klr=7, poles=4, eta=0.85), mot(desc='Compressore', P=315, klr=5.5, poles=1, rx=0.3, tmin=0.05)]
         campi(s, 'modCC', onMot=True)
 
+    # Guasto fase-terra: si calcola dove tutti i cavi fino al centro stella hanno la sezione N/PE
     @caso('cc12_fase_terra_TN', ['modCC'])
-    def _(s): campi(s, 'modCC', onLE=True, le_mat='Cu', le_S=50, le_L=40, le_n=1, le_x=0.08, le_RE=0, le_te=160)
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Linea', S=50, L=40, x=0.08, te=160, Sn=50)]
+        campi(s, 'modCC', onCab=True)
 
-    @caso('cc13_fase_terra_TT', ['modCC'])
-    def _(s): campi(s, 'modCC', onLE=True, le_RE=5)
+    # N/PE a sezione ridotta nel primo tratto e non indicata nel secondo: a valle del secondo il fase-terra non è calcolato
+    @caso('cc13_fase_terra_N_PE_ridotto_e_tratto_senza_sezione', ['modCC'])
+    def _(s):
+        ccm(s)['cavi'] = [cav(desc='Montante', S=185, L=25, n=2, Sn=95), cav(desc='Dorsale', S=70, L=55, te=160)]
+        campi(s, 'modCC', onCab=True)
+
+    # Linea aerea con X0/X = 3 dopo un cavo con il rapporto predefinito 4; cavo di ramo con X0/X = 1,8
+    @caso('cc43_linea_aerea_e_cavo_di_ramo_con_X0_X_diverso_da_4', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=400, uk=4, pcu=4.6, hascab=True, cS=240, cL=8, cn=2, cSn=240, ckx0=1.8)]
+        ccm(s)['cavi'] = [cav(desc='Cavo', S=95, L=30, Sn=50), cav(desc='Linea aerea', tipo='aerea', S=50, L=120, x=0.3, te=160, Sn=50, kx0=3)]
+        campi(s, 'modCC', onCab=True)
 
     @caso('cc14_60_Hz_guasto_breve', ['modCC'])
     def _(s): campi(s, 'modCC', freq=60, ccTk=0.2)
@@ -151,7 +165,7 @@ async def main():
         campi(s, 'modCC', gridPreset='cei_tri33p', gridMode='Ik', IkQ=15, UnQ=400, rxGrid=0.314, onTr=False, onCab=True, onMot=True)
 
     @caso('cc21_fattori_c_per_reti_10_per_cento', ['modCC'])
-    def _(s): campi(s, 'modCC', cfac=1.10, cfacMin=0.90, onLE=True)
+    def _(s): campi(s, 'modCC', cfac=1.10, cfacMin=0.90)
 
     @caso('cc22_alta_media_tensione', ['modCC'])
     def _(s):
@@ -161,7 +175,7 @@ async def main():
     @caso('cc23_trasformatore_BT_BT', ['modCC'])
     def _(s):
         ccm(s)['trasformatori'] = [tr(desc='Isolamento', S=100, uk=4, pcu=1.75, uhv=400, ulv=230, vg='Dyn', kin=14, tau=0.15)]
-        campi(s, 'modCC', IkQ=10, UnQ=400, rxGrid=0.5, onLE=True)
+        campi(s, 'modCC', IkQ=10, UnQ=400, rxGrid=0.5)
 
     @caso('cc24_sistema_690_V_con_motori', ['modCC'])
     def _(s):
@@ -170,21 +184,21 @@ async def main():
         campi(s, 'modCC', UnQ=20000, IkQ=16, onMot=True, onKT=True)
 
     @caso('cc25_senza_rete_a_monte', ['modCC'])
-    def _(s): campi(s, 'modCC', onGrid=False, onLE=True)
+    def _(s): campi(s, 'modCC', onGrid=False)
 
     # ---- punti della catena: consegna, primario, sbarre, fine di ogni tratto ----
     @caso('cc27_punti_cavo_sorgente_ramo_tre_tratti', ['modCC'])
     def _(s):
-        ccm(s)['trasformatori'] = [tr(hascab=True, cS=240, cL=12, cn=3)]
-        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160), cav(desc='Terminale', mat='Al', S=10, L=65, te=160)]
+        ccm(s)['trasformatori'] = [tr(hascab=True, cS=240, cL=12, cn=3, cSn=120)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2, Sn=240), cav(desc='Dorsale', S=95, L=42, te=160, Sn=50), cav(desc='Terminale', mat='Al', S=10, L=65, te=160, Sn=10)]
         ccm(s)['motori'] = [mot(P=110), mot(desc='Motore 2', P=45, klr=7, poles=2)]
-        campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, onLE=True, le_S=50, le_L=125, le_RE=0.02, le_te=160, IkQmin=9)
+        campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, IkQmin=9)
 
     @caso('cc28_punti_due_trasformatori_metodo_C', ['modCC'])
     def _(s):
-        ccm(s)['trasformatori'] = [tr(S=800, uk=6, pcu=8.5, vg='Dzn', kin=10, tau=0.3), tr(desc='Trasf. 2', S=800, uk=6, pcu=8.5, kin=10, tau=0.3, hascab=True, cS=185, cL=20)]
-        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
-        campi(s, 'modCC', sc_on=True, sc_S=95, sc_L=200, onCab=True, onKT=True, ipMethod='C', onLE=True, le_S=50, le_L=60)
+        ccm(s)['trasformatori'] = [tr(S=800, uk=6, pcu=8.5, vg='Dzn', kin=10, tau=0.3), tr(desc='Trasf. 2', S=800, uk=6, pcu=8.5, kin=10, tau=0.3, hascab=True, cS=185, cL=20, cSn=95)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2, Sn=240), cav(desc='Dorsale', S=95, L=42, te=160, Sn=50)]
+        campi(s, 'modCC', sc_on=True, sc_S=95, sc_L=200, onCab=True, onKT=True, ipMethod='C')
 
     @caso('cc29_punti_rete_MT_senza_trasformatore', ['modCC'])
     def _(s):
@@ -200,27 +214,28 @@ async def main():
     @caso('cc31_punti_trasformatore_BT_BT', ['modCC'])
     def _(s):
         ccm(s)['trasformatori'] = [tr(desc='Isolamento', S=100, uk=4, pcu=1.75, uhv=400, ulv=230, vg='Dyn', kin=14, tau=0.15)]
-        ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160), cav(desc='Terminale', S=10, L=30, te=160)]
-        campi(s, 'modCC', IkQ=20, IkQmin=12, UnQ=400, rxGrid=0.5, sc_on=True, sc_S=95, sc_L=80, onCab=True, onLE=True, le_S=50, le_L=72)
+        ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160, Sn=50), cav(desc='Terminale', S=10, L=30, te=160, Sn=10)]
+        campi(s, 'modCC', IkQ=20, IkQmin=12, UnQ=400, rxGrid=0.5, sc_on=True, sc_S=95, sc_L=80, onCab=True)
 
     @caso('cc32_punti_primario_e_secondario_del_trasformatore', ['modCC'])
     def _(s):
-        ccm(s)['trasformatori'] = [tr(hvcab=True, hvmat='Al', hvS=50, hvL=40, hvte=180, hascab=True, cS=240, cL=15, cn=2, cte=140)]
-        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        ccm(s)['trasformatori'] = [tr(hvcab=True, hvmat='Al', hvS=50, hvL=40, hvte=180, hascab=True, cS=240, cL=15, cn=2, cte=140, cSn=120)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2, Sn=120), cav(desc='Dorsale', S=95, L=42, te=160, Sn=50)]
         ccm(s)['motori'] = [mot(P=90), mot(desc='Motore 2', P=30, klr=7.5, tmin=0.05)]
-        campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, onLE=True, le_S=50, le_L=75, le_RE=0.02, le_te=160, IkQmin=8)
+        campi(s, 'modCC', sc_on=True, sc_mat='Al', sc_S=95, sc_L=350, sc_te=200, onCab=True, onMot=True, IkQmin=8)
 
     # ---- tensione nominale della rete nel punto di guasto ----
     # Esempio di IEC TR 60909-4, art. 5: trasformatori da 410 V di targa su rete a 400 V. Le sezioni danno esattamente le resistenze
-    # per chilometro dell'esempio; il conduttore di ritorno equivale a Z0 − Z1 delle linee L3 e L4.
-    # Attesi dal rapporto tecnico: I″k 34,12 kA e ip 69,07 kA alle sbarre, 6,94 kA e 10,36 kA a fine linea.
+    # per chilometro dell'esempio; le sezioni N/PE e i rapporti X0/X danno le impedenze omopolari dell'esempio:
+    # L1 R0 = 3,7 R e X0 = 1,81 X · L2 4,23 R e 1,21 X · L3 3 R e 4,46 X · linea aerea L4 2 R e 3 X.
+    # Attesi dal rapporto tecnico: I″k 34,12 kA e ip 69,07 kA alle sbarre, 6,94 kA e 10,36 kA a fine linea; I″k1 34,98 kA e 4,83 kA.
+    # Le sezioni N/PE dei cavi di ramo danno le resistenze omopolari dell'esempio (R0 = 3,7 RL e 4,23 RL).
     @caso('cc33_esempio_IEC_TR_60909_4_rete_BT', ['modCC'])
     def _(s):
-        ccm(s)['trasformatori'] = [tr(desc='T1', S=630, uk=4, pcu=6.5, uhv=20000, ulv=410, hascab=True, cmat='Cu', cS=240.506494, cL=10, cn=2, cx=0.079),
-                                   tr(desc='T2', S=400, uk=4, pcu=4.6, uhv=20000, ulv=410, hascab=True, cmat='Al', cS=141.403846, cL=4, cn=2, cx=0.068)]
-        ccm(s)['cavi'] = [cav(desc='L3', S=68.335793, L=20, x=0.087), cav(desc='L4', S=49.99730, L=50, x=0.297)]
-        campi(s, 'modCC', gridMode='Ik', IkQ=10, UnQ=20000, rxGrid=0.1, onKT=True, ipMethod='C', ccTk=0.06, onCab=True, onLE=True,
-              le_mat='Cu', le_S=132.468, le_L=70, le_n=1, le_x=0.170090, le_RE=0)
+        ccm(s)['trasformatori'] = [tr(desc='T1', S=630, uk=4, pcu=6.5, uhv=20000, ulv=410, hascab=True, cmat='Cu', cS=240.506494, cL=10, cn=2, cx=0.079, cSn=267.229438, ckx0=1.81),
+                                   tr(desc='T2', S=400, uk=4, pcu=4.6, uhv=20000, ulv=410, hascab=True, cmat='Al', cS=141.403846, cL=4, cn=2, cx=0.068, cSn=131.334841, ckx0=1.21)]
+        ccm(s)['cavi'] = [cav(desc='L3', S=68.335793, L=20, x=0.087, Sn=102.50369, kx0=4.46), cav(desc='L4', S=49.99730, L=50, x=0.297, Sn=149.9919, kx0=3)]
+        campi(s, 'modCC', gridMode='Ik', IkQ=10, UnQ=20000, rxGrid=0.1, onKT=True, ipMethod='C', ccTk=0.06, onCab=True)
 
     # Esempio di IEC TR 60909-4, art. 6: rete a 6 kV alimentata da due trasformatori 33/6,3 kV, motori asincroni sulle sbarre.
     # Attesi dal rapporto tecnico: senza motori I″k 14,74 kA; motori I″kM 2,54 + 2,24 kA, ipM 6,27 + 5,53 kA; Ib 17,04 kA.
@@ -231,18 +246,58 @@ async def main():
                            [mot(desc='M2-%d' % i, P=1000, U=6000, eta=0.78125, klr=5.5, rx=0.1, poles=1, tmin=0.10) for i in (1, 2, 3)]
         campi(s, 'modCC', gridMode='Ik', IkQ=13.12, UnQ=33000, rxGrid=0.1, cfac=1.10, cfacMin=1.00, onKT=True, ipMethod='C', onMot=True)
 
+    # Lo stesso esempio dell'art. 6 con il metodo B: i rami in parallelo hanno R/X sotto 0,3, quindi il fattore 1,15 non si applica
+    # (IEC 60909-0, 8.1.2 b). Atteso dal rapporto tecnico: ip senza motori 37,03 kA con κ = 1,78.
+    @caso('cc38_esempio_IEC_TR_60909_4_rete_MT_picco_metodo_B', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc=d, S=15000, uk=15, pcu=90, uhv=33000, ulv=6300, hvcab=True, hvmat='Cu', hvS=185.19, hvL=4850, hvn=1, hvx=0.1) for d in ('T1', 'T2')]
+        campi(s, 'modCC', gridMode='Ik', IkQ=13.12, UnQ=33000, rxGrid=0.1, cfac=1.10, cfacMin=1.00, onKT=True, ipMethod='B')
+
+    # Due trasformatori piccoli in parallelo: R/X dei rami da 0,3 in su, il fattore 1,15 resta
+    @caso('cc39_due_trasformatori_da_250_kVA_metodo_B_con_1_15', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='T1', S=250, uk=4, pcu=3.25), tr(desc='T2', S=250, uk=4, pcu=3.25)]
+        campi(s, 'modCC', onKT=True, ipMethod='B')
+
+    # Cavi di ramo con il conduttore di ritorno a sezione piena e ridotta, più motori nel fase-terra
+    @caso('cc40_cavo_di_ramo_con_ritorno_e_motori_nel_fase_terra', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='T1', S=1000, uk=6, pcu=10.5, hascab=True, cS=240, cL=30, cn=3, cSn=240),
+                                   tr(desc='T2', S=630, hascab=True, cS=240, cL=45, cn=2, cSn=120, cte=160)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2, Sn=120), cav(desc='Dorsale', S=95, L=42, te=160, Sn=50)]
+        ccm(s)['motori'] = [mot(P=160, klr=6.5), mot(desc='Motore 2', P=75, klr=7, poles=2)]
+        campi(s, 'modCC', onKT=True, ipMethod='B', onCab=True, onMot=True)
+
+    # Due rami in parallelo, uno con il cavo senza la sezione N/PE: nella sequenza zero entra solo l'altro
+    @caso('cc41_due_rami_uno_senza_N_PE', ['modCC'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(desc='T1', S=800, uk=6, pcu=8.5, hascab=True, cS=240, cL=20, cn=2),
+                                   tr(desc='T2', S=800, uk=6, pcu=8.5, hascab=True, cS=185, cL=20, cn=2, cSn=95)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2, Sn=120)]
+        campi(s, 'modCC', onKT=True, onCab=True)
+
+    # File salvato con una versione fino alla 0.1.24, con la scheda «Guasto fase-terra» attiva: si apre con l'avviso e
+    # con i campi N/PE vuoti, quindi il fase-terra è calcolato solo ai morsetti del trasformatore
+    @caso('cc42_file_precedente_con_scheda_fase_terra', ['modCC'], grezzo=True)
+    def _(s):
+        t = tr(hascab=True, cS=240, cL=12, cn=3); t.pop('cSn', None); t.pop('ckx0', None)
+        ccm(s)['trasformatori'] = [t]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        for c in ccm(s)['cavi']: c.pop('Sn', None); c.pop('kx0', None)
+        campi(s, 'modCC', onCab=True, onLE=True, le_mat='Cu', le_S=50, le_L=60, le_n=1, le_x=0.08, le_te=160, le_RE=0.02)
+
     @caso('cc35_secondario_a_420_V_rete_a_400_V', ['modCC'])
     def _(s):
-        ccm(s)['trasformatori'] = [tr(ulv=420, hvcab=True, hvS=50, hvL=40, hascab=True, cS=240, cL=15, cn=2)]
-        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2), cav(desc='Dorsale', S=95, L=42, te=160)]
+        ccm(s)['trasformatori'] = [tr(ulv=420, hvcab=True, hvS=50, hvL=40, hascab=True, cS=240, cL=15, cn=2, cSn=120)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=240, L=18, n=2, Sn=120), cav(desc='Dorsale', S=95, L=42, te=160, Sn=50)]
         ccm(s)['motori'] = [mot(P=90), mot(desc='Motore 2', P=30, klr=7.5, tmin=0.05)]
-        campi(s, 'modCC', sc_on=True, sc_S=95, sc_L=350, onKT=True, onCab=True, onMot=True, onLE=True, le_S=50, le_L=75)
+        campi(s, 'modCC', sc_on=True, sc_S=95, sc_L=350, onKT=True, onCab=True, onMot=True)
 
     @caso('cc36_secondario_a_380_V_rete_a_400_V', ['modCC'])
     def _(s):
         ccm(s)['trasformatori'] = [tr(ulv=380)]
-        ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160)]
-        campi(s, 'modCC', onCab=True, onLE=True, le_S=50, le_L=42)
+        ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160, Sn=50)]
+        campi(s, 'modCC', onCab=True)
 
     @caso('cc37_tensione_nominale_imposta_690_V', ['modCC'])
     def _(s):
@@ -253,11 +308,11 @@ async def main():
 
     @caso('cc26_impianto_completo', TUTTI)
     def _(s):
-        ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=60, hascab=True, cS=240, cL=12, cn=4),
-                                   tr(desc='Trasf. 2', S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=75, hascab=True, cS=240, cL=15, cn=4)]
-        ccm(s)['cavi'] = [cav(desc='Blindo', tipo='uni', S=300, L=25, n=3, x=0.09, te=160), cav(desc='Partenza', S=120, L=45, te=250)]
+        ccm(s)['trasformatori'] = [tr(S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=60, hascab=True, cS=240, cL=12, cn=4, cSn=240),
+                                   tr(desc='Trasf. 2', S=1000, uk=6, pcu=10.5, kin=10, tau=0.35, hvcab=True, hvS=95, hvL=75, hascab=True, cS=240, cL=15, cn=4, cSn=240)]
+        ccm(s)['cavi'] = [cav(desc='Blindo', tipo='uni', S=300, L=25, n=3, x=0.09, te=160, Sn=150), cav(desc='Partenza', S=120, L=45, te=250, Sn=70)]
         ccm(s)['motori'] = [mot(P=160, klr=6.5), mot(desc='Motore 2', P=75, klr=7, poles=2)]
-        campi(s, 'modCC', sc_on=True, sc_S=150, sc_L=300, sc_te=250, onKT=True, ipMethod='C', onCab=True, onMot=True, onLE=True, le_S=70, le_L=70, IkQ=16, IkQmin=10, ccTk=0.5)
+        campi(s, 'modCC', sc_on=True, sc_S=150, sc_L=300, sc_te=250, onKT=True, ipMethod='C', onCab=True, onMot=True, IkQ=16, IkQmin=10, ccTk=0.5)
         campi(s, 'modFUS', fu_Ik=28, fu_ip=62, fu_Imin=4.2, fu_S=120, fu_onInr=True, fu_onMot=True, fu_tavv=6)
         campi(s, 'modCB', cb_Ik=28, cb_ip=62, cb_Imin=4.2, cb_S=120, cb_onInr=True, cb_inrSide=2, cb_onOvl=True, cb_onMot=True)
         cb(s)['A'] = intr('NZMN4-AX1600', Ir=1440)
@@ -490,7 +545,7 @@ async def main():
     elenco = []
     async with async_playwright() as pw:
         b = await pw.chromium.launch()
-        for nome, moduli, f in CASI:
+        for nome, moduli, f, grezzo in CASI:
             if SOLO and not nome.startswith(SOLO): continue
             s = copy.deepcopy(BASE); f(s)
             p = await b.new_page(viewport={'width': 1300, 'height': 900}); err = []
@@ -498,7 +553,7 @@ async def main():
             await p.goto('file://' + HTML); await p.wait_for_timeout(600)
             rep = await p.evaluate('([t])=>{ const r=allOpenText(t,"caso.json"); return r?{ok:r.ok,skip:r.skip,miss:r.miss}:null; }', [json.dumps(s)])
             await p.wait_for_timeout(300)
-            out = json.loads(await p.evaluate(SALVA)); out.pop('salvato', None)
+            out = copy.deepcopy(s) if grezzo else json.loads(await p.evaluate(SALVA)); out.pop('salvato', None)
             json.dump({'nome': nome, 'moduli': moduli, 'stato': out}, open(os.path.join(QUI, 'casi', nome + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
             nota = ''
             if not rep or rep['skip'] or rep['miss'] or err: nota = f"  ATTENZIONE: {rep} {err}"

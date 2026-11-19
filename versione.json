@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.24",
+  "versione": "0.1.25",
   "data": "19/11/2026",
-  "novita": "Cortocircuito: la tensione nel punto di guasto è la nominale della rete (IEC 60909-0). È ricavata dal secondario del trasformatore: entro il 6 % da 230, 400, 3000, 6000, 15000 o 20000 V vale quella (410 V → 400 V); si può imporre nel campo «Un nel punto di guasto»."
+  "novita": "Cortocircuito: il guasto fase-terra si calcola dalla sezione N/PE e dal rapporto X0/X di ogni cavo (cavo di ramo e tratti), senza più la scheda dedicata; R0 = RT per il Dyn, motori nella corrente massima, picco con il κ del guasto trifase. Con trasformatori in parallelo il fattore 1,15 del picco (metodo B) si applica solo se un ramo ha R/X ≥ 0,3."
  },
  "Gestione_curve.html": {
   "versione": "0.2.6",

@@ -5,7 +5,7 @@
  ],
  "stato": {
   "app": "Calcoli elettrici",
-  "versione": "0.1.24",
+  "versione": "0.1.25",
   "formato": 1,
   "moduli": {
    "modCC": {
@@ -36,15 +36,7 @@
      "onTr": true,
      "onKT": true,
      "onCab": true,
-     "onMot": true,
-     "onLE": true,
-     "le_mat": "Cu",
-     "le_S": "50",
-     "le_L": "75",
-     "le_n": "1",
-     "le_x": "0.08",
-     "le_te": "250",
-     "le_RE": "0"
+     "onMot": true
     },
     "trasformatori": [
      {
@@ -74,7 +66,9 @@
       "cL": "15",
       "cn": "2",
       "cx": "0.08",
-      "cte": "250"
+      "cte": "250",
+      "cSn": "120",
+      "ckx0": "4"
      }
     ],
     "cavi": [
@@ -86,7 +80,9 @@
       "L": "18",
       "n": "2",
       "x": "0.08",
-      "te": "250"
+      "te": "250",
+      "Sn": "120",
+      "kx0": "4"
      },
      {
       "desc": "Dorsale",
@@ -96,7 +92,9 @@
       "L": "42",
       "n": "1",
       "x": "0.08",
-      "te": "160"
+      "te": "160",
+      "Sn": "50",
+      "kx0": "4"
      }
     ],
     "motori": [
