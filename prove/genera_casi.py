@@ -390,8 +390,17 @@ async def main():
         ccm(s)['trasformatori'] = [tr(S=400, uk=6, pcu=5.5, tt='secco', kin=10, tau=0.25)]
         cb(s)['A'] = intr('NZMN3-AE630'); campi(s, 'modCB', cb_onOvl=True, cb_onInr=True, cb_inrSide=2, cb_Ik=9.5, cb_ip=20, cb_Imin=3)
 
+    # tensione di esercizio scritta a mano: prevale su quella del punto
     @caso('cb10_tensione_690_V', ['modCB'])
     def _(s): cb(s)['A'] = intr('NZMH2-4-A80-SVE'); campi(s, 'modCB', cb_U=690, cb_Ik=8, cb_ip=15, cb_Imin=0.8, cb_S=25)
+
+    # spunto del motore visto da un fusibile MT e da un interruttore scelti sul punto di consegna: corrente riportata a 15 kV;
+    # campo della tensione vuoto, quindi l'interruttore prende la tensione del punto
+    @caso('cb13_spunto_riportato_alla_tensione_del_punto', ['modCC', 'modFUS', 'modCB'])
+    def _(s):
+        ccm(s)['motori'] = [mot(P=200)]
+        campi(s, 'modCC', onMot=True); campi(s, 'modFUS', fu_onMot=True); campi(s, 'modCB', cb_onMot=True)
+        s['moduli']['modFUS']['punto'] = 0; cb(s)['punto'] = 0
 
     @caso('cb11_ABB_termomagnetico_e_elettronico', ['modCB'])
     def _(s): cb(s)['A'] = intr('XT4H 250 TMA 225'); cb(s)['B'] = intr('XT2N 160 Ekip Dip LSI 10'); campi(s, 'modCB', cb_onB=True, cb_Ik=30, cb_ip=63, cb_Imin=1, cb_S=70)

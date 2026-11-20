@@ -335,7 +335,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.30</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.31</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -577,7 +577,7 @@ details.adv>.in{margin-top:10px}
     <label class="f">Tempo massimo di interruzione <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Tempo entro cui il fusibile deve interrompere la corrente di guasto minima. Valori usuali per l'interruzione automatica (IEC 60364-4-41): 0,4 s per i circuiti terminali fino a 32 A nei sistemi TN a 230 V, 5 s per i circuiti di distribuzione.">i</span>
       <input type="number" id="fu_tmax" value="5" step="any">
     </label>
-    <label class="f">Punto da cui copiare<span class="tip" tabindex="0" data-tip="Punto del modulo Cortocircuito da cui il tasto «copia» prende le correnti. Se non si sceglie altro è l'ultimo punto, cioè la fine della catena.">i</span>
+    <label class="f">Punto da cui copiare<span class="tip" tabindex="0" data-tip="Punto del modulo Cortocircuito in cui è installato il fusibile. Il tasto «copia» ne prende le correnti; lo spunto del motore è riportato alla sua tensione nominale, indicata tra parentesi. Se non si sceglie altro è l'ultimo punto, cioè la fine della catena.">i</span>
       <select id="fu_pt" class="ccpt"></select>
     </label>
     <label class="f" style="justify-content:flex-end">
@@ -633,8 +633,8 @@ details.adv>.in{margin-top:10px}
   <div class="subh" style="margin-top:16px">Avviamento e inserzione (trasformatori e motori del modulo Cortocircuito)</div>
   <div class="grid3" style="align-items:end">
     <label class="toggle"><input type="checkbox" id="fu_onMot"><span>sovrapponi lo spunto del motore</span></label>
-    <label class="f">Durata avviamento t<sub>avv</sub> <span class="u">(s)</span><input type="number" id="fu_tavv" value="5" step="any"></label>
     <label class="f">Motore<select id="fu_moSel"></select></label>
+    <label class="f">Durata avviamento t<sub>avv</sub> <span class="u">(s)</span><input type="number" id="fu_tavv" value="5" step="any"></label>
     <label class="toggle"><input type="checkbox" id="fu_onInr"><span>sovrapponi l'inserzione del trasformatore</span></label>
     <label class="f">Trasformatore<select id="fu_trSel"></select></label>
     <label class="f">Lato del trasformatore<span class="tip" tabindex="0" data-tip="Lato a cui riferire la corrente di inserzione. L'inserzione è assorbita dal lato alimentato (di norma il primario): scegliere il lato su cui è installato il fusibile.">i</span>
@@ -661,8 +661,8 @@ details.adv>.in{margin-top:10px}
 
   <div class="subh" style="margin-top:14px">Rete e correnti di guasto presunte</div>
   <div class="grid3" style="align-items:end">
-    <label class="f">Tensione di esercizio U <span class="u">(V)</span><span class="tip" tabindex="0" data-tip="Tensione nel punto di installazione. Determina il potere di interruzione Icu dichiarato dal costruttore e la curva di limitazione e di I²t da usare (quelle alla tensione uguale o subito superiore).">i</span>
-      <input type="number" id="cb_U" value="400" step="any">
+    <label class="f">Tensione di esercizio U <span class="u">(V)</span><span class="tip" tabindex="0" data-tip="Tensione nel punto di installazione: determina il potere di interruzione Icu dichiarato dal costruttore e le curve di limitazione e di I²t da usare. Lasciato vuoto, vale la tensione nominale del punto scelto in «Punto da cui copiare», indicata in grigio nel campo; scrivendo un valore si impone quello, per esempio per verificare un interruttore a 230 o a 690 V senza cambiare la rete del modulo Cortocircuito.">i</span>
+      <input type="number" id="cb_U" value="" step="any" placeholder="dal punto">
     </label>
     <label class="f">I″<sub>k</sub> massima <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito presunta massima nel punto di installazione. Serve per il potere di interruzione, il picco lasciato passare e l'energia passante I²t.">i</span>
       <input type="number" id="cb_Ik" value="18.9" step="any">
@@ -676,7 +676,7 @@ details.adv>.in{margin-top:10px}
     <label class="f">Tempo massimo di interruzione <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Tempo entro cui l'interruttore deve interrompere la corrente di guasto minima. Valori usuali per l'interruzione automatica (IEC 60364-4-41): 0,4 s per i circuiti terminali fino a 32 A nei sistemi TN a 230 V, 5 s per i circuiti di distribuzione.">i</span>
       <input type="number" id="cb_tmax" value="5" step="any">
     </label>
-    <label class="f">Punto da cui copiare<span class="tip" tabindex="0" data-tip="Punto del modulo Cortocircuito da cui il tasto «copia» prende le correnti. Se non si sceglie altro è l'ultimo punto, cioè la fine della catena.">i</span>
+    <label class="f">Punto da cui copiare<span class="tip" tabindex="0" data-tip="Punto del modulo Cortocircuito in cui è installato l'interruttore. La sua tensione nominale, indicata tra parentesi, è la tensione di esercizio quando il campo «Tensione di esercizio» è vuoto; lo spunto del motore è riportato a questa tensione. Il tasto «copia» ne prende le correnti. Se non si sceglie altro è l'ultimo punto, cioè la fine della catena.">i</span>
       <select id="cb_pt" class="ccpt"></select>
     </label>
     <label class="f" style="justify-content:flex-end">
@@ -733,8 +733,8 @@ details.adv>.in{margin-top:10px}
   <div class="subh" style="margin-top:16px">Avviamento e inserzione (trasformatori e motori del modulo Cortocircuito)</div>
   <div class="grid3" style="align-items:end">
     <label class="toggle"><input type="checkbox" id="cb_onMot"><span>sovrapponi lo spunto del motore</span></label>
-    <label class="f">Durata avviamento t<sub>avv</sub> <span class="u">(s)</span><input type="number" id="cb_tavv" value="5" step="any"></label>
     <label class="f">Motore<select id="cb_moSel"></select></label>
+    <label class="f">Durata avviamento t<sub>avv</sub> <span class="u">(s)</span><input type="number" id="cb_tavv" value="5" step="any"></label>
     <label class="toggle"><input type="checkbox" id="cb_onInr"><span>sovrapponi l'inserzione del trasformatore</span></label>
     <label class="f">Trasformatore<select id="cb_trSel"></select></label>
     <label class="f">Lato del trasformatore<span class="tip" tabindex="0" data-tip="Lato a cui riferire la corrente di inserzione. L'inserzione è assorbita dal lato alimentato (di norma il primario): scegliere il lato su cui è installato l'interruttore.">i</span>
@@ -1189,7 +1189,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.30 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.31 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1226,7 +1226,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.30";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.31";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -2016,6 +2016,10 @@ function ccPtVals(k){ const P=CC_ST&&CC_ST.pts; if(!P||!P.length) return null;
     min:(B.le&&B.le.ok)?r(B.le.Ik1):(B.monoFault?r(B.oIk):r(B.oIk*LL))};   // min: la più bassa disponibile (fase-terra, altrimenti bifase)
 }
 const ccPtLbl=p=>`${p.id} · ${p.name} (${fusNum(p.Un)} V)`;
+// punto scelto in un elenco «punto da cui copiare», con la tensione nominale del lato dei motori (l'ultimo punto della catena)
+function ccPtU(id){ const P=CC_ST&&CC_ST.pts, el=$(id); if(!P||!P.length) return null;
+  const k=el?parseInt(el.value,10):NaN, p=P[(k>=0&&k<P.length)?k:P.length-1];
+  return {p, Un:p.Un, UnMot:P[P.length-1].Un}; }
 // elenchi «punto da cui copiare» degli altri moduli: riscritti solo quando cambiano i punti; resta scelto l'ultimo punto finché non se ne indica un altro
 function ccPtSelects(){ const P=CC_ST.pts, sig=P.map(ccPtLbl).join("|");
   document.querySelectorAll("select.ccpt").forEach(el=>{ if(el.dataset.sig===sig) return;
@@ -2528,15 +2532,23 @@ function fusLegend(st){
   if(st.Ik>0) it.push(sw(FUS_PAL.ik,"6 3")+"I″k massima");
   if(st.Imin>0) it.push(sw(FUS_PAL.imin,"2 3")+"I″k minima");
   st.res.forEach((r,i)=>{ if(r.f.Imb>0) it.push(sw(FUS_PAL.c[i],"1 3")+`corrente minima di interruzione ${fusNum(r.f.Imb)} A`+(st.res.length>1?(i?" (B)":" (A)"):"")); });
-  if(st.mot) it.push(sw(FUS_PAL.mot,"2 4")+"avviamento motore");
+  if(st.mot) it.push(sw(FUS_PAL.mot,"2 4")+"avviamento motore"+(st.mot.U?` (riportato a ${fusNum(st.mot.U)} V)`:""));
   if(st.inr) it.push(sw(FUS_PAL.inr,"9 3 2 3")+"inserzione trasformatore");
   return it.map(s=>`<span style="white-space:nowrap">${s}</span>`).join("");
 }
 // dati di avviamento e inserzione del trasformatore e del motore scelti nel modulo (p = prefisso dei menu: fu, cb, pm)
 function fusMagData(p){
   const R=magRows(), t=R.tr.find(r=>r.id===($(p+"_trSel")||{}).value)||R.tr[0]||{}, m=R.mo.find(r=>r.id===($(p+"_moSel")||{}).value)||R.mo[0]||{};
-  return {In1:t.In1||0, In2:t.In2||0, U1:t.U1||0, U2:t.U2||0, k:t.k||0, tau:t.tau||0, SkVA:t.SkVA||0, uk:t.uk||0, tipo:t.tipo||"olio", desc:t.desc||"", InM:m.In||0, Iavv:m.Iavv||0};
+  // spunto del motore riportato alla tensione del punto scelto nel modulo: i motori stanno alla fine della catena, quindi in un
+  // punto a monte del trasformatore la corrente è ridotta nel rapporto tra le tensioni nominali (lato motori / punto)
+  const q=$(p+"_pt")?ccPtU(p+"_pt"):null, kU=(q&&q.Un>0&&q.UnMot>0)?q.UnMot/q.Un:1;
+  return {In1:t.In1||0, In2:t.In2||0, U1:t.U1||0, U2:t.U2||0, k:t.k||0, tau:t.tau||0, SkVA:t.SkVA||0, uk:t.uk||0, tipo:t.tipo||"olio", desc:t.desc||"",
+          InM:(m.In||0)*kU, Iavv:(m.Iavv||0)*kU, kU, Upt:q?q.Un:0};
 }
+// tensione degli interruttori: quella scritta nel campo, altrimenti la nominale del punto scelto nel modulo; senza punti, 400 V
+function cbU(){ const q=ccPtU("cb_pt"), a=q&&q.Un>0?q.Un:400, m=num("cb_U"), el=$("cb_U");
+  if(el) el.placeholder="dal punto: "+fusNum(a)+" V";
+  return m>0?m:a; }
 /* ---- calcolo e disegno del modulo ---- */
 function computeFus(){
   if(!$("fu_selA")||!$("fu_selA").value) return;
@@ -2602,8 +2614,8 @@ function computeFus(){
   if($("fu_onMot").checked && mg.Iavv>0){
     const tavv=num("fu_tavv"), tr=fusTime(a.f.t,mg.Iavv);
     if(tavv>0){
-      st.mot={Iavv:mg.Iavv,In:mg.InM,tavv};
-      checks.push({l:`Spunto motore ${fmtA(mg.Iavv)} per ${fusFmtT(tavv)}: intervento del fusibile in <b>${fusTimeTxt(tr)}</b>`, ok:tr.st==='none'||(tr.st==='ok'&&tr.t>tavv),
+      st.mot={Iavv:mg.Iavv,In:mg.InM,tavv,U:mg.kU!==1?mg.Upt:0};
+      checks.push({l:`Spunto motore ${fmtA(mg.Iavv)}${mg.kU!==1?` riportato a ${fusNum(mg.Upt)} V`:""} per ${fusFmtT(tavv)}: intervento del fusibile in <b>${fusTimeTxt(tr)}</b>`, ok:tr.st==='none'||(tr.st==='ok'&&tr.t>tavv),
         extra:tr.st==='none'?`lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento`:`il tempo di intervento alla corrente di spunto deve superare la durata dell'avviamento`,
         tip:`Il fusibile non deve intervenire durante l'avviamento: alla corrente di spunto il tempo di intervento deve essere maggiore della durata dell'avviamento, con margine per la tolleranza della curva. Corrente nominale e di spunto dalle righe dei motori del modulo Cortocircuito.`});
     }
@@ -2655,7 +2667,7 @@ function fusExportHTML(){
   if(st.Ik>0) it.push(`I″k massima ${kA(st.Ik)} kA`);
   if(st.Imin>0) it.push(`I″k minima ${fmtA(st.Imin)}`);
   st.res.forEach(r=>{ if(r.f.Imb>0) it.push(`corrente minima di interruzione di ${r.f.type}: ${fusNum(r.f.Imb)} A (punteggiata fine)`); });
-  if(st.mot) it.push("spunto motore (punteggiata)");
+  if(st.mot) it.push("spunto motore (punteggiata"+(st.mot.U?`, riportato a ${fusNum(st.mot.U)} V`:"")+")");
   if(st.inr) it.push("inserzione trasformatore (tratto‑punto)");
   // sotto il grafico tempo-corrente: limitazione e I²t affiancati, come nella scheda
   const box=(t,svg,no)=>`<div style="flex:1 1 0;min-width:0"><div style="font-size:11px;font-weight:600;margin:0 0 2px">${t}</div>${svg||`<div style="font-size:10px;color:#555">${no}</div>`}</div>`;
@@ -2673,6 +2685,7 @@ function fusInit(){
   ["A","B"].forEach(s=>$("fu_grp"+s).addEventListener("change",()=>{
     const cur=fusGet("fu_sel"+s); fusFillSizes("fu_grp"+s,"fu_sel"+s,cur?cur.In:0); computeFus(); }));
   $("fu_onB").addEventListener("change",computeFus);
+  $("fu_pt").addEventListener("change",computeFus);   // lo spunto del motore è riportato alla tensione del punto
   window.addEventListener("resize",computeFus);
   // copia le correnti di guasto dai risultati IEC 60909
   $("fu_copy").addEventListener("click",()=>{
@@ -2987,7 +3000,7 @@ function cbLegend(st){
   if(st.fus) it.push(sw(FUS_PAL.fz,FUS_DASH[0])+`fusibile ${st.fus.type} (${fusNum(st.fus.In)} A ${st.fus.ch})`+(st.fus.refK?` riportato al lato BT (× ${fmt(st.fus.refK,1)}, guasto trifase)`:(st.fus.noRef?` — MT: correnti non riportate al lato BT`:"")));
   if(st.Ik>0) it.push(sw(FUS_PAL.ik,"6 3")+"I″k massima");
   if(st.Imin>0) it.push(sw(FUS_PAL.imin,"2 3")+"I″k minima");
-  if(st.mot) it.push(sw(FUS_PAL.mot,"2 4")+"avviamento motore");
+  if(st.mot) it.push(sw(FUS_PAL.mot,"2 4")+"avviamento motore"+(st.mot.U?` (riportato a ${fusNum(st.mot.U)} V)`:""));
   if(st.inr) it.push(sw(FUS_PAL.inr,"9 3 2 3")+"inserzione trasformatore");
   if(st.ovl) it.push(sw(FUS_PAL.wth,"12 4")+`${escH(st.ovl.desc||"trasformatore")}: I<sub>n</sub> ${fmtA(st.ovl.In)} al ${st.ovl.lato}, tenuta ${fmtA(st.ovl.Ikt)} per 2 s`+(st.ovl.c?" e sovraccarico ammesso (ANSI C57.92)":""));
   return it.map(s=>`<span>${s}</span>`).join("");
@@ -2998,7 +3011,7 @@ function computeCb(){
   cbSync("A");
   const onB=$("cb_onB").checked; $("cb_slotB").hidden=!onB; $("cb_resB").hidden=!onB;
   if(onB) cbSync("B");
-  const U=num("cb_U")||400, Ik=num("cb_Ik")*1000, ip=num("cb_ip")*1000, Imin=num("cb_Imin")*1000, tmax=num("cb_tmax");
+  const U=cbU(), Ik=num("cb_Ik")*1000, ip=num("cb_ip")*1000, Imin=num("cb_Imin")*1000, tmax=num("cb_tmax");
   const list=[cbSlot("A",U)]; if(onB) list.push(cbSlot("B",U));
   if(!list[0]||(onB&&!list[1])) return;
   const r3=v=>fusNum(+v.toPrecision(3));
@@ -3066,8 +3079,8 @@ function computeCb(){
   if($("cb_onMot").checked && mg.Iavv>0){
     const tavv=num("cb_tavv"), tr=fusTime(lo,mg.Iavv);
     if(tavv>0){
-      st.mot={Iavv:mg.Iavv,In:mg.InM,tavv};
-      checks.push({l:`Spunto motore ${fmtA(mg.Iavv)} per ${fusFmtT(tavv)}: intervento più rapido in <b>${tr.st==='none'?"nessun intervento":(tr.t<=0.03?"istantaneo":fusFmtT(tr.t))}</b>`, ok:tr.st==='none'||(tr.st==='ok'&&tr.t>tavv),
+      st.mot={Iavv:mg.Iavv,In:mg.InM,tavv,U:mg.kU!==1?mg.Upt:0};
+      checks.push({l:`Spunto motore ${fmtA(mg.Iavv)}${mg.kU!==1?` riportato a ${fusNum(mg.Upt)} V`:""} per ${fusFmtT(tavv)}: intervento più rapido in <b>${tr.st==='none'?"nessun intervento":(tr.t<=0.03?"istantaneo":fusFmtT(tr.t))}</b>`, ok:tr.st==='none'||(tr.st==='ok'&&tr.t>tavv),
         extra:tr.st==='none'?`lo spunto è sotto l'inizio della banda: nessun intervento all'avviamento`:(a.b.thMin>0&&mg.Iavv>=a.b.thMin?`lo spunto raggiunge la soglia ${a.b.lsi?"istantanea":"magnetica"} minima (${fmtA(a.b.thMin)}): rischio di scatto all'avviamento`:a.b.lsi&&a.b.lsi.thS&&mg.Iavv>=a.b.lsi.thS[0]?`lo spunto raggiunge la soglia di corto ritardo minima (${fmtA(a.b.lsi.thS[0])}): rischio di scatto all'avviamento`:`il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento`),
         tip:`L'interruttore non deve intervenire durante l'avviamento: alla corrente di spunto il tempo minimo della banda deve superare la durata dell'avviamento e lo spunto deve restare sotto la soglia magnetica minima. Corrente nominale e di spunto dalle righe dei motori del modulo Cortocircuito.`});
     }
@@ -3149,7 +3162,7 @@ function cbExportHTML(){
   if(st.fus) it.push(`linea continua viola: fusibile ${st.fus.type}`+(st.fus.refK?` riportato al lato BT (× ${fmt(st.fus.refK,1)})`:(st.fus.noRef?` (MT, non riportato al lato BT)`:"")));
   if(st.Ik>0) it.push(`I″k massima ${kA(st.Ik)} kA`);
   if(st.Imin>0) it.push(`I″k minima ${fmtA(st.Imin)}`);
-  if(st.mot) it.push("spunto motore (punteggiata)");
+  if(st.mot) it.push("spunto motore (punteggiata"+(st.mot.U?`, riportato a ${fusNum(st.mot.U)} V`:"")+")");
   if(st.inr) it.push("inserzione trasformatore (tratto‑punto)");
   if(st.ovl) it.push(`tratto lungo magenta: tenuta del trasformatore, ${fmtA(st.ovl.Ikt)} per 2 s`+(st.ovl.c?" e sovraccarico ammesso (ANSI C57.92)":"")+`; In ${fmtA(st.ovl.In)} al ${st.ovl.lato}`);
   // sotto il grafico tempo-corrente: limitazione e I²t affiancati, come nella scheda
@@ -3215,7 +3228,7 @@ function cbInit(){
   $("cb_count").textContent=CB_DB.p.length.toLocaleString("it-IT");
   if(CB_USER_MSG) $("cb_userMsg").textContent=CB_USER_MSG;
   ["A","B"].forEach(s=>["ser","fam","sel","Ir","tr","n","Isd","tsd","si","Ii"].forEach(k=>$("cb_"+k+s).addEventListener("change",computeCb)));
-  ["cb_onB","cb_onFus"].forEach(id=>$(id).addEventListener("change",computeCb));
+  ["cb_onB","cb_onFus","cb_pt"].forEach(id=>$(id).addEventListener("change",computeCb));   // cb_pt: la tensione degli interruttori è quella del punto
   window.addEventListener("resize",computeCb);
   { let rz=0; window.addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(()=>{ computePMT(); computeMT(); },120); }); }
   // copia le correnti di guasto dai risultati IEC 60909
@@ -3223,7 +3236,6 @@ function cbInit(){
     const v=ccPtVals(parseInt($("cb_pt").value,10)); if(!v) return;   // punto scelto nell'elenco accanto al tasto
     if(v.Ik!=null)$("cb_Ik").value=v.Ik; if(v.ip!=null)$("cb_ip").value=v.ip;
     if(v.min!=null&&v.min>0)$("cb_Imin").value=v.min;   // la più bassa disponibile: fase-terra, altrimenti bifase
-    const u=v.p.Un; if(u>0&&u<=1000) $("cb_U").value=u;
     computeCb();
   });
   // porta il picco lasciato passare nel campo cut-off della verifica quadro
@@ -5020,7 +5032,8 @@ function allCollect(){
   Object.assign(M.modFUS,{A:allFus("A"),B:allFus("B")});
   Object.assign(M.modCB,{A:allCb("A"),B:allCb("B")});
   const pos=(id,sel)=>{ const i=[...document.querySelectorAll(sel)].findIndex(d=>d.dataset.id===$(id).value); return i<0?null:i; };
-  ["modFUS","modCB"].forEach(m=>{ const p=m==="modFUS"?"fu":"cb"; Object.assign(M[m],{trasformatore:pos(p+"_trSel","#trList .tr-branch"),motore:pos(p+"_moSel","#motList .mot-row")}); });
+  const pti=id=>{ const v=parseInt(($(id)||{}).value,10); return v>=0?v:null; };   // punto scelto: ne dipendono la tensione degli interruttori e lo spunto riportato
+  ["modFUS","modCB"].forEach(m=>{ const p=m==="modFUS"?"fu":"cb"; Object.assign(M[m],{trasformatore:pos(p+"_trSel","#trList .tr-branch"),motore:pos(p+"_moSel","#motList .mot-row"),punto:pti(p+"_pt")}); });
   Object.assign(M.modPMT,{trasformatore:pos("pm_trSel","#trList .tr-branch"),protezioni:allRows("#pmtList .pmt-prot"),trasformatoriEsclusi:[...document.querySelectorAll("#trList .tr-branch")].map((d,i)=>PMT_EXC.has(d.dataset.id)?i:-1).filter(i=>i>=0)});
   M.modREL.datoDiPartenza=lkDrv;
   M.modLP=JSON.parse(JSON.stringify(LPUI.getState()));
@@ -5092,6 +5105,12 @@ function allApply(d){
     CC_LVL=null; }
   CC_SEL=null;   // file appena aperto: il dettaglio torna sull'ultimo punto
   syncSeg(); recompute();
+  // punto scelto nei moduli fusibili e interruttori: serve che i punti esistano, quindi dopo il calcolo
+  [["modFUS","fu"],["modCB","cb"]].forEach(([m,p])=>{ const el=$(p+"_pt"); if(!M[m]||!el||!el.options.length) return;
+    const i=M[m].punto, last=String(el.options.length-1);
+    if(i==null){ el.value=last; return; }   // file precedenti, senza il punto: l'ultimo, come prima
+    if([...el.options].some(o=>o.value===String(i))){ el.value=String(i); rep.ok++; } else { el.value=last; rep.skip.push(p+"_pt"); } });
+  computeFus(); computeCb();
   return rep;
 }
 function allMsg(t,bad){ const m=$("allMsg"); m.hidden=false; m.textContent=t; m.style.color=bad?"var(--warn)":""; }

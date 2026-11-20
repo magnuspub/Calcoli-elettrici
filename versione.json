@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.30",
+  "versione": "0.1.31",
   "data": "20/11/2026",
-  "novita": "Riordino del codice in sezioni (strumenti comuni, interfaccia, moduli, esportazioni, banca dati, avvio): il programma funziona esattamente come prima."
+  "novita": "Fusibili e interruttori: lo spunto del motore è riportato alla tensione del punto scelto; la tensione di esercizio degli interruttori, se lasciata vuota, è quella del punto; il motore si sceglie prima della durata dell'avviamento."
  },
  "Gestione_curve.html": {
   "versione": "0.2.7",
