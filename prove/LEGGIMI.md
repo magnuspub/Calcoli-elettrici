@@ -19,6 +19,8 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
 - `banca.js` — che cosa viene raccolto della banca dati.
 - `genera_casi.py` — come sono stati costruiti i casi; per aggiungerne si usa `--solo prefisso`, che scrive
   solo i casi nuovi e lascia gli altri come sono.
+- `fumetti.py` — controllo a parte, non legato al riferimento: apre tutti i fumetti delle informazioni a varie
+  larghezze di finestra e verifica che restino dentro la pagina.
 
 ## Senza Python
 
@@ -48,6 +50,24 @@ Servono Python con Playwright e Chromium; per `--excel` anche LibreOffice e open
 
 Il comando elenca i casi diversi con il valore di riferimento e quello attuale, e termina con 1 se cambiano
 risultati o valori.
+
+## I fumetti delle informazioni
+
+Le «i» accanto ai campi aprono un fumetto disegnato dal foglio di stile, che non sa dove si trova: su una finestra
+stretta uno vicino al bordo ne uscirebbe. `fumetti.py` li apre uno per uno e misura dove finisce quello disegnato,
+confrontando due immagini della pagina (fumetto nascosto e fumetto aperto). Segnala quelli che escono dal bordo,
+quelli tagliati e quelli che allargano la pagina.
+
+    python3 prove/fumetti.py                                   larghezze abituali (da 320 a 1400 px)
+    python3 prove/fumetti.py --largh 390                       solo una larghezza
+    python3 prove/fumetti.py --caso prove/casi/cc40_....json   apre prima un caso, per avere più campi a video
+    python3 prove/fumetti.py --salva /tmp/fumetti              salva l'immagine di quelli che non vanno
+
+Servono Python con Playwright, Chromium e Pillow. Con un caso ricco di righe (trasformatori, cavi, motori) i
+fumetti controllati sono circa 150; senza, una decina in meno. Il comando termina con 1 se almeno uno non va.
+
+Va eseguito dopo le modifiche all'aspetto della pagina: `prova.py` non se ne accorge, perché confronta i risultati
+e non la posizione dei fumetti.
 
 ## Quando cambia qualcosa
 

@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.28",
+  "versione": "0.1.29",
   "data": "20/11/2026",
-  "novita": "La finestra del grafico aperta con il doppio clic ha il pulsante «Chiudi» e si chiude anche con il tasto Esc."
+  "novita": "I fumetti delle informazioni restano dentro la finestra anche sugli schermi stretti: prima uscivano dal bordo e il testo veniva tagliato."
  },
  "Gestione_curve.html": {
   "versione": "0.2.7",
