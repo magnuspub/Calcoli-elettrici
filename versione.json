@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.26",
-  "data": "19/11/2026",
-  "novita": "Icone e dati per installare la pagina come app sulla schermata Home o sul desktop."
+  "versione": "0.1.27",
+  "data": "20/11/2026",
+  "novita": "«Sostituisci questo file» corretto: chiede la cartella del file, ne tiene una copia col numero di versione nel nome e lo riscrive. Prima il selettore veniva chiesto dopo lo scaricamento e il browser non lo apriva più."
  },
  "Gestione_curve.html": {
   "versione": "0.2.7",

@@ -335,7 +335,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.26</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.27</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -1189,12 +1189,12 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.26 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.27 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
-    <div class="mini">L'aggiornamento sostituisce tutto il file, comprese curve e tabelle: se le hai modificate con «Gestione curve», tieni una copia del file attuale.</div></div>
-  <div class="updact"><button type="button" id="updGet">↧ Scarica</button><button type="button" id="updPut" hidden>Sostituisci questo file…</button><button type="button" id="updSkip">Non ora</button></div>
+    <div class="mini">L'aggiornamento sostituisce tutto il file, comprese curve e tabelle: se le hai modificate con «Gestione curve» andranno perse. «Sostituisci questo file» chiede la cartella in cui si trova, ne tiene una copia col numero di versione nel nome e lo riscrive; «Scarica» lo mette nella cartella dei download, da spostare a mano.</div></div>
+  <div class="updact"><button type="button" id="updGet">↧ Scarica</button><button type="button" id="updPut" hidden title="Chiede la cartella in cui si trova questo file, ne tiene una copia col numero di versione nel nome e lo sostituisce con la versione nuova">Sostituisci questo file…</button><button type="button" id="updSkip">Non ora</button></div>
 </div>
 </div>
 
@@ -1202,7 +1202,7 @@ details.adv>.in{margin-top:10px}
 
 <script>
 "use strict";
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.26";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.27";
 /* ==========================================================================================================
    INTERRUTTORI AGGIUNTI DALL'UTENTE — scheda «Curve degli interruttori»
    Aggiungi qui sotto, dentro  CB_USER = [ … ] , una voce { … } per ogni interruttore, separate da virgole.
@@ -4547,7 +4547,7 @@ async function updCheck(){
   if(!it||!it.versione){ updSay("Nel repository manca l'indicazione della versione.",true); return; }
   if(updCmp(it.versione,APP_VER)<=0){ updSay(`Hai già l'ultima versione (${APP_VER}).`); return; }
   UPD.info=it; $("updVer").textContent=it.versione; $("updDate").textContent=it.data?`del ${it.data} · in uso la ${APP_VER}`:`in uso la ${APP_VER}`; $("updNews").textContent=it.novita?"Novità: "+it.novita:"";
-  $("updPut").hidden=!(window.showOpenFilePicker&&window.isSecureContext!==false); $("updBar").hidden=false; updSay(`Disponibile la versione ${it.versione}.`);
+  $("updPut").hidden=!(window.showDirectoryPicker&&window.isSecureContext!==false); $("updBar").hidden=false; updSay(`Disponibile la versione ${it.versione}.`);
 }
 // scarica il file nuovo e controlla che sia davvero il programma, nella versione annunciata
 async function updText(){
@@ -4556,21 +4556,34 @@ async function updText(){
   if(UPD.info&&updCmp(m[1],APP_VER)<=0) throw new Error("il file nel repository non è più recente di quello in uso");
   return {t,v:m[1]};
 }
-// archivio del file da sostituire, per non doverlo indicare ogni volta (solo dove il browser lo consente)
-function updDb(mode,val){ return new Promise(res=>{ let rq; try{ rq=indexedDB.open("ce_upd",1); }catch(e){ res(null); return; }
-  rq.onupgradeneeded=()=>rq.result.createObjectStore("h"); rq.onerror=()=>res(null);
-  rq.onsuccess=()=>{ try{ const tx=rq.result.transaction("h",mode==="get"?"readonly":"readwrite"), st=tx.objectStore("h"); if(mode==="get"){ const g=st.get("file"); g.onsuccess=()=>res(g.result||null); g.onerror=()=>res(null); } else { st.put(val,"file"); tx.oncomplete=()=>res(true); tx.onerror=()=>res(null); } }catch(e){ res(null); } }; }); }
+// Sostituzione del file in uso: si chiede la cartella che lo contiene, e non il file, perché accanto al file nuovo va
+// scritta la copia della versione attuale e da un handle di file non si possono creare file vicini. Il selettore si apre
+// subito, prima di ogni attesa e prima delle richieste di conferma: il browser lo consente solo mentre il clic è ancora
+// valido (meno di un secondo) e un clic vale per un solo selettore, quindi la copia non si può chiedere a parte.
 async function updReplace(){
-  if(!confirm("Sostituire il file aperto con la versione "+(UPD.info?UPD.info.versione:"nuova")+"?\n\nTutto il file viene riscritto, comprese curve e tabelle: se le hai modificate con «Gestione curve» andranno perse. I dati inseriti nei moduli e non salvati con «Salva tutto» andranno persi al ricaricamento.")) return;
-  updSay("Scaricamento in corso…");
+  let dir;
+  try{ dir=await window.showDirectoryPicker({mode:"readwrite",id:"ce-upd"}); }
+  catch(e){ const ab=e&&(e.name==="AbortError"||e.name==="NotAllowedError");
+    updSay(ab?"Sostituzione annullata.":"Scelta della cartella non riuscita ("+((e&&e.message)||e)+"): usa «Scarica» e sostituisci il file a mano.",!ab); return; }
   try{
-    const f=await updText(); let h=await updDb("get");
-    if(h){ try{ if((await h.requestPermission({mode:"readwrite"}))!=="granted") h=null; }catch(e){ h=null; } }
-    if(!h){ const pick=await window.showOpenFilePicker({types:[{description:"Calcoli elettrici",accept:{"text/html":[".html",".htm"]}}]}); h=pick[0];
-      if(h.name!==UPD_FILE&&!confirm("Il file scelto si chiama «"+h.name+"», non «"+UPD_FILE+"». Sostituirlo comunque?")){ updSay("Sostituzione annullata."); return; } }
-    const w=await h.createWritable(); await w.write(f.t); await w.close(); await updDb("put",h);
-    updSay("File aggiornato alla versione "+f.v+": ricarico la pagina…"); setTimeout(()=>location.reload(),600);
-  }catch(e){ if(e&&e.name==="AbortError"){ updSay("Sostituzione annullata."); return; } updSay("Sostituzione non riuscita ("+(e.message||e)+"): usa «Scarica» e sostituisci il file a mano.",true); }
+    // controllo del permesso prima di toccare la cartella, per non lasciarci un file di copia vuoto
+    try{ if(dir.queryPermission&&(await dir.queryPermission({mode:"readwrite"}))!=="granted"){
+      updSay(`Il browser non ha consentito la scrittura nella cartella «${dir.name}»: usa «Scarica» e sostituisci il file a mano.`,true); return; } }catch(e){}
+    let fh=null; try{ fh=await dir.getFileHandle(UPD_FILE); }catch(e){}
+    if(!fh){ updSay(`Nella cartella «${dir.name}» non c'è ${UPD_FILE}: ripeti scegliendo la cartella in cui si trova questo file.`,true); return; }
+    const vecchio=await (await fh.getFile()).text(), mv=vecchio.match(/APP_VER="([^"]+)"/), vv=mv?mv[1]:null;
+    if(vv!==APP_VER&&!confirm(`Nella cartella «${dir.name}» il file è la versione ${vv||"non riconoscibile"}, non la ${APP_VER} aperta qui.\n\nSostituirlo comunque?`)){ updSay("Sostituzione annullata."); return; }
+    const bak=UPD_FILE.replace(/\.html?$/i,"")+"_bak_"+(vv||APP_VER)+".html";
+    if(!confirm(`Sostituire ${UPD_FILE} nella cartella «${dir.name}» con la versione ${UPD.info?UPD.info.versione:"nuova"}?\n\nLa versione attuale resta nella copia ${bak}, nella stessa cartella. Tutto il file viene riscritto, comprese curve e tabelle: se le hai modificate con «Gestione curve» andranno perse. I dati dei moduli non salvati con «Salva tutto» andranno persi al ricaricamento.`)){ updSay("Sostituzione annullata."); return; }
+    updSay("Scaricamento in corso…");
+    const f=await updText();   // prima lo scaricamento: se non riesce, nella cartella non è stato toccato nulla
+    let w=await (await dir.getFileHandle(bak,{create:true})).createWritable(); await w.write(vecchio); await w.close();
+    w=await fh.createWritable(); await w.write(f.t); await w.close();
+    updSay(`File sostituito con la versione ${f.v}, copia della ${vv||APP_VER} in ${bak}: ricarico la pagina…`);
+    setTimeout(()=>location.reload(),900);
+  }catch(e){ const na=e&&e.name==="NotAllowedError";
+    updSay(na?`Il browser non ha consentito la scrittura nella cartella «${dir.name}»: usa «Scarica» e sostituisci il file a mano.`
+             :"Sostituzione non riuscita ("+((e&&e.message)||e)+"): usa «Scarica» e sostituisci il file a mano.",true); }
 }
 async function updDownload(){
   updSay("Scaricamento in corso…");
