@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.27",
+  "versione": "0.1.28",
   "data": "20/11/2026",
-  "novita": "«Sostituisci questo file» corretto: chiede la cartella del file, ne tiene una copia col numero di versione nel nome e lo riscrive. Prima il selettore veniva chiesto dopo lo scaricamento e il browser non lo apriva più."
+  "novita": "La finestra del grafico aperta con il doppio clic ha il pulsante «Chiudi» e si chiude anche con il tasto Esc."
  },
  "Gestione_curve.html": {
   "versione": "0.2.7",
