@@ -4806,7 +4806,7 @@
 },
 "esportazioni": {
 "excel": "a6d94310",
-"pdf": "243ddb55",
+"pdf": "7f919173",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -4950,7 +4950,7 @@
 },
 "esportazioni": {
 "excel": "e31154d9",
-"pdf": "727ce4d5",
+"pdf": "3045511b",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -5186,7 +5186,7 @@
 },
 "esportazioni": {
 "excel": "13b3569b",
-"pdf": "1f3b62fa",
+"pdf": "cd0a174c",
 "righe": 164
 },
 "excel_ricalcolato": {
@@ -5329,7 +5329,7 @@
 },
 "esportazioni": {
 "excel": "01d4737f",
-"pdf": "75076c81",
+"pdf": "def43b5f",
 "righe": 85
 },
 "excel_ricalcolato": {
@@ -5477,7 +5477,7 @@
 },
 "esportazioni": {
 "excel": "ff7772ba",
-"pdf": "fbd91f0d",
+"pdf": "0a74c0bb",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -5956,7 +5956,7 @@
 },
 "esportazioni": {
 "excel": "19fae777",
-"pdf": "4ef1bb10",
+"pdf": "5dba4d0e",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -6126,7 +6126,7 @@
 },
 "esportazioni": {
 "excel": "d1aff5d1",
-"pdf": "ed6a05ea",
+"pdf": "0437e0d0",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -6232,7 +6232,7 @@
 },
 "esportazioni": {
 "excel": "b441ce21",
-"pdf": "2901ab91",
+"pdf": "3586caff",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -6402,7 +6402,7 @@
 },
 "esportazioni": {
 "excel": "b66fd595",
-"pdf": "4991b15b",
+"pdf": "d75b78e1",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -6505,7 +6505,7 @@
 },
 "esportazioni": {
 "excel": "c1932a2f",
-"pdf": "812a3232",
+"pdf": "3b4b01ee",
 "righe": 161
 },
 "excel_ricalcolato": {
@@ -6532,6 +6532,7 @@
 "mot": {
 "Iavv": 92.2612291,
 "In": 12.30149721,
+"U": 0,
 "tavv": 6
 },
 "ovl": null,
@@ -6975,7 +6976,7 @@
 },
 "esportazioni": {
 "excel": "79999278",
-"pdf": "47fcb5da",
+"pdf": "7c6779bc",
 "righe": 128
 },
 "excel_ricalcolato": {
@@ -7455,7 +7456,7 @@
 },
 "esportazioni": {
 "excel": "e8e9122b",
-"pdf": "6435e14a",
+"pdf": "b6038af0",
 "righe": 130
 },
 "excel_ricalcolato": {
@@ -7599,7 +7600,7 @@
 },
 "esportazioni": {
 "excel": "de9939ec",
-"pdf": "4a138150",
+"pdf": "2f9c1a12",
 "righe": 137
 },
 "excel_ricalcolato": {
@@ -7848,7 +7849,7 @@
 },
 "esportazioni": {
 "excel": "7db79c14",
-"pdf": "b56d1dac",
+"pdf": "6a2fb8fe",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -8048,6 +8049,587 @@
 ]
 }
 },
+"cb13_spunto_riportato_alla_tensione_del_punto": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modCB": {
+"aspetto": {
+"grafici": [
+"cb_chart linee f6990797 scritte 22b2f329",
+"cb_chartL linee ed3f952a scritte eeecb0ae",
+"cb_chartE linee fc405bba scritte 52231206"
+],
+"legende": [
+"NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxI″k massimaavviamento motore (riportato a 15.000 V)"
+]
+},
+"esportazioni": {
+"excel": "60183434",
+"pdf": "bc4de2fd",
+"righe": 132
+},
+"excel_ricalcolato": {
+"38 · Picco lasciato passare (cut-off)": 14.4060922,
+"55 · S minima": 7.89131984
+},
+"note": [],
+"riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu non dichiarato a 15.000 V · soglia magnetica 2000…3000 A",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min—",
+"Picco lasciato passare14,41 kA",
+"I²t passante a I″k823,56 kA²s",
+"Sezione minima protetta7,89 mm²"
+],
+"tabelle": [],
+"valori": {
+"Ik": 18900,
+"Imin": 0,
+"K2S2": 119355625,
+"U": 15000,
+"fus": null,
+"inr": null,
+"ip": 38200,
+"mot": {
+"Iavv": 57.73502692,
+"In": 9.622504486,
+"U": 15000,
+"tavv": 5
+},
+"ovl": null,
+"res": [
+{
+"b": {
+"Ii": 2500,
+"Ir": 250,
+"Iu": 250,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 690,
+"c": {
+"log": 142.0540162,
+"n": 16,
+"somma": 143029.2
+},
+"over": true
+},
+"e": {
+"Un": 690,
+"c": {
+"log": 238.7945766,
+"n": 22,
+"somma": 5384383.9
+},
+"over": true
+},
+"hasL": true,
+"icu": {
+"none": true,
+"v": 0
+},
+"lsi": null,
+"max": {
+"log": 258.3980878,
+"n": 48,
+"somma": 51822.5997
+},
+"min": {
+"log": 226.3052568,
+"n": 44,
+"somma": 41687.4845
+},
+"slot": "A",
+"thE": 3000,
+"thMax": 3000,
+"thMin": 2000,
+"type": "NZMN2-A250"
+},
+"cut": {
+"lim": true,
+"v": 14406.09219
+},
+"e": {
+"src": "c",
+"v": 823559.4838
+},
+"em": null,
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "none",
+"t": "Infinity"
+},
+"mx": {
+"st": "none",
+"t": "Infinity"
+}
+}
+}
+],
+"tmax": 5
+},
+"verifiche": [
+"Potere di interruzioneNZMN2-A250: Icu non dichiarato a 15.000 V → non dichiarato",
+"Picco lasciato passare 14,41 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 690 V (tensione di esercizio superiore) · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Cavo 95 mm² a I″k: I²t = 823,56 kA²s ≤ K²S² 119,36 MA²s curva I²t di catalogo a 690 V (tensione di esercizio superiore) → ✓ ok",
+"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento più rapido in nessun intervento lo spunto è sotto l'inizio della banda: nessun intervento all'avviamento → ✓ ok"
+]
+},
+"modCC": {
+"aspetto": {
+"grafici": [],
+"legende": []
+},
+"esportazioni": {
+"excel": "28c6a208",
+"excel · foglio Punti": "38dbdd49",
+"pdf": "e84777eb",
+"righe": 114
+},
+"excel_ricalcolato": {
+"101 · Corrente di inserzione — primario": 266.735824,
+"102 · Corrente a vuoto I0 — primario": 0.36373067,
+"113 · Corrente di avviamento": 2165.06351,
+"114 · Corrente di avviamento lato fornitura": 57.7350269,
+"58 · I″k · simmetrica iniziale": 24.9530505,
+"59 · ip · picco": 50.316812,
+"60 · Ib · interruzione": 23.1577009,
+"61 · Ik · regime": 22.6797338,
+"62 · Ith · termica equivalente": 25.1040063,
+"65 · I″k2 · bifase iniziale": 21.6099757,
+"66 · ip2 · picco bifase": 43.5756374,
+"83 · I″k1 · fase-terra iniziale": 24.9652965,
+"84 · ip1 · picco fase-terra": 50.3415054,
+"Punti · P1 · Ib (kA)": 12.5162961,
+"Punti · P1 · Ib dei motori (A)": 16.2961374,
+"Punti · P1 · Ith (kA)": 12.770498,
+"Punti · P1 · I″k (kA)": 12.5580149,
+"Punti · P1 · I″k dalla rete (A)": 12500.0,
+"Punti · P1 · I″k dei motori (A)": 58.0149228,
+"Punti · P1 · I″k min (kA)": 12.5,
+"Punti · P1 · I″k2 (kA)": 10.8755599,
+"Punti · P1 · I″k2 min (kA)": 10.8253175,
+"Punti · P1 · R (Ω)": 0.0758320186,
+"Punti · P1 · R ramo dei motori (Ω)": 62.109816,
+"Punti · P1 · R/X": 0.1,
+"Punti · P1 · Un (V)": 15000.0,
+"Punti · P1 · X (Ω)": 0.758320186,
+"Punti · P1 · X ramo dei motori (Ω)": 152.004302,
+"Punti · P1 · Z (Ω)": 0.762102355,
+"Punti · P1 · c max": 1.1,
+"Punti · P1 · c min": 1.0,
+"Punti · P1 · ip (kA)": 30.9725304,
+"Punti · P1 · ip dei motori (A)": 107.286577,
+"Punti · P1 · κ": 1.74600186,
+"Punti · P1 · κ per il picco": 1.74600186,
+"Punti · P2 · Ib (kA)": 23.1577009,
+"Punti · P2 · Ib dei motori (A)": 477.967055,
+"Punti · P2 · Ith (kA)": 25.1040063,
+"Punti · P2 · I″k (kA)": 24.9530505,
+"Punti · P2 · I″k dalla rete (A)": 22679.7338,
+"Punti · P2 · I″k dei motori (A)": 2273.31668,
+"Punti · P2 · I″k min (kA)": 20.5197592,
+"Punti · P2 · I″k1 (kA)": 24.9652965,
+"Punti · P2 · I″k1 min (kA)": 21.1811429,
+"Punti · P2 · I″k2 (kA)": 21.6099757,
+"Punti · P2 · I″k2 min (kA)": 17.7706327,
+"Punti · P2 · R (Ω)": 0.0029161069,
+"Punti · P2 · R ramo dei motori (Ω)": 0.0413047983,
+"Punti · P2 · R/X": 0.283490393,
+"Punti · P2 · Un (V)": 400.0,
+"Punti · P2 · X (Ω)": 0.0102864399,
+"Punti · P2 · X ramo dei motori (Ω)": 0.0983447579,
+"Punti · P2 · Z (Ω)": 0.0106917971,
+"Punti · P2 · c max": 1.05,
+"Punti · P2 · c min": 0.95,
+"Punti · P2 · ip (kA)": 50.316812,
+"Punti · P2 · ip dei motori (A)": 4172.95071,
+"Punti · P2 · κ": 1.43866932,
+"Punti · P2 · κ per il picco": 1.43866932
+},
+"note": [
+"guasto trifase BT",
+"Contributo 1 motore (somma), già incluso nei risultati: I″kM = 2,3 kA · ipM = 4,2 kA · IbM = 0,5 kA (nullo su Ik).",
+"Trasf. 1 · 630 kVA · τ inserzione 0,30 s",
+"Motore 2 · 200 kW"
+],
+"riquadri": [
+"I″k · simmetrica iniziale25,0 kA",
+"ip · corrente di picco50,3 kA",
+"Ib · interruzione23,2 kA",
+"Ik · permanente22,7 kA",
+"R/X0,283",
+"κ (picco)1,439",
+"Ith (Tk=1s)25,1 kA",
+"I″k2 · bifase iniziale21,6 kA",
+"ip2 · picco bifase43,6 kA",
+"I″k1 · fase-terra25,0 kA",
+"ip1 · picco50,3 kA",
+"I″k min · trifase20,5 kA",
+"I″k2 min · bifase17,8 kA",
+"I″k1 min · fase-terra21,2 kA",
+"In · primario24,2 A",
+"In · secondario909 A",
+"Iinserzione · primario (cresta)267 A",
+"I0 · a vuoto (primario)0,36 A",
+"In · ai morsetti361 A",
+"In · lato fornitura9,62 A",
+"Iavv · spunto ai morsetti2,17 kA",
+"Iavv · spunto lato fornitura57,7 A"
+],
+"tabelle": [
+"Puntomassime (kA)minime (kA) I″kipIthI″kI″k2I″k1 P1 Punto di consegna15.000 V12,631,012,812,510,8—P2 Sbarre BT400 V25,050,325,120,517,821,2",
+"ComponenteR (mΩ)X (mΩ)Z (mΩ) Rete0,050,540,54Trasformatore2,869,7510,16Motori (1) — contributoI″kM = 2,3 kA— Totale al guasto2,9210,2910,69"
+],
+"valori": {
+"max": {
+"IbMot": 477.9670547,
+"IkMot": 2273.316685,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 4172.950705,
+"kappaC": 1.438669318,
+"kappaIp": 1.438669318,
+"le": {
+"Ik1": 24965.29647,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 50341.50544,
+"k1": 1.425852079,
+"mot": true,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 1,
+"oIb": 23157.70089,
+"oIk": 24953.05052,
+"oIkSt": 22679.73384,
+"oIp": 50316.81198,
+"oIth": 25104.00633,
+"oKappa": 1.438669318,
+"oRk": 0.002916106901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2834903934,
+"oXk": 0.01028643992,
+"oZk": 0.01069179712,
+"onCab": false,
+"onGrid": true,
+"onMot": true,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.438669318,
+"kappaIp": 1.438669318,
+"le": {
+"Ik1": 21181.14292,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 43094.84967,
+"k1": 1.438669318,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 20519.75919,
+"oIk": 20519.75919,
+"oIkSt": 20519.75919,
+"oIp": 41749.20782,
+"oIth": 20643.89538,
+"oKappa": 1.438669318,
+"oRk": 0.002916106901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2834903934,
+"oXk": 0.01028643992,
+"oZk": 0.01069179712,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"pts": [
+{
+"Un": 15000,
+"cmax": 1.1,
+"cmin": 1,
+"frac": 0,
+"i": 0,
+"id": "P1",
+"kind": "cons",
+"lvl": "MT",
+"max": {
+"IbMot": 16.29613739,
+"IkMot": 58.01492276,
+"Tk": 1,
+"c": 1.1,
+"ipMot": 107.2865774,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 1,
+"oIb": 12516.29614,
+"oIk": 12558.01492,
+"oIkSt": 12500,
+"oIp": 30972.53039,
+"oIth": 12770.49801,
+"oKappa": 1.746001856,
+"oRk": 0.07583201863,
+"oRows": [
+{
+"R": 0.07583201863,
+"X": 0.7583201863,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.7583201863,
+"oZk": 0.7621023553,
+"onCab": false,
+"onGrid": true,
+"onMot": true,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.06893819875,
+"oRows": [
+{
+"R": 0.06893819875,
+"X": 0.6893819875,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.6893819875,
+"oZk": 0.692820323,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"nCab": 0,
+"name": "Punto di consegna",
+"sc": false,
+"tr": false
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"frac": 1,
+"hv": false,
+"i": 1,
+"id": "P2",
+"kind": "bus",
+"last": true,
+"lvl": "BT",
+"max": "(già visto)",
+"min": "(già visto)",
+"nCab": "Infinity",
+"name": "Sbarre BT",
+"noLv": false,
+"sc": true,
+"tr": true
+}
+],
+"sy": {
+"Un": 400,
+"auto": 400,
+"lvl": "BT",
+"src": "secondario del trasformatore"
+}
+},
+"verifiche": []
+},
+"modFUS": {
+"aspetto": {
+"grafici": [
+"fu_chart linee 9f3e7aae scritte 22b2f329",
+"fu_chartL linee 41b8650a scritte 5d87393e",
+"fu_chartE linee 216f6511 scritte 08c9f981"
+],
+"legende": [
+"160NHG01B (160 A gG)I″k massimaavviamento motore (riportato a 15.000 V)"
+]
+},
+"esportazioni": {
+"excel": "0e143aeb",
+"pdf": "45c3a3ba",
+"righe": 82
+},
+"excel_ricalcolato": {
+"31 · Picco lasciato passare (cut-off)": 12.748038,
+"45 · S minima": 3.29831194
+},
+"note": [],
+"riquadri": [
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min—",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s",
+"Sezione minima protetta3,30 mm²"
+],
+"tabelle": [],
+"valori": {
+"Ik": 18900,
+"Imin": 0,
+"K2S2": 3385600,
+"inr": null,
+"ip": 38200,
+"mot": {
+"Iavv": 57.73502692,
+"In": 9.622504486,
+"U": 15000,
+"tavv": 5
+},
+"res": [
+{
+"cut": 12748.03797,
+"e": {
+"src": "c",
+"v": 143872.9455
+},
+"em": null,
+"f": {
+"Icn": 120,
+"Imb": 0,
+"In": 160,
+"Un": 500,
+"ch": "gG",
+"e": [
+1,
+0.01,
+2490,
+62000,
+120000,
+310000
+],
+"grp": [
+"A coltello serie NH",
+"gG · Un = 500 V · Grandezza 01, 1 (6-250 A)"
+],
+"idx": 154,
+"l": [
+4.5267,
+10,
+2538.8,
+6502.6,
+100000,
+22288
+],
+"mv": false,
+"t": {
+"log": 218.003674,
+"n": 44,
+"somma": 42499.7252
+},
+"type": "160NHG01B"
+},
+"tk": {
+"st": "fast",
+"t": 0.01
+},
+"tm": {
+"st": "none",
+"t": "Infinity"
+}
+}
+],
+"tmax": 5
+},
+"verifiche": [
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Cavo 16 mm² a I″k: I²t = 143,87 kA²s ≤ K²S² 3,39 MA²s curva I²t di catalogo (zona di limitazione) → ✓ ok",
+"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento del fusibile in non interviene lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento → ✓ ok"
+]
+}
+},
 "cc01_predefinito": {
 "apertura": {
 "mancanti": [],
@@ -8068,7 +8650,7 @@
 },
 "esportazioni": {
 "excel": "18e2aeb5",
-"pdf": "810f557f",
+"pdf": "c746aac1",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -8520,7 +9102,7 @@
 },
 "esportazioni": {
 "excel": "0e143aeb",
-"pdf": "deb5c67d",
+"pdf": "c2d41037",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -17881,7 +18463,7 @@
 },
 "esportazioni": {
 "excel": "e738601d",
-"pdf": "be2da932",
+"pdf": "19036944",
 "righe": 86
 },
 "excel_ricalcolato": {
@@ -17914,6 +18496,7 @@
 "mot": {
 "Iavv": 1876.388375,
 "In": 288.6751346,
+"U": 0,
 "tavv": 5
 },
 "ovl": {
@@ -18840,7 +19423,7 @@
 },
 "esportazioni": {
 "excel": "3f4be6b0",
-"pdf": "71743fcc",
+"pdf": "7e202ef2",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -18872,6 +19455,7 @@
 "mot": {
 "Iavv": 1876.388375,
 "In": 288.6751346,
+"U": 0,
 "tavv": 6
 },
 "res": [
@@ -30802,7 +31386,7 @@
 },
 "esportazioni": {
 "excel": "73cc65fb",
-"pdf": "f1ee7a30",
+"pdf": "999f406a",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -30913,7 +31497,7 @@
 },
 "esportazioni": {
 "excel": "4c859b55",
-"pdf": "acc798cb",
+"pdf": "7a2320ad",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -31414,7 +31998,7 @@
 },
 "esportazioni": {
 "excel": "c5466d14",
-"pdf": "5b1bcf86",
+"pdf": "0707aece",
 "righe": 114
 },
 "excel_ricalcolato": {
@@ -31439,6 +32023,7 @@
 "mot": {
 "Iavv": 568.3291712,
 "In": 81.1898816,
+"U": 0,
 "tavv": 8
 },
 "res": [
@@ -31522,7 +32107,7 @@
 },
 "esportazioni": {
 "excel": "203d0a0c",
-"pdf": "5c9a3673",
+"pdf": "b5b85919",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -31633,7 +32218,7 @@
 },
 "esportazioni": {
 "excel": "f8df5c58",
-"pdf": "24c4dbfc",
+"pdf": "e19d9f16",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -31741,7 +32326,7 @@
 },
 "esportazioni": {
 "excel": "288b7870",
-"pdf": "1deaf6d3",
+"pdf": "5b6d4425",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -31917,7 +32502,7 @@
 },
 "esportazioni": {
 "excel": "29044cb5",
-"pdf": "033851a2",
+"pdf": "b5230728",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -32089,7 +32674,7 @@
 },
 "esportazioni": {
 "excel": "8842adcb",
-"pdf": "73c08218",
+"pdf": "21940ede",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -32205,7 +32790,7 @@
 },
 "esportazioni": {
 "excel": "423eaa45",
-"pdf": "1cb7c524",
+"pdf": "7f743e0a",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -32369,7 +32954,7 @@
 },
 "esportazioni": {
 "excel": "cfddaead",
-"pdf": "08dc562d",
+"pdf": "8a4c4343",
 "righe": 83
 },
 "excel_ricalcolato": {
@@ -32480,7 +33065,7 @@
 },
 "esportazioni": {
 "excel": "903f1b25",
-"pdf": "c9035134",
+"pdf": "80378202",
 "righe": 86
 },
 "excel_ricalcolato": {
@@ -38208,7 +38793,7 @@
 },
 "esportazioni": {
 "excel": "18e2aeb5",
-"pdf": "aa6f7d42",
+"pdf": "6f9aa9d0",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -39409,7 +39994,7 @@
 },
 "esportazioni": {
 "excel": "03244421",
-"pdf": "86da0e6f",
+"pdf": "96d20fd1",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -42799,6 +43384,6 @@
 }
 }
 },
-"programma": "0.1.25",
-"riferimento_scritto_il": "19/11/2026"
+"programma": "0.1.31",
+"riferimento_scritto_il": "20/11/2026"
 }
