@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.29",
+  "versione": "0.1.30",
   "data": "20/11/2026",
-  "novita": "I fumetti delle informazioni restano dentro la finestra anche sugli schermi stretti: prima uscivano dal bordo e il testo veniva tagliato."
+  "novita": "Riordino del codice in sezioni (strumenti comuni, interfaccia, moduli, esportazioni, banca dati, avvio): il programma funziona esattamente come prima."
  },
  "Gestione_curve.html": {
   "versione": "0.2.7",
