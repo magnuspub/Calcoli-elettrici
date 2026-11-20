@@ -335,7 +335,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.31</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.32</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -810,6 +810,7 @@ details.adv>.in{margin-top:10px}
     <label class="f">I″<sub>k</sub> massima sul lato MT <span class="u">(kA)</span><input type="number" id="pm_Ik" value="12.5" step="any"></label>
     <label class="f">I″<sub>k</sub> minima sul lato MT <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima tra le fasi sul lato MT, al primario del trasformatore: di solito il guasto bifase minimo, I″k2 min = 0,866 × I″k min. Le protezioni di fase devono intervenire anche a questa corrente. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IkMin" value="0" step="any"></label>
     <label class="f">Corrente di guasto a terra della rete <span class="u">(A)</span><input type="number" id="pm_IF" value="40" step="any"></label>
+    <label class="f">Contributo capacitivo della rete MT dell'utente <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente capacitiva di guasto a terra data dalle linee MT dell'utente collegate in servizio, dal punto di consegna ai morsetti MT dei trasformatori (solo la rete alla tensione di consegna, non la bassa tensione). Formula empirica: IC = U (kV) × (0,003 × km di linea aerea + 0,2 × km di cavo). Per un guasto esterno all'impianto è la corrente che il toroide vede a 270°: per il toroide conta solo il tratto a valle. Se supera l'80 % della soglia I0> del distributore serve la direzionale di terra 67N (CEI 0-16). Lasciare 0 per non mostrarlo.">i</span><input type="number" id="pm_IC" value="0" step="any"></label>
     <label class="f">Guasto sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito ai morsetti BT del trasformatore vista dal lato MT: I″k BT × U2/U1. Serve a controllare quale soglia interviene per un guasto in bassa tensione. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_Ibt" value="0" step="any"></label>
     <label class="f">Guasto minimo sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima sulle sbarre BT vista dal lato MT: I″k min BT × U2/U1 (guasto trifase). Mostra se la protezione MT vede anche il guasto più debole in bassa tensione. Con un trasformatore Dyn il guasto bifase BT dà su una fase MT la stessa corrente del trifase; il fase-terra BT dà I″k1/√3. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IbtMin" value="0" step="any"></label>
   </div>
@@ -848,9 +849,11 @@ details.adv>.in{margin-top:10px}
   <div id="pm_chartF"></div><div id="pm_legF" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
   <div class="subh" style="margin-top:14px">Guasto a terra</div>
   <div id="pm_chartE"></div><div id="pm_legE" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
+  <div id="pm_sub67" hidden><div class="subh" style="margin-top:14px">Direzionale di terra 67N — settori di intervento</div>
+  <div id="pm_chart67"></div><div id="pm_leg67" class="mini" style="display:flex;flex-direction:column;gap:3px;margin-top:2px"></div></div>
   <hr class="sep">
   <div id="pm_checks"></div>
-  <p class="note">Curve a tempo dipendente: t = k·(A/((I/I<sub>s</sub>)<sup>p</sup> − 1) + B), con le costanti IEC 60255-151 / IEEE C37.112 (le stesse del manuale tecnico ABB serie 615); tipo RI: t = k/(0,339 − 0,236·I<sub>s</sub>/I); tipo RD: t = 5,8 − 1,35·ln(I/(k·I<sub>s</sub>)). Il tempo resta costante oltre 20 volte la soglia (relè generico e NA016) oppure oltre 50 volte la corrente nominale del relè (REF615). Il tempo minimo delle curve dipendenti è regolabile in ogni protezione (REF615: predefinito 20 ms); per l'NA016 la curva parte da 1,1 volte la soglia e il tempo minimo è fisso a 0,1 s. L'inserzione totale è la somma degli inviluppi efficaci I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup> dei trasformatori scelti: è prudente, perché le creste non coincidono. La fascia di tolleranza sposta le soglie di ± (errore del relè + errore del TA o del TO) e i tempi di ± (percentuale + quota fissa); il confronto con i limiti del distributore resta sui valori impostati. La tenuta del trasformatore è il punto I<sub>k</sub> = I<sub>n</sub>·100/u<sub>k</sub> per 2 s (CEI EN 60076-5). Le soglie direzionali 67N sono disegnate come soglie di corrente, senza la verifica del settore angolare. Le regolazioni valide sono quelle comunicate dal distributore.</p>
+  <p class="note">Curve a tempo dipendente: t = k·(A/((I/I<sub>s</sub>)<sup>p</sup> − 1) + B), con le costanti IEC 60255-151 / IEEE C37.112 (le stesse del manuale tecnico ABB serie 615); tipo RI: t = k/(0,339 − 0,236·I<sub>s</sub>/I); tipo RD: t = 5,8 − 1,35·ln(I/(k·I<sub>s</sub>)). Il tempo resta costante oltre 20 volte la soglia (relè generico e NA016) oppure oltre 50 volte la corrente nominale del relè (REF615). Il tempo minimo delle curve dipendenti è regolabile in ogni protezione (REF615: predefinito 20 ms); per l'NA016 la curva parte da 1,1 volte la soglia e il tempo minimo è fisso a 0,1 s. L'inserzione totale è la somma degli inviluppi efficaci I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup> dei trasformatori scelti: è prudente, perché le creste non coincidono. La fascia di tolleranza sposta le soglie di ± (errore del relè + errore del TA o del TO) e i tempi di ± (percentuale + quota fissa); il confronto con i limiti del distributore resta sui valori impostati. La tenuta del trasformatore è il punto I<sub>k</sub> = I<sub>n</sub>·100/u<sub>k</sub> per 2 s (CEI EN 60076-5). Le soglie direzionali 67N compaiono nel grafico del guasto a terra come soglie di corrente; il diagramma vettoriale ne mostra i settori di intervento con U<sub>0</sub> in alto a 0° e l'angolo di ritardo di I<sub>0</sub> crescente in senso orario (CEI 0-16), con il raggio in scala logaritmica. Il guasto esterno all'impianto è il contributo capacitivo dell'utente a 270°; il guasto interno con neutro isolato è la corrente del resto della rete a 90°; con neutro compensato il campo degli angoli (da 90° a 240°, tipico 180°) è indicativo e l'ampiezza non è verificata. Le regolazioni valide sono quelle comunicate dal distributore.</p>
 </div>
 
   <!-- Verifica 61439 (modulo separato) -->
@@ -1189,7 +1192,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.31 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.32 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1226,7 +1229,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.31";
+const APP_NAME="Calcoli elettrici", APP_VER="0.1.32";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -1264,7 +1267,7 @@ function tipFit(e){
    Doppio clic su un grafico: si apre una finestra con la sua copia, da tenere per esempio su un secondo schermo. La copia segue
    il grafico della pagina: a ogni ricalcolo il contenitore viene ridisegnato e un MutationObserver riporta il nuovo disegno
    (con la legenda, se è in un elemento accanto). Chiudendo o ricaricando la pagina le finestre aperte si chiudono. */
-const CH_TIT={fu_chart:"Curve dei fusibili",fu_chartL:"Fusibili · picco lasciato passare",fu_chartE:"Fusibili · energia specifica passante I²t",cb_chart:"Curve degli interruttori",cb_chartL:"Interruttori · picco lasciato passare",cb_chartE:"Interruttori · energia specifica passante I²t",pm_chartF:"Protezioni MT · massima corrente di fase",pm_chartE:"Protezioni MT · guasto a terra",mt_chart:"Tensione di contatto ammissibile"};
+const CH_TIT={fu_chart:"Curve dei fusibili",fu_chartL:"Fusibili · picco lasciato passare",fu_chartE:"Fusibili · energia specifica passante I²t",cb_chart:"Curve degli interruttori",cb_chartL:"Interruttori · picco lasciato passare",cb_chartE:"Interruttori · energia specifica passante I²t",pm_chartF:"Protezioni MT · massima corrente di fase",pm_chartE:"Protezioni MT · guasto a terra",pm_chart67:"Protezioni MT · direzionale di terra 67N",mt_chart:"Tensione di contatto ammissibile"};
 const CH_WIN={};
 function chPop(host){
   const id=host.id, old=CH_WIN[id]; if(old&&!old.w.closed){ old.w.focus(); return true; }
@@ -1305,6 +1308,15 @@ function chPop(host){
     const svg=ev.target&&ev.target.closest?ev.target.closest("svg[data-ax]"):null; if(!svg||document.body.classList.contains("printing")){ clear(); return; }
     let a; try{ a=JSON.parse(svg.getAttribute("data-ax")); }catch(e){ clear(); return; }
     const b=svg.getBoundingClientRect(), px=(ev.clientX-b.left)*a.W/b.width, py=(ev.clientY-b.top)*a.H/b.height;
+    const place=()=>{ tip.style.display="block"; const w=tip.offsetWidth; tip.style.left=Math.max(4,Math.min(ev.clientX+14,window.innerWidth-w-6))+"px"; tip.style.top=(ev.clientY+18+tip.offsetHeight>window.innerHeight?ev.clientY-tip.offsetHeight-10:ev.clientY+18)+"px"; };
+    if(a.pol){   // diagramma polare: cerchio della corrente e raggio dell'angolo (0° in alto, senso orario, raggio logaritmico)
+      const dx=px-a.cx, dy=py-a.cy, r=Math.hypot(dx,dy); if(r>a.R||r<1){ clear(); return; }
+      const ang=(Math.atan2(dx,-dy)*180/Math.PI+360)%360, I=Math.pow(10,a.lo+r/a.R*(a.hi-a.lo)), ex=a.cx+a.R*dx/r, ey=a.cy+a.R*dy/r;
+      if(cur&&cur!==svg) clear(); cur=svg;
+      let g=svg.querySelector(".axh"); if(!g){ g=document.createElementNS("http://www.w3.org/2000/svg","g"); g.setAttribute("class","axh"); g.setAttribute("pointer-events","none"); svg.appendChild(g); }
+      g.innerHTML=`<circle cx="${a.cx}" cy="${a.cy}" r="${r.toFixed(1)}" fill="none" stroke="var(--text-secondary)" stroke-width="0.8" stroke-dasharray="3 3"/><line x1="${a.cx}" y1="${a.cy}" x2="${ex.toFixed(1)}" y2="${ey.toFixed(1)}" stroke="var(--text-secondary)" stroke-width="0.8" stroke-dasharray="3 3"/>`;
+      const hit=(a.sec||[]).filter(q=>I>=q[1]&&pmtInSec(ang,[q[2],q[3]])).map(q=>q[0]);
+      tip.textContent=`I₀: ${fmtAs(I)}  ·  ritardo su U₀: ${fmt(ang,0)}°  ·  ${hit.length?"interviene "+hit.join(", "):"nessun intervento"}`; place(); return; }
     if(px<a.L||px>a.L+a.pw||py<a.T||py>a.T+a.ph){ clear(); return; }
     const fx=(px-a.L)/a.pw, fy=1-(py-a.T)/a.ph, ax=(f,lo,hi,lg)=>lg?Math.pow(10,lo+f*(hi-lo)):lo+f*(hi-lo);
     if(cur&&cur!==svg) clear(); cur=svg;
@@ -3440,6 +3452,51 @@ function pmtLegend(st,fam,pal){
     if(st.cb) st.cb.list.forEach((q,i)=>it.push(pmtSw(pal.cb[i%pal.cb.length],PMT_CBDASH)+`<span style="white-space:normal">interruttore BT ${escH(q.name)} · ${q.min?"banda min–max":"curva massima"} riportata alla MT (${fusNum(st.cb.tr.U2)}/${fusNum(st.cb.tr.U1)} V, guasto trifase)</span>`)); }
   return it.map(x=>`<span style="white-space:nowrap">${x}</span>`).join("");
 }
+// ---- direzionale di terra 67N: settori di intervento e vettori di guasto ----
+// convenzione della CEI 0-16: U0 di riferimento in alto (0°); l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario
+function pmtSec(a){ const m=String(a||"").replace(/,/g,".").match(/(\d+(?:\.\d+)?)\D+(\d+(?:\.\d+)?)/); if(!m) return null;
+  const a1=+m[1], a2=+m[2]; return (a1<=360&&a2<=360&&a1!==a2)?[a1,a2]:null; }
+function pmtInSec(f,s){ const sp=((s[1]-s[0])%360+360)%360||360; return (((f-s[0])%360+360)%360)<=sp+1e-9; }
+const PMT_BAND=[90,240,180];   // neutro compensato: campo indicativo degli angoli del guasto interno e angolo tipico
+function pmt67Chart(st,pal){
+  const q=st.d67; if(!q||!q.dirs.length) return "";
+  const W=460,H=460,cx=230,cy=232,R=172, vals=q.dirs.map(d=>d.t.Is).concat(q.IC>0?[q.IC]:[],q.iso&&q.Iint>0?[q.Iint]:[]);
+  const lo=Math.floor(Math.log10(Math.min(...vals)/2)), hi=Math.max(Math.ceil(Math.log10(Math.max(...vals)*1.2)),lo+2);
+  const rad=I=>R*Math.min(Math.max((Math.log10(I)-lo)/(hi-lo),0),1), P=(r,f)=>{ const a=f*Math.PI/180; return [cx+r*Math.sin(a),cy-r*Math.cos(a)]; }, xy=p=>p[0].toFixed(1)+" "+p[1].toFixed(1);
+  const arc=(r,a1,a2,cw)=>{ const sp=((a2-a1)%360+360)%360||360; if(sp>=360) return cw?`A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 1 ${xy(P(r,a1+180))} A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 1 ${xy(P(r,a2))}`:`A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 0 ${xy(P(r,a2+180))} A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 0 ${xy(P(r,a1))}`;
+    return `A ${r.toFixed(1)} ${r.toFixed(1)} 0 ${sp>180?1:0} ${cw?1:0} ${xy(P(r,cw?a2:a1))}`; };
+  const txt=(p,t,o)=>`<text x="${p[0].toFixed(1)}" y="${p[1].toFixed(1)}" font-size="${(o&&o.fs)||10}" fill="${(o&&o.col)||pal.muted}" text-anchor="${(o&&o.an)||"middle"}" dominant-baseline="middle" paint-order="stroke" stroke="${pal.bg}" stroke-width="3" stroke-linejoin="round"${o&&o.b?' font-weight="650"':""}>${t}</text>`;
+  const ax={pol:1,W,H,cx,cy,R,lo,hi,sec:q.dirs.filter(d=>d.sec).map(d=>[(q.dirs.some(e=>e.p!==d.p)?d.p.desc+" · ":"")+d.t.lab,d.t.Is,d.sec[0],d.sec[1]])};
+  let h=`<svg data-ax="${escH(JSON.stringify(ax))}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="display:block;width:100%;max-width:${W}px;height:auto;margin:0 auto;font-family:inherit" role="img" aria-label="Diagramma vettoriale della direzionale di terra 67N"><rect width="${W}" height="${H}" fill="${pal.bg}"/>`;
+  // cerchi della scala logaritmica: decadi marcate, 2 e 5 più leggeri
+  for(let d=lo;d<=hi;d++) [1,2,5].forEach(m=>{ const I=m*Math.pow(10,d), r=rad(I); if(r<=0.5||Math.log10(I)>hi+1e-9) return;
+    h+=`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${pal.grid}" stroke-width="${m===1?1:0.6}"${m===1?"":' stroke-dasharray="2 3"'}/>`; });
+  for(let a=0;a<360;a+=30){ h+=`<line x1="${cx}" y1="${cy}" x2="${P(R,a)[0].toFixed(1)}" y2="${P(R,a)[1].toFixed(1)}" stroke="${pal.grid}" stroke-width="0.6"/>`+txt(P(R+15,a),a+"°",{fs:10.5}); }
+  // settori di intervento: dalla soglia di corrente verso l'esterno
+  q.dirs.forEach(d=>{ if(!d.sec) return; const c=pal.p[d.i%pal.p.length], r0=rad(d.t.Is), [a1,a2]=d.sec;
+    h+=`<path d="M ${xy(P(R,a1))} ${arc(R,a1,a2,1)} L ${xy(P(r0,a2))} ${arc(r0,a1,a2,0)} Z" fill="${c}" fill-opacity="0.15" stroke="${c}" stroke-width="1.7"${d.k==="D2"?' stroke-dasharray="6 3"':""} stroke-linejoin="round"/>`; });
+  // tensione residua di riferimento
+  { const t=P(R,0); h+=`<line x1="${cx}" y1="${cy}" x2="${t[0]}" y2="${(t[1]+7).toFixed(1)}" stroke="${pal.ink}" stroke-width="1.6"/><path d="M ${t[0]} ${t[1]} l -4.5 9 l 9 0 Z" fill="${pal.ink}"/>`+txt([cx+13,cy-R+16],"U<tspan baseline-shift=\"sub\" font-size=\"8\">0</tspan>",{col:pal.ink,fs:12,b:1}); }
+  const vec=(I,f,col,lab)=>{ const r=rad(I), t=P(r,f), a=f*Math.PI/180, ux=Math.sin(a), uy=-Math.cos(a);
+    if(r<12) return `<circle cx="${t[0].toFixed(1)}" cy="${t[1].toFixed(1)}" r="4" fill="${col}"/>`+txt(P(r+22,f),lab,{col,b:1});
+    const b=P(r-10,f); return `<line x1="${cx}" y1="${cy}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="${col}" stroke-width="2.6" stroke-linecap="round"/><path d="M ${xy(t)} L ${(b[0]-uy*5).toFixed(1)} ${(b[1]+ux*5).toFixed(1)} L ${(b[0]+uy*5).toFixed(1)} ${(b[1]-ux*5).toFixed(1)} Z" fill="${col}"/>`+txt([t[0]+ux*4,t[1]+uy*4-11],lab,{col,b:1}); };
+  if(q.iso){ if(q.Iint>0) h+=vec(q.Iint,90,pal.ibt,fmtAs(q.Iint)); }
+  else { const r=R-7; h+=`<path d="M ${xy(P(r,PMT_BAND[0]))} ${arc(r,PMT_BAND[0],PMT_BAND[1],1)}" fill="none" stroke="${pal.ibt}" stroke-width="8" stroke-opacity="0.6"/><circle cx="${P(r,PMT_BAND[2])[0].toFixed(1)}" cy="${P(r,PMT_BAND[2])[1].toFixed(1)}" r="5.5" fill="${pal.ibt}" stroke="${pal.bg}" stroke-width="1.5"/>`; }
+  if(q.IC>0) h+=vec(q.IC,270,pal.ik,fmtAs(q.IC));
+  // valori dei cerchi lungo il raggio a 320°, libero da settori e vettori
+  for(let d=lo+1;d<=hi;d++){ const I=Math.pow(10,d); h+=txt(P(rad(I),320),fmtAs(I).replace(",00","").replace(/,0(?= )/,""),{fs:9.5}); }
+  return h+`<circle cx="${cx}" cy="${cy}" r="2.2" fill="${pal.ink}"/></svg>`;
+}
+function pmt67Legend(st,pal){
+  const q=st.d67; if(!q||!q.dirs.length) return "";
+  const sw=(c,dash)=>`<svg width="26" height="10" style="vertical-align:middle;margin-right:5px" aria-hidden="true"><rect x="1" y="1" width="24" height="8" fill="${c}" fill-opacity="0.15" stroke="${c}" stroke-width="1.6"${dash?' stroke-dasharray="6 3"':""}/></svg>`, it=[];
+  q.dirs.forEach(d=>it.push(sw(pal.p[d.i%pal.p.length],d.k==="D2")+`${escH(d.p.desc)} · ${d.t.lab}: I<sub>0</sub> oltre ${fmtAs(d.t.Is)}, U<sub>0</sub> oltre ${fusNum(d.t.u)} V, settore ${d.sec?fusNum(d.sec[0])+"°–"+fusNum(d.sec[1])+"°":"non leggibile"}`+(d.t.c==="DT"?`, estinzione ${fusFmtT(d.t.t+d.p.tcb)}`:"")));
+  if(q.iso){ if(q.Iint>0) it.push(pmtSw(pal.ibt,"")+`guasto a terra interno all'impianto, neutro isolato: ${fmtAs(q.Iint)} a 90° (corrente della rete${q.IC>0?" meno il contributo dell'utente":""})`); }
+  else it.push(pmtSw(pal.ibt,"")+`guasto a terra interno all'impianto, neutro compensato: angolo atteso tra ${PMT_BAND[0]}° e ${PMT_BAND[1]}° secondo la compensazione, tipico ${PMT_BAND[2]}° (campo indicativo, ampiezza non rappresentata)`);
+  if(q.IC>0) it.push(pmtSw(pal.ik,"")+`guasto a terra esterno all'impianto: contributo capacitivo dell'utente ${fmtAs(q.IC)} a 270°`);
+  it.push(`U<sub>0</sub> è in alto a 0°; l'angolo è il ritardo di I<sub>0</sub> rispetto a U<sub>0</sub> e cresce in senso orario. Raggio in scala logaritmica, ampere primari.`);
+  return it.map(x=>`<span>${x}</span>`).join("");
+}
 function computePMT(){
   if(!$("pmtList")) return;
   const R=magRows(), Ik=num("pm_Ik")*1000, Ibt=num("pm_Ibt"), IF=num("pm_IF"), dt=num("pm_dt"), checks=[];
@@ -3452,7 +3509,7 @@ function computePMT(){
     if(on("pm_onWth")) v.push("tenuta"+(tn?" di "+tn:"")); if(on("pm_onFus")) v.push("fusibile A"); if(on("pm_onCb")) v.push("interruttori BT");
     $("pm_visSum").textContent="Nei grafici: "+(v.length?v.join(" · "):"nessuna curva aggiuntiva")+" — margine di selettività "+fusFmtT(num("pm_dt")); }
   { const z=v=>v>0?fmtAs(v):"—";   // riepilogo mostrato quando il sotto-modulo delle correnti di riferimento è chiuso
-    $("pm_refSum").textContent="I″k massima "+z(Ik)+" · I″k minima "+z(IkMin)+" · guasto a terra "+z(IF)+" · guasto BT al primario "+z(Ibt)+" · guasto BT minimo "+z(IbtMin); }
+    $("pm_refSum").textContent="I″k massima "+z(Ik)+" · I″k minima "+z(IkMin)+" · guasto a terra "+z(IF)+(num("pm_IC")>0?" · contributo capacitivo dell'utente "+z(num("pm_IC")):"")+" · guasto BT al primario "+z(Ibt)+" · guasto BT minimo "+z(IbtMin); }
   // elenco dei trasformatori per l'inserzione totale
   const box=$("pm_trChk"), hh=R.tr.map(t=>`<label class="brcab-tgl" style="margin-top:0"><input type="checkbox" data-tr="${t.id}" ${PMT_EXC.has(t.id)?"":"checked"}><span>${escH(t.desc)} — ${fusNum(t.SkVA)} kVA</span></label>`).join("");
   if(box.dataset.h!==hh){ box.innerHTML=hh; box.dataset.h=hh; }
@@ -3564,6 +3621,28 @@ function computePMT(){
     tip:"Con la corrente di cortocircuito minima tra le fasi sul lato MT (di solito il guasto bifase minimo) almeno una soglia di fase deve intervenire, altrimenti il guasto non viene eliminato."}); });
   if(IbtMin>0) prot.forEach(p=>{ const t=tDn(p,"F",IbtMin); checks.push({l:`${escH(p.desc)} · guasto minimo sulle sbarre BT (${fmtAs(IbtMin)} al primario): `+(isFinite(t)?`estinzione in <b>${fusFmtT(t)}</b>`:`<b>nessun intervento</b>`),ok:isFinite(t),warn:!isFinite(t),
     extra:isFinite(t)?"la protezione vede anche il guasto più debole in bassa tensione":"la corrente è sotto tutte le soglie di fase attive: il guasto BT minimo resta alle protezioni a valle"}); });
+  // direzionale di terra 67N: necessità (80 % della soglia I0> del distributore), guasto esterno a 270°, guasto interno
+  { const IC=num("pm_IC"), iso=$("pm_neu").value==="i", Iint=Math.max(IF-IC,0), L0=num("pm_L0"), dirs=[];
+    prot.forEach((p,i)=>["D1","D2"].forEach(k=>{ const t=p.th[k]; if(t.on&&t.Is>0) dirs.push({p,i,k,t,sec:pmtSec(t.a)}); }));
+    st.d67={IC,iso,Iint,dirs};
+    const tip67="Convenzione della CEI 0-16: l'angolo è il ritardo della corrente residua I0 rispetto alla tensione residua U0. Una corrente a 90° di ritardo deve far intervenire la 67N (guasto nell'impianto dell'utente), una a 270° no (guasto all'esterno: il toroide vede solo il contributo capacitivo dei cavi dell'utente).";
+    if(IC>0&&L0>0){ const need=IC>0.8*L0, has=dirs.some(d=>d.p.dg)||(!prot.some(p=>p.dg)&&dirs.length>0);
+      checks.push({l:`Contributo capacitivo della rete MT dell'utente (${fmtAs(IC)}) rispetto all'80 % della soglia I<sub>0</sub>&gt; del distributore (${fmtAs(0.8*L0)}): `+(need?`<b>serve la direzionale di terra 67N</b>`:`<b>basta la massima corrente omopolare 51N</b>`),ok:!need||has,
+        extra:need?(has?"la 67N è attiva sulla protezione generale":"attivare le soglie 67N.S1 e 67N.S2 sulla protezione generale"):"il contributo non supera l'80 % della soglia: la 67N non è richiesta",
+        tip:"CEI 0-16: la protezione direzionale di terra è richiesta quando il contributo dell'impianto dell'utente alla corrente capacitiva di guasto monofase a terra supera l'80 % della regolazione stabilita dal distributore per la 51N. Si considera solo la rete MT alla tensione di consegna."}); }
+    dirs.forEach(d=>{ const nm=`${escH(d.p.desc)} · ${d.t.lab}`;
+      if(!d.sec){ checks.push({l:`${nm}: <b>settore di intervento non leggibile</b>`,ok:false,warn:true,extra:"scrivere l'angolo di inizio e quello di fine, per esempio 60–250"}); return; }
+      if(IC>0){ const ins=pmtInSec(270,d.sec), bad=ins&&IC>=d.t.Is;
+        checks.push({l:`${nm} · guasto a terra esterno all'impianto (${fmtAs(IC)} a 270°): `+(bad?`<b>intervento intempestivo</b>`:`<b>nessun intervento</b>`),ok:!bad,
+          extra:bad?"il contributo capacitivo dell'utente cade nel settore e supera la soglia: correggere il settore":(ins?"il vettore cade nel settore ma resta sotto la soglia di corrente":`il vettore cade fuori dal settore ${fusNum(d.sec[0])}°–${fusNum(d.sec[1])}°`),tip:tip67}); } });
+    [...new Set(dirs.map(d=>d.p))].forEach(p=>{ const dd=dirs.filter(d=>d.p===p&&d.sec);
+      if(iso){ if(!(Iint>0)) return; let best=Infinity, who=null; dd.forEach(d=>{ if(!pmtInSec(90,d.sec)) return; const t=pmtT(d.t,Iint,p.mod)+p.tcb; if(t<best){ best=t; who=d; } });
+        checks.push({l:`${escH(p.desc)} · guasto a terra interno all'impianto con neutro isolato (${fmtAs(Iint)} a 90°): `+(who?`estinzione in <b>${fusFmtT(best)}</b> dalla ${who.t.lab}`:`<b>nessun intervento della 67N</b>`),ok:!!who,
+          extra:who?"il vettore cade nel settore e supera la soglia di corrente":"il vettore è fuori dai settori attivi oppure sotto le soglie di corrente",tip:tip67}); }
+      else { const cov=d=>{ for(let a=PMT_BAND[0];a<=PMT_BAND[1];a+=5) if(!pmtInSec(a,d.sec)) return false; return true; }, full=dd.find(cov), part=dd.find(d=>pmtInSec(PMT_BAND[2],d.sec));
+        checks.push({l:`${escH(p.desc)} · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra ${PMT_BAND[0]}° e ${PMT_BAND[1]}°, tipico ${PMT_BAND[2]}°): `+(full?`<b>campo coperto</b> dalla ${full.t.lab}`:(part?`<b>campo coperto solo in parte</b> dalla ${part.t.lab}`:`<b>campo non coperto</b>`)),ok:!!(full||part),warn:!full&&!!part,
+          extra:"campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata",tip:tip67}); } });
+  }
   const cc=$("pm_checks"); cc.innerHTML=""; if(!prot.length) cc.innerHTML=`<p class="mini">Nessuna protezione: aggiungine una.</p>`;
   checks.forEach(ch=>{ const d=document.createElement("div"); d.className="check";
     const badge=ch.dis?`<span class="badge wa">${ch.disTxt||"dato mancante"}</span>`:(ch.warn?`<span class="badge wa">verifica</span>`:(ch.ok?`<span class="badge ok">✓ ok</span>`:`<span class="badge no">✗ no</span>`));
@@ -3572,6 +3651,7 @@ function computePMT(){
   const cw=id=>chW(id,720);
   $("pm_chartF").innerHTML=pmtChart(st,"F",PMT_PAL,"pf",cw("pm_chartF"))||`<p class="mini">Nessuna soglia di fase attiva.</p>`; $("pm_legF").innerHTML=pmtLegend(st,"F",PMT_PAL);
   $("pm_chartE").innerHTML=pmtChart(st,"E",PMT_PAL,"pe2",cw("pm_chartE"))||`<p class="mini">Nessuna soglia di terra attiva.</p>`; $("pm_legE").innerHTML=pmtLegend(st,"E",PMT_PAL);
+  $("pm_sub67").hidden=!st.d67.dirs.length; $("pm_chart67").innerHTML=pmt67Chart(st,PMT_PAL); $("pm_leg67").innerHTML=pmt67Legend(st,PMT_PAL);
 }
 // tabella delle regolazioni e grafici per il PDF
 function pmtExportHTML(){
@@ -3579,6 +3659,7 @@ function pmtExportHTML(){
   const td='style="border:1px solid #bbb;padding:3px 6px;font-size:10px"';
   let h=`<div style="font-size:11px;font-weight:600;margin:0 0 2px">Massima corrente di fase</div>`+pmtChart(st,"F",PMT_PAL_PRINT,"ppf",720)+`<div style="font-size:10px;color:#555;margin:-4px 0 8px">${pmtLegend(st,"F",PMT_PAL_PRINT)}</div>`+
     `<div style="break-inside:avoid"><div style="font-size:11px;font-weight:600;margin:0 0 2px">Guasto a terra</div>`+pmtChart(st,"E",PMT_PAL_PRINT,"ppe",720)+`<div style="font-size:10px;color:#555;margin:-4px 0 8px">${pmtLegend(st,"E",PMT_PAL_PRINT)}</div></div>`;
+  if(st.d67&&st.d67.dirs.length) h+=`<div style="break-inside:avoid"><div style="font-size:11px;font-weight:600;margin:0 0 2px">Direzionale di terra 67N — settori di intervento</div>`+pmt67Chart(st,PMT_PAL_PRINT)+`<div style="font-size:10px;color:#555;margin:2px 0 8px;display:flex;flex-direction:column;gap:2px">${pmt67Legend(st,PMT_PAL_PRINT)}</div></div>`;
   st.prot.forEach(p=>{ h+=`<div style="break-inside:avoid;margin:8px 0"><div style="font-size:11px;font-weight:600">${escH(p.desc)} — ${p.mod.n} · TA ${fusNum(p.inp)} A · TO ${fusNum(p.ienp)} A · apertura ${fusNum(p.tcb*1000)} ms · tempo minimo curve dipendenti ${fusNum(p.mod.tmin*1000)} ms${st.tolOn?` · tolleranze: soglie ±${fusNum(p.tol.ei)} % relè, ±${fusNum(p.tol.eta)} % TA, ±${fusNum(p.tol.eto)} % TO; tempi ±${fusNum(p.tol.etp)} % ±${fusNum(p.tol.etm)} ms`:""}${p.dg?" · protezione generale":""}${p.h2?" · blocco 2ª armonica":""}</div>
       <table style="border-collapse:collapse;margin-top:3px"><tr>${["Soglia","Valore (A primari)","Curva","Tempo o k","Estinzione","Note"].map(x=>`<th ${td}>${x}</th>`).join("")}</tr>`+
       PMT_TH.filter(q=>p.th[q[0]].on).map(q=>{ const t=p.th[q[0]]; return `<tr><td ${td}>${q[1]}</td><td ${td}>${fmtAs(t.Is)}</td><td ${td}>${PMT_CUR[t.c].n}</td><td ${td}>${fusNum(t.t)}</td><td ${td}>${t.c==="DT"?fusFmtT(t.t+p.tcb):"secondo curva"}</td><td ${td}>${t.dir?`U0 ${fusNum(t.u)} V · settore ${escH(t.a)}°`:""}</td></tr>`; }).join("")+`</table></div>`; });
@@ -3601,6 +3682,13 @@ function pmtInit(){
       out.push(`guasto sulle sbarre BT (${bus.id}) ${fmt(net/1000,2)} kA → ${fusNum(v)} A al primario, minimo ${fmt(bus.min.oIk/1000,2)} kA → ${fusNum(w)} A (rapporto di ${t.desc})`); }
     if(t&&t.U1>1000){ $("pm_U").value=+(t.U1/1000).toFixed(2); }
     if($("mt_IE")&&num("mt_IE")>0){ $("pm_IF").value=num("mt_IE"); out.push(`guasto a terra ${fusNum(num("mt_IE"))} A`); }
+    // contributo capacitivo dell'utente: cavi MT del modulo cortocircuito (dalla sorgente e a monte dei trasformatori), formula empirica della CEI 0-16
+    { let aer=0, cav=0; const kv=num("pm_U"), km=(tp,L,n)=>{ const l=Math.max(L,0)/1000*Math.max(n||1,1); if(tp==="aerea") aer+=l; else cav+=l; };
+      if($("sc_on")&&$("sc_on").checked&&num("UnQ")>1000) km($("sc_tipo").value,num("sc_L"),num("sc_n"));
+      document.querySelectorAll("#trList .tr-branch").forEach(d=>{ const g=k=>d.querySelector(`[data-k=${k}]`), v=k=>g(k)?(parseFloat(String(g(k).value).replace(",","."))||0):0;
+        if(g("hvcab")&&g("hvcab").checked&&v("uhv")>1000) km(g("hvtype").value,v("hvL"),v("hvn")); });
+      if(kv>0&&aer+cav>0){ const ic=+(kv*(0.003*aer+0.2*cav)).toFixed(2); $("pm_IC").value=ic;
+        out.push(`contributo capacitivo dell'utente ${fusNum(ic)} A (${fusNum(+(cav*1000).toFixed(0))} m di cavo MT${aer>0?" e "+fusNum(+(aer*1000).toFixed(0))+" m di linea aerea":""})`); } }
     $("pm_copyMsg").textContent=out.length?"Copiato: "+out.join(" · ")+".":"Nessun valore disponibile da copiare."; recompute(); });
 }
 
@@ -4984,7 +5072,7 @@ function xlsPMT(){
   if(!st) return S;
   S.head('Limiti del distributore e correnti di riferimento');
   [['I> corrente massima (0 = non richiesta)',num("pm_L1"),'A'],['I> K',num("pm_K1"),''],['I> α',num("pm_A1"),''],['I> β',num("pm_B1"),''],['I>> senza la I> corrente massima (0 = non indicata)',num("pm_L2p"),'A'],['I>> corrente massima',num("pm_L2"),'A'],['I>> estinzione massima',num("pm_T2"),'s'],['I>>> corrente massima',num("pm_L3"),'A'],['I>>> estinzione massima',num("pm_T3"),'s'],['I0> corrente massima',num("pm_L0"),'A'],['I0> estinzione massima',num("pm_T0"),'s'],['I0>> corrente massima',num("pm_L00"),'A'],['I0>> estinzione massima',num("pm_T00"),'s'],
-   ['I″k massima lato MT',st.Ik,'A'],['I″k minima lato MT',st.IkMin,'A'],['Guasto BT riportato al primario',st.Ibt,'A'],['Guasto BT minimo riportato al primario',st.IbtMin,'A'],['Corrente di guasto a terra',st.IF,'A']].forEach(r=>S.row([{v:r[0]},{v:r[1],s:11},{v:r[2]}]));
+   ['I″k massima lato MT',st.Ik,'A'],['I″k minima lato MT',st.IkMin,'A'],['Guasto BT riportato al primario',st.Ibt,'A'],['Guasto BT minimo riportato al primario',st.IbtMin,'A'],['Corrente di guasto a terra',st.IF,'A'],['Contributo capacitivo della rete MT dell\'utente',st.d67.IC,'A']].forEach(r=>S.row([{v:r[0]},{v:r[1],s:11},{v:r[2]}]));
   st.prot.forEach(p=>{ S.head(p.desc+' — '+p.mod.n); S.row([{v:'TA primario'},{v:p.inp,s:11},{v:'A'}]); S.row([{v:'TO primario'},{v:p.ienp,s:11},{v:'A'}]); S.row([{v:'Apertura interruttore'},{v:p.tcb,s:11},{v:'s'}]); S.row([{v:'Tempo minimo delle curve dipendenti'},{v:p.mod.tmin,s:11},{v:'s'}]);
     if(st.tolOn) [['Errore del relè sulle soglie',p.tol.ei,'%'],['Errore del TA',p.tol.eta,'%'],['Errore del TO',p.tol.eto,'%'],['Errore sui tempi',p.tol.etp,'%'],['Errore sui tempi (quota fissa)',p.tol.etm,'ms']].forEach(r=>S.row([{v:r[0]},{v:r[1],s:11},{v:r[2]}]));
     S.thead(['Soglia','Valore (A primari)','Curva','Tempo (s) o k','Estinzione (s)']);
@@ -5073,7 +5161,7 @@ function allApply(d){
   // la scheda «Guasto fase-terra (BT)» non c'è più: il conduttore di ritorno si indica nel campo N/PE di ogni cavo
   const oldLE=lc.onLE===true; ["onLE","le_mat","le_S","le_L","le_n","le_x","le_te","le_RE"].forEach(k=>{ if(lc[k]!=null){ delete lc[k]; rep.ok++; } });
   ALL_MODS.forEach(m=>{ if(M[m]) allSetFields(M[m].campi,rep); });
-  if(M.modPMT&&M.modPMT.campi) Object.entries({pm_IkMin:"0",pm_IbtMin:"0",pm_L1:"0",pm_K1:"0.12",pm_A1:"0.02",pm_B1:"0.14",pm_L2p:"0"}).forEach(([k,v])=>{ if(M.modPMT.campi[k]==null) $(k).value=v; });   // campi nati dopo: nei file precedenti non ci sono
+  if(M.modPMT&&M.modPMT.campi) Object.entries({pm_IkMin:"0",pm_IbtMin:"0",pm_IC:"0",pm_L1:"0",pm_K1:"0.12",pm_A1:"0.02",pm_B1:"0.14",pm_L2p:"0"}).forEach(([k,v])=>{ if(M.modPMT.campi[k]==null) $(k).value=v; });   // campi nati dopo: nei file precedenti non ci sono
   allSetRows(cc.trasformatori,"trList",()=>trRow(),rep);
   if(Array.isArray(cc.trasformatori)) document.querySelectorAll("#trList .tr-branch").forEach((d,i)=>{ const r=cc.trasformatori[i]; if(r&&(r.kin==null||r.tau==null)) fillInrushRow(d); });
   allSetRows(cc.cavi,"cableList",()=>cableRow(),rep); allSetRows(cc.motori,"motList",()=>motRow(),rep);
