@@ -9470,9 +9470,9 @@
 ]
 },
 "esportazioni": {
-"excel": "bc623534",
-"pdf": "ac3349c9",
-"righe": 97
+"excel": "dda274af",
+"pdf": "2985d7cc",
+"righe": 98
 },
 "excel_ricalcolato": {},
 "note": [
@@ -9511,6 +9511,12 @@
 "tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -19568,9 +19574,9 @@
 ]
 },
 "esportazioni": {
-"excel": "05c20c83",
-"pdf": "1060c5e0",
-"righe": 123
+"excel": "e38f79be",
+"pdf": "6bd332a3",
+"righe": 124
 },
 "excel_ricalcolato": {},
 "note": [
@@ -19706,6 +19712,12 @@
 "warn": false
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -36021,9 +36033,9 @@
 ]
 },
 "esportazioni": {
-"excel": "b1f3e43c",
-"pdf": "f66dddd9",
-"righe": 97
+"excel": "9f371f67",
+"pdf": "12d5d0d6",
+"righe": 98
 },
 "excel_ricalcolato": {},
 "note": [
@@ -36062,6 +36074,12 @@
 "tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 120,
+"dirs": [],
+"iso": true
+},
 "dso": {
 "E": [
 2,
@@ -36289,9 +36307,9 @@
 ]
 },
 "esportazioni": {
-"excel": "0b47fc39",
-"pdf": "3fd263e2",
-"righe": 130
+"excel": "a6311d06",
+"pdf": "5e58ecc3",
+"righe": 131
 },
 "excel_ricalcolato": {},
 "note": [
@@ -36374,6 +36392,12 @@
 "warn": false
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -36802,9 +36826,9 @@
 ]
 },
 "esportazioni": {
-"excel": "ee01b2e6",
-"pdf": "63023ac3",
-"righe": 133
+"excel": "159adcad",
+"pdf": "919612aa",
+"righe": 134
 },
 "excel_ricalcolato": {},
 "note": [
@@ -36882,6 +36906,12 @@
 "warn": true
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -37441,9 +37471,9 @@
 ]
 },
 "esportazioni": {
-"excel": "795f8326",
-"pdf": "1a00774f",
-"righe": 137
+"excel": "63814723",
+"pdf": "1d9cc3c8",
+"righe": 138
 },
 "excel_ricalcolato": {},
 "note": [
@@ -37533,6 +37563,12 @@
 "warn": true
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -38090,17 +38126,19 @@
 "aspetto": {
 "grafici": [
 "pm_chartF linee 2766f0ac scritte 754c69f1",
-"pm_chartE linee 1ba3309c scritte 0adba7d1"
+"pm_chartE linee 1ba3309c scritte 0adba7d1",
+"pm_chart67 linee 669ba088 scritte 7fc3875b"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
-"PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore"
+"PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
+"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V, settore 60°–250°, estinzione 320 msPG — protezione generale · 67N.S2: I0 oltre 1,50 A, U0 oltre 2 V, settore 60°–120°, estinzione 190 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
 ]
 },
 "esportazioni": {
-"excel": "3427dbb4",
-"pdf": "c0793575",
-"righe": 98
+"excel": "22018519",
+"pdf": "017cd36b",
+"righe": 100
 },
 "excel_ricalcolato": {},
 "note": [
@@ -38138,35 +38176,23 @@
 "l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
 "ok": true,
 "tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "campo indicativo: l'angolo dipende dal grado di co…#db2a1d51",
+"l": "PG — protezione generale · guasto a terra interno …#b19bbf42",
+"ok": true,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978",
+"warn": false
 }
 ],
-"dso": {
-"E": {
-"log": 19.21019151,
-"n": 10,
-"somma": 10417.24
-},
-"F": {
-"log": 37.11614827,
-"n": 10,
-"somma": 27951.24
-}
-},
-"dsoAlt": null,
-"dsoNit": false,
-"fus": null,
-"inr": {
-"c": {
-"log": 111.8639228,
-"n": 102,
-"somma": 6546.582836
-},
-"n": 1,
-"peak": 266.7358244,
-"tEnd": 0.6153965048
-},
-"prot": [
+"d67": {
+"IC": 0,
+"Iint": 60,
+"dirs": [
 {
+"i": 0,
+"k": "D1",
+"p": {
 "bmax": {
 "E": [
 1.5975,
@@ -38342,7 +38368,53 @@
 "etp": 1,
 "tm": 0.02
 }
+},
+"sec": [
+60,
+250
+],
+"t": "(già visto)"
+},
+{
+"i": 0,
+"k": "D2",
+"p": "(già visto)",
+"sec": [
+60,
+120
+],
+"t": "(già visto)"
 }
+],
+"iso": false
+},
+"dso": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"dsoAlt": null,
+"dsoNit": false,
+"fus": null,
+"inr": {
+"c": {
+"log": 111.8639228,
+"n": 102,
+"somma": 6546.582836
+},
+"n": 1,
+"peak": 266.7358244,
+"tEnd": 0.6153965048
+},
+"prot": [
+"(già visto)"
 ],
 "tolOn": true,
 "wth": null
@@ -38350,7 +38422,8 @@
 "verifiche": [
 "PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): a 58,5 A estinzione 190 ms > 170 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
-"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
+"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"PG — protezione generale · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo coperto dalla 67N.S1 campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✓ ok"
 ]
 }
 },
@@ -38373,9 +38446,9 @@
 ]
 },
 "esportazioni": {
-"excel": "a762cb92",
-"pdf": "3735d562",
-"righe": 105
+"excel": "68abacbd",
+"pdf": "2d6fae65",
+"righe": 106
 },
 "excel_ricalcolato": {},
 "note": [
@@ -38438,6 +38511,12 @@
 "warn": true
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -39332,9 +39411,9 @@
 ]
 },
 "esportazioni": {
-"excel": "91338000",
-"pdf": "37db227d",
-"righe": 203
+"excel": "48204893",
+"pdf": "c83fb8e2",
+"righe": 204
 },
 "excel_ricalcolato": {},
 "note": [
@@ -39576,6 +39655,12 @@
 "warn": false
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -40089,9 +40174,9 @@
 ]
 },
 "esportazioni": {
-"excel": "60f6be4d",
-"pdf": "bffd0be7",
-"righe": 98
+"excel": "c75d7138",
+"pdf": "5109006e",
+"righe": 99
 },
 "excel_ricalcolato": {},
 "note": [
@@ -40136,6 +40221,12 @@
 "warn": false
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -40729,9 +40820,9 @@
 ]
 },
 "esportazioni": {
-"excel": "fffd4569",
-"pdf": "2f84dc67",
-"righe": 110
+"excel": "2885a016",
+"pdf": "43acc940",
+"righe": 111
 },
 "excel_ricalcolato": {},
 "note": [
@@ -40777,6 +40868,12 @@
 "warn": false
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -41023,9 +41120,9 @@
 ]
 },
 "esportazioni": {
-"excel": "e21ad8b9",
-"pdf": "6972f5d2",
-"righe": 41
+"excel": "2d1bbdf6",
+"pdf": "dd688d7b",
+"righe": 42
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41046,6 +41143,12 @@
 "IkMin": 0,
 "cb": null,
 "checks": [],
+"d67": {
+"IC": 0,
+"Iint": 0,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": null,
 "F": null
@@ -41249,9 +41352,9 @@
 ]
 },
 "esportazioni": {
-"excel": "81206739",
-"pdf": "a4222bcd",
-"righe": 97
+"excel": "128b879c",
+"pdf": "3dcd6046",
+"righe": 98
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41290,6 +41393,12 @@
 "tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -41514,9 +41623,9 @@
 ]
 },
 "esportazioni": {
-"excel": "86b39b2a",
-"pdf": "0a7f95fe",
-"righe": 100
+"excel": "da418da9",
+"pdf": "1c688893",
+"righe": 101
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41573,6 +41682,12 @@
 "warn": false
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -41800,9 +41915,9 @@
 ]
 },
 "esportazioni": {
-"excel": "6236abb2",
-"pdf": "374ef17d",
-"righe": 95
+"excel": "76ec7c5f",
+"pdf": "d81fbb4a",
+"righe": 96
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41859,6 +41974,12 @@
 "warn": true
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -42064,9 +42185,9 @@
 ]
 },
 "esportazioni": {
-"excel": "87b6c9c8",
-"pdf": "f62c5a17",
-"righe": 98
+"excel": "fab73441",
+"pdf": "2679c122",
+"righe": 99
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42111,6 +42232,12 @@
 "tip": "Con la corrente di cortocircuito minima tra le fas…#09827e0b"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -42340,9 +42467,9 @@
 ]
 },
 "esportazioni": {
-"excel": "03dd21c1",
-"pdf": "380f7e2c",
-"righe": 98
+"excel": "d0677158",
+"pdf": "73950125",
+"righe": 99
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42387,6 +42514,12 @@
 "tip": "Con la corrente di cortocircuito minima tra le fas…#09827e0b"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -42616,9 +42749,9 @@
 ]
 },
 "esportazioni": {
-"excel": "3674370d",
-"pdf": "09da3f0f",
-"righe": 99
+"excel": "ab136e6c",
+"pdf": "9b8208a2",
+"righe": 100
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42663,6 +42796,12 @@
 "tip": "Con la corrente di cortocircuito minima tra le fas…#09827e0b"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -42887,9 +43026,9 @@
 ]
 },
 "esportazioni": {
-"excel": "bd0a1c02",
-"pdf": "d66f5f6b",
-"righe": 99
+"excel": "2b2457cb",
+"pdf": "ee730d14",
+"righe": 100
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42934,6 +43073,12 @@
 "tip": "Con la corrente di cortocircuito minima tra le fas…#09827e0b"
 }
 ],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"iso": false
+},
 "dso": {
 "E": {
 "log": 19.21019151,
@@ -43136,6 +43281,874 @@
 "PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,30 a 29,2 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · I″k minima sul lato MT (1,20 kA): estinzione in 142 ms la protezione interviene anche con la corrente di guasto più bassa (bordo più lento della fascia di tolleranza) → ✓ ok"
+]
+}
+},
+"pm18_direzionale_neutro_isolato_con_contributo_capacitivo": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modPMT": {
+"aspetto": {
+"grafici": [
+"pm_chartF linee 2766f0ac scritte 754c69f1",
+"pm_chartE linee b8b6f8a2 scritte 0adba7d1",
+"pm_chart67 linee 64e989c0 scritte db919034"
+],
+"legende": [
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
+"PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
+"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V, settore 60°–250°, estinzione 450 msPG — protezione generale · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V, settore 60°–120°, estinzione 170 msguasto a terra interno all'impianto, neutro isolato: 117 A a 90° (corrente della rete meno il contributo dell'utente)guasto a terra esterno all'impianto: contributo capacitivo dell'utente 3,20 A a 270°U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+]
+},
+"esportazioni": {
+"excel": "87ec785e",
+"pdf": "aada5ff7",
+"righe": 104
+},
+"excel_ricalcolato": {},
+"note": [
+"250 A · estinzione 500 ms · fascia 244 A–256 A",
+"600 A · estinzione 120 ms · fascia 585 A–615 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A",
+"56,0 A · estinzione 170 ms · fascia 52,4 A–59,6 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A · U0 5 V, 60–250°",
+"2,00 A · estinzione 170 ms · fascia 1,87 A–2,13 A · U0 2 V, 60–120°",
+"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente."
+],
+"riquadri": [],
+"tabelle": [],
+"valori": {
+"IF": 120,
+"Ibt": 0,
+"IbtMin": 0,
+"Ik": 12500,
+"IkMin": 0,
+"cb": null,
+"checks": [
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
+"l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
+"ok": true,
+"tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "la 67N è attiva sulla protezione generale",
+"l": "Contributo capacitivo della rete MT dell'utente (3…#6e49ec7d",
+"ok": true,
+"tip": "CEI 0-16: la protezione direzionale di terra è ric…#55b64511"
+},
+{
+"extra": "il vettore cade fuori dal settore 60°–250°",
+"l": "PG — protezione generale · 67N.S1 · guasto a terra…#4e17db72",
+"ok": true,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978"
+},
+{
+"extra": "il vettore cade fuori dal settore 60°–120°",
+"l": "PG — protezione generale · 67N.S2 · guasto a terra…#326a552f",
+"ok": true,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978"
+},
+{
+"extra": "il vettore cade nel settore e supera la soglia di corrente",
+"l": "PG — protezione generale · guasto a terra interno …#25c6a918",
+"ok": true,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978"
+}
+],
+"d67": {
+"IC": 3.2,
+"Iint": 116.8,
+"dirs": [
+{
+"i": 0,
+"k": "D1",
+"p": {
+"bmax": {
+"E": [
+2.13,
+10000,
+2.13,
+0.191,
+360,
+0.191
+],
+"F": {
+"log": 37.6252621,
+"n": 10,
+"somma": 27993.8296
+}
+},
+"bmin": {
+"E": [
+1.87,
+10000,
+1.87,
+0.149,
+360,
+0.149
+],
+"F": {
+"log": 36.54056745,
+"n": 10,
+"somma": 27908.6504
+}
+},
+"cv": {
+"E": [
+2,
+10000,
+2,
+0.17,
+360,
+0.17
+],
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"desc": "PG — protezione generale",
+"dg": true,
+"h2": false,
+"ienp": 100,
+"inp": 100,
+"mod": {
+"ei": 1.5,
+"et": 1,
+"etm": 20,
+"h": "REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indip…#9f43b512",
+"m0": 1.01,
+"n": "ABB REF615",
+"sat": "Infinity",
+"satIn": 50,
+"tmin": 0.02
+},
+"modK": "ref615",
+"mult": true,
+"op": {
+"F": {
+"log": 33.79068583,
+"n": 10,
+"somma": 27908.3704
+}
+},
+"tcb": 0.07,
+"th": {
+"D1": {
+"Is": 2,
+"a": "60–250",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D1",
+"lab": "67N.S1",
+"on": true,
+"t": 0.38,
+"u": 5
+},
+"D2": {
+"Is": 2,
+"a": "60–120",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D2",
+"lab": "67N.S2",
+"on": true,
+"t": 0.1,
+"u": 2
+},
+"E1": {
+"Is": 2,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E1",
+"lab": "I<sub>0</sub>&gt;",
+"on": true,
+"t": 0.38,
+"u": 0
+},
+"E2": {
+"Is": 56,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E2",
+"lab": "I<sub>0</sub>&gt;&gt;",
+"on": true,
+"t": 0.1,
+"u": 0
+},
+"I1": {
+"Is": 100,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I1",
+"lab": "I&gt;",
+"on": false,
+"t": 0.1,
+"u": 0
+},
+"I2": {
+"Is": 250,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I2",
+"lab": "I&gt;&gt;",
+"on": true,
+"t": 0.43,
+"u": 0
+},
+"I3": {
+"Is": 600,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I3",
+"lab": "I&gt;&gt;&gt;",
+"on": true,
+"t": 0.05,
+"u": 0
+}
+},
+"tol": {
+"eE": 0.065,
+"eF": 0.025,
+"ei": 1.5,
+"et": 0.01,
+"eta": 1,
+"etm": 20,
+"eto": 5,
+"etp": 1,
+"tm": 0.02
+}
+},
+"sec": [
+60,
+250
+],
+"t": "(già visto)"
+},
+{
+"i": 0,
+"k": "D2",
+"p": "(già visto)",
+"sec": [
+60,
+120
+],
+"t": "(già visto)"
+}
+],
+"iso": true
+},
+"dso": {
+"E": {
+"log": 19.39251307,
+"n": 10,
+"somma": 10477.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"dsoAlt": null,
+"dsoNit": false,
+"fus": null,
+"inr": {
+"c": {
+"log": 111.8639228,
+"n": 102,
+"somma": 6546.582836
+},
+"n": 1,
+"peak": 266.7358244,
+"tEnd": 0.6153965048
+},
+"prot": [
+"(già visto)"
+],
+"tolOn": true,
+"wth": null
+},
+"verifiche": [
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"Contributo capacitivo della rete MT dell'utente (3,20 A) rispetto all'80 % della soglia I0> del distributore (1,60 A): serve la direzionale di terra 67N la 67N è attiva sulla protezione generale → ✓ ok",
+"PG — protezione generale · 67N.S1 · guasto a terra esterno all'impianto (3,20 A a 270°): nessun intervento il vettore cade fuori dal settore 60°–250° → ✓ ok",
+"PG — protezione generale · 67N.S2 · guasto a terra esterno all'impianto (3,20 A a 270°): nessun intervento il vettore cade fuori dal settore 60°–120° → ✓ ok",
+"PG — protezione generale · guasto a terra interno all'impianto con neutro isolato (117 A a 90°): estinzione in 170 ms dalla 67N.S2 il vettore cade nel settore e supera la soglia di corrente → ✓ ok"
+]
+}
+},
+"pm19_direzionale_settore_errato_e_67N_mancante": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modPMT": {
+"aspetto": {
+"grafici": [
+"pm_chartF linee e243e384 scritte 754c69f1",
+"pm_chartE linee 8d4b3e7f scritte 0adba7d1",
+"pm_chart67 linee aca8c29c scritte 80400e0c"
+],
+"legende": [
+"PG — protezione generaleLineafasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
+"PG — protezione generaleLineafasce di tolleranza (relè, TO)limite del distributore",
+"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V, settore 60°–300°, estinzione 450 msLinea · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V, settore non leggibile, estinzione 170 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)guasto a terra esterno all'impianto: contributo capacitivo dell'utente 4,00 A a 270°U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+]
+},
+"esportazioni": {
+"excel": "02798c50",
+"pdf": "039fba3b",
+"righe": 124
+},
+"excel_ricalcolato": {},
+"note": [
+"250 A · estinzione 500 ms · fascia 244 A–256 A",
+"600 A · estinzione 120 ms · fascia 585 A–615 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A",
+"56,0 A · estinzione 170 ms · fascia 52,4 A–59,6 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A · U0 5 V, 60–300°",
+"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente.",
+"250 A · estinzione 500 ms · fascia 244 A–256 A",
+"600 A · estinzione 120 ms · fascia 585 A–615 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A",
+"56,0 A · estinzione 170 ms · fascia 52,4 A–59,6 A",
+"2,00 A · estinzione 170 ms · fascia 1,87 A–2,13 A · U0 2 V, settore°",
+"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente."
+],
+"riquadri": [],
+"tabelle": [],
+"valori": {
+"IF": 50,
+"Ibt": 0,
+"IbtMin": 0,
+"Ik": 12500,
+"IkMin": 0,
+"cb": null,
+"checks": [
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
+"l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
+"ok": true,
+"tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
+"l": "Linea · inserzione totale (cresta 267 A): margine minimo <b>×3,45</b> a 31,7 ms",
+"ok": true,
+"tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "margine inferiore a 0,10 s: selettività cronometri…#c3b7fb1f",
+"l": "Selettività PG — protezione generale → Linea (fase): margine minimo <b>-0,49 s</b> a 585 A",
+"ok": false,
+"tip": "Per ogni corrente fino alla massima considerata: t…#3e13ced8",
+"warn": true
+},
+{
+"extra": "margine inferiore a 0,10 s: selettività cronometri…#c3b7fb1f",
+"l": "Selettività PG — protezione generale → Linea (terr…#76ffe649",
+"ok": false,
+"tip": "Per ogni corrente fino alla massima considerata: t…#3e13ced8",
+"warn": true
+},
+{
+"extra": "la 67N è attiva sulla protezione generale",
+"l": "Contributo capacitivo della rete MT dell'utente (4…#56de6cc8",
+"ok": true,
+"tip": "CEI 0-16: la protezione direzionale di terra è ric…#55b64511"
+},
+{
+"extra": "il contributo capacitivo dell'utente cade nel sett…#fa26761a",
+"l": "PG — protezione generale · 67N.S1 · guasto a terra…#798355ce",
+"ok": false,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978"
+},
+{
+"extra": "scrivere l'angolo di inizio e quello di fine, per esempio 60–250",
+"l": "Linea · 67N.S2: <b>settore di intervento non leggibile</b>",
+"ok": false,
+"warn": true
+},
+{
+"extra": "campo indicativo: l'angolo dipende dal grado di co…#db2a1d51",
+"l": "PG — protezione generale · guasto a terra interno …#b19bbf42",
+"ok": true,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978",
+"warn": false
+},
+{
+"extra": "campo indicativo: l'angolo dipende dal grado di co…#db2a1d51",
+"l": "Linea · guasto a terra interno all'impianto con ne…#229d9362",
+"ok": false,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978",
+"warn": false
+}
+],
+"d67": {
+"IC": 4,
+"Iint": 46,
+"dirs": [
+{
+"i": 0,
+"k": "D1",
+"p": {
+"bmax": {
+"E": {
+"log": 19.79811611,
+"n": 10,
+"somma": 10424.8696
+},
+"F": {
+"log": 37.6252621,
+"n": 10,
+"somma": 27993.8296
+}
+},
+"bmin": {
+"E": {
+"log": 18.56897453,
+"n": 10,
+"somma": 10409.6104
+},
+"F": {
+"log": 36.54056745,
+"n": 10,
+"somma": 27908.6504
+}
+},
+"cv": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"desc": "PG — protezione generale",
+"dg": true,
+"h2": false,
+"ienp": 100,
+"inp": 100,
+"mod": {
+"ei": 1.5,
+"et": 1,
+"etm": 20,
+"h": "REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indip…#9f43b512",
+"m0": 1.01,
+"n": "ABB REF615",
+"sat": "Infinity",
+"satIn": 50,
+"tmin": 0.02
+},
+"modK": "ref615",
+"mult": true,
+"op": {
+"F": {
+"log": 33.79068583,
+"n": 10,
+"somma": 27908.3704
+}
+},
+"tcb": 0.07,
+"th": {
+"D1": {
+"Is": 2,
+"a": "60–300",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D1",
+"lab": "67N.S1",
+"on": true,
+"t": 0.38,
+"u": 5
+},
+"D2": {
+"Is": 2,
+"a": "60–120",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D2",
+"lab": "67N.S2",
+"on": false,
+"t": 0.1,
+"u": 2
+},
+"E1": {
+"Is": 2,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E1",
+"lab": "I<sub>0</sub>&gt;",
+"on": true,
+"t": 0.38,
+"u": 0
+},
+"E2": {
+"Is": 56,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E2",
+"lab": "I<sub>0</sub>&gt;&gt;",
+"on": true,
+"t": 0.1,
+"u": 0
+},
+"I1": {
+"Is": 100,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I1",
+"lab": "I&gt;",
+"on": false,
+"t": 0.1,
+"u": 0
+},
+"I2": {
+"Is": 250,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I2",
+"lab": "I&gt;&gt;",
+"on": true,
+"t": 0.43,
+"u": 0
+},
+"I3": {
+"Is": 600,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I3",
+"lab": "I&gt;&gt;&gt;",
+"on": true,
+"t": 0.05,
+"u": 0
+}
+},
+"tol": {
+"eE": 0.065,
+"eF": 0.025,
+"ei": 1.5,
+"et": 0.01,
+"eta": 1,
+"etm": 20,
+"eto": 5,
+"etp": 1,
+"tm": 0.02
+}
+},
+"sec": [
+60,
+300
+],
+"t": "(già visto)"
+},
+{
+"i": 1,
+"k": "D2",
+"p": {
+"bmax": {
+"E": [
+2.13,
+10000,
+2.13,
+0.191,
+300,
+0.191
+],
+"F": {
+"log": 37.6252621,
+"n": 10,
+"somma": 27993.8296
+}
+},
+"bmin": {
+"E": [
+1.87,
+10000,
+1.87,
+0.149,
+300,
+0.149
+],
+"F": {
+"log": 36.54056745,
+"n": 10,
+"somma": 27908.6504
+}
+},
+"cv": {
+"E": [
+2,
+10000,
+2,
+0.17,
+300,
+0.17
+],
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"desc": "Linea",
+"dg": false,
+"h2": false,
+"ienp": 100,
+"inp": 100,
+"mod": {
+"ei": 1.5,
+"et": 1,
+"etm": 20,
+"h": "REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indip…#9f43b512",
+"m0": 1.01,
+"n": "ABB REF615",
+"sat": "Infinity",
+"satIn": 50,
+"tmin": 0.02
+},
+"modK": "ref615",
+"mult": true,
+"op": {
+"F": {
+"log": 33.79068583,
+"n": 10,
+"somma": 27908.3704
+}
+},
+"tcb": 0.07,
+"th": {
+"D1": {
+"Is": 2,
+"a": "60–250",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D1",
+"lab": "67N.S1",
+"on": false,
+"t": 0.1,
+"u": 5
+},
+"D2": {
+"Is": 2,
+"a": "settore",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D2",
+"lab": "67N.S2",
+"on": true,
+"t": 0.1,
+"u": 2
+},
+"E1": {
+"Is": 2,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E1",
+"lab": "I<sub>0</sub>&gt;",
+"on": true,
+"t": 0.38,
+"u": 0
+},
+"E2": {
+"Is": 56,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E2",
+"lab": "I<sub>0</sub>&gt;&gt;",
+"on": true,
+"t": 0.1,
+"u": 0
+},
+"I1": {
+"Is": 100,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I1",
+"lab": "I&gt;",
+"on": false,
+"t": 0.1,
+"u": 0
+},
+"I2": {
+"Is": 250,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I2",
+"lab": "I&gt;&gt;",
+"on": true,
+"t": 0.43,
+"u": 0
+},
+"I3": {
+"Is": 600,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I3",
+"lab": "I&gt;&gt;&gt;",
+"on": true,
+"t": 0.05,
+"u": 0
+}
+},
+"tol": {
+"eE": 0.065,
+"eF": 0.025,
+"ei": 1.5,
+"et": 0.01,
+"eta": 1,
+"etm": 20,
+"eto": 5,
+"etp": 1,
+"tm": 0.02
+}
+},
+"sec": null,
+"t": "(già visto)"
+}
+],
+"iso": false
+},
+"dso": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"dsoAlt": null,
+"dsoNit": false,
+"fus": null,
+"inr": {
+"c": {
+"log": 111.8639228,
+"n": 102,
+"somma": 6546.582836
+},
+"n": 1,
+"peak": 266.7358244,
+"tEnd": 0.6153965048
+},
+"prot": [
+"(già visto)",
+"(già visto)"
+],
+"tolOn": true,
+"wth": null
+},
+"verifiche": [
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"Linea · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"Selettività PG — protezione generale → Linea (fase): margine minimo -0,49 s a 585 A margine inferiore a 0,10 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) · la soglia più bassa a monte non supera quella a valle → verifica",
+"Selettività PG — protezione generale → Linea (terra): margine minimo -0,11 s a 52,4 A margine inferiore a 0,10 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) · la soglia più bassa a monte non supera quella a valle → verifica",
+"Contributo capacitivo della rete MT dell'utente (4,00 A) rispetto all'80 % della soglia I0> del distributore (1,60 A): serve la direzionale di terra 67N la 67N è attiva sulla protezione generale → ✓ ok",
+"PG — protezione generale · 67N.S1 · guasto a terra esterno all'impianto (4,00 A a 270°): intervento intempestivo il contributo capacitivo dell'utente cade nel settore e supera la soglia: correggere il settore → ✗ no",
+"Linea · 67N.S2: settore di intervento non leggibilescrivere l'angolo di inizio e quello di fine, per esempio 60–250 → verifica",
+"PG — protezione generale · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo coperto dalla 67N.S1 campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✓ ok",
+"Linea · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo non coperto campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✗ no"
 ]
 }
 },
@@ -43384,6 +44397,6 @@
 }
 }
 },
-"programma": "0.1.31",
+"programma": "0.1.32",
 "riferimento_scritto_il": "20/11/2026"
 }

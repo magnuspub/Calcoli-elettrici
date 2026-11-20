@@ -434,6 +434,12 @@ async def main():
     @caso('pm05_soglie_direzionali_di_terra', ['modPMT'])
     def _(s): pm(s)['protezioni'] = [prot(on_D1=True, v_D1=0.02, t_D1=0.25, u_D1=5, on_D2=True, v_D2=0.015, t_D2=0.12, u_D2=2, on_E2=False)]; campi(s, 'modPMT', pm_IF=60)
 
+    @caso('pm18_direzionale_neutro_isolato_con_contributo_capacitivo', ['modPMT'])
+    def _(s): pm(s)['protezioni'] = [prot(on_D1=True, v_D1=0.02, t_D1=0.38, u_D1=5, on_D2=True, v_D2=0.02, t_D2=0.1, u_D2=2)]; campi(s, 'modPMT', pm_neu='i', pm_IF=120, pm_IC=3.2)
+
+    @caso('pm19_direzionale_settore_errato_e_67N_mancante', ['modPMT'])
+    def _(s): pm(s)['protezioni'] = [prot(on_D1=True, v_D1=0.02, t_D1=0.38, u_D1=5, a_D1='60–300'), prot(desc='Linea', dg=False, on_D2=True, v_D2=0.02, t_D2=0.1, a_D2='settore')]; campi(s, 'modPMT', pm_IF=50, pm_IC=4)
+
     @caso('pm06_senza_fasce_di_tolleranza', ['modPMT'])
     def _(s):
         pm(s)['protezioni'] = [prot(), prot(desc='Linea', dg=False, v_I2=2, t_I2=0.25, v_I3=5, t_I3=0.05, v_E1=0.02, t_E1=0.2, on_E2=False)]

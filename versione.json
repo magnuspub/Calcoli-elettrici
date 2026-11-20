@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.31",
+  "versione": "0.1.32",
   "data": "20/11/2026",
-  "novita": "Fusibili e interruttori: lo spunto del motore è riportato alla tensione del punto scelto; la tensione di esercizio degli interruttori, se lasciata vuota, è quella del punto; il motore si sceglie prima della durata dell'avviamento."
+  "novita": "Protezioni MT: diagramma vettoriale della direzionale di terra 67N con i settori di intervento (U0 in alto, angoli in senso orario, raggio logaritmico), contributo capacitivo dell'utente e verifiche del guasto interno ed esterno."
  },
  "Gestione_curve.html": {
   "versione": "0.2.7",
