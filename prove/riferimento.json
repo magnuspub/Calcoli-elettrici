@@ -9470,9 +9470,9 @@
 ]
 },
 "esportazioni": {
-"excel": "dda274af",
-"pdf": "2985d7cc",
-"righe": 98
+"excel": "bfdcfbe3",
+"pdf": "19231033",
+"righe": 106
 },
 "excel_ricalcolato": {},
 "note": [
@@ -9515,6 +9515,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -19565,18 +19566,18 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 27a271c9 scritte 1f589231",
+"pm_chartF linee 5051b5d0 scritte 1f589231",
 "pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
-"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (2 trasformatori, cresta 770 A)tenuta di Trasf. 1: 642 A per 2 s e sovraccarico ammesso (ANSI C57.92)interruttore BT NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA) · banda min–max riportata alla MT (400/15.000 V, guasto trifase)",
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (2 trasformatori, cresta 770 A)tenuta di Trasf. 1 + Trasf. 2: somma 1,28 kA per 2 s e sovraccarico ammesso (ANSI C57.92)interruttore BT A · NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA) · banda min–max riportata alla MT (400 V → 15 kV, guasto trifase)",
 "PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore"
 ]
 },
 "esportazioni": {
-"excel": "e38f79be",
-"pdf": "6bd332a3",
-"righe": 124
+"excel": "28913a89",
+"pdf": "e77c7413",
+"righe": 167
 },
 "excel_ricalcolato": {},
 "note": [
@@ -19596,6 +19597,7 @@
 "IkMin": 0,
 "cb": {
 "U": 400,
+"Un": 15000,
 "k": 0.02666666667,
 "list": [
 {
@@ -19654,23 +19656,9 @@
 "n": 10,
 "somma": 12463.97961
 },
-"name": "NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA)"
+"name": "A · NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA)"
 }
-],
-"tr": {
-"In1": 38.49001795,
-"In2": 1443.375673,
-"SkVA": 1000,
-"U1": 15000,
-"U2": 400,
-"desc": "Trasf. 1",
-"i0": 1.5,
-"id": "2",
-"k": 10,
-"tau": 0.35,
-"tipo": "olio",
-"uk": 6
-}
+]
 },
 "checks": [
 {
@@ -19693,14 +19681,14 @@
 },
 {
 "extra": "margine inferiore a 0,10 s: per quel guasto in bas…#eef7f855",
-"l": "Selettività PG — protezione generale → interruttor…#7f20b548",
+"l": "Selettività PG — protezione generale → interruttor…#76e9a39a",
 "ok": false,
 "tip": "Per ogni corrente di guasto in bassa tensione, rip…#678a389c",
 "warn": true
 },
 {
 "extra": "entro i 2 s che il trasformatore sopporta",
-"l": "Tenuta termica di Trasf. 1 (642 A per 2 s): guasto…#9aec96b7",
+"l": "Tenuta termica di Trasf. 1 + Trasf. 2 (1,28 kA per…#e14fbe86",
 "ok": true,
 "tip": "La CEI EN 60076-5 richiede che il trasformatore so…#baaed355",
 "warn": false
@@ -19716,6 +19704,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -19915,21 +19904,24 @@
 ],
 "tolOn": true,
 "wth": {
-"Ikt": 641.5002991,
+"Ikt": 1283.000598,
 "c": {
-"log": 64.0004183,
-"n": 14,
-"somma": 4542.251779
+"log": 416.1426981,
+"n": 82,
+"somma": 34093.8318
 },
-"tr": "(già visto)"
+"n": 2,
+"tr": {
+"desc": "Trasf. 1 + Trasf. 2"
+}
 }
 },
 "verifiche": [
 "PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 770 A): margine minimo ×1,17 a 30 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
-"Selettività PG — protezione generale → interruttore BT NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA): margine minimo -12,10 s a 244 A (9,14 kA in BT) margine inferiore a 0,10 s: per quel guasto in bassa tensione può aprire anche la protezione MT → verifica",
-"Tenuta termica di Trasf. 1 (642 A per 2 s): guasto sulle sbarre BT, 1,20 kA al primario, estinto in 141 ms da PG — protezione generale entro i 2 s che il trasformatore sopporta → ✓ ok",
+"Selettività PG — protezione generale → interruttore BT A · NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA): margine minimo -12,10 s a 244 A (9,14 kA in BT) margine inferiore a 0,10 s: per quel guasto in bassa tensione può aprire anche la protezione MT → verifica",
+"Tenuta termica di Trasf. 1 + Trasf. 2 (1,28 kA per 2 s): guasto sulle sbarre BT, 1,20 kA al primario, estinto in 141 ms da PG — protezione generale entro i 2 s che il trasformatore sopporta → ✓ ok",
 "PG — protezione generale · guasto sulle sbarre BT (1,20 kA al primario): estinzione in 120 msla protezione vede il guasto in bassa tensione → ✓ ok"
 ]
 },
@@ -36024,18 +36016,18 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee 4bc235cc scritte 754c69f1",
+"pm_chartF linee bc1a6eb4 scritte 754c69f1",
 "pm_chartE linee 7b1deeea scritte 0adba7d1"
 ],
 "legende": [
-"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 200 A)",
 "PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore"
 ]
 },
 "esportazioni": {
-"excel": "9f371f67",
-"pdf": "12d5d0d6",
-"righe": 98
+"excel": "fa37b422",
+"pdf": "804039b2",
+"righe": 106
 },
 "excel_ricalcolato": {},
 "note": [
@@ -36069,7 +36061,7 @@
 },
 {
 "extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
-"l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
+"l": "PG — protezione generale · inserzione totale (cres…#843fc482",
 "ok": true,
 "tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
 }
@@ -36078,6 +36070,7 @@
 "IC": 0,
 "Iint": 120,
 "dirs": [],
+"dso": [],
 "iso": true
 },
 "dso": {
@@ -36100,12 +36093,12 @@
 "fus": null,
 "inr": {
 "c": {
-"log": 111.8639228,
+"log": 97.19213706,
 "n": 102,
-"somma": 6546.582836
+"somma": 4911.853244
 },
 "n": 1,
-"peak": 266.7358244,
+"peak": 200.0518683,
 "tEnd": 0.6153965048
 },
 "prot": [
@@ -36284,7 +36277,7 @@
 "verifiche": [
 "PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): a 2,00 A estinzione 450 ms > 170 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
-"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
+"PG — protezione generale · inserzione totale (cresta 200 A): margine minimo ×4,60 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
 ]
 }
 },
@@ -36307,9 +36300,9 @@
 ]
 },
 "esportazioni": {
-"excel": "a6311d06",
-"pdf": "5e58ecc3",
-"righe": 131
+"excel": "d90afe6a",
+"pdf": "940f1b06",
+"righe": 139
 },
 "excel_ricalcolato": {},
 "note": [
@@ -36396,6 +36389,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -36778,19 +36772,9 @@
 "n": 12,
 "somma": 3471.420037
 },
+"n": 1,
 "tr": {
-"In1": 24.24871131,
-"In2": 909.326674,
-"SkVA": 630,
-"U1": 15000,
-"U2": 400,
-"desc": "Trasf. 1",
-"i0": 1.5,
-"id": "2",
-"k": 11,
-"tau": 0.3,
-"tipo": "olio",
-"uk": 4
+"desc": "Trasf. 1"
 }
 }
 },
@@ -36826,9 +36810,9 @@
 ]
 },
 "esportazioni": {
-"excel": "159adcad",
-"pdf": "919612aa",
-"righe": 134
+"excel": "5c25fb91",
+"pdf": "ac2e9951",
+"righe": 142
 },
 "excel_ricalcolato": {},
 "note": [
@@ -36910,6 +36894,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -37471,9 +37456,9 @@
 ]
 },
 "esportazioni": {
-"excel": "63814723",
-"pdf": "1d9cc3c8",
-"righe": 138
+"excel": "1a7bb8c7",
+"pdf": "a46f9867",
+"righe": 146
 },
 "excel_ricalcolato": {},
 "note": [
@@ -37567,6 +37552,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -38127,18 +38113,18 @@
 "grafici": [
 "pm_chartF linee 2766f0ac scritte 754c69f1",
 "pm_chartE linee 1ba3309c scritte 0adba7d1",
-"pm_chart67 linee 669ba088 scritte 7fc3875b"
+"pm_chart67 linee 669ba088 scritte 5b3a8d97"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
 "PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
-"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V, settore 60°–250°, estinzione 320 msPG — protezione generale · 67N.S2: I0 oltre 1,50 A, U0 oltre 2 V, settore 60°–120°, estinzione 190 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V al relè (433,01 V primari), settore 60°–250°, estinzione 320 msPG — protezione generale · 67N.S2: I0 oltre 1,50 A, U0 oltre 2 V al relè (173,21 V primari), settore 60°–120°, estinzione 190 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)barra a destra: consenso di tensione U0 in volt primari, dalla soglia di ogni protezione in su; la linea verde è la tensione residua per guasto franco a terra (8660 V)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
 ]
 },
 "esportazioni": {
-"excel": "22018519",
-"pdf": "017cd36b",
-"righe": 100
+"excel": "82b9f5bd",
+"pdf": "62686898",
+"righe": 108
 },
 "excel_ricalcolato": {},
 "note": [
@@ -38386,6 +38372,7 @@
 "t": "(già visto)"
 }
 ],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -38446,9 +38433,9 @@
 ]
 },
 "esportazioni": {
-"excel": "68abacbd",
-"pdf": "2d6fae65",
-"righe": 106
+"excel": "73ffb919",
+"pdf": "b43a1184",
+"righe": 114
 },
 "excel_ricalcolato": {},
 "note": [
@@ -38515,6 +38502,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -39406,14 +39394,14 @@
 "pm_chartE linee 7f37cd12 scritte 0adba7d1"
 ],
 "legende": [
-"PG — protezione generaleLineafasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)tenuta di Trasf. 1: 606 A per 2 s e sovraccarico ammesso (ANSI C57.92)interruttore BT A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–max riportata alla MT (400/15.000 V, guasto trifase)interruttore BT B · FAZ-C32/3 (32 A) · banda min–max riportata alla MT (400/15.000 V, guasto trifase)",
+"PG — protezione generaleLineafasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)tenuta di Trasf. 1: 606 A per 2 s e sovraccarico ammesso (ANSI C57.92)interruttore BT A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–max riportata alla MT (400 V → 15 kV, guasto trifase)interruttore BT B · FAZ-C32/3 (32 A) · banda min–max riportata alla MT (400 V → 15 kV, guasto trifase)",
 "PG — protezione generaleLineafasce di tolleranza (relè, TO)limite del distributore"
 ]
 },
 "esportazioni": {
-"excel": "48204893",
-"pdf": "c83fb8e2",
-"righe": 204
+"excel": "669cf961",
+"pdf": "cf2d1395",
+"righe": 213
 },
 "excel_ricalcolato": {},
 "note": [
@@ -39437,6 +39425,7 @@
 "IkMin": 0,
 "cb": {
 "U": 400,
+"Un": 15000,
 "k": 0.02666666667,
 "list": [
 {
@@ -39566,21 +39555,7 @@
 },
 "name": "B · FAZ-C32/3 (32 A)"
 }
-],
-"tr": {
-"In1": 24.24871131,
-"In2": 909.326674,
-"SkVA": 630,
-"U1": 15000,
-"U2": 400,
-"desc": "Trasf. 1",
-"i0": 1.5,
-"id": "2",
-"k": 11,
-"tau": 0.3,
-"tipo": "olio",
-"uk": 4
-}
+]
 },
 "checks": [
 {
@@ -39659,6 +39634,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -40041,7 +40017,10 @@
 "n": 12,
 "somma": 3471.420037
 },
-"tr": "(già visto)"
+"n": 1,
+"tr": {
+"desc": "Trasf. 1"
+}
 }
 },
 "verifiche": [
@@ -40169,14 +40148,14 @@
 "pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
-"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)fusibile FMT 17,5kV 1901063",
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)fusibile A · FMT 17,5kV 1901063 63 A",
 "PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore"
 ]
 },
 "esportazioni": {
-"excel": "c75d7138",
-"pdf": "5109006e",
-"righe": 99
+"excel": "6cf92664",
+"pdf": "afbb546b",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -40225,6 +40204,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -40241,10 +40221,12 @@
 },
 "dsoAlt": null,
 "dsoNit": false,
-"fus": {
+"fus": [
+{
 "Icn": 63,
 "Imb": 220,
 "In": 63,
+"U": 15000,
 "Un": 17500,
 "ch": "back‑up",
 "e": [
@@ -40257,7 +40239,9 @@
 "Media tensione · Italweber FMT",
 "back‑up · Un = 17,5 kV (2-160 A)"
 ],
+"i": 0,
 "idx": 404,
+"k": 1,
 "l": [
 131.8,
 372.6,
@@ -40267,13 +40251,15 @@
 11290
 ],
 "mv": true,
+"n": "A",
 "t": {
 "log": 267.4222867,
 "n": 78,
 "somma": 18503.35353
 },
 "type": "FMT 17,5kV 1901063"
-},
+}
+],
 "inr": {
 "c": {
 "log": 111.8639228,
@@ -40811,18 +40797,18 @@
 "modPMT": {
 "aspetto": {
 "grafici": [
-"pm_chartF linee f2fc5579 scritte 76ff73aa",
+"pm_chartF linee 965887e6 scritte 76ff73aa",
 "pm_chartE linee 650bd886 scritte 0adba7d1"
 ],
 "legende": [
-"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (2 trasformatori, cresta 652 A)tenuta di Trasf. 2: 642 A per 2 s e sovraccarico ammesso (ANSI C57.92)",
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (2 trasformatori, cresta 652 A)tenuta di Trasf. 1 + Trasf. 2: somma 1,25 kA per 2 s e sovraccarico ammesso (ANSI C57.92)",
 "PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore"
 ]
 },
 "esportazioni": {
-"excel": "2885a016",
-"pdf": "43acc940",
-"righe": 111
+"excel": "3e9e63e7",
+"pdf": "43aa1b02",
+"righe": 153
 },
 "excel_ricalcolato": {},
 "note": [
@@ -40862,7 +40848,7 @@
 },
 {
 "extra": "entro i 2 s che il trasformatore sopporta",
-"l": "Tenuta termica di Trasf. 2 (642 A per 2 s): cortoc…#df03cb05",
+"l": "Tenuta termica di Trasf. 1 + Trasf. 2 (1,25 kA per…#5bb0d8d3",
 "ok": true,
 "tip": "La CEI EN 60076-5 richiede che il trasformatore so…#baaed355",
 "warn": false
@@ -40872,6 +40858,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -41071,25 +41058,15 @@
 ],
 "tolOn": true,
 "wth": {
-"Ikt": 641.5002991,
+"Ikt": 1247.718082,
 "c": {
-"log": 64.0004183,
-"n": 14,
-"somma": 4542.251779
+"log": 408.2574117,
+"n": 82,
+"somma": 30474.00961
 },
+"n": 2,
 "tr": {
-"In1": 38.49001795,
-"In2": 1443.375673,
-"SkVA": 1000,
-"U1": 15000,
-"U2": 400,
-"desc": "Trasf. 2",
-"i0": 1.5,
-"id": "3",
-"k": 10,
-"tau": 0.35,
-"tipo": "olio",
-"uk": 6
+"desc": "Trasf. 1 + Trasf. 2"
 }
 }
 },
@@ -41097,7 +41074,7 @@
 "PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · inserzione dei trasformatorile soglie di fase sono bloccate durante l'inserzione: nessuna verifica del margine → blocco 2ª armonica",
-"Tenuta termica di Trasf. 2 (642 A per 2 s): cortocircuito ai morsetti BT con rete di potenza infinita, 642 A al primario, estinto in 141 ms da PG — protezione generale entro i 2 s che il trasformatore sopporta → ✓ ok"
+"Tenuta termica di Trasf. 1 + Trasf. 2 (1,25 kA per 2 s): cortocircuito ai morsetti BT con rete di potenza infinita, 1,25 kA al primario, estinto in 141 ms da PG — protezione generale entro i 2 s che il trasformatore sopporta → ✓ ok"
 ]
 }
 },
@@ -41120,9 +41097,9 @@
 ]
 },
 "esportazioni": {
-"excel": "2d1bbdf6",
-"pdf": "dd688d7b",
-"righe": 42
+"excel": "8389683a",
+"pdf": "6d6dcc5e",
+"righe": 50
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41147,6 +41124,7 @@
 "IC": 0,
 "Iint": 0,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -41352,9 +41330,9 @@
 ]
 },
 "esportazioni": {
-"excel": "128b879c",
-"pdf": "3dcd6046",
-"righe": 98
+"excel": "65389e70",
+"pdf": "d027e9e3",
+"righe": 106
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41397,6 +41375,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -41623,9 +41602,9 @@
 ]
 },
 "esportazioni": {
-"excel": "da418da9",
-"pdf": "1c688893",
-"righe": 101
+"excel": "7d04590d",
+"pdf": "eecc8466",
+"righe": 109
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41686,6 +41665,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -41915,9 +41895,9 @@
 ]
 },
 "esportazioni": {
-"excel": "76ec7c5f",
-"pdf": "d81fbb4a",
-"righe": 96
+"excel": "c36e65d3",
+"pdf": "d4f5554d",
+"righe": 104
 },
 "excel_ricalcolato": {},
 "note": [
@@ -41978,6 +41958,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -42185,9 +42166,9 @@
 ]
 },
 "esportazioni": {
-"excel": "fab73441",
-"pdf": "2679c122",
-"righe": 99
+"excel": "0188a825",
+"pdf": "c59639ad",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42236,6 +42217,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -42467,9 +42449,9 @@
 ]
 },
 "esportazioni": {
-"excel": "d0677158",
-"pdf": "73950125",
-"righe": 99
+"excel": "ceb5f844",
+"pdf": "2f303dae",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42518,6 +42500,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -42749,9 +42732,9 @@
 ]
 },
 "esportazioni": {
-"excel": "ab136e6c",
-"pdf": "9b8208a2",
-"righe": 100
+"excel": "c78a4d78",
+"pdf": "5850f4ed",
+"righe": 108
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42800,6 +42783,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -43026,9 +43010,9 @@
 ]
 },
 "esportazioni": {
-"excel": "2b2457cb",
-"pdf": "ee730d14",
-"righe": 100
+"excel": "e160534f",
+"pdf": "3dd725c5",
+"righe": 108
 },
 "excel_ricalcolato": {},
 "note": [
@@ -43077,6 +43061,7 @@
 "IC": 0,
 "Iint": 40,
 "dirs": [],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -43296,18 +43281,18 @@
 "grafici": [
 "pm_chartF linee 2766f0ac scritte 754c69f1",
 "pm_chartE linee b8b6f8a2 scritte 0adba7d1",
-"pm_chart67 linee 64e989c0 scritte db919034"
+"pm_chart67 linee 64e989c0 scritte cea9e91e"
 ],
 "legende": [
 "PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
 "PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
-"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V, settore 60°–250°, estinzione 450 msPG — protezione generale · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V, settore 60°–120°, estinzione 170 msguasto a terra interno all'impianto, neutro isolato: 117 A a 90° (corrente della rete meno il contributo dell'utente)guasto a terra esterno all'impianto: contributo capacitivo dell'utente 3,20 A a 270°U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V al relè (433,01 V primari), settore 60°–250°, estinzione 450 msPG — protezione generale · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V al relè (173,21 V primari), settore 60°–120°, estinzione 170 msguasto a terra interno all'impianto, neutro isolato: 117 A a 90° (corrente della rete meno il contributo dell'utente)guasto a terra esterno all'impianto: contributo capacitivo dell'utente 3,20 A a 270°barra a destra: consenso di tensione U0 in volt primari, dalla soglia di ogni protezione in su; la linea verde è la tensione residua per guasto franco a terra (8660 V)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
 ]
 },
 "esportazioni": {
-"excel": "87ec785e",
-"pdf": "aada5ff7",
-"righe": 104
+"excel": "ecc45cda",
+"pdf": "e79b3d74",
+"righe": 112
 },
 "excel_ricalcolato": {},
 "note": [
@@ -43573,6 +43558,7 @@
 "t": "(già visto)"
 }
 ],
+"dso": [],
 "iso": true
 },
 "dso": {
@@ -43629,18 +43615,18 @@
 "grafici": [
 "pm_chartF linee e243e384 scritte 754c69f1",
 "pm_chartE linee 8d4b3e7f scritte 0adba7d1",
-"pm_chart67 linee aca8c29c scritte 80400e0c"
+"pm_chart67 linee aca8c29c scritte 54899056"
 ],
 "legende": [
 "PG — protezione generaleLineafasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
 "PG — protezione generaleLineafasce di tolleranza (relè, TO)limite del distributore",
-"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V, settore 60°–300°, estinzione 450 msLinea · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V, settore non leggibile, estinzione 170 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)guasto a terra esterno all'impianto: contributo capacitivo dell'utente 4,00 A a 270°U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+"PG — protezione generale · 67N.S1: I0 oltre 2,00 A, U0 oltre 5 V al relè (433,01 V primari), settore 60°–300°, estinzione 450 msLinea · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V al relè (173,21 V primari), settore non leggibile, estinzione 170 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)guasto a terra esterno all'impianto: contributo capacitivo dell'utente 4,00 A a 270°barra a destra: consenso di tensione U0 in volt primari, dalla soglia di ogni protezione in su; la linea verde è la tensione residua per guasto franco a terra (8660 V)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
 ]
 },
 "esportazioni": {
-"excel": "02798c50",
-"pdf": "039fba3b",
-"righe": 124
+"excel": "492175dc",
+"pdf": "3f00ebde",
+"righe": 132
 },
 "excel_ricalcolato": {},
 "note": [
@@ -44103,6 +44089,7 @@
 "t": "(già visto)"
 }
 ],
+"dso": [],
 "iso": false
 },
 "dso": {
@@ -44149,6 +44136,357 @@
 "Linea · 67N.S2: settore di intervento non leggibilescrivere l'angolo di inizio e quello di fine, per esempio 60–250 → verifica",
 "PG — protezione generale · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo coperto dalla 67N.S1 campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✓ ok",
 "Linea · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo non coperto campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✗ no"
+]
+}
+},
+"pm20_direzionale_oltre_la_taratura_del_distributore": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modPMT": {
+"aspetto": {
+"grafici": [
+"pm_chartF linee 2766f0ac scritte 754c69f1",
+"pm_chartE linee 87f157ce scritte 0adba7d1",
+"pm_chart67 linee ed84ce33 scritte 1d83c4c7"
+],
+"legende": [
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
+"PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
+"PG — protezione generale · 67N.S1: I0 oltre 3,00 A, U0 oltre 6 V al relè (519,62 V primari), settore 60°–250°, estinzione 570 msPG — protezione generale · 67N.S2: I0 oltre 2,00 A, U0 oltre 2 V al relè (173,21 V primari), settore 60°–130°, estinzione 170 mstaratura richiesta dal distributore · 67N.S1: I0 2,00 A, U0 5 V primari, settore 60°–250°, estinzione entro 450 mstaratura richiesta dal distributore · 67N.S2: I0 2,00 A, U0 2 V primari, settore 60°–120°, estinzione entro 170 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)barra a destra: consenso di tensione U0 in volt primari, dalla soglia di ogni protezione in su; la linea verde è la tensione residua per guasto franco a terra (8660 V)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+]
+},
+"esportazioni": {
+"excel": "6b3d16d1",
+"pdf": "ebfd480d",
+"righe": 111
+},
+"excel_ricalcolato": {},
+"note": [
+"250 A · estinzione 500 ms · fascia 244 A–256 A",
+"600 A · estinzione 120 ms · fascia 585 A–615 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A",
+"56,0 A · estinzione 170 ms · fascia 52,4 A–59,6 A",
+"3,00 A · estinzione 570 ms · fascia 2,81 A–3,20 A · U0 6 V, 60–250°",
+"2,00 A · estinzione 170 ms · fascia 1,87 A–2,13 A · U0 2 V, 60–130°",
+"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente."
+],
+"riquadri": [],
+"tabelle": [],
+"valori": {
+"IF": 40,
+"Ibt": 0,
+"IbtMin": 0,
+"Ik": 12500,
+"IkMin": 0,
+"cb": null,
+"checks": [
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
+"l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
+"ok": true,
+"tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "richiesta: I<sub>0</sub> fino a 2,00 A, U<sub>0</s…#527c92d6",
+"l": "PG — protezione generale · 67N.S1 · taratura richi…#e4d479d0",
+"ok": false,
+"tip": "Le regolazioni della direzionale di terra comunica…#6b055cd4"
+},
+{
+"extra": "richiesta: I<sub>0</sub> fino a 2,00 A, U<sub>0</s…#5bc56474",
+"l": "PG — protezione generale · 67N.S2 · taratura richi…#546d5096",
+"ok": false,
+"tip": "Le regolazioni della direzionale di terra comunica…#6b055cd4"
+},
+{
+"extra": "campo indicativo: l'angolo dipende dal grado di co…#db2a1d51",
+"l": "PG — protezione generale · guasto a terra interno …#b19bbf42",
+"ok": true,
+"tip": "Convenzione della CEI 0-16: l'angolo è il ritardo …#09e7e978",
+"warn": false
+}
+],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [
+{
+"i": 0,
+"k": "D1",
+"p": {
+"bmax": {
+"E": [
+2.13,
+10000,
+2.13,
+0.191,
+300,
+0.191
+],
+"F": {
+"log": 37.6252621,
+"n": 10,
+"somma": 27993.8296
+}
+},
+"bmin": {
+"E": [
+1.87,
+10000,
+1.87,
+0.149,
+300,
+0.149
+],
+"F": {
+"log": 36.54056745,
+"n": 10,
+"somma": 27908.6504
+}
+},
+"cv": {
+"E": [
+2,
+10000,
+2,
+0.17,
+300,
+0.17
+],
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"desc": "PG — protezione generale",
+"dg": true,
+"h2": false,
+"ienp": 100,
+"inp": 100,
+"mod": {
+"ei": 1.5,
+"et": 1,
+"etm": 20,
+"h": "REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indip…#9f43b512",
+"m0": 1.01,
+"n": "ABB REF615",
+"sat": "Infinity",
+"satIn": 50,
+"tmin": 0.02
+},
+"modK": "ref615",
+"mult": true,
+"op": {
+"F": {
+"log": 33.79068583,
+"n": 10,
+"somma": 27908.3704
+}
+},
+"tcb": 0.07,
+"th": {
+"D1": {
+"Is": 3,
+"a": "60–250",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D1",
+"lab": "67N.S1",
+"on": true,
+"t": 0.5,
+"u": 6
+},
+"D2": {
+"Is": 2,
+"a": "60–130",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D2",
+"lab": "67N.S2",
+"on": true,
+"t": 0.1,
+"u": 2
+},
+"E1": {
+"Is": 2,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E1",
+"lab": "I<sub>0</sub>&gt;",
+"on": true,
+"t": 0.38,
+"u": 0
+},
+"E2": {
+"Is": 56,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E2",
+"lab": "I<sub>0</sub>&gt;&gt;",
+"on": true,
+"t": 0.1,
+"u": 0
+},
+"I1": {
+"Is": 100,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I1",
+"lab": "I&gt;",
+"on": false,
+"t": 0.1,
+"u": 0
+},
+"I2": {
+"Is": 250,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I2",
+"lab": "I&gt;&gt;",
+"on": true,
+"t": 0.43,
+"u": 0
+},
+"I3": {
+"Is": 600,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I3",
+"lab": "I&gt;&gt;&gt;",
+"on": true,
+"t": 0.05,
+"u": 0
+}
+},
+"tol": {
+"eE": 0.065,
+"eF": 0.025,
+"ei": 1.5,
+"et": 0.01,
+"eta": 1,
+"etm": 20,
+"eto": 5,
+"etp": 1,
+"tm": 0.02
+}
+},
+"sec": [
+60,
+250
+],
+"t": "(già visto)"
+},
+{
+"i": 0,
+"k": "D2",
+"p": "(già visto)",
+"sec": [
+60,
+130
+],
+"t": "(già visto)"
+}
+],
+"dso": [
+{
+"I": 2,
+"T": 0.45,
+"U": 5,
+"k": "D1",
+"lab": "67N.S1",
+"sec": [
+60,
+250
+]
+},
+{
+"I": 2,
+"T": 0.17,
+"U": 2,
+"k": "D2",
+"lab": "67N.S2",
+"sec": [
+60,
+120
+]
+}
+],
+"iso": false
+},
+"dso": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"dsoAlt": null,
+"dsoNit": false,
+"fus": null,
+"inr": {
+"c": {
+"log": 111.8639228,
+"n": 102,
+"somma": 6546.582836
+},
+"n": 1,
+"peak": 266.7358244,
+"tEnd": 0.6153965048
+},
+"prot": [
+"(già visto)"
+],
+"tolOn": true,
+"wth": null
+},
+"verifiche": [
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"PG — protezione generale · 67N.S1 · taratura richiesta dal distributore: I0 3,00 A > 2,00 A; U0 519,62 V primari (6 V al relè) > 5 V; estinzione 570 ms > 450 ms richiesta: I0 fino a 2,00 A, U0 fino a 5 V primari, settore 60°–250°, estinzione entro 450 ms → ✗ no",
+"PG — protezione generale · 67N.S2 · taratura richiesta dal distributore: U0 173,21 V primari (2 V al relè) > 2 V; settore 60°–130° diverso da 60°–120° richiesta: I0 fino a 2,00 A, U0 fino a 2 V primari, settore 60°–120°, estinzione entro 170 ms → ✗ no",
+"PG — protezione generale · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo coperto dalla 67N.S1 campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✓ ok"
 ]
 }
 },
@@ -44397,6 +44735,6 @@
 }
 }
 },
-"programma": "0.1.32",
-"riferimento_scritto_il": "20/11/2026"
+"programma": "0.1.34",
+"riferimento_scritto_il": "21/11/2026"
 }
