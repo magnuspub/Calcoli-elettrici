@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.1",
+  "versione": "0.2.2",
   "data": "21/11/2026",
-  "novita": "Fusibili e interruttori BT sono componenti del modulo Impianto, con posizione e tensione; nuovo modulo «Coordinamento protezioni BT» con tutti sugli stessi grafici e correnti di guasto prese dalla posizione."
+  "novita": "Trasformatori: la tensione della sorgente prevale su quella di targa del primario; la tensione al secondario, ottenuta con il rapporto di targa, vale per cavi, interruttori e motori a valle."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",

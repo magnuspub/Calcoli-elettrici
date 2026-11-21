@@ -306,6 +306,12 @@ async def main():
         ccm(s)['cavi'] = [cav(desc='Dorsale', S=95, L=42, te=160, Sn=50)]
         campi(s, 'modCC', onCab=True)
 
+    # la tensione della sorgente prevale sulla targa del primario: sorgente a 15 kV, trasformatore 20 kV / 400 V, al secondario 300 V
+    @caso('cc45_tensione_della_sorgente_diversa_dalla_targa_del_primario', ['modCC', 'modCOO', 'modPMT'])
+    def _(s):
+        ccm(s)['trasformatori'] = [tr(S=630, uhv=20000, ulv=400)]
+        campi(s, 'modFUS', fu_Ik='', fu_ip='', fu_Imin=''); campi(s, 'modCB', cb_Ik='', cb_ip='', cb_Imin='', cb_onInr=True); campi(s, 'modPMT', pm_U='')
+
     @caso('cc37_tensione_nominale_imposta_690_V', ['modCC'])
     def _(s):
         ccm(s)['trasformatori'] = [tr(ulv=720)]
