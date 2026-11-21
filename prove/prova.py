@@ -81,6 +81,8 @@ async def esegui():
                 c = json.load(open(f, encoding='utf-8')); p, err = await pagina()
                 rep = await p.evaluate('([t])=>{ const r=allOpenText(t,"caso.json"); return r?{saltati:r.skip,mancanti:r.miss,nota:r.note||null}:"non aperto"; }', [json.dumps(c['stato'])])
                 await p.wait_for_timeout(350)
+                # dalla 0.2.1 i grafici di fusibili e interruttori stanno nel modulo «Coordinamento protezioni BT»
+                if ('modFUS' in c['moduli'] or 'modCB' in c['moduli']) and 'modCOO' not in c['moduli']: c['moduli'] = c['moduli'] + ['modCOO']
                 imp = await p.evaluate(IMPRONTA, c['moduli'])
                 imp['apertura'] = rep; imp['errori'] = err[:]
                 if CON_EXCEL:
