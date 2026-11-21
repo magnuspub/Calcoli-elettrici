@@ -55,6 +55,9 @@ async def main():
         for k in ('trasformatori', 'cavi', 'motori'):
             if k in M.get('modIMP', {}): M['modCC'][k] = M['modIMP'].pop(k)
         M['modCC']['campi'].update(M.get('modIMP', {}).get('campi', {}))
+        # dalla 0.2.3 fusibili e interruttori sono elenchi liberi: i casi scritti sulla coppia A/B restano validi togliendo l'elenco
+        for m in ('modFUS', 'modCB'): M[m].pop('elenco', None); M[m].pop('punti', None)
+        M['modPMT'].pop('dispositivi', None)
         M['modFUS']['campi'].update({'fu_Ik': '18.9', 'fu_ip': '38.2', 'fu_Imin': '0'}); M['modCB']['campi'].update({'cb_Ik': '18.9', 'cb_ip': '38.2', 'cb_Imin': '0'})
         TR0 = BASE['moduli']['modCC']['trasformatori'][0]
         # righe predefinite di cavi e motori (le schede sono escluse: si leggono aggiungendone una)
@@ -423,6 +426,19 @@ async def main():
     def _(s):
         fu(s)['A'] = fusn('Un = 24 kV', 40); s['moduli']['modFUS']['punto'] = 0
         campi(s, 'modFUS', fu_Ik='', fu_ip='', fu_Imin='', fu_onInr=True); campi(s, 'modCB', cb_Ik='', cb_ip='', cb_Imin='')
+
+    # elenco libero (dalla 0.2.3): tre interruttori in posizioni diverse, nessun fusibile, due interruttori riportati nelle protezioni MT
+    @caso('co04_tre_interruttori_in_posizioni_diverse_senza_fusibili', ['modCC', 'modCOO', 'modPMT'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['cavi'] = [cav(L=40, S=95)]; campi(s, 'modCC', onCab=True)
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
+        M['modFUS']['elenco'] = []
+        for m in M.values():
+            for k in ('fu_UA', 'fu_IkA', 'fu_ipA', 'fu_IminA'): (m.get('campi') or {}).pop(k, None)
+        M['modCB']['elenco'] = ['A', 'B', 'C']; cb(s)['B'] = intr('NZMN1-A100'); cb(s)['C'] = intr('FAZ-C32/3')
+        M['modCB']['punti'] = {'A': 1, 'B': 2, 'C': 2}; campi(s, 'modCB', cb_IkC=5)
+        M['modPMT']['dispositivi'] = ['cbA', 'cbC']
 
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)

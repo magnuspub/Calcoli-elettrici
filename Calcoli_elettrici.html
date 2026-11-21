@@ -285,6 +285,10 @@ main>[id^=mod]{counter-increment:mod}
 main>[id^=mod][hidden]{display:none!important;counter-increment:none}
 .foldhd .ttl::before{content:"▾\a0\a0" counter(mod) "\a0·\a0";display:inline-block;color:var(--text-muted);font-weight:500;white-space:pre}
 .is-closed>.foldhd .ttl::before{content:"▸\a0\a0" counter(mod) "\a0·\a0"}
+.devrow{border:1px solid var(--grid);border-radius:9px;padding:10px 12px;margin-top:10px;background:var(--surface-2)}
+.devhd{display:flex;align-items:center;justify-content:space-between;margin:0 0 6px;font-size:13px}
+.devhd .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:3px 9px;font-size:13px}
+#pm_devChk:empty::after{content:"nessun fusibile o interruttore nel modulo Impianto"}
 .cofam{border-top:1px solid var(--grid);margin-top:16px;padding-top:12px}
 .cofam[hidden],#cardFus [hidden],#cardCb [hidden]{display:none!important}
 .cofam>.subh .ttl{font-weight:700;color:var(--text-primary)}
@@ -357,7 +361,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.2</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.3</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -469,25 +473,8 @@ details.adv>.in{margin-top:10px}
   <div class="card" id="cardFus">
     <h2><span class="ttl">Fusibili</span><span class="pill">IEC 60269 · 60282‑1</span></h2>
     <p class="hint">Scelta tra <b><span id="fu_count">—</span> fusibili</b> di catalogo: <b>BT</b> (cilindrici C, D, D0 e a coltello NH · gG, aM, gTr, aR, gR) e <b>MT</b> (Italweber serie FMT, back‑up, 7,2–36&nbsp;kV). Le curve sono <b>medie di catalogo</b>, memorizzate per punti e unite con segmenti su assi logaritmici: valori indicativi (tolleranza tipica ±10&nbsp;% sulla corrente), da confermare sui dati del costruttore.</p>
-  <div class="grid3" style="align-items:end">
-    <label class="f">Famiglia<select id="fu_grpA"></select></label>
-    <label class="f">Taglia<select id="fu_selA"></select></label>
-    <div class="kpi"><div class="k">Dati di targa</div><div class="v" style="font-size:13.5px"><span id="fu_infoA">—</span></div></div>
-  </div>
-  <label class="brcab-tgl"><input type="checkbox" id="fu_onB"><span>secondo fusibile per confronto (es. monte/valle)</span></label>
-  <div class="grid3" id="fu_rowB" style="align-items:end;margin-top:8px" hidden>
-    <label class="f">Famiglia B<select id="fu_grpB"></select></label>
-    <label class="f">Taglia B<select id="fu_selB"></select></label>
-    <div class="kpi"><div class="k">Dati di targa B</div><div class="v" style="font-size:13.5px"><span id="fu_infoB">—</span></div></div>
-  </div>
-  <div class="grid3" style="align-items:end;margin-top:10px">
-    <label class="f">Posizione nell'impianto<span class="tip" tabindex="0" data-tip="Punto della sequenza dell'impianto in cui il dispositivo è installato: da qui prende la tensione e le correnti di guasto presunte. I punti sono quelli calcolati dal modulo del cortocircuito.">i</span>
-      <select id="fu_pt" class="ccpt"></select>
-    </label>
-    <label class="f">Tensione di esercizio U <span class="u">(V)</span><span class="tip" tabindex="0" data-tip="Tensione a cui lavorano i fusibili. Lasciato vuoto, vale la tensione nominale del punto in cui sono posizionati; un valore scritto a mano prevale.">i</span>
-      <input type="number" id="fu_U" value="" step="any" placeholder="dal punto">
-    </label>
-  </div>
+  <div id="fu_list"></div>
+  <button type="button" id="fu_add" class="rowbtn" style="margin-top:8px">+ aggiungi fusibile</button>
   </div>
 
   <!-- Interruttori BT -->
@@ -495,17 +482,8 @@ details.adv>.in{margin-top:10px}
     <h2><span class="ttl">Interruttori BT</span><span class="pill">IEC 60947-2 · EN 60898</span></h2>
     <p class="hint">Scelta tra <b><span id="cb_count">—</span> interruttori BT</b> di catalogo: modulari, salvamotori, scatolati e aperti Eaton e scatolati ABB SACE Tmax XT. Per i <b>termomagnetici</b> la curva è la banda di tolleranza di catalogo, tra tempo minimo e massimo; per gli <b>sganciatori elettronici (LSI)</b> la banda è <b>calcolata</b> dalle regolazioni con le tolleranze dichiarate. Per le verifiche di interruzione vale il <b>tempo massimo</b>, per avviamenti e inserzioni il <b>minimo</b>. Valori indicativi, da confermare sui dati del costruttore.</p>
   <p class="mini" id="cb_userMsg" style="margin:-4px 0 8px"></p>
-  <div id="cb_slotA"></div>
-  <label class="brcab-tgl" style="display:flex"><input type="checkbox" id="cb_onB"><span>secondo interruttore per confronto (es. monte/valle)</span></label>
-  <div id="cb_slotB" style="margin-top:8px" hidden></div>
-  <div class="grid3" style="align-items:end;margin-top:10px">
-    <label class="f">Posizione nell'impianto<span class="tip" tabindex="0" data-tip="Punto della sequenza dell'impianto in cui il dispositivo è installato: da qui prende la tensione e le correnti di guasto presunte. I punti sono quelli calcolati dal modulo del cortocircuito.">i</span>
-      <select id="cb_pt" class="ccpt"></select>
-    </label>
-    <label class="f">Tensione di esercizio U <span class="u">(V)</span><span class="tip" tabindex="0" data-tip="Tensione nel punto di installazione: determina il potere di interruzione Icu dichiarato dal costruttore e le curve di limitazione e di I²t da usare. Lasciato vuoto, vale la tensione nominale del punto scelto in «Punto da cui copiare», indicata in grigio nel campo; scrivendo un valore si impone quello, per esempio per verificare un interruttore a 230 o a 690 V senza cambiare l'impianto.">i</span>
-      <input type="number" id="cb_U" value="" step="any" placeholder="dal punto">
-    </label>
-  </div>
+  <div id="cb_list"></div>
+  <button type="button" id="cb_add" class="rowbtn" style="margin-top:8px">+ aggiungi interruttore</button>
   </div>
 </div>
 </section><!-- /modulo impianto -->
@@ -701,10 +679,7 @@ details.adv>.in{margin-top:10px}
     </div>
     <div class="pmvis-g">
       <div class="pmvis-t">Protezioni a valle, dagli altri moduli</div>
-      <label class="toggle"><input type="checkbox" id="pm_onFusA"><span id="pm_lFusA">fusibile A dell'impianto</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onFusB"><span id="pm_lFusB">fusibile B dell'impianto</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onCbA"><span id="pm_lCbA">interruttore A dell'impianto</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onCbB"><span id="pm_lCbB">interruttore B dell'impianto</span></label>
+      <div id="pm_devChk" class="pmvis-list"></div>
       <div class="mini" id="pm_refU"></div>
     </div>
   </div>
@@ -747,7 +722,7 @@ details.adv>.in{margin-top:10px}
 <!-- Coordinamento delle protezioni BT: fusibili e interruttori dell'impianto sugli stessi grafici -->
 <div class="card" id="modCOO" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
   <h2><span class="ttl">Coordinamento protezioni BT</span><span class="pill">IEC 60269 · IEC 60947-2 · IEC 60364-4-43</span><span class="expbtns"><button type="button" onclick="exportModule('modCOO','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modCOO','xls')">↧ Excel</button></span></h2>
-  <p class="hint">Curve tempo‑corrente, di limitazione (cut‑off) e dell'energia passante I²t dei fusibili e degli interruttori scelti nel modulo Impianto, sugli stessi grafici e alla stessa tensione. Le correnti di guasto presunte seguono la posizione di ogni famiglia nell'impianto; un valore scritto a mano prevale.</p>
+  <p class="hint">Curve tempo‑corrente, di limitazione (cut‑off) e dell'energia passante I²t dei fusibili e degli interruttori scelti nel modulo Impianto, sugli stessi grafici e alla stessa tensione. Ogni dispositivo usa la tensione e le correnti di guasto della propria posizione nell'impianto.</p>
   <div style="display:flex;gap:8px 26px;flex-wrap:wrap;align-items:center">
     <label class="toggle"><input type="checkbox" id="co_onFus" checked><span>fusibili</span></label>
     <label class="toggle"><input type="checkbox" id="co_onCb" checked><span>interruttori</span></label>
@@ -770,33 +745,19 @@ details.adv>.in{margin-top:10px}
 
   <!-- fusibili: correnti, risultati e verifiche -->
   <div id="modFUS" class="cofam">
-  <div class="subh"><span class="ttl">Fusibili</span> — correnti di guasto presunte nella loro posizione</div>
+  <div class="subh"><span class="ttl">Fusibili</span> — risultati e verifiche</div>
   <div class="grid3" style="align-items:end">
-    <label class="f">I″<sub>k</sub> massima <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito presunta massima nel punto di installazione del fusibile. Serve per il potere di interruzione, il picco lasciato passare (cut-off) e l'energia passante I²t.">i</span>
-      <input type="number" id="fu_Ik" value="" placeholder="dal punto" step="any">
-    </label>
-    <label class="f">i<sub>p</sub> presunto <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Picco presunto della corrente di guasto (senza fusibile). Il picco lasciato passare non può superarlo: se inserito, il cut-off è il minore tra la curva di limitazione e questo valore. Lasciare 0 se non noto.">i</span>
-      <input type="number" id="fu_ip" value="" placeholder="dal punto" step="any">
-    </label>
-    <label class="f">I″k minima <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di guasto minima a fondo linea (es. fase-terra o fase-neutro calcolata con c_min). Con i fusibili è il caso più gravoso per i tempi di intervento e per la tenuta termica del cavo, perché il tempo si allunga. Lasciare 0 se non serve.">i</span>
-      <input type="number" id="fu_Imin" value="" placeholder="dal punto" step="any">
-    </label>
     <label class="f">Tempo massimo di interruzione <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Tempo entro cui il fusibile deve interrompere la corrente di guasto minima. Valori usuali per l'interruzione automatica (IEC 60364-4-41): 0,4 s per i circuiti terminali fino a 32 A nei sistemi TN a 230 V, 5 s per i circuiti di distribuzione.">i</span>
       <input type="number" id="fu_tmax" value="5" step="any">
     </label>
   </div>
-  <div class="res-main" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:12px">
+  <template id="fu_resT">
     <div class="kpi"><div class="k">Intervento a I″<sub>k</sub></div><div class="v" style="font-size:19px"><span id="fu_tIk">—</span></div></div>
     <div class="kpi"><div class="k">Intervento a I″<sub>k</sub> min</div><div class="v" style="font-size:19px"><span id="fu_tImin">—</span></div></div>
     <div class="kpi accent"><div class="k">Picco lasciato passare<span class="tip" tabindex="0" data-tip="Corrente di picco limitata (cut-off) alla I″k massima, dalla curva di limitazione del fusibile. È il valore da confrontare con Ipk del quadro e con la soglia di 17 kA dell'esenzione IEC 61439-1 §10.11.2.">i</span></div><div class="v" style="font-size:19px"><span id="fu_cut">—</span></div></div>
     <div class="kpi accent"><div class="k">I²t passante a I″<sub>k</sub><span class="tip r" tabindex="0" data-tip="Energia specifica lasciata passare alla I″k massima. Per tempi di intervento ≥ 10 ms vale I²·t dalla curva tempo-corrente; nella zona di limitazione (< 10 ms) si usa la curva I²t di catalogo. Si assume il maggiore dei due.">i</span></div><div class="v" style="font-size:19px"><span id="fu_i2t">—</span></div></div>
-  </div>
-  <div class="res-main" id="fu_resB" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:10px" hidden>
-    <div class="kpi"><div class="k">B · intervento a I″<sub>k</sub></div><div class="v" style="font-size:19px"><span id="fu_tIkB">—</span></div></div>
-    <div class="kpi"><div class="k">B · intervento a I″<sub>k</sub> min</div><div class="v" style="font-size:19px"><span id="fu_tIminB">—</span></div></div>
-    <div class="kpi"><div class="k">B · picco lasciato passare</div><div class="v" style="font-size:19px"><span id="fu_cutB">—</span></div></div>
-    <div class="kpi"><div class="k">B · I²t passante a I″<sub>k</sub></div><div class="v" style="font-size:19px"><span id="fu_i2tB">—</span></div></div>
-  </div>
+  </template>
+  <div id="fu_res"></div>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px">
     <button type="button" id="fu_toVK" class="rowbtn">→ usa il cut‑off nella Verifica quadro</button>
     <span class="mini" id="fu_toVKmsg"></span>
@@ -830,33 +791,19 @@ details.adv>.in{margin-top:10px}
 
   <!-- interruttori: correnti, risultati e verifiche -->
   <div id="modCB" class="cofam">
-  <div class="subh"><span class="ttl">Interruttori BT</span> — correnti di guasto presunte nella loro posizione</div>
+  <div class="subh"><span class="ttl">Interruttori BT</span> — risultati e verifiche</div>
   <div class="grid3" style="align-items:end">
-    <label class="f">I″<sub>k</sub> massima <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito presunta massima nel punto di installazione. Serve per il potere di interruzione, il picco lasciato passare e l'energia passante I²t.">i</span>
-      <input type="number" id="cb_Ik" value="" placeholder="dal punto" step="any">
-    </label>
-    <label class="f">i<sub>p</sub> presunto <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Picco presunto della corrente di guasto (senza interruttore). Il picco lasciato passare non può superarlo. Lasciare 0 se non noto.">i</span>
-      <input type="number" id="cb_ip" value="" placeholder="dal punto" step="any">
-    </label>
-    <label class="f">I″k minima <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di guasto minima a fondo linea (es. fase-terra o fase-neutro con c_min). Deve far intervenire l'interruttore entro il tempo massimo ammesso: di norma occorre che superi la soglia magnetica massima. Lasciare 0 se non serve.">i</span>
-      <input type="number" id="cb_Imin" value="" placeholder="dal punto" step="any">
-    </label>
     <label class="f">Tempo massimo di interruzione <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Tempo entro cui l'interruttore deve interrompere la corrente di guasto minima. Valori usuali per l'interruzione automatica (IEC 60364-4-41): 0,4 s per i circuiti terminali fino a 32 A nei sistemi TN a 230 V, 5 s per i circuiti di distribuzione.">i</span>
       <input type="number" id="cb_tmax" value="5" step="any">
     </label>
   </div>
-  <div class="res-main" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:12px">
+  <template id="cb_resT">
     <div class="kpi"><div class="k">Intervento a I″<sub>k</sub></div><div class="v" style="font-size:19px"><span id="cb_tIk">—</span></div></div>
     <div class="kpi"><div class="k">Intervento a I″<sub>k</sub> min</div><div class="v" style="font-size:19px"><span id="cb_tImin">—</span></div></div>
     <div class="kpi accent"><div class="k">Picco lasciato passare<span class="tip" tabindex="0" data-tip="Corrente di picco lasciata passare alla I″k massima, dalla curva di limitazione dell'interruttore alla tensione di esercizio. Sotto l'inizio della curva l'interruttore non limita e vale il picco presunto.">i</span></div><div class="v" style="font-size:19px"><span id="cb_cut">—</span></div></div>
     <div class="kpi accent"><div class="k">I²t passante a I″<sub>k</sub><span class="tip r" tabindex="0" data-tip="Energia specifica lasciata passare alla I″k massima. Nella zona di intervento magnetico vale la curva I²t di catalogo alla tensione di esercizio; nella zona termica, o dove la curva manca, vale I²·t con il tempo massimo di intervento.">i</span></div><div class="v" style="font-size:19px"><span id="cb_i2t">—</span></div></div>
-  </div>
-  <div class="res-main" id="cb_resB" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:10px" hidden>
-    <div class="kpi"><div class="k">B · intervento a I″<sub>k</sub></div><div class="v" style="font-size:19px"><span id="cb_tIkB">—</span></div></div>
-    <div class="kpi"><div class="k">B · intervento a I″<sub>k</sub> min</div><div class="v" style="font-size:19px"><span id="cb_tIminB">—</span></div></div>
-    <div class="kpi"><div class="k">B · picco lasciato passare</div><div class="v" style="font-size:19px"><span id="cb_cutB">—</span></div></div>
-    <div class="kpi"><div class="k">B · I²t passante a I″<sub>k</sub></div><div class="v" style="font-size:19px"><span id="cb_i2tB">—</span></div></div>
-  </div>
+  </template>
+  <div id="cb_res"></div>
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px">
     <button type="button" id="cb_toVK" class="rowbtn">→ usa il cut‑off nella Verifica quadro</button>
     <span class="mini" id="cb_toVKmsg"></span>
@@ -1230,7 +1177,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.2 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.3 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1267,7 +1214,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.2";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.3";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -2414,8 +2361,8 @@ function drawUtpChart(tF, UTp, UE, ueColor){
 
 /* ======================== 9 · MODULO CURVE DEI FUSIBILI ========================
    Lettura del catalogo, interpolazione log-log, curve, verifiche e disegno. */
-const FUS_PAL={f:['var(--s4)','var(--s4)'],bg:'var(--surface-1)',grid:'var(--border)',ink:'var(--text-primary)',muted:'var(--text-muted)',c:['var(--s1)','var(--s2)'],mot:'var(--s3)',inr:'var(--warn)',ik:'var(--crit)',imin:'var(--kmin)',fz:'var(--s4)',wth:'var(--trf)'};
-const FUS_PAL_PRINT={f:['#6250d6','#6250d6'],bg:'#fff',grid:'#c9c9c9',ink:'#111',muted:'#555',c:['#2a78d6','#eb6834'],mot:'#1baf7a',inr:'#c98500',ik:'#d93a3a',imin:'#e2551d',fz:'#6250d6',wth:'#b02a86'};
+const FUS_PAL={f:['var(--s4)','var(--s4)','var(--trf)','var(--trf)'],bg:'var(--surface-1)',grid:'var(--border)',ink:'var(--text-primary)',muted:'var(--text-muted)',c:['var(--s1)','var(--s2)','var(--good)','var(--kmin)'],mot:'var(--s3)',inr:'var(--warn)',ik:'var(--crit)',imin:'var(--kmin)',fz:'var(--s4)',wth:'var(--trf)'};
+const FUS_PAL_PRINT={f:['#6250d6','#6250d6','#b02a86','#b02a86'],bg:'#fff',grid:'#c9c9c9',ink:'#111',muted:'#555',c:['#2a78d6','#eb6834','#1e8a4c','#e2551d'],mot:'#1baf7a',inr:'#c98500',ik:'#d93a3a',imin:'#e2551d',fz:'#6250d6',wth:'#b02a86'};
 const FUS_DASH=['','7 4'];
 let FUS_ST=null;
    // ultimo stato calcolato, riusato per l'export
@@ -2609,34 +2556,35 @@ function fusMagData(p){
   const R=magRows(), t=R.tr.find(r=>r.id===($(p+"_trSel")||{}).value)||R.tr[0]||{}, m=R.mo.find(r=>r.id===($(p+"_moSel")||{}).value)||R.mo[0]||{};
   // spunto del motore riportato alla tensione del punto scelto nel modulo: i motori stanno alla fine della catena, quindi in un
   // punto a monte del trasformatore la corrente è ridotta nel rapporto tra le tensioni nominali (lato motori / punto)
-  const q=$(p+"_pt")?ccPtU(p+"_pt"):null, kU=(q&&q.Un>0&&q.UnMot>0)?q.UnMot/q.Un:1;
+  const pt=p+"_pt"+((DEV[p]||[])[0]||""), q=$(pt)?ccPtU(pt):null, kU=(q&&q.Un>0&&q.UnMot>0)?q.UnMot/q.Un:1;
   return {In1:t.In1||0, In2:t.In2||0, U1:t.U1||0, U2:t.U2||0, k:t.k||0, tau:t.tau||0, SkVA:t.SkVA||0, uk:t.uk||0, tipo:t.tipo||"olio", desc:t.desc||"",
           InM:(m.In||0)*kU, Iavv:(m.Iavv||0)*kU, kU, Upt:q?q.Un:0};
 }
 // tensione degli interruttori: quella scritta nel campo, altrimenti la nominale del punto scelto nel modulo; senza punti, 400 V
-function cbU(){ const q=ccPtU("cb_pt"), a=q&&q.Un>0?q.Un:400, m=num("cb_U"), el=$("cb_U");
+function cbU(s){ const q=ccPtU("cb_pt"+s), a=q&&q.Un>0?q.Un:400, m=num("cb_U"+s), el=$("cb_U"+s);
   if(el) el.placeholder="dal punto: "+fusNum(a)+" V";
   return m>0?m:a; }
 /* ---- calcolo e disegno del modulo ---- */
 function computeFus(){
-  if(!$("fu_selA")||!$("fu_selA").value) return;
-  const A=fusGet("fu_selA"); if(!A) return;
-  const onB=$("fu_onB").checked, Bf=onB?fusGet("fu_selB"):null, list=Bf?[A,Bf]:[A];
-  $("fu_rowB").hidden=!onB; $("fu_resB").hidden=!Bf;
-  const {Ik,ip,Imin}=coI("fu"), tmax=num("fu_tmax");
+  if(!$("fu_list")) return;
+  const ids=DEV.fu.filter(x=>fusGet("fu_sel"+x)), list=ids.map(x=>fusGet("fu_sel"+x)), cur=ids.map(x=>coI("fu",x));
+  const {Ik,ip,Imin}=cur[0]||{Ik:0,ip:0,Imin:0}, tmax=num("fu_tmax");
   const info=f=>`${fusNum(f.In)} A · ${fusU(f.Un)} · I<sub>cn</sub> ${fusNum(f.Icn)} kA · ${f.ch}`+(f.Imb?` · I<sub>min</sub> di interruzione ${fusNum(f.Imb)} A`:"");
-  $("fu_infoA").innerHTML=info(A); $("fu_infoB").innerHTML=Bf?info(Bf):"—";
-  const res=list.map(f=>({f, tk:fusTime(f.t,Ik), tm:fusTime(f.t,Imin), cut:fusCut(f,Ik,ip), e:fusI2t(f,Ik), em:Imin>0?fusI2t(f,Imin):null}));
-  ["","B"].forEach((s,i)=>{ const r=res[i];
-    $("fu_tIk"+s).textContent  = (r&&Ik>0)?fusTimeTxt(r.tk):"—";
-    $("fu_tImin"+s).textContent= (r&&Imin>0)?fusTimeTxt(r.tm):"—";
-    $("fu_cut"+s).textContent  = (r&&r.cut!=null)?fmt(r.cut/1000,2)+" kA":"—";
-    $("fu_i2t"+s).textContent  = (r&&r.e)?fusFmtE(r.e.v):"—"; });
+  ids.forEach((x,i)=>{ $("fu_info"+x).innerHTML=info(list[i]); });
+  // ogni fusibile con la tensione e le correnti della propria posizione
+  const res=list.map((f,i)=>{ const c=cur[i]; return {f, s:ids[i], U:fuU(ids[i]), Ik:c.Ik, ip:c.ip, Imin:c.Imin, tk:fusTime(f.t,c.Ik), tm:fusTime(f.t,c.Imin), cut:fusCut(f,c.Ik,c.ip), e:fusI2t(f,c.Ik), em:c.Imin>0?fusI2t(f,c.Imin):null}; });
+  { const box=$("fu_res"), sig=ids.join(""); if(box.dataset.h!==sig){ box.innerHTML=devResHTML("fu",ids); box.dataset.h=sig; } }
+  res.forEach(r=>{ const x=r.s;
+    $("fu_tIk"+x).textContent  = r.Ik>0?fusTimeTxt(r.tk):"—";
+    $("fu_tImin"+x).textContent= r.Imin>0?fusTimeTxt(r.tm):"—";
+    $("fu_cut"+x).textContent  = r.cut!=null?fmt(r.cut/1000,2)+" kA":"—";
+    $("fu_i2t"+x).textContent  = r.e?fusFmtE(r.e.v):"—"; });
   const st={res,Ik,ip,Imin,tmax,mot:null,inr:null,K2S2:0};
-  const a=res[0], checks=[], pre=i=>Bf?(i?"B · ":"A · "):"";
+  if(!res.length){ FUS_ST=st; $("fu_checks").innerHTML=""; computeCoo(); return; }   // nessun fusibile nell'impianto
+  const a=res[0], checks=[], pre=i=>res.length>1?res[i].s+" · ":"";
 
   // potere di interruzione e tempo di intervento alla corrente minima
-  res.forEach((r,i)=>{
+  res.forEach((r,i)=>{ const Ik=r.Ik, Imin=r.Imin;   // correnti della posizione di questo fusibile
     if(Ik>0) checks.push({l:`${pre(i)}I″<sub>k</sub> = <b>${kA(Ik)} kA</b> ≤ I<sub>cn</sub> ${fusNum(r.f.Icn)} kA`, ok:Ik<=r.f.Icn*1000,
       extra:`potere di interruzione del fusibile ${r.f.type}`,
       tip:r.f.mv?`Il potere di interruzione nominale del fusibile (corrente massima di interruzione, IEC 60282-1) deve essere almeno pari alla corrente di cortocircuito presunta nel punto di installazione.`
@@ -2742,15 +2690,10 @@ function fusExportHTML(){
     box("Energia specifica passante I²t",fusI2tSVG(st,FUS_PAL_PRINT,"pe",400),"Energia passante non determinabile per questo fusibile.")+`</div>`;
 }
 function fusInit(){
-  fusFillGroups("fu_grpA"); fusFillGroups("fu_grpB");
-  const gi=FUS_DB.g.findIndex(g=>/NH/.test(g[0])&&g[1].indexOf("gG · Un = 500 V · Grandezza 01, 1")===0);
-  if(gi>=0){ $("fu_grpA").value=gi; $("fu_grpB").value=gi; }
-  fusFillSizes("fu_grpA","fu_selA",160); fusFillSizes("fu_grpB","fu_selB",250);
+  DEV_DEF.fg=FUS_DB.g.findIndex(g=>/NH/.test(g[0])&&g[1].indexOf("gG · Un = 500 V · Grandezza 01, 1")===0);
+  devAdd("fu","A",true);   // alla prima apertura: un fusibile
   $("fu_count").textContent=FUS_DB.p.length;
-  ["A","B"].forEach(s=>$("fu_grp"+s).addEventListener("change",()=>{
-    const cur=fusGet("fu_sel"+s); fusFillSizes("fu_grp"+s,"fu_sel"+s,cur?cur.In:0); computeFus(); }));
-  $("fu_onB").addEventListener("change",computeFus);
-  $("fu_pt").addEventListener("change",computeFus);   // lo spunto del motore è riportato alla tensione del punto
+  $("fu_add").addEventListener("click",()=>{ if(!devAdd("fu")) $("fu_add").title="Numero massimo di fusibili raggiunto"; });
   window.addEventListener("resize",computeFus);
   // porta il picco lasciato passare nel campo cut-off della verifica quadro
   $("fu_toVK").addEventListener("click",()=>{
@@ -2771,7 +2714,7 @@ let CB_ST=null;
 let CB_USER_MSG="";
 /* ---- selettori: serie → esecuzione → taglia → regolazioni ---- */
 function cbSlotHTML(s){
-  const sfx=s==="B"?" B":"";
+  const sfx="";   // il nome del dispositivo è nell'intestazione della sua riga
   return `<div class="grid3" style="align-items:end">
     <label class="f">Serie${sfx}<select id="cb_ser${s}"></select></label>
     <label class="f">Esecuzione${sfx}<select id="cb_fam${s}"></select></label>
@@ -3008,35 +2951,41 @@ function cbArea(mn,mx){
 /* ---- grafici ---- */
 /* ---- coordinamento delle protezioni BT: fusibili e interruttori dell'impianto sugli stessi grafici ---- */
 let COO_ST=null;
-// tensione dei fusibili: quella scritta nel campo, altrimenti la nominale del punto in cui sono posizionati; senza punti, 400 V
-function fuU(){ const q=ccPtU("fu_pt"), a=q&&q.Un>0?q.Un:400, m=num("fu_U"), el=$("fu_U");
+// tensione di un fusibile (s = lettera): quella scritta nel suo campo, altrimenti la nominale del punto in cui è posizionato; senza punti, 400 V
+function fuU(s){ const q=ccPtU("fu_pt"+s), a=q&&q.Un>0?q.Un:400, m=num("fu_U"+s), el=$("fu_U"+s);
   if(el) el.placeholder="dal punto: "+fusNum(a)+" V";
   return m>0?m:a; }
-// correnti di guasto di una famiglia (p = fu, cb): il valore scritto nel campo, altrimenti quello del punto in cui è posizionata
-function coI(p){ const v=ccPtVals(parseInt(($(p+"_pt")||{}).value,10))||{};
-  const g=(k,a)=>{ const el=$(p+"_"+k), m=num(p+"_"+k); if(el) el.placeholder=a>0?"dal punto: "+fusNum(a)+" kA":"da indicare"; return (m>0?m:(a>0?a:0))*1000; };
+// correnti di guasto di un dispositivo (p = fu, cb; s = lettera): il valore scritto nel campo, altrimenti quello del punto in cui è posizionato
+function coI(p,s){ const v=ccPtVals(parseInt(($(p+"_pt"+s)||{}).value,10))||{};
+  const g=(k,a)=>{ const el=$(p+"_"+k+s), m=num(p+"_"+k+s); if(el) el.placeholder=a>0?"dal punto: "+fusNum(a)+" kA":"da indicare"; return (m>0?m:(a>0?a:0))*1000; };
   return {Ik:g("Ik",v.Ik), ip:g("ip",v.ip), Imin:g("Imin",v.min)}; }
 // una curva (corrente, valore) riportata a un'altra tensione: corrente × kx, valore × ky
 const cooSc=(c,kx,ky)=>(kx===1&&(ky||1)===1)?c:c.map((v,j)=>j%2?v*(ky||1):v*kx);
-// linee comuni ai tre grafici: I″k e I″k minima della famiglia di riferimento, e quelle dei fusibili se diverse
-function cooLines(pal,vl,xs,min){ const q=COO_ST, P=q.onC?CB_ST:FUS_ST, kp=q.onC?1:q.kf;
-  const add=(I,col,dash,lab)=>{ if(I>0){ vl.push({x:I,col,dash,lab}); xs.push(I); } };
-  add(P.Ik*kp,pal.ik,"6 3","I″k"); if(min) add(P.Imin*kp,pal.imin,"2 3","I″k min");
-  if(q.onC&&q.onF){ const a=FUS_ST.Ik*q.kf, b=FUS_ST.Imin*q.kf;
-    if(a>0&&!(Math.abs(a/CB_ST.Ik-1)<0.01)) add(a,pal.ik,"6 3","I″k fusibili");
-    if(min&&b>0&&!(Math.abs(b/CB_ST.Imin-1)<0.01)) add(b,pal.imin,"2 3","I″k min fusibili"); } }
+// colore e tratto del dispositivo numero i di una famiglia
+const cooSty=(arr,i)=>({col:arr[i%arr.length],dash:FUS_DASH[i%FUS_DASH.length]});
+// dispositivi mostrati: interruttori e poi fusibili, ciascuno con il fattore k che riporta le sue correnti alla tensione dei grafici
+function cooItems(pal){ const q=COO_ST, it=[];
+  q.C.forEach((r,i)=>it.push(Object.assign({fam:"cb",r,k:q.k(r),nm:"int. "+r.s},cooSty(pal.c,i))));
+  q.F.forEach((r,i)=>it.push(Object.assign({fam:"fu",r,k:q.k(r),nm:"fus. "+r.s},cooSty(pal.f,i))));
+  return it; }
+// linee verticali di I″k e I″k minima: una per ogni valore diverso tra i dispositivi mostrati
+function cooLines(pal,vl,xs,min){ const it=cooItems(pal);
+  const grp=(get,col,dash,lab)=>{ const g=[]; it.forEach(x=>{ const I=get(x.r)*x.k; if(!(I>0)) return; const h=g.find(y=>Math.abs(y.I/I-1)<0.01); if(h) h.n.push(x.nm); else g.push({I,n:[x.nm]}); });
+    g.forEach(y=>{ vl.push({x:y.I,col,dash,lab:lab+(g.length>1?" "+y.n.join(", "):"")}); xs.push(y.I); }); };
+  grp(r=>r.Ik,pal.ik,"6 3","I″k"); if(min) grp(r=>r.Imin,pal.imin,"2 3","I″k min"); }
 function cooMainSVG(pal,uid,W){
   const q=COO_ST, ser=[], areas=[], vl=[], pts=[], xs=[], ys=[];
-  if(q.onC) CB_ST.res.forEach((r,i)=>{ const b=r.b, mx=b.max, n=mx.length, col=pal.c[i];
-    if(b.min){ areas.push({c:cbArea(b.min,mx),col}); ser.push({c:b.min,col,dash:FUS_DASH[i],w:1.2}); xs.push(b.min[0]); ys.push(b.min[b.min.length-1]); }
-    ser.push({c:mx,col,dash:FUS_DASH[i]}); xs.push(mx[0],mx[n-2]); ys.push(mx[1],mx[n-1]);
-    if(CB_ST.Ik>0&&r.tk.mx.st==='ok') pts.push({x:CB_ST.Ik,y:r.tk.mx.t,col,lab:fusFmtT(r.tk.mx.t)});
-    if(CB_ST.Imin>0&&r.tm.mx.st==='ok') pts.push({x:CB_ST.Imin,y:r.tm.mx.t,col,lab:fusFmtT(r.tm.mx.t)}); });
-  if(q.onF) FUS_ST.res.forEach((r,i)=>{ const c=cooSc(r.f.t,q.kf), n=c.length, col=pal.f[i];
-    ser.push({c,col,dash:FUS_DASH[i]}); xs.push(c[0],c[n-2]); ys.push(c[1],c[n-1]);
-    if(FUS_ST.Ik>0&&r.tk.st==='ok') pts.push({x:FUS_ST.Ik*q.kf,y:r.tk.t,col,lab:fusFmtT(r.tk.t)});
-    if(FUS_ST.Imin>0&&r.tm.st==='ok') pts.push({x:FUS_ST.Imin*q.kf,y:r.tm.t,col,lab:fusFmtT(r.tm.t)});
-    if(r.f.Imb>0) vl.push({x:r.f.Imb*q.kf,col,dash:"1 3",lab:"I min interr."+(FUS_ST.res.length>1?(i?" B":" A"):"")}); });
+  cooItems(pal).forEach(x=>{ const r=x.r, col=x.col;
+    if(x.fam==="cb"){ const b=r.b, mx=cooSc(b.max,x.k), mn=b.min?cooSc(b.min,x.k):null, n=mx.length;
+      if(mn){ areas.push({c:cbArea(mn,mx),col}); ser.push({c:mn,col,dash:x.dash,w:1.2}); xs.push(mn[0]); ys.push(mn[mn.length-1]); }
+      ser.push({c:mx,col,dash:x.dash}); xs.push(mx[0],mx[n-2]); ys.push(mx[1],mx[n-1]);
+      if(r.Ik>0&&r.tk.mx.st==='ok') pts.push({x:r.Ik*x.k,y:r.tk.mx.t,col,lab:fusFmtT(r.tk.mx.t)});
+      if(r.Imin>0&&r.tm.mx.st==='ok') pts.push({x:r.Imin*x.k,y:r.tm.mx.t,col,lab:fusFmtT(r.tm.mx.t)}); }
+    else { const c=cooSc(r.f.t,x.k), n=c.length;
+      ser.push({c,col,dash:x.dash}); xs.push(c[0],c[n-2]); ys.push(c[1],c[n-1]);
+      if(r.Ik>0&&r.tk.st==='ok') pts.push({x:r.Ik*x.k,y:r.tk.t,col,lab:fusFmtT(r.tk.t)});
+      if(r.Imin>0&&r.tm.st==='ok') pts.push({x:r.Imin*x.k,y:r.tm.t,col,lab:fusFmtT(r.tm.t)});
+      if(r.f.Imb>0) vl.push({x:r.f.Imb*x.k,col,dash:"1 3",lab:"I min interr."+(q.F.length>1?" "+r.s:"")}); } });
   cooLines(pal,vl,xs,true);
   const mo=q.mot, inr=q.inr;
   if(mo){ ser.push({c:[mo.Iavv,1e-12,mo.Iavv,mo.tavv,mo.In,mo.tavv,mo.In,1e12],col:pal.mot,dash:"2 4",w:2.2}); xs.push(mo.In,mo.Iavv); ys.push(mo.tavv); }
@@ -3047,43 +2996,45 @@ function cooMainSVG(pal,uid,W){
   return fusPlot({uid,pal,W,H:W<520?360:chH(W,720,420),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",areas,series:ser,vl,pts});
 }
 function cooLimSVG(pal,uid,W){
-  const q=COO_ST, ser=[], pts=[], vl=[], xs=[], ys=[]; let bt=q.onC;
-  if(q.onC) CB_ST.res.forEach((r,i)=>{ if(!r.b.d) return; const c=r.b.d.c, n=c.length;
-    ser.push({c,col:pal.c[i],dash:FUS_DASH[i]}); xs.push(c[0],c[n-2]); ys.push(c[1],c[n-1]);
-    if(r.cut){ pts.push({x:CB_ST.Ik,y:r.cut.v,col:pal.c[i],lab:fmt(r.cut.v/1000,2)+" kA"}); ys.push(r.cut.v); } });
-  if(q.onF) FUS_ST.res.forEach((r,i)=>{ if(!r.f.l) return; const c=cooSc(r.f.l,q.kf,q.kf), n=c.length; if(!r.f.mv) bt=true;
-    ser.push({c,col:pal.f[i],dash:FUS_DASH[i]}); xs.push(c[0],c[n-2]); ys.push(c[1],c[n-1]);
-    if(r.cut!=null){ pts.push({x:FUS_ST.Ik*q.kf,y:r.cut*q.kf,col:pal.f[i],lab:fmt(r.cut*q.kf/1000,2)+" kA"}); ys.push(r.cut*q.kf); } });
+  const ser=[], pts=[], vl=[], xs=[], ys=[]; let bt=false;
+  cooItems(pal).forEach(x=>{ const r=x.r, col=x.col, k=x.k;
+    if(x.fam==="cb"){ bt=true; if(!r.b.d) return; const c=cooSc(r.b.d.c,k,k), n=c.length;
+      ser.push({c,col,dash:x.dash}); xs.push(c[0],c[n-2]); ys.push(c[1],c[n-1]);
+      if(r.cut){ pts.push({x:r.Ik*k,y:r.cut.v*k,col,lab:fmt(r.cut.v*k/1000,2)+" kA"}); ys.push(r.cut.v*k); } }
+    else { if(!r.f.mv) bt=true; if(!r.f.l) return; const c=cooSc(r.f.l,k,k), n=c.length;
+      ser.push({c,col,dash:x.dash}); xs.push(c[0],c[n-2]); ys.push(c[1],c[n-1]);
+      if(r.cut!=null){ pts.push({x:r.Ik*k,y:r.cut*k,col,lab:fmt(r.cut*k/1000,2)+" kA"}); ys.push(r.cut*k); } } });
   if(!ser.length) return "";
   cooLines(pal,vl,xs,false);
   return fusPlot({uid,pal,W:W||520,H:chH(W||520,520,300),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta I″k (A)",ylab:"picco lasciato passare (A)",series:ser,vl,pts,
     hl:bt?[{y:17000,col:pal.muted,dash:"4 3",lab:"17 kA · esenzione 61439"}]:[]});
 }
 function cooI2tSVG(pal,uid,W){
-  const q=COO_ST, ser=[], pts=[], vl=[], hl=[], xs=[], ys=[], N=100, k2=q.kf*q.kf;
+  const q=COO_ST, ser=[], pts=[], vl=[], hl=[], xs=[], ys=[], N=100;
   const curve=(xlo,xhi,fn,kx,ky)=>{ const out=[]; for(let k=0;k<=N;k++){ const x=Math.exp(Math.log(xlo)+(Math.log(xhi)-Math.log(xlo))*k/N), e=fn(x); if(e){ out.push(x*kx,e.v*ky); ys.push(e.v*ky); } } return out.length>=4?out:null; };
-  if(q.onC){ CB_ST.res.forEach((r,i)=>{ const b=r.b, mx=b.max, out=curve(mx[0],Math.max(b.icu&&b.icu.v?b.icu.v*1000:0,mx[mx.length-2],CB_ST.Ik||0),x=>cbI2t(b,x),1,1); if(!out) return;
-      ser.push({c:out,col:pal.c[i],dash:FUS_DASH[i]}); xs.push(out[0],out[out.length-2]);
-      if(r.e){ pts.push({x:CB_ST.Ik,y:r.e.v,col:pal.c[i],lab:fusFmtE(r.e.v)}); ys.push(r.e.v); }
-      if(r.em){ pts.push({x:CB_ST.Imin,y:r.em.v,col:pal.c[i],lab:fusFmtE(r.em.v)}); ys.push(r.em.v); } });
-    if(CB_ST.K2S2>0){ hl.push({y:CB_ST.K2S2,col:pal.mot,dash:"8 4",lab:"K²S² del cavo"+(q.onF?" (interruttore)":"")}); ys.push(CB_ST.K2S2); } }
-  if(q.onF){ FUS_ST.res.forEach((r,i)=>{ const c=r.f.t, out=curve(c[0],Math.max(r.f.Icn*1000||0,c[c.length-2],FUS_ST.Ik||0),x=>fusI2t(r.f,x),q.kf,k2); if(!out) return;
-      ser.push({c:out,col:pal.f[i],dash:FUS_DASH[i]}); xs.push(out[0],out[out.length-2]);
-      if(r.e){ pts.push({x:FUS_ST.Ik*q.kf,y:r.e.v*k2,col:pal.f[i],lab:fusFmtE(r.e.v*k2)}); ys.push(r.e.v*k2); }
-      if(r.em){ pts.push({x:FUS_ST.Imin*q.kf,y:r.em.v*k2,col:pal.f[i],lab:fusFmtE(r.em.v*k2)}); ys.push(r.em.v*k2); } });
-    if(FUS_ST.K2S2>0){ hl.push({y:FUS_ST.K2S2*k2,col:pal.f[0],dash:"8 4",lab:"K²S² del cavo"+(q.onC?" (fusibile)":"")}); ys.push(FUS_ST.K2S2*k2); } }
+  cooItems(pal).forEach(x=>{ const r=x.r, col=x.col, k=x.k, k2=k*k; let out;
+    if(x.fam==="cb"){ const b=r.b, mx=b.max; out=curve(mx[0],Math.max(b.icu&&b.icu.v?b.icu.v*1000:0,mx[mx.length-2],r.Ik||0),v=>cbI2t(b,v),k,k2); }
+    else { const c=r.f.t; out=curve(c[0],Math.max(r.f.Icn*1000||0,c[c.length-2],r.Ik||0),v=>fusI2t(r.f,v),k,k2); }
+    if(!out) return;
+    ser.push({c:out,col,dash:x.dash}); xs.push(out[0],out[out.length-2]);
+    if(r.e){ pts.push({x:r.Ik*k,y:r.e.v*k2,col,lab:fusFmtE(r.e.v*k2)}); ys.push(r.e.v*k2); }
+    if(r.em){ pts.push({x:r.Imin*k,y:r.em.v*k2,col,lab:fusFmtE(r.em.v*k2)}); ys.push(r.em.v*k2); } });
   if(!ser.length) return "";
+  // K²S² del cavo protetto dal primo dispositivo di ogni famiglia
+  if(q.onC&&CB_ST.K2S2>0){ const k=q.k(q.C[0]); hl.push({y:CB_ST.K2S2*k*k,col:pal.mot,dash:"8 4",lab:"K²S² del cavo"+(q.onF?" (interruttore "+q.C[0].s+")":"")}); ys.push(CB_ST.K2S2*k*k); }
+  if(q.onF&&FUS_ST.K2S2>0){ const k=q.k(q.F[0]); hl.push({y:FUS_ST.K2S2*k*k,col:pal.f[0],dash:"8 4",lab:"K²S² del cavo"+(q.onC?" (fusibile "+q.F[0].s+")":"")}); ys.push(FUS_ST.K2S2*k*k); }
   cooLines(pal,vl,xs,true);
   return fusPlot({uid,pal,W:W||520,H:chH(W||520,520,300),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"I²t (A²s)",series:ser,vl,hl,pts});
 }
 // voci della legenda: txt=true per il PDF (solo testo), altrimenti con il campione della linea
 function cooLegendItems(pal,txt){
   const q=COO_ST, it=[], sw=(col,dash,band)=>txt?"":`<svg width="26" height="10" style="vertical-align:middle;margin-right:5px" aria-hidden="true">${band?`<rect x="0" y="1" width="26" height="8" fill="${col}" fill-opacity="0.16"/>`:""}<line x1="0" y1="5" x2="26" y2="5" stroke="${col}" stroke-width="2.2"${dash?` stroke-dasharray="${dash}"`:""}/></svg>`;
-  if(q.onC) CB_ST.res.forEach((r,i)=>it.push(sw(pal.c[i],FUS_DASH[i],!!r.b.min)+`interruttore ${i?"B":"A"} · ${cbName(r.b)}${r.b.lsi?" · banda LSI calcolata":(r.b.min?" · banda min–max":" · curva massima")}`));
-  if(q.onF) FUS_ST.res.forEach((r,i)=>it.push(sw(pal.f[i],FUS_DASH[i])+`fusibile ${i?"B":"A"} · ${r.f.type} (${fusNum(r.f.In)} A ${r.f.ch})`+(q.kf!==1?` riportato a ${fusU(q.Uref)}`:"")));
-  const P=q.onC?CB_ST:FUS_ST;
-  if(P.Ik>0) it.push(sw(pal.ik,"6 3")+"I″k massima"); if(P.Imin>0) it.push(sw(pal.imin,"2 3")+"I″k minima");
-  if(q.onF) FUS_ST.res.forEach((r,i)=>{ if(r.f.Imb>0) it.push(sw(pal.f[i],"1 3")+`corrente minima di interruzione ${fusNum(r.f.Imb)} A`+(FUS_ST.res.length>1?(i?" (B)":" (A)"):"")); });
+  const items=cooItems(pal), rip=x=>x.k!==1?` riportato a ${fusU(q.Uref)}`:"";
+  items.forEach(x=>{ const r=x.r;
+    if(x.fam==="cb") it.push(sw(x.col,x.dash,!!r.b.min)+`interruttore ${r.s} · ${cbName(r.b)}${r.b.lsi?" · banda LSI calcolata":(r.b.min?" · banda min–max":" · curva massima")}`+rip(x));
+    else it.push(sw(x.col,x.dash)+`fusibile ${r.s} · ${r.f.type} (${fusNum(r.f.In)} A ${r.f.ch})`+rip(x)); });
+  if(items.some(x=>x.r.Ik>0)) it.push(sw(pal.ik,"6 3")+"I″k massima"); if(items.some(x=>x.r.Imin>0)) it.push(sw(pal.imin,"2 3")+"I″k minima");
+  items.forEach(x=>{ if(x.fam==="fu"&&x.r.f.Imb>0) it.push(sw(x.col,"1 3")+`corrente minima di interruzione ${fusNum(x.r.f.Imb)} A`+(q.F.length>1?` (${x.r.s})`:"")); });
   if(q.mot) it.push(sw(pal.mot,"2 4")+"avviamento motore"+(q.mot.U?` (riportato a ${fusNum(q.mot.U)} V)`:""));
   if(q.inr) it.push(sw(pal.inr,"9 3 2 3")+"inserzione trasformatore");
   if(q.onC&&CB_ST.ovl){ const o=CB_ST.ovl; it.push(sw(pal.wth,"12 4")+`${escH(o.desc||"trasformatore")}: I<sub>n</sub> ${fmtA(o.In)} al ${o.lato}, tenuta ${fmtA(o.Ikt)} per 2 s`+(o.c?" e sovraccarico ammesso (ANSI C57.92)":"")); }
@@ -3091,15 +3042,17 @@ function cooLegendItems(pal,txt){
 }
 function computeCoo(){
   if(!$("co_chart")) return;
-  const wF=$("co_onFus").checked, wC=$("co_onCb").checked; $("modFUS").hidden=!wF; $("modCB").hidden=!wC;
-  const Uf=fuU(), Uc=cbU(), q={onF:wF&&!!FUS_ST,onC:wC&&!!CB_ST,Uf,Uc,kf:1,mot:null,inr:null};
-  q.Uref=q.onC?Uc:Uf; if(q.onC&&Uf>0&&Uc>0&&Math.abs(Uf/Uc-1)>0.001) q.kf=Uf/Uc;
-  // spunto del motore e inserzione del trasformatore: dalla famiglia degli interruttori, altrimenti da quella dei fusibili
-  if(q.onC&&CB_ST.mot) q.mot=CB_ST.mot; else if(q.onF&&FUS_ST.mot){ const m=FUS_ST.mot; q.mot={Iavv:m.Iavv*q.kf,In:m.In*q.kf,tavv:m.tavv,U:m.U}; }
-  if(q.onC&&CB_ST.inr) q.inr=CB_ST.inr.c; else if(q.onF&&FUS_ST.inr) q.inr=cooSc(FUS_ST.inr.c,q.kf);
+  const wF=$("co_onFus").checked, wC=$("co_onCb").checked, F=wF&&FUS_ST?FUS_ST.res:[], C=wC&&CB_ST?CB_ST.res:[];
+  $("modFUS").hidden=!wF||!(FUS_ST&&FUS_ST.res.length); $("modCB").hidden=!wC||!(CB_ST&&CB_ST.res.length);
+  const first=C[0]||F[0], Uref=first?first.U:0, kOf=r=>(r.U>0&&Uref>0&&Math.abs(r.U/Uref-1)>0.001)?r.U/Uref:1;
+  const q={onF:F.length>0,onC:C.length>0,F,C,Uref,k:kOf,kf:F.length?kOf(F[0]):1,mot:null,inr:null};
+  // spunto del motore e inserzione del trasformatore: dalla famiglia degli interruttori, altrimenti da quella dei fusibili (primo dispositivo)
+  const kc=q.onC?kOf(C[0]):1;
+  if(q.onC&&CB_ST.mot){ const m=CB_ST.mot; q.mot={Iavv:m.Iavv*kc,In:m.In*kc,tavv:m.tavv,U:m.U}; } else if(q.onF&&FUS_ST.mot){ const m=FUS_ST.mot; q.mot={Iavv:m.Iavv*q.kf,In:m.In*q.kf,tavv:m.tavv,U:m.U}; }
+  if(q.onC&&CB_ST.inr) q.inr=cooSc(CB_ST.inr.c,kc); else if(q.onF&&FUS_ST.inr) q.inr=cooSc(FUS_ST.inr.c,q.kf);
   COO_ST=q;
-  const any=q.onF||q.onC, no=t=>`<p class="mini">${t}</p>`;
-  $("co_refU").textContent=!any?"Nessuna famiglia scelta: accendere i fusibili o gli interruttori.":`Grafici alla tensione di ${fusU(q.Uref)}`+(q.onF&&q.kf!==1?`: i fusibili lavorano a ${fusU(Uf)} e le loro correnti sono riportate a questa tensione (× ${fmt(q.kf,q.kf<0.1?4:2)}).`:".");
+  const any=q.onF||q.onC, no=t=>`<p class="mini">${t}</p>`, altri=C.concat(F).filter(r=>kOf(r)!==1);
+  $("co_refU").textContent=!any?"Nessun dispositivo da mostrare: aggiungere fusibili o interruttori nel modulo Impianto, oppure accendere le levette.":`Grafici alla tensione di ${fusU(Uref)}`+(altri.length?`: i dispositivi che lavorano a un'altra tensione sono riportati a questa.`:".");
   $("co_chart").innerHTML=any?cooMainSVG(FUS_PAL,"om",chW("co_chart",720)):"";
   $("co_legend").innerHTML=any?cooLegendItems(FUS_PAL).map(x=>`<span>${x}</span>`).join(""):"";
   $("co_chartL").innerHTML=any?(cooLimSVG(FUS_PAL,"ol",chW("co_chartL",520))||no("Curva di limitazione non disponibile per questi dispositivi.")):"";
@@ -3114,6 +3067,42 @@ function cooExportHTML(){
     box("Limitazione — picco lasciato passare",cooLimSVG(FUS_PAL_PRINT,"opl",400),"Curva di limitazione non disponibile.")+
     box("Energia specifica passante I²t",cooI2tSVG(FUS_PAL_PRINT,"ope",400),"Energia passante non determinabile.")+`</div>`;
 }
+/* ---- elenchi liberi di fusibili e interruttori dell'impianto: ogni dispositivo ha una lettera, usata come suffisso dei suoi campi ---- */
+const DEV={fu:[],cb:[]}, DEV_MAX=8, DEV_NM={fu:"Fusibile",cb:"Interruttore"}, DEV_DEF={};
+function devNext(p){ for(let i=0;i<DEV_MAX;i++){ const l=String.fromCharCode(65+i); if(DEV[p].indexOf(l)<0) return l; } return null; }
+function devRowHTML(p,s){
+  const tipP="Punto della sequenza dell'impianto in cui il dispositivo è installato: da qui prende la tensione e le correnti di guasto presunte. I punti sono quelli calcolati dal modulo del cortocircuito.";
+  const tipU="Tensione a cui lavora il dispositivo. Lasciato vuoto, vale la tensione nominale del punto in cui è posizionato; un valore scritto a mano prevale.";
+  const tipI="Lasciato vuoto, vale la corrente calcolata nel punto in cui il dispositivo è posizionato; un valore scritto a mano prevale.";
+  const cur=(k,l)=>`<label class="f">${l} <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="${tipI}">i</span><input type="number" id="${p}_${k}${s}" value="" step="any" placeholder="dal punto"></label>`;
+  const sel=p==="fu"?`<div class="grid3" style="align-items:end"><label class="f">Famiglia<select id="fu_grp${s}"></select></label><label class="f">Taglia<select id="fu_sel${s}"></select></label>
+    <div class="kpi"><div class="k">Dati di targa</div><div class="v" style="font-size:13.5px"><span id="fu_info${s}">—</span></div></div></div>`:`<div class="cbslot">${cbSlotHTML(s)}</div>`;
+  return `<div class="devhd"><b>${DEV_NM[p]} ${s}</b><button type="button" class="del" title="Toglie questo dispositivo dall'impianto">✕</button></div>${sel}
+    <div class="grid3" style="align-items:end;margin-top:8px">
+      <label class="f">Posizione nell'impianto<span class="tip" tabindex="0" data-tip="${tipP}">i</span><select id="${p}_pt${s}" class="ccpt"></select></label>
+      <label class="f">Tensione di esercizio U <span class="u">(V)</span><span class="tip" tabindex="0" data-tip="${tipU}">i</span><input type="number" id="${p}_U${s}" value="" step="any" placeholder="dal punto"></label>
+      <span></span>
+      ${cur("Ik","I″<sub>k</sub> massima")}${cur("ip","i<sub>p</sub> presunto")}${cur("Imin","I″<sub>k</sub> minima")}
+    </div>`;
+}
+// aggiunge un dispositivo (s: lettera voluta, altrimenti la prima libera); quiet: senza ricalcolare
+function devAdd(p,s,quiet){ s=s||devNext(p); if(!s||DEV[p].indexOf(s)>=0) return null;
+  const d=document.createElement("div"); d.className="devrow"; d.id=p+"_row"+s; d.innerHTML=devRowHTML(p,s);
+  DEV[p].push(s); DEV[p].sort(); const nx=DEV[p][DEV[p].indexOf(s)+1]; $(p+"_list").insertBefore(d,nx?$(p+"_row"+nx):null);
+  const A=s==="A";
+  if(p==="fu"){ fusFillGroups("fu_grp"+s); if(DEV_DEF.fg>=0) $("fu_grp"+s).value=DEV_DEF.fg; fusFillSizes("fu_grp"+s,"fu_sel"+s,A?160:250);
+    $("fu_grp"+s).addEventListener("change",()=>{ const cur=fusGet("fu_sel"+s); fusFillSizes("fu_grp"+s,"fu_sel"+s,cur?cur.In:0); recompute(); }); }
+  else { cbFillSeries(s); const si=A?DEV_DEF.sA:DEV_DEF.sB; if(si>=0) $("cb_ser"+s).value=si;
+    cbFillFams(s,A?"125…300 A (tipo NZM2) · Fisso · 3 poli · Icu = 50 kA":"Caratteristica C (Ii = 5–10 × In) · 3 poli"); cbFillSizes(s,A?250:32); cbFillSettings(s); }
+  d.addEventListener("change",ev=>{ if(ev.target.tagName==="SELECT"&&!/^fu_grp/.test(ev.target.id)) recompute(); });
+  d.querySelector(".del").addEventListener("click",()=>devDel(p,s));
+  if(!quiet) recompute(); return s; }
+function devDel(p,s){ const i=DEV[p].indexOf(s); if(i<0) return; DEV[p].splice(i,1); const d=$(p+"_row"+s); if(d) d.remove(); recompute(); }
+// porta l'elenco a quello indicato (apertura di un file), senza ricalcolare
+function devSet(p,list){ DEV[p].slice().forEach(s=>{ if(list.indexOf(s)<0){ DEV[p].splice(DEV[p].indexOf(s),1); const d=$(p+"_row"+s); if(d) d.remove(); } }); list.forEach(s=>devAdd(p,s,true)); }
+// riquadri dei risultati di una famiglia, uno per dispositivo, dal modello nella pagina
+function devResHTML(p,ids){ const t=$(p+"_resT"); if(!t) return "";
+  return ids.map(s=>`<div class="res-main" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:10px">`+t.innerHTML.replace(/id="([a-z]+_[A-Za-z0-9]+)"/g,`id="$1${s}"`).replace(/<div class="k">/g,`<div class="k">${ids.length>1?s+" · ":""}`)+`</div>`).join(""); }
 function cbMainSVG(st,pal,uid,W){
   const ser=[], areas=[], vl=[], pts=[], xs=[], ys=[];
   st.res.forEach((r,i)=>{ const b=r.b, mx=b.max, n=mx.length;
@@ -3173,15 +3162,12 @@ function cbLegend(st){
 }
 /* ---- calcolo e disegno del modulo ---- */
 function computeCb(){
-  if(!$("cb_selA")) return;
-  cbSync("A");
-  const onB=$("cb_onB").checked; $("cb_slotB").hidden=!onB; $("cb_resB").hidden=!onB;
-  if(onB) cbSync("B");
-  const U=cbU(), {Ik,ip,Imin}=coI("cb"), tmax=num("cb_tmax");
-  const list=[cbSlot("A",U)]; if(onB) list.push(cbSlot("B",U));
-  if(!list[0]||(onB&&!list[1])) return;
+  if(!$("cb_list")) return;
+  const ids=DEV.cb.slice(); ids.forEach(x=>cbSync(x));
+  const cur=ids.map(x=>coI("cb",x)), Us=ids.map(x=>cbU(x)), U=Us[0]||0, {Ik,ip,Imin}=cur[0]||{Ik:0,ip:0,Imin:0}, tmax=num("cb_tmax");
+  const list=ids.map((x,i)=>cbSlot(x,Us[i])); if(list.some(b=>!b)) return;
   const r3=v=>fusNum(+v.toPrecision(3));
-  list.forEach(b=>{
+  list.forEach((b,bi)=>{ const U=Us[bi];
     const icu = !b.icu ? "I<sub>cu</sub> non dichiarato" : (b.icu.none ? `I<sub>cu</sub> non dichiarato a ${fusNum(U)} V` :
       `I<sub>cu</sub> ${fusNum(b.icu.v)} kA a ${fusNum(b.icu.U)} V`+(b.icu.std?` (${b.icu.std})`:"")+(b.icu.icn>0?` · I<sub>cn</sub> ${fusNum(b.icu.icn)} kA`:""));
     let thr="";
@@ -3193,18 +3179,20 @@ function computeCb(){
     } else if(b.thMax>0) thr=` · soglia magnetica ${b.thMin>0&&b.thMin<b.thMax?r3(b.thMin)+"…":""}${r3(b.thMax)} A`;
     $("cb_info"+b.slot).innerHTML=`${CB_CAT[b.cat]} · ${fusNum(b.Iu)} A · ${fusNum(b.Un)} V · ${cbCh(b.ch)} · ${icu}${thr}`;
   });
-  if(!onB) $("cb_infoB").textContent="—";
-  const res=list.map(b=>({b, tk:cbTrip(b,Ik), tm:cbTrip(b,Imin), cut:cbCut(b,Ik,ip), e:cbI2t(b,Ik), em:Imin>0?cbI2t(b,Imin):null}));
-  ["","B"].forEach((s,i)=>{ const r=res[i];
-    $("cb_tIk"+s).textContent  = (r&&Ik>0)?cbTripTxt(r.tk):"—";
-    $("cb_tImin"+s).textContent= (r&&Imin>0)?cbTripTxt(r.tm):"—";
-    $("cb_cut"+s).textContent  = (r&&r.cut)?fmt(r.cut.v/1000,2)+" kA":"—";
-    $("cb_i2t"+s).textContent  = (r&&r.e)?(r.e.src==='i'?"≤ ":"")+fusFmtE(r.e.v):"—"; });
+  // ogni interruttore con la tensione e le correnti della propria posizione
+  const res=list.map((b,i)=>{ const c=cur[i]; return {b, s:ids[i], U:Us[i], Ik:c.Ik, ip:c.ip, Imin:c.Imin, tk:cbTrip(b,c.Ik), tm:cbTrip(b,c.Imin), cut:cbCut(b,c.Ik,c.ip), e:cbI2t(b,c.Ik), em:c.Imin>0?cbI2t(b,c.Imin):null}; });
+  { const box=$("cb_res"), sig=ids.join(""); if(box.dataset.h!==sig){ box.innerHTML=devResHTML("cb",ids); box.dataset.h=sig; } }
+  res.forEach(r=>{ const x=r.s;
+    $("cb_tIk"+x).textContent  = r.Ik>0?cbTripTxt(r.tk):"—";
+    $("cb_tImin"+x).textContent= r.Imin>0?cbTripTxt(r.tm):"—";
+    $("cb_cut"+x).textContent  = r.cut?fmt(r.cut.v/1000,2)+" kA":"—";
+    $("cb_i2t"+x).textContent  = r.e?(r.e.src==='i'?"≤ ":"")+fusFmtE(r.e.v):"—"; });
   const st={res,U,Ik,ip,Imin,tmax,mot:null,inr:null,fus:null,ovl:null,K2S2:0};
-  const a=res[0], checks=[], pre=i=>onB?(i?"B · ":"A · "):"";
+  if(!res.length){ CB_ST=st; $("cb_checks").innerHTML=""; computeCoo(); return; }   // nessun interruttore nell'impianto
+  const a=res[0], checks=[], pre=i=>res.length>1?res[i].s+" · ":"";
 
   // potere di interruzione alla tensione di esercizio e intervento alla corrente minima
-  res.forEach((r,i)=>{ const b=r.b;
+  res.forEach((r,i)=>{ const b=r.b, Ik=r.Ik, Imin=r.Imin, U=r.U;   // tensione e correnti della posizione di questo interruttore
     if(b.lsi&&b.lsi.unk) checks.push({l:`${pre(i)}Lungo ritardo t<sub>r</sub> = ${fusNum(b.lsi.tr)} s`, dis:true, disTxt:"da targa",
       extra:`${b.type}: il database non indica il lungo ritardo di questo sganciatore: impostare il valore di targa`});
     if(Ik>0){
@@ -3374,16 +3362,12 @@ function cbLoadUser(){
 }
 function cbInit(){
   cbLoadUser();
-  ["A","B"].forEach(s=>{ $("cb_slot"+s).innerHTML=cbSlotHTML(s); cbFillSeries(s); });
-  // predefiniti: A = scatolato NZM2 termomagnetico 250 A · B = modulare FAZ caratteristica C 3 poli 32 A
-  const sA=CB_DB.s.findIndex(v=>v[1].indexOf("NZM")===0&&v[1].indexOf("termomagnetico (-A;")>0), sB=CB_DB.s.findIndex(v=>v[1].indexOf("tipo FAZ")>0&&v[1].indexOf("15 kA")>0);
-  if(sA>=0) $("cb_serA").value=sA; if(sB>=0) $("cb_serB").value=sB;
-  cbFillFams("A","125…300 A (tipo NZM2) · Fisso · 3 poli · Icu = 50 kA"); cbFillFams("B","Caratteristica C (Ii = 5–10 × In) · 3 poli");
-  cbFillSizes("A",250); cbFillSizes("B",32); cbFillSettings("A"); cbFillSettings("B");
+  // predefiniti: il primo è uno scatolato NZM2 termomagnetico da 250 A, gli altri un modulare FAZ caratteristica C 3 poli da 32 A
+  DEV_DEF.sA=CB_DB.s.findIndex(v=>v[1].indexOf("NZM")===0&&v[1].indexOf("termomagnetico (-A;")>0); DEV_DEF.sB=CB_DB.s.findIndex(v=>v[1].indexOf("tipo FAZ")>0&&v[1].indexOf("15 kA")>0);
+  devAdd("cb","A",true);   // alla prima apertura: un interruttore
+  $("cb_add").addEventListener("click",()=>{ if(!devAdd("cb")) $("cb_add").title="Numero massimo di interruttori raggiunto"; });
   $("cb_count").textContent=CB_DB.p.length.toLocaleString("it-IT");
   if(CB_USER_MSG) $("cb_userMsg").textContent=CB_USER_MSG;
-  ["A","B"].forEach(s=>["ser","fam","sel","Ir","tr","n","Isd","tsd","si","Ii"].forEach(k=>$("cb_"+k+s).addEventListener("change",computeCb)));
-  ["cb_onB","cb_pt"].forEach(id=>$(id).addEventListener("change",computeCb));
   ["co_onFus","co_onCb"].forEach(id=>$(id).addEventListener("change",computeCoo));   // cb_pt: la tensione degli interruttori è quella del punto
   window.addEventListener("resize",computeCb);
   { let rz=0; window.addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(()=>{ computePMT(); computeMT(); },120); }); }
@@ -3415,7 +3399,7 @@ const PMT_TH=[["I1","I&gt;","F"],["I2","I&gt;&gt;","F"],["I3","I&gt;&gt;&gt;","F
 const PMT_PAL={bg:'var(--surface-1)',grid:'var(--border)',ink:'var(--text-primary)',muted:'var(--text-muted)',p:['var(--s1)','var(--s3)','var(--s4)','var(--s2)'],dso:'var(--crit)',inr:'var(--warn)',ik:'var(--crit)',imin:'var(--kmin)',ibt:'var(--good)',ie:'var(--text-secondary)',fz:'var(--text-muted)',cb:['var(--s4)','var(--s2)'],wth:'var(--trf)'};
 const PMT_PAL_PRINT={bg:'#fff',grid:'#c9c9c9',ink:'#111',muted:'#555',p:['#2a78d6','#1baf7a','#6250d6','#eb6834'],dso:'#d93a3a',inr:'#c98500',ik:'#d93a3a',imin:'#e2551d',ibt:'#1e8a4c',ie:'#555',fz:'#888',cb:['#6250d6','#eb6834'],wth:'#b02a86'};
 let pmtSeq=0, PMT_ST=null;
- const PMT_EXC=new Set();
+ const PMT_EXC=new Set(), PMT_DEV=new Set();   // PMT_DEV: fusibili e interruttori dell'impianto mostrati nei grafici («fuA», «cbB»…)
    // PMT_EXC: trasformatori esclusi dall'inserzione totale (id di riga)
 function pmtRow(def={}){
   pmtSeq++; const id=pmtSeq, d=document.createElement("div"); d.className="pmt-prot"; d.dataset.id=id;
@@ -3631,7 +3615,7 @@ function pmtLegend(st,fam,pal){
   if(fam==="F"&&st.dsoAlt) it.push(pmtSw(pal.dso,"2 3")+"limite senza la I&gt;");
   if(fam==="F"){ if(st.inr) it.push(pmtSw(pal.inr,"9 3 2 3")+`inserzione totale (${st.inr.n} trasformator${st.inr.n===1?"e":"i"}, cresta ${fmtA(st.inr.peak)})`); if(st.fus) st.fus.forEach(z=>it.push(pmtSw(pal.fz,FUS_DASH[z.i%FUS_DASH.length])+`<span style="white-space:normal">fusibile ${z.n} · ${escH(z.type)} ${fusNum(z.In)} A`+(Math.abs(z.k-1)>1e-9?` riportato alla MT (${fusU(z.U)} → ${fusU(z.U/z.k)})`:"")+`</span>`));
     if(st.wth) it.push(pmtSw(pal.wth,"12 4")+`<span style="white-space:normal">tenuta di ${escH(st.wth.tr.desc)}: ${st.wth.n>1?"somma ":""}${fmtAs(st.wth.Ikt)} per 2 s`+(st.wth.c?" e sovraccarico ammesso (ANSI C57.92)":"")+`</span>`);
-    if(st.cb) st.cb.list.forEach((q,i)=>it.push(pmtSw(pal.cb[i%pal.cb.length],PMT_CBDASH)+`<span style="white-space:normal">interruttore BT ${escH(q.name)} · ${q.min?"banda min–max":"curva massima"} riportata alla MT (${fusU(st.cb.U)} → ${fusU(st.cb.Un)}, guasto trifase)</span>`)); }
+    if(st.cb) st.cb.list.forEach((q,i)=>it.push(pmtSw(pal.cb[i%pal.cb.length],PMT_CBDASH)+`<span style="white-space:normal">interruttore BT ${escH(q.name)} · ${q.min?"banda min–max":"curva massima"} riportata alla MT (${fusU(q.U)} → ${fusU(st.cb.Un)}, guasto trifase)</span>`)); }
   return it.map(x=>`<span style="white-space:nowrap">${x}</span>`).join("");
 }
 // ---- direzionale di terra 67N: settori di intervento e vettori di guasto ----
@@ -3711,7 +3695,7 @@ function computePMT(){
       +[["Dc","67N.S1"],["Di","67N.S2"]].map(([k,n])=>num("pm_"+k+"I")>0?" · "+n+" "+A("pm_"+k+"I")+", "+escH(fusNum(num("pm_"+k+"U")))+" V primari, "+escH($("pm_"+k+"A").value)+"°, "+escH(fusNum(num("pm_"+k+"T")))+" s":"").join(""); }
   { const on=id=>$(id).checked, v=[];   // riepilogo delle opzioni, mostrato da chiuso
     if(on("pm_onDSO")) v.push("limite del distributore"); if(on("pm_onTol")) v.push("fasce di tolleranza"); if(on("pm_onInr")) v.push("inserzione dei trasformatori");
-    if(on("pm_onWth")) v.push("tenuta dei trasformatori"); ["A","B"].forEach(n=>{ if(on("pm_onFus"+n)) v.push("fusibile "+n); }); ["A","B"].forEach(n=>{ if(on("pm_onCb"+n)) v.push("interruttore "+n); });
+    if(on("pm_onWth")) v.push("tenuta dei trasformatori"); [...PMT_DEV].sort().reverse().forEach(k=>v.push((k.slice(0,2)==="fu"?"fusibile ":"interruttore ")+k.slice(2)));
     $("pm_visSum").textContent="Nei grafici: "+(v.length?v.join(" · "):"nessuna curva aggiuntiva")+" — margine di selettività "+fusFmtT(num("pm_dt")); }
   { const z=v=>v>0?fmtAs(v):"—";   // riepilogo mostrato quando il sotto-modulo delle correnti di riferimento è chiuso
     $("pm_refSum").textContent="I″k massima "+z(Ik)+" · I″k minima "+z(IkMin)+" · guasto a terra "+z(IF)+(num("pm_IC")>0?" · contributo capacitivo dell'utente "+z(num("pm_IC")):"")+" · guasto BT al primario "+z(Ibt)+" · guasto BT minimo "+z(IbtMin); }
@@ -3750,23 +3734,16 @@ function computePMT(){
     for(let k=0;k<=50;k++){ const t=0.01*Math.pow(tEnd/0.01,k/50); c.push(tot(t),t); }
     st.inr={c,n:trs.length,peak:trs.reduce((a,x)=>a+x.k*x.In1*ref(x.U1),0),tot,tEnd};
   }
-  // fusibili A e B dell'impianto, riportati dalla loro tensione di esercizio
-  { const U=fuU(), k=ref(U), list=[];
-    [["A","fu_selA",true],["B","fu_selB",!!($("fu_onB")&&$("fu_onB").checked)]].forEach(([n,sel,act],i)=>{ const fz=act?fusGet(sel):null, lab=$("pm_lFus"+n);
-      if(lab) lab.textContent=`fusibile ${n} dell'impianto`+(fz?` — ${fz.type} ${fusNum(fz.In)} A`:" — non attivo");
-      if(!$("pm_onFus"+n).checked) return;
-      if(!fz){ checks.push({l:`Fusibile ${n} sovrapposto`,dis:true,extra:`il fusibile ${n} non è attivo nel modulo Impianto`}); return; }
-      list.push(Object.assign({},fz,{n,i,k,U,t:Math.abs(k-1)<1e-9?fz.t:fz.t.map((v,j)=>j%2?v:v*k)})); });
-    if(list.length) st.fus=list; }
-  // interruttori A e B dell'impianto, riportati dalla loro tensione di esercizio
-  { const res=(CB_ST&&CB_ST.res)||[], U=CB_ST?CB_ST.U:0, k=ref(U), sc=c=>c?c.map((v,j)=>j%2?v:v*k):null, list=[];
-    ["A","B"].forEach((n,i)=>{ const r=res[i], lab=$("pm_lCb"+n);
-      if(lab) lab.textContent=`interruttore ${n} dell'impianto`+(r?` — ${cbName(r.b)}`:" — non attivo");
-      if(!$("pm_onCb"+n).checked) return;
-      if(!r){ checks.push({l:`Interruttore ${n} sovrapposto`,dis:true,extra:`l'interruttore ${n} non è scelto nel modulo Impianto`}); return; }
-      list.push({name:n+" · "+cbName(r.b),b:r.b,max:sc(r.b.max),min:sc(r.b.min)}); });
-    if(list.length){ if(!(Un>0&&U>0)) checks.push({l:"Interruttori BT sovrapposti",dis:true,disTxt:"tensione mancante",extra:"indicare la tensione della rete MT: le curve non vengono riportate"});
-      else st.cb={k,U,Un,list}; } }
+  // fusibili e interruttori dell'impianto scelti con le levette, ciascuno riportato dalla propria tensione di esercizio
+  { const labs=[], fl=[], cl=[];
+    if(FUS_ST) FUS_ST.res.forEach((r,i)=>{ const key="fu"+r.s; labs.push([key,`fusibile ${r.s} — ${r.f.type} ${fusNum(r.f.In)} A`]); if(!PMT_DEV.has(key)) return;
+      const k=ref(r.U); fl.push(Object.assign({},r.f,{n:r.s,i,k,U:r.U,t:Math.abs(k-1)<1e-9?r.f.t:r.f.t.map((v,j)=>j%2?v:v*k)})); });
+    if(CB_ST) CB_ST.res.forEach(r=>{ const key="cb"+r.s; labs.push([key,`interruttore ${r.s} — ${cbName(r.b)}`]); if(!PMT_DEV.has(key)) return;
+      const k=ref(r.U), sc=c=>c?c.map((v,j)=>j%2?v:v*k):null; cl.push({name:r.s+" · "+cbName(r.b),b:r.b,max:sc(r.b.max),min:sc(r.b.min),k,U:r.U}); });
+    const box=$("pm_devChk"), hh=labs.map(([k,t])=>`<label class="toggle"><input type="checkbox" data-dev="${k}" ${PMT_DEV.has(k)?"checked":""}><span>${escH(t)}</span></label>`).join("");
+    if(box&&box.dataset.h!==hh){ box.innerHTML=hh; box.dataset.h=hh; }
+    if(fl.length) st.fus=fl;
+    if(cl.length){ if(!(Un>0)) checks.push({l:"Interruttori BT sovrapposti",dis:true,disTxt:"tensione mancante",extra:"indicare la tensione della rete MT: le curve non vengono riportate"}); else st.cb={Un,list:cl}; } }
   // tenuta termica al cortocircuito dei trasformatori scelti: somma delle Ik per 2 s (CEI EN 60076-5); se sono tutti in olio anche la somma dei sovraccarichi ammessi
   if($("pm_onWth").checked){
     const tw=trOn.filter(t=>t.In1>0&&t.uk>0&&t.U1>1000);
@@ -3824,7 +3801,7 @@ function computePMT(){
       pts.forEach(I=>{ if(!(I>=a&&I<=b)) return; const tu=tUp(u,"F",I), r=fusTime(q.max,I); if(!isFinite(tu)||r.st==="none") return; const m=tu-r.t; if(m<worst){worst=m;at=I;} });
       const campo=Ibt>0?"":" · campo esteso a tutta la curva dell'interruttore: indicare il guasto sulle sbarre BT riportato al primario per limitarlo";
       if(!isFinite(worst)) checks.push({l:nm,ok:true,extra:"per i guasti in bassa tensione considerati la protezione MT non interviene"+campo,tip});
-      else checks.push({l:`${nm}: margine minimo <b>${fmt(worst,2)} s</b> a ${fmtAs(at)} (${fmtA(at/st.cb.k)} in BT)`,ok:worst>=dt,warn:worst<dt,
+      else checks.push({l:`${nm}: margine minimo <b>${fmt(worst,2)} s</b> a ${fmtAs(at)} (${fmtA(at/q.k)} in BT)`,ok:worst>=dt,warn:worst<dt,
         extra:(worst>=dt?`il relè MT interviene almeno ${fmt(dt,2)} s dopo l'apertura dell'interruttore BT`:`margine inferiore a ${fmt(dt,2)} s: per quel guasto in bassa tensione può aprire anche la protezione MT`)+campo,tip}); }); }
   // tenuta del trasformatore: il guasto ai morsetti BT deve essere estinto entro 2 s
   if(st.wth&&prot.length){ const I=Ibt>0?Ibt:st.wth.Ikt; let best=Infinity, who=null; prot.forEach(p=>{ const t=tDn(p,"F",I); if(t<best){ best=t; who=p; } });
@@ -3897,6 +3874,7 @@ function pmtExportHTML(){
 function pmtInit(){
   pmtRow({desc:"PG — protezione generale",mod:"ref615",inp:100,ienp:100,tcb:70,dg:true,th:{I2:{on:true,v:2.5,t:0.43},I3:{on:true,v:6,t:0.05},E1:{on:true,v:0.02,t:0.38},E2:{on:true,v:0.56,t:0.1}}});
   $("addPmt").addEventListener("click",()=>{ pmtRow({desc:"Protezione di linea",th:{I2:{on:true,v:1.5,t:0.2},I3:{on:true,v:4,t:0.05}}}); recompute(); });
+  $("pm_devChk").addEventListener("change",ev=>{ const k=ev.target.dataset.dev; if(!k) return; if(ev.target.checked) PMT_DEV.add(k); else PMT_DEV.delete(k); $("pm_devChk").dataset.h=""; recompute(); });
   $("pm_trChk").addEventListener("change",ev=>{ const id=ev.target.dataset.tr; if(!id) return; if(ev.target.checked) PMT_EXC.delete(id); else PMT_EXC.add(id); $("pm_trChk").dataset.h=""; recompute(); });
   $("pm_dsoImp").addEventListener("click",()=>$("pm_dsoFile").click());
   $("pm_dsoFile").addEventListener("change",ev=>{ const fl=ev.target.files&&ev.target.files[0], msg=$("pm_dsoMsg"); ev.target.value=""; if(!fl) return;
@@ -5170,7 +5148,8 @@ function xlsREL(){
 }
 /* curve dei fusibili */
 function xlsFUS(){
-  const A=fusGet("fu_selA"), S=new XS('Fusibile');
+  if(!FUS_ST||!FUS_ST.res.length){ const S0=new XS('Fusibile'); S0.title('Nessun fusibile nell\'impianto'); return S0; }
+  const A=FUS_ST.res[0].f, S=new XS('Fusibile');
   S.title('Curve dei fusibili'+(A?' — '+A.type:'')); S.sub(APP_NAME+' '+APP_VER+' · '+_now()+' · '+_XNOTE);
   if(!A) return S;
   S.head('Fusibile');
@@ -5182,8 +5161,8 @@ function xlsFUS(){
   const icn=S.inp('Potere di interruzione Icn',A.Icn,'kA');
   const imb=A.Imb?S.inp('Corrente minima di interruzione',A.Imb,'A','fusibile di back‑up, IEC 60282-1'):null;
   S.head('Correnti di guasto presunte');
-  const ik=S.inp('I″k massima',num("fu_Ik"),'kA'), ip=S.inp('ip presunto',num("fu_ip"),'kA','0 = non noto');
-  const im=S.inp('Corrente di guasto minima',num("fu_Imin"),'kA','0 = non usata'), tm=S.inp('Tempo massimo di interruzione',num("fu_tmax"),'s');
+  const ik=S.inp('I″k massima',FUS_ST.Ik/1000,'kA'), ip=S.inp('ip presunto',FUS_ST.ip/1000,'kA','0 = non noto');
+  const im=S.inp('Corrente di guasto minima',FUS_ST.Imin/1000,'kA','0 = non usata'), tm=S.inp('Tempo massimo di interruzione',num("fu_tmax"),'s');
   S.head('Cavo protetto');
   const K=S.inp('Coefficiente K',parseFloat($("fu_K").value)||115,'','IEC 60364-4-43'), Sx=S.inp('Sezione S',num("fu_S"),'mm²','0 = non verificare');
   // tratto della tabella che contiene x e interpolazione log-log su quel tratto (le tabelle sono in fondo al foglio)
@@ -5254,8 +5233,8 @@ function xlsCB(){
   S.head('Rete e correnti di guasto presunte');
   S.row([{v:'Tensione di esercizio U'},{v:st.U,s:11},{v:'V'},{v:'determina Icu e le curve di limitazione e I²t esportate',s:7}]);
   const icu=S.inp('Potere di interruzione Icu a questa tensione',(b.icu&&!b.icu.none)?b.icu.v:0,'kA',(b.icu&&!b.icu.none)?('dichiarato a '+b.icu.U+' V'):'non dichiarato: 0');
-  const ik=S.inp('I″k massima',num("cb_Ik"),'kA'), ip=S.inp('ip presunto',num("cb_ip"),'kA','0 = non noto');
-  const im=S.inp('Corrente di guasto minima',num("cb_Imin"),'kA','0 = non usata'), tm=S.inp('Tempo massimo di interruzione',num("cb_tmax"),'s');
+  const ik=S.inp('I″k massima',st.Ik/1000,'kA'), ip=S.inp('ip presunto',st.ip/1000,'kA','0 = non noto');
+  const im=S.inp('Corrente di guasto minima',st.Imin/1000,'kA','0 = non usata'), tm=S.inp('Tempo massimo di interruzione',num("cb_tmax"),'s');
   const thM=S.inp('Soglia di apertura senza ritardo (massima)',b.thE?+b.thE.toPrecision(6):0,'A','soglia magnetica o istantanea massima: oltre questa corrente vale la curva I²t di catalogo; 0 = assente o non nota');
   S.head('Cavo protetto');
   const K=S.inp('Coefficiente K',parseFloat($("cb_K").value)||115,'','IEC 60364-4-43'), Sx=S.inp('Sezione S',num("cb_S"),'mm²','0 = non verificare');
@@ -5320,8 +5299,8 @@ function xlsPMT(){
   if(st.inr){ S.head('Inserzione totale dei trasformatori'); S.thead(['Tempo (s)','Corrente efficace (A)']); for(let k=0;k<st.inr.c.length;k+=2) S.row([{v:st.inr.c[k+1],s:11},{v:st.inr.c[k],s:11}]); }
   if(st.wth){ S.head('Tenuta al cortocircuito del trasformatore'); S.row([{v:'Trasformatore'},{v:st.wth.tr.desc}]); S.row([{v:'Corrente di cortocircuito sopportata per 2 s'},{v:st.wth.Ikt,s:11},{v:'A'}]);
     if(st.wth.c){ S.thead(['Corrente al primario (A)','Tempo ammesso (s)']); for(let j=0;j<st.wth.c.length;j+=2) S.row([{v:st.wth.c[j],s:11},{v:st.wth.c[j+1],s:11}]); } }
-  if(st.cb){ S.head('Interruttori BT riportati alla MT'); S.row([{v:'Tensione di esercizio degli interruttori'},{v:st.cb.U,s:11},{v:'V'}]); S.row([{v:'Tensione della rete MT'},{v:st.cb.Un,s:11},{v:'V'}]); S.row([{v:'Rapporto tra le tensioni'},{v:st.cb.k,s:11}]);
-    st.cb.list.forEach(q=>{ S.row([{v:q.name}]); S.thead(['Corrente in BT (A)','Corrente al primario (A)','Tempo massimo (s)']); for(let j=0;j<q.max.length;j+=2) S.row([{v:q.b.max[j],s:11},{v:q.max[j],s:11},{v:q.max[j+1],s:11}]); }); }
+  if(st.cb){ S.head('Interruttori BT riportati alla MT'); S.row([{v:'Tensione della rete MT'},{v:st.cb.Un,s:11},{v:'V'}]);
+    st.cb.list.forEach(q=>{ S.row([{v:q.name}]); S.row([{v:'Tensione di esercizio'},{v:q.U,s:11},{v:'V'}]); S.row([{v:'Rapporto tra le tensioni'},{v:q.k,s:11}]); S.thead(['Corrente in BT (A)','Corrente al primario (A)','Tempo massimo (s)']); for(let j=0;j<q.max.length;j+=2) S.row([{v:q.b.max[j],s:11},{v:q.max[j],s:11},{v:q.max[j+1],s:11}]); }); }
   S.head('Verifiche'); st.checks.forEach(c=>S.row([{v:c.l.replace(/<[^>]+>/g,'').replace(/&gt;/g,'>')},{v:c.dis?(c.disTxt||'dato mancante'):(c.warn?'da verificare':(c.ok?'OK':'NO'))}]));
   return S;
 }
@@ -5342,7 +5321,7 @@ function exportXLS(d, id){
    così il file resta valido anche se il database cambia. */
 const ALL_FMT=1, ALL_MODS=["modIMP","modCC","modCOO","modFUS","modCB","modPMT","modVK","modMT","modREL"];
 const ALL_CB_SET=["Ir","tr","n","Isd","tsd","si","Ii"];
-function allSkip(el){ return !el.id||el.classList.contains("ccpt")||el.type==="file"||el.type==="radio"||el.type==="button"||/^fu_(grp|sel)[AB]$/.test(el.id)||/^(fu|cb|pm)_(tr|mo)Sel$/.test(el.id)||!!el.closest("#cb_slotA,#cb_slotB,#trList,#cableList,#motList,#pmtList,#pm_trChk"); }
+function allSkip(el){ return !el.id||el.classList.contains("ccpt")||el.type==="file"||el.type==="radio"||el.type==="button"||/^fu_(grp|sel)[A-H]$/.test(el.id)||/^(fu|cb|pm)_(tr|mo)Sel$/.test(el.id)||!!el.closest(".cbslot,#trList,#cableList,#motList,#pmtList,#pm_trChk"); }
 function allSetVal(el,v){ if(el.type==="checkbox"){ el.checked=!!v; return true; }
   if(el.tagName==="SELECT"&&![...el.options].some(o=>o.value===String(v))) return false;
   el.value=v; return true; }
@@ -5357,17 +5336,18 @@ function allCollect(){
   const q=n=>{ const r=document.querySelector(`input[name=${n}]:checked`); return r?r.value:null; }, M={};
   ALL_MODS.forEach(m=>{ M[m]={campi:allFields(m)}; });
   Object.assign(M.modIMP,{trasformatori:allRows("#trList .tr-branch"),cavi:allRows("#cableList .cable-row"),motori:allRows("#motList .mot-row")});
-  Object.assign(M.modFUS,{A:allFus("A"),B:allFus("B")});
-  Object.assign(M.modCB,{A:allCb("A"),B:allCb("B")});
+  M.modFUS.elenco=DEV.fu.slice(); DEV.fu.forEach(x=>{ M.modFUS[x]=allFus(x); });
+  M.modCB.elenco=DEV.cb.slice(); DEV.cb.forEach(x=>{ M.modCB[x]=allCb(x); });
+  M.modPMT.dispositivi=[...PMT_DEV].sort();
   const pos=(id,sel)=>{ const i=[...document.querySelectorAll(sel)].findIndex(d=>d.dataset.id===$(id).value); return i<0?null:i; };
   const pti=id=>{ const v=parseInt(($(id)||{}).value,10); return v>=0?v:null; };   // punto scelto: ne dipendono la tensione degli interruttori e lo spunto riportato
-  ["modFUS","modCB"].forEach(m=>{ const p=m==="modFUS"?"fu":"cb"; Object.assign(M[m],{trasformatore:pos(p+"_trSel","#trList .tr-branch"),motore:pos(p+"_moSel","#motList .mot-row"),punto:pti(p+"_pt")}); });
+  ["modFUS","modCB"].forEach(m=>{ const p=m==="modFUS"?"fu":"cb"; Object.assign(M[m],{trasformatore:pos(p+"_trSel","#trList .tr-branch"),motore:pos(p+"_moSel","#motList .mot-row"),punti:Object.fromEntries(DEV[p].map(x=>[x,pti(p+"_pt"+x)]))}); });
   Object.assign(M.modPMT,{protezioni:allRows("#pmtList .pmt-prot"),trasformatoriEsclusi:[...document.querySelectorAll("#trList .tr-branch")].map((d,i)=>PMT_EXC.has(d.dataset.id)?i:-1).filter(i=>i>=0)});
   M.modREL.datoDiPartenza=lkDrv;
   M.modLP=JSON.parse(JSON.stringify(LPUI.getState()));
   return {app:APP_NAME,versione:APP_VER,formato:ALL_FMT,salvato:new Date().toISOString(),moduli:M};
 }
-const ALL_OLD=["pm_onFus","pm_onCb","cb_onFus"];   // campi di versioni precedenti, convertiti a parte: non vanno segnalati come saltati
+const ALL_OLD=["pm_onFus","pm_onCb","cb_onFus","pm_onFusA","pm_onFusB","pm_onCbA","pm_onCbB","fu_onB","cb_onB","fu_Ik","fu_ip","fu_Imin","fu_U","cb_Ik","cb_ip","cb_Imin","cb_U"];   // campi di versioni precedenti, convertiti a parte: non vanno segnalati come saltati
 function allSetFields(o,rep){ Object.keys(o||{}).forEach(id=>{ if(ALL_OLD.indexOf(id)>=0) return; const el=$(id); if(el&&!allSkip(el)&&allSetVal(el,o[id])) rep.ok++; else rep.skip.push(id); }); }
 function allSetRows(list,box,make,rep){
   if(!Array.isArray(list)) return;
@@ -5402,13 +5382,19 @@ function allApply(d){
   if(oldT!=null&&oldT!==""){ if(lc.sc_te==null) lc.sc_te=oldT; }
   // la scheda «Guasto fase-terra (BT)» non c'è più: il conduttore di ritorno si indica nel campo N/PE di ogni cavo
   const oldLE=lc.onLE===true; ["onLE","le_mat","le_S","le_L","le_n","le_x","le_te","le_RE"].forEach(k=>{ if(lc[k]!=null){ delete lc[k]; rep.ok++; } });
+  // elenchi di fusibili e interruttori: le righe devono esistere prima di riempirne i campi. File precedenti: A, e B se era acceso il «secondo» dispositivo
+  const oldV=k=>{ let v; ALL_MODS.forEach(m=>{ if(M[m]&&M[m].campi&&M[m].campi[k]!=null) v=M[m].campi[k]; }); return v; };
+  if(M.modFUS) devSet("fu",M.modFUS.elenco||(oldV("fu_onB")===true?["A","B"]:["A"]));
+  if(M.modCB) devSet("cb",M.modCB.elenco||(oldV("cb_onB")===true?["A","B"]:["A"]));
   ALL_MODS.forEach(m=>{ if(M[m]) allSetFields(M[m].campi,rep); });
+  // file precedenti: tensione e correnti erano uniche per famiglia, ora sono di ogni dispositivo
+  ["fu","cb"].forEach(p=>["Ik","ip","Imin","U"].forEach(k=>{ const v=oldV(p+"_"+k); if(v!=null) DEV[p].forEach(x=>{ const el=$(p+"_"+k+x); if(el) el.value=v; }); }));
   if(M.modPMT&&M.modPMT.campi) Object.entries({pm_IkMin:"0",pm_IbtMin:"0",pm_IC:"0",pm_L1:"0",pm_K1:"0.12",pm_A1:"0.02",pm_B1:"0.14",pm_L2p:"0",pm_DcI:"0",pm_DcU:"0",pm_DcA:"",pm_DcT:"0",pm_DiI:"0",pm_DiU:"0",pm_DiA:"",pm_DiT:"0"}).forEach(([k,v])=>{ if(M.modPMT.campi[k]==null) $(k).value=v; });   // campi nati dopo: nei file precedenti non ci sono
   allSetRows(cc.trasformatori,"trList",()=>trRow(),rep);
   if(Array.isArray(cc.trasformatori)) document.querySelectorAll("#trList .tr-branch").forEach((d,i)=>{ const r=cc.trasformatori[i]; if(r&&(r.kin==null||r.tau==null)) fillInrushRow(d); });
   allSetRows(cc.cavi,"cableList",()=>cableRow(),rep); allSetRows(cc.motori,"motList",()=>motRow(),rep);
-  if(M.modFUS){ allSetFus("A",M.modFUS.A,rep); allSetFus("B",M.modFUS.B,rep); }
-  if(M.modCB){ allSetCb("A",M.modCB.A,rep); allSetCb("B",M.modCB.B,rep); }
+  if(M.modFUS) DEV.fu.forEach(x=>allSetFus(x,M.modFUS[x],rep));
+  if(M.modCB) DEV.cb.forEach(x=>allSetCb(x,M.modCB[x],rep));
   if(M.modPMT){ allSetRows(M.modPMT.protezioni,"pmtList",()=>pmtRow(),rep);
     if(Array.isArray(M.modPMT.protezioni)) document.querySelectorAll("#pmtList .pmt-prot").forEach((d,i)=>{ const r=M.modPMT.protezioni[i]; if(r&&r.ei==null) pmtTolDef(d); });   /* file senza tolleranze: valori del relè */
     PMT_EXC.clear(); const rows=document.querySelectorAll("#trList .tr-branch"); (M.modPMT.trasformatoriEsclusi||[]).forEach(i=>{ if(rows[i]) PMT_EXC.add(rows[i].dataset.id); }); $("pm_trChk").dataset.h=""; }
@@ -5417,9 +5403,12 @@ function allApply(d){
       const d=document.querySelectorAll(sel)[i]; if(d){ $(id).value=d.dataset.id; rep.ok++; } else rep.skip.push(id); }); });
   // file salvati prima delle levette: «fusibile A» e «interruttori BT» valevano per A (e per entrambi gli interruttori); la tenuta usava un solo trasformatore di riferimento
   if(M.modPMT&&M.modPMT.campi){ const c=M.modPMT.campi;
-    if(c.pm_onFusA==null&&c.pm_onFus!=null) $("pm_onFusA").checked=!!c.pm_onFus;
-    if(c.pm_onCbA==null&&c.pm_onCb!=null){ $("pm_onCbA").checked=!!c.pm_onCb; $("pm_onCbB").checked=!!c.pm_onCb&&$("cb_onB").checked; }
-    if(c.pm_onFusA==null&&M.modPMT.trasformatore!=null&&c.pm_onWth&&!c.pm_onInr){ const rows=[...document.querySelectorAll("#trList .tr-branch")];
+    PMT_DEV.clear(); (M.modPMT.dispositivi||[]).forEach(k=>PMT_DEV.add(k));
+    if(!M.modPMT.dispositivi){ ["A","B"].forEach(n=>{ if(c["pm_onFus"+n]) PMT_DEV.add("fu"+n); if(c["pm_onCb"+n]) PMT_DEV.add("cb"+n); });
+      if(c.pm_onFusA==null&&c.pm_onFus) PMT_DEV.add("fuA");
+      if(c.pm_onCbA==null&&c.pm_onCb){ PMT_DEV.add("cbA"); if(DEV.cb.indexOf("B")>=0) PMT_DEV.add("cbB"); } }
+    $("pm_devChk").dataset.h="";
+    if(!M.modPMT.dispositivi&&c.pm_onFusA==null&&M.modPMT.trasformatore!=null&&c.pm_onWth&&!c.pm_onInr){ const rows=[...document.querySelectorAll("#trList .tr-branch")];
       if(rows[M.modPMT.trasformatore]){ PMT_EXC.clear(); rows.forEach((d,i)=>{ if(i!==M.modPMT.trasformatore) PMT_EXC.add(d.dataset.id); }); $("pm_trChk").dataset.h=""; } } }
   if(M.modREL&&typeof M.modREL.datoDiPartenza==="string") lkDrv=M.modREL.datoDiPartenza;
   if(M.modLP&&M.modLP.site&&M.modLP.st){ LPUI.load(M.modLP); rep.ok++; }
@@ -5441,10 +5430,10 @@ function allApply(d){
   CC_SEL=null;   // file appena aperto: il dettaglio torna sull'ultimo punto
   syncSeg(); recompute();
   // punto scelto nei moduli fusibili e interruttori: serve che i punti esistano, quindi dopo il calcolo
-  [["modFUS","fu"],["modCB","cb"]].forEach(([m,p])=>{ const el=$(p+"_pt"); if(!M[m]||!el||!el.options.length) return;
-    const i=M[m].punto, last=String(el.options.length-1);
+  [["modFUS","fu"],["modCB","cb"]].forEach(([m,p])=>DEV[p].forEach(x=>{ const el=$(p+"_pt"+x); if(!M[m]||!el||!el.options.length) return;
+    const i=M[m].punti?M[m].punti[x]:M[m].punto, last=String(el.options.length-1);
     if(i==null){ el.value=last; return; }   // file precedenti, senza il punto: l'ultimo, come prima
-    if([...el.options].some(o=>o.value===String(i))){ el.value=String(i); rep.ok++; } else { el.value=last; rep.skip.push(p+"_pt"); } });
+    if([...el.options].some(o=>o.value===String(i))){ el.value=String(i); rep.ok++; } else { el.value=last; rep.skip.push(p+"_pt"+x); } }));
   computeFus(); computeCb();
   return rep;
 }
