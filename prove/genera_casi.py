@@ -49,11 +49,18 @@ async def main():
         p = await b.new_page(viewport={'width': 1300, 'height': 900})
         await p.goto('file://' + HTML); await p.wait_for_timeout(900)
         BASE = json.loads(await p.evaluate(SALVA))
+        # Dalla 0.2.0 i componenti sono salvati sotto «Impianto» e dalla 0.2.1 le correnti di fusibili e interruttori seguono il punto.
+        # I casi sono scritti sulla struttura precedente, che il programma apre ancora: qui la si ricostruisce, con le correnti a mano di allora.
+        M = BASE['moduli']
+        for k in ('trasformatori', 'cavi', 'motori'):
+            if k in M.get('modIMP', {}): M['modCC'][k] = M['modIMP'].pop(k)
+        M['modCC']['campi'].update(M.get('modIMP', {}).get('campi', {}))
+        M['modFUS']['campi'].update({'fu_Ik': '18.9', 'fu_ip': '38.2', 'fu_Imin': '0'}); M['modCB']['campi'].update({'cb_Ik': '18.9', 'cb_ip': '38.2', 'cb_Imin': '0'})
         TR0 = BASE['moduli']['modCC']['trasformatori'][0]
         # righe predefinite di cavi e motori (le schede sono escluse: si leggono aggiungendone una)
         await p.evaluate('document.getElementById("addCable").click(); document.getElementById("addMot").click(); 0')
         tmp = json.loads(await p.evaluate(SALVA))
-        CAV0 = tmp['moduli']['modCC']['cavi'][-1]; MOT0 = tmp['moduli']['modCC']['motori'][-1]
+        CAV0 = tmp['moduli']['modIMP']['cavi'][-1]; MOT0 = tmp['moduli']['modIMP']['motori'][-1]
         PR0 = BASE['moduli']['modPMT']['protezioni'][0]
         # descrizione di fusibili e interruttori per nome, come nel file salvato
         FUS = await p.evaluate('''FUS_DB.p.map(p=>({gruppo:FUS_DB.g[p[1]][0],famiglia:FUS_DB.g[p[1]][1],tipo:p[0],In:p[3]}))''')
@@ -401,6 +408,18 @@ async def main():
         ccm(s)['motori'] = [mot(P=200)]
         campi(s, 'modCC', onMot=True); campi(s, 'modFUS', fu_onMot=True); campi(s, 'modCB', cb_onMot=True)
         s['moduli']['modFUS']['punto'] = 0; cb(s)['punto'] = 0
+
+    # ---- coordinamento protezioni BT (dalla 0.2.1): correnti dal punto, fusibile MT riportato alla BT, una sola famiglia ----
+    @caso('co01_correnti_automatiche_dal_punto', ['modCC', 'modCOO'])
+    def _(s): campi(s, 'modFUS', fu_Ik='', fu_ip='', fu_Imin=''); campi(s, 'modCB', cb_Ik='', cb_ip='', cb_Imin='')
+
+    @caso('co02_fusibile_MT_sul_punto_di_consegna_e_interruttore_BT', ['modCC', 'modCOO'])
+    def _(s):
+        fu(s)['A'] = fusn('Un = 24 kV', 40); s['moduli']['modFUS']['punto'] = 0
+        campi(s, 'modFUS', fu_Ik='', fu_ip='', fu_Imin='', fu_onInr=True); campi(s, 'modCB', cb_Ik='', cb_ip='', cb_Imin='')
+
+    @caso('co03_solo_fusibili', ['modCOO'])
+    def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
 
     @caso('cb11_ABB_termomagnetico_e_elettronico', ['modCB'])
     def _(s): cb(s)['A'] = intr('XT4H 250 TMA 225'); cb(s)['B'] = intr('XT2N 160 Ekip Dip LSI 10'); campi(s, 'modCB', cb_onB=True, cb_Ik=30, cb_ip=63, cb_Imin=1, cb_S=70)

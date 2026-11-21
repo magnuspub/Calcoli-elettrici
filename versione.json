@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.0",
+  "versione": "0.2.1",
   "data": "21/11/2026",
-  "novita": "Nuova struttura a moduli numerati: «Impianto» raccoglie sorgente, trasformatori, linee e motori; il cortocircuito tiene sistema e risultati; i moduli MT compaiono solo con fornitura in media tensione."
+  "novita": "Fusibili e interruttori BT sono componenti del modulo Impianto, con posizione e tensione; nuovo modulo «Coordinamento protezioni BT» con tutti sugli stessi grafici e correnti di guasto prese dalla posizione."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",

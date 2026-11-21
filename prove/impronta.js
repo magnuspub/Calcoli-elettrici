@@ -22,7 +22,7 @@
   };
   const D=o=>dig(o,0,new WeakSet());
   const stati={modCC:()=>typeof CC_ST!=="undefined"?CC_ST:null, modFUS:()=>typeof FUS_ST!=="undefined"?FUS_ST:null, modCB:()=>typeof CB_ST!=="undefined"?CB_ST:null,
-    modPMT:()=>typeof PMT_ST!=="undefined"?PMT_ST:null, modLP:()=>window.LPUI&&LPUI.results?LPUI.results():null};
+    modPMT:()=>typeof PMT_ST!=="undefined"?PMT_ST:null, modCOO:()=>typeof COO_ST!=="undefined"?COO_ST:null, modLP:()=>window.LPUI&&LPUI.results?LPUI.results():null};
   const xls={modCC:"xlsCC",modFUS:"xlsFUS",modCB:"xlsCB",modPMT:"xlsPMT",modVK:"xlsVK",modMT:"xlsMT",modREL:"xlsREL"};
   const out={};
   mods.forEach(m=>{
