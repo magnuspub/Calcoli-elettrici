@@ -3,11 +3,11 @@
 Le icone delle tre pagine, come file separati. Sono le stesse incorporate nelle pagine: qui servono per usarle
 altrove (collegamenti sul desktop, documenti, presentazione del repository). Le pagine non leggono questa cartella.
 
-| Pagina | Nome dei file | Colore |
+| Pagina | Nome dei file | Fondo sfumato |
 |---|---|---|
-| Calcoli elettrici | `calcoli-elettrici` | `#2a78d6` |
-| Gestione curve | `gestione-curve` | `#199e70` |
-| Manutenzione | `manutenzione` | `#6250d6` |
+| Calcoli elettrici | `calcoli-elettrici` | blu, da `#2f86e6` a `#1c5fb8` |
+| Gestione curve | `gestione-curve` | verde, da `#22b384` a `#147a56` |
+| Manutenzione | `manutenzione` | viola, da `#7564e6` a `#4c3bb8` |
 
 Per ogni pagina:
 
@@ -18,6 +18,6 @@ Per ogni pagina:
 - `nome-512-adattabile.png` — icona adattabile di Android: quadrata piena, con la curva dentro la zona che
   resta visibile con qualsiasi maschera
 
-Il disegno è la curva tempo-corrente di una protezione, bianca su fondo colorato.
+Il disegno sono due curve tempo-corrente con i loro assi (una protezione e, tratteggiata, quella a monte), bianche su fondo sfumato dall'alto in basso.
 
 Se un'icona cambia, va cambiata nella pagina e poi ricopiata qui, così i due restano uguali.

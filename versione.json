@@ -1,17 +1,17 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.32",
-  "data": "20/11/2026",
-  "novita": "Protezioni MT: diagramma vettoriale della direzionale di terra 67N con i settori di intervento (U0 in alto, angoli in senso orario, raggio logaritmico), contributo capacitivo dell'utente e verifiche del guasto interno ed esterno."
+  "versione": "0.1.33",
+  "data": "21/11/2026",
+  "novita": "Nuova icona: curve tempo-corrente con gli assi, su fondo sfumato."
  },
  "Gestione_curve.html": {
-  "versione": "0.2.7",
-  "data": "19/11/2026",
-  "novita": "Icone e dati per installare la pagina come app sulla schermata Home o sul desktop."
+  "versione": "0.2.8",
+  "data": "21/11/2026",
+  "novita": "Nuova icona: curve tempo-corrente con gli assi, su fondo sfumato."
  },
  "Manutenzione.html": {
-  "versione": "0.1.2",
-  "data": "19/11/2026",
-  "novita": "Icone e dati per installare la pagina come app sulla schermata Home o sul desktop."
+  "versione": "0.1.3",
+  "data": "21/11/2026",
+  "novita": "Nuova icona: curve tempo-corrente con gli assi, su fondo sfumato."
  }
 }
