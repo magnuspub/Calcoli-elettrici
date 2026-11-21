@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.33",
+  "versione": "0.1.34",
   "data": "21/11/2026",
-  "novita": "Nuova icona su fondo bianco, nello stile di Android: curve tempo-corrente con gli assi."
+  "novita": "Protezioni MT: taratura delle 67N richiesta dal distributore tra i limiti, con verifica sulla protezione generale, e importazione del report «Tarature Impianti» in PDF."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",
