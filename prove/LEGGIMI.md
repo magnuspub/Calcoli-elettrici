@@ -4,7 +4,7 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
 
 ## Cosa c'è
 
-- `casi/` — 107 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
+- `casi/` — 108 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
   43 di cortocircuito, 11 di fusibili, 13 di interruttori, 17 di protezioni MT, 4 di verifica quadro,
   5 di guasto a terra MT, 3 di relazioni rapide, 5 di rischio da fulmine.
   I primi 77 sono stati salvati con la versione 0.1.15: riaperti dalle versioni successive provano anche che
