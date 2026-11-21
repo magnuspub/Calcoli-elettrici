@@ -280,8 +280,12 @@ table.pts tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:
 .subfold.shut>.subfold-sum+.mini:not(:empty){margin:6px 0 0}
 /* moduli a scomparsa: si aprono e chiudono cliccando sulla barra del titolo */
 .foldhd{cursor:pointer;user-select:none}
-.foldhd .ttl::before{content:"▾";display:inline-block;width:1.15em;color:var(--text-muted);font-size:.85em}
-.is-closed>.foldhd .ttl::before{content:"▸"}
+main{counter-reset:mod}
+main>[id^=mod]{counter-increment:mod}
+main>[id^=mod][hidden]{display:none!important;counter-increment:none}
+.foldhd .ttl::before{content:"▾\a0\a0" counter(mod) "\a0·\a0";display:inline-block;color:var(--text-muted);font-weight:500;white-space:pre}
+.is-closed>.foldhd .ttl::before{content:"▸\a0\a0" counter(mod) "\a0·\a0"}
+.impbody>.card:first-child{margin-top:10px}.impbody>.card:last-child{margin-bottom:0}
 .is-closed>:not(.foldhd){display:none!important}
 .card.is-closed>h2.foldhd,.module.is-closed>.modhead.foldhd{margin-bottom:0}
 .foldhd:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
@@ -350,7 +354,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.1.34</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.0</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -358,42 +362,12 @@ details.adv>.in{margin-top:10px}
 
 <main>
 
-<!-- ===================== MODULO CORTOCIRCUITO ===================== -->
-<section class="module" id="modCC">
-<div class="modhead"><span class="ttl">Calcolo corrente di cortocircuito</span><span class="pill">IEC 60909</span><span class="expbtns"><button type="button" onclick="exportModule('modCC','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modCC','xls')">↧ Excel</button></span></div>
-<div class="layout">
-
-<!-- ===================== COLONNA INGRESSI ===================== -->
-<div class="inputs">
-
-  <!-- Sistema -->
-  <div class="card">
-    <h2><span class="ttl">Sistema e fattore di tensione</span></h2>
-    <p class="hint">La <b>tensione nel punto di guasto</b> è la nominale della rete, ricavata dallo schema: con il trasformatore incluso è la tensione più usata vicina al suo secondario (targa a 410 o 420&nbsp;V: 400&nbsp;V), altrimenti quella della rete a monte; si può imporre nel campo «U<sub>n</sub> nel punto di guasto». Il guasto è calcolato anche in <b>ogni punto a monte</b> (consegna, primario del trasformatore, sbarre, fine di ogni tratto): la tabella «Correnti nei punti» li elenca e mostra il dettaglio di quello scelto. Sono sempre calcolate la corrente <b>massima</b> (c<sub>max</sub>) e la <b>minima</b> (c<sub>min</sub>, senza il contributo dei motori e senza la correzione K<sub>T</sub>, con la rete minima se indicata e i cavi alla loro temperatura a fine guasto). I fattori c (Tab.&nbsp;1 della 60909) si impostano da soli quando cambia il livello di tensione: BT 1,05 e 0,95 · MT 1,10 e 1,00. Per reti BT con tolleranza ±10% usare c<sub>max</sub> 1,10 e c<sub>min</sub> 0,90. Restano modificabili.</p>
-    <div class="grid3">
-      <label class="f">Fattore di tensione c<sub>max</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente massima (Tab. 1 IEC 60909-0): tiene conto delle variazioni di tensione, delle prese del trasformatore e delle tolleranze. BT 1,05 (reti con tolleranza ±6 %, per esempio 230/400 V) oppure 1,10 (tolleranza ±10 %) · MT 1,10.">i</span>
-        <input type="number" id="cfac" value="1.05" step="0.01">
-      </label>
-      <label class="f">Fattore di tensione c<sub>min</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente minima (Tab. 1 IEC 60909-0): BT 0,95 (reti con tolleranza ±6 %) oppure 0,90 (tolleranza ±10 %) · MT 1,00. La corrente minima è calcolata senza il contributo dei motori e con i fattori di correzione dell'impedenza pari a 1, quindi senza K_T; usa la corrente minima della rete, se indicata, e la temperatura a fine guasto di ogni cavo (IEC 60909-0, 7.1.3).">i</span>
-        <input type="number" id="cfacMin" value="0.95" step="0.01">
-      </label>
-      <label class="f">Durata del guasto T<sub>k</sub> <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Durata del guasto usata per la corrente termica equivalente Ith = I″k·√(m+n) di questo modulo. Indipendente dal Tk del modulo Verifica quadro. (IEC 60909-0 §14, integrale di Joule)">i</span>
-        <input type="number" id="ccTk" value="1" step="0.01">
-      </label>
-      <label class="f">Frequenza <span class="u">(Hz)</span>
-        <input type="number" id="freq" value="50" step="any">
-      </label>
-      <label class="f">Picco in rete magliata<span class="tip" tabindex="0" data-tip="Metodo per il picco i_p quando più rami sono in parallelo (IEC 60909-0). B: i_p=1,15·κ·√2·I″k, conservativo (limitato a 1,8 BT/2,0 MT); il fattore 1,15 è applicato solo se almeno un ramo in parallelo ha R/X ≥ 0,3, come prevede la norma. C: frequenza equivalente (reattanze a 20 Hz), più accurato, di solito dà un picco più basso. In rete radiale i due metodi coincidono.">i</span>
-        <select id="ipMethod">
-          <option value="B" selected>Metodo B — κ da R/X, con 1,15 se serve</option>
-          <option value="C">Metodo C — frequenza equivalente</option>
-        </select>
-      </label>
-      <label class="f">U<sub>n</sub> nel punto di guasto <span class="u">(V)</span><span class="tip r" tabindex="0" data-tip="Tensione nominale della rete nel punto di guasto, quella della sorgente equivalente c·Un/√3 (IEC 60909-0, 5.2.2). Lasciare vuoto: è ricavata in automatico dal secondario del primo trasformatore. Se il secondario non si scosta più del 6 % da una delle tensioni più usate (230, 400, 3000, 6000, 15000, 20000 V) vale quella: 410 o 420 V danno 400 V. Altrimenti vale il secondario. Scrivere un valore solo per imporre un'altra tensione nominale, per esempio 690 V o 10000 V. La tensione di targa del trasformatore («U second.») continua a servire per l'impedenza e per il rapporto di trasformazione.">i</span>
-        <input type="number" id="ccUn" value="" placeholder="automatica" step="any">
-      </label>
-    </div>
-  </div>
+<!-- ===================== MODULO IMPIANTO ===================== -->
+<!-- I componenti della porzione di impianto in esame, collegati in sequenza. Gli altri moduli leggono da qui. -->
+<section class="module" id="modIMP">
+<div class="modhead"><span class="ttl">Impianto</span><span class="pill">componenti in sequenza</span></div>
+<p class="hint" style="margin:0 0 4px">Qui si descrive la porzione di impianto in esame: la sorgente di alimentazione con la sua linea, i trasformatori, le linee e i motori, collegati in sequenza. Il calcolo del cortocircuito e gli altri moduli leggono da qui.</p>
+<div class="impbody">
 
   <!-- Rete -->
   <div class="card collapsible" id="cardGrid">
@@ -488,7 +462,46 @@ details.adv>.in{margin-top:10px}
     </div>
   </div>
 
-  <!-- Guasto fase-terra BT -->
+</div>
+</section><!-- /modulo impianto -->
+
+<!-- ===================== MODULO CORTOCIRCUITO ===================== -->
+<section class="module" id="modCC">
+<div class="modhead"><span class="ttl">Calcolo corrente di cortocircuito</span><span class="pill">IEC 60909</span><span class="expbtns"><button type="button" onclick="exportModule('modCC','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modCC','xls')">↧ Excel</button></span></div>
+<div class="layout">
+
+<!-- ===================== COLONNA INGRESSI ===================== -->
+<div class="inputs">
+
+  <!-- Sistema -->
+  <div class="card">
+    <h2><span class="ttl">Sistema e fattore di tensione</span></h2>
+    <p class="hint">La <b>tensione nel punto di guasto</b> è la nominale della rete, ricavata dallo schema: con il trasformatore incluso è la tensione più usata vicina al suo secondario (targa a 410 o 420&nbsp;V: 400&nbsp;V), altrimenti quella della rete a monte; si può imporre nel campo «U<sub>n</sub> nel punto di guasto». Il guasto è calcolato anche in <b>ogni punto a monte</b> (consegna, primario del trasformatore, sbarre, fine di ogni tratto): la tabella «Correnti nei punti» li elenca e mostra il dettaglio di quello scelto. Sono sempre calcolate la corrente <b>massima</b> (c<sub>max</sub>) e la <b>minima</b> (c<sub>min</sub>, senza il contributo dei motori e senza la correzione K<sub>T</sub>, con la rete minima se indicata e i cavi alla loro temperatura a fine guasto). I fattori c (Tab.&nbsp;1 della 60909) si impostano da soli quando cambia il livello di tensione: BT 1,05 e 0,95 · MT 1,10 e 1,00. Per reti BT con tolleranza ±10% usare c<sub>max</sub> 1,10 e c<sub>min</sub> 0,90. Restano modificabili.</p>
+    <div class="grid3">
+      <label class="f">Fattore di tensione c<sub>max</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente massima (Tab. 1 IEC 60909-0): tiene conto delle variazioni di tensione, delle prese del trasformatore e delle tolleranze. BT 1,05 (reti con tolleranza ±6 %, per esempio 230/400 V) oppure 1,10 (tolleranza ±10 %) · MT 1,10.">i</span>
+        <input type="number" id="cfac" value="1.05" step="0.01">
+      </label>
+      <label class="f">Fattore di tensione c<sub>min</sub><span class="tip" tabindex="0" data-tip="Fattore di tensione per la corrente minima (Tab. 1 IEC 60909-0): BT 0,95 (reti con tolleranza ±6 %) oppure 0,90 (tolleranza ±10 %) · MT 1,00. La corrente minima è calcolata senza il contributo dei motori e con i fattori di correzione dell'impedenza pari a 1, quindi senza K_T; usa la corrente minima della rete, se indicata, e la temperatura a fine guasto di ogni cavo (IEC 60909-0, 7.1.3).">i</span>
+        <input type="number" id="cfacMin" value="0.95" step="0.01">
+      </label>
+      <label class="f">Durata del guasto T<sub>k</sub> <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Durata del guasto usata per la corrente termica equivalente Ith = I″k·√(m+n) di questo modulo. Indipendente dal Tk del modulo Verifica quadro. (IEC 60909-0 §14, integrale di Joule)">i</span>
+        <input type="number" id="ccTk" value="1" step="0.01">
+      </label>
+      <label class="f">Frequenza <span class="u">(Hz)</span>
+        <input type="number" id="freq" value="50" step="any">
+      </label>
+      <label class="f">Picco in rete magliata<span class="tip" tabindex="0" data-tip="Metodo per il picco i_p quando più rami sono in parallelo (IEC 60909-0). B: i_p=1,15·κ·√2·I″k, conservativo (limitato a 1,8 BT/2,0 MT); il fattore 1,15 è applicato solo se almeno un ramo in parallelo ha R/X ≥ 0,3, come prevede la norma. C: frequenza equivalente (reattanze a 20 Hz), più accurato, di solito dà un picco più basso. In rete radiale i due metodi coincidono.">i</span>
+        <select id="ipMethod">
+          <option value="B" selected>Metodo B — κ da R/X, con 1,15 se serve</option>
+          <option value="C">Metodo C — frequenza equivalente</option>
+        </select>
+      </label>
+      <label class="f">U<sub>n</sub> nel punto di guasto <span class="u">(V)</span><span class="tip r" tabindex="0" data-tip="Tensione nominale della rete nel punto di guasto, quella della sorgente equivalente c·Un/√3 (IEC 60909-0, 5.2.2). Lasciare vuoto: è ricavata in automatico dal secondario del primo trasformatore. Se il secondario non si scosta più del 6 % da una delle tensioni più usate (230, 400, 3000, 6000, 15000, 20000 V) vale quella: 410 o 420 V danno 400 V. Altrimenti vale il secondario. Scrivere un valore solo per imporre un'altra tensione nominale, per esempio 690 V o 10000 V. La tensione di targa del trasformatore («U second.») continua a servire per l'impedenza e per il rapporto di trasformazione.">i</span>
+        <input type="number" id="ccUn" value="" placeholder="automatica" step="any">
+      </label>
+    </div>
+  </div>
+
 </div>
 
 <!-- ===================== COLONNA RISULTATI ===================== -->
@@ -559,6 +572,131 @@ details.adv>.in{margin-top:10px}
 </div><!-- /.layout -->
 </section><!-- /modulo cortocircuito -->
 
+
+<!-- Progettazione protezioni MT: solo con fornitura in media tensione -->
+<div class="card" id="modPMT" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
+  <h2><span class="ttl">Progettazione protezioni MT</span><span class="pill">CEI 0-16 · IEC 60255-151</span><span class="expbtns"><button type="button" onclick="exportModule('modPMT','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modPMT','xls')">↧ Excel</button></span></h2>
+  <p class="hint">Curve di intervento dei relè di massima corrente di fase (50/51) e di terra (51N, 67N) sul lato MT, con più protezioni in cascata per la verifica della selettività, la curva limite comunicata dal distributore (compresa, se richiesta, la I&gt; a tempo dipendente) e la corrente di inserzione totale dei trasformatori del modulo Cortocircuito. Le soglie si inseriscono in multipli della corrente primaria del TA (o in ampere primari); i grafici sono sempre in ampere primari. I tempi disegnati sono quelli di <b>estinzione</b>: intervento del relè più apertura dell'interruttore. Attorno a ogni curva è disegnata la <b>fascia di tolleranza</b> data dagli errori di relè, TA e TO indicati in ogni protezione.</p>
+
+  <div class="subfold shut" id="pm_dsoFold">
+  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_dsoBody" title="Clicca per mostrare o nascondere la rete e i limiti comunicati dal distributore">Rete e limiti comunicati dal distributore</div>
+    <button type="button" id="pm_cei" class="rowbtn" title="Riporta i limiti ai valori minimi della CEI 0-16 (8.5.12.3) per la tensione e lo stato del neutro indicati">↺ valori minimi CEI 0-16 (8.5.12.3)</button>
+    <button type="button" id="pm_dsoImp" class="rowbtn" title="Legge il report «Tarature Impianti» in PDF del distributore e compila tensione, stato del neutro, correnti di guasto e limiti delle soglie, comprese le 67N. Legge solo i dati tecnici: il file resta sul computer">⭳ importa il report del distributore (PDF)</button><input type="file" id="pm_dsoFile" accept=".pdf,application/pdf" style="display:none"></div>
+  <div class="mini subfold-sum" id="pm_dsoSum"></div>
+  <div class="grid3 subfold-b" id="pm_dsoBody" style="align-items:end">
+    <label class="f">Tensione della rete MT <span class="u">(kV)</span><span class="tip" tabindex="0" data-tip="Lasciato vuoto, vale la tensione della sorgente del modulo cortocircuito quando è in media tensione (oltre 1000 V). Se la sorgente è in bassa tensione il valore si scrive qui, oppure lo compila l'importazione del report del distributore. Un valore scritto a mano prevale sempre.">i</span><input type="number" id="pm_U" value="" step="any" min="0"></label>
+    <label class="f">Stato del neutro<select id="pm_neu"><option value="c" selected>Compensato</option><option value="i">Isolato</option></select></label>
+    <span></span>
+    <label class="f">I&gt; · corrente massima <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Prima soglia di fase a tempo dipendente (51.S1): va impostata solo se il distributore la comunica. Lasciare 0 se non è richiesta. La curva è t = K · β / ((I / I>)^α − 1): con α = 0,02 e β = 0,14 è la normalmente inversa (NIT). È un tempo del relè: nel confronto e nel grafico gli si somma il tempo di apertura dell'interruttore della protezione generale. La curva è considerata da 1,1 volte la soglia.">i</span><input type="number" id="pm_L1" value="0" step="any"></label>
+    <label class="f">I&gt; · K <span class="u">(moltiplicatore del tempo)</span><input type="number" id="pm_K1" value="0.12" step="0.01" min="0"></label>
+    <div class="duo"><label class="f">I&gt; · α<input type="number" id="pm_A1" value="0.02" step="0.01" min="0"></label><label class="f">I&gt; · β<input type="number" id="pm_B1" value="0.14" step="0.01" min="0"></label></div>
+    <label class="f">I&gt;&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L2" value="250" step="any"></label>
+    <label class="f">I&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T2" value="0.5" step="0.01" min="0"></label>
+    <label class="f">I&gt;&gt; senza la I&gt; · corrente massima <span class="u">(A)</span><span class="tip r" tabindex="0" data-tip="Valore della I>> da rispettare, con lo stesso tempo di estinzione, quando la I> a tempo dipendente non viene impostata (nelle comunicazioni del distributore è la 51.S2p). Lasciare 0 se il distributore non indica questa alternativa: in quel caso, se comunica la I>, la I> è obbligatoria.">i</span><input type="number" id="pm_L2p" value="0" step="any"></label>
+    <label class="f">I&gt;&gt;&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L3" value="600" step="any"></label>
+    <label class="f">I&gt;&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T3" value="0.12" step="0.01" min="0"></label>
+    <span></span>
+    <label class="f">I<sub>0</sub>&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L0" value="2" step="any"></label>
+    <label class="f">I<sub>0</sub>&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T0" value="0.45" step="0.01" min="0"></label>
+    <span></span>
+    <label class="f">I<sub>0</sub>&gt;&gt; · corrente massima <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="140 % della corrente di guasto monofase a terra comunicata dal distributore: tipicamente 70 A sulle reti a 20 kV e 56 A su quelle a 15 kV (CEI 0-16, 8.5.12.3.2).">i</span><input type="number" id="pm_L00" value="56" step="any"></label>
+    <label class="f">I<sub>0</sub>&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T00" value="0.17" step="0.01" min="0"></label>
+    <div class="pmt-dso67w">
+      <div class="pmt-dso67">
+        <label class="f">67N.S1 (neutro compensato) · U<sub>0</sub> massima <span class="u">(V primari)</span><span class="tip" tabindex="0" data-tip="Soglia di tensione residua come la comunica il distributore, in volt primari: 5 % (neutro compensato) e 2 % (neutro isolato) della tensione di fase, cioè 433,01 V e 173,21 V a 15 kV. Nella verifica la soglia U0 del relè, in volt al secondario con 100 V per guasto franco a terra, è riportata al primario e confrontata con questo valore.">i</span><input type="number" id="pm_DcU" value="433.01" step="any"></label>
+        <label class="f">67N.S1 (neutro compensato) · I<sub>0</sub> massima <span class="u">(A)</span><input type="number" id="pm_DcI" value="2" step="any"></label>
+        <label class="f">67N.S1 (neutro compensato) · settore di intervento <span class="u">(°)</span><input type="text" id="pm_DcA" value="60–250"></label>
+        <label class="f">67N.S1 (neutro compensato) · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_DcT" value="0.45" step="0.01" min="0"></label></div>
+      <div class="pmt-dso67">
+        <label class="f">67N.S2 (neutro isolato) · U<sub>0</sub> massima <span class="u">(V primari)</span><span class="tip" tabindex="0" data-tip="Soglia di tensione residua come la comunica il distributore, in volt primari: 5 % (neutro compensato) e 2 % (neutro isolato) della tensione di fase, cioè 433,01 V e 173,21 V a 15 kV. Nella verifica la soglia U0 del relè, in volt al secondario con 100 V per guasto franco a terra, è riportata al primario e confrontata con questo valore.">i</span><input type="number" id="pm_DiU" value="173.21" step="any"></label>
+        <label class="f">67N.S2 (neutro isolato) · I<sub>0</sub> massima <span class="u">(A)</span><input type="number" id="pm_DiI" value="2" step="any"></label>
+        <label class="f">67N.S2 (neutro isolato) · settore di intervento <span class="u">(°)</span><input type="text" id="pm_DiA" value="60–120"></label>
+        <label class="f">67N.S2 (neutro isolato) · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_DiT" value="0.17" step="0.01" min="0"></label></div>
+    </div>
+  </div>
+  <div class="mini" id="pm_dsoMsg"></div>
+  </div>
+
+  <div class="subfold shut" id="pm_refFold">
+  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_refBody" title="Clicca per mostrare o nascondere le correnti di riferimento">Correnti di riferimento sul lato MT</div>
+    <button type="button" id="pm_copy" class="rowbtn" title="Copia le correnti di cortocircuito dai risultati IEC 60909 e la corrente di guasto a terra della rete">← copia dai risultati IEC 60909</button></div>
+  <div class="mini subfold-sum" id="pm_refSum"></div>
+  <div class="mini" id="pm_copyMsg"></div>
+  <div class="grid3 subfold-b" id="pm_refBody" style="align-items:end">
+    <label class="f">I″<sub>k</sub> massima sul lato MT <span class="u">(kA)</span><input type="number" id="pm_Ik" value="12.5" step="any"></label>
+    <label class="f">I″<sub>k</sub> minima sul lato MT <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima tra le fasi sul lato MT, al primario del trasformatore: di solito il guasto bifase minimo, I″k2 min = 0,866 × I″k min. Le protezioni di fase devono intervenire anche a questa corrente. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IkMin" value="0" step="any"></label>
+    <label class="f">Corrente di guasto a terra della rete <span class="u">(A)</span><input type="number" id="pm_IF" value="40" step="any"></label>
+    <label class="f">Contributo capacitivo della rete MT dell'utente <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente capacitiva di guasto a terra data dalle linee MT dell'utente collegate in servizio, dal punto di consegna ai morsetti MT dei trasformatori (solo la rete alla tensione di consegna, non la bassa tensione). Formula empirica: IC = U (kV) × (0,003 × km di linea aerea + 0,2 × km di cavo). Per un guasto esterno all'impianto è la corrente che il toroide vede a 270°: per il toroide conta solo il tratto a valle. Se supera l'80 % della soglia I0> del distributore serve la direzionale di terra 67N (CEI 0-16). Lasciare 0 per non mostrarlo.">i</span><input type="number" id="pm_IC" value="0" step="any"></label>
+    <label class="f">Guasto sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito ai morsetti BT del trasformatore vista dal lato MT: I″k BT × U2/U1. Serve a controllare quale soglia interviene per un guasto in bassa tensione. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_Ibt" value="0" step="any"></label>
+    <label class="f">Guasto minimo sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima sulle sbarre BT vista dal lato MT: I″k min BT × U2/U1 (guasto trifase). Mostra se la protezione MT vede anche il guasto più debole in bassa tensione. Con un trasformatore Dyn il guasto bifase BT dà su una fase MT la stessa corrente del trifase; il fase-terra BT dà I″k1/√3. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IbtMin" value="0" step="any"></label>
+  </div>
+  </div>
+
+  <div class="subh" style="margin-top:14px">Protezioni — dalla più a monte alla più a valle</div>
+  <div id="pmtList"></div>
+  <button type="button" id="addPmt" class="rowbtn">+ aggiungi una protezione</button>
+
+  <div class="subfold" id="pm_visFold">
+  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="true" aria-controls="pm_visBody" title="Clicca per mostrare o nascondere le opzioni dei grafici e delle verifiche">Opzioni dei grafici e delle verifiche</div></div>
+  <div class="mini subfold-sum" id="pm_visSum"></div>
+  <div class="pmvis subfold-b" id="pm_visBody">
+    <div class="pmvis-g">
+      <div class="pmvis-t">Limiti e tolleranze</div>
+      <label class="toggle"><input type="checkbox" id="pm_onDSO" checked><span>limite del distributore</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onTol" checked><span>fasce di tolleranza, usate anche nelle verifiche</span></label>
+      <label class="f">Margine di selettività tra due protezioni <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Differenza minima richiesta tra il tempo di intervento del relè a monte e il tempo di estinzione della protezione a valle, alla stessa corrente. Senza fasce di tolleranza copre anche gli errori dei tempi: valori usuali 0,1–0,2 s. Con le fasce attive i tempi sono già al caso peggiore e il margine copre il tempo di ricaduta e una riserva.">i</span><input type="number" id="pm_dt" value="0.1" step="any"></label>
+    </div>
+    <div class="pmvis-g">
+      <div class="pmvis-t">Trasformatori</div>
+      <label class="toggle"><input type="checkbox" id="pm_onInr" checked><span>inserzione totale dei trasformatori scelti</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onWth"><span>tenuta al cortocircuito dei trasformatori scelti (somma delle I<sub>k</sub> per 2 s)</span></label>
+      <div class="pmvis-t" style="margin-top:4px">Trasformatori considerati</div>
+      <div id="pm_trChk" class="pmvis-list"></div>
+    </div>
+    <div class="pmvis-g">
+      <div class="pmvis-t">Protezioni a valle, dagli altri moduli</div>
+      <label class="toggle"><input type="checkbox" id="pm_onFusA"><span id="pm_lFusA">fusibile A di «Curve dei fusibili»</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onFusB"><span id="pm_lFusB">fusibile B di «Curve dei fusibili»</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onCbA"><span id="pm_lCbA">interruttore A di «Curve degli interruttori»</span></label>
+      <label class="toggle"><input type="checkbox" id="pm_onCbB"><span id="pm_lCbB">interruttore B di «Curve degli interruttori»</span></label>
+      <div class="mini" id="pm_refU"></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="subh" style="margin-top:14px">Massima corrente di fase</div>
+  <div id="pm_chartF"></div><div id="pm_legF" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
+  <div class="subh" style="margin-top:14px">Guasto a terra</div>
+  <div id="pm_chartE"></div><div id="pm_legE" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
+  <div id="pm_sub67" hidden><div class="subh" style="margin-top:14px">Direzionale di terra 67N — settori di intervento</div>
+  <div id="pm_chart67"></div><div id="pm_leg67" class="mini" style="display:flex;flex-direction:column;gap:3px;margin-top:2px"></div></div>
+  <hr class="sep">
+  <div id="pm_checks"></div>
+  <p class="note">Tutte le curve dei grafici (trasformatori, fusibili, interruttori) sono riportate alla tensione della rete MT del modulo: una corrente letta alla tensione U vale I·U/U<sub>n</sub>; con più trasformatori scelti l'inserzione e la tenuta sono la somma. Curve a tempo dipendente: t = k·(A/((I/I<sub>s</sub>)<sup>p</sup> − 1) + B), con le costanti IEC 60255-151 / IEEE C37.112 (le stesse del manuale tecnico ABB serie 615); tipo RI: t = k/(0,339 − 0,236·I<sub>s</sub>/I); tipo RD: t = 5,8 − 1,35·ln(I/(k·I<sub>s</sub>)). Il tempo resta costante oltre 20 volte la soglia (relè generico e NA016) oppure oltre 50 volte la corrente nominale del relè (REF615). Il tempo minimo delle curve dipendenti è regolabile in ogni protezione (REF615: predefinito 20 ms); per l'NA016 la curva parte da 1,1 volte la soglia e il tempo minimo è fisso a 0,1 s. L'inserzione totale è la somma degli inviluppi efficaci I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup> dei trasformatori scelti: è prudente, perché le creste non coincidono. La fascia di tolleranza sposta le soglie di ± (errore del relè + errore del TA o del TO) e i tempi di ± (percentuale + quota fissa); il confronto con i limiti del distributore resta sui valori impostati. La tenuta del trasformatore è il punto I<sub>k</sub> = I<sub>n</sub>·100/u<sub>k</sub> per 2 s (CEI EN 60076-5). Le soglie direzionali 67N compaiono nel grafico del guasto a terra come soglie di corrente; il diagramma vettoriale mostra, tratteggiate, le tarature richieste dal distributore e, a tinta, i settori di intervento delle protezioni inserite, con U<sub>0</sub> in alto a 0° e l'angolo di ritardo di I<sub>0</sub> crescente in senso orario (CEI 0-16), con il raggio in scala logaritmica; la barra accanto riporta il consenso di tensione U<sub>0</sub> in volt primari. Il guasto esterno all'impianto è il contributo capacitivo dell'utente a 270°; il guasto interno con neutro isolato è la corrente del resto della rete a 90°; con neutro compensato il campo degli angoli (da 90° a 240°, tipico 180°) è indicativo e l'ampiezza non è verificata. Le regolazioni valide sono quelle comunicate dal distributore.</p>
+</div>
+
+<!-- Verifica guasto a terra MT: solo con fornitura in media tensione -->
+<div class="card" id="modMT" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
+    <h2><span class="ttl">Verifica guasto a terra MT</span>
+      <span class="pill">CEI 0-16 · CEI EN 50522</span><span class="expbtns"><button type="button" onclick="exportModule('modMT','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modMT','xls')">↧ Excel</button></span></h2>
+    <p class="hint" style="margin:-2px 0 10px">Verifica dell'impianto di terra lato <b>media tensione</b> — quadro normativo <b>diverso</b> dal cortocircuito IEC 60909 (qui il criterio è la sicurezza delle persone, non la tenuta dei componenti). Calcola la corrente verso terra I<sub>E</sub> = r·I<sub>g</sub> e la <b>tensione totale di terra</b> U<sub>E</sub> = R<sub>E</sub>·I<sub>E</sub> = r·R<sub>E</sub>·I<sub>g</sub>, confrontandola con la tensione di contatto ammissibile U<sub>Tp</sub> (Fig. 8). La corrente di guasto a terra di rete I<sub>g</sub> è <b>comunicata dal distributore</b> (dipende dal trattamento del neutro: isolato, compensato o a terra tramite impedenza).</p>
+    <label class="toggle" style="margin-bottom:10px"><input type="checkbox" id="mt_global"><span>Impianto parte di un <b>sistema di terra globale</b> (criterio C1 — verifica automaticamente soddisfatta)</span></label>
+    <div class="grid3">
+      <label class="f">I<sub>g</sub> — corrente di guasto a terra di rete <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di guasto monofase a terra della rete MT nel punto di consegna, comunicata dal distributore (DSO). In Italia tipicamente 40-50 A per reti con neutro compensato, fino a qualche centinaio di A per neutro a terra tramite resistenza. La riduzione per schermi/funi di guardia si imposta nel campo r. (dato del DSO, CEI 0-16; calcolo CEI EN 50522)">i</span><input type="number" id="mt_IE" value="40" step="any"></label>
+      <label class="f">t<sub>F</sub> — durata del guasto <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Tempo di eliminazione del guasto (intervento della protezione). Determina la tensione di contatto ammissibile sulla curva CEI EN 50522.">i</span><input type="number" id="mt_tF" value="10.01" step="0.01"></label>
+      <label class="f">r — fattore di riduzione<span class="tip" tabindex="0" data-tip="Quota di corrente che NON si disperde nel terreno locale perché richiusa da schermi dei cavi, funi di guardia o terre interconnesse (IE = r·Ig). Valori indicativi Allegato I CEI EN 50522 — cavi MT 10-20 kV: XLPE Cu 95/schermo Cu 16 r≈0,5-0,6; carta Cu 95/Pb r≈0,2-0,6; carta Al 95/Al r≈0,2-0,3. r=1 senza schermo/fune di guardia a terra (conservativo). Calcolo rigoroso: EN 60909-3.">i</span><input type="number" id="mt_r" value="1" step="0.01"></label>
+      <label class="f" style="grid-column:1">R<sub>E</sub> — resistenza impianto di terra <span class="u">(Ω)</span><input type="number" id="mt_RE" value="1" step="0.01"></label>
+    </div>
+    <div class="res-main" style="margin-top:12px">
+      <div class="kpi"><div class="k">U<sub>E</sub> · tensione totale di terra</div><div class="v"><span id="mt_UE">—</span> <small>V</small></div></div>
+      <div class="kpi"><div class="k">U<sub>Tp</sub> · ammissibile (tF)</div><div class="v"><span id="mt_UTpShow">—</span> <small>V</small></div></div>
+      <div class="kpi accent"><div class="k">R<sub>E</sub> massima con U<sub>E</sub> ≤ U<sub>Tp</sub><span class="tip" tabindex="0" data-tip="Resistenza di terra massima per cui la tensione totale di terra non supera la tensione di contatto ammissibile: R_E = U_Tp/(r·I_g). Sotto questo valore la verifica è soddisfatta direttamente, senza ricorrere ai criteri C2 e C3.">i</span></div><div class="v"><span id="mt_REmax1">—</span> <small>Ω</small></div></div>
+      <div class="kpi"><div class="k">R<sub>E</sub> massima ammessa (U<sub>E</sub> ≤ 2·U<sub>Tp</sub>)<span class="tip" tabindex="0" data-tip="Resistenza di terra che porterebbe UE al limite 2·UTp: RE,max = 2·UTp/(r·Ig) = 2·UTp/IE. (criterio C2, CEI EN 50522 §5.4.2)">i</span></div><div class="v"><span id="mt_REmax">—</span> <small>Ω</small></div></div>
+    </div>
+    <div class="warnrow" id="mt_verdict" style="display:none;margin-top:10px"></div>
+    <div id="mt_chart" style="margin-top:14px"></div>
+    <p class="mini" style="margin-top:8px">Criteri CEI EN 50522:2022 §5.4.2: <b>C1</b> impianto in sistema di terra globale → ok; <b>C2</b> U<sub>E</sub> ≤ 2·U<sub>Tp</sub> → ok senza misure dirette; <b>C3</b> U<sub>E</sub> ≤ 4·U<sub>Tp</sub> con le misure specifiche M (Tab. E.1) → ok; <b>C4</b> altrimenti provare U<sub>T</sub> per calcolo/misura. La curva U<sub>Tp</sub>(t<sub>F</sub>) usa i valori tabellari della CEI 99-3 (es. 0,1 s→654 V · 0,2 s→537 V · 0,5 s→220 V · 1 s→117 V); per t<sub>F</sub> &gt; 10 s si assume 80 V. I<sub>E</sub> = r·I<sub>g</sub> (Tab. 1); U<sub>E</sub> = R<sub>E</sub>·I<sub>E</sub>.</p>
+</div>
 
 <!-- Curve dei fusibili -->
 <div class="card" id="modFUS" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
@@ -786,111 +924,9 @@ details.adv>.in{margin-top:10px}
   </div>
 </div>
 
-<!-- Protezioni MT -->
-<div class="card" id="modPMT" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
-  <h2><span class="ttl">Protezioni MT</span><span class="pill">CEI 0-16 · IEC 60255-151</span><span class="expbtns"><button type="button" onclick="exportModule('modPMT','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modPMT','xls')">↧ Excel</button></span></h2>
-  <p class="hint">Curve di intervento dei relè di massima corrente di fase (50/51) e di terra (51N, 67N) sul lato MT, con più protezioni in cascata per la verifica della selettività, la curva limite comunicata dal distributore (compresa, se richiesta, la I&gt; a tempo dipendente) e la corrente di inserzione totale dei trasformatori del modulo Cortocircuito. Le soglie si inseriscono in multipli della corrente primaria del TA (o in ampere primari); i grafici sono sempre in ampere primari. I tempi disegnati sono quelli di <b>estinzione</b>: intervento del relè più apertura dell'interruttore. Attorno a ogni curva è disegnata la <b>fascia di tolleranza</b> data dagli errori di relè, TA e TO indicati in ogni protezione.</p>
-
-  <div class="subfold shut" id="pm_dsoFold">
-  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_dsoBody" title="Clicca per mostrare o nascondere la rete e i limiti comunicati dal distributore">Rete e limiti comunicati dal distributore</div>
-    <button type="button" id="pm_cei" class="rowbtn" title="Riporta i limiti ai valori minimi della CEI 0-16 (8.5.12.3) per la tensione e lo stato del neutro indicati">↺ valori minimi CEI 0-16 (8.5.12.3)</button>
-    <button type="button" id="pm_dsoImp" class="rowbtn" title="Legge il report «Tarature Impianti» in PDF del distributore e compila tensione, stato del neutro, correnti di guasto e limiti delle soglie, comprese le 67N. Legge solo i dati tecnici: il file resta sul computer">⭳ importa il report del distributore (PDF)</button><input type="file" id="pm_dsoFile" accept=".pdf,application/pdf" style="display:none"></div>
-  <div class="mini subfold-sum" id="pm_dsoSum"></div>
-  <div class="grid3 subfold-b" id="pm_dsoBody" style="align-items:end">
-    <label class="f">Tensione della rete MT <span class="u">(kV)</span><span class="tip" tabindex="0" data-tip="Lasciato vuoto, vale la tensione della sorgente del modulo cortocircuito quando è in media tensione (oltre 1000 V). Se la sorgente è in bassa tensione il valore si scrive qui, oppure lo compila l'importazione del report del distributore. Un valore scritto a mano prevale sempre.">i</span><input type="number" id="pm_U" value="" step="any" min="0"></label>
-    <label class="f">Stato del neutro<select id="pm_neu"><option value="c" selected>Compensato</option><option value="i">Isolato</option></select></label>
-    <span></span>
-    <label class="f">I&gt; · corrente massima <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Prima soglia di fase a tempo dipendente (51.S1): va impostata solo se il distributore la comunica. Lasciare 0 se non è richiesta. La curva è t = K · β / ((I / I>)^α − 1): con α = 0,02 e β = 0,14 è la normalmente inversa (NIT). È un tempo del relè: nel confronto e nel grafico gli si somma il tempo di apertura dell'interruttore della protezione generale. La curva è considerata da 1,1 volte la soglia.">i</span><input type="number" id="pm_L1" value="0" step="any"></label>
-    <label class="f">I&gt; · K <span class="u">(moltiplicatore del tempo)</span><input type="number" id="pm_K1" value="0.12" step="0.01" min="0"></label>
-    <div class="duo"><label class="f">I&gt; · α<input type="number" id="pm_A1" value="0.02" step="0.01" min="0"></label><label class="f">I&gt; · β<input type="number" id="pm_B1" value="0.14" step="0.01" min="0"></label></div>
-    <label class="f">I&gt;&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L2" value="250" step="any"></label>
-    <label class="f">I&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T2" value="0.5" step="0.01" min="0"></label>
-    <label class="f">I&gt;&gt; senza la I&gt; · corrente massima <span class="u">(A)</span><span class="tip r" tabindex="0" data-tip="Valore della I>> da rispettare, con lo stesso tempo di estinzione, quando la I> a tempo dipendente non viene impostata (nelle comunicazioni del distributore è la 51.S2p). Lasciare 0 se il distributore non indica questa alternativa: in quel caso, se comunica la I>, la I> è obbligatoria.">i</span><input type="number" id="pm_L2p" value="0" step="any"></label>
-    <label class="f">I&gt;&gt;&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L3" value="600" step="any"></label>
-    <label class="f">I&gt;&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T3" value="0.12" step="0.01" min="0"></label>
-    <span></span>
-    <label class="f">I<sub>0</sub>&gt; · corrente massima <span class="u">(A)</span><input type="number" id="pm_L0" value="2" step="any"></label>
-    <label class="f">I<sub>0</sub>&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T0" value="0.45" step="0.01" min="0"></label>
-    <span></span>
-    <label class="f">I<sub>0</sub>&gt;&gt; · corrente massima <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="140 % della corrente di guasto monofase a terra comunicata dal distributore: tipicamente 70 A sulle reti a 20 kV e 56 A su quelle a 15 kV (CEI 0-16, 8.5.12.3.2).">i</span><input type="number" id="pm_L00" value="56" step="any"></label>
-    <label class="f">I<sub>0</sub>&gt;&gt; · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_T00" value="0.17" step="0.01" min="0"></label>
-    <div class="pmt-dso67w">
-      <div class="pmt-dso67">
-        <label class="f">67N.S1 (neutro compensato) · U<sub>0</sub> massima <span class="u">(V primari)</span><span class="tip" tabindex="0" data-tip="Soglia di tensione residua come la comunica il distributore, in volt primari: 5 % (neutro compensato) e 2 % (neutro isolato) della tensione di fase, cioè 433,01 V e 173,21 V a 15 kV. Nella verifica la soglia U0 del relè, in volt al secondario con 100 V per guasto franco a terra, è riportata al primario e confrontata con questo valore.">i</span><input type="number" id="pm_DcU" value="433.01" step="any"></label>
-        <label class="f">67N.S1 (neutro compensato) · I<sub>0</sub> massima <span class="u">(A)</span><input type="number" id="pm_DcI" value="2" step="any"></label>
-        <label class="f">67N.S1 (neutro compensato) · settore di intervento <span class="u">(°)</span><input type="text" id="pm_DcA" value="60–250"></label>
-        <label class="f">67N.S1 (neutro compensato) · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_DcT" value="0.45" step="0.01" min="0"></label></div>
-      <div class="pmt-dso67">
-        <label class="f">67N.S2 (neutro isolato) · U<sub>0</sub> massima <span class="u">(V primari)</span><span class="tip" tabindex="0" data-tip="Soglia di tensione residua come la comunica il distributore, in volt primari: 5 % (neutro compensato) e 2 % (neutro isolato) della tensione di fase, cioè 433,01 V e 173,21 V a 15 kV. Nella verifica la soglia U0 del relè, in volt al secondario con 100 V per guasto franco a terra, è riportata al primario e confrontata con questo valore.">i</span><input type="number" id="pm_DiU" value="173.21" step="any"></label>
-        <label class="f">67N.S2 (neutro isolato) · I<sub>0</sub> massima <span class="u">(A)</span><input type="number" id="pm_DiI" value="2" step="any"></label>
-        <label class="f">67N.S2 (neutro isolato) · settore di intervento <span class="u">(°)</span><input type="text" id="pm_DiA" value="60–120"></label>
-        <label class="f">67N.S2 (neutro isolato) · tempo di estinzione massimo <span class="u">(s)</span><input type="number" id="pm_DiT" value="0.17" step="0.01" min="0"></label></div>
-    </div>
-  </div>
-  <div class="mini" id="pm_dsoMsg"></div>
-  </div>
-
-  <div class="subfold shut" id="pm_refFold">
-  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_refBody" title="Clicca per mostrare o nascondere le correnti di riferimento">Correnti di riferimento sul lato MT</div>
-    <button type="button" id="pm_copy" class="rowbtn" title="Copia le correnti di cortocircuito dai risultati IEC 60909 e la corrente di guasto a terra della rete">← copia dai risultati IEC 60909</button></div>
-  <div class="mini subfold-sum" id="pm_refSum"></div>
-  <div class="mini" id="pm_copyMsg"></div>
-  <div class="grid3 subfold-b" id="pm_refBody" style="align-items:end">
-    <label class="f">I″<sub>k</sub> massima sul lato MT <span class="u">(kA)</span><input type="number" id="pm_Ik" value="12.5" step="any"></label>
-    <label class="f">I″<sub>k</sub> minima sul lato MT <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima tra le fasi sul lato MT, al primario del trasformatore: di solito il guasto bifase minimo, I″k2 min = 0,866 × I″k min. Le protezioni di fase devono intervenire anche a questa corrente. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IkMin" value="0" step="any"></label>
-    <label class="f">Corrente di guasto a terra della rete <span class="u">(A)</span><input type="number" id="pm_IF" value="40" step="any"></label>
-    <label class="f">Contributo capacitivo della rete MT dell'utente <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente capacitiva di guasto a terra data dalle linee MT dell'utente collegate in servizio, dal punto di consegna ai morsetti MT dei trasformatori (solo la rete alla tensione di consegna, non la bassa tensione). Formula empirica: IC = U (kV) × (0,003 × km di linea aerea + 0,2 × km di cavo). Per un guasto esterno all'impianto è la corrente che il toroide vede a 270°: per il toroide conta solo il tratto a valle. Se supera l'80 % della soglia I0> del distributore serve la direzionale di terra 67N (CEI 0-16). Lasciare 0 per non mostrarlo.">i</span><input type="number" id="pm_IC" value="0" step="any"></label>
-    <label class="f">Guasto sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito ai morsetti BT del trasformatore vista dal lato MT: I″k BT × U2/U1. Serve a controllare quale soglia interviene per un guasto in bassa tensione. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_Ibt" value="0" step="any"></label>
-    <label class="f">Guasto minimo sulle sbarre BT riportato al primario <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di cortocircuito minima sulle sbarre BT vista dal lato MT: I″k min BT × U2/U1 (guasto trifase). Mostra se la protezione MT vede anche il guasto più debole in bassa tensione. Con un trasformatore Dyn il guasto bifase BT dà su una fase MT la stessa corrente del trifase; il fase-terra BT dà I″k1/√3. Lasciare 0 per non mostrarla.">i</span><input type="number" id="pm_IbtMin" value="0" step="any"></label>
-  </div>
-  </div>
-
-  <div class="subh" style="margin-top:14px">Protezioni — dalla più a monte alla più a valle</div>
-  <div id="pmtList"></div>
-  <button type="button" id="addPmt" class="rowbtn">+ aggiungi una protezione</button>
-
-  <div class="subfold" id="pm_visFold">
-  <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="true" aria-controls="pm_visBody" title="Clicca per mostrare o nascondere le opzioni dei grafici e delle verifiche">Opzioni dei grafici e delle verifiche</div></div>
-  <div class="mini subfold-sum" id="pm_visSum"></div>
-  <div class="pmvis subfold-b" id="pm_visBody">
-    <div class="pmvis-g">
-      <div class="pmvis-t">Limiti e tolleranze</div>
-      <label class="toggle"><input type="checkbox" id="pm_onDSO" checked><span>limite del distributore</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onTol" checked><span>fasce di tolleranza, usate anche nelle verifiche</span></label>
-      <label class="f">Margine di selettività tra due protezioni <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Differenza minima richiesta tra il tempo di intervento del relè a monte e il tempo di estinzione della protezione a valle, alla stessa corrente. Senza fasce di tolleranza copre anche gli errori dei tempi: valori usuali 0,1–0,2 s. Con le fasce attive i tempi sono già al caso peggiore e il margine copre il tempo di ricaduta e una riserva.">i</span><input type="number" id="pm_dt" value="0.1" step="any"></label>
-    </div>
-    <div class="pmvis-g">
-      <div class="pmvis-t">Trasformatori</div>
-      <label class="toggle"><input type="checkbox" id="pm_onInr" checked><span>inserzione totale dei trasformatori scelti</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onWth"><span>tenuta al cortocircuito dei trasformatori scelti (somma delle I<sub>k</sub> per 2 s)</span></label>
-      <div class="pmvis-t" style="margin-top:4px">Trasformatori considerati</div>
-      <div id="pm_trChk" class="pmvis-list"></div>
-    </div>
-    <div class="pmvis-g">
-      <div class="pmvis-t">Protezioni a valle, dagli altri moduli</div>
-      <label class="toggle"><input type="checkbox" id="pm_onFusA"><span id="pm_lFusA">fusibile A di «Curve dei fusibili»</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onFusB"><span id="pm_lFusB">fusibile B di «Curve dei fusibili»</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onCbA"><span id="pm_lCbA">interruttore A di «Curve degli interruttori»</span></label>
-      <label class="toggle"><input type="checkbox" id="pm_onCbB"><span id="pm_lCbB">interruttore B di «Curve degli interruttori»</span></label>
-      <div class="mini" id="pm_refU"></div>
-    </div>
-  </div>
-  </div>
-
-  <div class="subh" style="margin-top:14px">Massima corrente di fase</div>
-  <div id="pm_chartF"></div><div id="pm_legF" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
-  <div class="subh" style="margin-top:14px">Guasto a terra</div>
-  <div id="pm_chartE"></div><div id="pm_legE" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:2px"></div>
-  <div id="pm_sub67" hidden><div class="subh" style="margin-top:14px">Direzionale di terra 67N — settori di intervento</div>
-  <div id="pm_chart67"></div><div id="pm_leg67" class="mini" style="display:flex;flex-direction:column;gap:3px;margin-top:2px"></div></div>
-  <hr class="sep">
-  <div id="pm_checks"></div>
-  <p class="note">Tutte le curve dei grafici (trasformatori, fusibili, interruttori) sono riportate alla tensione della rete MT del modulo: una corrente letta alla tensione U vale I·U/U<sub>n</sub>; con più trasformatori scelti l'inserzione e la tenuta sono la somma. Curve a tempo dipendente: t = k·(A/((I/I<sub>s</sub>)<sup>p</sup> − 1) + B), con le costanti IEC 60255-151 / IEEE C37.112 (le stesse del manuale tecnico ABB serie 615); tipo RI: t = k/(0,339 − 0,236·I<sub>s</sub>/I); tipo RD: t = 5,8 − 1,35·ln(I/(k·I<sub>s</sub>)). Il tempo resta costante oltre 20 volte la soglia (relè generico e NA016) oppure oltre 50 volte la corrente nominale del relè (REF615). Il tempo minimo delle curve dipendenti è regolabile in ogni protezione (REF615: predefinito 20 ms); per l'NA016 la curva parte da 1,1 volte la soglia e il tempo minimo è fisso a 0,1 s. L'inserzione totale è la somma degli inviluppi efficaci I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup> dei trasformatori scelti: è prudente, perché le creste non coincidono. La fascia di tolleranza sposta le soglie di ± (errore del relè + errore del TA o del TO) e i tempi di ± (percentuale + quota fissa); il confronto con i limiti del distributore resta sui valori impostati. La tenuta del trasformatore è il punto I<sub>k</sub> = I<sub>n</sub>·100/u<sub>k</sub> per 2 s (CEI EN 60076-5). Le soglie direzionali 67N compaiono nel grafico del guasto a terra come soglie di corrente; il diagramma vettoriale mostra, tratteggiate, le tarature richieste dal distributore e, a tinta, i settori di intervento delle protezioni inserite, con U<sub>0</sub> in alto a 0° e l'angolo di ritardo di I<sub>0</sub> crescente in senso orario (CEI 0-16), con il raggio in scala logaritmica; la barra accanto riporta il consenso di tensione U<sub>0</sub> in volt primari. Il guasto esterno all'impianto è il contributo capacitivo dell'utente a 270°; il guasto interno con neutro isolato è la corrente del resto della rete a 90°; con neutro compensato il campo degli angoli (da 90° a 240°, tipico 180°) è indicativo e l'ampiezza non è verificata. Le regolazioni valide sono quelle comunicate dal distributore.</p>
-</div>
-
   <!-- Verifica 61439 (modulo separato) -->
   <div class="card" id="modVK" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
-    <h2><span class="ttl">Verifica quadro IEC 61439</span><span class="pill">IEC 61439</span><span class="expbtns"><button type="button" onclick="exportModule('modVK','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modVK','xls')">↧ Excel</button></span></h2>
+    <h2><span class="ttl">Verifica cortocircuito quadri elettrici IEC 61439</span><span class="pill">IEC 61439</span><span class="expbtns"><button type="button" onclick="exportModule('modVK','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modVK','xls')">↧ Excel</button></span></h2>
     <p class="hint">Modulo autonomo: inserisci a mano le <b>correnti di guasto presunte</b> e le tenute di targa del quadro. Il calcolo non dipende dal modulo cortocircuito; se vuoi, puoi copiarne i risultati con il pulsante.</p>
     <div class="subh">Correnti di guasto presunte</div>
     <div class="grid3">
@@ -948,32 +984,28 @@ details.adv>.in{margin-top:10px}
     </details>
   </div>
 
-<!-- Modulo sicurezza: guasto a terra MT -->
-<div class="card" id="modMT" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
-    <h2><span class="ttl">Modulo di sicurezza — Guasto a terra MT</span>
-      <span class="pill">CEI 0-16 · CEI EN 50522</span><span class="expbtns"><button type="button" onclick="exportModule('modMT','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modMT','xls')">↧ Excel</button></span></h2>
-    <p class="hint" style="margin:-2px 0 10px">Verifica dell'impianto di terra lato <b>media tensione</b> — quadro normativo <b>diverso</b> dal cortocircuito IEC 60909 (qui il criterio è la sicurezza delle persone, non la tenuta dei componenti). Calcola la corrente verso terra I<sub>E</sub> = r·I<sub>g</sub> e la <b>tensione totale di terra</b> U<sub>E</sub> = R<sub>E</sub>·I<sub>E</sub> = r·R<sub>E</sub>·I<sub>g</sub>, confrontandola con la tensione di contatto ammissibile U<sub>Tp</sub> (Fig. 8). La corrente di guasto a terra di rete I<sub>g</sub> è <b>comunicata dal distributore</b> (dipende dal trattamento del neutro: isolato, compensato o a terra tramite impedenza).</p>
-    <label class="toggle" style="margin-bottom:10px"><input type="checkbox" id="mt_global"><span>Impianto parte di un <b>sistema di terra globale</b> (criterio C1 — verifica automaticamente soddisfatta)</span></label>
-    <div class="grid3">
-      <label class="f">I<sub>g</sub> — corrente di guasto a terra di rete <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente di guasto monofase a terra della rete MT nel punto di consegna, comunicata dal distributore (DSO). In Italia tipicamente 40-50 A per reti con neutro compensato, fino a qualche centinaio di A per neutro a terra tramite resistenza. La riduzione per schermi/funi di guardia si imposta nel campo r. (dato del DSO, CEI 0-16; calcolo CEI EN 50522)">i</span><input type="number" id="mt_IE" value="40" step="any"></label>
-      <label class="f">t<sub>F</sub> — durata del guasto <span class="u">(s)</span><span class="tip" tabindex="0" data-tip="Tempo di eliminazione del guasto (intervento della protezione). Determina la tensione di contatto ammissibile sulla curva CEI EN 50522.">i</span><input type="number" id="mt_tF" value="10.01" step="0.01"></label>
-      <label class="f">r — fattore di riduzione<span class="tip" tabindex="0" data-tip="Quota di corrente che NON si disperde nel terreno locale perché richiusa da schermi dei cavi, funi di guardia o terre interconnesse (IE = r·Ig). Valori indicativi Allegato I CEI EN 50522 — cavi MT 10-20 kV: XLPE Cu 95/schermo Cu 16 r≈0,5-0,6; carta Cu 95/Pb r≈0,2-0,6; carta Al 95/Al r≈0,2-0,3. r=1 senza schermo/fune di guardia a terra (conservativo). Calcolo rigoroso: EN 60909-3.">i</span><input type="number" id="mt_r" value="1" step="0.01"></label>
-      <label class="f" style="grid-column:1">R<sub>E</sub> — resistenza impianto di terra <span class="u">(Ω)</span><input type="number" id="mt_RE" value="1" step="0.01"></label>
-    </div>
-    <div class="res-main" style="margin-top:12px">
-      <div class="kpi"><div class="k">U<sub>E</sub> · tensione totale di terra</div><div class="v"><span id="mt_UE">—</span> <small>V</small></div></div>
-      <div class="kpi"><div class="k">U<sub>Tp</sub> · ammissibile (tF)</div><div class="v"><span id="mt_UTpShow">—</span> <small>V</small></div></div>
-      <div class="kpi accent"><div class="k">R<sub>E</sub> massima con U<sub>E</sub> ≤ U<sub>Tp</sub><span class="tip" tabindex="0" data-tip="Resistenza di terra massima per cui la tensione totale di terra non supera la tensione di contatto ammissibile: R_E = U_Tp/(r·I_g). Sotto questo valore la verifica è soddisfatta direttamente, senza ricorrere ai criteri C2 e C3.">i</span></div><div class="v"><span id="mt_REmax1">—</span> <small>Ω</small></div></div>
-      <div class="kpi"><div class="k">R<sub>E</sub> massima ammessa (U<sub>E</sub> ≤ 2·U<sub>Tp</sub>)<span class="tip" tabindex="0" data-tip="Resistenza di terra che porterebbe UE al limite 2·UTp: RE,max = 2·UTp/(r·Ig) = 2·UTp/IE. (criterio C2, CEI EN 50522 §5.4.2)">i</span></div><div class="v"><span id="mt_REmax">—</span> <small>Ω</small></div></div>
-    </div>
-    <div class="warnrow" id="mt_verdict" style="display:none;margin-top:10px"></div>
-    <div id="mt_chart" style="margin-top:14px"></div>
-    <p class="mini" style="margin-top:8px">Criteri CEI EN 50522:2022 §5.4.2: <b>C1</b> impianto in sistema di terra globale → ok; <b>C2</b> U<sub>E</sub> ≤ 2·U<sub>Tp</sub> → ok senza misure dirette; <b>C3</b> U<sub>E</sub> ≤ 4·U<sub>Tp</sub> con le misure specifiche M (Tab. E.1) → ok; <b>C4</b> altrimenti provare U<sub>T</sub> per calcolo/misura. La curva U<sub>Tp</sub>(t<sub>F</sub>) usa i valori tabellari della CEI 99-3 (es. 0,1 s→654 V · 0,2 s→537 V · 0,5 s→220 V · 1 s→117 V); per t<sub>F</sub> &gt; 10 s si assume 80 V. I<sub>E</sub> = r·I<sub>g</sub> (Tab. 1); U<sub>E</sub> = R<sub>E</sub>·I<sub>E</sub>.</p>
+<!-- Rischio fulmini (CEI EN IEC 62305-2) -->
+<section class="module" id="modLP">
+<div class="modhead"><span class="ttl">Verifica rischio da fulmine</span><span class="pill">CEI EN IEC 62305-2</span>
+  <span class="expbtns">
+    <select id="lpEx" title="Carica un esempio dell'Allegato F della norma o un modello salvato">
+      <option value="">Esempi e modelli…</option>
+    </select>
+    <button type="button" id="lpNew">Nuovo</button>
+    <button type="button" id="lpOpen" title="Apre un file del solo modulo Rischio da fulmine">Apri…</button>
+    <button type="button" id="lpSave" title="Salva solo i dati di questo modulo">Salva</button>
+    <button type="button" id="lpPdf">↧ PDF</button>
+    <input type="file" id="lpFile" accept=".json,application/json" style="display:none">
+  </span></div>
+<div class="layout">
+  <div class="inputs" id="lpInputs"></div>
+  <div class="results" id="lpResults"></div>
 </div>
+</section>
 
 <!-- Relazioni rapide -->
 <div class="card" id="modREL" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
-    <h2><span class="ttl">Relazioni rapide tra grandezze</span><span class="expbtns"><button type="button" onclick="exportModule('modREL','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modREL','xls')">↧ Excel</button></span></h2>
+    <h2><span class="ttl">Relazioni tra grandezze di corrente</span><span class="expbtns"><button type="button" onclick="exportModule('modREL','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modREL','xls')">↧ Excel</button></span></h2>
     <div class="subh">Grandezze collegate: I<sub>pk</sub> ↔ I<sub>cc</sub> ↔ I<sub>cw</sub> ↔ I²t<span class="tip r" tabindex="0" data-tip="Le quattro grandezze sono legate: modificando un campo qualsiasi gli altri si aggiornano. I_pk = n·I_cc (fattore n, IEC 61439-1 Tab. 7); I²t = I_cc²·t (energia specifica passante); I_cw = √(I²t / t_cw) (tenuta di breve durata equivalente per la durata t_cw, IEC 61439-1 §9.3.2, valida fino a 3 s).">i</span></div>
     <p class="hint" style="margin:-2px 0 10px">Scrivi il valore che conosci in uno qualsiasi dei campi: gli altri vengono ricalcolati. I<sub>cc</sub> è la corrente efficace che dura per il tempo t; I<sub>cw</sub> è la tenuta termicamente equivalente riferita alla durata t<sub>cw</sub> (con t = t<sub>cw</sub> i due valori coincidono). Cambiando una durata, I<sub>cc</sub> resta ferma e si aggiornano I²t e I<sub>cw</sub>.</p>
     <div class="grid3" style="align-items:end">
@@ -1073,25 +1105,6 @@ details.adv>.in{margin-top:10px}
       </div>
     </details>
 </div>
-
-<!-- Rischio fulmini (CEI EN IEC 62305-2) -->
-<section class="module" id="modLP">
-<div class="modhead"><span class="ttl">Rischio da fulmine</span><span class="pill">CEI EN IEC 62305-2</span>
-  <span class="expbtns">
-    <select id="lpEx" title="Carica un esempio dell'Allegato F della norma o un modello salvato">
-      <option value="">Esempi e modelli…</option>
-    </select>
-    <button type="button" id="lpNew">Nuovo</button>
-    <button type="button" id="lpOpen" title="Apre un file del solo modulo Rischio da fulmine">Apri…</button>
-    <button type="button" id="lpSave" title="Salva solo i dati di questo modulo">Salva</button>
-    <button type="button" id="lpPdf">↧ PDF</button>
-    <input type="file" id="lpFile" accept=".json,application/json" style="display:none">
-  </span></div>
-<div class="layout">
-  <div class="inputs" id="lpInputs"></div>
-  <div class="results" id="lpResults"></div>
-</div>
-</section>
 
 <!-- ===================== NORME E FORMULE ===================== -->
 <footer class="card" style="max-width:1360px;margin:14px auto 40px;border-left:3px solid var(--accent)">
@@ -1224,7 +1237,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.1.34 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.0 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1261,7 +1274,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.1.34";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.0";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -1378,6 +1391,8 @@ const SUB_KEY="ce_sottomoduli_v1";
    Ogni modulo si chiude e si riapre cliccando sulla barra del titolo. Lo stato è ricordato nel browser;
    al primo avvio resta aperto solo il primo modulo. I moduli chiusi continuano a essere calcolati. */
 const FOLD_KEY="ce_moduli_chiusi_v1";
+// I moduli della media tensione (protezioni MT, guasto a terra MT) si vedono solo se la sorgente dell'impianto è oltre 1000 V.
+function modVis(){ const mt=num("UnQ")>1000; ["modPMT","modMT"].forEach(id=>{ const m=$(id); if(m&&m.hidden===mt) m.hidden=!mt; }); }
 function foldMods(){ return [...document.querySelectorAll("main > [id^=mod]")].filter(m=>m.firstElementChild&&m.firstElementChild.matches(".modhead,h2")); }
 function foldSet(m,closed){ m.classList.toggle("is-closed",closed); m.firstElementChild.setAttribute("aria-expanded",String(!closed)); }
 function foldAfter(){   // ricorda lo stato, aggiorna il pulsante e ridisegna i grafici alla larghezza reale
@@ -2090,6 +2105,7 @@ function ccTable(){
 }
 /* ---------- calcolo principale: in ogni punto le correnti massime (c max, con i motori) e minime (c min, senza motori) ---------- */
 function recompute(){
+  modVis();
   const sy=ccSys();
   if(CC_LVL!==null&&sy.lvl!==CC_LVL) autoC(sy.lvl);   // è cambiato il livello di tensione del punto di guasto: fattori c di tabella
   CC_LVL=sy.lvl;
@@ -4341,8 +4357,9 @@ function _subTxt(m,s){ return `${m}<tspan font-size="10" dy="4">${s}</tspan><tsp
 function collectModule(id){
   const root=$(id); const sections=[];
   const title=_clean(root.querySelector('.ttl'));
-  const inRows=[];
-  root.querySelectorAll('label.f').forEach(lab=>{
+  const inRows=[], imp=id==='modCC'?$("modIMP"):null, impShut=!!(imp&&imp.classList.contains("is-closed"));
+  if(impShut) imp.classList.remove("is-closed");
+  [root].concat(imp?[imp]:[]).forEach(rt=>rt.querySelectorAll('label.f').forEach(lab=>{
     const inp=lab.querySelector('input,select'); if(!inp) return;
     const sf=inp.closest('.subfold.shut');   // sotto-modulo chiuso: i suoi campi sono dati di ingresso come gli altri
     if((inp.offsetParent===null&&!(sf&&sf.offsetParent!==null))||inp.classList.contains('ccpt')) return;   // campo nascosto, scheda chiusa o scelta del punto da copiare
@@ -4352,7 +4369,8 @@ function collectModule(id){
     else val=inp.value;
     if(val==="") return;
     inRows.push([_labelName(lab), val, _unit(lab)]);
-  });
+  }));
+  if(impShut) imp.classList.add("is-closed");
   if(inRows.length) sections.push({h:'Dati di ingresso', rows:inRows});
   if(id==='modCC'&&CC_ST&&CC_ST.pts){ ccCollectPoints(root,sections); return {title, sections}; }
   const zt=root.querySelector('table.z');
@@ -5239,7 +5257,7 @@ function exportXLS(d, id){
    Un unico file .json con i parametri di tutti i moduli. Il modulo Rischio da fulmine conserva anche
    il proprio Salva/Apri. Interruttori e fusibili sono salvati per nome, non per posizione nel database,
    così il file resta valido anche se il database cambia. */
-const ALL_FMT=1, ALL_MODS=["modCC","modFUS","modCB","modPMT","modVK","modMT","modREL"];
+const ALL_FMT=1, ALL_MODS=["modIMP","modCC","modFUS","modCB","modPMT","modVK","modMT","modREL"];
 const ALL_CB_SET=["Ir","tr","n","Isd","tsd","si","Ii"];
 function allSkip(el){ return !el.id||el.classList.contains("ccpt")||el.type==="file"||el.type==="radio"||el.type==="button"||/^fu_(grp|sel)[AB]$/.test(el.id)||/^(fu|cb|pm)_(tr|mo)Sel$/.test(el.id)||!!el.closest("#cb_slotA,#cb_slotB,#trList,#cableList,#motList,#pmtList,#pm_trChk"); }
 function allSetVal(el,v){ if(el.type==="checkbox"){ el.checked=!!v; return true; }
@@ -5255,7 +5273,7 @@ function allCb(s){ const p=CB_DB.p[parseInt($("cb_sel"+s).value,10)]; if(!p) ret
 function allCollect(){
   const q=n=>{ const r=document.querySelector(`input[name=${n}]:checked`); return r?r.value:null; }, M={};
   ALL_MODS.forEach(m=>{ M[m]={campi:allFields(m)}; });
-  Object.assign(M.modCC,{trasformatori:allRows("#trList .tr-branch"),cavi:allRows("#cableList .cable-row"),motori:allRows("#motList .mot-row")});
+  Object.assign(M.modIMP,{trasformatori:allRows("#trList .tr-branch"),cavi:allRows("#cableList .cable-row"),motori:allRows("#motList .mot-row")});
   Object.assign(M.modFUS,{A:allFus("A"),B:allFus("B")});
   Object.assign(M.modCB,{A:allCb("A"),B:allCb("B")});
   const pos=(id,sel)=>{ const i=[...document.querySelectorAll(sel)].findIndex(d=>d.dataset.id===$(id).value); return i<0?null:i; };
@@ -5290,7 +5308,8 @@ function allSetCb(s,o,rep){ if(!o) return;
   Object.keys(o.regolazioni||{}).forEach(k=>{ const el=$("cb_"+k+s); if(!el||ALL_CB_SET.indexOf(k)<0||!allSetVal(el,o.regolazioni[k])) rep.skip.push("cb_"+k+s); });
   rep.ok++; }
 function allApply(d){
-  const rep={ok:0,skip:[],miss:[]}, M=d.moduli||{}, cc=M.modCC||{};
+  const rep={ok:0,skip:[],miss:[]}, M=d.moduli||{}, cc=Object.assign({},M.modCC||{});
+  if(M.modIMP) ["trasformatori","cavi","motori"].forEach(k=>{ if(M.modIMP[k]) cc[k]=M.modIMP[k]; });   // dalla 0.2.0 i componenti sono salvati nel modulo Impianto
   // file salvati quando livello, tensione e scopo del calcolo si sceglievano a mano: ora sono ricavati dallo schema
   const lc=cc.campi||{}, legacy=cc.sistema!=null||cc.scenario!=null||lc.Un!=null, oldUn=parseFloat(lc.Un), oldC=lc.cfac, oldMin=cc.scenario==="min", newC=[lc.cfac,lc.cfacMin];
   if(lc.Un!=null){ delete lc.Un; rep.ok++; }
@@ -5623,7 +5642,7 @@ $("allFile").addEventListener("change",function(){ const f=this.files[0]; if(!f)
     const tog=()=>{ foldSet(m,!m.classList.contains("is-closed")); foldAfter(); };
     h.addEventListener("click",e=>{ if(!e.target.closest("button,select,input,a,label,.tip")) tog(); });
     h.addEventListener("keydown",e=>{ if(e.target===h&&(e.key==="Enter"||e.key===" ")){ e.preventDefault(); tog(); } });
-    foldSet(m,closed?closed.indexOf(m.id)>=0:i>0); });
+    foldSet(m,closed?closed.indexOf(m.id)>=0:i>1); });   // alla prima apertura restano aperti Impianto e Cortocircuito
   $("foldAll").addEventListener("click",()=>{ const any=foldMods().some(m=>m.classList.contains("is-closed")); foldMods().forEach(m=>foldSet(m,!any)); foldAfter(); });
   foldAfter();
 })();

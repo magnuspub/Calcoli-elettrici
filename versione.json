@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.1.34",
+  "versione": "0.2.0",
   "data": "21/11/2026",
-  "novita": "Protezioni MT: taratura delle 67N richiesta dal distributore tra i limiti, con verifica sulla protezione generale, e importazione del report «Tarature Impianti» in PDF."
+  "novita": "Nuova struttura a moduli numerati: «Impianto» raccoglie sorgente, trasformatori, linee e motori; il cortocircuito tiene sistema e risultati; i moduli MT compaiono solo con fornitura in media tensione."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",
