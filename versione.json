@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.3",
+  "versione": "0.2.4",
   "data": "21/11/2026",
-  "novita": "Fusibili e interruttori dell'impianto in elenco libero: ogni dispositivo ha la sua posizione, la sua tensione e le sue correnti di guasto; levette per dispositivo nelle protezioni MT."
+  "novita": "Collegamenti tra moduli: il quadro IEC 61439 prende i dati dall'interruttore, dal fusibile o dal punto da cui è derivato; il guasto a terra MT legge corrente e tempo dalle protezioni MT. Schede dell'impianto rinominate."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",
