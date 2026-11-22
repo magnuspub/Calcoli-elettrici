@@ -375,7 +375,7 @@ details.adv>.in{margin-top:10px}
 </head>
 <body>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.10</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.11</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -396,6 +396,10 @@ details.adv>.in{margin-top:10px}
       <span class="toggle"><input type="checkbox" id="onGrid" checked><span>includi</span></span></h2>
     <div class="body">
     <p class="hint">Potenza o corrente di cortocircuito della rete nel punto di consegna. L'impedenza usa il fattore c della rete a monte del trasformatore (1,10 in MT, 1,05 in BT) ed è riferita alla tensione del punto di guasto.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-bottom:12px">
+      <button type="button" id="src_dsoImp" class="rowbtn" title="Legge il report «Tarature Impianti» in PDF del distributore e compila qui tensione e correnti di cortocircuito della rete; nel modulo Progettazione protezioni MT compila stato del neutro, guasto a terra e limiti delle soglie. Legge solo i dati tecnici: il file resta sul computer">⭳ importa il report del distributore (PDF)</button>
+      <span class="mini" id="src_dsoMsg" style="flex:1 1 260px"></span>
+    </div>
     <label class="f" style="margin-bottom:12px">Tipo di connessione<span class="tip" tabindex="0" data-tip="Valori convenzionali di cc al punto di consegna BT (CEI 0-21 §5.1.3 e Tab. 4): monofase 6 kA/cos φ 0,7; trifase ≤33 kW 10 kA/cos φ 0,5; trifase >33 kW 15 kA/cos φ 0,3. Riferiti a trafo ≤630 kVA, Vcc 6%, Icc sbarra ≤16 kA, e includono già i cavi di collegamento. Il dispositivo generale deve avere potere di interruzione ≥ a questi valori; il DSO può comunicare valori superiori. Il preset imposta solo la scheda Sorgente (corrente I″kQ, U_nQ e R/X dal cos φ) e disattiva trasformatore e cavi a monte; non modifica la scheda Sistema. Impostare il Sistema su BT con la tensione corrispondente (400 V trifase, 230 V monofase).">i</span>
       <select id="gridPreset">
         <option value="" selected>CEI 0-16</option>
@@ -539,6 +543,12 @@ details.adv>.in{margin-top:10px}
     </div>
   </div>
 
+
+  <div class="card" id="cardWave">
+    <h2><span class="ttl">Andamento della corrente di cortocircuito</span><span class="tip r" tabindex="0" data-tip="Schema dell'andamento della corrente (IEC 60909-0, Figura 1) costruito con i risultati del punto scelto: la componente alternata parte da √2·I″k e, se ci sono motori, scende fino a √2·Ik passando per √2·Ib al tempo t min; la componente continua parte da A = √2·I″k e si smorza. In verde il valore efficace della componente alternata (I″k all'inizio, Ib a t min, Ik a regime), in viola la corrente termica equivalente Ith sulla durata Tk. Lo smorzamento è scelto in modo che il primo picco sia la corrente di picco ip calcolata. È uno schema: nelle reti reali l'andamento può essere diverso.">i</span></h2>
+    <div id="cc_wave"></div>
+    <div id="cc_wave_leg" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:4px"></div>
+  </div>
 </div>
 
 <!-- ===================== COLONNA RISULTATI ===================== -->
@@ -619,7 +629,7 @@ details.adv>.in{margin-top:10px}
   <div class="subfold shut" id="pm_dsoFold">
   <div class="subfold-h"><div class="subh" role="button" tabindex="0" aria-expanded="false" aria-controls="pm_dsoBody" title="Clicca per mostrare o nascondere la rete e i limiti comunicati dal distributore">Rete e limiti comunicati dal distributore</div>
     <button type="button" id="pm_cei" class="rowbtn" title="Riporta i limiti ai valori minimi della CEI 0-16 (8.5.12.3) per la tensione e lo stato del neutro indicati">↺ valori minimi CEI 0-16 (8.5.12.3)</button>
-    <button type="button" id="pm_dsoImp" class="rowbtn" title="Legge il report «Tarature Impianti» in PDF del distributore e compila tensione, stato del neutro, correnti di guasto e limiti delle soglie, comprese le 67N. Legge solo i dati tecnici: il file resta sul computer">⭳ importa il report del distributore (PDF)</button><input type="file" id="pm_dsoFile" accept=".pdf,application/pdf" style="display:none"></div>
+    <button type="button" id="pm_dsoImp" class="rowbtn" title="Legge il report «Tarature Impianti» in PDF del distributore e compila tensione, stato del neutro, correnti di guasto e limiti delle soglie, comprese le 67N; compila anche la sorgente nel modulo Impianto (tensione, I″k massima e minima). Legge solo i dati tecnici: il file resta sul computer">⭳ importa il report del distributore (PDF)</button><input type="file" id="pm_dsoFile" accept=".pdf,application/pdf" style="display:none"></div>
   <div class="mini subfold-sum" id="pm_dsoSum"></div>
   <div class="grid3 subfold-b" id="pm_dsoBody" style="align-items:end">
     <label class="f">Tensione della rete MT <span class="u">(kV)</span><span class="tip" tabindex="0" data-tip="Lasciato vuoto, vale la tensione della sorgente del modulo cortocircuito quando è in media tensione (oltre 1000 V). Se la sorgente è in bassa tensione il valore si scrive qui, oppure lo compila l'importazione del report del distributore. Un valore scritto a mano prevale sempre.">i</span><input type="number" id="pm_U" value="" step="any" min="0"></label>
@@ -1144,7 +1154,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.10 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.11 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1185,7 +1195,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.10";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.11";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -1223,7 +1233,7 @@ function tipFit(e){
    Doppio clic su un grafico: si apre una finestra con la sua copia, da tenere per esempio su un secondo schermo. La copia segue
    il grafico della pagina: a ogni ricalcolo il contenitore viene ridisegnato e un MutationObserver riporta il nuovo disegno
    (con la legenda, se è in un elemento accanto). Chiudendo o ricaricando la pagina le finestre aperte si chiudono. */
-const CH_TIT={co_chart:"Coordinamento protezioni BT",co_chartL:"Coordinamento BT · picco lasciato passare",co_chartE:"Coordinamento BT · energia specifica passante I²t",pm_chartF:"Protezioni MT · massima corrente di fase",pm_chartE:"Protezioni MT · guasto a terra",pm_chart67:"Protezioni MT · direzionale di terra 67N",mt_chart:"Tensione di contatto ammissibile"};
+const CH_TIT={cc_wave:"Andamento della corrente di cortocircuito",co_chart:"Coordinamento protezioni BT",co_chartL:"Coordinamento BT · picco lasciato passare",co_chartE:"Coordinamento BT · energia specifica passante I²t",pm_chartF:"Protezioni MT · massima corrente di fase",pm_chartE:"Protezioni MT · guasto a terra",pm_chart67:"Protezioni MT · direzionale di terra 67N",mt_chart:"Tensione di contatto ammissibile"};
 const CH_WIN={};
 function chPop(host){
   const id=host.id, old=CH_WIN[id]; if(old&&!old.w.closed){ old.w.focus(); return true; }
@@ -1882,6 +1892,65 @@ function ccCore(sy,c,withMot,pt){
     oRows,oRk,oXk,oZk,oRx,oKappa,oIk,oIp,oIb,oIkSt,oIth};
 }
 // dettaglio di un punto: riquadri, tabella delle impedenze e note (senza argomento: il punto scelto nella tabella)
+// Andamento della corrente nel punto scelto, come nella Figura 1 della IEC 60909-0, costruito con i risultati:
+//   i(t) = iDC(t) − √2·Iac(t)·cos(ωt), con iDC = A·e^(−t/τ) e A = √2·I″k (il caso peggiore: guasto al passaggio per lo zero della tensione).
+//   τ è scelto perché il primo picco (a mezzo periodo) sia ip: 1 + e^(−T/2τ) = κ = ip/(√2·I″k).
+//   Iac è costante lontano dai generatori; con i motori scende da I″k a Ik passando per Ib al tempo t min.
+function ccWaveSVG(A,W){
+  const Ik=A.oIk, ip=A.oIp, Ib=A.oIb, Ist=A.oIkSt, f=num("freq")>0?num("freq"):50, s2=Math.SQRT2, om=2*Math.PI*f;
+  if(!(Ik>0&&ip>0)) return {svg:"",leg:""};
+  const kap=Math.min(1.9999,Math.max(1.0001,ip/(s2*Ik))), tau=-1/(2*f*Math.log(kap-1));
+  const dec=Ik-Ist>Ik*0.002, mt=document.querySelector("#motList [data-k=tmin]"), tmin=dec&&mt?parseFloat(mt.value)||0.1:0.1;
+  const Tac=!dec?Infinity:(Ib>Ist*1.0005&&Ib<Ik*0.9995?-tmin/Math.log((Ib-Ist)/(Ik-Ist)):tmin);
+  const Iac=t=>dec?Ist+(Ik-Ist)*Math.exp(-t/Tac):Ik, idc=t=>s2*Ik*Math.exp(-t/tau), cur=t=>idc(t)-s2*Iac(t)*Math.cos(om*t);
+  const nC=Math.max(5,Math.min(14,Math.ceil(Math.max(3*tau,dec?Math.max(2.5*Tac,1.25*tmin):0)*f))), tE=nC/f;
+  const k=1/1000, yTop=2*s2*Ik*1.07*k; let yBot=0; for(let i=0;i<=200;i++){ const t=tE*i/200; yBot=Math.min(yBot,(idc(t)-s2*Iac(t))*k); } yBot*=1.12;
+  const H=300, L=W<420?74:104, R=W<420?38:58, T=12, Bm=30, pw=W-L-R, ph=H-T-Bm, X=t=>L+pw*t/tE, Y=v=>T+ph*(yTop-v*k)/(yTop-yBot);
+  const path=(fn,n)=>{ let d=""; for(let i=0;i<=n;i++){ const t=tE*i/n; d+=(i?"L":"M")+X(t).toFixed(1)+" "+Y(fn(t)).toFixed(1); } return d; };
+  const ink="var(--text-primary)", mu="var(--text-muted)", sub=(a,b)=>`${a}<tspan dy="3" font-size="8.5">${b}</tspan><tspan dy="-3"> </tspan>`;
+  let o=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block" role="img" aria-label="Andamento della corrente di cortocircuito" data-ax='${JSON.stringify({W,H,L,T,pw,ph,x0:0,x1:tE,xlog:false,y0:yBot,y1:yTop,ylog:false,xn:"t",yn:"i",xu:"s",yu:"kA"})}'>`;
+  // griglia e assi
+  const stp=(()=>{ const r=(yTop-yBot)/6, p=Math.pow(10,Math.floor(Math.log10(r))), m=r/p; return (m<1.5?1:m<3.5?2:m<7.5?5:10)*p; })();
+  for(let v=Math.ceil(yBot/stp)*stp;v<=yTop+1e-9;v+=stp){ const y=Y(v/k).toFixed(1), z=Math.abs(v)<stp/1e6;
+    o+=`<line x1="${L}" y1="${y}" x2="${L+pw}" y2="${y}" stroke="${z?"var(--axis)":"var(--grid)"}" stroke-width="${z?1.2:1}"/><text x="${L-5}" y="${(+y+3.5).toFixed(1)}" text-anchor="end" font-size="10" fill="${mu}">${fusNum(+(z?0:v).toPrecision(3))}</text>`; }
+  for(let c=0;c<=nC;c++){ const t=c/f, x=X(t).toFixed(1); if(nC>8&&c%2) continue;
+    o+=`<line x1="${x}" y1="${T+ph}" x2="${x}" y2="${T+ph+4}" stroke="var(--axis)"/><text x="${x}" y="${T+ph+15}" text-anchor="middle" font-size="10" fill="${mu}">${fusNum(+(t*1000).toFixed(0))}</text>`; }
+  o+=`<line x1="${L}" y1="${T}" x2="${L}" y2="${T+ph}" stroke="var(--axis)" stroke-width="1.2"/><text x="${L+pw}" y="${H-3}" text-anchor="end" font-size="10" fill="${mu}">tempo (ms)</text><text x="${L+4}" y="${T+9}" font-size="10" fill="${mu}">corrente (kA)</text>`;
+  const y0=Y(0), y0f=y0.toFixed(1), tp=1/(2*f);
+  // inviluppi, componente continua, onda
+  o+=`<path d="${path(t=>idc(t)+s2*Iac(t),80)}" fill="none" stroke="${mu}" stroke-width="1.1" stroke-dasharray="6 3"/><path d="${path(t=>idc(t)-s2*Iac(t),80)}" fill="none" stroke="${mu}" stroke-width="1.1" stroke-dasharray="6 3"/>`;
+  o+=`<path d="${path(idc,80)}" fill="none" stroke="var(--s2)" stroke-width="1.6" stroke-dasharray="2 3"/>`;
+  o+=`<path d="${path(cur,nC*48)}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/>`;
+  // valori efficaci: componente alternata (da I″k a Ik), corrente termica equivalente Ith sulla durata Tk
+  const Ith=A.oIth, lab=(x,y,t,col,anc)=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-size="10.5" font-weight="600" fill="${col}" text-anchor="${anc||"start"}" paint-order="stroke" stroke="var(--surface-1)" stroke-width="3">${t}</text>`;
+  o+=`<path d="${path(Iac,80)}" fill="none" stroke="var(--good)" stroke-width="1.8"/><circle cx="${X(0).toFixed(1)}" cy="${Y(Ik).toFixed(1)}" r="3" fill="var(--good)"/>`;
+  o+=lab(X(0)+7,Y(Ik)-5,sub("I″","k")+"efficace","var(--good)")+(dec?lab(L+pw-4,Y(Ist)-5,sub("I","k"),"var(--good)","end"):"");
+  if(Ith>0){ o+=`<line x1="${L}" y1="${Y(Ith).toFixed(1)}" x2="${L+pw}" y2="${Y(Ith).toFixed(1)}" stroke="var(--s4)" stroke-width="1.3" stroke-dasharray="8 4"/>`+lab(L+pw*0.34,Y(Ith)+(Ith>=Iac(tE*0.34)?-5:13),sub("I","th"),"var(--s4)"); }
+  // primo picco: istante e valore
+  o+=`<line x1="${X(tp).toFixed(1)}" y1="${Y(ip).toFixed(1)}" x2="${X(tp).toFixed(1)}" y2="${y0f}" stroke="var(--crit)" stroke-width="0.8" stroke-dasharray="2 2"/><circle cx="${X(tp).toFixed(1)}" cy="${Y(ip).toFixed(1)}" r="3" fill="var(--crit)"/>`;
+  // quote a sinistra: 2√2·I″k, ip, A (da zero); a destra 2√2·Ik
+  const dimV=(x,ya,yb,lab,col)=>`<line x1="${x}" y1="${ya.toFixed(1)}" x2="${x}" y2="${yb.toFixed(1)}" stroke="${col}" stroke-width="1"/><path d="M${x-3} ${(ya+5).toFixed(1)}L${x} ${ya.toFixed(1)}L${x+3} ${(ya+5).toFixed(1)}M${x-3} ${(yb-5).toFixed(1)}L${x} ${yb.toFixed(1)}L${x+3} ${(yb-5).toFixed(1)}" fill="none" stroke="${col}" stroke-width="1"/><text transform="translate(${x-4} ${((ya+yb)/2).toFixed(1)}) rotate(-90)" text-anchor="middle" font-size="10.5" font-weight="600" fill="${col}">${lab}</text>`;
+  const lead=(xa,xb,y,col)=>`<line x1="${xa}" y1="${y.toFixed(1)}" x2="${xb.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${col}" stroke-width="0.8" stroke-dasharray="2 2"/>`;
+  const big=W>=420, d=big?20:17, xa=L-(big?34:30);
+  o+=lead(xa-2*d-4,L,Y(2*s2*Ik),ink)+dimV(xa-2*d,Y(2*s2*Ik),y0,"2√2·"+sub("I″","k"),ink);
+  o+=lead(xa-d-4,X(tp),Y(ip),"var(--crit)")+dimV(xa-d,Y(ip),y0,sub("i","p"),"var(--crit)");
+  o+=lead(xa-4,L,Y(s2*Ik),"var(--s2)")+dimV(xa,Y(s2*Ik),y0,"A","var(--s2)");
+  o+=lead(xa-2*d-4,L,y0,mu);
+  const xr=L+pw+(big?22:16); o+=lead(L+pw,xr+4,Y(s2*Ist),ink)+lead(L+pw,xr+4,Y(-s2*Ist),ink)+dimV(xr,Y(s2*Ist),Y(-s2*Ist),"2√2·"+sub("I","k"),ink).replace(`translate(${xr-4} `,`translate(${xr+13} `);
+  // con i motori: istante t min, a cui la componente alternata vale Ib
+  if(dec&&tmin<tE*0.98){ const x=X(tmin).toFixed(1); o+=`<line x1="${x}" y1="${Y(idc(tmin)+s2*Iac(tmin)).toFixed(1)}" x2="${x}" y2="${Y(idc(tmin)-s2*Iac(tmin)).toFixed(1)}" stroke="var(--s3)" stroke-width="1.3" stroke-dasharray="6 3"/><circle cx="${x}" cy="${Y(Iac(tmin)).toFixed(1)}" r="3" fill="var(--s3)"/>`+lab(+x+5,Y(idc(tmin)+s2*Iac(tmin))-5,sub("t","min"),"var(--s3)")+lab(+x+6,Y(Iac(tmin))-5,sub("I","b"),"var(--s3)"); }
+  o+=`</svg>`;
+  const sw=(c,dsh)=>`<svg width="22" height="8" style="vertical-align:middle;margin-right:5px"><line x1="1" y1="4" x2="21" y2="4" stroke="${c}" stroke-width="2"${dsh?` stroke-dasharray="${dsh}"`:""}/></svg>`, q=(h)=>`<span>${h}</span>`;
+  const pct=dec?idc(tmin)/(s2*Iac(tmin))*100:0;
+  const leg=q(sw("var(--s1)")+"corrente i(t)")+q(sw(mu,"6 3")+"inviluppi")+q(sw("var(--s2)","2 3")+`componente continua i<sub>DC</sub>`)+q(sw("var(--good)")+"valore efficace della componente alternata")+(Ith>0?q(sw("var(--s4)","8 4")+`corrente termica equivalente`):"")
+    +`<span style="flex-basis:100%;height:0"></span>`
+    +q(`I″<sub>k</sub> = <b>${kA(Ik)} kA</b> efficaci`)+q(`A = √2·I″<sub>k</sub> = <b>${kA(s2*Ik)} kA</b>`)+q(`2√2·I″<sub>k</sub> = <b>${kA(2*s2*Ik)} kA</b>`)
+    +q(`i<sub>p</sub> = <b>${kA(ip)} kA</b> a ${fusNum(+(tp*1000).toPrecision(3))} ms`)+q(`κ = i<sub>p</sub>/(√2·I″<sub>k</sub>) = <b>${fmt(ip/(s2*Ik),3)}</b>`)+q(`R/X = <b>${fmt(A.oRx,3)}</b>`)+q(`τ<sub>DC</sub> ≈ <b>${fusNum(+(tau*1000).toPrecision(3))} ms</b>`)
+    +(dec?q(`I<sub>b</sub> = <b>${kA(Ib)} kA</b> a t<sub>min</sub> = ${fusNum(tmin)} s`)+q(`i<sub>DC</sub> a t<sub>min</sub> = <b>${kA(idc(tmin),2)} kA</b> (${fusNum(+pct.toPrecision(2))} % di √2·I<sub>b</sub>)`):q(`I<sub>b</sub> = I″<sub>k</sub> (lontano dai generatori)`))
+    +q(`I<sub>k</sub> = <b>${kA(Ist)} kA</b>`)+q(`2√2·I<sub>k</sub> = <b>${kA(2*s2*Ist)} kA</b>`)+(Ith>0?q(`I<sub>th</sub> = <b>${kA(Ith)} kA</b> per T<sub>k</sub> = ${fusNum(A.Tk)} s`):"")+q(`periodo ${fusNum(+(1000/f).toPrecision(3))} ms (${fusNum(f)} Hz)`);
+  return {svg:o,leg};
+}
+function ccWaveDraw(A){ const h=$("cc_wave"); if(!h) return; const r=ccWaveSVG(A||CC_ST.pts[ccSelIdx()].max,chW("cc_wave",560)); h.innerHTML=r.svg||'<p class="mini">Nessuna corrente da rappresentare.</p>'; $("cc_wave_leg").innerHTML=r.leg; }
 function ccRender(p){
   p=p||CC_ST.pts[ccSelIdx()];
   const A=p.max, B=p.min;
@@ -1892,6 +1961,7 @@ function ccRender(p){
   $("cmaxLbl").textContent=fmt(A.c,2); $("cminLbl").textContent=fmt(B.c,2);
 
   // ---- output principali ----
+  ccWaveDraw(A);
   $("Ikk").textContent=kA(oIk); $("ip").textContent=kA(oIp);
   $("Ib").textContent=kA(oIb); $("Ik").textContent=kA(oIkSt);
   // guasto bifase (L-L), lontano dal generatore Z2=Z1: I''k2 = (√3/2)·I''k3 — non applicabile al monofase
@@ -3257,7 +3327,7 @@ function cbInit(){
   if(CB_USER_MSG) $("cb_userMsg").textContent=CB_USER_MSG;
   ["co_onFus","co_onCb"].forEach(id=>$(id).addEventListener("change",computeCoo));   // cb_pt: la tensione degli interruttori è quella del punto
   window.addEventListener("resize",computeCb);
-  { let rz=0; window.addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(()=>{ computePMT(); computeMT(); },120); }); }
+  { let rz=0; window.addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(()=>{ computePMT(); computeMT(); if(CC_ST) ccWaveDraw(); },120); }); }
 }
 
 /* ======================== 11 · MODULO COORDINAMENTO PROTEZIONI BT ========================
@@ -3524,6 +3594,15 @@ function pmtDsoPdf(buf){
     r[k]={I:n(eq(g(/^I0/))), U:u, a:a.length===2?a:null, t:tt?n(tt)/(/ms$/.test(tt)?1000:1):null}; });
   return r;
 }
+// Gli stessi dati del report compilano la sorgente: tensione nominale, I″k massima e minima (la più bassa tra «trifase minima» e «convenzionale»).
+// I valori già scritti sono sostituiti; il messaggio dice quali erano.
+function srcDsoApply(r){ const out=[], was=(id,v,u,l,k)=>{ if(!(v>0)) return; const e=$(id), o=e.value.trim(); e.value=+(v*(k||1)).toFixed(4);
+    out.push(`${l} ${fusNum(+e.value)} ${u}`+(o!==""&&parseFloat(o)!==+e.value?` (era ${fusNum(parseFloat(o))})`:"")); };
+  if(!(r.U>0||r.Ik>0||r.IkMin>0)) return out;
+  $("onGrid").checked=true; if($("gridPreset").value!==""){ $("gridPreset").value=""; out.push("tipo di connessione CEI 0-16"); }
+  if(r.Ik>0||r.IkMin>0){ if($("gridMode").value!=="Ik") out.push("dato di ingresso in corrente"); $("gridMode").value="Ik"; gridWraps(); }
+  was("UnQ",r.U,"V","tensione",1000); was("IkQ",r.Ik,"kA","I″k massima"); was("IkQmin",r.IkMin,"kA","I″k minima");
+  return out; }
 function pmtDsoApply(r){
   const set=(id,v)=>{ if(v!=null&&isFinite(v)) $(id).value=v; }, out=[];
   const src=num("UnQ")>1000?num("UnQ")/1000:0, avv=[];
@@ -3932,12 +4011,15 @@ function pmtInit(){
   $("addPmt").addEventListener("click",()=>{ pmtRow({desc:"Protezione di linea",th:{I2:{on:true,v:1.5,t:0.2},I3:{on:true,v:4,t:0.05}}}); recompute(); });
   $("pm_devChk").addEventListener("change",ev=>{ const k=ev.target.dataset.dev; if(!k) return; if(ev.target.checked) PMT_DEV.add(k); else PMT_DEV.delete(k); $("pm_devChk").dataset.h=""; recompute(); });
   $("pm_trChk").addEventListener("change",ev=>{ const id=ev.target.dataset.tr; if(!id) return; if(ev.target.checked) PMT_EXC.delete(id); else PMT_EXC.add(id); $("pm_trChk").dataset.h=""; recompute(); });
-  $("pm_dsoImp").addEventListener("click",()=>$("pm_dsoFile").click());
-  $("pm_dsoFile").addEventListener("change",ev=>{ const fl=ev.target.files&&ev.target.files[0], msg=$("pm_dsoMsg"); ev.target.value=""; if(!fl) return;
-    const rd=new FileReader(); rd.onerror=()=>{ msg.textContent="Il file non si legge."; };
+  // una sola importazione, da due pulsanti (scheda Sorgente e limiti del distributore): compila la sorgente e poi il modulo Protezioni MT
+  ["pm_dsoImp","src_dsoImp"].forEach(id=>$(id).addEventListener("click",()=>$("pm_dsoFile").click()));
+  $("pm_dsoFile").addEventListener("change",ev=>{ const fl=ev.target.files&&ev.target.files[0], say=(a,b)=>{ $("src_dsoMsg").textContent=a; $("pm_dsoMsg").textContent=b==null?a:b; }; ev.target.value=""; if(!fl) return;
+    const rd=new FileReader(); rd.onerror=()=>say("Il file non si legge.");
     rd.onload=()=>{ let r=null; try{ r=pmtDsoPdf(rd.result); }catch(e){ r=null; }
-      if(!r){ msg.textContent="Il file non è un report «Tarature Impianti» del distributore, oppure il suo testo non è leggibile: nessun valore cambiato."; return; }
-      msg.textContent="Letto dal report: "+pmtDsoApply(r).join(" · ")+". Controllare i valori con il documento."; recompute(); };
+      if(!r){ say("Il file non è un report «Tarature Impianti» del distributore, oppure il suo testo non è leggibile: nessun valore cambiato."); return; }
+      const a=srcDsoApply(r), b=pmtDsoApply(r), sa=a.length?a.join(" · "):"nessun dato della rete trovato";
+      say("Letto dal report: "+sa+". Compilati anche i limiti nel modulo Progettazione protezioni MT. Controllare i valori con il documento.",
+          "Letto dal report: "+b.join(" · ")+". Sorgente dell'impianto: "+sa+". Controllare i valori con il documento."); recompute(); };
     rd.readAsArrayBuffer(fl); });
   $("pm_cei").addEventListener("click",()=>{ const u=pmtUkv(), iso=$("pm_neu").value==="i";
     $("pm_L1").value=0; $("pm_K1").value=0.12; $("pm_A1").value=0.02; $("pm_B1").value=0.14; $("pm_L2p").value=0;   // la I> non è tra i valori minimi: la comunica il distributore
