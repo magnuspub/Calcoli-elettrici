@@ -2,6 +2,8 @@
 // Restituisce, per ogni modulo richiesto, i testi mostrati (riquadri, verifiche, tabelle, note), i valori interni
 // a piena precisione, l'aspetto dei grafici e il contenuto delle esportazioni. Non modifica la pagina.
 (mods)=>{
+  // dalla 0.2.1 i grafici di fusibili e interruttori stanno nel modulo «Coordinamento protezioni BT»: si raccoglie anche quello
+  if((mods.indexOf('modFUS')>=0||mods.indexOf('modCB')>=0)&&mods.indexOf('modCOO')<0) mods=mods.concat(['modCOO']);
   const h=s=>{ let a=2166136261; for(let i=0;i<s.length;i++){ a^=s.charCodeAt(i); a=Math.imul(a,16777619); } return (a>>>0).toString(16).padStart(8,"0"); };
   const T=e=>{ if(!e) return null; const c=e.cloneNode(true); c.querySelectorAll(".tip,select,script,style,button").forEach(x=>x.remove()); return c.textContent.replace(/\s+/g," ").trim(); };
   const vis=e=>e.offsetParent!==null;
