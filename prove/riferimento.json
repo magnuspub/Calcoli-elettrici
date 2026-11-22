@@ -36531,12 +36531,17 @@
 ]
 },
 "esportazioni": {
-"pdf": "3558dff2"
+"pdf": "cd35a429"
 },
 "note": [],
 "riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
 "Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Dati di targa250 A · 500 V · Icn 120 kA · gG",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min118 ms",
 "A · Picco lasciato passare12,75 kA",
@@ -36676,6 +36681,9 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
 "A · Intervento a I″k min 2,00 kA: 118 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "B · I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 250NHG1B → ✓ ok",
@@ -58837,6 +58845,6 @@
 }
 }
 },
-"programma": "0.2.11",
+"programma": "0.2.12",
 "riferimento_scritto_il": "22/11/2026"
 }
