@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.10",
+  "versione": "0.2.11",
   "data": "22/11/2026",
-  "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
+  "novita": "Nuovo diagramma dell'andamento della corrente di cortocircuito (IEC 60909-0, Figura 1) con I″k, ip, Ib, Ik e componente continua del punto scelto. Il report «Tarature Impianti» del distributore si importa anche dalla scheda Sorgente: una sola importazione compila la rete e i limiti di Protezioni MT."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
