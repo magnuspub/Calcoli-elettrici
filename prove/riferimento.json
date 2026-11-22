@@ -40156,14 +40156,14 @@
 "extra": "estinto in 524 ms da PG — protezione generale",
 "l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#9fce37c3",
 "ok": true,
-"tip": "Tra i morsetti del secondario e le sbarre di norma…#fbe0df57",
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
 "warn": false
 },
 {
 "extra": "estinto in 524 ms da PG — protezione generale",
 "l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#fa671f23",
 "ok": true,
-"tip": "Tra i morsetti del secondario e le sbarre di norma…#fbe0df57",
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
 "warn": false
 },
 {
@@ -40415,6 +40415,2007 @@
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto minimo sulle sbarre BT (500 A al primario, 18,75 kA nel cavo): I²t = 184,32 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
 "PG — protezione generale · guasto sulle sbarre BT (590 A al primario): estinzione in 500 msla protezione vede il guasto in bassa tensione → ✓ ok",
 "PG — protezione generale · guasto minimo sulle sbarre BT (500 A al primario): estinzione in 524 msla protezione vede anche il guasto più debole in bassa tensione → ✓ ok"
+]
+}
+},
+"co08_cavo_al_secondario_guasto_fase_terra_visto_dal_primario_Dyn": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modCC": {
+"aspetto": {
+"grafici": [],
+"legende": []
+},
+"esportazioni": {
+"excel": "4e10cb13",
+"excel · foglio Punti": "13a50b57",
+"pdf": "e91688ef",
+"righe": 89
+},
+"excel_ricalcolato": {
+"51 · I″k · simmetrica iniziale": 21.765079,
+"52 · ip · picco": 42.8942084,
+"53 · Ib · interruzione": 21.765079,
+"54 · Ik · regime": 21.765079,
+"55 · Ith · termica equivalente": 21.8814656,
+"58 · I″k2 · bifase iniziale": 18.8491113,
+"59 · ip2 · picco bifase": 37.1474742,
+"68 · I″k1 · fase-terra iniziale": 21.5066195,
+"69 · ip1 · picco fase-terra": 42.3848413,
+"87 · Corrente di inserzione — primario": 266.735824,
+"88 · Corrente a vuoto I0 — primario": 0.36373067,
+"Punti · P1 · Ib (kA)": 12.5,
+"Punti · P1 · Ib dei motori (A)": 0.0,
+"Punti · P1 · Ith (kA)": 12.7115015,
+"Punti · P1 · I″k (kA)": 12.5,
+"Punti · P1 · I″k dalla rete (A)": 12500.0,
+"Punti · P1 · I″k dei motori (A)": 0.0,
+"Punti · P1 · I″k min (kA)": 12.5,
+"Punti · P1 · I″k2 (kA)": 10.8253175,
+"Punti · P1 · I″k2 min (kA)": 10.8253175,
+"Punti · P1 · R (Ω)": 0.0758320186,
+"Punti · P1 · R/X": 0.1,
+"Punti · P1 · Un (V)": 15000.0,
+"Punti · P1 · X (Ω)": 0.758320186,
+"Punti · P1 · Z (Ω)": 0.762102355,
+"Punti · P1 · c max": 1.1,
+"Punti · P1 · c min": 1.0,
+"Punti · P1 · ip (kA)": 30.8652438,
+"Punti · P1 · ip dei motori (A)": 0.0,
+"Punti · P1 · κ": 1.74600186,
+"Punti · P1 · κ per il picco": 1.74600186,
+"Punti · P2 · Ib (kA)": 22.6797338,
+"Punti · P2 · Ib dei motori (A)": 0.0,
+"Punti · P2 · Ith (kA)": 22.816937,
+"Punti · P2 · I″k (kA)": 22.6797338,
+"Punti · P2 · I″k dalla rete (A)": 22679.7338,
+"Punti · P2 · I″k dei motori (A)": 0.0,
+"Punti · P2 · I″k min (kA)": 20.5197592,
+"Punti · P2 · I″k1 (kA)": 23.4107369,
+"Punti · P2 · I″k1 min (kA)": 21.1811429,
+"Punti · P2 · I″k2 (kA)": 19.6412257,
+"Punti · P2 · I″k2 min (kA)": 17.7706327,
+"Punti · P2 · R (Ω)": 0.0029161069,
+"Punti · P2 · R/X": 0.283490393,
+"Punti · P2 · Un (V)": 400.0,
+"Punti · P2 · X (Ω)": 0.0102864399,
+"Punti · P2 · Z (Ω)": 0.0106917971,
+"Punti · P2 · c max": 1.05,
+"Punti · P2 · c min": 0.95,
+"Punti · P2 · ip (kA)": 46.1438613,
+"Punti · P2 · ip dei motori (A)": 0.0,
+"Punti · P2 · κ": 1.43866932,
+"Punti · P2 · κ per il picco": 1.43866932,
+"Punti · P3 · Ib (kA)": 21.765079,
+"Punti · P3 · Ib dei motori (A)": 0.0,
+"Punti · P3 · Ith (kA)": 21.8814656,
+"Punti · P3 · I″k (kA)": 21.765079,
+"Punti · P3 · I″k dalla rete (A)": 21765.079,
+"Punti · P3 · I″k dei motori (A)": 0.0,
+"Punti · P3 · I″k min (kA)": 19.4351746,
+"Punti · P3 · I″k1 (kA)": 21.5066195,
+"Punti · P3 · I″k1 min (kA)": 18.8814369,
+"Punti · P3 · I″k2 (kA)": 18.8491113,
+"Punti · P3 · I″k2 min (kA)": 16.831355,
+"Punti · P3 · R (Ω)": 0.0034099469,
+"Punti · P3 · R/X": 0.321497781,
+"Punti · P3 · Un (V)": 400.0,
+"Punti · P3 · X (Ω)": 0.0106064399,
+"Punti · P3 · Z (Ω)": 0.0111411088,
+"Punti · P3 · c max": 1.05,
+"Punti · P3 · c min": 0.95,
+"Punti · P3 · ip (kA)": 42.8942084,
+"Punti · P3 · ip dei motori (A)": 0.0,
+"Punti · P3 · κ": 1.39355275,
+"Punti · P3 · κ per il picco": 1.39355275
+},
+"note": [
+"guasto trifase BT",
+"Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
+],
+"riquadri": [
+"I″k · simmetrica iniziale21,8 kA",
+"ip · corrente di picco42,9 kA",
+"Ib · interruzione21,8 kA",
+"Ik · permanente21,8 kA",
+"R/X0,321",
+"κ (picco)1,394",
+"Ith (Tk=1s)21,9 kA",
+"I″k2 · bifase iniziale18,8 kA",
+"ip2 · picco bifase37,1 kA",
+"I″k1 · fase-terra21,5 kA",
+"ip1 · picco42,4 kA",
+"I″k min · trifase19,4 kA",
+"I″k2 min · bifase16,8 kA",
+"I″k1 min · fase-terra18,9 kA",
+"In · primario24,2 A",
+"In · secondario909 A",
+"Iinserzione · primario (cresta)267 A",
+"I0 · a vuoto (primario)0,36 A"
+],
+"tabelle": [
+"Puntomassime (kA)minime (kA) I″kipIthI″kI″k2I″k1 P1 Punto di consegna15.000 V12,530,912,712,510,8—P2 Secondario del trasformatore400 V22,746,122,820,517,821,2P3 Sbarre BT400 V21,842,921,919,416,818,9",
+"ComponenteR (mΩ)X (mΩ)Z (mΩ) Rete0,050,540,54Trasformatore + cavo ramo3,3610,0710,61 Totale al guasto3,4110,6111,14"
+],
+"valori": {
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.393552751,
+"kappaIp": 1.393552751,
+"le": {
+"Ik1": 21506.61947,
+"R0": 0.00483754191,
+"X0": 0.01053983051,
+"ip1": 42384.84133,
+"k1": 1.393552751,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 21765.07895,
+"oIk": 21765.07895,
+"oIkSt": 21765.07895,
+"oIp": 42894.20842,
+"oIth": 21881.46558,
+"oKappa": 1.393552751,
+"oRk": 0.003409946901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00335602191,
+"X": 0.01006719001,
+"name": "Trasformatore + cavo ramo"
+}
+],
+"oRx": 0.3214977811,
+"oXk": 0.01060643992,
+"oZk": 0.01114110882,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": true,
+"trN": 1,
+"trRx": 0.3333623291
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.34850516,
+"kappaIp": 1.34850516,
+"le": {
+"Ik1": 18881.43693,
+"R0": 0.00665487311,
+"X0": 0.01053983051,
+"ip1": 36008.30286,
+"k1": 1.34850516,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 19435.17465,
+"oIk": 19435.17465,
+"oIkSt": 19435.17465,
+"oIp": 37064.32182,
+"oIth": 19527.14532,
+"oKappa": 1.34850516,
+"oRk": 0.003864279701,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00381035471,
+"X": 0.01006719001,
+"name": "Trasformatore + cavo ramo"
+}
+],
+"oRx": 0.3643333417,
+"oXk": 0.01060643992,
+"oZk": 0.01128845541,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": true,
+"trN": 1,
+"trRx": 0.3784923802
+},
+"pts": [
+{
+"Un": 15000,
+"cmax": 1.1,
+"cmin": 1,
+"frac": 0,
+"i": 0,
+"id": "P1",
+"kind": "cons",
+"lvl": "MT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.07583201863,
+"oRows": [
+{
+"R": 0.07583201863,
+"X": 0.7583201863,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.7583201863,
+"oZk": 0.7621023553,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.06893819875,
+"oRows": [
+{
+"R": 0.06893819875,
+"X": 0.6893819875,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.6893819875,
+"oZk": 0.692820323,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"nCab": 0,
+"name": "Punto di consegna",
+"sc": false,
+"tr": false
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"frac": 0,
+"i": 1,
+"id": "P2",
+"kind": "sec",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.438669318,
+"kappaIp": 1.438669318,
+"le": {
+"Ik1": 23410.73691,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 47631.14963,
+"k1": 1.438669318,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 22679.73384,
+"oIk": 22679.73384,
+"oIkSt": 22679.73384,
+"oIp": 46143.86128,
+"oIth": 22816.937,
+"oKappa": 1.438669318,
+"oRk": 0.002916106901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2834903934,
+"oXk": 0.01028643992,
+"oZk": 0.01069179712,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.438669318,
+"kappaIp": 1.438669318,
+"le": {
+"Ik1": 21181.14292,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 43094.84967,
+"k1": 1.438669318,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 20519.75919,
+"oIk": 20519.75919,
+"oIkSt": 20519.75919,
+"oIp": 41749.20782,
+"oIth": 20643.89538,
+"oKappa": 1.438669318,
+"oRk": 0.002916106901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2834903934,
+"oXk": 0.01028643992,
+"oZk": 0.01069179712,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 0,
+"name": "Secondario del trasformatore",
+"noLv": true,
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"frac": 1,
+"hv": false,
+"i": 2,
+"id": "P3",
+"kind": "bus",
+"last": true,
+"lvl": "BT",
+"max": "(già visto)",
+"min": "(già visto)",
+"nCab": "Infinity",
+"name": "Sbarre BT",
+"noLv": false,
+"sc": true,
+"tr": true
+}
+],
+"sy": {
+"Un": 400,
+"auto": 400,
+"lvl": "BT",
+"src": "secondario del trasformatore"
+}
+},
+"verifiche": []
+},
+"modCOO": {
+"aspetto": {
+"grafici": [
+"co_chart linee d70150c5 scritte efc4b582",
+"co_chartL linee 5300368f scritte 9281d5a3",
+"co_chartE linee ffb4fa7f scritte 0b37850a"
+],
+"legende": [
+"interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 A"
+]
+},
+"esportazioni": {
+"pdf": "1916e37a"
+},
+"note": [],
+"riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa40 A · 24 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare4,39 kA",
+"I²t passante a I″k27,00 kA²s"
+],
+"tabelle": [],
+"valori": {
+"C": [
+{
+"Ik": 18900,
+"Imin": 18900,
+"U": 400,
+"b": {
+"Ii": 2500,
+"Ir": 250,
+"Iu": 250,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": {
+"log": 199.6248362,
+"n": 22,
+"somma": 260159.2
+},
+"over": false
+},
+"e": {
+"Un": 415,
+"c": {
+"log": 220.2133941,
+"n": 20,
+"somma": 4750061.4
+},
+"over": false
+},
+"hasL": true,
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 258.3980878,
+"n": 48,
+"somma": 51822.5997
+},
+"min": {
+"log": 226.3052568,
+"n": 44,
+"somma": 41687.4845
+},
+"slot": "A",
+"thE": 3000,
+"thMax": 3000,
+"thMin": 2000,
+"type": "NZMN2-A250"
+},
+"cab": null,
+"cut": {
+"lim": true,
+"v": 13926.87247
+},
+"e": {
+"src": "c",
+"v": 551742.3616
+},
+"em": {
+"src": "c",
+"v": 551742.3616
+},
+"ip": 38200,
+"s": "A",
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+}
+],
+"F": [
+{
+"Ik": 12500,
+"Imin": 10800,
+"U": 15000,
+"cab": null,
+"cut": 4391.537227,
+"e": {
+"src": "c",
+"v": 27000
+},
+"em": {
+"src": "c",
+"v": 27000
+},
+"f": {
+"Icn": 63,
+"Imb": 140,
+"In": 40,
+"Un": 24000,
+"ch": "back‑up",
+"e": [
+1,
+27000,
+65000,
+27000
+],
+"grp": [
+"Media tensione · Italweber FMT",
+"back‑up · Un = 24 kV (2-160 A)"
+],
+"idx": 417,
+"l": [
+74.09,
+209.4,
+370.4,
+1047,
+65000,
+8597
+],
+"mv": true,
+"t": {
+"log": 246.8610196,
+"n": 78,
+"somma": 11693.55353
+},
+"type": "FMT 24kV 1902040"
+},
+"ip": 30900,
+"s": "A",
+"tk": {
+"st": "fast",
+"t": 0.009998
+},
+"tm": {
+"st": "fast",
+"t": 0.009998
+}
+}
+],
+"Uref": 400,
+"inr": null,
+"kf": 37.5,
+"mot": null,
+"onC": true,
+"onF": true
+},
+"verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 18,90 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
+"I″k min 10,80 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k sulle sbarre 21,77 kA (580 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 11,1 ms; energia riportata al secondario → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k min sulle sbarre 19,44 kA (518 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 16,7 ms; energia riportata al secondario → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k1 min (fase-terra) sulle sbarre 18,88 kA (291 A al primario): I²t = 113,91 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 137 ms; energia riportata al secondario; con il gruppo Dyn il dispositivo a monte vede 1/√3 della corrente di guasto fase-terra riportata al primario → ✓ ok"
+]
+},
+"modPMT": {
+"aspetto": {
+"grafici": [
+"pm_chartF linee 2766f0ac scritte 5f8249d1",
+"pm_chartE linee 650bd886 scritte 0adba7d1",
+"pm_chart67 linee ead4b5fe scritte 948bdccf"
+],
+"legende": [
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
+"PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
+"taratura richiesta dal distributore · 67N.S1: I0 2,00 A, U0 433,01 V primari, settore 60°–250°, estinzione entro 450 mstaratura richiesta dal distributore · 67N.S2: I0 2,00 A, U0 173,21 V primari, settore 60°–120°, estinzione entro 170 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)barra a destra: consenso di tensione U0 in volt primari, dalla soglia di ogni protezione in su; la linea verde è la tensione residua per guasto franco a terra (8660 V)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+]
+},
+"esportazioni": {
+"excel": "8448af95",
+"pdf": "1356ee96",
+"righe": 111
+},
+"excel_ricalcolato": {},
+"note": [
+"250 A · estinzione 500 ms · fascia 244 A–256 A",
+"600 A · estinzione 120 ms · fascia 585 A–615 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A",
+"56,0 A · estinzione 170 ms · fascia 52,4 A–59,6 A",
+"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente."
+],
+"riquadri": [],
+"tabelle": [],
+"valori": {
+"IF": 40,
+"Ibt": 590,
+"IbtMin": 300,
+"Ik": 12500,
+"IkMin": 0,
+"cb": null,
+"checks": [
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
+"l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
+"ok": true,
+"tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "estinto in 524 ms da PG — protezione generale",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#9fce37c3",
+"ok": true,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": false
+},
+{
+"extra": "estinto in 524 ms da PG — protezione generale",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#87cb781e",
+"ok": true,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": false
+},
+{
+"extra": "estinto in 524 ms da PG — protezione generale; con…#4d876eae",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#53897940",
+"ok": true,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": false
+},
+{
+"extra": "la protezione vede il guasto in bassa tensione",
+"l": "PG — protezione generale · guasto sulle sbarre BT …#691c0137",
+"ok": true,
+"warn": false
+},
+{
+"extra": "la protezione vede anche il guasto più debole in bassa tensione",
+"l": "PG — protezione generale · guasto minimo sulle sba…#d990215f",
+"ok": true,
+"warn": false
+}
+],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"dso": [
+{
+"I": 2,
+"T": 0.45,
+"U": 433.01,
+"k": "D1",
+"lab": "67N.S1",
+"sec": [
+60,
+250
+]
+},
+{
+"I": 2,
+"T": 0.17,
+"U": 173.21,
+"k": "D2",
+"lab": "67N.S2",
+"sec": [
+60,
+120
+]
+}
+],
+"iso": false
+},
+"dso": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"dsoAlt": null,
+"dsoNit": false,
+"fus": null,
+"inr": {
+"c": {
+"log": 111.8639228,
+"n": 102,
+"somma": 6546.582836
+},
+"n": 1,
+"peak": 266.7358244,
+"tEnd": 0.6153965048
+},
+"prot": [
+{
+"bmax": {
+"E": {
+"log": 19.79811611,
+"n": 10,
+"somma": 10424.8696
+},
+"F": {
+"log": 37.6252621,
+"n": 10,
+"somma": 27993.8296
+}
+},
+"bmin": {
+"E": {
+"log": 18.56897453,
+"n": 10,
+"somma": 10409.6104
+},
+"F": {
+"log": 36.54056745,
+"n": 10,
+"somma": 27908.6504
+}
+},
+"cv": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"desc": "PG — protezione generale",
+"dg": true,
+"h2": false,
+"ienp": 100,
+"inp": 100,
+"mod": {
+"ei": 1.5,
+"et": 1,
+"etm": 20,
+"h": "REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indip…#9f43b512",
+"m0": 1.01,
+"n": "ABB REF615",
+"sat": "Infinity",
+"satIn": 50,
+"tmin": 0.02
+},
+"modK": "ref615",
+"mult": true,
+"op": {
+"F": {
+"log": 33.79068583,
+"n": 10,
+"somma": 27908.3704
+}
+},
+"tcb": 0.07,
+"th": {
+"D1": {
+"Is": 2,
+"a": "60–250",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D1",
+"lab": "67N.S1",
+"on": false,
+"t": 0.1,
+"u": 5
+},
+"D2": {
+"Is": 2,
+"a": "60–120",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D2",
+"lab": "67N.S2",
+"on": false,
+"t": 0.1,
+"u": 2
+},
+"E1": {
+"Is": 2,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E1",
+"lab": "I<sub>0</sub>&gt;",
+"on": true,
+"t": 0.38,
+"u": 0
+},
+"E2": {
+"Is": 56,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E2",
+"lab": "I<sub>0</sub>&gt;&gt;",
+"on": true,
+"t": 0.1,
+"u": 0
+},
+"I1": {
+"Is": 100,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I1",
+"lab": "I&gt;",
+"on": false,
+"t": 0.1,
+"u": 0
+},
+"I2": {
+"Is": 250,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I2",
+"lab": "I&gt;&gt;",
+"on": true,
+"t": 0.43,
+"u": 0
+},
+"I3": {
+"Is": 600,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I3",
+"lab": "I&gt;&gt;&gt;",
+"on": true,
+"t": 0.05,
+"u": 0
+}
+},
+"tol": {
+"eE": 0.065,
+"eF": 0.025,
+"ei": 1.5,
+"et": 0.01,
+"eta": 1,
+"etm": 20,
+"eto": 5,
+"etp": 1,
+"tm": 0.02
+}
+}
+],
+"tolOn": true,
+"wth": null
+},
+"verifiche": [
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto massimo sulle sbarre BT (590 A al primario, 22,13 kA nel cavo): I²t = 256,65 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto minimo sulle sbarre BT (300 A al primario, 11,25 kA nel cavo): I²t = 66,36 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto fase-terra minimo sulle sbarre BT (291 A al primario, 18,88 kA nel cavo): I²t = 186,92 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale; con il gruppo Dyn il dispositivo a monte vede 1/√3 della corrente di guasto fase-terra riportata al primario → ✓ ok",
+"PG — protezione generale · guasto sulle sbarre BT (590 A al primario): estinzione in 500 msla protezione vede il guasto in bassa tensione → ✓ ok",
+"PG — protezione generale · guasto minimo sulle sbarre BT (300 A al primario): estinzione in 524 msla protezione vede anche il guasto più debole in bassa tensione → ✓ ok"
+]
+}
+},
+"co09_cavo_al_secondario_guasti_bifase_e_fase_terra_con_gruppo_Yyn": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modCC": {
+"aspetto": {
+"grafici": [],
+"legende": []
+},
+"esportazioni": {
+"excel": "102a35c0",
+"excel · foglio Punti": "6f40b6b0",
+"pdf": "89a1ba43",
+"righe": 89
+},
+"excel_ricalcolato": {
+"51 · I″k · simmetrica iniziale": 21.765079,
+"52 · ip · picco": 42.8942084,
+"53 · Ib · interruzione": 21.765079,
+"54 · Ik · regime": 21.765079,
+"55 · Ith · termica equivalente": 21.8814656,
+"58 · I″k2 · bifase iniziale": 18.8491113,
+"59 · ip2 · picco bifase": 37.1474742,
+"68 · I″k1 · fase-terra iniziale": 7.64188121,
+"69 · ip1 · picco fase-terra": 15.0604758,
+"87 · Corrente di inserzione — primario": 266.735824,
+"88 · Corrente a vuoto I0 — primario": 0.36373067,
+"Punti · P1 · Ib (kA)": 12.5,
+"Punti · P1 · Ib dei motori (A)": 0.0,
+"Punti · P1 · Ith (kA)": 12.7115015,
+"Punti · P1 · I″k (kA)": 12.5,
+"Punti · P1 · I″k dalla rete (A)": 12500.0,
+"Punti · P1 · I″k dei motori (A)": 0.0,
+"Punti · P1 · I″k min (kA)": 12.5,
+"Punti · P1 · I″k2 (kA)": 10.8253175,
+"Punti · P1 · I″k2 min (kA)": 10.8253175,
+"Punti · P1 · R (Ω)": 0.0758320186,
+"Punti · P1 · R/X": 0.1,
+"Punti · P1 · Un (V)": 15000.0,
+"Punti · P1 · X (Ω)": 0.758320186,
+"Punti · P1 · Z (Ω)": 0.762102355,
+"Punti · P1 · c max": 1.1,
+"Punti · P1 · c min": 1.0,
+"Punti · P1 · ip (kA)": 30.8652438,
+"Punti · P1 · ip dei motori (A)": 0.0,
+"Punti · P1 · κ": 1.74600186,
+"Punti · P1 · κ per il picco": 1.74600186,
+"Punti · P2 · Ib (kA)": 22.6797338,
+"Punti · P2 · Ib dei motori (A)": 0.0,
+"Punti · P2 · Ith (kA)": 22.816937,
+"Punti · P2 · I″k (kA)": 22.6797338,
+"Punti · P2 · I″k dalla rete (A)": 22679.7338,
+"Punti · P2 · I″k dei motori (A)": 0.0,
+"Punti · P2 · I″k min (kA)": 20.5197592,
+"Punti · P2 · I″k1 (kA)": 7.86495847,
+"Punti · P2 · I″k1 min (kA)": 7.11591481,
+"Punti · P2 · I″k2 (kA)": 19.6412257,
+"Punti · P2 · I″k2 min (kA)": 17.7706327,
+"Punti · P2 · R (Ω)": 0.0029161069,
+"Punti · P2 · R/X": 0.283490393,
+"Punti · P2 · Un (V)": 400.0,
+"Punti · P2 · X (Ω)": 0.0102864399,
+"Punti · P2 · Z (Ω)": 0.0106917971,
+"Punti · P2 · c max": 1.05,
+"Punti · P2 · c min": 0.95,
+"Punti · P2 · ip (kA)": 46.1438613,
+"Punti · P2 · ip dei motori (A)": 0.0,
+"Punti · P2 · κ": 1.43866932,
+"Punti · P2 · κ per il picco": 1.43866932,
+"Punti · P3 · Ib (kA)": 21.765079,
+"Punti · P3 · Ib dei motori (A)": 0.0,
+"Punti · P3 · Ith (kA)": 21.8814656,
+"Punti · P3 · I″k (kA)": 21.765079,
+"Punti · P3 · I″k dalla rete (A)": 21765.079,
+"Punti · P3 · I″k dei motori (A)": 0.0,
+"Punti · P3 · I″k min (kA)": 19.4351746,
+"Punti · P3 · I″k1 (kA)": 7.64188121,
+"Punti · P3 · I″k1 min (kA)": 6.85212658,
+"Punti · P3 · I″k2 (kA)": 18.8491113,
+"Punti · P3 · I″k2 min (kA)": 16.831355,
+"Punti · P3 · R (Ω)": 0.0034099469,
+"Punti · P3 · R/X": 0.321497781,
+"Punti · P3 · Un (V)": 400.0,
+"Punti · P3 · X (Ω)": 0.0106064399,
+"Punti · P3 · Z (Ω)": 0.0111411088,
+"Punti · P3 · c max": 1.05,
+"Punti · P3 · c min": 0.95,
+"Punti · P3 · ip (kA)": 42.8942084,
+"Punti · P3 · ip dei motori (A)": 0.0,
+"Punti · P3 · κ": 1.39355275,
+"Punti · P3 · κ per il picco": 1.39355275
+},
+"note": [
+"guasto trifase BT",
+"Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
+],
+"riquadri": [
+"I″k · simmetrica iniziale21,8 kA",
+"ip · corrente di picco42,9 kA",
+"Ib · interruzione21,8 kA",
+"Ik · permanente21,8 kA",
+"R/X0,321",
+"κ (picco)1,394",
+"Ith (Tk=1s)21,9 kA",
+"I″k2 · bifase iniziale18,8 kA",
+"ip2 · picco bifase37,1 kA",
+"I″k1 · fase-terra7,6 kA",
+"ip1 · picco15,1 kA",
+"I″k min · trifase19,4 kA",
+"I″k2 min · bifase16,8 kA",
+"I″k1 min · fase-terra6,9 kA",
+"In · primario24,2 A",
+"In · secondario909 A",
+"Iinserzione · primario (cresta)267 A",
+"I0 · a vuoto (primario)0,36 A"
+],
+"tabelle": [
+"Puntomassime (kA)minime (kA) I″kipIthI″kI″k2I″k1 P1 Punto di consegna15.000 V12,530,912,712,510,8—P2 Secondario del trasformatore400 V22,746,122,820,517,87,1P3 Sbarre BT400 V21,842,921,919,416,86,9",
+"ComponenteR (mΩ)X (mΩ)Z (mΩ) Rete0,050,540,54Trasformatore + cavo ramo3,3610,0710,61 Totale al guasto3,4110,6111,14"
+],
+"valori": {
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.393552751,
+"kappaIp": 1.393552751,
+"le": {
+"Ik1": 7641.881206,
+"R0": 0.02201063337,
+"X0": 0.06951033009,
+"ip1": 15060.47581,
+"k1": 1.393552751,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 21765.07895,
+"oIk": 21765.07895,
+"oIkSt": 21765.07895,
+"oIp": 42894.20842,
+"oIth": 21881.46558,
+"oKappa": 1.393552751,
+"oRk": 0.003409946901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00335602191,
+"X": 0.01006719001,
+"name": "Trasformatore + cavo ramo"
+}
+],
+"oRx": 0.3214977811,
+"oXk": 0.01060643992,
+"oZk": 0.01114110882,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": true,
+"trN": 1,
+"trRx": 0.3333623291
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.34850516,
+"kappaIp": 1.34850516,
+"le": {
+"Ik1": 6852.126582,
+"R0": 0.02382796457,
+"X0": 0.06951033009,
+"ip1": 13067.51441,
+"k1": 1.34850516,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 19435.17465,
+"oIk": 19435.17465,
+"oIkSt": 19435.17465,
+"oIp": 37064.32182,
+"oIth": 19527.14532,
+"oKappa": 1.34850516,
+"oRk": 0.003864279701,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00381035471,
+"X": 0.01006719001,
+"name": "Trasformatore + cavo ramo"
+}
+],
+"oRx": 0.3643333417,
+"oXk": 0.01060643992,
+"oZk": 0.01128845541,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": true,
+"trN": 1,
+"trRx": 0.3784923802
+},
+"pts": [
+{
+"Un": 15000,
+"cmax": 1.1,
+"cmin": 1,
+"frac": 0,
+"i": 0,
+"id": "P1",
+"kind": "cons",
+"lvl": "MT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.07583201863,
+"oRows": [
+{
+"R": 0.07583201863,
+"X": 0.7583201863,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.7583201863,
+"oZk": 0.7621023553,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.06893819875,
+"oRows": [
+{
+"R": 0.06893819875,
+"X": 0.6893819875,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.6893819875,
+"oZk": 0.692820323,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"nCab": 0,
+"name": "Punto di consegna",
+"sc": false,
+"tr": false
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"frac": 0,
+"i": 1,
+"id": "P2",
+"kind": "sec",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.438669318,
+"kappaIp": 1.438669318,
+"le": {
+"Ik1": 7864.95847,
+"R0": 0.02003527337,
+"X0": 0.06823033009,
+"ip1": 16001.93173,
+"k1": 1.438669318,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 22679.73384,
+"oIk": 22679.73384,
+"oIkSt": 22679.73384,
+"oIp": 46143.86128,
+"oIth": 22816.937,
+"oKappa": 1.438669318,
+"oRk": 0.002916106901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2834903934,
+"oXk": 0.01028643992,
+"oZk": 0.01069179712,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.438669318,
+"kappaIp": 1.438669318,
+"le": {
+"Ik1": 7115.914807,
+"R0": 0.02003527337,
+"X0": 0.06823033009,
+"ip1": 14477.93823,
+"k1": 1.438669318,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 20519.75919,
+"oIk": 20519.75919,
+"oIkSt": 20519.75919,
+"oIp": 41749.20782,
+"oIth": 20643.89538,
+"oKappa": 1.438669318,
+"oRk": 0.002916106901,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2834903934,
+"oXk": 0.01028643992,
+"oZk": 0.01069179712,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 0,
+"name": "Secondario del trasformatore",
+"noLv": true,
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"frac": 1,
+"hv": false,
+"i": 2,
+"id": "P3",
+"kind": "bus",
+"last": true,
+"lvl": "BT",
+"max": "(già visto)",
+"min": "(già visto)",
+"nCab": "Infinity",
+"name": "Sbarre BT",
+"noLv": false,
+"sc": true,
+"tr": true
+}
+],
+"sy": {
+"Un": 400,
+"auto": 400,
+"lvl": "BT",
+"src": "secondario del trasformatore"
+}
+},
+"verifiche": []
+},
+"modCOO": {
+"aspetto": {
+"grafici": [
+"co_chart linee d70150c5 scritte efc4b582",
+"co_chartL linee 5300368f scritte 9281d5a3",
+"co_chartE linee ffb4fa7f scritte ddab013e"
+],
+"legende": [
+"interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 A"
+]
+},
+"esportazioni": {
+"pdf": "88e65f20"
+},
+"note": [],
+"riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa40 A · 24 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare4,39 kA",
+"I²t passante a I″k27,00 kA²s"
+],
+"tabelle": [],
+"valori": {
+"C": [
+{
+"Ik": 18900,
+"Imin": 6900,
+"U": 400,
+"b": {
+"Ii": 2500,
+"Ir": 250,
+"Iu": 250,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": {
+"log": 199.6248362,
+"n": 22,
+"somma": 260159.2
+},
+"over": false
+},
+"e": {
+"Un": 415,
+"c": {
+"log": 220.2133941,
+"n": 20,
+"somma": 4750061.4
+},
+"over": false
+},
+"hasL": true,
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 258.3980878,
+"n": 48,
+"somma": 51822.5997
+},
+"min": {
+"log": 226.3052568,
+"n": 44,
+"somma": 41687.4845
+},
+"slot": "A",
+"thE": 3000,
+"thMax": 3000,
+"thMin": 2000,
+"type": "NZMN2-A250"
+},
+"cab": null,
+"cut": {
+"lim": true,
+"v": 13926.87247
+},
+"e": {
+"src": "c",
+"v": 551742.3616
+},
+"em": {
+"src": "c",
+"v": 333098.2852
+},
+"ip": 38200,
+"s": "A",
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+}
+],
+"F": [
+{
+"Ik": 12500,
+"Imin": 10800,
+"U": 15000,
+"cab": null,
+"cut": 4391.537227,
+"e": {
+"src": "c",
+"v": 27000
+},
+"em": {
+"src": "c",
+"v": 27000
+},
+"f": {
+"Icn": 63,
+"Imb": 140,
+"In": 40,
+"Un": 24000,
+"ch": "back‑up",
+"e": [
+1,
+27000,
+65000,
+27000
+],
+"grp": [
+"Media tensione · Italweber FMT",
+"back‑up · Un = 24 kV (2-160 A)"
+],
+"idx": 417,
+"l": [
+74.09,
+209.4,
+370.4,
+1047,
+65000,
+8597
+],
+"mv": true,
+"t": {
+"log": 246.8610196,
+"n": 78,
+"somma": 11693.55353
+},
+"type": "FMT 24kV 1902040"
+},
+"ip": 30900,
+"s": "A",
+"tk": {
+"st": "fast",
+"t": 0.009998
+},
+"tm": {
+"st": "fast",
+"t": 0.009998
+}
+}
+],
+"Uref": 400,
+"inr": null,
+"kf": 37.5,
+"mot": null,
+"onC": true,
+"onF": true
+},
+"verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 6,90 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
+"I″k min 10,80 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k sulle sbarre 21,77 kA (580 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 11,1 ms; energia riportata al secondario → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k min sulle sbarre 19,44 kA (518 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 16,7 ms; energia riportata al secondario → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k2 min (bifase) sulle sbarre 16,83 kA (449 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 27,9 ms; energia riportata al secondario; con il gruppo Yyn il guasto bifase arriva al primario ridotto come nel cavo → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k1 min (fase-terra) sulle sbarre 6,85 kA (122 A al primario): I²t = 15.335,69 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 327 s; energia riportata al secondario; con il gruppo Yyn il dispositivo a monte vede 2/3 della corrente di guasto fase-terra riportata al primario → ✗ no"
+]
+},
+"modPMT": {
+"aspetto": {
+"grafici": [
+"pm_chartF linee 2766f0ac scritte 5f8249d1",
+"pm_chartE linee 650bd886 scritte 0adba7d1",
+"pm_chart67 linee ead4b5fe scritte 948bdccf"
+],
+"legende": [
+"PG — protezione generalefasce di tolleranza (relè, TA)limite del distributoreinserzione totale (1 trasformatore, cresta 267 A)",
+"PG — protezione generalefasce di tolleranza (relè, TO)limite del distributore",
+"taratura richiesta dal distributore · 67N.S1: I0 2,00 A, U0 433,01 V primari, settore 60°–250°, estinzione entro 450 mstaratura richiesta dal distributore · 67N.S2: I0 2,00 A, U0 173,21 V primari, settore 60°–120°, estinzione entro 170 msguasto a terra interno all'impianto, neutro compensato: angolo atteso tra 90° e 240° secondo la compensazione, tipico 180° (campo indicativo, ampiezza non rappresentata)barra a destra: consenso di tensione U0 in volt primari, dalla soglia di ogni protezione in su; la linea verde è la tensione residua per guasto franco a terra (8660 V)U0 è in alto a 0°; l'angolo è il ritardo di I0 rispetto a U0 e cresce in senso orario. Raggio in scala logaritmica, ampere primari."
+]
+},
+"esportazioni": {
+"excel": "6459a24c",
+"pdf": "eec16048",
+"righe": 112
+},
+"excel_ricalcolato": {},
+"note": [
+"250 A · estinzione 500 ms · fascia 244 A–256 A",
+"600 A · estinzione 120 ms · fascia 585 A–615 A",
+"2,00 A · estinzione 450 ms · fascia 1,87 A–2,13 A",
+"56,0 A · estinzione 170 ms · fascia 52,4 A–59,6 A",
+"REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indipendente o dipendente, I>>> (PHIPTOC) a tempo indipendente; soglie 0,05…5 · 0,10…40 · 1…40 × In, moltiplicatore k 0,05…15, ritardo minimo 40 ms (20 ms per I>>>). Curve dipendenti dal manuale tecnico serie 615 (tabella 399): partono dalla soglia, tempo minimo 20 ms, costanti oltre 50 × In. Terra: EFLPTOC/EFHPTOC e direzionale DEFLPDEF/DEFHPDEF da 0,010 × In. Precisione dal manuale: soglie ±1,5 % (±5 % per I>>> oltre 10 × In), tempi ±1 % o ±20 ms a tempo indipendente e ±5 % o ±20 ms a tempo dipendente."
+],
+"riquadri": [],
+"tabelle": [],
+"valori": {
+"IF": 40,
+"Ibt": 590,
+"IbtMin": 300,
+"Ik": 12500,
+"IkMin": 0,
+"cb": null,
+"checks": [
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
+"ok": true,
+"tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
+},
+{
+"extra": "anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione",
+"l": "PG — protezione generale · inserzione totale (cres…#b3ecc48f",
+"ok": true,
+"tip": "Confronto, istante per istante, tra la corrente ch…#80190ffc"
+},
+{
+"extra": "estinto in 524 ms da PG — protezione generale",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#9fce37c3",
+"ok": true,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": false
+},
+{
+"extra": "estinto in 524 ms da PG — protezione generale",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#87cb781e",
+"ok": true,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": false
+},
+{
+"extra": "estinto in 524 ms da PG — protezione generale; con…#94ce3d12",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#446b3e17",
+"ok": true,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": false
+},
+{
+"extra": "il cavo al secondario non è protetto dal cortocirc…#087b4fe2",
+"l": "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · gua…#f1e02b39",
+"ok": false,
+"tip": "Tra i morsetti del secondario e le sbarre di norma…#6d85f29b",
+"warn": true
+},
+{
+"extra": "la protezione vede il guasto in bassa tensione",
+"l": "PG — protezione generale · guasto sulle sbarre BT …#691c0137",
+"ok": true,
+"warn": false
+},
+{
+"extra": "la protezione vede anche il guasto più debole in bassa tensione",
+"l": "PG — protezione generale · guasto minimo sulle sba…#d990215f",
+"ok": true,
+"warn": false
+}
+],
+"d67": {
+"IC": 0,
+"Iint": 40,
+"dirs": [],
+"dso": [
+{
+"I": 2,
+"T": 0.45,
+"U": 433.01,
+"k": "D1",
+"lab": "67N.S1",
+"sec": [
+60,
+250
+]
+},
+{
+"I": 2,
+"T": 0.17,
+"U": 173.21,
+"k": "D2",
+"lab": "67N.S2",
+"sec": [
+60,
+120
+]
+}
+],
+"iso": false
+},
+"dso": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"dsoAlt": null,
+"dsoNit": false,
+"fus": null,
+"inr": {
+"c": {
+"log": 111.8639228,
+"n": 102,
+"somma": 6546.582836
+},
+"n": 1,
+"peak": 266.7358244,
+"tEnd": 0.6153965048
+},
+"prot": [
+{
+"bmax": {
+"E": {
+"log": 19.79811611,
+"n": 10,
+"somma": 10424.8696
+},
+"F": {
+"log": 37.6252621,
+"n": 10,
+"somma": 27993.8296
+}
+},
+"bmin": {
+"E": {
+"log": 18.56897453,
+"n": 10,
+"somma": 10409.6104
+},
+"F": {
+"log": 36.54056745,
+"n": 10,
+"somma": 27908.6504
+}
+},
+"cv": {
+"E": {
+"log": 19.21019151,
+"n": 10,
+"somma": 10417.24
+},
+"F": {
+"log": 37.11614827,
+"n": 10,
+"somma": 27951.24
+}
+},
+"desc": "PG — protezione generale",
+"dg": true,
+"h2": false,
+"ienp": 100,
+"inp": 100,
+"mod": {
+"ei": 1.5,
+"et": 1,
+"etm": 20,
+"h": "REF615: I> (PHLPTOC) e I>> (PHHPTOC) a tempo indip…#9f43b512",
+"m0": 1.01,
+"n": "ABB REF615",
+"sat": "Infinity",
+"satIn": 50,
+"tmin": 0.02
+},
+"modK": "ref615",
+"mult": true,
+"op": {
+"F": {
+"log": 33.79068583,
+"n": 10,
+"somma": 27908.3704
+}
+},
+"tcb": 0.07,
+"th": {
+"D1": {
+"Is": 2,
+"a": "60–250",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D1",
+"lab": "67N.S1",
+"on": false,
+"t": 0.1,
+"u": 5
+},
+"D2": {
+"Is": 2,
+"a": "60–120",
+"base": 100,
+"c": "DT",
+"dir": true,
+"fam": "E",
+"k": "D2",
+"lab": "67N.S2",
+"on": false,
+"t": 0.1,
+"u": 2
+},
+"E1": {
+"Is": 2,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E1",
+"lab": "I<sub>0</sub>&gt;",
+"on": true,
+"t": 0.38,
+"u": 0
+},
+"E2": {
+"Is": 56,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "E",
+"k": "E2",
+"lab": "I<sub>0</sub>&gt;&gt;",
+"on": true,
+"t": 0.1,
+"u": 0
+},
+"I1": {
+"Is": 100,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I1",
+"lab": "I&gt;",
+"on": false,
+"t": 0.1,
+"u": 0
+},
+"I2": {
+"Is": 250,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I2",
+"lab": "I&gt;&gt;",
+"on": true,
+"t": 0.43,
+"u": 0
+},
+"I3": {
+"Is": 600,
+"a": "",
+"base": 100,
+"c": "DT",
+"dir": false,
+"fam": "F",
+"k": "I3",
+"lab": "I&gt;&gt;&gt;",
+"on": true,
+"t": 0.05,
+"u": 0
+}
+},
+"tol": {
+"eE": 0.065,
+"eF": 0.025,
+"ei": 1.5,
+"et": 0.01,
+"eta": 1,
+"etm": 20,
+"eto": 5,
+"etp": 1,
+"tm": 0.02
+}
+}
+],
+"tolOn": true,
+"wth": null
+},
+"verifiche": [
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto massimo sulle sbarre BT (590 A al primario, 22,13 kA nel cavo): I²t = 256,65 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto minimo sulle sbarre BT (300 A al primario, 11,25 kA nel cavo): I²t = 66,36 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto bifase minimo sulle sbarre BT (449 A al primario, 16,83 kA nel cavo): I²t = 148,53 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale; con il gruppo Yyn il guasto bifase arriva al primario ridotto come nel cavo → ✓ ok",
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto fase-terra minimo sulle sbarre BT (122 A al primario, 6,85 kA nel cavo): nessuna protezione MT interviene il cavo al secondario non è protetto dal cortocircuito dalle protezioni MT; con il gruppo Yyn il dispositivo a monte vede 2/3 della corrente di guasto fase-terra riportata al primario → verifica",
+"PG — protezione generale · guasto sulle sbarre BT (590 A al primario): estinzione in 500 msla protezione vede il guasto in bassa tensione → ✓ ok",
+"PG — protezione generale · guasto minimo sulle sbarre BT (300 A al primario): estinzione in 524 msla protezione vede anche il guasto più debole in bassa tensione → ✓ ok"
 ]
 }
 },
@@ -56718,6 +58719,6 @@
 }
 }
 },
-"programma": "0.2.8",
+"programma": "0.2.9",
 "riferimento_scritto_il": "22/11/2026"
 }
