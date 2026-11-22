@@ -1,17 +1,17 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.9",
+  "versione": "0.2.10",
   "data": "22/11/2026",
-  "novita": "Guasto in bassa tensione visto dal lato MT: la verifica del cavo al secondario e il guasto minimo BT di Protezioni MT considerano anche il fase-terra (e il bifase con Yyn e Dzn), con il fattore del gruppo del trasformatore."
+  "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
  },
  "Gestione_curve.html": {
-  "versione": "0.2.8",
-  "data": "21/11/2026",
-  "novita": "Nuova icona su fondo bianco, nello stile di Android: curve tempo-corrente con gli assi."
+  "versione": "0.2.9",
+  "data": "22/11/2026",
+  "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
  },
  "Manutenzione.html": {
-  "versione": "0.1.3",
-  "data": "21/11/2026",
-  "novita": "Nuova icona su fondo bianco, nello stile di Android: curve tempo-corrente con gli assi."
+  "versione": "0.1.4",
+  "data": "22/11/2026",
+  "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
  }
 }
