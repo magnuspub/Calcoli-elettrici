@@ -452,6 +452,17 @@ async def main():
         for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
         campi(s, 'modMT', mt_IE='', mt_tF=''); campi(s, 'modPMT', pm_IF=50, pm_tF=0.69)
 
+    # circuito di ogni dispositivo dalla sequenza (dalla 0.2.5): cavo a valle, spunto dei motori, inserzione ai capi del trasformatore
+    @caso('co06_circuito_di_ogni_dispositivo_dalla_sequenza', ['modCC', 'modCOO'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['cavi'] = [cav(L=40, S=95), cav(L=25, S=16)]; campi(s, 'modCC', onCab=True, onMot=True)
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
+        for k in ('fu_Ik', 'fu_ip', 'fu_Imin'): M['modFUS']['campi'].pop(k, None)
+        M['modCB']['elenco'] = ['A', 'B']; cb(s)['B'] = intr('FAZ-C32/3'); M['modCB']['punti'] = {'A': 1, 'B': 2}
+        M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
+        campi(s, 'modCB', cb_onMot=True, cb_onInr=True, cb_onOvl=True); campi(s, 'modFUS', fu_onInr=True, fu_onMot=True)
+
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
 
