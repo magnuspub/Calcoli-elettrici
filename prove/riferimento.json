@@ -4800,7 +4800,7 @@
 },
 "esportazioni": {
 "excel": "697a3adf",
-"pdf": "8d0dbfa1",
+"pdf": "4b3da493",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -4928,7 +4928,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee a0c04fb7 scritte 7745ee03",
+"co_chart linee e2eca257 scritte 7745ee03",
 "co_chartL linee b4a27d2c scritte 37793704",
 "co_chartE linee 1d660348 scritte d3ef9d94"
 ],
@@ -4937,18 +4937,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "db6a83ae"
+"pdf": "207b8393"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -5114,12 +5116,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 3,00 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -5137,7 +5139,7 @@
 },
 "esportazioni": {
 "excel": "dd1f854d",
-"pdf": "b12ab68a",
+"pdf": "85d1b2ed",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -5363,7 +5365,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 01c9c87f scritte 86e0dcfd",
+"co_chart linee eaa639a1 scritte 86e0dcfd",
 "co_chartL linee d30e4813 scritte 00fe74b3",
 "co_chartE linee c185ede5 scritte dca6fa30"
 ],
@@ -5372,14 +5374,13 @@
 ]
 },
 "esportazioni": {
-"pdf": "b079d21d"
+"pdf": "78fc83d2"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targamodulare · 32 A · 415 V · caratteristica C · Icu 15 kA a 415 V (EN 60947-2) · Icn 10 kA · soglia magnetica 160…320 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "A · Intervento a I″k≤ 10 ms",
 "A · Intervento a I″k minda 6,7 s a 12,6 s",
 "A · Picco lasciato passare11,45 kA",
@@ -5387,7 +5388,11 @@
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 8,1 ms",
 "B · Picco lasciato passare6,19 kA",
-"B · I²t passante a I″k56,01 kA²s"
+"B · I²t passante a I″k56,01 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -5644,15 +5649,15 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 12,0 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "A · Intervento a I″k min 1,20 kA: da 6,7 s a 12,6 s ≤ 5 s zona termica: la corrente è sotto la soglia magnetica massima (3,00 kA) → ✗ no",
 "B · I″k = 12,0 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✓ ok",
 "B · Intervento a I″k min 1,20 kA: ≤ 8,1 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 11,45 kA ≤ 17 kA l'interruttore limita: picco presunto 24,0 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Picco lasciato passare 6,19 kA ≤ 17 kA l'interruttore limita: picco presunto 24,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · Picco lasciato passare 6,19 kA ≤ 17 kA l'interruttore limita: picco presunto 24,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -5670,7 +5675,7 @@
 },
 "esportazioni": {
 "excel": "192a6d69",
-"pdf": "14b5cfea",
+"pdf": "845ce27a",
 "righe": 164
 },
 "excel_ricalcolato": {
@@ -5798,7 +5803,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee df054bab scritte 7ab661d5",
+"co_chart linee 93b921d0 scritte 7ab661d5",
 "co_chartL linee b8215e41 scritte 05c7caf3",
 "co_chartE linee 18960018 scritte afcf8722"
 ],
@@ -5807,18 +5812,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "0fddefff"
+"pdf": "3253d14b"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targamodulare · 16 A · 230 V · caratteristica C · Icu 10 kA a 230 V (EN 60898) · soglia magnetica 80…160 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 6,6 ms",
 "Intervento a I″k min≤ 13,5 ms",
 "Picco lasciato passare3,34 kA",
-"I²t passante a I″k15,81 kA²s"
+"I²t passante a I″k15,81 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -5984,12 +5991,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 4,5 kA ≤ Icu 10 kA potere di interruzione di PLSM-C16/1N-IN a 230 V (EN 60898) → ✓ ok",
 "Intervento a I″k min 200 A: ≤ 13,5 ms ≤ 400 ms interviene lo sganciatore magnetico (soglia massima 160 A) → ✓ ok",
-"Picco lasciato passare 3,34 kA ≤ 17 kA l'interruttore limita: picco presunto 6,8 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 3,34 kA ≤ 17 kA l'interruttore limita: picco presunto 6,8 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 400 ms interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -6007,7 +6014,7 @@
 },
 "esportazioni": {
 "excel": "92c8eb87",
-"pdf": "5fe79213",
+"pdf": "9682a8db",
 "righe": 85
 },
 "excel_ricalcolato": {
@@ -6140,7 +6147,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 4ddba0da scritte b32248c5",
+"co_chart linee 41364bd4 scritte b32248c5",
 "co_chartL linee 41b8650a scritte 959755a0",
 "co_chartE linee e577f1a0 scritte d43831f1"
 ],
@@ -6149,18 +6156,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "c37a7af0"
+"pdf": "5963ed8b"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 1000 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia istantanea 9600…14.400 A · curva calcolata",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″kda istantaneo a 40 ms",
 "Intervento a I″k minda 5,67 s a 11,3 s",
 "Picco lasciato passare—",
-"I²t passante a I″k≤ 19,36 MA²s"
+"I²t passante a I″k≤ 19,36 MA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -6318,16 +6327,16 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "Lungo ritardo tr = 10 sNZMN4-AX1000: il database non indica il lungo ritardo di questo sganciatore: impostare il valore di targa → da targa",
 "I″k = 22,0 kA ≤ Icu 50 kA potere di interruzione di NZMN4-AX1000 a 415 V · Ics 33 kA → ✓ ok",
 "Intervento a I″k min 6,00 kA: da 5,67 s a 11,3 s ≤ 5 s zona di lungo ritardo: la corrente è sotto la soglia istantanea massima (14,40 kA) → ✗ no",
 "Picco lasciato passarecurva di limitazione non disponibile per NZMN4-AX1000 → curva assente",
 "Sovraccarico del trasformatore (In 909 A al secondario): Ir = 900 A ≤ In non intervento certo fino a 945 A (104 % di In), intervento certo da 1,08 kA (119 % di In): tra i due valori il sovraccarico può durare a lungo → ✓ ok",
 "Sovraccarico ammesso dal trasformatore (ANSI C57.92): margine minimo ×2,41 a 5,73 kA la banda massima dell'interruttore resta sotto la curva di sovraccarico ammesso, da 2 × In a 22,73 kA → ✓ ok",
-"Tenuta termica del trasformatore (22,73 kA per 2 s): a 22,00 kA intervento in 40 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok"
+"Tenuta termica del trasformatore (22,73 kA per 2 s): a 22,00 kA intervento in 40 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -6345,7 +6354,7 @@
 },
 "esportazioni": {
 "excel": "6dac8b6e",
-"pdf": "f178964c",
+"pdf": "6c21476a",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -6808,7 +6817,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 5dc8a4a7 scritte f7735bb0",
+"co_chart linee b290c35f scritte f7735bb0",
 "co_chartL linee 41b8650a scritte 959755a0",
 "co_chartE linee ff57ddfa scritte 9c4dcd27"
 ],
@@ -6817,18 +6826,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "d0afc066"
+"pdf": "de1e25d4"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targaaperto · 1600 A · 690 V · selettivo · Icu 42 kA a 440 V · Icw 42 kA/1 s · soglia corto ritardo 14.400…17.600 A · soglia istantanea 21.600…26.400 A · curva calcolata",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″kda istantaneo a 500 ms",
 "Intervento a I″k minda 24,2 s a 34,6 s",
 "Picco lasciato passare—",
-"I²t passante a I″k288,00 MA²s"
+"I²t passante a I″k288,00 MA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -6993,16 +7004,17 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 22,40 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 24,0 kA ≤ Icu 42 kA potere di interruzione di IZMX16B3-V16F-1 a 440 V → ✓ ok",
 "Intervento a I″k min 8,00 kA: da 24,2 s a 34,6 s ≤ 5 s zona di lungo ritardo: la corrente è sotto la soglia di corto ritardo massima (17,60 kA) → ✗ no",
 "Picco lasciato passarecurva di limitazione non disponibile per IZMX16B3-V16F-1 → curva assente",
 "Inserzione trasformatore (cresta 14,43 kA, τ 0,35 s): margine minimo ×2,18 a 11,1 ms la banda dell'interruttore resta sopra l'inviluppo di inserzione → ✓ ok",
 "Sovraccarico del trasformatore (In 1,44 kA al secondario): Ir = 1600 A ≤ In non intervento certo fino a 1,68 kA (116 % di In), intervento certo da 1,92 kA (133 % di In): la regolazione supera la corrente nominale, serve un'altra protezione dal sovraccarico (per esempio la centralina termometrica) → verifica",
 "Sovraccarico ammesso dal trasformatore (ANSI C57.92): margine minimo ×1,12 a 9,09 kA la banda massima dell'interruttore resta sotto la curva di sovraccarico ammesso, da 2 × In a 24,06 kA → ✓ ok",
-"Tenuta termica del trasformatore (24,06 kA per 2 s): a 24,00 kA intervento in 500 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok"
+"Tenuta termica del trasformatore (24,06 kA per 2 s): a 24,00 kA intervento in 500 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 22,40 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Inserzione trasformatore (cresta 14,43 kA, τ 0,35 s): margine minimo ×0,26 a 67 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no"
 ]
 }
 },
@@ -7020,7 +7032,7 @@
 },
 "esportazioni": {
 "excel": "cd9ac744",
-"pdf": "3bf17ae5",
+"pdf": "c90335b3",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -7148,7 +7160,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee d9fbcb9b scritte 38104356",
+"co_chart linee 21abe680 scritte 38104356",
 "co_chartL linee d22befe6 scritte 0b5f4320",
 "co_chartE linee d29108f1 scritte 0df935d8"
 ],
@@ -7157,18 +7169,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "bf2960a1"
+"pdf": "1434e92c"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare17,83 kA",
-"I²t passante a I″k279,96 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa250 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k minda istantaneo a 4,9 s",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare17,83 kA",
+"I²t passante a I″k279,96 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -7334,12 +7348,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 250NHG02B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 17,83 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → verifica",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 2,00 kA: da istantaneo a 4,9 s ≤ 5 s zona termica: la corrente è sotto la soglia magnetica massima (3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 250NHG02B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 17,83 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → verifica"
 ]
 },
 "modFUS": {
@@ -7349,7 +7363,7 @@
 },
 "esportazioni": {
 "excel": "177b2c20",
-"pdf": "19c3517e",
+"pdf": "a35059f7",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -7456,7 +7470,7 @@
 },
 "esportazioni": {
 "excel": "a30083a6",
-"pdf": "6cb718f1",
+"pdf": "12b11203",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -7584,7 +7598,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 021883c1 scritte 3ae10d4c",
+"co_chart linee f4ebf4ae scritte 3ae10d4c",
 "co_chartL linee 29edf238 scritte 7068f32e",
 "co_chartE linee e41b15a6 scritte a5ae2cde"
 ],
@@ -7593,18 +7607,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "70ab6eba"
+"pdf": "9422eb17"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare5,20 kA",
-"I²t passante a I″k27,00 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa40 A · 17,5 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare5,20 kA",
+"I²t passante a I″k27,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -7768,11 +7784,11 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 17,5kV 1901040 → ✓ ok",
-"I″k min 21,20 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 4,00 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 17,5kV 1901040 → ✓ ok",
+"I″k min 21,20 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok"
 ]
 },
 "modFUS": {
@@ -7782,7 +7798,7 @@
 },
 "esportazioni": {
 "excel": "07f84eca",
-"pdf": "2db48119",
+"pdf": "1eb35199",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -7886,7 +7902,7 @@
 },
 "esportazioni": {
 "excel": "5511c252",
-"pdf": "c243c620",
+"pdf": "a709599e",
 "righe": 161
 },
 "excel_ricalcolato": {
@@ -8341,7 +8357,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 07f186ed scritte d15e3ac0",
+"co_chart linee 982d76e2 scritte d15e3ac0",
 "co_chartL linee 41b8650a scritte 959755a0",
 "co_chartE linee 68dec7a4 scritte cf85ca5f"
 ],
@@ -8350,18 +8366,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "d959a8f0"
+"pdf": "e8541182"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targasalvamotore · 20 A · 690 V · protezione motori · Icu 50 kA a 400 V · soglia magnetica 248…372 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 1,2 ms",
 "Intervento a I″k min≤ 5,3 ms",
 "Picco lasciato passare—",
-"I²t passante a I″k29,15 kA²s"
+"I²t passante a I″k29,15 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -8521,13 +8539,14 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 10,0 kA ≤ Icu 50 kA potere di interruzione di PKZM0-20 a 400 V · Ics 10 kA → ✓ ok",
 "Intervento a I″k min 400 A: ≤ 5,3 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 372 A) → ✓ ok",
 "Picco lasciato passarecurva di limitazione non disponibile per PKZM0-20 → curva assente",
-"Spunto motore 92 A per 6 s: intervento più rapido in 13,9 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok"
+"Spunto motore 92 A per 6 s: intervento più rapido in 13,9 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Spunto motore 92 A per 6 s: intervento del fusibile in non interviene lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento → ✓ ok"
 ]
 }
 },
@@ -8545,7 +8564,7 @@
 },
 "esportazioni": {
 "excel": "d66ccaf3",
-"pdf": "d007023c",
+"pdf": "f7092779",
 "righe": 128
 },
 "excel_ricalcolato": {
@@ -9009,7 +9028,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 6e86ff45 scritte a56055f3",
+"co_chart linee f58938ac scritte a56055f3",
 "co_chartL linee c79a88f2 scritte d57224b4",
 "co_chartE linee d8372910 scritte 0412f5d9"
 ],
@@ -9018,18 +9037,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "dab55dbb"
+"pdf": "86be9d50"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 630 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 4030…6050 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k minda 9,48 s a 17,5 s",
 "Picco lasciato passare13,68 kA",
-"I²t passante a I″k896,23 kA²s"
+"I²t passante a I″k896,23 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -9199,15 +9220,16 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 9,10 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 9,5 kA ≤ Icu 50 kA potere di interruzione di NZMN3-AE630 a 415 V → ✓ ok",
 "Intervento a I″k min 3,00 kA: da 9,48 s a 17,5 s ≤ 5 s zona termica: la corrente è sotto la soglia magnetica massima (6,05 kA) → ✗ no",
 "Picco lasciato passare 13,68 kA ≤ 17 kA l'interruttore limita: picco presunto 20,0 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "Inserzione trasformatore (cresta 5,77 kA, τ 0,25 s): margine minimo ×1,03 a 10 ms la banda dell'interruttore resta sopra l'inviluppo di inserzione → ✓ ok",
 "Sovraccarico del trasformatore (In 577 A al secondario): Ir = 630 A ≤ In non intervento certo fino a 668 A (116 % di In), intervento certo da 738 A (128 % di In): la regolazione supera la corrente nominale, serve un'altra protezione dal sovraccarico (per esempio la centralina termometrica) → verifica",
-"Tenuta termica del trasformatore (9,62 kA per 2 s): a 9,50 kA intervento in 10 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok"
+"Tenuta termica del trasformatore (9,62 kA per 2 s): a 9,50 kA intervento in 10 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 9,10 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Inserzione trasformatore (cresta 5,77 kA, τ 0,25 s): margine minimo ×0,71 a 47,4 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no"
 ]
 }
 },
@@ -9225,7 +9247,7 @@
 },
 "esportazioni": {
 "excel": "499a8cc9",
-"pdf": "4f5c397c",
+"pdf": "b0f0ccb4",
 "righe": 130
 },
 "excel_ricalcolato": {
@@ -9353,7 +9375,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 6fcc41cb scritte 53613fbb",
+"co_chart linee be6b9065 scritte 53613fbb",
 "co_chartL linee 34fb36bc scritte c2d9cc5c",
 "co_chartE linee 9cfa910b scritte fd4b9a97"
 ],
@@ -9362,18 +9384,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "ab79e6c1"
+"pdf": "368b9a22"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 80 A · 690 V · protezione linee · Icu 12 kA a 690 V · soglia magnetica 640…960 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k minda istantaneo a 1,8 s",
 "Picco lasciato passare9,59 kA",
-"I²t passante a I″k460,91 kA²s"
+"I²t passante a I″k460,91 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -9539,12 +9563,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 8,0 kA ≤ Icu 12 kA potere di interruzione di NZMH2-4-A80-SVE a 690 V · Ics 3 kA → ✓ ok",
 "Intervento a I″k min 800 A: da istantaneo a 1,8 s ≤ 5 s zona termica: la corrente è sotto la soglia magnetica massima (960 A) → ✓ ok",
-"Picco lasciato passare 9,59 kA ≤ 17 kA l'interruttore limita: picco presunto 15,0 kA · curva a 690 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 9,59 kA ≤ 17 kA l'interruttore limita: picco presunto 15,0 kA · curva a 690 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -9562,7 +9586,7 @@
 },
 "esportazioni": {
 "excel": "6507e778",
-"pdf": "8d54e389",
+"pdf": "90e94154",
 "righe": 137
 },
 "excel_ricalcolato": {
@@ -9801,7 +9825,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee cd53f0eb scritte e6f10fac",
+"co_chart linee 8340f365 scritte e6f10fac",
 "co_chartL linee 1b26f973 scritte 7c316a1f",
 "co_chartE linee 0ac61582 scritte 17e894d1"
 ],
@@ -9810,14 +9834,13 @@
 ]
 },
 "esportazioni": {
-"pdf": "537025ec"
+"pdf": "8c5adddd"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 225 A · 690 V · protezione linee · Icu 70 kA a 415 V · soglia magnetica 1800…2700 A",
+"Dati di targascatolato · 10 A · 690 V · selettivo · Icu 36 kA a 415 V · soglia corto ritardo 90…110 A · soglia istantanea 90…110 A · curva calcolata",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "A · Intervento a I″k≤ 15,5 ms",
 "A · Intervento a I″k minda 4,57 s a 80,1 s",
 "A · Picco lasciato passare20,56 kA",
@@ -9825,7 +9848,11 @@
 "B · Intervento a I″kda istantaneo a 40 ms",
 "B · Intervento a I″k minda istantaneo a 40 ms",
 "B · Picco lasciato passare16,59 kA",
-"B · I²t passante a I″k457,32 kA²s"
+"B · I²t passante a I″k457,32 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -10095,15 +10122,15 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 30,0 kA ≤ Icu 70 kA potere di interruzione di XT4H 250 TMA 225 a 415 V → ✓ ok",
 "A · Intervento a I″k min 1,00 kA: da 4,57 s a 80,1 s ≤ 5 s zona termica: la corrente è sotto la soglia magnetica massima (2,70 kA) → ✗ no",
 "B · I″k = 30,0 kA ≤ Icu 36 kA potere di interruzione di XT2N 160 Ekip Dip LSI 10 a 415 V → ✓ ok",
 "B · Intervento a I″k min 1,00 kA: da istantaneo a 40 ms ≤ 5 s interviene la protezione istantanea (soglia massima 110 A) → ✓ ok",
 "A · Picco lasciato passare 20,56 kA ≤ 17 kA l'interruttore limita: picco presunto 63,0 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → verifica",
-"B · Picco lasciato passare 16,59 kA ≤ 17 kA l'interruttore limita: picco presunto 63,0 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · Picco lasciato passare 16,59 kA ≤ 17 kA l'interruttore limita: picco presunto 63,0 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -10121,7 +10148,7 @@
 },
 "esportazioni": {
 "excel": "af086ebb",
-"pdf": "f3f6fdc0",
+"pdf": "f38a9418",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -10334,7 +10361,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 2d22da22 scritte 489a547b",
+"co_chart linee e3fe35c4 scritte 489a547b",
 "co_chartL linee 65660789 scritte 138e2aa8",
 "co_chartE linee 56cf266d scritte 7beff09a"
 ],
@@ -10343,14 +10370,13 @@
 ]
 },
 "esportazioni": {
-"pdf": "05e80155"
+"pdf": "fea42bbe"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 125 A · 690 V · solo magnetico · Icu 36 kA a 415 V · soglia magnetica 1750 A",
+"Dati di targamodulare · 3,5 A · 240 V · caratteristica C · Icu 65 kA a 240 V (EN 60947-2) · soglia magnetica 17,5…35 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "A · Intervento a I″k≤ 22,3 ms",
 "A · Intervento a I″k min46,3 ms",
 "A · Picco lasciato passare31,70 kA",
@@ -10358,7 +10384,11 @@
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare—",
-"B · I²t passante a I″k≤ 10,56 MA²s"
+"B · I²t passante a I″k≤ 10,56 MA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -10586,9 +10616,6 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 40,0 kA ≤ Icu 36 kA potere di interruzione di NZMC2-S125 a 415 V → ✗ no",
 "A · Intervento a I″k min 2,50 kA: 46,3 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 1,75 kA) → ✓ ok",
 "B · I″k = 40,0 kA ≤ Icu 65 kA potere di interruzione di CL-PKZ0 + FAZ-C3,5/1 a 240 V (EN 60947-2) → ✓ ok",
@@ -10600,7 +10627,10 @@
 "B · Picco lasciato passarecurva di limitazione non disponibile per CL-PKZ0 + FAZ-C3,5/1 → curva assente",
 "B · Sovraccarico del trasformatore (In 909 A al secondario): Ir = 3,5 A ≤ In non intervento certo fino a 4 A (0 % di In), intervento certo da 5 A (1 % di In): tra i due valori il sovraccarico può durare a lungo → ✓ ok",
 "B · Sovraccarico ammesso dal trasformatore (ANSI C57.92): margine minimo ×303,03 a 22,73 kA la banda massima dell'interruttore resta sotto la curva di sovraccarico ammesso, da 2 × In a 22,73 kA → ✓ ok",
-"B · Tenuta termica del trasformatore (22,73 kA per 2 s): a 40,00 kA intervento in 6,6 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok"
+"B · Tenuta termica del trasformatore (22,73 kA per 2 s): a 40,00 kA intervento in 6,6 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -10618,7 +10648,7 @@
 },
 "esportazioni": {
 "excel": "ff8fb624",
-"pdf": "9dfd1452",
+"pdf": "f9560235",
 "righe": 132
 },
 "excel_ricalcolato": {
@@ -11084,7 +11114,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 4d022a2c scritte 70a1fed4",
+"co_chart linee 61647f38 scritte 70a1fed4",
 "co_chartL linee d2fe829c scritte e4de0b98",
 "co_chartE linee c0fbc0b2 scritte 340f763c"
 ],
@@ -11093,18 +11123,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "1e78c54c"
+"pdf": "7a3891f4"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu non dichiarato a 15.000 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare14,41 kA",
-"I²t passante a I″k823,56 kA²s"
+"I²t passante a I″k823,56 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -11274,14 +11306,14 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 10,80 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento del fusibile in non interviene lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento → ✓ ok",
 "Potere di interruzioneNZMN2-A250: Icu non dichiarato a 15.000 V → non dichiarato",
 "Intervento a I″k min 10,80 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
 "Picco lasciato passare 14,41 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 690 V (tensione di esercizio superiore) · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento più rapido in nessun intervento lo spunto è sotto l'inizio della banda: nessun intervento all'avviamento → ✓ ok"
+"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento più rapido in nessun intervento lo spunto è sotto l'inizio della banda: nessun intervento all'avviamento → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 10,80 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento del fusibile in non interviene lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento → ✓ ok"
 ]
 },
 "modFUS": {
@@ -11291,7 +11323,7 @@
 },
 "esportazioni": {
 "excel": "b6a323b2",
-"pdf": "0265cb72",
+"pdf": "f92e4e3c",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -11404,7 +11436,7 @@
 },
 "esportazioni": {
 "excel": "7cfcfd55",
-"pdf": "223ad042",
+"pdf": "ff80aaa0",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -11853,7 +11885,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee a0c04fb7 scritte bed7490e",
+"co_chart linee e2eca257 scritte bed7490e",
 "co_chartL linee b4a27d2c scritte 37793704",
 "co_chartE linee 1d660348 scritte e7ea0d57"
 ],
@@ -11862,18 +11894,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "051e3527"
+"pdf": "5d575056"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -12039,12 +12073,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -12054,7 +12088,7 @@
 },
 "esportazioni": {
 "excel": "1d1296a0",
-"pdf": "386f473d",
+"pdf": "68185290",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -21424,7 +21458,7 @@
 },
 "esportazioni": {
 "excel": "e8a0c251",
-"pdf": "e64f0df1",
+"pdf": "b53e34a3",
 "righe": 70
 },
 "excel_ricalcolato": {
@@ -21450,7 +21484,7 @@
 "Iavv": 1876.388375,
 "In": 288.6751346,
 "U": 0,
-"tavv": 5
+"tavv": 6
 },
 "ovl": null,
 "res": [
@@ -21544,7 +21578,7 @@
 "I″k = 28,0 kA ≤ Icu 50 kA potere di interruzione di NZMN4-AX1600 a 415 V · Ics 33 kA → ✓ ok",
 "Intervento a I″k min 4,20 kA: da 29,6 s a 59,2 s ≤ 5 s zona di lungo ritardo: la corrente è sotto la soglia istantanea massima (23,04 kA) → ✗ no",
 "Picco lasciato passarecurva di limitazione non disponibile per NZMN4-AX1600 → curva assente",
-"Spunto motore 1,88 kA per 5 s: intervento più rapido in 148 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok"
+"Spunto motore 1,88 kA per 6 s: intervento più rapido in 148 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok"
 ]
 },
 "modCC": {
@@ -22356,7 +22390,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 9a3642aa scritte c4e9af27",
+"co_chart linee 25e6f231 scritte c4e9af27",
 "co_chartL linee 41b8650a scritte 18b1dea7",
 "co_chartE linee fb0a302a scritte 6065cbe7"
 ],
@@ -22365,18 +22399,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "ddaff0b2"
+"pdf": "ce953ccd"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare14,54 kA",
-"I²t passante a I″k169,38 kA²s",
+"Dati di targascatolato · 1600 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia istantanea 15.400…23.000 A · curva calcolata",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″kda istantaneo a 40 ms",
 "Intervento a I″k minda 29,6 s a 59,2 s",
 "Picco lasciato passare—",
-"I²t passante a I″k≤ 31,36 MA²s"
+"I²t passante a I″k≤ 31,36 MA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare14,54 kA",
+"I²t passante a I″k169,38 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -22533,21 +22569,21 @@
 "Iavv": 1876.388375,
 "In": 288.6751346,
 "U": 0,
-"tavv": 5
+"tavv": 6
 },
 "onC": true,
 "onF": true
 },
 "verifiche": [
-"I″k = 28,0 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 4,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 14,54 kA ≤ 17 kA il fusibile limita: picco presunto 62,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"Spunto motore 1,88 kA per 6 s: intervento del fusibile in 159 ms il tempo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✗ no",
 "Lungo ritardo tr = 10 sNZMN4-AX1600: il database non indica il lungo ritardo di questo sganciatore: impostare il valore di targa → da targa",
 "I″k = 28,0 kA ≤ Icu 50 kA potere di interruzione di NZMN4-AX1600 a 415 V · Ics 33 kA → ✓ ok",
 "Intervento a I″k min 4,20 kA: da 29,6 s a 59,2 s ≤ 5 s zona di lungo ritardo: la corrente è sotto la soglia istantanea massima (23,04 kA) → ✗ no",
 "Picco lasciato passarecurva di limitazione non disponibile per NZMN4-AX1600 → curva assente",
-"Spunto motore 1,88 kA per 5 s: intervento più rapido in 148 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok"
+"Spunto motore 1,88 kA per 6 s: intervento più rapido in 148 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok",
+"I″k = 28,0 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 4,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 14,54 kA ≤ 17 kA il fusibile limita: picco presunto 62,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Spunto motore 1,88 kA per 6 s: intervento del fusibile in 159 ms il tempo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✗ no"
 ]
 },
 "modFUS": {
@@ -22557,7 +22593,7 @@
 },
 "esportazioni": {
 "excel": "cc253c48",
-"pdf": "4b231989",
+"pdf": "0ede965f",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -34824,7 +34860,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee afb4d26d scritte bed7490e",
+"co_chart linee f0803a23 scritte bed7490e",
 "co_chartL linee b4a27d2c scritte 4fc08848",
 "co_chartE linee 1d660348 scritte 376bc971"
 ],
@@ -34833,18 +34869,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "60408c17"
+"pdf": "c3074638"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,40 kA",
-"I²t passante a I″k139,02 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,48 kA",
-"I²t passante a I″k531,92 kA²s"
+"I²t passante a I″k531,92 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,40 kA",
+"I²t passante a I″k139,02 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -35014,13 +35052,14 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 17,4 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 16,10 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,40 kA ≤ 17 kA il fusibile limita: picco presunto 35,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 17,4 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 16,10 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
 "Picco lasciato passare 13,48 kA ≤ 17 kA l'interruttore limita: picco presunto 35,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"Inserzione trasformatore (cresta 13,34 kA, τ 0,30 s): margine minimo ×0,22 a 10 ms l'inviluppo di inserzione incrocia la banda: rischio di scatto all'inserzione → ✗ no"
+"Inserzione trasformatore (cresta 13,34 kA, τ 0,30 s): margine minimo ×0,22 a 10 ms l'inviluppo di inserzione incrocia la banda: rischio di scatto all'inserzione → ✗ no",
+"I″k = 17,4 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 16,10 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,40 kA ≤ 17 kA il fusibile limita: picco presunto 35,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Inserzione trasformatore (cresta 13,34 kA, τ 0,30 s): margine minimo ×0,30 a 57,6 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no"
 ]
 },
 "modPMT": {
@@ -35644,7 +35683,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee a0c04fb7 scritte bed7490e",
+"co_chart linee e2eca257 scritte bed7490e",
 "co_chartL linee b4a27d2c scritte 13b4a4f0",
 "co_chartE linee 1d660348 scritte cc4a34ec"
 ],
@@ -35653,18 +35692,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "deb2626b"
+"pdf": "168884ee"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare13,56 kA",
-"I²t passante a I″k155,25 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare14,98 kA",
-"I²t passante a I″k594,55 kA²s"
+"I²t passante a I″k594,55 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare13,56 kA",
+"I²t passante a I″k155,25 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -35830,12 +35871,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 22,7 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 13,56 kA ≤ 17 kA il fusibile limita: picco presunto 46,1 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 22,7 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 14,98 kA ≤ 17 kA l'interruttore limita: picco presunto 46,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 14,98 kA ≤ 17 kA l'interruttore limita: picco presunto 46,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 22,7 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 13,56 kA ≤ 17 kA il fusibile limita: picco presunto 46,1 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 }
 },
@@ -36170,7 +36211,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 8435d4e4 scritte efc4b582",
+"co_chart linee c91eebe6 scritte efc4b582",
 "co_chartL linee 5300368f scritte 3ac5d125",
 "co_chartE linee ffb4fa7f scritte 41cedbd3"
 ],
@@ -36179,18 +36220,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "56ece7be"
+"pdf": "941ca22e"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare4,39 kA",
-"I²t passante a I″k27,00 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa40 A · 24 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare14,98 kA",
-"I²t passante a I″k594,55 kA²s"
+"I²t passante a I″k594,55 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare4,39 kA",
+"I²t passante a I″k27,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -36358,13 +36401,14 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 22,7 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 14,98 kA ≤ 17 kA l'interruttore limita: picco presunto 46,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,29 a 10 ms l'inviluppo di inserzione incrocia la banda: rischio di scatto all'inserzione → ✗ no",
 "I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
 "I″k min 10,80 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
 "Inserzione trasformatore (cresta 267 A, τ 0,30 s): margine minimo ×2,33 a 78,4 ms la curva del fusibile resta sopra l'inviluppo di inserzione → ✓ ok",
-"Tabella Italweber: trasformatore 630 kVA a 15 kV → fusibile 40 A la taglia scelta coincide con quella del catalogo → ✓ ok",
-"I″k = 22,7 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 14,98 kA ≤ 17 kA l'interruttore limita: picco presunto 46,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Tabella Italweber: trasformatore 630 kVA a 15 kV → fusibile 40 A la taglia scelta coincide con quella del catalogo → ✓ ok"
 ]
 }
 },
@@ -36378,7 +36422,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 986b5b0b scritte a254e1c7",
+"co_chart linee f6b95d3d scritte a254e1c7",
 "co_chartL linee 79e01355 scritte 2472cd1d",
 "co_chartE linee 00b3f3b1 scritte cc6f6216"
 ],
@@ -36387,10 +36431,12 @@
 ]
 },
 "esportazioni": {
-"pdf": "43645cea"
+"pdf": "3558dff2"
 },
 "note": [],
 "riquadri": [
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
+"Dati di targa250 A · 500 V · Icn 120 kA · gG",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min118 ms",
 "A · Picco lasciato passare12,75 kA",
@@ -37006,7 +37052,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee f19d62fe scritte b7da7239",
+"co_chart linee 6f40a423 scritte b7da7239",
 "co_chartL linee c4d3503e scritte 75922568",
 "co_chartE linee 2a1cfe49 scritte b7366bf6"
 ],
@@ -37015,10 +37061,13 @@
 ]
 },
 "esportazioni": {
-"pdf": "7f5d2b4f"
+"pdf": "930e7e97"
 },
 "note": [],
 "riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targascatolato · 100 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 800…1200 A",
+"Dati di targamodulare · 32 A · 415 V · caratteristica C · Icu 15 kA a 415 V (EN 60947-2) · Icn 10 kA · soglia magnetica 160…320 A",
 "A · Intervento a I″k≤ 10 ms",
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare14,98 kA",
@@ -39069,7 +39118,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 134fdd02 scritte 855b2c5a",
+"co_chart linee 71cf8a21 scritte 855b2c5a",
 "co_chartL linee e41691ef scritte 6fc41e02",
 "co_chartE linee 3d54a3e3 scritte 8e0fae86"
 ],
@@ -39078,14 +39127,13 @@
 ]
 },
 "esportazioni": {
-"pdf": "9fb77dab"
+"pdf": "76fee87f"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare4,39 kA",
-"I²t passante a I″k27,00 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targamodulare · 32 A · 415 V · caratteristica C · Icu 15 kA a 415 V (EN 60947-2) · Icn 10 kA · soglia magnetica 160…320 A",
+"Dati di targa40 A · 24 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
 "A · Intervento a I″k≤ 10 ms",
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare15,44 kA",
@@ -39093,7 +39141,11 @@
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,19 kA",
-"B · I²t passante a I″k74,00 kA²s"
+"B · I²t passante a I″k74,00 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare4,39 kA",
+"I²t passante a I″k27,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -39371,11 +39423,6 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
-"I″k min 10,80 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
-"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento del fusibile in non interviene lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento → ✓ ok",
-"Inserzione trasformatore (cresta 267 A, τ 0,30 s): margine minimo ×2,33 a 78,4 ms la curva del fusibile resta sopra l'inviluppo di inserzione → ✓ ok",
-"Tabella Italweber: trasformatore 630 kVA a 15 kV → fusibile 40 A la taglia scelta coincide con quella del catalogo → ✓ ok",
 "A · I″k = 24,5 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "A · Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
 "B · I″k = 16,1 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✗ no",
@@ -39391,7 +39438,12 @@
 "B · Picco lasciato passare 7,19 kA ≤ 17 kA l'interruttore limita: picco presunto 25,3 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "B · Cavo «Tratto 2» 16 mm² rame EPR/XLPE a I″k: I²t = 74,00 kA²s ≤ K²S² 5,23 MA²s curva I²t di catalogo → ✓ ok",
 "B · Cavo «Tratto 2» 16 mm² rame EPR/XLPE a I″k min: I²t = 39,25 kA²s ≤ K²S² 5,23 MA²s curva I²t di catalogo → ✓ ok",
-"B · Spunto motore 2,17 kA per 5 s: intervento più rapido in istantaneo lo spunto raggiunge la soglia magnetica minima (160 A): rischio di scatto all'avviamento → ✗ no"
+"B · Spunto motore 2,17 kA per 5 s: intervento più rapido in istantaneo lo spunto raggiunge la soglia magnetica minima (160 A): rischio di scatto all'avviamento → ✗ no",
+"I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
+"I″k min 10,80 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
+"Spunto motore 58 A riportato a 15.000 V per 5 s: intervento del fusibile in non interviene lo spunto è sotto l'inizio della curva: nessun intervento all'avviamento → ✓ ok",
+"Inserzione trasformatore (cresta 267 A, τ 0,30 s): margine minimo ×2,33 a 78,4 ms la curva del fusibile resta sopra l'inviluppo di inserzione → ✓ ok",
+"Tabella Italweber: trasformatore 630 kVA a 15 kV → fusibile 40 A la taglia scelta coincide con quella del catalogo → ✓ ok"
 ]
 }
 },
@@ -39851,7 +39903,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee a1fb8bb8 scritte efc4b582",
+"co_chart linee d70150c5 scritte efc4b582",
 "co_chartL linee 5300368f scritte 9281d5a3",
 "co_chartE linee ffb4fa7f scritte f19671bc"
 ],
@@ -39860,18 +39912,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "54ef1a8a"
+"pdf": "4fd09134"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare4,39 kA",
-"I²t passante a I″k27,00 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa40 A · 24 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare4,39 kA",
+"I²t passante a I″k27,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -40035,13 +40089,13 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 16,80 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
 "I″k min 10,80 kA ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k sulle sbarre 21,77 kA (580 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 11,1 ms; energia riportata al secondario → ✓ ok",
-"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k min sulle sbarre 19,44 kA (518 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 16,7 ms; energia riportata al secondario → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 16,80 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Cavo al secondario 2 × 150 mm² rame EPR/XLPE, I″k min sulle sbarre 19,44 kA (518 A al primario): I²t = 37,97 MA²s ≤ K²S² 1840,41 MA²s intervento del fusibile in 16,7 ms; energia riportata al secondario → ✓ ok"
 ]
 },
 "modPMT": {
@@ -40374,7 +40428,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee a0c04fb7 scritte 26cd581e",
+"co_chart linee e2eca257 scritte 26cd581e",
 "co_chartL linee b4a27d2c scritte 37793704",
 "co_chartE linee 1d660348 scritte 09ff3fcc"
 ],
@@ -40383,18 +40437,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "284454ca"
+"pdf": "a151a017"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min118 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min118 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -40560,12 +40616,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 2,00 kA: 118 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 2,00 kA: 118 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -40575,7 +40631,7 @@
 },
 "esportazioni": {
 "excel": "c9877d4d",
-"pdf": "54938e24",
+"pdf": "361d6b87",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -40678,7 +40734,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 4e511730 scritte bfe0e88c",
+"co_chart linee 3e285058 scritte bfe0e88c",
 "co_chartL linee 9e795a7b scritte c23f80fd",
 "co_chartE linee d4b2c234 scritte 77e3549e"
 ],
@@ -40687,10 +40743,17 @@
 ]
 },
 "esportazioni": {
-"pdf": "b844e993"
+"pdf": "68e81b23"
 },
 "note": [],
 "riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
+"Dati di targa250 A · 500 V · Icn 120 kA · gG",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min462 ms",
 "A · Picco lasciato passare10,95 kA",
@@ -40698,11 +40761,7 @@
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min2,54 s",
 "B · Picco lasciato passare15,32 kA",
-"B · I²t passante a I″k234,59 kA²s",
-"Intervento a I″k≤ 10 ms",
-"Intervento a I″k min≤ 10 ms",
-"Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"B · I²t passante a I″k234,59 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -40925,15 +40984,15 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 12,0 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
 "A · Intervento a I″k min 1,50 kA: 462 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "B · I″k = 12,0 kA ≤ Icn 120 kA potere di interruzione del fusibile 250NHG1B → ✓ ok",
 "B · Intervento a I″k min 1,50 kA: 2,54 s ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "A · Picco lasciato passare 10,95 kA ≤ 17 kA il fusibile limita: picco presunto 24,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Picco lasciato passare 15,32 kA ≤ 17 kA il fusibile limita: picco presunto 24,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · Picco lasciato passare 15,32 kA ≤ 17 kA il fusibile limita: picco presunto 24,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -40943,7 +41002,7 @@
 },
 "esportazioni": {
 "excel": "462c8355",
-"pdf": "d8386713",
+"pdf": "c536fecc",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -41443,7 +41502,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee c49a56a1 scritte 284c183d",
+"co_chart linee 3060ced0 scritte 284c183d",
 "co_chartL linee 34ef8550 scritte 454b3070",
 "co_chartE linee 70080e0c scritte eb9c9b9e"
 ],
@@ -41452,18 +41511,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "eb142c48"
+"pdf": "d95e1ab2"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min341 ms",
-"Picco lasciato passare—",
-"I²t passante a I″k62,07 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa100 A · 690 V · Icn 120 kA · aM",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min341 ms",
+"Picco lasciato passare—",
+"I²t passante a I″k62,07 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -41627,13 +41688,14 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Spunto motore 568 A per 8 s: intervento più rapido in 61,2 s il tempo minimo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok",
 "I″k = 15,0 kA ≤ Icn 120 kA potere di interruzione del fusibile 100NHM00B-690 → ✓ ok",
 "Intervento a I″k min 1,20 kA: 341 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "Picco lasciato passarecurva di limitazione non disponibile per 100NHM00B-690 → curva assente",
-"Spunto motore 568 A per 8 s: intervento del fusibile in 16,1 s il tempo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Spunto motore 568 A per 8 s: intervento del fusibile in 16,1 s il tempo di intervento alla corrente di spunto deve superare la durata dell'avviamento → ✓ ok"
 ]
 },
 "modFUS": {
@@ -41643,7 +41705,7 @@
 },
 "esportazioni": {
 "excel": "73b051b9",
-"pdf": "7bba23e4",
+"pdf": "c4146613",
 "righe": 114
 },
 "excel_ricalcolato": {
@@ -41744,7 +41806,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee de1422ed scritte 54e4edb8",
+"co_chart linee 0a6faf29 scritte 54e4edb8",
 "co_chartL linee 3f256c4b scritte 9354c792",
 "co_chartE linee a7a22a96 scritte 6def797b"
 ],
@@ -41753,18 +41815,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "1a9d246d"
+"pdf": "ff9b4a5b"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min72,2 ms",
-"Picco lasciato passare2,24 kA",
-"I²t passante a I″k1,70 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa32 A · 400 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min72,2 ms",
+"Picco lasciato passare2,24 kA",
+"I²t passante a I″k1,70 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -41930,12 +41994,12 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 400 ms interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 6,0 kA ≤ Icn 120 kA potere di interruzione del fusibile C10G32 → ✓ ok",
 "Intervento a I″k min 300 A: 72,2 ms ≤ 400 ms interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 2,24 kA ≤ 17 kA il fusibile limita: picco presunto 9,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 2,24 kA ≤ 17 kA il fusibile limita: picco presunto 9,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -41945,7 +42009,7 @@
 },
 "esportazioni": {
 "excel": "4317c847",
-"pdf": "c7e45e79",
+"pdf": "81f786de",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -42048,7 +42112,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 2f1d541e scritte 37f3fd48",
+"co_chart linee 73acaf51 scritte 37f3fd48",
 "co_chartL linee 81b10517 scritte 52cb8697",
 "co_chartE linee f6a3a649 scritte 68e86dd3"
 ],
@@ -42057,18 +42121,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "e34a94fd"
+"pdf": "776a1b00"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 4 ms",
-"Intervento a I″k min148 ms",
-"Picco lasciato passare18,99 kA",
-"I²t passante a I″k—",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa289 A · 400 V · Icn 100 kA · gTr",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 4 ms",
+"Intervento a I″k min148 ms",
+"Picco lasciato passare18,99 kA",
+"I²t passante a I″k—"
 ],
 "tabelle": [],
 "valori": {
@@ -42228,13 +42294,14 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,29 a 10 ms l'inviluppo di inserzione incrocia la banda: rischio di scatto all'inserzione → ✗ no",
 "I″k = 20,0 kA ≤ Icn 100 kA potere di interruzione del fusibile 289 NH gTr 3 (200kVA) → ✓ ok",
 "Intervento a I″k min 3,00 kA: 148 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "Picco lasciato passare 18,99 kA ≤ 17 kA il fusibile limita: picco presunto 42,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → verifica",
-"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,66 a 87 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,66 a 87 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no"
 ]
 },
 "modFUS": {
@@ -42244,7 +42311,7 @@
 },
 "esportazioni": {
 "excel": "9af0dfe2",
-"pdf": "4e9fceeb",
+"pdf": "46aeb057",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -42344,7 +42411,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 7801f850 scritte 89f8644f",
+"co_chart linee fdfb1fc4 scritte 89f8644f",
 "co_chartL linee 6f77108e scritte 666b70ca",
 "co_chartE linee 7fb3fe4d scritte 5bab9792"
 ],
@@ -42353,10 +42420,17 @@
 ]
 },
 "esportazioni": {
-"pdf": "22b9b791"
+"pdf": "54511551"
 },
 "note": [],
 "riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa125 A · 690 V · Icn 200 kA · aR",
+"Dati di targa20 A · 690 V · Icn 200 kA · gR",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
 "A · Intervento a I″k< 0,1 ms",
 "A · Intervento a I″k min0,17 ms",
 "A · Picco lasciato passare2,92 kA",
@@ -42364,11 +42438,7 @@
 "B · Intervento a I″k< 0,1 ms",
 "B · Intervento a I″k min< 0,1 ms",
 "B · Picco lasciato passare3,86 kA",
-"B · I²t passante a I″k54 A²s",
-"Intervento a I″k≤ 10 ms",
-"Intervento a I″k min≤ 10 ms",
-"Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"B · I²t passante a I″k54 A²s"
 ],
 "tabelle": [],
 "valori": {
@@ -42598,15 +42668,15 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 30,0 kA ≤ Icn 200 kA potere di interruzione del fusibile 170M3813D/125A → ✓ ok",
 "A · Intervento a I″k min 2,00 kA: 0,17 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "B · I″k = 30,0 kA ≤ Icn 200 kA potere di interruzione del fusibile 170M1560D/20A → ✓ ok",
 "B · Intervento a I″k min 2,00 kA: < 0,1 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "A · Picco lasciato passare 2,92 kA ≤ 17 kA il fusibile limita: picco presunto 63,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Picco lasciato passare 3,86 kA ≤ 17 kA il fusibile limita: picco presunto 63,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · Picco lasciato passare 3,86 kA ≤ 17 kA il fusibile limita: picco presunto 63,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -42616,7 +42686,7 @@
 },
 "esportazioni": {
 "excel": "636c272b",
-"pdf": "39b9e76d",
+"pdf": "501f0db9",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -42790,7 +42860,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 2f13f118 scritte 03803c07",
+"co_chart linee 809064a0 scritte 03803c07",
 "co_chartL linee 7486d28a scritte ac13fd95",
 "co_chartE linee aa651747 scritte 9bc8df57"
 ],
@@ -42799,10 +42869,17 @@
 ]
 },
 "esportazioni": {
-"pdf": "432546d3"
+"pdf": "1dd854ce"
 },
 "note": [],
 "riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa20 A · 500 V · Icn 50 kA · gG",
+"Dati di targa35 A · 400 V · Icn 50 kA · gG",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
 "A · Intervento a I″k< 4 ms",
 "A · Intervento a I″k min62,7 ms",
 "A · Picco lasciato passare1,59 kA",
@@ -42810,11 +42887,7 @@
 "B · Intervento a I″k< 1 ms",
 "B · Intervento a I″k min284 ms",
 "B · Picco lasciato passare2,71 kA",
-"B · I²t passante a I″k4,70 kA²s",
-"Intervento a I″k≤ 10 ms",
-"Intervento a I″k min≤ 10 ms",
-"Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"B · I²t passante a I″k4,70 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -43040,15 +43113,15 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 400 ms interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 4,5 kA ≤ Icn 50 kA potere di interruzione del fusibile 20D27 → ✓ ok",
 "A · Intervento a I″k min 250 A: 62,7 ms ≤ 400 ms interruzione entro il tempo massimo ammesso → ✓ ok",
 "B · I″k = 4,5 kA ≤ Icn 50 kA potere di interruzione del fusibile 35NZ02 → ✓ ok",
 "B · Intervento a I″k min 250 A: 284 ms ≤ 400 ms interruzione entro il tempo massimo ammesso → ✓ ok",
 "A · Picco lasciato passare 1,59 kA ≤ 17 kA il fusibile limita: picco presunto 6,8 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Picco lasciato passare 2,71 kA ≤ 17 kA il fusibile limita: picco presunto 6,8 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · Picco lasciato passare 2,71 kA ≤ 17 kA il fusibile limita: picco presunto 6,8 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -43058,7 +43131,7 @@
 },
 "esportazioni": {
 "excel": "17cdde53",
-"pdf": "f7a2a925",
+"pdf": "829661a8",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -43228,7 +43301,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee ac719dce scritte 210e4738",
+"co_chart linee bfef8910 scritte 210e4738",
 "co_chartL linee 29edf238 scritte 7c851759",
 "co_chartE linee e41b15a6 scritte 4291d7d2"
 ],
@@ -43237,18 +43310,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "76f21351"
+"pdf": "993141a5"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min1,73 s",
-"Picco lasciato passare4,39 kA",
-"I²t passante a I″k27,00 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa40 A · 24 kV · Icn 63 kA · back‑up · Imin di interruzione 140 A",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min1,73 s",
+"Picco lasciato passare4,39 kA",
+"I²t passante a I″k27,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -43416,12 +43491,13 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
-"I″k min 200 A ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in 1,73 s) → ✓ ok",
-"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,06 a 78,4 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,29 a 10 ms l'inviluppo di inserzione incrocia la banda: rischio di scatto all'inserzione → ✗ no",
+"I″k = 12,5 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 24kV 1902040 → ✓ ok",
+"I″k min 200 A ≥ corrente minima di interruzione 140 A il fusibile interrompe da solo questa corrente (fusione in 1,73 s) → ✓ ok",
+"Inserzione trasformatore (cresta 10,00 kA, τ 0,30 s): margine minimo ×0,06 a 78,4 ms l'inviluppo di inserzione incrocia la curva: rischio di intervento all'inserzione → ✗ no"
 ]
 },
 "modFUS": {
@@ -43431,7 +43507,7 @@
 },
 "esportazioni": {
 "excel": "91b758cb",
-"pdf": "f832d851",
+"pdf": "de84e4e8",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -43538,7 +43614,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 5130854d scritte 78dbfb15",
+"co_chart linee 77d86f10 scritte 78dbfb15",
 "co_chartL linee 406c1ac4 scritte 36427a36",
 "co_chartE linee ba88f556 scritte 9d6196a5"
 ],
@@ -43547,10 +43623,17 @@
 ]
 },
 "esportazioni": {
-"pdf": "27601443"
+"pdf": "eed74062"
 },
 "note": [],
 "riquadri": [
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa100 A · 12 kV · Icn 63 kA · back‑up · Imin di interruzione 360 A",
+"Dati di targa63 A · 12 kV · Icn 63 kA · back‑up · Imin di interruzione 220 A",
+"Intervento a I″k≤ 10 ms",
+"Intervento a I″k min≤ 10 ms",
+"Picco lasciato passare13,93 kA",
+"I²t passante a I″k551,74 kA²s",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min2,24 s",
 "A · Picco lasciato passare9,67 kA",
@@ -43558,11 +43641,7 @@
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min92,7 ms",
 "B · Picco lasciato passare6,51 kA",
-"B · I²t passante a I″k70,00 kA²s",
-"Intervento a I″k≤ 10 ms",
-"Intervento a I″k min≤ 10 ms",
-"Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"B · I²t passante a I″k70,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -43781,13 +43860,13 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 16,0 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 12kV 1900100 → ✓ ok",
 "A · I″k min 600 A ≥ corrente minima di interruzione 360 A il fusibile interrompe da solo questa corrente (fusione in 2,24 s) → ✓ ok",
 "B · I″k = 16,0 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 12kV 1900063 → ✓ ok",
-"B · I″k min 600 A ≥ corrente minima di interruzione 220 A il fusibile interrompe da solo questa corrente (fusione in 92,7 ms) → ✓ ok",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · I″k min 600 A ≥ corrente minima di interruzione 220 A il fusibile interrompe da solo questa corrente (fusione in 92,7 ms) → ✓ ok"
 ]
 },
 "modFUS": {
@@ -43797,7 +43876,7 @@
 },
 "esportazioni": {
 "excel": "251d573d",
-"pdf": "1e0c3191",
+"pdf": "0cf59f9c",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -43958,7 +44037,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 871dd2a7 scritte 39df3860",
+"co_chart linee 6120d1fb scritte 39df3860",
 "co_chartL linee 3246ae91 scritte 01c7a5ff",
 "co_chartE linee 8544bf4f scritte 9a737de1"
 ],
@@ -43967,18 +44046,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "81d2818b"
+"pdf": "18c06dad"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min446 ms",
-"Picco lasciato passare31,51 kA",
-"I²t passante a I″k1,37 MA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa400 A · 690 V · Icn 120 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min446 ms",
+"Picco lasciato passare31,51 kA",
+"I²t passante a I″k1,37 MA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -44144,12 +44225,12 @@
 "onF": true
 },
 "verifiche": [
+"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 400 ms interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 35,0 kA ≤ Icn 120 kA potere di interruzione del fusibile 400NHG3B-690 → ✓ ok",
 "Intervento a I″k min 5,00 kA: 446 ms ≤ 400 ms interruzione entro il tempo massimo ammesso → ✗ no",
-"Picco lasciato passare 31,51 kA ≤ 17 kA il fusibile limita: picco presunto 77,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → verifica",
-"I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
-"Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 31,51 kA ≤ 17 kA il fusibile limita: picco presunto 77,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → verifica"
 ]
 },
 "modFUS": {
@@ -44159,7 +44240,7 @@
 },
 "esportazioni": {
 "excel": "045a9fe7",
-"pdf": "54f6aadf",
+"pdf": "2e5e89e5",
 "righe": 83
 },
 "excel_ricalcolato": {
@@ -44262,7 +44343,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee d58bbe90 scritte 51174934",
+"co_chart linee 9c97fe94 scritte 51174934",
 "co_chartL linee d6739928 scritte b577c178",
 "co_chartE linee 63c31e8c scritte 0309d6a2"
 ],
@@ -44271,18 +44352,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "5370896b"
+"pdf": "fb5df193"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 4 ms",
-"Intervento a I″k minnon interviene",
-"Picco lasciato passare6,28 kA",
-"I²t passante a I″k4,70 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa35 A · 500 V · Icn 50 kA · gG",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 4 ms",
+"Intervento a I″k minnon interviene",
+"Picco lasciato passare6,28 kA",
+"I²t passante a I″k4,70 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -44445,12 +44528,12 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 80,0 kA ≤ Icn 50 kA potere di interruzione del fusibile 35D33 → ✗ no",
-"Intervento a I″k min 50 A: non interviene ≤ 5 s la corrente è sotto l'inizio della curva (50 A): il fusibile non interviene in tempi utili → ✗ no",
-"Picco lasciato passare 6,28 kA ≤ 17 kA il fusibile limita: picco presunto 176,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 80,0 kA ≤ Icn 50 kA potere di interruzione del fusibile 35D33 → ✗ no",
+"Intervento a I″k min 50 A: non interviene ≤ 5 s la corrente è sotto l'inizio della curva (50 A): il fusibile non interviene in tempi utili → ✗ no",
+"Picco lasciato passare 6,28 kA ≤ 17 kA il fusibile limita: picco presunto 176,0 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modFUS": {
@@ -44460,7 +44543,7 @@
 },
 "esportazioni": {
 "excel": "fff81095",
-"pdf": "6bb38a3f",
+"pdf": "9f640554",
 "righe": 86
 },
 "excel_ricalcolato": {
@@ -50247,7 +50330,7 @@
 },
 "esportazioni": {
 "excel": "7cfcfd55",
-"pdf": "ea5b1940",
+"pdf": "59d9b00d",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -50794,7 +50877,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 01c9c87f scritte 6f56dedc",
+"co_chart linee eaa639a1 scritte 6f56dedc",
 "co_chartL linee d30e4813 scritte eaf57f1c",
 "co_chartE linee 15a0dd01 scritte 18c7aff8"
 ],
@@ -50803,14 +50886,13 @@
 ]
 },
 "esportazioni": {
-"pdf": "38fb6bcb"
+"pdf": "718ceae8"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare12,75 kA",
-"I²t passante a I″k143,87 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targamodulare · 32 A · 415 V · caratteristica C · Icu 15 kA a 415 V (EN 60947-2) · Icn 10 kA · soglia magnetica 160…320 A",
+"Dati di targa160 A · 500 V · Icn 120 kA · gG",
 "A · Intervento a I″k≤ 10 ms",
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare13,93 kA",
@@ -50818,7 +50900,11 @@
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,81 kA",
-"B · I²t passante a I″k86,15 kA²s"
+"B · I²t passante a I″k86,15 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,75 kA",
+"I²t passante a I″k143,87 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -51075,15 +51161,15 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
-"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
-"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
 "A · I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "A · Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
 "B · I″k = 18,9 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✗ no",
 "B · Intervento a I″k min 21,20 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Picco lasciato passare 7,81 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"B · Picco lasciato passare 7,81 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 21,20 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,75 kA ≤ 17 kA il fusibile limita: picco presunto 38,2 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
 ]
 },
 "modPMT": {
@@ -51749,7 +51835,7 @@
 "modCOO": {
 "aspetto": {
 "grafici": [
-"co_chart linee 36a46190 scritte 1e7f4cee",
+"co_chart linee 7d5bb559 scritte 1e7f4cee",
 "co_chartL linee a9ef97ea scritte 8de50bcc",
 "co_chartE linee dd449108 scritte 88ffa257"
 ],
@@ -51758,18 +51844,20 @@
 ]
 },
 "esportazioni": {
-"pdf": "4ee2943c"
+"pdf": "ee2f7547"
 },
 "note": [],
 "riquadri": [
-"Intervento a I″k< 10 ms",
-"Intervento a I″k min< 10 ms",
-"Picco lasciato passare6,95 kA",
-"I²t passante a I″k70,00 kA²s",
+"Dati di targascatolato · 250 A · 690 V · protezione linee · Icu 50 kA a 415 V · soglia magnetica 2000…3000 A",
+"Dati di targa63 A · 17,5 kV · Icn 63 kA · back‑up · Imin di interruzione 220 A",
 "Intervento a I″k≤ 10 ms",
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
-"I²t passante a I″k551,74 kA²s"
+"I²t passante a I″k551,74 kA²s",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare6,95 kA",
+"I²t passante a I″k70,00 kA²s"
 ],
 "tabelle": [],
 "valori": {
@@ -51933,11 +52021,11 @@
 "onF": true
 },
 "verifiche": [
-"I″k = 18,9 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 17,5kV 1901063 → ✓ ok",
-"I″k min 21,20 kA ≥ corrente minima di interruzione 220 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok",
 "I″k = 18,9 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
-"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok"
+"Picco lasciato passare 13,93 kA ≤ 17 kA l'interruttore limita: picco presunto 38,2 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"I″k = 18,9 kA ≤ Icn 63 kA potere di interruzione del fusibile FMT 17,5kV 1901063 → ✓ ok",
+"I″k min 21,20 kA ≥ corrente minima di interruzione 220 A il fusibile interrompe da solo questa corrente (fusione in < 10 ms) → ✓ ok"
 ]
 },
 "modFUS": {
@@ -51947,7 +52035,7 @@
 },
 "esportazioni": {
 "excel": "a2a33c2a",
-"pdf": "154c94ba",
+"pdf": "197cfbd4",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -56630,6 +56718,6 @@
 }
 }
 },
-"programma": "0.2.7",
+"programma": "0.2.8",
 "riferimento_scritto_il": "22/11/2026"
 }
