@@ -58,6 +58,9 @@ async def main():
         # dalla 0.2.3 fusibili e interruttori sono elenchi liberi: i casi scritti sulla coppia A/B restano validi togliendo l'elenco
         for m in ('modFUS', 'modCB'): M[m].pop('elenco', None); M[m].pop('punti', None)
         M['modPMT'].pop('dispositivi', None)
+        # dalla 0.2.4 il quadro e il guasto a terra MT seguono un dispositivo o le protezioni MT: i casi precedenti avevano i valori a mano
+        M['modVK'].pop('derivatoDa', None); M['modVK']['campi'].update({'vk_Ik': '18.9', 'vk_ip': '38.2', 'vk_Ith': '19', 'vk_cutoff': '0'})
+        M['modMT']['campi'].update({'mt_IE': '40', 'mt_tF': '10.01'})
         M['modFUS']['campi'].update({'fu_Ik': '18.9', 'fu_ip': '38.2', 'fu_Imin': '0'}); M['modCB']['campi'].update({'cb_Ik': '18.9', 'cb_ip': '38.2', 'cb_Imin': '0'})
         TR0 = BASE['moduli']['modCC']['trasformatori'][0]
         # righe predefinite di cavi e motori (le schede sono escluse: si leggono aggiungendone una)
@@ -439,6 +442,15 @@ async def main():
         M['modCB']['elenco'] = ['A', 'B', 'C']; cb(s)['B'] = intr('NZMN1-A100'); cb(s)['C'] = intr('FAZ-C32/3')
         M['modCB']['punti'] = {'A': 1, 'B': 2, 'C': 2}; campi(s, 'modCB', cb_IkC=5)
         M['modPMT']['dispositivi'] = ['cbA', 'cbC']
+
+    # collegamenti tra moduli (dalla 0.2.4): quadro derivato da un interruttore, guasto a terra MT dai dati delle protezioni MT
+    @caso('co05_quadro_derivato_da_un_interruttore_e_guasto_a_terra_dalle_protezioni_MT', ['modCC', 'modVK', 'modMT', 'modPMT'])
+    def _(s):
+        M = s['moduli']
+        for k in ('vk_Ik', 'vk_ip', 'vk_Ith', 'vk_cutoff'): M['modVK']['campi'][k] = ''
+        M['modVK']['derivatoDa'] = 'cbA'
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
+        campi(s, 'modMT', mt_IE='', mt_tF=''); campi(s, 'modPMT', pm_IF=50, pm_tF=0.69)
 
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
