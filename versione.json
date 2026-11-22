@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.8",
+  "versione": "0.2.9",
   "data": "22/11/2026",
-  "novita": "Coordinamento protezioni BT riordinato: tipo e regolazioni di fusibili e interruttori si scelgono accanto alle curve (in Impianto restano nome e posizione); spunto, inserzione e tempo massimo si scelgono una volta sola. Tratteggi uguali in tutti i grafici: le curve del trasformatore sono a linea-punto."
+  "novita": "Guasto in bassa tensione visto dal lato MT: la verifica del cavo al secondario e il guasto minimo BT di Protezioni MT considerano anche il fase-terra (e il bifase con Yyn e Dzn), con il fattore del gruppo del trasformatore."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",

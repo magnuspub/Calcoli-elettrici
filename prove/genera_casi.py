@@ -472,6 +472,23 @@ async def main():
         M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
         campi(s, 'modPMT', pm_Ibt=590, pm_IbtMin=500)
 
+    # guasto BT visto dal lato MT (dalla 0.2.9): fase-terra con il fattore del gruppo; con Yyn anche il bifase
+    @caso('co08_cavo_al_secondario_guasto_fase_terra_visto_dal_primario_Dyn', ['modCC', 'modCOO', 'modPMT'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, hascab=True, cS=150, cL=8, cn=2, cSn=150)]
+        for k in ('fu_Ik', 'fu_ip', 'fu_Imin'): M['modFUS']['campi'].pop(k, None)
+        M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
+        campi(s, 'modPMT', pm_Ibt=590, pm_IbtMin=300)
+
+    @caso('co09_cavo_al_secondario_guasti_bifase_e_fase_terra_con_gruppo_Yyn', ['modCC', 'modCOO', 'modPMT'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, vg='Yyn', hascab=True, cS=150, cL=8, cn=2, cSn=150)]
+        for k in ('fu_Ik', 'fu_ip', 'fu_Imin'): M['modFUS']['campi'].pop(k, None)
+        M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
+        campi(s, 'modPMT', pm_Ibt=590, pm_IbtMin=300)
+
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
 
