@@ -4,18 +4,24 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
 
 ## Cosa c'è
 
-- `casi/` — 111 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
-  43 di cortocircuito, 11 di fusibili, 13 di interruttori, 17 di protezioni MT, 4 di verifica quadro,
-  5 di guasto a terra MT, 3 di relazioni rapide, 5 di rischio da fulmine.
+- `casi/` — 112 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
+  44 di cortocircuito, 11 di fusibili, 13 di interruttori, 7 di coordinamento delle protezioni BT, 20 di protezioni MT,
+  4 di verifica quadro, 5 di guasto a terra MT, 3 di relazioni tra grandezze, 5 di rischio da fulmine.
   I primi 77 sono stati salvati con la versione 0.1.15: riaperti dalle versioni successive provano anche che
   i file vecchi danno gli stessi risultati.
   Dalla 0.1.25 il guasto fase-terra si calcola dalla sezione N/PE e dal rapporto X0/X dei cavi: i casi con cavi e
   fase-terra sono stati riscritti con quei campi, mentre `cc42` resta nel formato precedente, con la scheda «Guasto fase-terra», per
   provare l'apertura dei file vecchi.
+  Dalla 0.2.0 la pagina è divisa in moduli numerati: sorgente, trasformatori, linee, motori, fusibili e interruttori sono
+  componenti del modulo «Impianto», e i grafici di fusibili e interruttori stanno nel modulo «Coordinamento protezioni BT».
+  I casi più vecchi sono scritti sulla struttura di prima (componenti nel cortocircuito, coppia A/B, correnti e sezioni a
+  mano): il programma li apre ancora e li converte, quindi continuano a valere. I casi `co…` usano la struttura nuova:
+  elenchi liberi, posizione di ogni dispositivo, circuito preso dalla sequenza, collegamenti tra moduli.
 - `riferimento.json` — i risultati della versione di riferimento per ogni caso, più l'impronta della banca dati
   (tabelle, tre fusibili per famiglia, due interruttori per serie).
 - `prova.py` — apre ogni caso nel programma, raccoglie i risultati e li confronta con il riferimento.
-- `impronta.js` — che cosa viene raccolto da ogni modulo.
+- `impronta.js` — che cosa viene raccolto da ogni modulo. Per i casi di fusibili e interruttori raccoglie da solo anche il
+  modulo «Coordinamento protezioni BT».
 - `banca.js` — che cosa viene raccolto della banca dati.
 - `genera_casi.py` — come sono stati costruiti i casi; per aggiungerne si usa `--solo prefisso`, che scrive
   solo i casi nuovi e lascia gli altri come sono.

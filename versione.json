@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.5",
+  "versione": "0.2.7",
   "data": "22/11/2026",
-  "novita": "Coordinamento protezioni BT: le verifiche di cavo protetto, avviamento dei motori e inserzione del trasformatore sono fatte per ogni dispositivo, con ciò che sta a valle della sua posizione nell'impianto."
+  "novita": "Il cavo tra il secondario del trasformatore e le sbarre è verificato con il dispositivo a monte del trasformatore (fusibile MT o protezione MT). Riordino interno del codice dopo la nuova struttura."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",

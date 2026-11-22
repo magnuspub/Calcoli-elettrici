@@ -463,6 +463,15 @@ async def main():
         M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
         campi(s, 'modCB', cb_onMot=True, cb_onInr=True, cb_onOvl=True); campi(s, 'modFUS', fu_onInr=True, fu_onMot=True)
 
+    # cavo BT tra secondario e sbarre (dalla 0.2.7): protetto dal fusibile MT e dalla protezione MT a monte del trasformatore
+    @caso('co07_cavo_al_secondario_protetto_dal_dispositivo_a_monte_del_trasformatore', ['modCC', 'modCOO', 'modPMT'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, hascab=True, cS=150, cL=8, cn=2)]
+        for k in ('fu_Ik', 'fu_ip', 'fu_Imin'): M['modFUS']['campi'].pop(k, None)
+        M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
+        campi(s, 'modPMT', pm_Ibt=590, pm_IbtMin=500)
+
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
 
