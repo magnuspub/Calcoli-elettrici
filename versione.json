@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.7",
+  "versione": "0.2.8",
   "data": "22/11/2026",
-  "novita": "Il cavo tra il secondario del trasformatore e le sbarre è verificato con il dispositivo a monte del trasformatore (fusibile MT o protezione MT). Riordino interno del codice dopo la nuova struttura."
+  "novita": "Coordinamento protezioni BT riordinato: tipo e regolazioni di fusibili e interruttori si scelgono accanto alle curve (in Impianto restano nome e posizione); spunto, inserzione e tempo massimo si scelgono una volta sola. Tratteggi uguali in tutti i grafici: le curve del trasformatore sono a linea-punto."
  },
  "Gestione_curve.html": {
   "versione": "0.2.8",
