@@ -22,7 +22,7 @@ Il lavoro si salva con **Salva tutto** in un file `.json` e si riapre con **Apri
 | Calcolo corrente di cortocircuito | Correnti di guasto in ogni punto, massime e minime (IEC 60909) |
 | Progettazione protezioni MT | Relè 50/51, 51N, 67N, selettività e tarature richieste dal distributore |
 | Verifica guasto a terra MT | Tensione totale di terra e sicurezza delle persone (CEI EN 50522) |
-| Coordinamento protezioni BT | Fusibili e interruttori sugli stessi grafici, scelti accanto alle curve, con le verifiche di ogni dispositivo |
+| Coordinamento protezioni | Fusibili e interruttori sugli stessi grafici, scelti accanto alle curve, con le verifiche di ogni dispositivo |
 | Verifica cortocircuito quadri | Tenuta al cortocircuito del quadro (IEC 61439) |
 | Verifica rischio da fulmine | Valutazione del rischio (CEI EN IEC 62305-2) |
 | Relazioni tra grandezze di corrente | Conversioni tra Icc, Icw, Ipk, I²t |

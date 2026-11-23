@@ -55,6 +55,9 @@ async def main():
         for k in ('trasformatori', 'cavi', 'motori'):
             if k in M.get('modIMP', {}): M['modCC'][k] = M['modIMP'].pop(k)
         M['modCC']['campi'].update(M.get('modIMP', {}).get('campi', {}))
+        # dalla 0.2.12 fusibili e interruttori hanno «includi» (spento all'apertura dalla 0.2.14): nei casi i dispositivi sono sempre inclusi
+        for k in ('onFus', 'onCb'):
+            M['modCC']['campi'][k] = True; M.get('modIMP', {}).get('campi', {}).pop(k, None)
         # dalla 0.2.3 fusibili e interruttori sono elenchi liberi: i casi scritti sulla coppia A/B restano validi togliendo l'elenco
         for m in ('modFUS', 'modCB'): M[m].pop('elenco', None); M[m].pop('punti', None)
         M['modPMT'].pop('dispositivi', None)
@@ -442,6 +445,49 @@ async def main():
         M['modCB']['elenco'] = ['A', 'B', 'C']; cb(s)['B'] = intr('NZMN1-A100'); cb(s)['C'] = intr('FAZ-C32/3')
         M['modCB']['punti'] = {'A': 1, 'B': 2, 'C': 2}; campi(s, 'modCB', cb_IkC=5)
         M['modPMT']['dispositivi'] = ['cbA', 'cbC']
+
+    # trasformatori in parallelo (dalla 0.2.14): ogni ramo ha i suoi punti (da 100 in su: secondario e fine del cavo al secondario di ogni trasformatore)
+    @caso('co10_due_trasformatori_in_parallelo_con_un_interruttore_per_ramo', ['modCC', 'modCOO', 'modVK'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, hascab=True, cS=150, cL=8, cn=2, cSn=150), tr(S=630, hascab=True, cS=150, cL=8, cn=2, cSn=150)]
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin', 'fu_Ik', 'fu_ip', 'fu_Imin'):
+            for m in M.values(): (m.get('campi') or {}).pop(k, None)
+        M['modFUS']['elenco'] = ['A']; M['modFUS']['punti'] = {'A': 0}
+        M['modCB']['elenco'] = ['A', 'B']; cb(s)['B'] = intr('NZMN1-A100'); M['modCB']['punti'] = {'A': 101, 'B': 103}   # fine del cavo al secondario di ogni trasformatore
+        M['modVK']['campi'].update({'vk_Ik': '', 'vk_ip': '', 'vk_Ith': '', 'vk_cutoff': ''}); M['modVK']['derivatoDa'] = 'p1'   # il parallelo dei trasformatori: picco condizionato dagli interruttori dei rami
+
+    @caso('co11_tre_trasformatori_diversi_rientro_dagli_altri_rami_piu_alto_della_corrente_del_ramo', ['modCC', 'modCOO', 'modVK'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, hascab=True, cS=150, cL=8, cn=2, cSn=150), tr(S=630, hascab=True, cS=150, cL=8, cn=2, cSn=150), tr(S=1000, hascab=True, cS=240, cL=8, cn=2, cSn=240)]
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin', 'fu_Ik', 'fu_ip', 'fu_Imin'):
+            for m in M.values(): (m.get('campi') or {}).pop(k, None)
+        M['modFUS']['elenco'] = ['A']; M['modFUS']['punti'] = {'A': 0}
+        M['modCB']['elenco'] = ['A', 'B']; cb(s)['B'] = intr('NZMN1-A100'); M['modCB']['punti'] = {'A': 101, 'B': 105}   # fine del cavo al secondario dei trasformatori 1 e 3
+        M['modVK']['campi'].update({'vk_Ik': '', 'vk_ip': '', 'vk_Ith': '', 'vk_cutoff': ''}); M['modVK']['derivatoDa'] = 'p1'   # il parallelo dei trasformatori: picco condizionato dagli interruttori dei rami
+
+    # corrente condizionata (dalla 0.2.14): a valle di un dispositivo limitatore il picco è quello lasciato passare
+    @caso('co12_interruttore_a_fine_cavo_al_secondario_condiziona_i_punti_a_valle', ['modCC', 'modCOO', 'modVK'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, hvcab=True, hvL=30, hascab=True, cS=150, cL=8, cn=2, cSn=150)]
+        campi(s, 'modCC', onCab=True, sc_on=True, sc_tipo='mt', sc_mat='Al', sc_S=185, sc_L=300, sc_n=1, sc_x=0.12, sc_te=160)
+        ccm(s)['cavi'] = [cav(S=95, L=25), cav(S=50, L=30)]
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin', 'fu_Ik', 'fu_ip', 'fu_Imin'):
+            for m in M.values(): (m.get('campi') or {}).pop(k, None)
+        M['modFUS']['elenco'] = ['A']; M['modFUS']['punti'] = {'A': 0}
+        M['modCB']['elenco'] = ['A']; M['modCB']['punti'] = {'A': 4}
+        M['modVK']['campi'].update({'vk_Ik': '', 'vk_ip': '', 'vk_Ith': '', 'vk_cutoff': ''}); M['modVK']['derivatoDa'] = 'p6'
+
+    @caso('co13_parallelo_con_dispositivi_sul_primario_sul_secondario_e_a_fine_cavo', ['modCC', 'modCOO'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['trasformatori'] = [tr(S=630, hvcab=True, hvL=30, hascab=True, cS=150, cL=8, cn=2, cSn=150), tr(S=630, hvcab=True, hvL=30, hascab=True, cS=150, cL=8, cn=2, cSn=150)]
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin', 'fu_Ik', 'fu_ip', 'fu_Imin'):
+            for m in M.values(): (m.get('campi') or {}).pop(k, None)
+        M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 100}   # sul primario del trasformatore 1
+        M['modCB']['elenco'] = ['A', 'B']; cb(s)['B'] = intr('NZMN1-A100'); M['modCB']['punti'] = {'A': 102, 'B': 104}   # fine cavo al secondario T1, secondario T2
 
     # collegamenti tra moduli (dalla 0.2.4): quadro derivato da un interruttore, guasto a terra MT dai dati delle protezioni MT
     @caso('co05_quadro_derivato_da_un_interruttore_e_guasto_a_terra_dalle_protezioni_MT', ['modCC', 'modVK', 'modMT', 'modPMT'])
