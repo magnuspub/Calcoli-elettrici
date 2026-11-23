@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.12",
-  "data": "22/11/2026",
-  "novita": "Le schede Fusibili e Interruttori del modulo Impianto hanno «includi» come le altre: spento, i dispositivi sono esclusi da tutti i calcoli. Nel Coordinamento BT le due levette mostrano o nascondono solo le curve."
+  "versione": "0.2.14",
+  "data": "24/11/2026",
+  "novita": "Barra dei componenti sempre a portata di mano: sorgente, trasformatori, linee, fusibili, interruttori e motori si aprono in un riquadro accanto alla pagina; tipo e regolazioni dei dispositivi stanno nella loro scheda. Corrente condizionata: colonna Ipk nella tabella dei punti, dispositivi nello schema del PDF. Trasformatori in parallelo: ogni ramo ha i suoi punti e vi si può mettere un dispositivo. Torna la «Sezione minima protetta»; il modulo si chiama «Coordinamento protezioni»."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",

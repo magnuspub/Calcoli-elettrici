@@ -4,6 +4,8 @@ async()=>{
   const h=s=>{ let a=2166136261; for(let i=0;i<s.length;i++){ a^=s.charCodeAt(i); a=Math.imul(a,16777619); } return (a>>>0).toString(16).padStart(8,"0"); };
   const sum=c=>{ if(!c) return null; let s=0,l=0; c.forEach(x=>{ if(Number.isFinite(x)){ s+=x; l+=Math.log(Math.abs(x)+1e-300); } }); return [c.length,+s.toPrecision(10),+l.toPrecision(10)]; };
   const out={tabelle:{}};
+  // dalla 0.2.14 fusibili e interruttori sono esclusi all'apertura: per provare le curve vanno inclusi
+  ["onFus","onCb"].forEach(id=>{ const e=document.getElementById(id); if(e&&!e.checked){ e.checked=true; } }); if(typeof recompute==="function") recompute();
   const T={MAT,CABLE_X,CABLE_K,GRID_PRESETS,TR_TYP,INRUSH,UTP_TABLE,FMT_TR,LP_EX,FUS_DB,CB_DB};
   ["TR_WTH","PMT_CUR","PMT_MOD","VG"].forEach(k=>{ try{ T[k]=eval(k); }catch(e){} });
   Object.keys(T).forEach(k=>{ out.tabelle[k]=h(JSON.stringify(T[k])); });
