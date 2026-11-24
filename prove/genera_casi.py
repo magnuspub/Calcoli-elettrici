@@ -316,6 +316,14 @@ async def main():
         campi(s, 'modCC', onCab=True)
 
     # la tensione della sorgente prevale sulla targa del primario: sorgente a 15 kV, trasformatore 20 kV / 400 V, al secondario 300 V
+    # motori in posizioni diverse (dalla 0.2.16): ognuno contribuisce dal punto a cui è collegato
+    @caso('cc46_motori_in_due_posizioni_uno_sul_secondario_uno_a_fine_linea', ['modCC'])
+    def _(s):
+        campi(s, 'modCC', onCab=True, onMot=True)
+        ccm(s)['trasformatori'] = [tr(S=630, hascab=True, cS=150, cL=8, cn=2, cSn=150)]
+        ccm(s)['cavi'] = [cav(desc='Montante', S=95, L=25, Sn=95), cav(desc='Linea', S=50, L=30, Sn=50)]
+        ccm(s)['motori'] = [mot(desc='Pompa', P=200, klr=6, poles=2, pos=2), mot(desc='Ventilatore', P=90, klr=7, poles=4, eta=0.85)]
+
     @caso('cc45_tensione_della_sorgente_diversa_dalla_targa_del_primario', ['modCC', 'modCOO', 'modPMT'])
     def _(s):
         ccm(s)['trasformatori'] = [tr(S=630, uhv=20000, ulv=400)]
