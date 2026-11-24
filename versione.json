@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.16",
+  "versione": "0.2.17",
   "data": "24/11/2026",
-  "novita": "Barra dei componenti a destra, con le schede laterali più larghe. Ogni motore si collega nel punto scelto dell'impianto. Fusibili e interruttori mostrano solo la posizione; con «Manuale (non collegato all'impianto)» si inseriscono a mano tensione e correnti. Colonna Ipk e punti dei rami in parallelo anche nel PDF e nel foglio Excel «Punti»."
+  "novita": "Regolazioni trascinabili sui grafici: soglie e tempi degli interruttori (Coordinamento protezioni) e dei relè (Protezioni MT) si spostano con il mouse, o con una pressione prolungata al tocco; Ctrl+Z annulla l'ultimo spostamento. Zoom con Ctrl+rotella. Grafici alla loro misura, centrati. Maniglie e zoom anche nella finestra separata del grafico."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",

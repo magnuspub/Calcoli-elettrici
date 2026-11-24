@@ -424,7 +424,7 @@ details.adv>.in{margin-top:10px}
   <div id="drDevW" hidden><div class="subh">Curve</div><div id="drChart"></div><div id="drLeg" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px"></div></div>
 </aside>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.16</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.17</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -1209,7 +1209,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati ciascuno nel punto scelto (di solito la fine dell'ultima linea), aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.16 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.17 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1250,7 +1250,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.16";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.17";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -1269,7 +1269,7 @@ function fmtAs(a){ return a>=1000 ? fmt(a/1000,2)+" kA" : fmt(a,a>=100?0:(a>=10?
 /* Misura dei grafici a video: larghi quanto il loro contenitore (quindi quanto la pagina), con le scritte sempre della stessa
    grandezza. Oltre la larghezza di base l'altezza cresce in proporzione, senza superare la finestra. Le esportazioni
    ridisegnano i grafici con le loro misure fisse e non cambiano. */
-function chW(id,W0){ const e=$(id), w=e?e.clientWidth:0; return w>0?Math.max(300,Math.min(1400,Math.round(w))):W0; }
+function chW(id,W0){ const e=$(id), w=e?e.clientWidth:0; return w>0?Math.max(300,Math.min(W0,Math.round(w))):W0; }   // mai più larghi della misura di progetto: il grafico non si stira, resta centrato
 function chH(W,W0,H0){ return W>W0?Math.max(H0,Math.min(Math.round(H0*W/W0),Math.round((window.innerHeight||900)*0.82))):H0; }
 
 /* ======================== 2 · INTERFACCIA GENERALE ========================
@@ -1315,6 +1315,7 @@ function chPop(host){
     w.document.getElementById("x").addEventListener("click",chiudi);
     w.document.addEventListener("keydown",ev=>{ if(ev.key==="Escape") chiudi(); });
     w.addEventListener("pagehide",scorda);
+    hdBind(w.document);   // maniglie e zoom funzionano anche nella finestra separata
   }catch(e){}
   draw(); return true;
 }
@@ -2003,7 +2004,7 @@ function ccWaveSVG(A,W){
   const H=300, L=W<420?74:104, R=W<420?38:58, T=12, Bm=30, pw=W-L-R, ph=H-T-Bm, X=t=>L+pw*t/tE, Y=v=>T+ph*(yTop-v*k)/(yTop-yBot);
   const path=(fn,n)=>{ let d=""; for(let i=0;i<=n;i++){ const t=tE*i/n; d+=(i?"L":"M")+X(t).toFixed(1)+" "+Y(fn(t)).toFixed(1); } return d; };
   const ink="var(--text-primary)", mu="var(--text-muted)", sub=(a,b)=>`${a}<tspan dy="3" font-size="8.5">${b}</tspan><tspan dy="-3"> </tspan>`;
-  let o=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block" role="img" aria-label="Andamento della corrente di cortocircuito" data-ax='${JSON.stringify({W,H,L,T,pw,ph,x0:0,x1:tE,xlog:false,y0:yBot,y1:yTop,ylog:false,xn:"t",yn:"i",xu:"s",yu:"kA"})}'>`;
+  let o=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block;margin:0 auto" role="img" aria-label="Andamento della corrente di cortocircuito" data-ax='${JSON.stringify({W,H,L,T,pw,ph,x0:0,x1:tE,xlog:false,y0:yBot,y1:yTop,ylog:false,xn:"t",yn:"i",xu:"s",yu:"kA"})}'>`;
   // griglia e assi
   const stp=(()=>{ const r=(yTop-yBot)/6, p=Math.pow(10,Math.floor(Math.log10(r))), m=r/p; return (m<1.5?1:m<3.5?2:m<7.5?5:10)*p; })();
   for(let v=Math.ceil(yBot/stp)*stp;v<=yTop+1e-9;v+=stp){ const y=Y(v/k).toFixed(1), z=Math.abs(v)<stp/1e6;
@@ -2616,7 +2617,7 @@ function computeMT(){
 }
 function drawUtpChart(tF, UTp, UE, ueColor){
   const host=$("mt_chart"); if(!host) return;
-  const W=Math.max(720,chW("mt_chart",720)),H=chH(W,720,300),L=46,R=16,T=14,B=34, pw=W-L-R, ph=H-T-B;
+  const W=chW("mt_chart",720),H=chH(W,720,300),L=46,R=16,T=14,B=34, pw=W-L-R, ph=H-T-B;
   const lx=t=>L+(Math.log10(Math.max(0.01,Math.min(10,t)))+2)/3*pw;
   const yMax=Math.max(800, Math.ceil(Math.max(UE,UTp)/200)*200);
   const ystep = yMax<=800?100:200;
@@ -2649,7 +2650,7 @@ function drawUtpChart(tF, UTp, UE, ueColor){
   if(UE>0){ const clamped=UE>yMax; const yE=ly(Math.min(UE,yMax));
     g+=`<circle cx="${xT.toFixed(1)}" cy="${yE.toFixed(1)}" r="4" fill="${ueColor}"/>`+
        `<text x="${(xT+7).toFixed(1)}" y="${(yE+15).toFixed(1)}" font-size="11" fill="${ueColor}">U<tspan font-size="8" dy="2">E</tspan><tspan dy="-2"> ${Math.round(UE)} V${clamped?" ▲":""}</tspan></text>`; }
-  host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block;overflow:visible" data-ax='${axData({W,H,L,T,pw,ph,x0:-2,x1:1,y0:0,y1:yMax,xlog:1,ylog:0},"durata del guasto (s)","tensione (V)")}' xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
+  host.innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block;margin:0 auto;overflow:visible" data-ax='${axData({W,H,L,T,pw,ph,x0:-2,x1:1,y0:0,y1:yMax,xlog:1,ylog:0},"durata del guasto (s)","tensione (V)")}' xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
 }
 
 /* ======================== 9 · FUSIBILI DELL'IMPIANTO ========================
@@ -2743,19 +2744,24 @@ function fusPlot(o){
   const p=o.pal, W=o.W||720, H=o.H||400, L=54, R=16, T=22, B=38, pw=W-L-R, ph=H-T-B, f1=v=>v.toFixed(1);
   const halo=`stroke="${p.bg}" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke"`;
   const dec=(a,b)=>{ let lo=Math.floor(Math.log10(a)+1e-9), hi=Math.ceil(Math.log10(b)-1e-9); if(hi<=lo) hi=lo+1; return [lo,hi]; };
-  const [x0,x1]=dec(o.xr[0],o.xr[1]), [y0,y1]=dec(o.yr[0],o.yr[1]);
+  let [x0,x1]=dec(o.xr[0],o.xr[1]), [y0,y1]=dec(o.yr[0],o.yr[1]);
+  const full={x0,x1,y0,y1}, zm=FUS_ZOOM[o.uid];   // zoom con Ctrl + rotella: una finestra dentro il campo intero, in decadi
+  if(zm){ const a=Math.max(zm.x0,x0), b=Math.min(zm.x1,x1), c=Math.max(zm.y0,y0), d=Math.min(zm.y1,y1); if(b-a>0.1&&d-c>0.1){ x0=a; x1=b; y0=c; y1=d; } else delete FUS_ZOOM[o.uid]; }
+  const inX=v=>{ const q=Math.log10(v); return q>=x0-1e-9&&q<=x1+1e-9; }, inY=v=>{ const q=Math.log10(v); return q>=y0-1e-9&&q<=y1+1e-9; };
+  const tk=(a,b)=>{ const o=[], m=(b-a)<1.2?[1,2,3,5,7]:((b-a)<2.2?[1,2,5]:[1]); for(let d=Math.floor(a); d<=Math.ceil(b); d++) m.forEach(k=>{ const v=k*Math.pow(10,d), q=Math.log10(v); if(q>=a-1e-9&&q<=b+1e-9) o.push(v); }); return o; };
   const X=v=>L+(Math.log10(v)-x0)/(x1-x0)*pw, Y=v=>T+(1-(Math.log10(v)-y0)/(y1-y0))*ph;
   const clip=`fuclip${o.uid}`;
   let g=`<defs><clipPath id="${clip}"><rect x="${L}" y="${T}" width="${pw}" height="${ph}"/></clipPath></defs>`;
   // griglia: decadi marcate + divisioni intermedie
-  for(let d=x0; d<x1; d++) for(let m=1;m<10;m++){ const x=f1(X(m*Math.pow(10,d)));
+  for(let d=Math.floor(x0); d<x1; d++) for(let m=1;m<10;m++){ if(!inX(m*Math.pow(10,d))) continue; const x=f1(X(m*Math.pow(10,d)));
     g+=`<line x1="${x}" y1="${T}" x2="${x}" y2="${T+ph}" stroke="${p.grid}" stroke-width="${m===1?1:0.5}" opacity="${m===1?1:0.45}"/>`; }
   g+=`<line x1="${L+pw}" y1="${T}" x2="${L+pw}" y2="${T+ph}" stroke="${p.grid}"/>`;
-  for(let d=y0; d<y1; d++) for(let m=1;m<10;m++){ const y=f1(Y(m*Math.pow(10,d)));
+  for(let d=Math.floor(y0); d<y1; d++) for(let m=1;m<10;m++){ if(!inY(m*Math.pow(10,d))) continue; const y=f1(Y(m*Math.pow(10,d)));
     g+=`<line x1="${L}" y1="${y}" x2="${L+pw}" y2="${y}" stroke="${p.grid}" stroke-width="${m===1?1:0.5}" opacity="${m===1?1:0.45}"/>`; }
   g+=`<line x1="${L}" y1="${T}" x2="${L+pw}" y2="${T}" stroke="${p.grid}"/>`;
-  for(let d=x0; d<=x1; d++) g+=`<text x="${f1(X(Math.pow(10,d)))}" y="${T+ph+16}" text-anchor="middle" font-size="11" fill="${p.muted}">${fusTick(Math.pow(10,d))}</text>`;
-  for(let d=y0; d<=y1; d++) g+=`<text x="${L-6}" y="${f1(Y(Math.pow(10,d))+3.5)}" text-anchor="end" font-size="11" fill="${p.muted}">${fusTick(Math.pow(10,d))}</text>`;
+  tk(x0,x1).forEach(v=>{ g+=`<text x="${f1(X(v))}" y="${T+ph+16}" text-anchor="middle" font-size="11" fill="${p.muted}">${fusTick(v)}</text>`; });
+  tk(y0,y1).forEach(v=>{ g+=`<text x="${L-6}" y="${f1(Y(v)+3.5)}" text-anchor="end" font-size="11" fill="${p.muted}">${fusTick(v)}</text>`; });
+  if(zm&&FUS_ZOOM[o.uid]) g+=`<text class="zrst" data-uid="${o.uid}" x="${L+pw-4}" y="${T+13}" text-anchor="end" font-size="10.5" fill="${p.ik||p.ink}" text-decoration="underline" style="cursor:pointer" ${halo}>zoom attivo · clic qui per tornare all'intero</text>`;
   g+=`<text x="${L+pw}" y="${T+ph+31}" text-anchor="end" font-size="10.5" fill="${p.muted}">${o.xlab}</text>`;
   g+=`<text x="4" y="11" font-size="10.5" fill="${p.muted}">${o.ylab}</text>`;
   // bande (aree tra curva minima e massima)
@@ -2787,8 +2793,78 @@ function fusPlot(o){
       g+=`<text x="${f1(tx)}" y="${f1(ty)}" text-anchor="${end?"end":"start"}" font-size="11" font-weight="600" fill="${p.ink}" ${halo}>${q.lab}</text>`;
       break;
     } });
-  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block" data-ax='${axData({W,H,L,T,pw,ph,x0,x1,y0,y1,xlog:1,ylog:1},o.xlab,o.ylab)}' xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
+  // maniglie delle regolazioni: si trascinano lungo un solo asse (↔ soglia di corrente, ↕ tempo)
+  // nessuna maniglia sparisce: se due cadrebbero una sull'altra (tratto annullato o cortissimo) la seconda si scosta lungo il proprio asse, con un filo che la lega al suo punto
+  const hdP=[];
+  (o.hd||[]).forEach(h=>{ if(!(h.x>0&&h.y>0)) return; if(FUS_ZOOM[o.uid]&&!(inX(h.x)&&inY(h.y))) return;   // con lo zoom: solo le maniglie dentro la finestra
+    const hx=h.ax==="x", ax0=Math.min(Math.max(X(h.x),L+4),L+pw-4), ay0=Math.min(Math.max(Y(h.y),T+4),T+ph-4); let x=ax0, y=ay0;
+    for(let n=1;n<=6&&hdP.some(q=>Math.hypot(q[0]-x,q[1]-y)<21);n++){ const d=24*Math.ceil(n/2)*(n%2?-1:1); x=hx?ax0+d:ax0; y=hx?ay0:ay0+d;
+      if(x<L+8||x>L+pw-8||y<T+8||y>T+ph-8){ x=ax0; y=ay0; continue; } }
+    hdP.push([x,y]);
+    if(x!==ax0||y!==ay0) g+=`<line x1="${f1(ax0)}" y1="${f1(ay0)}" x2="${f1(x)}" y2="${f1(y)}" stroke="${h.col}" stroke-width="1" stroke-dasharray="2 2"/><circle cx="${f1(ax0)}" cy="${f1(ay0)}" r="2" fill="${h.col}"/>`;
+    g+=`<g class="hdl" data-hd="${escH(JSON.stringify({key:h.key,ax:h.ax,k:h.k,off:h.off||0,sel:h.sel?1:0,step:h.step||0,min:h.min||0,dec:h.dec||0,lo:h.lo>0?h.lo:0,hi:isFinite(h.hi)?h.hi:null,lab:h.lab,un:h.un||""}))}" style="cursor:${hx?"ew-resize":"ns-resize"};touch-action:pan-y pinch-zoom">`+
+       `<circle cx="${f1(x)}" cy="${f1(y)}" r="13" fill="transparent"/>`+
+       `<path d="${hx?`M${f1(x-11)} ${f1(y)}h22M${f1(x-11)} ${f1(y)}l4 -3.5m-4 3.5l4 3.5M${f1(x+11)} ${f1(y)}l-4 -3.5m4 3.5l-4 3.5`:`M${f1(x)} ${f1(y-11)}v22M${f1(x)} ${f1(y-11)}l-3.5 4m3.5 -4l3.5 4M${f1(x)} ${f1(y+11)}l-3.5 -4m3.5 4l3.5 -4`}" fill="none" stroke="${h.col}" stroke-width="1.6" stroke-linecap="round"/>`+
+       `<circle cx="${f1(x)}" cy="${f1(y)}" r="5" fill="${p.bg}" stroke="${h.col}" stroke-width="2"/></g>`; });
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W}px;display:block;margin:0 auto" data-ax='${axData({W,H,L,T,pw,ph,x0,x1,y0,y1,xlog:1,ylog:1,uid:o.uid,f:full},o.xlab,o.ylab)}' xmlns="http://www.w3.org/2000/svg">${g}</svg>`;
 }
+
+/* ---- trascinamento delle regolazioni sui grafici (prova) ----
+   Ogni maniglia è legata a un campo: un elenco (interruttori: si ferma solo sui valori offerti dallo sganciatore) oppure un numero
+   (relè: scatto libero arrotondato al passo). Valore del campo = (coordinata − off) / k. Con il tocco serve una pressione prolungata. */
+const FUS_ZOOM={}, HD_EL={}, HD_UNDO=[]; let HD=null, HD_T=null, HD_RAF=0, HD_EV=null;
+const svgPt=(svg,e)=>{ const m=svg.getScreenCTM(); if(!m) return null; const q=new DOMPoint(e.clientX,e.clientY).matrixTransform(m.inverse()); return [q.x,q.y]; };   // punto del cursore nelle coordinate del disegno
+const hdVert=(c,x)=>{ let lo=Infinity, hi=0; for(let i=0;i<c.length;i+=2) if(Math.abs(c[i]-x)<=1e-6*x){ lo=Math.min(lo,c[i+1]); hi=Math.max(hi,c[i+1]); } return hi>0?Math.sqrt(lo*hi):0; };   // metà (in scala log) del tratto verticale alla corrente x
+function hdFire(el){ el.dispatchEvent(new Event("input",{bubbles:true})); el.dispatchEvent(new Event("change",{bubbles:true})); }
+function hdTip(e){ if(!HD) return; const el=HD.el, d=HD.d, t=HD.tip, tmp=document.createElement("span"); tmp.innerHTML=d.lab;
+  t.textContent=tmp.textContent+": "+(d.sel?(el.options[el.selectedIndex]||{text:""}).text:(String(el.value).replace(".",",")+(d.un?" "+d.un:"")));
+  if(e){ const w=t.ownerDocument.defaultView||window; t.style.left=Math.min(e.clientX+16,w.innerWidth-t.offsetWidth-8)+"px"; t.style.top=Math.max(8,e.clientY-38)+"px"; } }
+function hdStart(g,e){ let d; try{ d=JSON.parse(g.dataset.hd); }catch(x){ return; } const el=HD_EL[d.key]&&HD_EL[d.key](); if(!el) return;
+  const D=g.ownerDocument, tip=D.createElement("div"); tip.style.cssText="position:fixed;z-index:9999;pointer-events:none;background:#1b2330;color:#fff;font:600 12.5px/1.2 system-ui,sans-serif;padding:5px 9px;border-radius:6px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.3)";
+  D.body.appendChild(tip); HD={d,el,holder:g.closest("svg").parentNode,prev:el.value,tip,D}; D.body.style.userSelect="none"; hdTip(e); }
+function hdMove(e){ if(!HD) return; const svg=HD.holder.querySelector("svg[data-ax]"); if(!svg) return; let a; try{ a=JSON.parse(svg.dataset.ax); }catch(x){ return; }
+  const pt=svgPt(svg,e); if(!pt) return; const d=HD.d, el=HD.el, px=pt[0], py=pt[1];
+  const fr=d.ax==="x"?Math.min(Math.max((px-a.L)/a.pw,0),1):Math.min(Math.max(1-(py-a.T)/a.ph,0),1), val=Math.pow(10,d.ax==="x"?a.x0+fr*(a.x1-a.x0):a.y0+fr*(a.y1-a.y0)), want=(val-d.off)/d.k;
+  let nv;
+  if(d.sel){ const vs=[...el.options].map(o=>parseFloat(o.value)).filter(v=>isFinite(v)&&(v>0||d.ax==="y")); if(!vs.length) return;
+    const pos=vs.filter(v=>v>0), eps=pos.length?Math.min(...pos)/2:1e-3, w=Math.max(want,eps/4); let best=null, bd=Infinity;
+    vs.forEach(v=>{ const q=Math.abs(Math.log(Math.max(v,eps)/w)); if(q<bd){ bd=q; best=v; } });
+    const o=[...el.options].find(o=>parseFloat(o.value)===best); if(!o) return; nv=o.value; }
+  else { const st=d.step||0.01, e=1e-9; let q=Math.max(d.min,Math.round(Math.max(want,0)/st)*st);   // limiti funzionali: la soglia non scavalca le vicine, il tempo non esce dal campo in cui la soglia conta
+    const lo=Math.max(d.min,Math.ceil(d.lo/st-e)*st), hi=d.hi!=null?Math.floor(d.hi/st+e)*st:Infinity; if(hi>=lo) q=Math.min(Math.max(q,lo),hi);
+    nv=String(+q.toFixed(d.dec)); }
+  if(nv!==el.value){ el.value=nv; hdFire(el); }
+  hdTip(e); }
+function hdEnd(){ clearTimeout(HD_T); HD_T=null; if(!HD) return; if(HD.el.value!==HD.prev){ HD_UNDO.push({el:HD.el,v:HD.prev}); if(HD_UNDO.length>50) HD_UNDO.shift(); }
+  HD.tip.remove(); HD.D.body.style.userSelect=""; HD=null; }
+// gli stessi comandi valgono nella pagina e nelle finestre separate dei grafici
+function hdBind(document){
+document.addEventListener("pointerdown",e=>{ const g=e.target&&e.target.closest&&e.target.closest(".hdl"); if(!g||e.button>0) return;
+  if(e.pointerType==="touch"){ const x0=e.clientX, y0=e.clientY; clearTimeout(HD_T);   // tocco: pressione prolungata, così lo scorrimento della pagina resta libero
+    HD_T=setTimeout(()=>{ HD_T=null; hdStart(g,e); if(HD&&navigator.vibrate) navigator.vibrate(12); },450);
+    const cancel=m=>{ if(HD) return; if(m.type!=="pointermove"||Math.hypot(m.clientX-x0,m.clientY-y0)>8){ clearTimeout(HD_T); HD_T=null; document.removeEventListener("pointermove",cancel); document.removeEventListener("pointerup",cancel); document.removeEventListener("pointercancel",cancel); } };
+    document.addEventListener("pointermove",cancel); document.addEventListener("pointerup",cancel); document.addEventListener("pointercancel",cancel); return; }
+  e.preventDefault(); hdStart(g,e); },true);
+document.addEventListener("pointermove",e=>{ if(!HD) return; HD_EV=e; if(!HD_RAF) HD_RAF=setTimeout(()=>{ HD_RAF=0; if(HD_EV) hdMove(HD_EV); },16); });
+document.addEventListener("pointerup",hdEnd); document.addEventListener("pointercancel",hdEnd);
+document.addEventListener("touchmove",e=>{ if(HD&&e.cancelable) e.preventDefault(); },{passive:false});
+document.addEventListener("contextmenu",e=>{ if(HD||HD_T||(e.target&&e.target.closest&&e.target.closest(".hdl"))) e.preventDefault(); });
+document.addEventListener("keydown",e=>{ if(!(e.ctrlKey||e.metaKey)||e.key.toLowerCase()!=="z"||e.shiftKey) return; const t=e.target;   // Ctrl+Z: annulla l'ultimo spostamento, se non si sta scrivendo in un campo
+  if(t&&t.matches&&t.matches("input:not([type=checkbox]),textarea,[contenteditable]")) return;
+  let u; while((u=HD_UNDO.pop())&&!u.el.isConnected); if(!u) return; e.preventDefault(); u.el.value=u.v; hdFire(u.el); });
+// zoom con Ctrl + rotella, attorno al cursore; clic sulla scritta «zoom» per tornare al campo intero
+document.addEventListener("wheel",e=>{ const svg=e.target&&e.target.closest?e.target.closest("svg[data-ax]"):null; if(!svg||!e.ctrlKey) return; let a; try{ a=JSON.parse(svg.dataset.ax); }catch(x){ return; } if(!a.uid||!a.f) return;
+  e.preventDefault(); const pt=svgPt(svg,e); if(!pt) return;
+  const cl=v=>Math.min(Math.max(v,0),1), fx=cl((pt[0]-a.L)/a.pw), fy=cl(1-(pt[1]-a.T)/a.ph), k=e.deltaY<0?0.8:1.25, F=a.f;
+  if(k>1&&!FUS_ZOOM[a.uid]) return;
+  const ax=(lo,hi,fr,flo,fhi)=>{ const c=lo+fr*(hi-lo); let n0=c-(c-lo)*k, n1=c+(hi-c)*k; if(n1-n0<0.25) return [lo,hi]; if(n1-n0>=fhi-flo-1e-6) return [flo,fhi];
+    if(n0<flo){ n1+=flo-n0; n0=flo; } if(n1>fhi){ n0-=n1-fhi; n1=fhi; } return [n0,n1]; };
+  const [nx0,nx1]=ax(a.x0,a.x1,fx,F.x0,F.x1), [ny0,ny1]=ax(a.y0,a.y1,fy,F.y0,F.y1);
+  if(nx0<=F.x0+1e-6&&nx1>=F.x1-1e-6&&ny0<=F.y0+1e-6&&ny1>=F.y1-1e-6) delete FUS_ZOOM[a.uid]; else FUS_ZOOM[a.uid]={x0:nx0,x1:nx1,y0:ny0,y1:ny1};
+  if(!FUS_ZRAF) FUS_ZRAF=setTimeout(()=>{ FUS_ZRAF=0; recompute(); },16); },{passive:false});
+document.addEventListener("click",e=>{ const t=e.target&&e.target.closest?e.target.closest(".zrst"):null; if(!t) return; delete FUS_ZOOM[t.dataset.uid]; recompute(); });
+}
+let FUS_ZRAF=0; hdBind(document);
 // descrizione degli assi di un grafico, letta dal crocino: nome e unità si ricavano dalle etichette «nome (unità)»
 function axData(a,xlab,ylab){
   const sp=t=>{ const m=String(t).match(/^(.*?)\s*\(([^()]*)\)\s*$/); return m?[m[1],m[2]]:[String(t),""]; }, x=sp(xlab), y=sp(ylab);
@@ -3195,8 +3271,12 @@ function cbSlot(s,U){
   const x=CB_DB.x[p[2]], cv=CB_DB.c[x[11]];
   const Ir=parseFloat($("cb_Ir"+s).value)||x[4], Ii=parseFloat($("cb_Ii"+s).value)||x[6];
   const sc=(x[14]&&x[4]>0)?Ir/x[4]:1, f=x[6]>0?Ii/x[6]:1;
-  return {slot:s,type:p[0],cat:x[0],ch:x[1],Un:x[2],Iu:x[3],Ir,Ii,hasL:!!x[14],adjIr:x[5]>=0,adjIi:x[7]>=0&&CB_DB.ii[x[7]].length>1,lsi:null,
-    max:cbBand(cv[1],sc,f), min:cbBand(cv[0],sc,f), thMax:cv[1][1]?cv[1][1]*f:0, thE:cv[1][1]?cv[1][1]*f:0, thMin:(cv[0]&&cv[0][1])?cv[0][1]*f:0,
+  const mxB=cbBand(cv[1],sc,f), hd=[];   // maniglie: Ir su un punto della parte termica, Ii a metà del salto magnetico
+  { const th=cv[1][0], It=cv[1][1]?cv[1][1]*f:Infinity; let n=0; while(2*n<th.length&&th[2*n]*sc<It) n++;
+    if(x[14]&&n>1){ const i=Math.max(1,Math.floor(n*0.4)); hd.push({id:"cb_Ir"+s,ax:"x",x:th[2*i]*sc,y:th[2*i+1],k:th[2*i]*sc/Ir,lab:"I<sub>r</sub>"}); }
+    if(cv[1][1]&&Ii>0){ const y=hdVert(mxB,It); if(y>0) hd.push({id:"cb_Ii"+s,ax:"x",x:It,y,k:It/Ii,lab:"I<sub>i</sub>"}); } }
+  return {slot:s,type:p[0],cat:x[0],ch:x[1],Un:x[2],Iu:x[3],Ir,Ii,hasL:!!x[14],adjIr:x[5]>=0,adjIi:x[7]>=0&&CB_DB.ii[x[7]].length>1,lsi:null,hd,
+    max:mxB, min:cbBand(cv[0],sc,f), thMax:cv[1][1]?cv[1][1]*f:0, thE:cv[1][1]?cv[1][1]*f:0, thMin:(cv[0]&&cv[0][1])?cv[0][1]*f:0,
     d:cbPick(x[12],CB_DB.d,U), e:cbPick(x[13],CB_DB.e,U), icu:cbIcu(x[10],x[8],x[9],x[2],U)};
 }
 // sganciatore elettronico: banda calcolata dalle regolazioni
@@ -3214,9 +3294,16 @@ function cbSlotE(s,U,p){
     Iend:Math.max((icu&&icu.v?icu.v:x[17])*1000,20*x[3])};
   // soglia oltre la quale l'apertura è senza ritardo intenzionale: istantanea, oppure corto ritardo a tempo zero
   const thI=Ii>0?Ii*(1+x[15]/100):0, thS1=Isd>0?Isd*(1+x[11]/100):0, thE=(thS1>0&&tsd===0)?(thI>0?Math.min(thS1,thI):thS1):thI;
-  return {slot:s,type:p[0],cat:x[0],ch:x[1],Un:x[2],Iu:x[3],Ir,Ii,hasL:true,adjIr:true,adjIi:Ii>0,thE,
+  const mxB=cbLsiBand(o,true), hd=[];   // maniglie sulla curva massima: ↔ Ir, Isd, Ii sui tratti verticali · ↕ tr sul lungo ritardo, tsd sul corto ritardo
+  { const I0=o.lp[1]*Ir, IS=Isd>0?Isd*(1+x[11]/100):0, II=thI, useS=IS>0&&(II<=0||IS<II), Ie=mxB[mxB.length-2], brk=useS?IS:(II>0?II:Ie), tm=I=>fusTime(mxB,I).t;
+    let y=hdVert(mxB,I0); if(y>0) hd.push({id:"cb_Ir"+s,ax:"x",x:I0,y:Math.min(y,tm(I0*1.001)*4),k:I0/Ir,lab:"I<sub>r</sub>"});
+    if(brk>I0*1.3){ const xm=Math.sqrt(I0*brk)*1.15; y=tm(xm); if(y>0&&isFinite(y)) hd.push({id:"cb_tr"+s,ax:"y",x:xm,y,k:y/tr,lab:"t<sub>r</sub>"}); }
+    if(useS){ y=hdVert(mxB,IS); const m=v("cb_Isd"); if(y>0&&m>0) hd.push({id:"cb_Isd"+s,ax:"x",x:IS,y,k:IS/m,lab:"I<sub>sd</sub>"});
+      const xa=Math.max(IS,si?o.sRefI:0), xb=II>IS?II:Ie; if(xb>xa*1.15&&x[12]>=0){ const xm=Math.sqrt(xa*xb); y=tm(xm); if(y>0&&isFinite(y)) hd.push({id:"cb_tsd"+s,ax:"y",x:xm,y,k:1,lab:"t<sub>sd</sub>"}); } }
+    if(II>0){ y=hdVert(mxB,II); if(y>0) hd.push({id:"cb_Ii"+s,ax:"x",x:II,y,k:II/Ii,lab:"I<sub>i</sub>"}); } }
+  return {slot:s,type:p[0],cat:x[0],ch:x[1],Un:x[2],Iu:x[3],Ir,Ii,hasL:true,adjIr:true,adjIi:Ii>0,thE,hd,
     lsi:{tr,n,Isd,tsd,si,unk:!!x[8],Icw:x[21],m:q.m||6,sRefTxt:fusNum(q.sRef||8)+" × "+(q.sIn?"In":"Ir"),thS:Isd>0?[Isd*(1-x[11]/100),Isd*(1+x[11]/100)]:null},
-    max:cbLsiBand(o,true), min:cbLsiBand(o,false), thMax:Ii>0?Ii*(1+x[15]/100):0, thMin:Ii>0?Ii*(1-x[15]/100):0,
+    max:mxB, min:cbLsiBand(o,false), thMax:Ii>0?Ii*(1+x[15]/100):0, thMin:Ii>0?Ii*(1-x[15]/100):0,
     d:cbPick(x[19],CB_DB.d,U), e:cbPick(x[20],CB_DB.e,U), icu};
 }
 // tempi di intervento alla corrente I: mx sulla banda massima, mn sulla minima
@@ -3582,9 +3669,11 @@ function cooLines(pal,vl,xs,min){ const it=cooItems(pal);
     g.forEach(y=>{ vl.push({x:y.I,col,dash,lab:lab+(g.length>1?" "+y.n.join(", "):"")}); xs.push(y.I); }); };
   grp(r=>r.Ik,pal.ik,"6 3","I″k"); if(min) grp(r=>r.Imin,pal.imin,"2 3","I″k min"); }
 function cooMainSVG(pal,uid,W){
-  const q=COO_ST, ser=[], areas=[], vl=[], pts=[], xs=[], ys=[];
+  const q=COO_ST, ser=[], areas=[], vl=[], pts=[], xs=[], ys=[], hd=[];
   cooItems(pal).forEach(x=>{ const r=x.r, col=x.col;
     if(x.fam==="cb"){ const b=r.b, mx=cooSc(b.max,x.k), mn=b.min?cooSc(b.min,x.k):null, n=mx.length;
+      if(pal===FUS_PAL&&b.hd) b.hd.forEach(h=>{ const el=$(h.id); if(!el||el.disabled||el.options.length<2) return;   // solo a schermo, solo le regolazioni con più di un valore
+        HD_EL[h.id]=()=>$(h.id); hd.push({key:h.id,ax:h.ax,x:h.x*x.k,y:h.y,k:h.ax==="x"?h.k*x.k:h.k,sel:1,col,lab:h.lab+(q.C.length>1?" · int. "+r.s:"")}); });
       if(mn){ areas.push({c:cbArea(mn,mx),col}); ser.push({c:mn,col,dash:x.dash,w:1.2}); xs.push(mn[0]); ys.push(mn[mn.length-1]); }
       ser.push({c:mx,col,dash:x.dash}); xs.push(mx[0],mx[n-2]); ys.push(mx[1],mx[n-1]);
       if(r.Ik>0&&r.tk.mx.st==='ok') pts.push({x:r.Ik*x.k,y:r.tk.mx.t,col,lab:fusFmtT(r.tk.mx.t)});
@@ -3601,7 +3690,7 @@ function cooMainSVG(pal,uid,W){
   if(q.onC&&CB_ST.ovl){ const o=CB_ST.ovl; if(o.c){ ser.push({c:o.c,col:pal.wth,dash:TR_DASH,w:1.6}); xs.push(o.c[0]); ys.push(o.c[1]); }
     pts.push({x:o.Ikt,y:2,col:pal.wth,lab:"tenuta 2 s"}); xs.push(o.Ikt); ys.push(2); vl.push({x:o.In,col:pal.wth,dash:TR_DASH,lab:"In trasf."}); xs.push(o.In); }
   W=W||720;
-  return fusPlot({uid,pal,W,H:W<520?360:chH(W,720,420),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",areas,series:ser,vl,pts});
+  return fusPlot({uid,pal,W,H:W<520?360:chH(W,720,420),xr:fusMM(xs),yr:fusMM(ys),xlab:"corrente presunta (A)",ylab:"tempo (s)",areas,series:ser,vl,pts,hd});
 }
 function cooLimSVG(pal,uid,W){
   const ser=[], pts=[], vl=[], xs=[], ys=[]; let bt=false;
@@ -3974,12 +4063,26 @@ const PMT_CBDASH="6 3";
    // tratteggio delle curve degli interruttori BT riportate alla MT
 function pmtSw(col,dash){ return `<svg width="26" height="8" style="vertical-align:middle;margin-right:5px" aria-hidden="true"><line x1="0" y1="4" x2="26" y2="4" stroke="${col}" stroke-width="2.2"${dash?` stroke-dasharray="${dash}"`:""}/></svg>`; }
 function pmtChart(st,fam,pal,uid,W){
-  const ser=[], vl=[], xs=[], ys=[], areas=[];
+  const ser=[], vl=[], xs=[], ys=[], areas=[], hd=[];
   const add=(c,col,dash,w)=>{ if(!c) return; ser.push({c,col,dash,w}); for(let i=0;i<c.length;i+=2){ xs.push(c[i]); if(c[i+1]<1e4) ys.push(c[i+1]); } };
   const pts=[];
   st.prot.forEach((p,i)=>{ const col=pal.p[i%pal.p.length];
     if(p.bmax&&p.bmin&&p.bmax[fam]&&p.bmin[fam]){ areas.push({c:cbArea(p.bmin[fam],p.bmax[fam]),col}); add(p.bmin[fam],col,"",0.8); add(p.bmax[fam],col,"",0.8); }
-    add(p.cv[fam],col,"",2.2); });
+    add(p.cv[fam],col,"",2.2);
+    if(pal===PMT_PAL&&p.cv[fam]&&p.el){ const c=p.cv[fam], Ie=c[c.length-2], nm=st.prot.length>1?" · "+escH(p.desc):"";   // maniglie: ↔ soglia, ↕ tempo (o moltiplicatore) di ogni soglia attiva
+      const L=PMT_TH.filter(q=>q[2]===fam&&p.th[q[0]].on&&p.th[q[0]].Is>0).map(q=>{ const th=p.th[q[0]]; return {th,s:th.Is*(th.c==="DT"?1:p.mod.m0)}; }).sort((a,b)=>a.s-b.s);
+      L.forEach((o,j)=>{ const th=o.th, k=th.k, eV=p.el.querySelector(`[data-k="v_${k}"]`), eT=p.el.querySelector(`[data-k="t_${k}"]`), v=parseFloat(String(eV.value).replace(",","."))||0, dt=th.c==="DT";
+        const own=I=>pmtT(th,I,p.mod)+p.tcb, y0=own(o.s*1.000001); if(!isFinite(y0)||!(v>0)) return;
+        const prev=j>0?pmtT(L[j-1].th,o.s,p.mod)+p.tcb:Infinity, yx=isFinite(prev)?(prev>y0?Math.sqrt(prev*y0):y0):y0*2.2;   // a metà del tratto verticale; se il tratto è sparito (stesso tempo della soglia precedente) resta sul punto di giunzione
+        const stp=p.mult?(fam==="F"?0.05:0.01):(fam==="F"?(v>=100?5:1):(v>=10?0.5:0.1)), dec=stp<0.1?2:(stp<1?1:0);
+        { HD_EL["pm"+i+"v"+k]=()=>eV; hd.push({key:"pm"+i+"v"+k,ax:"x",x:o.s,y:yx,k:o.s/v,step:stp,min:stp,dec,un:p.mult?"× In":"A",col,lab:th.lab+nm,
+          lo:j>0?L[j-1].s/(o.s/v)+stp:0, hi:L[j+1]?L[j+1].s/(o.s/v)-stp:Infinity}); }   // tra la soglia precedente e la successiva
+        const nx=L[j+1], xe=nx?nx.s:Math.max(Ie,o.s*3);   // anche se il tratto è cortissimo la maniglia resta: il grafico la scosta dalle vicine
+        const xm=Math.sqrt(o.s*xe)*(dt||nx?1:0.8), ym=own(xm);
+        if(!isFinite(ym)||PMT_CUR[th.c]&&PMT_CUR[th.c].rd||(!dt&&!(th.t>0))) return;
+        HD_EL["pm"+i+"t"+k]=()=>eT; hd.push({key:"pm"+i+"t"+k,ax:"y",x:xm,y:ym,k:dt?1:(ym-p.tcb)/th.t,off:p.tcb,step:0.01,min:dt?0:0.01,dec:2,un:dt?"s":"",col,lab:(dt?"t ":"moltiplicatore ")+th.lab+nm,
+          // tempo indipendente: non sotto il tempo della soglia successiva né sotto il minimo del relè, non sopra il tempo della soglia precedente in quel punto
+          lo:dt?Math.max(L[j+1]?pmtT(L[j+1].th,L[j+1].s*1.000001,p.mod):0,p.mod.tmin||0,0.01):0, hi:dt&&isFinite(prev)?prev-p.tcb:Infinity}); }); } });
   if(st.dso[fam]) add(st.dso[fam],pal.dso,"8 4",1.8);
   if(fam==="F"&&st.dsoAlt) add(st.dsoAlt,pal.dso,"2 3",1.5);
   if(fam==="F"){ if(st.inr) add(st.inr.c,pal.inr,TR_DASH,2.2); if(st.fus) st.fus.forEach(z=>add(z.t,pal.fz,FUS_DASH[z.i%FUS_DASH.length],2));
@@ -3990,7 +4093,7 @@ function pmtChart(st,fam,pal,uid,W){
   else if(st.IF>0){ vl.push({x:st.IF,col:pal.ie,dash:"6 3",lab:"guasto a terra"}); xs.push(st.IF); }
   if(!ser.length) return "";
   ys.push(0.01,10);
-  return fusPlot({uid,pal,W:W||720,H:chH(W||720,900,fam==="F"?400:300),xr:fusMM(xs),yr:fusMM(ys),xlab:fam==="F"?"corrente di fase, ampere primari (A)":"corrente residua, ampere primari (A)",ylab:"tempo di estinzione (s)",areas,series:ser,vl,pts});
+  return fusPlot({uid,pal,W:W||720,H:chH(W||720,900,fam==="F"?400:300),xr:fusMM(xs),yr:fusMM(ys),xlab:fam==="F"?"corrente di fase, ampere primari (A)":"corrente residua, ampere primari (A)",ylab:"tempo di estinzione (s)",areas,series:ser,vl,pts,hd});
 }
 function pmtLegend(st,fam,pal){
   const it=[]; st.prot.forEach((p,i)=>{ if(p.cv[fam]) it.push(pmtSw(pal.p[i%pal.p.length],"")+escH(p.desc)); });
