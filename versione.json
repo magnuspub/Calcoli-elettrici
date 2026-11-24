@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.18",
+  "versione": "0.2.19",
   "data": "24/11/2026",
-  "novita": "Tabella «Correnti nei punti» sugli schermi stretti: le sette colonne (con la Ipk) stanno su una riga e le intestazioni «massime» e «minime» coprono le colonne giuste; la linea tra massime e minime è al suo posto anche su schermo largo."
+  "novita": "Correzione K_T dei trasformatori attiva all'apertura, come prescrive la IEC 60909-0 per le correnti massime (i file salvati mantengono la loro scelta). Nelle correnti minime l'impedenza della rete a monte del trasformatore usa c min (1,00 in MT, 0,95 in BT), coerente con la I″kQ minima del distributore: le minime crescono di qualche decimo di punto."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
