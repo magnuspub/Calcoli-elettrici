@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.17",
+  "versione": "0.2.18",
   "data": "24/11/2026",
-  "novita": "Regolazioni trascinabili sui grafici: soglie e tempi degli interruttori (Coordinamento protezioni) e dei relè (Protezioni MT) si spostano con il mouse, o con una pressione prolungata al tocco; Ctrl+Z annulla l'ultimo spostamento. Zoom con Ctrl+rotella. Grafici alla loro misura, centrati. Maniglie e zoom anche nella finestra separata del grafico."
+  "novita": "Tabella «Correnti nei punti» sugli schermi stretti: le sette colonne (con la Ipk) stanno su una riga e le intestazioni «massime» e «minime» coprono le colonne giuste; la linea tra massime e minime è al suo posto anche su schermo largo."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
