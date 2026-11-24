@@ -129,6 +129,7 @@ input:disabled{opacity:.45}
 .cable-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;gap:8px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
 .cable-row .del{grid-column:6;grid-row:1 / span 2;align-self:end}
 @media (max-width:760px){.cable-row{grid-template-columns:1fr 1fr}.cable-row .del{grid-column:1 / -1;grid-row:auto;justify-self:end}}
+.mot-row .motpos{grid-column:1/-1}
 .mot-row{display:grid;grid-template-columns:1fr .6fr .6fr .62fr .6fr .55fr .45fr .75fr auto;gap:7px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
 @media (max-width:760px){.mot-row{grid-template-columns:1fr 1fr}}
 .cable-row .del,.mot-row .del{background:none;border:1px solid var(--border);border-radius:7px;color:var(--crit);cursor:pointer;padding:7px 10px;font-size:14px;height:36px}
@@ -288,24 +289,30 @@ table.pts tbody tr:focus-visible{outline:2px solid var(--accent);outline-offset:
 .foldhd{cursor:pointer;user-select:none}
 main{counter-reset:mod}
 /* barra dei componenti: sempre a portata di mano mentre si scorre; ogni pulsante apre la scheda del modulo Impianto in un riquadro accanto alla pagina */
-.rail{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:2px;background:var(--surface-1);border:1px solid var(--grid);border-left:0;border-radius:0 12px 12px 0;padding:6px 4px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
-.rail button{display:flex;flex-direction:column;align-items:center;gap:2px;width:64px;padding:7px 2px;border:0;border-radius:9px;background:none;color:var(--text-secondary);font:600 10.5px system-ui;cursor:pointer}
+.rail{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:2px;background:var(--surface-1);border:1px solid var(--grid);border-right:0;border-radius:12px 0 0 12px;padding:6px 4px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.rail button{display:flex;flex-direction:column;align-items:center;gap:2px;width:72px;padding:7px 2px;border:0;border-radius:9px;background:none;color:var(--text-secondary);font:600 10.5px system-ui;cursor:pointer}
 .rail button:hover{background:var(--surface-2);color:var(--text-primary)}
 .rail button.on{background:var(--accent);color:#fff}
-.drawer{position:fixed;left:76px;top:0;bottom:0;width:440px;z-index:59;overflow:auto;background:var(--bg);border-right:1px solid var(--grid);box-shadow:6px 0 24px rgba(0,0,0,.14);padding:10px 12px 24px}
+.drawer{position:fixed;right:84px;top:0;bottom:0;width:480px;z-index:59;overflow:auto;background:var(--bg);border-left:1px solid var(--grid);box-shadow:-6px 0 24px rgba(0,0,0,.14);padding:10px 12px 24px}
 .drawer[hidden]{display:none}
 .drhd{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 2px 10px;font-size:15px}
 .drawer .card{margin:0 0 10px}
 .drawer .grid3{grid-template-columns:1fr 1fr}
+/* nel riquadro le righe pensate per la pagina larga vanno a capo, come sugli schermi stretti: nessun campo resta fuori */
+.drawer .tr-row,.drawer .tr-row2,.drawer .mot-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+.drawer .cable-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+.drawer .cable-row .del,.drawer .mot-row .del,.drawer .tr-row2 .del{grid-column:auto;grid-row:auto;justify-self:end}
+.drawer .tr-row>*,.drawer .tr-row2>*,.drawer .mot-row>*,.drawer .cable-row>*{min-width:0}
+.drawer .tr-row2 .toggle,.drawer .tr-row2>label.toggle{grid-column:1/-1}
 .drawer .card>.body>.hint,.drawer .card>.hint{display:none}
 .drph{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;color:var(--text-secondary);font-size:13px;border-style:dashed}
-@media (min-width:901px){ body{padding-left:76px} .rail{z-index:0} }   /* la barra sta nel margine: i fumetti che la sfiorano le passano sopra */
-@media (min-width:1280px){ body.dr-open{padding-left:516px} }
+@media (min-width:901px){ body{padding-right:84px} .rail{z-index:0} }   /* la barra sta nel margine: i fumetti che la sfiorano le passano sopra */
+@media (min-width:1280px){ body.dr-open{padding-right:572px} }
 @media (max-width:900px){
   .rail{left:0;right:0;top:auto;bottom:0;transform:none;flex-direction:row;justify-content:space-around;border-radius:0;border:0;border-top:1px solid var(--grid);padding:3px 2px}
   .rail button{width:auto;flex:1 1 0;padding:5px 0}
   body{padding-bottom:58px}
-  .drawer{left:0;right:0;top:auto;bottom:54px;width:auto;max-height:72vh;border-right:0;border-top:1px solid var(--grid);box-shadow:0 -6px 24px rgba(0,0,0,.18)}
+  .drawer{left:0;right:0;top:auto;bottom:54px;width:auto;max-height:72vh;border-left:0;border-top:1px solid var(--grid);box-shadow:0 -6px 24px rgba(0,0,0,.18)}
 }
 @media print{ .rail,.drawer{display:none} }
 main>[id^=mod]{counter-increment:mod}
@@ -331,6 +338,8 @@ main>[id^=mod][hidden]{display:none!important;counter-increment:none}
 .devrow+.codev{margin:-4px 0 12px;border-top-left-radius:0;border-top-right-radius:0}
 .devgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 10px;align-items:end;margin-top:6px}
 .devgrid .w4{grid-column:span 4}.devgrid .w2{grid-column:span 2}
+.devrow:not(.man) .dv-man{display:none}
+.devrow:not(.man) .dv-pos{grid-column:1/-1}
 .cofam[hidden],#cardFus [hidden],#cardCb [hidden]{display:none!important}
 .cofam>.subh .ttl{font-weight:700;color:var(--text-primary)}
 .impbody>.card:first-child{margin-top:10px}.impbody>.card:last-child{margin-bottom:0}
@@ -415,7 +424,7 @@ details.adv>.in{margin-top:10px}
   <div id="drDevW" hidden><div class="subh">Curve</div><div id="drChart"></div><div id="drLeg" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px"></div></div>
 </aside>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.14</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.16</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -606,7 +615,7 @@ details.adv>.in{margin-top:10px}
 
     <div class="sld" id="sld"></div>
 
-    <div class="subh" style="margin:10px 0 4px">Correnti nei punti<span class="tip d r" tabindex="0" data-tip="Il guasto è calcolato in ogni punto della catena: punto di consegna, fine del cavo dalla sorgente, fine del cavo del primario e secondario del trasformatore (quando ha i suoi cavi), fine del cavo al secondario e fine di ogni tratto di cavo. Con più trasformatori in parallelo ogni ramo ha i suoi punti (fine cavo del primario, secondario, fine cavo al secondario), elencati in fondo: per ognuno la corrente nel punto e le due parti che la compongono, dal proprio trasformatore e dal parallelo. Ogni punto usa la sua tensione; quelli a monte del trasformatore usano i fattori c di tabella del loro livello. I motori sono collegati alla fine dell'ultima linea: negli altri punti il loro contributo arriva attraverso i cavi (e il trasformatore) che li separano dal punto, con le impedenze riportate alla tensione del punto (IEC 60909-0, 5.2 e 9.2). Nei punti intermedi il conduttore N/PE del guasto fase-terra è preso in proporzione alla lunghezza dei tratti a monte. L'ultimo punto è la fine della catena. Toccare una riga per vederne il dettaglio. Colonna «Ipk» — corrente di picco condizionata (limitata): a valle di un fusibile o di un interruttore limitatore il picco non è più quello presunto, ma quello che il dispositivo lascia passare alla corrente presunta del punto. Più dispositivi in serie: vale il più basso. Con i trasformatori in parallelo ogni ramo porta la sua quota, limitata dal proprio dispositivo, e sul parallelo i picchi si sommano. La parte dovuta ai motori non è limitata. «—» se a monte non c'è un dispositivo; «non limitata» se c'è ma a quella corrente non limita. La I″k resta quella presunta. Fermando il puntatore sulla cella: il dispositivo che limita e l'energia I²t lasciata passare.">i</span></div>
+    <div class="subh" style="margin:10px 0 4px">Correnti nei punti<span class="tip d r" tabindex="0" data-tip="Il guasto è calcolato in ogni punto della catena: punto di consegna, fine del cavo dalla sorgente, fine del cavo del primario e secondario del trasformatore (quando ha i suoi cavi), fine del cavo al secondario e fine di ogni tratto di cavo. Con più trasformatori in parallelo ogni ramo ha i suoi punti (fine cavo del primario, secondario, fine cavo al secondario), elencati in fondo: per ognuno la corrente nel punto e le due parti che la compongono, dal proprio trasformatore e dal parallelo. Ogni punto usa la sua tensione; quelli a monte del trasformatore usano i fattori c di tabella del loro livello. Ogni motore è collegato nel punto scelto nella sua riga (se non si sceglie, alla fine dell'ultima linea): negli altri punti il loro contributo arriva attraverso i cavi (e il trasformatore) che li separano dal punto, con le impedenze riportate alla tensione del punto (IEC 60909-0, 5.2 e 9.2). Nei punti intermedi il conduttore N/PE del guasto fase-terra è preso in proporzione alla lunghezza dei tratti a monte. L'ultimo punto è la fine della catena. Toccare una riga per vederne il dettaglio. Colonna «Ipk» — corrente di picco condizionata (limitata): a valle di un fusibile o di un interruttore limitatore il picco non è più quello presunto, ma quello che il dispositivo lascia passare alla corrente presunta del punto. Più dispositivi in serie: vale il più basso. Con i trasformatori in parallelo ogni ramo porta la sua quota, limitata dal proprio dispositivo, e sul parallelo i picchi si sommano. La parte dovuta ai motori non è limitata. «—» se a monte non c'è un dispositivo; «non limitata» se c'è ma a quella corrente non limita. La I″k resta quella presunta. Fermando il puntatore sulla cella: il dispositivo che limita e l'energia I²t lasciata passare.">i</span></div>
     <div class="ptwrap"><table class="z pts" id="ccPts">
       <thead><tr><th rowspan="2">Punto</th><th colspan="4" class="gmx">massime (kA)</th><th colspan="3" class="gmn">minime (kA)</th></tr>
         <tr><th>I″<sub>k</sub></th><th>i<sub>p</sub></th><th>I<sub>pk</sub></th><th>I<sub>th</sub></th><th>I″<sub>k</sub></th><th>I″<sub>k2</sub></th><th>I″<sub>k1</sub></th></tr></thead>
@@ -1197,10 +1206,10 @@ details.adv>.in{margin-top:10px}
 </main>
 
 <div class="foot">
-  <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati alla fine dell'ultima linea, aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
+  <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati ciascuno nel punto scelto (di solito la fine dell'ultima linea), aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.14 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.16 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1241,7 +1250,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.14";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.16";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -1476,6 +1485,7 @@ function motRow(def={}){
   div.className="mot-row"; div.dataset.id=id;
   div.innerHTML=`
     <label class="f">Descrizione<input type="text" data-k="desc" value="${def.desc||('Motore '+id)}"></label>
+    <label class="f motpos">Posizione<span class="tip" tabindex="0" data-tip="Punto dell'impianto a cui il motore è collegato. Se non si sceglie, è la fine dell'ultima linea. Nel punto in cui è collegato il motore dà tutta la sua corrente; negli altri punti contribuisce attraverso gli elementi che lo separano dal guasto, a monte o a valle.">i</span><select data-k="pos" class="ccpt"></select></label>
     <label class="f">P (kW)<input type="number" data-k="P" value="${def.P!=null?def.P:200}" step="any"></label>
     <label class="f">U (V)<input type="number" data-k="U" value="${def.U!=null?def.U:400}" step="any"></label>
     <label class="f">cos φ·η<input type="number" data-k="eta" value="${def.eta!=null?def.eta:0.80}" step="0.01"></label>
@@ -1489,10 +1499,14 @@ function motRow(def={}){
   div.querySelector('[data-k=tmin]').value=def.tmin||"0.10";
   $("motList").appendChild(div);
 }
-function readMotors(cVal){
-  let Ik=0, ip=0, Ib=0, n=0, Ptot=0; const list=[];
+// at: solo i motori collegati al punto di indice at (senza, tutti). La posizione di un motore è l'indice del punto scelto; senza scelta valida, la fine.
+let CC_P=null;   // punti della catena in corso di calcolo
+function readMotors(cVal,at){
+  let Ik=0, ip=0, Ib=0, n=0, Ptot=0; const list=[], nP=CC_P?CC_P.length:0;
   document.querySelectorAll("#motList .mot-row").forEach(d=>{
     const g=k=>d.querySelector(`[data-k=${k}]`);
+    const pe=g("pos"), pk=pe?parseInt(pe.dataset.want!=null?pe.dataset.want:pe.value,10):NaN   /* «end» o vuoto: fine dell'ultima linea */, pos=(pk>=0&&pk<nP-1)?pk:nP-1;
+    if(at!=null&&pos!==at) return;
     const P=(parseFloat(g("P").value)||0)*1000, U=parseFloat(g("U").value)||0;
     const eta=parseFloat(g("eta").value)||0.8, klr=parseFloat(g("klr").value)||0;
     if(P<=0||U<=0||klr<=0)return;
@@ -1503,20 +1517,46 @@ function readMotors(cVal){
     const pp=Math.max(1,parseFloat(g("poles").value)||1), mMW=(P/1e6)/pp;
     const mu=muFactor(ratio,tmin), q=qFactor(mMW,tmin);
     Ik+=IkM; ip+=kM*SQ2*IkM; Ib+=mu*q*IkM; n++; Ptot+=P;
-    list.push({desc:g("desc").value,U,Ik:IkM,klr,tmin,mMW});
+    list.push({desc:g("desc").value,U,Ik:IkM,klr,tmin,mMW,pos,P});
   });
   return {Ik,ip,Ib,n,Ptot,list};
 }
 /* ---------- contributo dei motori in un punto della catena ----------
-   I motori sono collegati alla fine dell'ultima linea. Ai loro morsetti (ultimo punto) il contributo è la somma dei
+   I motori sono collegati nel punto scelto per ciascuno (di solito la fine dell'ultima linea). Ai loro morsetti (ultimo punto) il contributo è la somma dei
    singoli motori, come sempre. In un punto a monte il gruppo dei motori alimenta il guasto attraverso gli elementi
    che lo separano dal punto: i tratti di cavo a valle del punto e, per i punti a monte del trasformatore, anche
    trasformatore e cavo dalla sorgente. Tutte le impedenze sono riportate alla tensione del punto con il quadrato
    del rapporto di targa (IEC 60909-0, 5.2). Il gruppo è un motore equivalente (6.9.3) che ai morsetti dà la somma
    delle correnti e lo stesso picco. La corrente di interruzione segue la Formula (77): la riduzione μ·q pesa quanto
    la tensione che resta ai morsetti dei motori. */
+// impedenza accumulata dalla sorgente fino a un punto della catena, riportata al lato BT (a 20 °C): la distanza elettrica tra due punti è la differenza
+function ccZc(p){ let R=0, X=0; const trOn=$("onTr").checked&&readTransformers(false).n>0;
+  if(p.sc&&$("sc_on")&&$("sc_on").checked){ const S=num("sc_S"), L=num("sc_L"), n=Math.max(1,num("sc_n"));
+    if(S>0&&L>0){ let k2=1; if(trOn){ const fb=document.querySelector('#trList .tr-branch'), uhv=fb?(parseFloat(fb.querySelector('[data-k=uhv]').value)||0):0, ulv=fb?(parseFloat(fb.querySelector('[data-k=ulv]').value)||0):0; if(uhv>0&&ulv>0) k2=Math.pow(uhv/ulv,2); }
+      R+=MAT[$("sc_mat").value].rho*L/(n*S)/k2; X+=num("sc_x")*L/n/1000/k2; } }
+  if(trOn){ if(p.tr){ const a=readTransformers(false,p.noLv?{noLv:true}:null); R+=a.R; X+=a.X; }
+    else if(p.hv){ const a=readTransformers(false), b=readTransformers(false,{noHv:true}); R+=a.R-b.R; X+=a.X-b.X; } }
+  if(p.tr&&$("onCab").checked) readCables(false).rows.slice(0,p.nCab===Infinity?undefined:p.nCab).forEach(r=>{ R+=r.R; X+=r.X; });
+  return {R,X}; }
+// motori non tutti alla fine dell'ultima linea
+const ccMotFar=()=>{ const n=CC_P?CC_P.length-1:-1; return readMotors(1).list.some(q=>q.pos!==n); };
 function ccMotAt(sy,c,pt){
   const m=readMotors(1); if(!(m.Ik>0)) return {Ik:0,ip:0,Ib:0,n:m.n,R:0,X:0};
+  if(CC_P&&m.list.some(q=>q.pos!==CC_P.length-1)){   // motori in posizioni diverse: un gruppo per posizione, ognuno attraverso gli elementi che lo separano dal punto
+    let Ik=0, ip=0, Ib=0; const zp=ccZc(pt);
+    [...new Set(m.list.map(q=>q.pos))].forEach(gi=>{ const g=readMotors(1,gi); if(!(g.Ik>0)) return;
+      if(gi===pt.i){ const t=readMotors(c,gi); Ik+=t.Ik; ip+=t.ip; Ib+=t.Ib; return; }   // nel proprio punto: la somma ai morsetti
+      const Zm=sy.Un/(SQ3*g.Ik), kS=g.ip/(SQ2*g.Ik), rxS=Math.max(0,-Math.log(Math.max(1e-12,(kS-1.02)/0.98))/3), Xm=Zm/Math.sqrt(1+rxS*rxS), Rm=rxS*Xm, zm=ccZc(CC_P[gi]);
+      let R=Rm+Math.abs(zm.R-zp.R), X=Xm+Math.abs(zm.X-zp.X), k2=1;
+      if(!pt.tr){ const fb=document.querySelector('#trList .tr-branch'), uhv=fb?(parseFloat(fb.querySelector('[data-k=uhv]').value)||0):0, ulv=fb?(parseFloat(fb.querySelector('[data-k=ulv]').value)||0):0;
+        k2=(uhv>0&&ulv>0)?Math.pow(uhv/ulv,2):Math.pow(pt.Un/sy.Un,2); R*=k2; X*=k2; }
+      const Zd=Math.hypot(R,X); if(!(Zd>0)) return;
+      const Ig=c*pt.Un/(SQ3*Zd), dU=Zm*k2/Zd; Ik+=Ig; ip+=(1.02+0.98*Math.exp(-3*(X>0?R/X:1e9)))*SQ2*Ig;
+      g.list.forEach(q=>{ const mu=muFactor(c*q.klr*dU,q.tmin), red=mu>=1?0:(1-mu*qFactor(q.mMW,q.tmin)); Ib+=Ig*(q.Ik/g.Ik)*(1-red*dU); }); });
+    if(!(Ik>0)) return {Ik:0,ip:0,Ib:0,n:m.n,R:0,X:0};
+    // ramo equivalente dei motori visto dal punto (serve al guasto fase-terra): modulo dalla somma delle correnti, R/X dal picco complessivo
+    const Ze=c*pt.Un/(SQ3*Ik), ke=ip/(SQ2*Ik), rxe=Math.max(0,-Math.log(Math.max(1e-12,(ke-1.02)/0.98))/3), Xe=Ze/Math.sqrt(1+rxe*rxe);
+    return {Ik,ip,Ib,n:m.n,R:rxe*Xe,X:Xe}; }
   // motore equivalente alla tensione di fine catena: modulo dalla somma delle correnti, R/X dal picco complessivo
   const Zm=sy.Un/(SQ3*m.Ik), kS=m.ip/(SQ2*m.Ik), rxS=Math.max(0,-Math.log(Math.max(1e-12,(kS-1.02)/0.98))/3);
   const Xm=Zm/Math.sqrt(1+rxS*rxS), Rm=rxS*Xm;
@@ -2073,7 +2113,7 @@ function ccRender(p){
   if(onMot && IkMot>0 && !monoFault){
     mn.style.display="block";
     const mm=readMotors(1).list.filter(q=>Math.abs(q.U-CC_ST.sy.Un)>0.1*CC_ST.sy.Un);   // motore con tensione nominale lontana da quella di fine catena
-    mn.innerHTML=`Contributo <b>${motN} motor${motN>1?'i':'e'}</b> ${p.last?"(somma)":"a ritroso, dalla fine dell'ultima linea e riportato a "+fusNum(p.Un)+" V"}, già incluso nei risultati: I″<sub>kM</sub> = <b>${mA(IkMot)}</b> · i<sub>pM</sub> = <b>${mA(ipMot)}</b> · I<sub>bM</sub> = <b>${mA(IbMot)}</b> (nullo su I<sub>k</sub>).`+(mm.length?`<br>Attenzione: ${mm.map(q=>escH(q.desc)+" a "+fusNum(q.U)+" V").join(", ")} — tensione nominale diversa da quella di fine catena (${fusNum(CC_ST.sy.Un)} V), dove i motori sono collegati.`:"");
+    mn.innerHTML=`Contributo <b>${motN} motor${motN>1?'i':'e'}</b> ${ccMotFar()?"dalla posizione di ciascuno, attraverso gli elementi che lo separano dal punto":(p.last?"(somma)":"a ritroso, dalla fine dell'ultima linea e riportato a "+fusNum(p.Un)+" V")}, già incluso nei risultati: I″<sub>kM</sub> = <b>${mA(IkMot)}</b> · i<sub>pM</sub> = <b>${mA(ipMot)}</b> · I<sub>bM</sub> = <b>${mA(IbMot)}</b> (nullo su I<sub>k</sub>).`+(mm.length?`<br>Attenzione: ${mm.map(q=>escH(q.desc)+" a "+fusNum(q.U)+" V").join(", ")} — tensione nominale diversa da quella di fine catena (${fusNum(CC_ST.sy.Un)} V), dove i motori sono collegati.`:"");
   } else mn.style.display="none";
 
   { const F=CC_ST.max;   // lo schema mostra tutta la catena; il punto scelto è quello del guasto
@@ -2171,7 +2211,7 @@ function ccPtVals(k){ const P=CC_ST&&CC_ST.pts; if(!P||!P.length) return null;
    proprio dispositivo, e sul parallelo i picchi dei rami si sommano (a favore di sicurezza). La parte dei motori non è limitata.
    Un dispositivo che a quella corrente non limita non cambia nulla. p.cond = {ip, lim, e, by} oppure null se a monte non c'è alcun dispositivo. */
 function ccDevs(){ const o=[]; [["fu",typeof FUS_ST!=="undefined"?FUS_ST:null],["cb",typeof CB_ST!=="undefined"?CB_ST:null]].forEach(([fam,st])=>{ if(!st||!st.res) return;
-    st.res.forEach(r=>{ const p=ccP(parseInt(($(fam+"_pt"+r.s)||{}).value,10)); if(!p) return;
+    st.res.forEach(r=>{ const k=parseInt(($(fam+"_pt"+r.s)||{}).value,10), p=k===-1?null:ccP(k); if(!p) return;   // i dispositivi non collegati non condizionano nulla
       o.push({fam,s:r.s,p,r,nm:(fam==="cb"?"interruttore ":"fusibile ")+r.s,
         cut:(I,ip)=>{ if(fam==="cb"){ const c=cbCut(r.b,I,ip); return c&&c.lim?c.v:null; } const v=fusCut(r.f,I,ip); return v!=null&&v<ip*0.999?v:null; },
         e:I=>{ const x=fam==="cb"?cbI2t(r.b,I):fusI2t(r.f,I); return x?x.v:null; }}); }); });
@@ -2198,9 +2238,13 @@ function ccPtU(id){ const P=CC_ST&&CC_ST.pts, el=$(id); if(!P||!P.length) return
 function ccPtSelects(){ const P=CC_ST.pts, R=CC_ST.brs||[], sig0=P.map(ccPtLbl).join("|"), sigR=R.map(ccPtLbl).join("|"), opt=p=>`<option value="${p.i}">${escH(ccPtLbl(p))}</option>`;
   document.querySelectorAll("select.ccpt").forEach(el=>{ const dev=/^(fu|cb)_pt/.test(el.id), sig=sig0+(dev?"#"+sigR:""); if(el.dataset.sig===sig) return;
     const was=parseInt(el.value,10), n0=parseInt(el.dataset.n||"0",10), keep=(dev&&was>=CC_BR0)?(was-CC_BR0<R.length?was:P.length-1):((was>=0&&was<n0-1&&was<P.length)?was:P.length-1);
-    el.innerHTML=P.map(p=>(dev&&p.kind==="bus"?R.map(opt).join(""):"")+opt(p)).join(""); el.value=String(keep); el.dataset.sig=sig; el.dataset.n=P.length; });
+    el.innerHTML=P.map(p=>(dev&&p.kind==="bus"?R.map(opt).join(""):"")+opt(p)).join("")+(dev?`<option value="-1">Manuale (non collegato all'impianto)</option>`:"");
+    el.value=String(dev&&was===-1?-1:keep); el.dataset.sig=sig; el.dataset.n=P.length; });
+  document.querySelectorAll("select.ccpt[data-want]").forEach(el=>{ const w=el.dataset.want; if(w==="end"){ if(el.options.length){ el.selectedIndex=el.options.length-1; delete el.dataset.want; } } else if([...el.options].some(o=>o.value===w)){ el.value=w; delete el.dataset.want; } });
 }
 // tabella «Correnti nei punti»: una riga per punto, quella scelta è mostrata nel dettaglio
+// picco condizionato di un punto, come testo per le tabelle di PDF ed Excel
+const ccCondTxt=p=>!p.cond?'—':(p.cond.lim?kA(p.cond.ip):'non limitata');
 // cella del picco condizionato di un punto
 function ccCondCell(p){ const c=p.cond; if(!c) return `<td>—</td>`;
   const tt=(c.by.length?"limitata da "+c.by.join(" + "):"i dispositivi a monte non limitano a questa corrente")+(c.e!=null?" · I²t lasciata passare "+fusFmtE(c.e):"");
@@ -2253,7 +2297,7 @@ function ccLvCabs(only){ const P=CC_ST&&CC_ST.pts, rows=[...document.querySelect
     if(many) cases.forEach(c=>{ c.why=(c.why?c.why+"; ":"")+(own?"nel cavo e nel dispositivo passa la quota di questo ramo":"nel cavo passa la quota del ramo, il dispositivo a monte vede la somma dei rami"); });
     return {S,n,mat,iso,K:al?(hot?94:76):(hot?143:115),k:t.k,vg:t.vg,cases,row:mx[j].row,
       txt:`${many?"Trasformatore "+(mx[j].row+1)+" · cavo":"Cavo"} al secondario ${n>1?n+" × ":""}${fusNum(S)} mm² ${al?"alluminio":"rame"} ${iso}`}; }).filter(Boolean); }
-function ccDown(k){ const P=CC_ST&&CC_ST.pts, no={cab:null,side:"",lv:[]}; if(!P||!P.length) return no;
+function ccDown(k){ const P=CC_ST&&CC_ST.pts, no={cab:null,side:"",lv:[],rev:null}; if(!P||!P.length||k===-1) return no;   // -1: dispositivo non collegato all'impianto
   const p=ccP(k), nx=p.kind==="br"?null:P[p.i+1], trOn=$("onTr").checked&&P.some(x=>x.kind==="bus");
   const mk=(desc,mat,S,n,te)=>{ if(!(S>0)) return null; const al=/^al/i.test(mat), hot=ccTe(te)>=200; return {desc,S,n:Math.max(1,n||1),K:al?(hot?94:76):(hot?143:115),iso:hot?"EPR/XLPE":"PVC",mat}; };
   let cab=null;
@@ -2279,7 +2323,8 @@ function recompute(){
   const sy=ccSys();
   if(CC_LVL!==null&&sy.lvl!==CC_LVL) autoC(sy.lvl);   // è cambiato il livello di tensione del punto di guasto: fattori c di tabella
   CC_LVL=sy.lvl;
-  const P=ccPoints(sy);
+  const P=ccPoints(sy); CC_P=P;
+  document.querySelectorAll("#motList select.ccpt").forEach(el=>{ if(!el.options.length) el.dataset.n="0"; });
   P.forEach(p=>{ p.max=ccCore(sy,p.cmax,true,p); p.min=ccCore(sy,p.cmin,false,p); });
   const L=P[P.length-1];
   CC_ST={sy,max:L.max,min:L.min,pts:P};   // max e min: fine della catena
@@ -3517,7 +3562,9 @@ function fuU(s){ const q=ccPtU("fu_pt"+s), a=q&&q.Un>0?q.Un:400, m=num("fu_U"+s)
   if(el) el.placeholder=fusNum(a);   // valore del punto: il campo è stretto, l'unità è nell'etichetta
   return m>0?m:a; }
 // correnti di guasto di un dispositivo (p = fu, cb; s = lettera): il valore scritto nel campo, altrimenti quello del punto in cui è posizionato
-function coI(p,s){ const v=ccPtVals(parseInt(($(p+"_pt"+s)||{}).value,10))||{};
+function coI(p,s){ const kp=parseInt(($(p+"_pt"+s)||{}).value,10), man=kp===-1, v=man?{}:(ccPtVals(kp)||{});   // man: dispositivo non collegato, valori solo a mano
+  // tensione e correnti a mano si vedono con la posizione «Manuale», oppure se hanno già un valore (che prevale su quello del punto)
+  const rw=$(p+"_row"+s); if(rw) rw.classList.toggle("man",man||["U","Ik","ip","Imin"].some(k=>{ const e=$(p+"_"+k+s); return e&&e.value.trim()!==""; }));
   const g=(k,a)=>{ const el=$(p+"_"+k+s), m=num(p+"_"+k+s); if(el) el.placeholder=a>0?fusNum(a):"—"; return (m>0?m:(a>0?a:0))*1000; };
   return {Ik:g("Ik",v.Ik), ip:g("ip",v.ip), Imin:g("Imin",v.min), back:v.back&&!(num(p+"_Ik"+s)>0)?v.back.Ik*1000:0}; }   // back: rientro dagli altri rami (solo a fine ramo e senza corrente a mano)
 // una curva (corrente, valore) riportata a un'altra tensione: corrente × kx, valore × ky
@@ -3637,16 +3684,16 @@ const DEV={fu:[],cb:[]}, DEV_MAX=8, DEV_NM={fu:"Fusibile",cb:"Interruttore"}, DE
 const devOn=p=>$(p==="fu"?"onFus":"onCb").checked?DEV[p].slice():[];
 function devNext(p){ for(let i=0;i<DEV_MAX;i++){ const l=String.fromCharCode(65+i); if(DEV[p].indexOf(l)<0) return l; } return null; }
 function devRowHTML(p,s){
-  const tipP="Punto della sequenza dell'impianto in cui il dispositivo è installato: da qui prende la tensione e le correnti di guasto presunte. I punti sono quelli calcolati dal modulo del cortocircuito.";
+  const tipP="Punto della sequenza dell'impianto in cui il dispositivo è installato: da qui prende la tensione e le correnti di guasto presunte. I punti sono quelli calcolati dal modulo del cortocircuito. Con «Manuale (non collegato all'impianto)» compaiono tensione e correnti da scrivere a mano: il dispositivo è valutato da solo, senza cavo a valle e senza effetto sui punti.";
   const tipU="Tensione a cui lavora il dispositivo. Lasciato vuoto, vale la tensione nominale del punto in cui è posizionato; un valore scritto a mano prevale.";
   const tipI="Lasciato vuoto, vale la corrente calcolata nel punto in cui il dispositivo è posizionato; un valore scritto a mano prevale.";
-  const cur=(k,l)=>`<label class="f w2">${l} <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="${tipI}">i</span><input type="number" id="${p}_${k}${s}" value="" step="any" placeholder="dal punto"></label>`;
+  const cur=(k,l)=>`<label class="f w2 dv-man">${l} <span class="u">(kA)</span><span class="tip" tabindex="0" data-tip="${tipI}">i</span><input type="number" id="${p}_${k}${s}" value="" step="any" placeholder="dal punto"></label>`;
   const sel=p==="fu"?`<div class="grid3" style="align-items:end"><label class="f">Famiglia<select id="fu_grp${s}"></select></label><label class="f">Taglia<select id="fu_sel${s}"></select></label>
     <div class="kpi"><div class="k">Dati di targa</div><div class="v" style="font-size:13.5px"><span id="fu_info${s}">—</span></div></div></div>`:`<div class="cbslot">${cbSlotHTML(s)}</div>`;
   return [`<div class="devhd"><b>${DEV_NM[p]} ${s}</b><input type="text" id="${p}_nm${s}" value="" placeholder="nome (facoltativo)" aria-label="Nome del dispositivo"><button type="button" class="del" title="Toglie questo dispositivo dall'impianto">✕</button></div>
     <div class="devgrid">
-      <label class="f w4">Posizione<span class="tip" tabindex="0" data-tip="${tipP}">i</span><select id="${p}_pt${s}" class="ccpt"></select></label>
-      <label class="f w2">U <span class="u">(V)</span><span class="tip r" tabindex="0" data-tip="${tipU}">i</span><input type="number" id="${p}_U${s}" value="" step="any" placeholder="dal punto"></label>
+      <label class="f w4 dv-pos">Posizione<span class="tip" tabindex="0" data-tip="${tipP}">i</span><select id="${p}_pt${s}" class="ccpt"></select></label>
+      <label class="f w2 dv-man">U <span class="u">(V)</span><span class="tip r" tabindex="0" data-tip="${tipU}">i</span><input type="number" id="${p}_U${s}" value="" step="any" placeholder="dal punto"></label>
       ${cur("Ik","I″<sub>k</sub> max")}${cur("ip","i<sub>p</sub>")}${cur("Imin","I″<sub>k</sub> min")}
     </div>`, `<summary><i id="${p}_dot${s}"></i>Tipo e ${p==="fu"?"taglia":"regolazioni"}<small id="${p}_hd${s}"></small></summary>${sel}`];
 }
@@ -3687,6 +3734,8 @@ function devAdd(p,s,quiet){ s=s||devNext(p); if(!s||DEV[p].indexOf(s)>=0) return
   bx.className="codev"; bx.id=p+"_box"+s; bx.open=true; bx.innerHTML=H[1];
   DEV[p].push(s); DEV[p].sort(); const nx=DEV[p][DEV[p].indexOf(s)+1]; $(p+"_list").insertBefore(d,nx?$(p+"_row"+nx):null);
   d.after(bx);   // tipo e regolazioni subito sotto la riga del dispositivo
+  { const sp=$(p+"_pt"+s); sp.addEventListener("change",()=>{ if(sp.dataset.prev==="-1"&&sp.value!=="-1") ["U","Ik","ip","Imin"].forEach(k=>{ const e=$(p+"_"+k+s); if(e) e.value=""; }); sp.dataset.prev=sp.value; recompute(); });
+    sp.addEventListener("focus",()=>{ sp.dataset.prev=sp.value; }); }
   const A=s==="A";
   if(p==="fu"){ fusFillGroups("fu_grp"+s); if(DEV_DEF.fg>=0) $("fu_grp"+s).value=DEV_DEF.fg; fusFillSizes("fu_grp"+s,"fu_sel"+s,A?160:250);
     $("fu_grp"+s).addEventListener("change",()=>{ const cur=fusGet("fu_sel"+s); fusFillSizes("fu_grp"+s,"fu_sel"+s,cur?cur.In:0); recompute(); }); }
@@ -4814,9 +4863,14 @@ function collectModule(id){ drawerClose(true);
 }
 // modulo cortocircuito: tabella riassuntiva dei punti e, per ognuno, impedenze e risultati come a video
 function ccCollectPoints(root,sections){
-  const P=CC_ST.pts, LL=Math.sqrt(3)/2, sum=[['Punto','U (V)','I″k max (kA)','ip (kA)','Ith (kA)','I″k min (kA)','I″k2 min (kA)','I″k1 min (kA)']];
-  P.forEach(p=>{ const A=p.max, B=p.min; sum.push([p.id+' · '+p.name, fusNum(p.Un), kA(A.oIk), kA(A.oIp), kA(A.oIth), kA(B.oIk), B.monoFault?'—':kA(B.oIk*LL), (B.le&&B.le.ok)?kA(B.le.Ik1):'—']); });
+  const P=CC_ST.pts, R=CC_ST.brs||[], LL=Math.sqrt(3)/2, sum=[['Punto','U (V)','I″k max (kA)','ip (kA)','Ipk (kA)','Ith (kA)','I″k min (kA)','I″k2 min (kA)','I″k1 min (kA)']];
+  P.forEach(p=>{ const A=p.max, B=p.min; sum.push([p.id+' · '+p.name, fusNum(p.Un), kA(A.oIk), kA(A.oIp), ccCondTxt(p), kA(A.oIth), kA(B.oIk), B.monoFault?'—':kA(B.oIk*LL), (B.le&&B.le.ok)?kA(B.le.Ik1):'—']); });
   sections.push({h:'Correnti nei punti', rows:sum, raw:true});
+  { const by=P.concat(R).filter(p=>p.cond&&p.cond.lim).map(p=>[p.id, kA(p.cond.ip)+' kA', 'limitata da '+p.cond.by.join(' + ')+(p.cond.e!=null?' · I²t '+fusFmtE(p.cond.e):'')]);
+    if(by.length) sections.push({h:'Corrente di picco condizionata Ipk — dispositivi che la limitano', rows:by}); }
+  if(R.length){ const br=[['Punto del ramo','U (V)','I″k nel punto (kA)','dal trasformatore (kA)','dal parallelo (kA)','ip (kA)','Ipk (kA)','I″k min (kA)']];
+    R.forEach(p=>{ const A=p.max, B=p.min; br.push([p.id+' · '+p.name, fusNum(p.Un), kA(A.oIk), kA(A.up.Ik), kA(A.back.Ik), kA(A.oIp), ccCondTxt(p), kA(B.oIk)]); });
+    sections.push({h:'Punti dei rami in parallelo', rows:br, raw:true}); }
   const res=root.querySelector('.results');
   P.forEach(p=>{
     ccRender(p);   // il dettaglio del punto è letto dalla pagina, poi si torna al punto scelto
@@ -4961,13 +5015,16 @@ function buildExportSLD(){
       if(i<rows.length-1){ node(x); Pl(x,pc[i]); } }); }
   if(!(trN===1 && trCab) && !cab) link(54);
   // barra di guasto + motore
-  const busx=x; if(mot) node(busx);   // nodo di giunzione solo dove si collega il motore
+  const busx=x; if(mot&&readMotors(1).list.some(q=>q.pos===pLast.i)) node(busx);   // nodo di giunzione solo dove si collega il motore
   at(pLast,busx,y); const DL=take();   // dispositivi nell'ultimo punto: sul tratto che va al guasto
-  if(mot){
-    P.push(`<line x1="${busx}" y1="${y}" x2="${busx}" y2="${y+40}" stroke="${sym}" stroke-width="2"/>`);
-    P.push(`<circle cx="${busx}" cy="${y+60}" r="18" fill="none" stroke="${sym}" stroke-width="2"/>`);
-    Tc(busx,y+65,motN>1?('M×'+motN):'M',13,'bold');
-    Tc(busx,y+92,motLabel,10);
+  if(mot){   // i motori nel punto a cui sono collegati: di solito tutti alla fine dell'ultima linea
+    const G={}, far=ccMotFar(); readMotors(1).list.forEach(q=>{ const o=G[q.pos]=G[q.pos]||{n:0,P:0}; o.n++; o.P+=q.P/1000; });
+    Object.keys(G).forEach(k=>{ const end=+k===pLast.i, o=end?null:POS[k], mx=o?o.x+16:busx, g=G[k];   // in un punto intermedio la derivazione è appena dopo il nodo, per non coprirne la sigla
+      if(o) node(mx);
+      P.push(`<line x1="${mx}" y1="${y}" x2="${mx}" y2="${y+40}" stroke="${sym}" stroke-width="2"/>`);
+      P.push(`<circle cx="${mx}" cy="${y+60}" r="18" fill="none" stroke="${sym}" stroke-width="2"/>`);
+      Tc(mx,y+65,(far?g.n:motN)>1?('M×'+(far?g.n:motN)):'M',13,'bold');
+      Tc(mx,y+92,far?((g.n>1?g.n+' motori · Σ ':'')+fusNum(+g.P.toFixed(1))+' kW'):motLabel,10); });
   }
   // linea al guasto + fulmine/freccia allineati (punta su F)
   const fx=busx+56+DL.length*70; Ln(busx,fx); DL.forEach((d,i)=>devSym(d,busx+(fx-busx)*(i+1)/(DL.length+1),y));
@@ -5312,7 +5369,12 @@ function xlsCC(){
   let cab=null;
   if(onCab){ S.head('Cavi / linee a valle'); cab=_xCabTable(S,th,'1'); if(cab){ PX.cab=cab; Rp.push(cab.R); Xp.push(cab.X); Rcp.push(cab.R); Xcp.push(`0.4*${cab.X}`); } }
   let mot=null;
-  if(onMot){ S.head('Motori asincroni'); mot=_xMotTable(S,c); PX.mot=mot; }
+  if(onMot){ S.head('Motori asincroni'); mot=_xMotTable(S,c);
+    if(mot&&ccMotFar()&&CC_ST){ const A=CC_ST.max;   // motori non tutti alla fine dell'ultima linea
+      S.sub('Motori in posizioni diverse dalla fine dell\'ultima linea: il contributo nel punto di guasto è un valore calcolato dal programma, attraverso gli elementi che separano ogni motore dal punto.');
+      mot={Ik:S.calc('Motori — I″kM nel punto di guasto',String(A.IkMot),'A','valore del programma'), ip:S.calc('Motori — ipM nel punto di guasto',String(A.ipMot),'A','valore del programma'), Ib:S.calc('Motori — IbM nel punto di guasto',String(A.IbMot),'A','valore del programma')};
+      PX.motFar=true; }
+    PX.mot=mot; }
 
   S.head('Impedenza al punto di guasto');
   const Rk=S.calc('Rk',_sum(Rp),'Ω','',9), Xk=S.calc('Xk',_sum(Xp),'Ω','',9), Zk=S.calc('Zk',`SQRT(${Rk}^2+${Xk}^2)`,'Ω','',9);
@@ -5369,12 +5431,13 @@ function xlsPunti(S,X){
   const M=a=>String(a).replace(/\{\{(\w+)\}\}/g,(m,k)=>S.ref[k]!=null?S.ref[k]:'0').replace(/\$[A-Z]+\$\d+/g,m=>'Cortocircuito!'+m);   // indirizzo sull'altro foglio
   const ONE=(X.tr&&X.tr.one)||null;   // un solo trasformatore: celle dei suoi cavi dedicati
   const cabSum=(col,k)=>`SUM(Cortocircuito!${col}${X.cab.r0}:${col}${X.cab.r0+k-1})`;
-  Q.widths=[7,40,12,8,13,13,13,9,9,11,13,13,13,13,13,13,12,12,12,12,12,12,8,12,12,12];
+  Q.widths=[7,40,12,8,13,13,13,9,9,11,13,13,13,13,13,13,12,12,12,12,12,12,8,12,12,12,12,34];
   Q.title('Correnti di cortocircuito in ogni punto della catena');
   Q.sub(APP_NAME+' '+APP_VER+' · '+_now()+' · le formule riprendono dati e impedenze dal foglio «Cortocircuito»: R e X si accumulano punto per punto');
   // motori a fine catena: motore equivalente che ai morsetti dà la somma delle correnti e lo stesso picco
   const MOT=(!X.mono&&X.mot)?X.mot:null; let Rm='0', Xm='0';
-  if(MOT){ const cell=(lab,f,un,note,st)=>{ const n=Q.row([{v:''},{v:lab},{f:f,s:st||4},{v:un||''},{v:note||'',s:7}]); return '$C$'+n; };
+  const FAR=!!X.motFar;   // motori in posizioni diverse: contributi come valori del programma
+  if(MOT&&!FAR){ const cell=(lab,f,un,note,st)=>{ const n=Q.row([{v:''},{v:lab},{f:f,s:st||4},{v:un||''},{v:note||'',s:7}]); return '$C$'+n; };
     Q.blank(); Q.row([{v:''},{v:'Motori a fine catena — motore equivalente',s:2},{v:'',s:2},{v:'',s:2}]);
     const zm=cell('Impedenza Z',`${M(X.c)}*${M(X.Un)}/(SQRT(3)*${M(MOT.Ik)})`,'Ω','dalla somma delle correnti dei motori (IEC 60909-0, 6.9.3)',9);
     const km=cell('Fattore di picco κ',`${M(MOT.ip)}/(SQRT(2)*${M(MOT.Ik)})`,'','dal picco complessivo dei motori');
@@ -5383,7 +5446,7 @@ function xlsPunti(S,X){
   Q.blank();
   Q.thead(['Punto','Descrizione','Un (V)','c max','R (Ω)','X (Ω)','Z (Ω)','R/X','κ','κ per il picco','I″k dalla rete (A)',
     'R ramo dei motori (Ω)','X ramo dei motori (Ω)','I″k dei motori (A)','ip dei motori (A)','Ib dei motori (A)',
-    'I″k (kA)','ip (kA)','Ib (kA)','Ith (kA)','I″k2 (kA)','I″k1 (kA)','c min','I″k min (kA)','I″k2 min (kA)','I″k1 min (kA)']);
+    'I″k (kA)','ip (kA)','Ib (kA)','Ith (kA)','I″k2 (kA)','I″k1 (kA)','c min','I″k min (kA)','I″k2 min (kA)','I″k1 min (kA)','Ipk (kA)','Ipk limitata da']);
   P.forEach(p=>{
     const r=Q.rows.length+1, a=c=>c+r, up=!p.tr, nC=X.cab?(p.nCab===Infinity?X.cab.r1-X.cab.r0+1:Math.min(p.nCab,X.cab.r1-X.cab.r0+1)):0;
     const Rs=[],Xs=[],Rc=[],Xc=[]; let Un,cc;
@@ -5411,6 +5474,7 @@ function xlsPunti(S,X){
       if(!p.sc&&X.sc){ Rd+=`+${M(X.sc.R)}*${M(X.scInv)}`; Xd+=`+${M(X.sc.X)}*${M(X.scInv)}`; } }
     const A=p.max, B=p.min;
     const cM = !mot ? [{v:'—',s:11},{v:'—',s:11},{v:0,s:11},{v:0,s:11},{v:0,s:11}]
+      : FAR ? [{v:'—',s:11},{v:'—',s:11},{v:A.IkMot,s:11},{v:A.ipMot,s:11},{v:A.IbMot,s:11}]
       : p.last ? [{f:Rd,s:9},{f:Xd,s:9},{f:M(mot.Ik),s:4},{f:M(mot.ip),s:4},{f:M(mot.Ib),s:4}]
       : [{f:Rd,s:9},{f:Xd,s:9},{f:`IF(SQRT(${a('L')}^2+${a('M')}^2)>0,${a('D')}*${a('C')}/(SQRT(3)*SQRT(${a('L')}^2+${a('M')}^2)),0)`,s:4},
          {f:`(1.02+0.98*EXP(-3*IF(${a('M')}>0,${a('L')}/${a('M')},1000000000)))*SQRT(2)*${a('N')}`,s:4},{v:A.IbMot,s:11}];
@@ -5422,19 +5486,26 @@ function xlsPunti(S,X){
       const cr=nC>0?cabSum('N',nC):'0', cx=nC>0?cabSum('O',nC):'0';   // sequenza zero dei tratti fino al punto
       const pm=mot?_xPar(a('E'),a('F'),a('L'),a('M')):{R:a('E'),X:a('F')};   // con i motori Z1 = Z2 = rete ∥ ramo dei motori
       const dr=`(2*${pm.R}+${t0R}+${cr})`, dx=`(2*${pm.X}+${t0X}+${cx})`;
-      i1={f:`IF(SQRT(${dr}^2+${dx}^2)>0,SQRT(3)*${a('D')}*${a('C')}/SQRT(${dr}^2+${dx}^2)/1000,0)`,s:5};
+      i1=FAR?{v:A.le.Ik1/1000,s:11}:{f:`IF(SQRT(${dr}^2+${dx}^2)>0,SQRT(3)*${a('D')}*${a('C')}/SQRT(${dr}^2+${dx}^2)/1000,0)`,s:5};
     }
     Q.row([{v:p.id},{v:p.name},Un,cc,{f:_sum(Rs),s:9},{f:_sum(Xs),s:9},{f:`SQRT(${a('E')}^2+${a('F')}^2)`,s:9},{f:`IF(${a('F')}>0,${a('E')}/${a('F')},0)`,s:4},
       {f:`1.02+0.98*EXP(-3*${a('H')})`,s:4},{f:kip,s:4},{f:Ik,s:4}].concat(cM,[
       {f:`(${a('K')}+${a('N')})/1000`,s:5},{f:`(${a('J')}*SQRT(2)*${a('K')}+${a('O')})/1000`,s:5},
       {f:`(${a('K')}+${a('P')})/1000`,s:5},{f:`(${a('K')}+${a('N')})*SQRT(${_mExpr(a('I'),M(X.f),M(X.Tk))}+1)/1000`,s:5},
       X.mono?{v:'—',s:11}:{f:`SQRT(3)/2*${a('Q')}`,s:5},i1,
-      {v:B.c,s:11},{v:B.oIk/1000,s:11},B.monoFault?{v:'—',s:11}:{v:B.oIk*LLv/1000,s:11},(B.le&&B.le.ok)?{v:B.le.Ik1/1000,s:11}:{v:'—',s:11}]));
+      {v:B.c,s:11},{v:B.oIk/1000,s:11},B.monoFault?{v:'—',s:11}:{v:B.oIk*LLv/1000,s:11},(B.le&&B.le.ok)?{v:B.le.Ik1/1000,s:11}:{v:'—',s:11},
+      (p.cond&&p.cond.lim)?{v:p.cond.ip/1000,s:11}:{v:p.cond?'non limitata':'—',s:11},{v:(p.cond&&p.cond.lim)?p.cond.by.join(' + '):'',s:11}]));
   });
+  // punti dei rami in parallelo: valori calcolati dal programma
+  { const R=CC_ST.brs||[]; if(R.length){ Q.blank(); Q.row([{v:''},{v:'Punti dei rami in parallelo — valori calcolati dal programma',s:2}]);
+      Q.thead(['Punto','Descrizione','Un (V)','I″k nel punto (kA)','dal trasformatore (kA)','dal parallelo (kA)','ip (kA)','Ipk (kA)','I″k min (kA)','quota del ramo']);
+      R.forEach(p=>{ const A=p.max, B=p.min; Q.row([{v:p.id},{v:p.name},{v:p.Un,s:11},{v:A.oIk/1000,s:11},{v:A.up.Ik/1000,s:11},{v:A.back.Ik/1000,s:11},{v:A.oIp/1000,s:11},
+        (p.cond&&p.cond.lim)?{v:p.cond.ip/1000,s:11}:{v:p.cond?'non limitata':'—',s:11},{v:B.oIk/1000,s:11},{v:A.share,s:11}]); }); } }
   Q.blank();
   Q.sub('L\'ultimo punto è la fine della catena e coincide con i risultati del foglio «Cortocircuito».');
+  Q.sub('Ipk: corrente di picco condizionata, cioè lasciata passare dai fusibili e dagli interruttori limitatori a monte del punto. È un valore calcolato dal programma sulle curve dei dispositivi, non una formula.');
   Q.sub('Punti a monte del trasformatore: tensione della rete e fattore c di tabella del loro livello (cella gialla).');
-  Q.sub('Motori: collegati alla fine dell\'ultima linea. Negli altri punti contribuiscono attraverso gli elementi che li separano dal punto, con le impedenze riportate alla tensione del punto (IEC 60909-0, 5.2).');
+  Q.sub(FAR?'Motori: collegati in punti diversi dell\'impianto. In ogni punto contribuiscono attraverso gli elementi che li separano dal punto; qui i loro contributi e la I″k1 sono valori calcolati dal programma, non formule.':'Motori: collegati alla fine dell\'ultima linea. Negli altri punti contribuiscono attraverso gli elementi che li separano dal punto, con le impedenze riportate alla tensione del punto (IEC 60909-0, 5.2).');
   Q.sub('Ib dei motori nei punti a monte: valore calcolato dal programma con la Formula (77) della IEC 60909-0; negli altri casi è una formula.');
   Q.sub('I″k1: calcolata nei punti in cui tutti i cavi fino al centro stella hanno la sezione N/PE. Sequenza zero: rami dei trasformatori in parallelo più, per ogni tratto, R + 3·R del conduttore N/PE e (X0/X)·X.');
   Q.sub('I″k1 con i motori: nelle sequenze diretta e inversa il ramo dei motori è in parallelo alla rete (IEC 60909-0, art. 13); non entra nella sequenza zero.');
@@ -5702,7 +5773,7 @@ function allSetVal(el,v){ if(el.type==="checkbox"){ el.checked=!!v; return true;
   if(el.tagName==="SELECT"&&![...el.options].some(o=>o.value===String(v))) return false;
   el.value=v; return true; }
 function allFields(mod){ const o={}; $(mod).querySelectorAll("input,select,textarea").forEach(el=>{ if(!allSkip(el)) o[el.id]=el.type==="checkbox"?el.checked:el.value; }); return o; }
-function allRows(sel){ return [...document.querySelectorAll(sel)].map(d=>{ const o={}; d.querySelectorAll("input[data-k],select[data-k]").forEach(el=>{ o[el.dataset.k]=el.type==="checkbox"?el.checked:el.value; }); return o; }); }
+function allRows(sel){ return [...document.querySelectorAll(sel)].map(d=>{ const o={}; d.querySelectorAll("input[data-k],select[data-k]").forEach(el=>{ o[el.dataset.k]=el.type==="checkbox"?el.checked:(el.dataset.k==="pos"?(el.dataset.want!=null?(el.dataset.want==="end"?"":el.dataset.want):(el.selectedIndex===el.options.length-1?"":el.value)):el.value); }); return o; }); }   // posizione del motore: vuota = fine dell'ultima linea, e la segue se l'impianto cambia
 function allFus(s){ const f=fusGet("fu_sel"+s); return f?{gruppo:f.grp[0],famiglia:f.grp[1],tipo:f.type,In:f.In}:null; }
 function allCb(s){ const p=CB_DB.p[parseInt($("cb_sel"+s).value,10)]; if(!p) return null;
   const g=CB_DB.g[p[1]], o={gruppo:CB_DB.s[g[0]][0],serie:CB_DB.s[g[0]][1],esecuzione:cbFamTxt(g),tipo:p[0],regolazioni:{}};
@@ -5731,7 +5802,9 @@ function allSetRows(list,box,make,rep){
   if(!Array.isArray(list)) return;
   $(box).innerHTML="";
   list.forEach(r=>{ make(); const d=$(box).lastElementChild;
-    Object.keys(r).forEach(k=>{ const el=d.querySelector(`input[data-k="${k}"],select[data-k="${k}"]`); if(el&&allSetVal(el,r[k])) rep.ok++; else rep.skip.push(box+"."+k); });
+    Object.keys(r).forEach(k=>{ const el=d.querySelector(`input[data-k="${k}"],select[data-k="${k}"]`);
+      if(el&&k==="pos"){ el.dataset.want=String(r[k])===""?"end":String(r[k]); rep.ok++; return; }   // posizione del motore: l'elenco dei punti si riempie al ricalcolo
+      if(el&&allSetVal(el,r[k])) rep.ok++; else rep.skip.push(box+"."+k); });
     [["hvcab","hvcabfields"],["hascab","cabfields"]].forEach(([c,fl])=>{ const ck=d.querySelector(`[data-k=${c}]`), f=d.querySelector(`[data-k=${fl}]`);
       if(ck&&f){ if(ck.checked) f.removeAttribute("hidden"); else f.setAttribute("hidden",""); } }); });
 }

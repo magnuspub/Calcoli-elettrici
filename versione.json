@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.14",
+  "versione": "0.2.16",
   "data": "24/11/2026",
-  "novita": "Barra dei componenti sempre a portata di mano: sorgente, trasformatori, linee, fusibili, interruttori e motori si aprono in un riquadro accanto alla pagina; tipo e regolazioni dei dispositivi stanno nella loro scheda. Corrente condizionata: colonna Ipk nella tabella dei punti, dispositivi nello schema del PDF. Trasformatori in parallelo: ogni ramo ha i suoi punti e vi si può mettere un dispositivo. Torna la «Sezione minima protetta»; il modulo si chiama «Coordinamento protezioni»."
+  "novita": "Barra dei componenti a destra, con le schede laterali più larghe. Ogni motore si collega nel punto scelto dell'impianto. Fusibili e interruttori mostrano solo la posizione; con «Manuale (non collegato all'impianto)» si inseriscono a mano tensione e correnti. Colonna Ipk e punti dei rami in parallelo anche nel PDF e nel foglio Excel «Punti»."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
