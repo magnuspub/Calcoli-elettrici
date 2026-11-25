@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.19",
-  "data": "24/11/2026",
-  "novita": "Correzione K_T dei trasformatori attiva all'apertura, come prescrive la IEC 60909-0 per le correnti massime (i file salvati mantengono la loro scelta). Nelle correnti minime l'impedenza della rete a monte del trasformatore usa c min (1,00 in MT, 0,95 in BT), coerente con la I″kQ minima del distributore: le minime crescono di qualche decimo di punto."
+  "versione": "0.2.20",
+  "data": "25/11/2026",
+  "novita": "Scheda laterale con apertura e chiusura animate: il riquadro scorre dal bordo e la pagina si stringe e si allarga gradualmente, restando ferma sulla zona che si sta guardando (anche al cambio di scheda). Con la riduzione del movimento attiva nel sistema le animazioni sono disattivate."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
