@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.22",
+  "versione": "0.2.23",
   "data": "26/11/2026",
-  "novita": "Protezioni MT: nuova sezione «Importazione delle tarature dei relè». Da un progetto PCM600 esportato (.apcmp) si spuntano i relè ABB REF615 da mostrare tra le protezioni, ciascuno con il suo gruppo di regolazione; i valori non salvati nel progetto si prendono dal manuale e sono indicati come valori di fabbrica. Nella stessa sezione l'importazione del file del relè NA016. Soglie di fase direzionali (67) con verso, angolo caratteristico e settore: sigla e freccia nel grafico e in legenda, nota nelle verifiche di selettività, avviso se sono nella protezione generale. Grafici: Ctrl+clic (⌘+clic sul Mac) nasconde o mostra le maniglie delle regolazioni. Coordinamento: la sezione minima protetta considera tutte le correnti tra guasto minimo e massimo con intervento entro 5 s (CEI 64-8, 434.3.2), esclude il campo del sovraccarico e ricorda che la portata del cavo deve essere almeno la corrente del dispositivo."
+  "novita": "Linee: ogni riga ha l'estensione «Portata e caduta di tensione» con corrente d'impiego, cos φ, posa, temperatura, raggruppamento e caduta di tensione ammessa (0,5–4 %); portata secondo CEI-UNEL 35024/1 (in aria) e 35026 (interrati) con i fattori di correzione, oppure scritta a mano per i cavi fuori tabella. Coordinamento: per il dispositivo all'inizio della linea verifiche Ib ≤ In ≤ Iz e I2 ≤ 1,45 Iz, guasto minimo a fondo linea (intervento entro 0,4 s fino a 63 A a 230 V, entro 5 s oltre, e I²t ≤ K²S²), caduta di tensione del tratto e totale con resistenza e reattanza della CEI-UNEL 35023, sezione consigliata anche con più cavi in parallelo. Corretti i fumetti che mostravano i marcatori dei pedici."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",

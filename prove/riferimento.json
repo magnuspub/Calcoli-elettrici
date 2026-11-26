@@ -4800,7 +4800,7 @@
 },
 "esportazioni": {
 "excel": "d8caf556",
-"pdf": "5b38a8c4",
+"pdf": "b909065f",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -4813,7 +4813,8 @@
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
-"Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -4965,7 +4966,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "661d8ef6"
+"pdf": "2e62ef4e"
 },
 "note": [],
 "riquadri": [
@@ -4974,11 +4975,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -5203,7 +5206,7 @@
 },
 "esportazioni": {
 "excel": "347991e0",
-"pdf": "ba3b0df0",
+"pdf": "4f4980b7",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -5217,11 +5220,13 @@
 "A · Picco lasciato passare11,45 kA",
 "A · I²t passante a I″k448,51 kA²s",
 "A · Sezione minima protetta40,56 mm² rame PVC32,62 mm² rame EPR/XLPEenergia massima a 3,00 kAa 1,96 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 8,1 ms",
 "B · Picco lasciato passare6,19 kA",
 "B · I²t passante a I″k56,01 kA²s",
-"B · Sezione minima protetta2,06 mm² rame PVC1,65 mm² rame EPR/XLPEenergia massima a 12,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A."
+"B · Sezione minima protetta2,06 mm² rame PVC1,65 mm² rame EPR/XLPEenergia massima a 12,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -5497,7 +5502,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "19252168"
+"pdf": "289c8a82"
 },
 "note": [],
 "riquadri": [
@@ -5506,16 +5511,19 @@
 "A · Picco lasciato passare11,45 kA",
 "A · I²t passante a I″k448,51 kA²s",
 "A · Sezione minima protetta40,56 mm² rame PVC32,62 mm² rame EPR/XLPEenergia massima a 3,00 kAa 1,96 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 8,1 ms",
 "B · Picco lasciato passare6,19 kA",
 "B · I²t passante a I″k56,01 kA²s",
 "B · Sezione minima protetta2,06 mm² rame PVC1,65 mm² rame EPR/XLPEenergia massima a 12,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -5864,7 +5872,7 @@
 },
 "esportazioni": {
 "excel": "5fcf17b0",
-"pdf": "e1cb8cfb",
+"pdf": "dd21bb9e",
 "righe": 164
 },
 "excel_ricalcolato": {
@@ -5877,7 +5885,8 @@
 "Intervento a I″k min≤ 13,5 ms",
 "Picco lasciato passare3,34 kA",
 "I²t passante a I″k15,81 kA²s",
-"Sezione minima protetta1,09 mm² rame PVC0,88 mm² rame EPR/XLPEenergia massima a 4,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 16 A."
+"Sezione minima protetta1,09 mm² rame PVC0,88 mm² rame EPR/XLPEenergia massima a 4,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 16 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -6029,7 +6038,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "ad2970b8"
+"pdf": "8187d080"
 },
 "note": [],
 "riquadri": [
@@ -6038,11 +6047,13 @@
 "Picco lasciato passare3,34 kA",
 "I²t passante a I″k15,81 kA²s",
 "Sezione minima protetta1,09 mm² rame PVC0,88 mm² rame EPR/XLPEenergia massima a 4,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 16 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -6267,7 +6278,7 @@
 },
 "esportazioni": {
 "excel": "68f26483",
-"pdf": "6891fb39",
+"pdf": "e9857058",
 "righe": 85
 },
 "excel_ricalcolato": {
@@ -6279,7 +6290,8 @@
 "Intervento a I″k minda 5,67 s a 11,3 s",
 "Picco lasciato passare—",
 "I²t passante a I″k≤ 19,36 MA²s",
-"Sezione minima protetta175,70 mm² rame PVC141,29 mm² rame EPR/XLPEenergia massima a 14,40 kAa 9,01 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 900 A."
+"Sezione minima protetta175,70 mm² rame PVC141,29 mm² rame EPR/XLPEenergia massima a 14,40 kAa 9,01 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 900 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -6448,7 +6460,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "8daee437"
+"pdf": "b4a3d4f7"
 },
 "note": [],
 "riquadri": [
@@ -6457,11 +6469,13 @@
 "Picco lasciato passare—",
 "I²t passante a I″k≤ 19,36 MA²s",
 "Sezione minima protetta175,70 mm² rame PVC141,29 mm² rame EPR/XLPEenergia massima a 14,40 kAa 9,01 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 900 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -6693,7 +6707,7 @@
 },
 "esportazioni": {
 "excel": "88d789da",
-"pdf": "d2ce54d7",
+"pdf": "f2dcc540",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -6705,7 +6719,8 @@
 "Intervento a I″k minda 24,2 s a 34,6 s",
 "Picco lasciato passare—",
 "I²t passante a I″k288,00 MA²s",
-"Sezione minima protetta147,57 mm² rame PVC118,68 mm² rame EPR/XLPEenergia massima a 24,00 kAa 17,60 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 1600 A."
+"Sezione minima protetta147,57 mm² rame PVC118,68 mm² rame EPR/XLPEenergia massima a 24,00 kAa 17,60 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 1600 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -7225,7 +7240,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "d7595637"
+"pdf": "54ca366b"
 },
 "note": [],
 "riquadri": [
@@ -7234,11 +7249,13 @@
 "Picco lasciato passare—",
 "I²t passante a I″k288,00 MA²s",
 "Sezione minima protetta147,57 mm² rame PVC118,68 mm² rame EPR/XLPEenergia massima a 24,00 kAa 17,60 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 1600 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,42 mm² rame PVC2,75 mm² rame EPR/XLPEenergia massima a 22,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,42 mm² rame PVC2,75 mm² rame EPR/XLPEenergia massima a 22,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -7494,7 +7511,7 @@
 },
 "esportazioni": {
 "excel": "b1ccc2d3",
-"pdf": "d5cacfe2",
+"pdf": "456e7a63",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -7507,7 +7524,8 @@
 "Intervento a I″k minda istantaneo a 4,9 s",
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
-"Sezione minima protetta40,56 mm² rame PVC32,62 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta40,56 mm² rame PVC32,62 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -7659,7 +7677,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "0f0ceb10"
+"pdf": "fb2966b8"
 },
 "note": [],
 "riquadri": [
@@ -7668,11 +7686,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta40,56 mm² rame PVC32,62 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare17,83 kA",
 "I²t passante a I″k279,96 kA²s",
-"Sezione minima protetta4,71 mm² rame PVC3,78 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta4,71 mm² rame PVC3,78 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -7889,7 +7909,7 @@
 },
 "esportazioni": {
 "excel": "86729546",
-"pdf": "03221a58",
+"pdf": "77b19655",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -7902,7 +7922,8 @@
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare17,83 kA",
 "I²t passante a I″k279,96 kA²s",
-"Sezione minima protetta4,71 mm² rame PVC3,78 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta4,71 mm² rame PVC3,78 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -8006,7 +8027,7 @@
 },
 "esportazioni": {
 "excel": "ad7da2d9",
-"pdf": "9f3d3e54",
+"pdf": "8d2ecd8b",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -8019,7 +8040,8 @@
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
-"Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -8171,7 +8193,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "1ad1a8fc"
+"pdf": "ffc1ff6e"
 },
 "note": [],
 "riquadri": [
@@ -8180,11 +8202,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare5,20 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -8398,7 +8422,7 @@
 },
 "esportazioni": {
 "excel": "ad64bbdf",
-"pdf": "750cacc6",
+"pdf": "4430deb9",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -8411,7 +8435,8 @@
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare5,20 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -8512,7 +8537,7 @@
 },
 "esportazioni": {
 "excel": "9d21850a",
-"pdf": "ace0852e",
+"pdf": "1051da81",
 "righe": 161
 },
 "excel_ricalcolato": {
@@ -8524,7 +8549,8 @@
 "Intervento a I″k min≤ 5,3 ms",
 "Picco lasciato passare—",
 "I²t passante a I″k29,15 kA²s",
-"Sezione minima protetta1,48 mm² rame PVC1,19 mm² rame EPR/XLPEenergia massima a 10,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A."
+"Sezione minima protetta1,48 mm² rame PVC1,19 mm² rame EPR/XLPEenergia massima a 10,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -9009,7 +9035,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "4914d979"
+"pdf": "9f843c09"
 },
 "note": [],
 "riquadri": [
@@ -9018,11 +9044,13 @@
 "Picco lasciato passare—",
 "I²t passante a I″k29,15 kA²s",
 "Sezione minima protetta1,48 mm² rame PVC1,19 mm² rame EPR/XLPEenergia massima a 10,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -9243,7 +9271,7 @@
 },
 "esportazioni": {
 "excel": "72f6f4e2",
-"pdf": "f89a63b7",
+"pdf": "3dda3c88",
 "righe": 128
 },
 "excel_ricalcolato": {
@@ -9256,7 +9284,8 @@
 "Intervento a I″k minda 9,48 s a 17,5 s",
 "Picco lasciato passare13,68 kA",
 "I²t passante a I″k896,23 kA²s",
-"Sezione minima protetta107,06 mm² rame PVC86,10 mm² rame EPR/XLPEenergia massima a 5,53 kAa 5,49 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 630 A."
+"Sezione minima protetta107,06 mm² rame PVC86,10 mm² rame EPR/XLPEenergia massima a 5,53 kAa 5,49 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 630 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -9752,7 +9781,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "abb881ef"
+"pdf": "7d9e5d67"
 },
 "note": [],
 "riquadri": [
@@ -9761,11 +9790,13 @@
 "Picco lasciato passare13,68 kA",
 "I²t passante a I″k896,23 kA²s",
 "Sezione minima protetta107,06 mm² rame PVC86,10 mm² rame EPR/XLPEenergia massima a 5,53 kAa 5,49 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 630 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,30 mm² rame PVC2,65 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,30 mm² rame PVC2,65 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -10001,7 +10032,7 @@
 },
 "esportazioni": {
 "excel": "63bfb84e",
-"pdf": "fc9248c3",
+"pdf": "777234aa",
 "righe": 130
 },
 "excel_ricalcolato": {
@@ -10014,7 +10045,8 @@
 "Intervento a I″k minda istantaneo a 1,8 s",
 "Picco lasciato passare9,59 kA",
 "I²t passante a I″k460,91 kA²s",
-"Sezione minima protetta9,54 mm² rame PVC7,67 mm² rame EPR/XLPEenergia massima a 960 APer il sovraccarico serve anche Iz del cavo ≥ 80 A."
+"Sezione minima protetta9,54 mm² rame PVC7,67 mm² rame EPR/XLPEenergia massima a 960 APer il sovraccarico serve anche Iz del cavo ≥ 80 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -10166,7 +10198,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "d6dd7261"
+"pdf": "1a90b519"
 },
 "note": [],
 "riquadri": [
@@ -10175,11 +10207,13 @@
 "Picco lasciato passare9,59 kA",
 "I²t passante a I″k460,91 kA²s",
 "Sezione minima protetta9,54 mm² rame PVC7,67 mm² rame EPR/XLPEenergia massima a 960 APer il sovraccarico serve anche Iz del cavo ≥ 80 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -10404,7 +10438,7 @@
 },
 "esportazioni": {
 "excel": "a00c9e07",
-"pdf": "8bbf0f5d",
+"pdf": "4c288cc0",
 "righe": 137
 },
 "excel_ricalcolato": {
@@ -10418,11 +10452,13 @@
 "A · Picco lasciato passare20,56 kA",
 "A · I²t passante a I″k698,92 kA²s",
 "A · Sezione minima protetta7,27 mm² rame PVC5,85 mm² rame EPR/XLPEenergia massima a 30,00 kAa 2,70 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 225 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″kda istantaneo a 40 ms",
 "B · Intervento a I″k minda istantaneo a 40 ms",
 "B · Picco lasciato passare16,59 kA",
 "B · I²t passante a I″k457,32 kA²s",
-"B · Sezione minima protetta5,88 mm² rame PVC4,73 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 10 A."
+"B · Sezione minima protetta5,88 mm² rame PVC4,73 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 10 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -10719,7 +10755,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "557f9265"
+"pdf": "69284837"
 },
 "note": [],
 "riquadri": [
@@ -10728,16 +10764,19 @@
 "A · Picco lasciato passare20,56 kA",
 "A · I²t passante a I″k698,92 kA²s",
 "A · Sezione minima protetta7,27 mm² rame PVC5,85 mm² rame EPR/XLPEenergia massima a 30,00 kAa 2,70 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 225 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″kda istantaneo a 40 ms",
 "B · Intervento a I″k minda istantaneo a 40 ms",
 "B · Picco lasciato passare16,59 kA",
 "B · I²t passante a I″k457,32 kA²s",
 "B · Sezione minima protetta5,88 mm² rame PVC4,73 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 10 A.",
+"B · Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -11107,7 +11146,7 @@
 },
 "esportazioni": {
 "excel": "a5c6f23d",
-"pdf": "efe6dc14",
+"pdf": "d8c3a161",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -11121,11 +11160,13 @@
 "A · Picco lasciato passare31,70 kA",
 "A · I²t passante a I″k2,21 MA²s",
 "A · Sezione minima protetta12,93 mm² rame PVC10,40 mm² rame EPR/XLPEenergia massima a 40,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 125 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare—",
 "B · I²t passante a I″k≤ 10,56 MA²s",
-"B · Sezione minima protetta≤ 28,26 mm² rame PVC≤ 22,72 mm² rame EPR/XLPEenergia massima a 40,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 3,5 A."
+"B · Sezione minima protetta≤ 28,26 mm² rame PVC≤ 22,72 mm² rame EPR/XLPEenergia massima a 40,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 3,5 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -11377,7 +11418,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "2db31fb0"
+"pdf": "e5d63ab4"
 },
 "note": [],
 "riquadri": [
@@ -11386,16 +11427,19 @@
 "A · Picco lasciato passare31,70 kA",
 "A · I²t passante a I″k2,21 MA²s",
 "A · Sezione minima protetta12,93 mm² rame PVC10,40 mm² rame EPR/XLPEenergia massima a 40,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 125 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare—",
 "B · I²t passante a I″k≤ 10,56 MA²s",
 "B · Sezione minima protetta≤ 28,26 mm² rame PVC≤ 22,72 mm² rame EPR/XLPEenergia massima a 40,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 3,5 A.",
+"B · Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -11710,7 +11754,7 @@
 },
 "esportazioni": {
 "excel": "d0457579",
-"pdf": "d721b156",
+"pdf": "e4afac73",
 "righe": 132
 },
 "excel_ricalcolato": {
@@ -11723,7 +11767,8 @@
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare14,41 kA",
 "I²t passante a I″k823,56 kA²s",
-"Sezione minima protetta7,89 mm² rame PVC6,35 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta7,89 mm² rame PVC6,35 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -12218,7 +12263,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "75ec25ec"
+"pdf": "5f68898c"
 },
 "note": [],
 "riquadri": [
@@ -12227,11 +12272,13 @@
 "Picco lasciato passare14,41 kA",
 "I²t passante a I″k823,56 kA²s",
 "Sezione minima protetta7,89 mm² rame PVC6,35 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,30 mm² rame PVC2,65 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,30 mm² rame PVC2,65 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -12454,7 +12501,7 @@
 },
 "esportazioni": {
 "excel": "596aba22",
-"pdf": "36ff9cfa",
+"pdf": "babbe857",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -12467,7 +12514,8 @@
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,30 mm² rame PVC2,65 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,30 mm² rame PVC2,65 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -12577,7 +12625,7 @@
 },
 "esportazioni": {
 "excel": "68d52f58",
-"pdf": "50d4eda4",
+"pdf": "46419879",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -12590,7 +12638,8 @@
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
-"Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -13068,7 +13117,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "010c0138"
+"pdf": "f349b838"
 },
 "note": [],
 "riquadri": [
@@ -13077,11 +13126,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -13298,7 +13349,7 @@
 },
 "esportazioni": {
 "excel": "35bf5b24",
-"pdf": "e2e92254",
+"pdf": "94c2fbc5",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -13311,7 +13362,8 @@
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -23263,7 +23315,7 @@
 },
 "esportazioni": {
 "excel": "769e2f77",
-"pdf": "e8c49a0e",
+"pdf": "39928f0f",
 "righe": 70
 },
 "excel_ricalcolato": {
@@ -23275,7 +23327,8 @@
 "Intervento a I″k minda 29,6 s a 59,2 s",
 "Picco lasciato passare—",
 "I²t passante a I″k≤ 31,36 MA²s",
-"Sezione minima protetta281,11 mm² rame PVC226,07 mm² rame EPR/XLPEenergia massima a 23,04 kAa 14,41 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 1440 A."
+"Sezione minima protetta281,11 mm² rame PVC226,07 mm² rame EPR/XLPEenergia massima a 23,04 kAa 14,41 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 1440 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -24618,7 +24671,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "08c536c3"
+"pdf": "f8a83dc3"
 },
 "note": [],
 "riquadri": [
@@ -24627,11 +24680,13 @@
 "Picco lasciato passare—",
 "I²t passante a I″k≤ 31,36 MA²s",
 "Sezione minima protetta281,11 mm² rame PVC226,07 mm² rame EPR/XLPEenergia massima a 23,04 kAa 14,41 kA e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 1440 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare14,54 kA",
 "I²t passante a I″k169,38 kA²s",
-"Sezione minima protetta3,58 mm² rame PVC2,88 mm² rame EPR/XLPEenergia massima a 28,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,58 mm² rame PVC2,88 mm² rame EPR/XLPEenergia massima a 28,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -24859,7 +24914,7 @@
 },
 "esportazioni": {
 "excel": "52c6382c",
-"pdf": "caf5b485",
+"pdf": "66ba9732",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -24872,7 +24927,8 @@
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare14,54 kA",
 "I²t passante a I″k169,38 kA²s",
-"Sezione minima protetta3,58 mm² rame PVC2,88 mm² rame EPR/XLPEenergia massima a 28,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,58 mm² rame PVC2,88 mm² rame EPR/XLPEenergia massima a 28,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -38893,7 +38949,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "55e6e465"
+"pdf": "1bdc6b7d"
 },
 "note": [],
 "riquadri": [
@@ -38902,11 +38958,13 @@
 "Picco lasciato passare13,48 kA",
 "I²t passante a I″k531,92 kA²s",
 "Sezione minima protetta6,34 mm² rame PVC5,10 mm² rame EPR/XLPEenergia massima a 17,40 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,40 kA",
 "I²t passante a I″k139,02 kA²s",
-"Sezione minima protetta3,24 mm² rame PVC2,61 mm² rame EPR/XLPEenergia massima a 17,40 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,24 mm² rame PVC2,61 mm² rame EPR/XLPEenergia massima a 17,40 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -40579,7 +40637,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "d38113cd"
+"pdf": "cc81e449"
 },
 "note": [],
 "riquadri": [
@@ -40588,11 +40646,13 @@
 "Picco lasciato passare14,98 kA",
 "I²t passante a I″k594,55 kA²s",
 "Sezione minima protetta6,70 mm² rame PVC5,39 mm² rame EPR/XLPEenergia massima a 22,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare13,56 kA",
 "I²t passante a I″k155,25 kA²s",
-"Sezione minima protetta3,43 mm² rame PVC2,76 mm² rame EPR/XLPEenergia massima a 22,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,43 mm² rame PVC2,76 mm² rame EPR/XLPEenergia massima a 22,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -41148,7 +41208,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "053edbad"
+"pdf": "fd932e8f"
 },
 "note": [],
 "riquadri": [
@@ -41157,11 +41217,13 @@
 "Picco lasciato passare14,98 kA",
 "I²t passante a I″k594,55 kA²s",
 "Sezione minima protetta6,70 mm² rame PVC5,39 mm² rame EPR/XLPEenergia massima a 22,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -41395,7 +41457,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "f652ba69"
+"pdf": "d481aa65"
 },
 "note": [],
 "riquadri": [
@@ -41404,16 +41466,19 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min118 ms",
 "A · Picco lasciato passare12,75 kA",
 "A · I²t passante a I″k143,87 kA²s",
 "A · Sezione minima protetta5,96 mm² rame PVC4,79 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min818 ms",
 "B · Picco lasciato passare17,83 kA",
 "B · I²t passante a I″k279,96 kA²s",
-"B · Sezione minima protetta15,73 mm² rame PVC12,65 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"B · Sezione minima protetta15,73 mm² rame PVC12,65 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -42057,7 +42122,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "7fb8c16b"
+"pdf": "46a87f13"
 },
 "note": [],
 "riquadri": [
@@ -42066,16 +42131,19 @@
 "A · Picco lasciato passare14,98 kA",
 "A · I²t passante a I″k594,55 kA²s",
 "A · Sezione minima protetta6,70 mm² rame PVC5,39 mm² rame EPR/XLPEenergia massima a 22,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettaIz 298 A · consigliata 95 mm²",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare12,47 kA",
 "B · I²t passante a I″k455,03 kA²s",
 "B · Sezione minima protetta5,87 mm² rame PVC4,72 mm² rame EPR/XLPEenergia massima a 14,10 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Linea protettanessuna linea a valle",
 "C · Intervento a I″k≤ 6,6 ms",
 "C · Intervento a I″k min≤ 6,6 ms",
 "C · Picco lasciato passare3,91 kA",
 "C · I²t passante a I″k21,78 kA²s",
-"C · Sezione minima protetta1,72 mm² rame PVC1,39 mm² rame EPR/XLPEenergia massima a 8,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A."
+"C · Sezione minima protetta1,72 mm² rame PVC1,39 mm² rame EPR/XLPEenergia massima a 8,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"C · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -42155,11 +42223,20 @@
 "back": 0,
 "cab": {
 "K": 143,
+"L": 40,
 "S": 95,
 "desc": "Tratto 2",
+"end": 2,
+"endMin": 8500,
+"endTxt": "bifase",
 "iso": "EPR/XLPE",
 "mat": "Cu",
-"n": 1
+"mt": false,
+"n": 1,
+"ri": 0,
+"start": 1,
+"up": [],
+"x": 0.08
 },
 "cut": {
 "lim": true,
@@ -42456,6 +42533,11 @@
 "C · I″k = 5,0 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✓ ok",
 "C · Intervento a I″k min 8,50 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 14,98 kA ≤ 17 kA l'interruttore limita: picco presunto 46,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,50 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 376,60 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: sezione consigliata 95 mm² coincide con la sezione scelta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k: I²t = 594,55 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "B · Picco lasciato passare 12,47 kA ≤ 17 kA l'interruttore limita: picco presunto 22,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
@@ -44310,7 +44392,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "1b16a6ff"
+"pdf": "1da8d7b1"
 },
 "note": [],
 "riquadri": [
@@ -44319,16 +44401,19 @@
 "A · Picco lasciato passare15,44 kA",
 "A · I²t passante a I″k613,09 kA²s",
 "A · Sezione minima protetta6,81 mm² rame PVC5,48 mm² rame EPR/XLPEenergia massima a 24,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettaIz 298 A · consigliata 95 mm²",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,19 kA",
 "B · I²t passante a I″k74,00 kA²s",
 "B · Sezione minima protetta2,37 mm² rame PVC1,90 mm² rame EPR/XLPEenergia massima a 16,10 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Linea protettaIz 100 A · consigliata 2,5 mm²",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -44408,11 +44493,20 @@
 "back": 0,
 "cab": {
 "K": 143,
+"L": 40,
 "S": 95,
 "desc": "Tratto 2",
+"end": 2,
+"endMin": 8500,
+"endTxt": "bifase",
 "iso": "EPR/XLPE",
 "mat": "Cu",
-"n": 1
+"mt": false,
+"n": 1,
+"ri": 0,
+"start": 1,
+"up": [],
+"x": 0.08
 },
 "cut": {
 "lim": true,
@@ -44533,11 +44627,22 @@
 "back": 0,
 "cab": {
 "K": 143,
+"L": 25,
 "S": 16,
 "desc": "Tratto 2",
+"end": 3,
+"endMin": 2500,
+"endTxt": "bifase",
 "iso": "EPR/XLPE",
 "mat": "Cu",
-"n": 1
+"mt": false,
+"n": 1,
+"ri": 1,
+"start": 2,
+"up": [
+2
+],
+"x": 0.08
 },
 "cut": {
 "lim": true,
@@ -44674,6 +44779,11 @@
 "B · I″k = 16,1 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✗ no",
 "B · Intervento a I″k min 8,50 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 15,44 kA ≤ 17 kA l'interruttore limita: picco presunto 49,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,50 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 376,60 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: sezione consigliata 95 mm² coincide con la sezione scelta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k: I²t = 613,09 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Spunto motore 2,17 kA per 5 s: intervento più rapido in istantaneo lo spunto raggiunge la soglia magnetica minima (2,00 kA): rischio di scatto all'avviamento → ✗ no",
@@ -44682,6 +44792,11 @@
 "A · Sovraccarico ammesso dal trasformatore (ANSI C57.92): margine minimo ×90,69 a 2,97 kA la banda massima dell'interruttore resta sotto la curva di sovraccarico ammesso, da 2 × In a 22,73 kA → ✓ ok",
 "A · Tenuta termica del trasformatore (22,73 kA per 2 s): a 24,50 kA intervento in 10 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok",
 "B · Picco lasciato passare 7,19 kA ≤ 17 kA l'interruttore limita: picco presunto 25,3 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: In 32 A ≤ Iz 100 A I0 100 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: I2 = 1,45 × 32 = 46 A ≤ 1,45·Iz 145 A corrente convenzionale di intervento con il fattore 1,45 (CEI EN 60898) → ✓ ok",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: guasto minimo a fondo linea 2,50 kA: intervento in 6,6 ms ≤ 400 ms (fino a 63 A, CEI 64-8 tab. 41.1 con U0 231 V), I²t 9,94 kA²s ≤ K²S² 5,23 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: sezione consigliata 2,5 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "B · Cavo «Tratto 2» 16 mm² rame EPR/XLPE a I″k: I²t = 74,00 kA²s ≤ K²S² 5,23 MA²s curva I²t di catalogo → ✓ ok",
 "B · Cavo «Tratto 2» 16 mm² rame EPR/XLPE a I″k min: I²t = 39,25 kA²s ≤ K²S² 5,23 MA²s curva I²t di catalogo → ✓ ok",
 "B · Spunto motore 2,17 kA per 5 s: intervento più rapido in istantaneo lo spunto raggiunge la soglia magnetica minima (160 A): rischio di scatto all'avviamento → ✗ no",
@@ -45164,7 +45279,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "29960b0e"
+"pdf": "f3917d54"
 },
 "note": [],
 "riquadri": [
@@ -45173,11 +45288,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -46222,7 +46339,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "9790d4da"
+"pdf": "1f09fe00"
 },
 "note": [],
 "riquadri": [
@@ -46231,11 +46348,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -47289,7 +47408,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "7ff7f1dd"
+"pdf": "1ec2a4e3"
 },
 "note": [],
 "riquadri": [
@@ -47298,11 +47417,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,46 mm² rame PVC5,19 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -48476,7 +48597,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "8e897264"
+"pdf": "1e060604"
 },
 "note": [],
 "riquadri": [
@@ -48485,16 +48606,19 @@
 "A · Picco lasciato passare14,47 kA",
 "A · I²t passante a I″k574,00 kA²s",
 "A · Sezione minima protetta6,59 mm² rame PVC5,30 mm² rame EPR/XLPEenergia massima a 20,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare14,98 kA",
 "B · I²t passante a I″k587,99 kA²s",
 "B · Sezione minima protetta6,67 mm² rame PVC5,36 mm² rame EPR/XLPEenergia massima a 20,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare11,10 kA",
 "I²t passante a I″k121,17 kA²s",
-"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -49586,7 +49710,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "66a5ca3c"
+"pdf": "f344dafc"
 },
 "note": [],
 "riquadri": [
@@ -49595,16 +49719,19 @@
 "A · Picco lasciato passare14,07 kA",
 "A · I²t passante a I″k558,13 kA²s",
 "A · Sezione minima protetta6,50 mm² rame PVC5,22 mm² rame EPR/XLPEenergia massima a 19,40 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare17,51 kA",
 "B · I²t passante a I″k703,44 kA²s",
 "B · Sezione minima protetta7,29 mm² rame PVC5,87 mm² rame EPR/XLPEenergia massima a 30,30 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare11,10 kA",
 "I²t passante a I″k121,17 kA²s",
-"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -51034,7 +51161,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "c2bf1fa3"
+"pdf": "f824e2ae"
 },
 "note": [],
 "riquadri": [
@@ -51043,11 +51170,13 @@
 "Picco lasciato passare14,71 kA",
 "I²t passante a I″k583,87 kA²s",
 "Sezione minima protetta6,64 mm² rame PVC5,34 mm² rame EPR/XLPEenergia massima a 21,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettaIz 298 A · consigliata 95 mm²",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare11,10 kA",
 "I²t passante a I″k121,17 kA²s",
-"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettacavo MT: portata non calcolata"
 ],
 "tabelle": [],
 "valori": {
@@ -51127,11 +51256,20 @@
 "back": 0,
 "cab": {
 "K": 143,
+"L": 25,
 "S": 95,
 "desc": "Tratto 2",
+"end": 5,
+"endMin": 10400,
+"endTxt": "bifase",
 "iso": "EPR/XLPE",
 "mat": "Cu",
-"n": 1
+"mt": false,
+"n": 1,
+"ri": 0,
+"start": 4,
+"up": [],
+"x": 0.08
 },
 "cut": {
 "lim": true,
@@ -51185,11 +51323,19 @@
 "back": 0,
 "cab": {
 "K": 76,
+"L": 300,
 "S": 185,
 "desc": "cavo dalla sorgente",
+"end": 1,
+"endMin": 10100,
+"endTxt": "bifase",
 "iso": "PVC",
 "mat": "Al",
-"n": 1
+"mt": true,
+"n": 1,
+"start": 0,
+"up": [],
+"x": 0.12
 },
 "cut": 11097.70896,
 "e": {
@@ -51266,6 +51412,11 @@
 "I″k = 21,7 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 18,90 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
 "Picco lasciato passare 14,71 kA ≤ 17 kA l'interruttore limita: picco presunto 42,7 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 10,40 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 417,77 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: sezione consigliata 95 mm² coincide con la sezione scelta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k: I²t = 583,87 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k min: I²t = 551,74 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "I″k = 12,5 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
@@ -52022,7 +52173,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "5e54a482"
+"pdf": "045585da"
 },
 "note": [],
 "riquadri": [
@@ -52031,16 +52182,19 @@
 "A · Picco lasciato passare14,47 kA",
 "A · I²t passante a I″k574,00 kA²s",
 "A · Sezione minima protetta6,59 mm² rame PVC5,30 mm² rame EPR/XLPEenergia massima a 20,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare15,25 kA",
 "B · I²t passante a I″k601,40 kA²s",
 "B · Sezione minima protetta6,74 mm² rame PVC5,42 mm² rame EPR/XLPEenergia massima a 21,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Linea protettaportata non calcolata: il cavo non è una riga delle Linee",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare4,38 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta1,43 mm² rame PVC1,15 mm² rame EPR/XLPEenergia massima a 10,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -52237,11 +52391,14 @@
 "back": 19900,
 "cab": {
 "K": 143,
+"L": 0,
 "S": 150,
 "desc": "cavo al secondario del trasformatore 2",
 "iso": "EPR/XLPE",
 "mat": "Cu",
-"n": 2
+"mt": false,
+"n": 2,
+"x": 0
 },
 "cut": {
 "lim": true,
@@ -52382,6 +52539,2047 @@
 ]
 }
 },
+"co14_linee_portata_caduta_di_tensione_e_sezione_consigliata": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modCC": {
+"aspetto": {
+"grafici": [
+"cc_wave linee 9d522b74 scritte abde4075"
+],
+"legende": []
+},
+"esportazioni": {
+"excel": "1417e4d1",
+"excel · foglio Punti": "b2fd1091",
+"pdf": "6111d088",
+"righe": 99
+},
+"excel_ricalcolato": {
+"60 · I″k · simmetrica iniziale": 8.69989094,
+"61 · ip · picco": 12.7407016,
+"62 · Ib · interruzione": 8.69989094,
+"63 · Ik · regime": 8.69989094,
+"64 · Ith · termica equivalente": 8.7129157,
+"67 · I″k2 · bifase iniziale": 7.53432657,
+"68 · ip2 · picco bifase": 11.0337713,
+"77 · I″k1 · fase-terra iniziale": 3.77878385,
+"78 · ip1 · picco fase-terra": 5.53390356,
+"97 · Corrente di inserzione — primario": 266.735824,
+"98 · Corrente a vuoto I0 — primario": 0.36373067,
+"Punti · P1 · Ib (kA)": 12.5,
+"Punti · P1 · Ib dei motori (A)": 0.0,
+"Punti · P1 · Ith (kA)": 12.7115015,
+"Punti · P1 · I″k (kA)": 12.5,
+"Punti · P1 · I″k dalla rete (A)": 12500.0,
+"Punti · P1 · I″k dei motori (A)": 0.0,
+"Punti · P1 · I″k min (kA)": 12.5,
+"Punti · P1 · I″k2 (kA)": 10.8253175,
+"Punti · P1 · I″k2 min (kA)": 10.8253175,
+"Punti · P1 · R (Ω)": 0.0758320186,
+"Punti · P1 · R/X": 0.1,
+"Punti · P1 · Un (V)": 15000.0,
+"Punti · P1 · X (Ω)": 0.758320186,
+"Punti · P1 · Z (Ω)": 0.762102355,
+"Punti · P1 · c max": 1.1,
+"Punti · P1 · c min": 1.0,
+"Punti · P1 · ip (kA)": 30.8652438,
+"Punti · P1 · ip dei motori (A)": 0.0,
+"Punti · P1 · κ": 1.74600186,
+"Punti · P1 · κ per il picco": 1.74600186,
+"Punti · P2 · Ib (kA)": 23.230481,
+"Punti · P2 · Ib dei motori (A)": 0.0,
+"Punti · P2 · Ith (kA)": 23.3711358,
+"Punti · P2 · I″k (kA)": 23.230481,
+"Punti · P2 · I″k dalla rete (A)": 23230.481,
+"Punti · P2 · I″k dei motori (A)": 0.0,
+"Punti · P2 · I″k min (kA)": 20.6132603,
+"Punti · P2 · I″k1 (kA)": 23.9888048,
+"Punti · P2 · I″k1 min (kA)": 21.247378,
+"Punti · P2 · I″k2 (kA)": 20.1181867,
+"Punti · P2 · I″k2 min (kA)": 17.8516071,
+"Punti · P2 · R (Ω)": 0.00284468653,
+"Punti · P2 · R/X": 0.283244552,
+"Punti · P2 · Un (V)": 400.0,
+"Punti · P2 · X (Ω)": 0.0100432171,
+"Punti · P2 · Z (Ω)": 0.0104383165,
+"Punti · P2 · c max": 1.05,
+"Punti · P2 · c min": 0.95,
+"Punti · P2 · ip (kA)": 47.2745516,
+"Punti · P2 · ip dei motori (A)": 0.0,
+"Punti · P2 · κ": 1.43897821,
+"Punti · P2 · κ per il picco": 1.43897821,
+"Punti · P3 · Ib (kA)": 19.8478188,
+"Punti · P3 · Ib dei motori (A)": 0.0,
+"Punti · P3 · Ith (kA)": 19.9463994,
+"Punti · P3 · I″k (kA)": 19.8478188,
+"Punti · P3 · I″k dalla rete (A)": 19847.8188,
+"Punti · P3 · I″k dei motori (A)": 0.0,
+"Punti · P3 · I″k min (kA)": 17.1254783,
+"Punti · P3 · I″k1 (kA)": 17.0996201,
+"Punti · P3 · I″k1 min (kA)": 13.6552609,
+"Punti · P3 · I″k2 (kA)": 17.1887153,
+"Punti · P3 · I″k2 min (kA)": 14.8310992,
+"Punti · P3 · R (Ω)": 0.00400212403,
+"Punti · P3 · R/X": 0.346707854,
+"Punti · P3 · Un (V)": 400.0,
+"Punti · P3 · X (Ω)": 0.0115432171,
+"Punti · P3 · Z (Ω)": 0.0122173179,
+"Punti · P3 · c max": 1.05,
+"Punti · P3 · c min": 0.95,
+"Punti · P3 · ip (kA)": 38.3519504,
+"Punti · P3 · ip dei motori (A)": 0.0,
+"Punti · P3 · κ": 1.36634279,
+"Punti · P3 · κ per il picco": 1.36634279,
+"Punti · P4 · Ib (kA)": 8.69989094,
+"Punti · P4 · Ib dei motori (A)": 0.0,
+"Punti · P4 · Ith (kA)": 8.7129157,
+"Punti · P4 · I″k (kA)": 8.69989094,
+"Punti · P4 · I″k dalla rete (A)": 8699.89094,
+"Punti · P4 · I″k dei motori (A)": 0.0,
+"Punti · P4 · I″k min (kA)": 5.7873106,
+"Punti · P4 · I″k1 (kA)": 3.77878385,
+"Punti · P4 · I″k1 min (kA)": 2.27896865,
+"Punti · P4 · I″k2 (kA)": 7.53432657,
+"Punti · P4 · I″k2 min (kA)": 5.011958,
+"Punti · P4 · R (Ω)": 0.022578124,
+"Punti · P4 · R/X": 1.38149814,
+"Punti · P4 · Un (V)": 400.0,
+"Punti · P4 · X (Ω)": 0.0163432171,
+"Punti · P4 · Z (Ω)": 0.0278724314,
+"Punti · P4 · c max": 1.05,
+"Punti · P4 · c min": 0.95,
+"Punti · P4 · ip (kA)": 12.7407016,
+"Punti · P4 · ip dei motori (A)": 0.0,
+"Punti · P4 · κ": 1.03553442,
+"Punti · P4 · κ per il picco": 1.03553442
+},
+"note": [
+"guasto trifase BT",
+"Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
+],
+"riquadri": [
+"I″k · simmetrica iniziale8,7 kA",
+"ip · corrente di picco12,7 kA",
+"Ib · interruzione8,7 kA",
+"Ik · permanente8,7 kA",
+"R/X1,381",
+"κ (picco)1,036",
+"Ith (Tk=1s)8,7 kA",
+"I″k2 · bifase iniziale7,5 kA",
+"ip2 · picco bifase11,0 kA",
+"I″k1 · fase-terra3,8 kA",
+"ip1 · picco5,5 kA",
+"I″k min · trifase5,8 kA",
+"I″k2 min · bifase5,0 kA",
+"I″k1 min · fase-terra2,3 kA",
+"In · primario24,2 A",
+"In · secondario909 A",
+"Iinserzione · primario (cresta)267 A",
+"I0 · a vuoto (primario)0,36 A"
+],
+"tabelle": [
+"Puntomassime (kA)minime (kA) I″kipIpkIthI″kI″k2I″k1 P1 Punto di consegna15.000 V12,530,9—12,712,510,8—P2 Secondario del trasformatore400 V23,247,3—23,420,617,921,2P3 Fine «Montante»400 V19,838,4—19,917,114,813,7P4 Fine «Dorsale»400 V8,712,7—8,75,85,02,3",
+"ComponenteR (mΩ)X (mΩ)Z (mΩ) Rete0,050,540,54Trasformatore2,799,509,91Cavi/linee19,736,3020,71 Totale al guasto22,5816,3427,87"
+],
+"valori": {
+"brs": [],
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.035534419,
+"kappaIp": 1.035534419,
+"le": {
+"Ik1": 3778.783846,
+"R0": 0.135352024,
+"X0": 0.03422876883,
+"ip1": 5533.903561,
+"k1": 1.035534419,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 8699.890942,
+"oIk": 8699.890942,
+"oIkSt": 8699.890942,
+"oIp": 12740.70162,
+"oIth": 8712.915699,
+"oKappa": 1.035534419,
+"oRk": 0.02257812403,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0197334375,
+"X": 0.0063,
+"name": "Cavi/linee"
+}
+],
+"oRx": 1.38149814,
+"oXk": 0.0163432171,
+"oZk": 0.02787243135,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.022012536,
+"kappaIp": 1.022012536,
+"le": {
+"Ik1": 2278.968654,
+"R0": 0.2125744939,
+"X0": 0.03445983051,
+"ip1": 3293.893646,
+"k1": 1.022012536,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 5787.310605,
+"oIk": 5787.310605,
+"oIkSt": 5787.310605,
+"oIp": 8364.654596,
+"oIth": 5794.888313,
+"oKappa": 1.022012536,
+"oRk": 0.03411204463,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.03120084,
+"X": 0.0063,
+"name": "Cavi/linee"
+}
+],
+"oRx": 2.062718997,
+"oXk": 0.0165374172,
+"oZk": 0.03790933601,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"pts": [
+{
+"Un": 15000,
+"cmax": 1.1,
+"cmin": 1,
+"cond": null,
+"frac": 0,
+"i": 0,
+"id": "P1",
+"kind": "cons",
+"lvl": "MT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.07583201863,
+"oRows": [
+{
+"R": 0.07583201863,
+"X": 0.7583201863,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.7583201863,
+"oZk": 0.7621023553,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.06893819875,
+"oRows": [
+{
+"R": 0.06893819875,
+"X": 0.6893819875,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.6893819875,
+"oZk": 0.692820323,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"nCab": 0,
+"name": "Punto di consegna",
+"sc": false,
+"tr": false
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0,
+"i": 1,
+"id": "P2",
+"kind": "bus",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.438978211,
+"kappaIp": 1.438978211,
+"le": {
+"Ik1": 23988.80484,
+"R0": 0.002790761534,
+"X0": 0.009028768828,
+"ip1": 48817.75765,
+"k1": 1.438978211,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 23230.48102,
+"oIk": 23230.48102,
+"oIkSt": 23230.48102,
+"oIp": 47274.55161,
+"oIth": 23371.13577,
+"oKappa": 1.438978211,
+"oRk": 0.002844686525,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2832445518,
+"oXk": 0.0100432171,
+"oZk": 0.01043831649,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.437567169,
+"kappaIp": 1.437567169,
+"le": {
+"Ik1": 21247.37804,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 43196.49296,
+"k1": 1.437567169,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 20613.26031,
+"oIk": 20613.26031,
+"oIkSt": 20613.26031,
+"oIp": 41907.31449,
+"oIth": 20737.58373,
+"oKappa": 1.437567169,
+"oRk": 0.002911204629,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2843690524,
+"oXk": 0.0102374172,
+"oZk": 0.01064329946,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 0,
+"name": "Secondario del trasformatore",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0.3333333333,
+"i": 2,
+"id": "P3",
+"kind": "cab",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.366342791,
+"kappaIp": 1.366342791,
+"le": {
+"Ik1": 17099.62014,
+"R0": 0.01089282403,
+"X0": 0.01502876883,
+"ip1": 33041.60465,
+"k1": 1.366342791,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 19847.81883,
+"oIk": 19847.81883,
+"oIkSt": 19847.81883,
+"oIp": 38351.95037,
+"oIth": 19946.39944,
+"oKappa": 1.366342791,
+"oRk": 0.004002124025,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0011574375,
+"X": 0.0015,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.3467078537,
+"oXk": 0.0115432171,
+"oZk": 0.01221731794,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.283873697,
+"kappaIp": 1.283873697,
+"le": {
+"Ik1": 13655.26089,
+"R0": 0.01841814191,
+"X0": 0.01525983051,
+"ip1": 24793.46932,
+"k1": 1.283873697,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 17125.47825,
+"oIk": 17125.47825,
+"oIkSt": 17125.47825,
+"oIp": 31094.2444,
+"oIth": 17193.34381,
+"oKappa": 1.283873697,
+"oRk": 0.005133484629,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.00222228,
+"X": 0.0015,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.437360668,
+"oXk": 0.0117374172,
+"oZk": 0.01281091828,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 1,
+"name": "Fine «Montante»",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 1,
+"hv": false,
+"i": 3,
+"id": "P4",
+"kind": "cab",
+"last": true,
+"lvl": "BT",
+"max": "(già visto)",
+"min": "(già visto)",
+"nCab": "Infinity",
+"name": "Fine «Dorsale»",
+"noLv": false,
+"sc": true,
+"tr": true
+}
+],
+"sy": {
+"Un": 400,
+"auto": 400,
+"lvl": "BT",
+"src": "secondario del trasformatore"
+}
+},
+"verifiche": []
+},
+"modCOO": {
+"aspetto": {
+"grafici": [
+"co_chart linee 27a034f0 scritte 6bb69bc4",
+"co_chartL linee e4c1e91b scritte 3b955aae",
+"co_chartE linee 7c784bf3 scritte 5c0ba2a6"
+],
+"legende": [
+"interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · FAZ-C32/3 (32 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
+]
+},
+"esportazioni": {
+"pdf": "c6709701"
+},
+"note": [],
+"riquadri": [
+"A · Intervento a I″k≤ 10 ms",
+"A · Intervento a I″k min≤ 10 ms",
+"A · Picco lasciato passare15,11 kA",
+"A · I²t passante a I″k599,78 kA²s",
+"A · Sezione minima protetta6,73 mm² rame PVC5,42 mm² rame EPR/XLPEenergia massima a 23,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettaIz 906 A · ΔU 0,13 % · consigliata 2 × 35 mm²",
+"B · Intervento a I″k≤ 6,6 ms",
+"B · Intervento a I″k min≤ 6,6 ms",
+"B · Picco lasciato passare7,99 kA",
+"B · I²t passante a I″k90,03 kA²s",
+"B · Sezione minima protetta2,61 mm² rame PVC2,10 mm² rame EPR/XLPEenergia massima a 19,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Linea protettaIz 112 A · ΔU 1,32 % · consigliata 150 mm²",
+"Intervento a I″k< 10 ms",
+"Intervento a I″k min< 10 ms",
+"Picco lasciato passare12,95 kA",
+"I²t passante a I″k146,68 kA²s",
+"Sezione minima protetta3,33 mm² rame PVC2,68 mm² rame EPR/XLPEenergia massima a 19,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettaIz 112 A · ΔU 1,32 % · consigliata 240 mm²"
+],
+"tabelle": [],
+"valori": {
+"C": [
+{
+"Ik": 23200,
+"Imin": 21200,
+"U": 400,
+"b": {
+"Ii": 2500,
+"Ir": 250,
+"Iu": 250,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": {
+"log": 199.6248362,
+"n": 22,
+"somma": 260159.2
+},
+"over": false
+},
+"e": {
+"Un": 415,
+"c": {
+"log": 220.2133941,
+"n": 20,
+"somma": 4750061.4
+},
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrA",
+"k": 1.82936,
+"lab": "I<sub>r</sub>",
+"x": 457.34,
+"y": 213.32
+},
+{
+"ax": "x",
+"id": "cb_IiA",
+"k": 1.2,
+"lab": "I<sub>i</sub>",
+"x": 3000,
+"y": 0.1554702544
+}
+],
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 258.3980878,
+"n": 48,
+"somma": 51822.5997
+},
+"min": {
+"log": 226.3052568,
+"n": 44,
+"somma": 41687.4845
+},
+"slot": "A",
+"thE": 3000,
+"thMax": 3000,
+"thMin": 2000,
+"type": "NZMN2-A250"
+},
+"back": 0,
+"cab": {
+"K": 143,
+"L": 30,
+"S": 240,
+"desc": "Montante",
+"end": 2,
+"endMin": 13700,
+"endTxt": "fase-terra",
+"iso": "EPR/XLPE",
+"mat": "Cu",
+"mt": false,
+"n": 2,
+"ri": 0,
+"start": 1,
+"up": [],
+"x": 0.1
+},
+"cut": {
+"lim": true,
+"v": 15106.90675
+},
+"e": {
+"src": "c",
+"v": 599782.8947
+},
+"em": {
+"src": "c",
+"v": 578414.2249
+},
+"ip": 47300,
+"s": "A",
+"sm": {
+"best": {
+"I": 23200,
+"src": "c",
+"v": 599782.8947
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+},
+{
+"Ik": 19800,
+"Imin": 13700,
+"U": 400,
+"b": {
+"Ii": 320,
+"Ir": 32,
+"Iu": 32,
+"Un": 415,
+"adjIi": false,
+"adjIr": false,
+"cat": 0,
+"ch": "C",
+"d": {
+"Un": 0,
+"c": {
+"log": 139.3844001,
+"n": 18,
+"somma": 62606.19
+},
+"over": false
+},
+"e": {
+"Un": 0,
+"c": {
+"log": 119.3968311,
+"n": 14,
+"somma": 185400.39
+},
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrB",
+"k": 2.36690625,
+"lab": "I<sub>r</sub>",
+"x": 75.741,
+"y": 43.66
+},
+{
+"ax": "x",
+"id": "cb_IiB",
+"k": 1,
+"lab": "I<sub>i</sub>",
+"x": 320,
+"y": 0.2445011452
+}
+],
+"icu": {
+"U": 415,
+"icn": 10,
+"std": "EN 60947-2",
+"v": 15
+},
+"lsi": null,
+"max": {
+"log": 247.5931667,
+"n": 80,
+"somma": 31759.9491
+},
+"min": {
+"log": 162.1418059,
+"n": 72,
+"somma": 27902.3817
+},
+"slot": "B",
+"thE": 320,
+"thMax": 320,
+"thMin": 160,
+"type": "FAZ-C32/3"
+},
+"back": 0,
+"cab": {
+"K": 76,
+"L": 60,
+"S": 95,
+"desc": "Dorsale",
+"end": 3,
+"endMin": 2300,
+"endTxt": "fase-terra",
+"iso": "PVC",
+"mat": "Al",
+"mt": false,
+"n": 1,
+"ri": 1,
+"start": 2,
+"up": [
+2
+],
+"x": 0.08
+},
+"cut": {
+"lim": true,
+"v": 7992.533265
+},
+"e": {
+"src": "c",
+"v": 90029.90138
+},
+"em": {
+"src": "c",
+"v": 63502.42665
+},
+"ip": 38400,
+"s": "B",
+"sm": {
+"best": {
+"I": 19800,
+"src": "c",
+"v": 90029.90138
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.0012
+},
+"mx": {
+"st": "fast",
+"t": 0.0066
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.0012
+},
+"mx": {
+"st": "fast",
+"t": 0.0066
+}
+}
+}
+],
+"F": [
+{
+"Ik": 19800,
+"Imin": 13700,
+"U": 400,
+"back": 0,
+"cab": {
+"K": 76,
+"L": 60,
+"S": 95,
+"desc": "Dorsale",
+"end": 3,
+"endMin": 2300,
+"endTxt": "fase-terra",
+"iso": "PVC",
+"mat": "Al",
+"mt": false,
+"n": 1,
+"ri": 1,
+"start": 2,
+"up": [
+2
+],
+"x": 0.08
+},
+"cut": 12948.46397,
+"e": {
+"src": "c",
+"v": 146679.6729
+},
+"em": {
+"src": "c",
+"v": 125875.818
+},
+"f": {
+"Icn": 120,
+"Imb": 0,
+"In": 160,
+"Un": 500,
+"ch": "gG",
+"e": [
+1,
+0.01,
+2490,
+62000,
+120000,
+310000
+],
+"grp": [
+"A coltello serie NH",
+"gG · Un = 500 V · Grandezza 01, 1 (6-250 A)"
+],
+"idx": 154,
+"l": [
+4.5267,
+10,
+2538.8,
+6502.6,
+100000,
+22288
+],
+"mv": false,
+"t": {
+"log": 218.003674,
+"n": 44,
+"somma": 42499.7252
+},
+"type": "160NHG01B"
+},
+"ip": 38400,
+"s": "A",
+"sm": {
+"best": {
+"I": 19800,
+"src": "c",
+"v": 146679.6729
+},
+"over": null
+},
+"tk": {
+"st": "fast",
+"t": 0.01
+},
+"tm": {
+"st": "fast",
+"t": 0.01
+}
+}
+],
+"Uref": 400,
+"inr": null,
+"kf": 1,
+"mot": null,
+"onC": true,
+"onF": true
+},
+"verifiche": [
+"A · I″k = 23,2 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"A · Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"B · I″k = 19,8 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✗ no",
+"B · Intervento a I″k min 13,70 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
+"A · Picco lasciato passare 15,11 kA ≤ 17 kA l'interruttore limita: picco presunto 47,3 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: Ib 150 A ≤ In 250 A ≤ Iz 906 A I0 607 A × 2 · k1 temperatura 0,91 · k2 raggruppamento 0,82 → ✓ ok",
+"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 1314 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: guasto minimo a fondo linea 13,70 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 478,54 kA²s ≤ K²S² 4711,45 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: caduta di tensione 0,13 % ≤ 4 % Ib 150 A, cos φ 0,85, 30 m · R 0,11 Ω/km a 90 °C, X 0,078 Ω/km dalla CEI-UNEL 35023 · la caduta nel trasformatore non è compresa → ✓ ok",
+"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: sezione consigliata 2 × 35 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · corrente a fondo linea stimata per ogni sezione → ✓ ok",
+"A · Cavo «Montante» 2 × 240 mm² rame EPR/XLPE a I″k: I²t = 599,78 kA²s ≤ K²S² 4711,45 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"A · Cavo «Montante» 2 × 240 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 4711,45 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"B · Picco lasciato passare 7,99 kA ≤ 17 kA l'interruttore limita: picco presunto 38,4 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"B · Linea «Dorsale» 95 mm² alluminio PVC: Ib 120 A ≤ In 32 A ≤ Iz 112 A I0 175 A · k1 temperatura 1,00 · k2 circuiti sullo stesso piano 0,90 · k3 profondità 1,00 · k4 resistività del terreno 0,91 · conduttori di alluminio 0,78 · la corrente d'impiego supera quella del dispositivo → ✗ no",
+"B · Linea «Dorsale» 95 mm² alluminio PVC: I2 = 1,45 × 32 = 46 A ≤ 1,45·Iz 162 A corrente convenzionale di intervento con il fattore 1,45 (CEI EN 60898) → ✓ ok",
+"B · Linea «Dorsale» 95 mm² alluminio PVC: guasto minimo a fondo linea 2,30 kA: intervento in 6,6 ms ≤ 400 ms (fino a 63 A, CEI 64-8 tab. 41.1 con U0 231 V), I²t 9,04 kA²s ≤ K²S² 52,13 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"B · Linea «Dorsale» 95 mm² alluminio PVC: caduta di tensione 1,19 %, totale dall'origine 1,32 % ≤ 1 % Ib 120 A, cos φ 0,9, 60 m · R 0,384 Ω/km a 70 °C, X 0,08 Ω/km · R della tabella per l'isolante a 90 °C riportata a 70 °C (la CEI-UNEL 35023 non dà l'alluminio in PVC); X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione) · la caduta nel trasformatore non è compresa → ✗ no",
+"B · Linea «Dorsale» 95 mm² alluminio PVC: sezione consigliata 150 mm² la sezione scelta è insufficiente · corrente a fondo linea stimata per ogni sezione → ✗ no",
+"B · Cavo «Dorsale» 95 mm² alluminio PVC a I″k: I²t = 90,03 kA²s ≤ K²S² 52,13 MA²s curva I²t di catalogo → ✓ ok",
+"B · Cavo «Dorsale» 95 mm² alluminio PVC a I″k min: I²t = 63,50 kA²s ≤ K²S² 52,13 MA²s curva I²t di catalogo → ✓ ok",
+"I″k = 19,8 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
+"Intervento a I″k min 13,70 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
+"Picco lasciato passare 12,95 kA ≤ 17 kA il fusibile limita: picco presunto 38,4 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"Linea «Dorsale» 95 mm² alluminio PVC: Ib 120 A ≤ In 160 A ≤ Iz 112 A I0 175 A · k1 temperatura 1,00 · k2 circuiti sullo stesso piano 0,90 · k3 profondità 1,00 · k4 resistività del terreno 0,91 · conduttori di alluminio 0,78 → ✗ no",
+"Linea «Dorsale» 95 mm² alluminio PVC: I2 = 1,6 × 160 = 256 A ≤ 1,45·Iz 162 A corrente convenzionale di intervento con il fattore 1,6 (CEI EN 60269-2, gG) → ✗ no",
+"Linea «Dorsale» 95 mm² alluminio PVC: guasto minimo a fondo linea 2,30 kA: intervento in 57,1 ms ≤ 5 s (oltre 63 A), I²t 302,21 kA²s ≤ K²S² 52,13 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"Linea «Dorsale» 95 mm² alluminio PVC: caduta di tensione 1,19 %, totale dall'origine 1,32 % ≤ 1 % Ib 120 A, cos φ 0,9, 60 m · R 0,384 Ω/km a 70 °C, X 0,08 Ω/km · R della tabella per l'isolante a 90 °C riportata a 70 °C (la CEI-UNEL 35023 non dà l'alluminio in PVC); X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione) · la caduta nel trasformatore non è compresa → ✗ no",
+"Linea «Dorsale» 95 mm² alluminio PVC: sezione consigliata 240 mm² la sezione scelta è insufficiente · corrente a fondo linea stimata per ogni sezione → ✗ no",
+"Cavo «Dorsale» 95 mm² alluminio PVC a I″k: I²t = 146,68 kA²s ≤ K²S² 52,13 MA²s curva I²t di catalogo (zona di limitazione) → ✓ ok",
+"Cavo «Dorsale» 95 mm² alluminio PVC a I″k min: I²t = 125,88 kA²s ≤ K²S² 52,13 MA²s curva I²t di catalogo (zona di limitazione) → ✓ ok"
+]
+}
+},
+"co15_linee_fuori_tabella_portata_a_mano_e_cavi_in_parallelo": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modCC": {
+"aspetto": {
+"grafici": [
+"cc_wave linee d4c65524 scritte f588c6bd"
+],
+"legende": []
+},
+"esportazioni": {
+"excel": "3345dcce",
+"excel · foglio Punti": "8d14358c",
+"pdf": "99f775ed",
+"righe": 99
+},
+"excel_ricalcolato": {
+"60 · I″k · simmetrica iniziale": 14.699299,
+"61 · ip · picco": 29.1689343,
+"62 · Ib · interruzione": 14.699299,
+"63 · Ik · regime": 14.699299,
+"64 · Ith · termica equivalente": 14.7799845,
+"67 · I″k2 · bifase iniziale": 12.7299663,
+"68 · ip2 · picco bifase": 25.2610381,
+"77 · I″k1 · fase-terra iniziale": 10.6239771,
+"78 · ip1 · picco fase-terra": 21.081964,
+"97 · Corrente di inserzione — primario": 266.735824,
+"98 · Corrente a vuoto I0 — primario": 0.36373067,
+"Punti · P1 · Ib (kA)": 12.5,
+"Punti · P1 · Ib dei motori (A)": 0.0,
+"Punti · P1 · Ith (kA)": 12.7115015,
+"Punti · P1 · I″k (kA)": 12.5,
+"Punti · P1 · I″k dalla rete (A)": 12500.0,
+"Punti · P1 · I″k dei motori (A)": 0.0,
+"Punti · P1 · I″k min (kA)": 12.5,
+"Punti · P1 · I″k2 (kA)": 10.8253175,
+"Punti · P1 · I″k2 min (kA)": 10.8253175,
+"Punti · P1 · R (Ω)": 0.0758320186,
+"Punti · P1 · R/X": 0.1,
+"Punti · P1 · Un (V)": 15000.0,
+"Punti · P1 · X (Ω)": 0.758320186,
+"Punti · P1 · Z (Ω)": 0.762102355,
+"Punti · P1 · c max": 1.1,
+"Punti · P1 · c min": 1.0,
+"Punti · P1 · ip (kA)": 30.8652438,
+"Punti · P1 · ip dei motori (A)": 0.0,
+"Punti · P1 · κ": 1.74600186,
+"Punti · P1 · κ per il picco": 1.74600186,
+"Punti · P2 · Ib (kA)": 23.230481,
+"Punti · P2 · Ib dei motori (A)": 0.0,
+"Punti · P2 · Ith (kA)": 23.3711358,
+"Punti · P2 · I″k (kA)": 23.230481,
+"Punti · P2 · I″k dalla rete (A)": 23230.481,
+"Punti · P2 · I″k dei motori (A)": 0.0,
+"Punti · P2 · I″k min (kA)": 20.6132603,
+"Punti · P2 · I″k1 (kA)": 23.9888048,
+"Punti · P2 · I″k1 min (kA)": 21.247378,
+"Punti · P2 · I″k2 (kA)": 20.1181867,
+"Punti · P2 · I″k2 min (kA)": 17.8516071,
+"Punti · P2 · R (Ω)": 0.00284468653,
+"Punti · P2 · R/X": 0.283244552,
+"Punti · P2 · Un (V)": 400.0,
+"Punti · P2 · X (Ω)": 0.0100432171,
+"Punti · P2 · Z (Ω)": 0.0104383165,
+"Punti · P2 · c max": 1.05,
+"Punti · P2 · c min": 0.95,
+"Punti · P2 · ip (kA)": 47.2745516,
+"Punti · P2 · ip dei motori (A)": 0.0,
+"Punti · P2 · κ": 1.43897821,
+"Punti · P2 · κ per il picco": 1.43897821,
+"Punti · P3 · Ib (kA)": 18.4173706,
+"Punti · P3 · Ib dei motori (A)": 0.0,
+"Punti · P3 · Ith (kA)": 18.5165904,
+"Punti · P3 · I″k (kA)": 18.4173706,
+"Punti · P3 · I″k dalla rete (A)": 18417.3706,
+"Punti · P3 · I″k dei motori (A)": 0.0,
+"Punti · P3 · I″k min (kA)": 15.9756487,
+"Punti · P3 · I″k1 (kA)": 15.2994018,
+"Punti · P3 · I″k1 min (kA)": 12.663216,
+"Punti · P3 · I″k2 (kA)": 15.9499108,
+"Punti · P3 · I″k2 min (kA)": 13.8353176,
+"Punti · P3 · R (Ω)": 0.00400212403,
+"Punti · P3 · R/X": 0.319066791,
+"Punti · P3 · Un (V)": 400.0,
+"Punti · P3 · X (Ω)": 0.0125432171,
+"Punti · P3 · Z (Ω)": 0.0131662178,
+"Punti · P3 · c max": 1.05,
+"Punti · P3 · c min": 0.95,
+"Punti · P3 · ip (kA)": 36.3678247,
+"Punti · P3 · ip dei motori (A)": 0.0,
+"Punti · P3 · κ": 1.39628702,
+"Punti · P3 · κ per il picco": 1.39628702,
+"Punti · P4 · Ib (kA)": 14.699299,
+"Punti · P4 · Ib dei motori (A)": 0.0,
+"Punti · P4 · Ith (kA)": 14.7799845,
+"Punti · P4 · I″k (kA)": 14.699299,
+"Punti · P4 · I″k dalla rete (A)": 14699.299,
+"Punti · P4 · I″k dei motori (A)": 0.0,
+"Punti · P4 · I″k min (kA)": 12.6295178,
+"Punti · P4 · I″k1 (kA)": 10.6239771,
+"Punti · P4 · I″k1 min (kA)": 8.57547603,
+"Punti · P4 · I″k2 (kA)": 12.7299663,
+"Punti · P4 · I″k2 min (kA)": 10.9374833,
+"Punti · P4 · R (Ω)": 0.00492807403,
+"Punti · P4 · R/X": 0.313028398,
+"Punti · P4 · Un (V)": 400.0,
+"Punti · P4 · X (Ω)": 0.0157432171,
+"Punti · P4 · Z (Ω)": 0.0164965087,
+"Punti · P4 · c max": 1.05,
+"Punti · P4 · c min": 0.95,
+"Punti · P4 · ip (kA)": 29.1689343,
+"Punti · P4 · ip dei motori (A)": 0.0,
+"Punti · P4 · κ": 1.40316564,
+"Punti · P4 · κ per il picco": 1.40316564
+},
+"note": [
+"guasto trifase BT",
+"Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
+],
+"riquadri": [
+"I″k · simmetrica iniziale14,7 kA",
+"ip · corrente di picco29,2 kA",
+"Ib · interruzione14,7 kA",
+"Ik · permanente14,7 kA",
+"R/X0,313",
+"κ (picco)1,403",
+"Ith (Tk=1s)14,8 kA",
+"I″k2 · bifase iniziale12,7 kA",
+"ip2 · picco bifase25,3 kA",
+"I″k1 · fase-terra10,6 kA",
+"ip1 · picco21,1 kA",
+"I″k min · trifase12,6 kA",
+"I″k2 min · bifase10,9 kA",
+"I″k1 min · fase-terra8,6 kA",
+"In · primario24,2 A",
+"In · secondario909 A",
+"Iinserzione · primario (cresta)267 A",
+"I0 · a vuoto (primario)0,36 A"
+],
+"tabelle": [
+"Puntomassime (kA)minime (kA) I″kipIpkIthI″kI″k2I″k1 P1 Punto di consegna15.000 V12,530,9—12,712,510,8—P2 Secondario del trasformatore400 V23,247,3—23,420,617,921,2P3 Fine «Montante»400 V18,436,4—18,516,013,812,7P4 Fine «Dorsale»400 V14,729,2—14,812,610,98,6",
+"ComponenteR (mΩ)X (mΩ)Z (mΩ) Rete0,050,540,54Trasformatore2,799,509,91Cavi/linee2,085,706,07 Totale al guasto4,9315,7416,50"
+],
+"valori": {
+"brs": [],
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.403165641,
+"kappaIp": 1.403165641,
+"le": {
+"Ik1": 10623.97713,
+"R0": 0.01621703653,
+"X0": 0.03182876883,
+"ip1": 21081.96396,
+"k1": 1.403165641,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 14699.29898,
+"oIk": 14699.29898,
+"oIkSt": 14699.29898,
+"oIp": 29168.93435,
+"oIth": 14779.98448,
+"oKappa": 1.403165641,
+"oRk": 0.004928074025,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0020833875,
+"X": 0.0057,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.3130283979,
+"oXk": 0.0157432171,
+"oZk": 0.01649650867,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.286825157,
+"kappaIp": 1.286825157,
+"le": {
+"Ik1": 8575.476029,
+"R0": 0.02864062991,
+"X0": 0.03205983051,
+"ip1": 15606.04223,
+"k1": 1.286825157,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12629.51781,
+"oIk": 12629.51781,
+"oIkSt": 12629.51781,
+"oIp": 22983.77229,
+"oIth": 12679.98028,
+"oKappa": 1.286825157,
+"oRk": 0.006911308629,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.004000104,
+"X": 0.0057,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.4336529903,
+"oXk": 0.0159374172,
+"oZk": 0.01737145515,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"pts": [
+{
+"Un": 15000,
+"cmax": 1.1,
+"cmin": 1,
+"cond": null,
+"frac": 0,
+"i": 0,
+"id": "P1",
+"kind": "cons",
+"lvl": "MT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.07583201863,
+"oRows": [
+{
+"R": 0.07583201863,
+"X": 0.7583201863,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.7583201863,
+"oZk": 0.7621023553,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.06893819875,
+"oRows": [
+{
+"R": 0.06893819875,
+"X": 0.6893819875,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.6893819875,
+"oZk": 0.692820323,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"nCab": 0,
+"name": "Punto di consegna",
+"sc": false,
+"tr": false
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0,
+"i": 1,
+"id": "P2",
+"kind": "bus",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.438978211,
+"kappaIp": 1.438978211,
+"le": {
+"Ik1": 23988.80484,
+"R0": 0.002790761534,
+"X0": 0.009028768828,
+"ip1": 48817.75765,
+"k1": 1.438978211,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 23230.48102,
+"oIk": 23230.48102,
+"oIkSt": 23230.48102,
+"oIp": 47274.55161,
+"oIth": 23371.13577,
+"oKappa": 1.438978211,
+"oRk": 0.002844686525,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2832445518,
+"oXk": 0.0100432171,
+"oZk": 0.01043831649,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.437567169,
+"kappaIp": 1.437567169,
+"le": {
+"Ik1": 21247.37804,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 43196.49296,
+"k1": 1.437567169,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 20613.26031,
+"oIk": 20613.26031,
+"oIkSt": 20613.26031,
+"oIp": 41907.31449,
+"oIth": 20737.58373,
+"oKappa": 1.437567169,
+"oRk": 0.002911204629,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2843690524,
+"oXk": 0.0102374172,
+"oZk": 0.01064329946,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 0,
+"name": "Secondario del trasformatore",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0.3846153846,
+"i": 2,
+"id": "P3",
+"kind": "cab",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.396287019,
+"kappaIp": 1.396287019,
+"le": {
+"Ik1": 15299.40175,
+"R0": 0.009735386534,
+"X0": 0.01902876883,
+"ip1": 30210.93367,
+"k1": 1.396287019,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 18417.3706,
+"oIk": 18417.3706,
+"oIkSt": 18417.3706,
+"oIp": 36367.82472,
+"oIth": 18516.59038,
+"oKappa": 1.396287019,
+"oRk": 0.004002124025,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0011574375,
+"X": 0.0025,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.3190667908,
+"oXk": 0.0125432171,
+"oZk": 0.01316621783,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.312504666,
+"kappaIp": 1.312504666,
+"le": {
+"Ik1": 12663.21599,
+"R0": 0.01619586191,
+"X0": 0.01925983051,
+"ip1": 23504.97905,
+"k1": 1.312504666,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 15975.6487,
+"oIk": 15975.6487,
+"oIkSt": 15975.6487,
+"oIp": 29653.39044,
+"oIth": 16044.17663,
+"oKappa": 1.312504666,
+"oRk": 0.005133484629,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.00222228,
+"X": 0.0025,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.4030239841,
+"oXk": 0.0127374172,
+"oZk": 0.01373296987,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 1,
+"name": "Fine «Montante»",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 1,
+"hv": false,
+"i": 3,
+"id": "P4",
+"kind": "cab",
+"last": true,
+"lvl": "BT",
+"max": "(già visto)",
+"min": "(già visto)",
+"nCab": "Infinity",
+"name": "Fine «Dorsale»",
+"noLv": false,
+"sc": true,
+"tr": true
+}
+],
+"sy": {
+"Un": 400,
+"auto": 400,
+"lvl": "BT",
+"src": "secondario del trasformatore"
+}
+},
+"verifiche": []
+},
+"modCOO": {
+"aspetto": {
+"grafici": [
+"co_chart linee 02458b17 scritte bc34befa",
+"co_chartL linee 7f8a38fa scritte bc926741",
+"co_chartE linee a0347d34 scritte f4018d50"
+],
+"legende": [
+"interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxI″k massimaI″k minima"
+]
+},
+"esportazioni": {
+"pdf": "b2f642ae"
+},
+"note": [],
+"riquadri": [
+"A · Intervento a I″k≤ 10 ms",
+"A · Intervento a I″k min≤ 10 ms",
+"A · Picco lasciato passare15,11 kA",
+"A · I²t passante a I″k599,78 kA²s",
+"A · Sezione minima protetta6,73 mm² rame PVC5,42 mm² rame EPR/XLPEenergia massima a 23,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettaIz 247 A · ΔU 0,91 % · consigliata 3 × 630 mm²",
+"B · Intervento a I″k≤ 10 ms",
+"B · Intervento a I″k min≤ 10 ms",
+"B · Picco lasciato passare14,17 kA",
+"B · I²t passante a I″k546,66 kA²s",
+"B · Sezione minima protetta6,43 mm² rame PVC5,17 mm² rame EPR/XLPEenergia massima a 18,40 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Linea protettaIz 715 A · ΔU 1,02 % · consigliata 35 mm²"
+],
+"tabelle": [],
+"valori": {
+"C": [
+{
+"Ik": 23200,
+"Imin": 21200,
+"U": 400,
+"b": {
+"Ii": 2500,
+"Ir": 250,
+"Iu": 250,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": {
+"log": 199.6248362,
+"n": 22,
+"somma": 260159.2
+},
+"over": false
+},
+"e": {
+"Un": 415,
+"c": {
+"log": 220.2133941,
+"n": 20,
+"somma": 4750061.4
+},
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrA",
+"k": 1.82936,
+"lab": "I<sub>r</sub>",
+"x": 457.34,
+"y": 213.32
+},
+{
+"ax": "x",
+"id": "cb_IiA",
+"k": 1.2,
+"lab": "I<sub>i</sub>",
+"x": 3000,
+"y": 0.1554702544
+}
+],
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 258.3980878,
+"n": 48,
+"somma": 51822.5997
+},
+"min": {
+"log": 226.3052568,
+"n": 44,
+"somma": 41687.4845
+},
+"slot": "A",
+"thE": 3000,
+"thMax": 3000,
+"thMin": 2000,
+"type": "NZMN2-A250"
+},
+"back": 0,
+"cab": {
+"K": 143,
+"L": 25,
+"S": 400,
+"desc": "Montante",
+"end": 2,
+"endMin": 12700,
+"endTxt": "fase-terra",
+"iso": "EPR/XLPE",
+"mat": "Cu",
+"mt": false,
+"n": 1,
+"ri": 0,
+"start": 1,
+"up": [],
+"x": 0.1
+},
+"cut": {
+"lim": true,
+"v": 15106.90675
+},
+"e": {
+"src": "c",
+"v": 599782.8947
+},
+"em": {
+"src": "c",
+"v": 578414.2249
+},
+"ip": 47300,
+"s": "A",
+"sm": {
+"best": {
+"I": 23200,
+"src": "c",
+"v": 599782.8947
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+},
+{
+"Ik": 18400,
+"Imin": 12700,
+"U": 400,
+"b": {
+"Ii": 1000,
+"Ir": 100,
+"Iu": 100,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": {
+"log": 203.0217807,
+"n": 22,
+"somma": 313212.4
+},
+"over": false
+},
+"e": {
+"Un": 415,
+"c": {
+"log": 290.6580741,
+"n": 26,
+"somma": 6799341
+},
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrB",
+"k": 2.0324,
+"lab": "I<sub>r</sub>",
+"x": 203.24,
+"y": 55.883
+},
+{
+"ax": "x",
+"id": "cb_IiB",
+"k": 1.2,
+"lab": "I<sub>i</sub>",
+"x": 1200,
+"y": 0.1059056184
+}
+],
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 195.3624797,
+"n": 44,
+"somma": 28743.4484
+},
+"min": {
+"log": 203.576864,
+"n": 48,
+"somma": 28842.9626
+},
+"slot": "B",
+"thE": 1200,
+"thMax": 1200,
+"thMin": 800,
+"type": "NZMN1-A100"
+},
+"back": 0,
+"cab": {
+"K": 143,
+"L": 40,
+"S": 800,
+"desc": "Dorsale",
+"end": 3,
+"endMin": 8600,
+"endTxt": "fase-terra",
+"iso": "EPR/XLPE",
+"mat": "Cu",
+"mt": false,
+"n": 1,
+"ri": 1,
+"start": 2,
+"up": [
+2
+],
+"x": 0.08
+},
+"cut": {
+"lim": true,
+"v": 14165.206
+},
+"e": {
+"src": "c",
+"v": 546657.8452
+},
+"em": {
+"src": "c",
+"v": 418065.3463
+},
+"ip": 36400,
+"s": "B",
+"sm": {
+"best": {
+"I": 18400,
+"src": "c",
+"v": 546657.8452
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+}
+],
+"F": [],
+"Uref": 400,
+"inr": null,
+"kf": 1,
+"mot": null,
+"onC": true,
+"onF": false
+},
+"verifiche": [
+"A · I″k = 23,2 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
+"A · Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
+"B · I″k = 18,4 kA ≤ Icu 50 kA potere di interruzione di NZMN1-A100 a 415 V → ✓ ok",
+"B · Intervento a I″k min 12,70 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 1,20 kA) → ✓ ok",
+"A · Picco lasciato passare 15,11 kA ≤ 17 kA l'interruttore limita: picco presunto 47,3 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"A · Linea «Montante» 400 mm² rame EPR/XLPE: Ib 900 A ≤ In 250 A ≤ Iz 247 A I0 500 A · k1 temperatura 1,07 · k2 circuiti sullo stesso piano 0,60 · k3 profondità 0,94 · k4 resistività del terreno 0,82 · sotto 10 °C la tabella non dà valori: usato il fattore di 10 °C, a favore della sicurezza; oltre 6 circuiti la tabella III non dà valori: usato quello di 6; profondità 2 m fuori dalla tabella IV (0,5…1,5 m): usato il valore estremo; resistività 3 K·m/W fuori dalla tabella V (1…2,5): usato il valore estremo · la corrente d'impiego supera quella del dispositivo → ✗ no",
+"A · Linea «Montante» 400 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 359 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"A · Linea «Montante» 400 mm² rame EPR/XLPE: guasto minimo a fondo linea 12,70 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 461,31 kA²s ≤ K²S² 3271,84 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"A · Linea «Montante» 400 mm² rame EPR/XLPE: caduta di tensione 0,91 % ≤ 4 % Ib 900 A, cos φ 0,9, 25 m · R 0,067 Ω/km a 90 °C, X 0,076 Ω/km dalla CEI-UNEL 35023 · la caduta nel trasformatore non è compresa → ✓ ok",
+"A · Linea «Montante» 400 mm² rame EPR/XLPE: sezione consigliata 3 × 630 mm² con un cavo per fase nessuna sezione delle tabelle basta: servono 3 cavi in parallelo (ogni gruppo conta come un circuito in più nel raggruppamento) · corrente a fondo linea stimata per ogni sezione → ✗ no",
+"A · Cavo «Montante» 400 mm² rame EPR/XLPE a I″k: I²t = 599,78 kA²s ≤ K²S² 3271,84 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"A · Cavo «Montante» 400 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 3271,84 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"B · Picco lasciato passare 14,17 kA ≤ 17 kA l'interruttore limita: picco presunto 36,4 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: Ib 100 A ≤ In 100 A ≤ Iz 715 A I0 1100 A · k1 temperatura 0,65 · portata I0 scritta a mano → ✓ ok",
+"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: I2 = 1,3 × 100 = 130 A ≤ 1,45·Iz 1037 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,60 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 283,13 kA²s ≤ K²S² 13.087,36 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: caduta di tensione 0,11 %, totale dall'origine 1,02 % ≤ 4 % Ib 100 A, cos φ 0,9, 40 m · R 0,03 Ω/km a 90 °C, X 0,08 Ω/km · R calcolata dalla resistività a 90 °C (sezione non data dalla CEI-UNEL 35023); X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione) · la caduta nel trasformatore non è compresa → ✓ ok",
+"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: sezione consigliata 35 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · corrente a fondo linea stimata per ogni sezione · calcolata con le portate di tabella, non con quella scritta a mano → ✓ ok",
+"B · Cavo «Dorsale» 800 mm² rame EPR/XLPE a I″k: I²t = 546,66 kA²s ≤ K²S² 13.087,36 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"B · Cavo «Dorsale» 800 mm² rame EPR/XLPE a I″k min: I²t = 418,07 kA²s ≤ K²S² 13.087,36 MA²s curva I²t di catalogo a 415 V → ✓ ok"
+]
+}
+},
 "fu01_gG_NH_160_con_corrente_minima": {
 "apertura": {
 "mancanti": [],
@@ -52401,7 +54599,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "f7c16445"
+"pdf": "25c53a75"
 },
 "note": [],
 "riquadri": [
@@ -52410,11 +54608,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min118 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta5,96 mm² rame PVC4,79 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta5,96 mm² rame PVC4,79 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -52631,7 +54831,7 @@
 },
 "esportazioni": {
 "excel": "9d60e4fb",
-"pdf": "c97191fb",
+"pdf": "e5252342",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -52644,7 +54844,8 @@
 "Intervento a I″k min118 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta5,96 mm² rame PVC4,79 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta5,96 mm² rame PVC4,79 mm² rame EPR/XLPEenergia massima a 2,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -52753,7 +54954,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "42bccdf0"
+"pdf": "8f74804c"
 },
 "note": [],
 "riquadri": [
@@ -52762,16 +54963,19 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min462 ms",
 "A · Picco lasciato passare10,95 kA",
 "A · I²t passante a I″k119,14 kA²s",
 "A · Sezione minima protetta8,87 mm² rame PVC7,13 mm² rame EPR/XLPEenergia massima a 1,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min2,54 s",
 "B · Picco lasciato passare15,32 kA",
 "B · I²t passante a I″k234,59 kA²s",
-"B · Sezione minima protetta20,79 mm² rame PVC16,72 mm² rame EPR/XLPEenergia massima a 1,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"B · Sezione minima protetta20,79 mm² rame PVC16,72 mm² rame EPR/XLPEenergia massima a 1,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -53057,7 +55261,7 @@
 },
 "esportazioni": {
 "excel": "77cee203",
-"pdf": "4f1d4354",
+"pdf": "135f8ffd",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -53071,11 +55275,13 @@
 "A · Picco lasciato passare10,95 kA",
 "A · I²t passante a I″k119,14 kA²s",
 "A · Sezione minima protetta8,87 mm² rame PVC7,13 mm² rame EPR/XLPEenergia massima a 1,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min2,54 s",
 "B · Picco lasciato passare15,32 kA",
 "B · I²t passante a I″k234,59 kA²s",
-"B · Sezione minima protetta20,79 mm² rame PVC16,72 mm² rame EPR/XLPEenergia massima a 1,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A."
+"B · Sezione minima protetta20,79 mm² rame PVC16,72 mm² rame EPR/XLPEenergia massima a 1,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -53591,7 +55797,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "d3f33622"
+"pdf": "2e398c36"
 },
 "note": [],
 "riquadri": [
@@ -53600,11 +55806,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min341 ms",
 "Picco lasciato passare—",
 "I²t passante a I″k62,07 kA²s",
-"Sezione minima protetta6,09 mm² rame PVC4,90 mm² rame EPR/XLPEenergia massima a 1,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A."
+"Sezione minima protetta6,09 mm² rame PVC4,90 mm² rame EPR/XLPEenergia massima a 1,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -53821,7 +56029,7 @@
 },
 "esportazioni": {
 "excel": "da75c91e",
-"pdf": "aaceb30d",
+"pdf": "825be4b6",
 "righe": 114
 },
 "excel_ricalcolato": {
@@ -53833,7 +56041,8 @@
 "Intervento a I″k min341 ms",
 "Picco lasciato passare—",
 "I²t passante a I″k62,07 kA²s",
-"Sezione minima protetta6,09 mm² rame PVC4,90 mm² rame EPR/XLPEenergia massima a 1,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A."
+"Sezione minima protetta6,09 mm² rame PVC4,90 mm² rame EPR/XLPEenergia massima a 1,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -53941,7 +56150,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "15c4c4a7"
+"pdf": "35b36e65"
 },
 "note": [],
 "riquadri": [
@@ -53950,11 +56159,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min72,2 ms",
 "Picco lasciato passare2,24 kA",
 "I²t passante a I″k1,70 kA²s",
-"Sezione minima protetta0,70 mm² rame PVC0,56 mm² rame EPR/XLPEenergia massima a 300 APer il sovraccarico serve anche Iz del cavo ≥ 32 A."
+"Sezione minima protetta0,70 mm² rame PVC0,56 mm² rame EPR/XLPEenergia massima a 300 APer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -54171,7 +56382,7 @@
 },
 "esportazioni": {
 "excel": "68a77ee3",
-"pdf": "ba1a7b98",
+"pdf": "572b0555",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -54184,7 +56395,8 @@
 "Intervento a I″k min72,2 ms",
 "Picco lasciato passare2,24 kA",
 "I²t passante a I″k1,70 kA²s",
-"Sezione minima protetta0,70 mm² rame PVC0,56 mm² rame EPR/XLPEenergia massima a 300 APer il sovraccarico serve anche Iz del cavo ≥ 32 A."
+"Sezione minima protetta0,70 mm² rame PVC0,56 mm² rame EPR/XLPEenergia massima a 300 APer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -54293,7 +56505,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "bb445fa8"
+"pdf": "3acf7660"
 },
 "note": [],
 "riquadri": [
@@ -54302,11 +56514,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 4 ms",
 "Intervento a I″k min148 ms",
 "Picco lasciato passare18,99 kA",
 "I²t passante a I″k—",
-"Sezione minima protetta10,02 mm² rame PVC8,06 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 289 A."
+"Sezione minima protetta10,02 mm² rame PVC8,06 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 289 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -54519,7 +56733,7 @@
 },
 "esportazioni": {
 "excel": "4cd37ad2",
-"pdf": "d66fb99a",
+"pdf": "bcb3d83d",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -54532,7 +56746,8 @@
 "Intervento a I″k min148 ms",
 "Picco lasciato passare18,99 kA",
 "I²t passante a I″k—",
-"Sezione minima protetta10,02 mm² rame PVC8,06 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 289 A."
+"Sezione minima protetta10,02 mm² rame PVC8,06 mm² rame EPR/XLPEenergia massima a 3,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 289 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -54638,7 +56853,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "6a9e0790"
+"pdf": "cd720f90"
 },
 "note": [],
 "riquadri": [
@@ -54647,16 +56862,19 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "A · Intervento a I″k< 0,1 ms",
 "A · Intervento a I″k min0,17 ms",
 "A · Picco lasciato passare2,92 kA",
 "A · I²t passante a I″k2,25 kA²s",
 "A · Sezione minima protetta0,41 mm² rame PVC0,33 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 125 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 0,1 ms",
 "B · Intervento a I″k min< 0,1 ms",
 "B · Picco lasciato passare3,86 kA",
 "B · I²t passante a I″k54 A²s",
-"B · Sezione minima protetta0,06 mm² rame PVC0,05 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A."
+"B · Sezione minima protetta0,06 mm² rame PVC0,05 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -54949,7 +57167,7 @@
 },
 "esportazioni": {
 "excel": "784d6429",
-"pdf": "721d9274",
+"pdf": "c7d3f9b1",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -54963,11 +57181,13 @@
 "A · Picco lasciato passare2,92 kA",
 "A · I²t passante a I″k2,25 kA²s",
 "A · Sezione minima protetta0,41 mm² rame PVC0,33 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 125 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 0,1 ms",
 "B · Intervento a I″k min< 0,1 ms",
 "B · Picco lasciato passare3,86 kA",
 "B · I²t passante a I″k54 A²s",
-"B · Sezione minima protetta0,06 mm² rame PVC0,05 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A."
+"B · Sezione minima protetta0,06 mm² rame PVC0,05 mm² rame EPR/XLPEenergia massima a 30,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 20 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -55152,7 +57372,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "f12ca130"
+"pdf": "4234b408"
 },
 "note": [],
 "riquadri": [
@@ -55161,16 +57381,19 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "A · Intervento a I″k< 4 ms",
 "A · Intervento a I″k min62,7 ms",
 "A · Picco lasciato passare1,59 kA",
 "A · I²t passante a I″k1,10 kA²s",
 "A · Sezione minima protetta0,54 mm² rame PVC0,44 mm² rame EPR/XLPEenergia massima a 250 APer il sovraccarico serve anche Iz del cavo ≥ 20 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 1 ms",
 "B · Intervento a I″k min284 ms",
 "B · Picco lasciato passare2,71 kA",
 "B · I²t passante a I″k4,70 kA²s",
-"B · Sezione minima protetta1,16 mm² rame PVC0,93 mm² rame EPR/XLPEenergia massima a 250 APer il sovraccarico serve anche Iz del cavo ≥ 35 A."
+"B · Sezione minima protetta1,16 mm² rame PVC0,93 mm² rame EPR/XLPEenergia massima a 250 APer il sovraccarico serve anche Iz del cavo ≥ 35 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -55459,7 +57682,7 @@
 },
 "esportazioni": {
 "excel": "72c834f9",
-"pdf": "e774fde3",
+"pdf": "51fcec12",
 "righe": 82
 },
 "excel_ricalcolato": {
@@ -55473,11 +57696,13 @@
 "A · Picco lasciato passare1,59 kA",
 "A · I²t passante a I″k1,10 kA²s",
 "A · Sezione minima protetta0,54 mm² rame PVC0,44 mm² rame EPR/XLPEenergia massima a 250 APer il sovraccarico serve anche Iz del cavo ≥ 20 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 1 ms",
 "B · Intervento a I″k min284 ms",
 "B · Picco lasciato passare2,71 kA",
 "B · I²t passante a I″k4,70 kA²s",
-"B · Sezione minima protetta1,16 mm² rame PVC0,93 mm² rame EPR/XLPEenergia massima a 250 APer il sovraccarico serve anche Iz del cavo ≥ 35 A."
+"B · Sezione minima protetta1,16 mm² rame PVC0,93 mm² rame EPR/XLPEenergia massima a 250 APer il sovraccarico serve anche Iz del cavo ≥ 35 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -55658,7 +57883,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "225b9c55"
+"pdf": "6c89b10b"
 },
 "note": [],
 "riquadri": [
@@ -55667,11 +57892,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min1,73 s",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta2,29 mm² rame PVC1,84 mm² rame EPR/XLPEenergia massima a 200 APer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta2,29 mm² rame PVC1,84 mm² rame EPR/XLPEenergia massima a 200 APer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -55891,7 +58118,7 @@
 },
 "esportazioni": {
 "excel": "f8f46f68",
-"pdf": "336914ef",
+"pdf": "8664196a",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -55904,7 +58131,8 @@
 "Intervento a I″k min1,73 s",
 "Picco lasciato passare4,39 kA",
 "I²t passante a I″k27,00 kA²s",
-"Sezione minima protetta2,29 mm² rame PVC1,84 mm² rame EPR/XLPEenergia massima a 200 APer il sovraccarico serve anche Iz del cavo ≥ 40 A."
+"Sezione minima protetta2,29 mm² rame PVC1,84 mm² rame EPR/XLPEenergia massima a 200 APer il sovraccarico serve anche Iz del cavo ≥ 40 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -56017,7 +58245,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "4d6e9296"
+"pdf": "6b2a1148"
 },
 "note": [],
 "riquadri": [
@@ -56026,16 +58254,19 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "A · Intervento a I″k< 10 ms",
 "A · Intervento a I″k min2,24 s",
 "A · Picco lasciato passare9,67 kA",
 "A · I²t passante a I″k202,00 kA²s",
 "A · Sezione minima protetta7,81 mm² rame PVC6,28 mm² rame EPR/XLPEenergia massima a 600 APer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min92,7 ms",
 "B · Picco lasciato passare6,51 kA",
 "B · I²t passante a I″k70,00 kA²s",
-"B · Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 600 APer il sovraccarico serve anche Iz del cavo ≥ 63 A."
+"B · Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 600 APer il sovraccarico serve anche Iz del cavo ≥ 63 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -56315,7 +58546,7 @@
 },
 "esportazioni": {
 "excel": "5571b958",
-"pdf": "265b1dce",
+"pdf": "bd1ebb0b",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -56329,11 +58560,13 @@
 "A · Picco lasciato passare9,67 kA",
 "A · I²t passante a I″k202,00 kA²s",
 "A · Sezione minima protetta7,81 mm² rame PVC6,28 mm² rame EPR/XLPEenergia massima a 600 APer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k< 10 ms",
 "B · Intervento a I″k min92,7 ms",
 "B · Picco lasciato passare6,51 kA",
 "B · I²t passante a I″k70,00 kA²s",
-"B · Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 600 APer il sovraccarico serve anche Iz del cavo ≥ 63 A."
+"B · Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 600 APer il sovraccarico serve anche Iz del cavo ≥ 63 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -56505,7 +58738,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "3a416e3e"
+"pdf": "c588d536"
 },
 "note": [],
 "riquadri": [
@@ -56514,11 +58747,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min446 ms",
 "Picco lasciato passare31,51 kA",
 "I²t passante a I″k1,37 MA²s",
-"Sezione minima protetta29,02 mm² rame PVC23,34 mm² rame EPR/XLPEenergia massima a 5,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 400 A."
+"Sezione minima protetta29,02 mm² rame PVC23,34 mm² rame EPR/XLPEenergia massima a 5,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 400 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -56735,7 +58970,7 @@
 },
 "esportazioni": {
 "excel": "c34411d9",
-"pdf": "38e539bf",
+"pdf": "08839dde",
 "righe": 83
 },
 "excel_ricalcolato": {
@@ -56748,7 +58983,8 @@
 "Intervento a I″k min446 ms",
 "Picco lasciato passare31,51 kA",
 "I²t passante a I″k1,37 MA²s",
-"Sezione minima protetta29,02 mm² rame PVC23,34 mm² rame EPR/XLPEenergia massima a 5,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 400 A."
+"Sezione minima protetta29,02 mm² rame PVC23,34 mm² rame EPR/XLPEenergia massima a 5,00 kAPer il sovraccarico serve anche Iz del cavo ≥ 400 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -56857,7 +59093,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "d66ad9ee"
+"pdf": "e15635be"
 },
 "note": [],
 "riquadri": [
@@ -56866,11 +59102,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 4 ms",
 "Intervento a I″k minnon interviene",
 "Picco lasciato passare6,28 kA",
 "I²t passante a I″k4,70 kA²s",
-"Sezione minima protetta2,49 mm² rame PVC2,00 mm² rame EPR/XLPEenergia massima a 138 Aa 132 A e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 35 A."
+"Sezione minima protetta2,49 mm² rame PVC2,00 mm² rame EPR/XLPEenergia massima a 138 Aa 132 A e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 35 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -57087,7 +59325,7 @@
 },
 "esportazioni": {
 "excel": "fa2164df",
-"pdf": "7b5b0944",
+"pdf": "301bc81f",
 "righe": 86
 },
 "excel_ricalcolato": {
@@ -57100,7 +59338,8 @@
 "Intervento a I″k minnon interviene",
 "Picco lasciato passare6,28 kA",
 "I²t passante a I″k4,70 kA²s",
-"Sezione minima protetta2,49 mm² rame PVC2,00 mm² rame EPR/XLPEenergia massima a 138 Aa 132 A e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 35 A."
+"Sezione minima protetta2,49 mm² rame PVC2,00 mm² rame EPR/XLPEenergia massima a 138 Aa 132 A e sotto interviene oltre 5 s: lì protegge il sovraccarico. Per il sovraccarico serve anche Iz del cavo ≥ 35 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -63187,7 +65426,7 @@
 },
 "esportazioni": {
 "excel": "68d52f58",
-"pdf": "c57d6c6d",
+"pdf": "1b21287c",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -63201,11 +65440,13 @@
 "A · Picco lasciato passare13,93 kA",
 "A · I²t passante a I″k551,74 kA²s",
 "A · Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,81 kA",
 "B · I²t passante a I″k86,15 kA²s",
-"B · Sezione minima protetta2,69 mm² rame PVC2,17 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A."
+"B · Sezione minima protetta2,69 mm² rame PVC2,17 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -63804,7 +66045,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "35d38fa1"
+"pdf": "30f93233"
 },
 "note": [],
 "riquadri": [
@@ -63813,16 +66054,19 @@
 "A · Picco lasciato passare13,93 kA",
 "A · I²t passante a I″k551,74 kA²s",
 "A · Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Linea protettanessuna linea a valle",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,81 kA",
 "B · I²t passante a I″k86,15 kA²s",
 "B · Sezione minima protetta2,69 mm² rame PVC2,17 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,75 kA",
 "I²t passante a I″k143,87 kA²s",
-"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A."
+"Sezione minima protetta3,38 mm² rame PVC2,72 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -64911,7 +67155,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "4de4be3c"
+"pdf": "e52717c2"
 },
 "note": [],
 "riquadri": [
@@ -64920,11 +67164,13 @@
 "Picco lasciato passare13,93 kA",
 "I²t passante a I″k551,74 kA²s",
 "Sezione minima protetta6,61 mm² rame PVC5,32 mm² rame EPR/XLPEenergia massima a 21,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Linea protettanessuna linea a valle",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare6,95 kA",
 "I²t passante a I″k70,00 kA²s",
-"Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 63 A."
+"Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 63 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -65138,7 +67384,7 @@
 },
 "esportazioni": {
 "excel": "84163623",
-"pdf": "6e8cb3e0",
+"pdf": "855e8b47",
 "righe": 98
 },
 "excel_ricalcolato": {
@@ -65151,7 +67397,8 @@
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare6,95 kA",
 "I²t passante a I″k70,00 kA²s",
-"Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 63 A."
+"Sezione minima protetta2,30 mm² rame PVC1,85 mm² rame EPR/XLPEenergia massima a 18,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 63 A.",
+"Linea protettanessuna linea a valle"
 ],
 "tabelle": [],
 "valori": {
@@ -70969,6 +73216,6 @@
 }
 }
 },
-"programma": "0.2.22",
+"programma": "0.2.23",
 "riferimento_scritto_il": "26/11/2026"
 }
