@@ -587,6 +587,11 @@ async def main():
     @caso('pm20_direzionale_oltre_la_taratura_del_distributore', ['modPMT'])
     def _(s): pm(s)['protezioni'] = [prot(on_D1=True, v_D1=0.03, t_D1=0.5, u_D1=6, on_D2=True, v_D2=0.02, t_D2=0.1, u_D2=2, a_D2='60–130')]; campi(s, 'modPMT', pm_DcT=0.45, pm_DiA='60–120', pm_DiT=0.17)
 
+    @caso('pm21_soglie_di_fase_direzionali', ['modPMT'])
+    def _(s): pm(s)['protezioni'] = [prot(dm_I2='fwd', ca_I2=60, sf_I2='±80'),
+                                     prot(desc='Linea ad anello', mod='ref615', dg=False, inp=200, on_I1=True, v_I1=1.5, c_I1='DT', t_I1=0.6, dm_I1='fwd', ca_I1=30, sf_I1='±88',
+                                          v_I2=3, t_I2=0.2, dm_I2='rev', ca_I2=30, sf_I2='±88', on_I3=False, v_E1=0.02, t_E1=0.2, on_E2=False)]
+
     @caso('pm06_senza_fasce_di_tolleranza', ['modPMT'])
     def _(s):
         pm(s)['protezioni'] = [prot(), prot(desc='Linea', dg=False, v_I2=2, t_I2=0.25, v_I3=5, t_I3=0.05, v_E1=0.02, t_E1=0.2, on_E2=False)]

@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.21",
+  "versione": "0.2.22",
   "data": "26/11/2026",
-  "novita": "Protezioni MT, tolleranze secondo la CEI 0-16: nuova verifica degli errori del relè della protezione generale rispetto ai limiti della norma (5 % sulle soglie, 3 % ± 20 ms sui tempi impostati). La conformità ai limiti del distributore resta sulle tarature; con le fasce di tolleranza attive si indica anche se il caso peggiore esce dal limite e con quali tarature ci si resterebbe."
+  "novita": "Protezioni MT: nuova sezione «Importazione delle tarature dei relè». Da un progetto PCM600 esportato (.apcmp) si spuntano i relè ABB REF615 da mostrare tra le protezioni, ciascuno con il suo gruppo di regolazione; i valori non salvati nel progetto si prendono dal manuale e sono indicati come valori di fabbrica. Nella stessa sezione l'importazione del file del relè NA016. Soglie di fase direzionali (67) con verso, angolo caratteristico e settore: sigla e freccia nel grafico e in legenda, nota nelle verifiche di selettività, avviso se sono nella protezione generale. Grafici: Ctrl+clic (⌘+clic sul Mac) nasconde o mostra le maniglie delle regolazioni. Coordinamento: la sezione minima protetta considera tutte le correnti tra guasto minimo e massimo con intervento entro 5 s (CEI 64-8, 434.3.2), esclude il campo del sovraccarico e ricorda che la portata del cavo deve essere almeno la corrente del dispositivo."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
