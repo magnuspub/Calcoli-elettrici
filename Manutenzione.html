@@ -335,7 +335,7 @@ kbd{font-family:ui-monospace,Consolas,monospace;font-size:11px;border:1px solid 
 </script>
 <script>
 "use strict";
-const IDE_NAME="Manutenzione", IDE_VER="0.1.4";
+const IDE_NAME="Manutenzione", IDE_VER="0.1.5";
 const REPO_RAW="https://raw.githubusercontent.com/magnuspub/Calcoli-elettrici/main/";
 const BIG=20000;        // una riga più lunga di così è un blocco di dati: non si apre nell'editor
 const $=id=>document.getElementById(id);
@@ -372,8 +372,8 @@ async function fsRead(path){
   try{
     if(S.dir){ const {d,file}=await cartella(path); return await (await (await d.getFileHandle(file)).getFile()).text(); }
     if(S.files){ const f=S.files.get(path); return f?await f.text():null; }
-    if(S.one&&path===S.name) return await S.one.text();
-    if(S.fh&&path===S.name) return await (await S.fh.getFile()).text();
+    if(S.one&&(path===S.name||path===S.one.name)) return await S.one.text();   // alla prima lettura S.name non è ancora scritto
+    if(S.fh&&(path===S.name||path===S.fh.name)) return await (await S.fh.getFile()).text();
   }catch(e){}
   return null;
 }

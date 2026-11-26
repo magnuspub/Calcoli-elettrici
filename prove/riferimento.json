@@ -42122,7 +42122,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "23fbb9a0"
+"pdf": "73539af9"
 },
 "note": [],
 "riquadri": [
@@ -42130,7 +42130,7 @@
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare14,98 kA",
 "A · I²t passante a I″k594,55 kA²s",
-"A · Sezione minima protetta6,70 mm² rame PVC5,39 mm² rame EPR/XLPEenergia massima a 22,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Sezione minima protetta5,39 mm²rame EPR/XLPE, K 143energia massima a 22,70 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "A · Linea protettaIz 298 A · consigliata 95 mm²",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
@@ -42536,7 +42536,7 @@
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,50 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 376,60 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
-"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda «Linee e cavi», «Portata e caduta di tensione») → manca Ib",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: sezione consigliata 95 mm² coincide con la sezione scelta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k: I²t = 594,55 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
@@ -44392,7 +44392,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "9bf11709"
+"pdf": "65fa6004"
 },
 "note": [],
 "riquadri": [
@@ -44400,13 +44400,13 @@
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare15,44 kA",
 "A · I²t passante a I″k613,09 kA²s",
-"A · Sezione minima protetta6,81 mm² rame PVC5,48 mm² rame EPR/XLPEenergia massima a 24,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Sezione minima protetta5,48 mm²rame EPR/XLPE, K 143energia massima a 24,50 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "A · Linea protettaIz 298 A · consigliata 95 mm²",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,19 kA",
 "B · I²t passante a I″k74,00 kA²s",
-"B · Sezione minima protetta2,37 mm² rame PVC1,90 mm² rame EPR/XLPEenergia massima a 16,10 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Sezione minima protetta1,90 mm²rame EPR/XLPE, K 143energia massima a 16,10 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "B · Linea protettaIz 100 A · consigliata 2,5 mm²",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
@@ -44782,7 +44782,7 @@
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,50 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 376,60 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
-"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda «Linee e cavi», «Portata e caduta di tensione») → manca Ib",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: sezione consigliata 95 mm² coincide con la sezione scelta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k: I²t = 613,09 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
@@ -44795,7 +44795,7 @@
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: In 32 A ≤ Iz 100 A I0 100 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: I2 = 1,45 × 32 = 46 A ≤ 1,45·Iz 145 A corrente convenzionale di intervento con il fattore 1,45 (CEI EN 60898) → ✓ ok",
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: guasto minimo a fondo linea 2,50 kA: intervento in 6,6 ms ≤ 400 ms (fino a 63 A, CEI 64-8 tab. 41.1 con U0 231 V), I²t 9,94 kA²s ≤ K²S² 5,23 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
-"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda «Linee e cavi», «Portata e caduta di tensione») → manca Ib",
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: sezione consigliata 2,5 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "B · Cavo «Tratto 2» 16 mm² rame EPR/XLPE a I″k: I²t = 74,00 kA²s ≤ K²S² 5,23 MA²s curva I²t di catalogo → ✓ ok",
 "B · Cavo «Tratto 2» 16 mm² rame EPR/XLPE a I″k min: I²t = 39,25 kA²s ≤ K²S² 5,23 MA²s curva I²t di catalogo → ✓ ok",
@@ -51161,7 +51161,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "57656c2b"
+"pdf": "b790927c"
 },
 "note": [],
 "riquadri": [
@@ -51169,13 +51169,13 @@
 "Intervento a I″k min≤ 10 ms",
 "Picco lasciato passare14,71 kA",
 "I²t passante a I″k583,87 kA²s",
-"Sezione minima protetta6,64 mm² rame PVC5,34 mm² rame EPR/XLPEenergia massima a 21,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"Sezione minima protetta5,34 mm²rame EPR/XLPE, K 143energia massima a 21,70 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "Linea protettaIz 298 A · consigliata 95 mm²",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare11,10 kA",
 "I²t passante a I″k121,17 kA²s",
-"Sezione minima protetta3,03 mm² rame PVC2,43 mm² rame EPR/XLPEenergia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Sezione minima protetta4,58 mm²alluminio PVC, K 76energia massima a 12,50 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
 "Linea protettacavo MT: portata non calcolata"
 ],
 "tabelle": [],
@@ -51415,7 +51415,7 @@
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 10,40 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 417,77 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
-"Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda «Linee e cavi», «Portata e caduta di tensione») → manca Ib",
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: sezione consigliata 95 mm² coincide con la sezione scelta · senza Ib la caduta di tensione non è considerata · corrente a fondo linea stimata per ogni sezione → ✓ ok",
 "Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k: I²t = 583,87 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "Cavo «Tratto 2» 95 mm² rame EPR/XLPE a I″k min: I²t = 551,74 kA²s ≤ K²S² 184,55 MA²s curva I²t di catalogo a 415 V → ✓ ok",
@@ -52173,7 +52173,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "045585da"
+"pdf": "6d434e14"
 },
 "note": [],
 "riquadri": [
@@ -52187,7 +52187,7 @@
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare15,25 kA",
 "B · I²t passante a I″k601,40 kA²s",
-"B · Sezione minima protetta6,74 mm² rame PVC5,42 mm² rame EPR/XLPEenergia massima a 21,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Sezione minima protetta5,42 mm²rame EPR/XLPE, K 143energia massima a 21,70 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
 "B · Linea protettaportata non calcolata: il cavo non è una riga delle Linee",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
@@ -53186,7 +53186,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "46af8e26"
+"pdf": "fc8d7169"
 },
 "note": [],
 "riquadri": [
@@ -53194,19 +53194,19 @@
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare15,11 kA",
 "A · I²t passante a I″k599,78 kA²s",
-"A · Sezione minima protetta6,73 mm² rame PVC5,42 mm² rame EPR/XLPEenergia massima a 23,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Sezione minima protetta5,42 mm²rame EPR/XLPE, K 143energia massima a 23,20 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "A · Linea protettaIz 906 A · ΔU 0,13 % · consigliata 2 × 35 mm²",
 "B · Intervento a I″k≤ 6,6 ms",
 "B · Intervento a I″k min≤ 6,6 ms",
 "B · Picco lasciato passare7,99 kA",
 "B · I²t passante a I″k90,03 kA²s",
-"B · Sezione minima protetta2,61 mm² rame PVC2,10 mm² rame EPR/XLPEenergia massima a 19,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"B · Sezione minima protetta3,95 mm²alluminio PVC, K 76energia massima a 19,80 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "B · Linea protettaIz 112 A · ΔU 1,32 % · consigliata 150 mm²",
 "Intervento a I″k< 10 ms",
 "Intervento a I″k min< 10 ms",
 "Picco lasciato passare12,95 kA",
 "I²t passante a I″k146,68 kA²s",
-"Sezione minima protetta3,33 mm² rame PVC2,68 mm² rame EPR/XLPEenergia massima a 19,80 kAPer il sovraccarico serve anche Iz del cavo ≥ 160 A.",
+"Sezione minima protetta5,04 mm²alluminio PVC, K 76energia massima a 19,80 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "Linea protettaIz 112 A · ΔU 1,32 % · consigliata 240 mm²"
 ],
 "tabelle": [],
@@ -54259,7 +54259,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "a04f85f0"
+"pdf": "7ddc77ab"
 },
 "note": [],
 "riquadri": [
@@ -54267,13 +54267,13 @@
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare15,11 kA",
 "A · I²t passante a I″k599,78 kA²s",
-"A · Sezione minima protetta6,73 mm² rame PVC5,42 mm² rame EPR/XLPEenergia massima a 23,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 250 A.",
+"A · Sezione minima protetta5,42 mm²rame EPR/XLPE, K 143energia massima a 23,20 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "A · Linea protettaIz 247 A · ΔU 0,91 % · consigliata 3 × 630 mm²",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare14,17 kA",
 "B · I²t passante a I″k546,66 kA²s",
-"B · Sezione minima protetta6,43 mm² rame PVC5,17 mm² rame EPR/XLPEenergia massima a 18,40 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Sezione minima protetta5,17 mm²rame EPR/XLPE, K 143energia massima a 18,40 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "B · Linea protettaIz 715 A · ΔU 1,02 % · consigliata 35 mm²"
 ],
 "tabelle": [],
@@ -55378,7 +55378,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "23688ffc"
+"pdf": "15ddbe2d"
 },
 "note": [],
 "riquadri": [
@@ -55386,19 +55386,19 @@
 "A · Intervento a I″k min≤ 10 ms",
 "A · Picco lasciato passare15,69 kA",
 "A · I²t passante a I″k623,19 kA²s",
-"A · Sezione minima protetta6,86 mm² rame PVC5,52 mm² rame EPR/XLPEenergia massima a 23,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"A · Sezione minima protetta5,52 mm²rame EPR/XLPE, K 143energia massima a 23,20 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "A · Linea protettaIz 157 A · ΔU 0,39 % · consigliata 25 mm²",
 "B · Intervento a I″k≤ 10 ms",
 "B · Intervento a I″k min≤ 10 ms",
 "B · Picco lasciato passare13,12 kA",
 "B · I²t passante a I″k489,70 kA²s",
-"B · Sezione minima protetta6,09 mm² rame PVC4,89 mm² rame EPR/XLPEenergia massima a 15,60 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Sezione minima protetta7,44 mm²alluminio EPR/XLPE, K 94energia massima a 15,60 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "B · Linea protettaIz 270 A · ΔU 1,74 %",
 "C · Intervento a I″k≤ 6,6 ms",
 "C · Intervento a I″k min≤ 7,5 ms",
 "C · Picco lasciato passare3,86 kA",
 "C · I²t passante a I″k21,30 kA²s",
-"C · Sezione minima protetta1,27 mm² rame PVC1,02 mm² rame EPR/XLPEenergia massima a 4,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"C · Sezione minima protetta1,27 mm²rame PVC, K 115energia massima a 4,90 kAPer il sovraccarico vale la verifica di «Linea protetta».",
 "C · Linea protettaIz 110 A · ΔU 2,31 % · consigliata 10 mm²"
 ],
 "tabelle": [],
@@ -74480,6 +74480,6 @@
 }
 }
 },
-"programma": "0.2.24",
-"riferimento_scritto_il": "26/11/2026"
+"programma": "0.2.25",
+"riferimento_scritto_il": "27/11/2026"
 }
