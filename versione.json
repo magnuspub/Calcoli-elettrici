@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.23",
+  "versione": "0.2.24",
   "data": "26/11/2026",
-  "novita": "Linee: ogni riga ha l'estensione «Portata e caduta di tensione» con corrente d'impiego, cos φ, posa, temperatura, raggruppamento e caduta di tensione ammessa (0,5–4 %); portata secondo CEI-UNEL 35024/1 (in aria) e 35026 (interrati) con i fattori di correzione, oppure scritta a mano per i cavi fuori tabella. Coordinamento: per il dispositivo all'inizio della linea verifiche Ib ≤ In ≤ Iz e I2 ≤ 1,45 Iz, guasto minimo a fondo linea (intervento entro 0,4 s fino a 63 A a 230 V, entro 5 s oltre, e I²t ≤ K²S²), caduta di tensione del tratto e totale con resistenza e reattanza della CEI-UNEL 35023, sezione consigliata anche con più cavi in parallelo. Corretti i fumetti che mostravano i marcatori dei pedici."
+  "novita": "Linee: unipolare o multipolare si sceglie una volta sola, nel Tipo della riga. In «Portata e caduta di tensione» la posa propone solo le voci di quel tipo; cambiando Tipo, o aprendo un file in cui non concordano, la posa passa a quella equivalente. Con «Personalizzato» restano tutte le pose. Per i cavi MT e le linee aeree, dove le tabelle CEI-UNEL delle portate BT non valgono, la portata è solo quella scritta a mano. Nuovo campo «θ max di lavoro»: una temperatura massima del conduttore più bassa di quella dell'isolante riduce la portata e la resistenza usata per la caduta di tensione; la riga mostra anche la temperatura di lavoro stimata con la corrente d'impiego."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
