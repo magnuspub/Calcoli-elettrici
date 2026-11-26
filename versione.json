@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.24",
-  "data": "26/11/2026",
-  "novita": "Linee: unipolare o multipolare si sceglie una volta sola, nel Tipo della riga. In «Portata e caduta di tensione» la posa propone solo le voci di quel tipo; cambiando Tipo, o aprendo un file in cui non concordano, la posa passa a quella equivalente. Con «Personalizzato» restano tutte le pose. Per i cavi MT e le linee aeree, dove le tabelle CEI-UNEL delle portate BT non valgono, la portata è solo quella scritta a mano. Nuovo campo «θ max di lavoro»: una temperatura massima del conduttore più bassa di quella dell'isolante riduce la portata e la resistenza usata per la caduta di tensione; la riga mostra anche la temperatura di lavoro stimata con la corrente d'impiego."
+  "versione": "0.2.25",
+  "data": "27/11/2026",
+  "novita": "Revisione generale. Importazione REF615: una 67N con «Enable voltage limit» disattivato importa come U0 la tensione minima di polarizzazione; le soglie di terra che lavorano sulla I0 calcolata sono riportate al primario del TO; le 67 all'indietro usano gli angoli «reverse»; il «Minimum operate time» salvato nel progetto diventa il tempo minimo delle curve; nuovi avvisi per i relè che non sono della serie 615, per i blocchi di parametri non letti e per le impostazioni cambiate che il programma non interpreta. Testi: la scheda si chiama «Linee e cavi» ovunque, tra le formule ci sono portata, sovraccarico e caduta di tensione, la nota della sezione minima rimanda a «Linea protetta». Telefono: titoli, pulsanti di esportazione, nomi dei dispositivi e tabelle restano dentro le schede."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
@@ -10,8 +10,8 @@
   "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
  },
  "Manutenzione.html": {
-  "versione": "0.1.4",
-  "data": "22/11/2026",
-  "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
+  "versione": "0.1.5",
+  "data": "27/11/2026",
+  "novita": "«Apri un solo file» funziona: prima il file scelto non veniva letto."
  }
 }

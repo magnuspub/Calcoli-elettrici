@@ -350,6 +350,16 @@ main>[id^=mod][hidden]{display:none!important;counter-increment:none}
 .codev .kpi{grid-column:1/-1}
 .codev[hidden],.codev [hidden],#modCOO .co-mot[hidden],#modCOO .co-tr[hidden],#co_ovlW[hidden],#pm_trGrp[hidden]{display:none!important}
 .devhd input{width:auto;flex:1 1 140px;max-width:300px;margin:0 10px}
+@media (max-width:480px){   /* telefono: titoli, pulsanti di esportazione e nomi dei dispositivi restano dentro la scheda */
+  .card h2,.module>.modhead{flex-wrap:wrap}
+  .expbtns{flex-wrap:wrap;justify-content:flex-end}
+  .devhd{gap:6px}
+  .devhd input{min-width:0;flex:1 1 60px;margin:0}
+  .devhd .del{flex:0 0 auto}
+  table.z{font-size:11.5px}
+  table.z th,table.z td{padding:5px 3px}
+  #modLP table.z td.bar{width:36px}
+}
 .devrow+.codev{margin:-4px 0 12px;border-top-left-radius:0;border-top-right-radius:0}
 .devgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 10px;align-items:end;margin-top:6px}
 .devgrid .w4{grid-column:span 4}.devgrid .w2{grid-column:span 2}
@@ -428,7 +438,7 @@ details.adv>.in{margin-top:10px}
 <nav id="rail" class="rail" aria-label="Componenti dell'impianto">
   <button type="button" data-card="cardGrid" title="Apre i dati di «Sorgente» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M7.5 12c1.5-3.4 3-3.4 4.5 0s3 3.4 4.5 0"/></svg><span>Sorgente</span></button>
   <button type="button" data-card="cardTr" title="Apre i dati di «Trasformatori» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.6" r="5.2"/><circle cx="12" cy="15.4" r="5.2"/></svg><span>Trasformatori</span></button>
-  <button type="button" data-card="cardCab" title="Apre i dati di «Linee» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M10 16l4-8"/></svg><span>Linee</span></button>
+  <button type="button" data-card="cardCab" title="Apre i dati di «Linee e cavi» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M10 16l4-8"/></svg><span>Linee</span></button>
   <button type="button" data-card="cardFus" title="Apre i dati di «Fusibili» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="5" width="7" height="14" rx="1"/><path d="M12 2v20"/></svg><span>Fusibili</span></button>
   <button type="button" data-card="cardCb" title="Apre i dati di «Interruttori» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v5M12 22v-5M12 17L7 8M9.5 4.5l5 5M14.5 4.5l-5 5"/></svg><span>Interruttori</span></button>
   <button type="button" data-card="cardMot" title="Apre i dati di «Motori» in un riquadro che resta accanto alla pagina"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8.5 15.5v-7l3.5 4.5 3.5-4.5v7"/></svg><span>Motori</span></button>
@@ -439,7 +449,7 @@ details.adv>.in{margin-top:10px}
   <div id="drDevW" hidden><div class="subh">Curve</div><div id="drChart"></div><div id="drLeg" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px"></div></div>
 </aside>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.24</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.25</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -826,7 +836,7 @@ details.adv>.in{margin-top:10px}
 
 <!-- Coordinamento delle protezioni BT: fusibili e interruttori dell'impianto sugli stessi grafici -->
 <div class="card" id="modCOO" style="max-width:1360px;margin:14px auto;border-left:3px solid var(--accent)">
-  <h2><span class="ttl">Coordinamento protezioni</span><span class="pill">IEC 60269 · IEC 60947-2 · IEC 60364-4-43</span><span class="expbtns"><button type="button" onclick="exportModule('modCOO','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modCOO','xls')">↧ Excel</button></span></h2>
+  <h2><span class="ttl">Coordinamento protezioni</span><span class="pill">IEC 60269 · IEC 60947-2 · CEI 64-8 · CEI-UNEL 35024/1</span><span class="expbtns"><button type="button" onclick="exportModule('modCOO','pdf')">↧ PDF</button><button type="button" onclick="exportModule('modCOO','xls')">↧ Excel</button></span></h2>
   <p class="hint">Curve tempo‑corrente, di limitazione (cut‑off) e dell'energia passante I²t dei fusibili e degli interruttori scelti nel modulo Impianto, sugli stessi grafici e alla stessa tensione. I dispositivi si aggiungono e si scelgono nelle loro schede: <b>pulsanti Fusibili e Interruttori della barra laterale</b>, che aprono la scheda accanto alle curve. Ogni dispositivo usa la tensione e le correnti di guasto della propria posizione nell'impianto.</p>
   <div style="display:flex;gap:8px 26px;flex-wrap:wrap;align-items:center">
     <label class="toggle" title="Mostra o nasconde le curve dei fusibili nei grafici; le verifiche restano. Per escluderli dai calcoli: «includi» nella scheda Fusibili del modulo Impianto"><input type="checkbox" id="co_onFus" checked><span>mostra i fusibili nei grafici</span></label>
@@ -875,7 +885,7 @@ details.adv>.in{margin-top:10px}
     <div class="kpi accent"><div class="k">Picco lasciato passare<span class="tip" tabindex="0" data-tip="Corrente di picco lasciata passare alla I″k massima, dalla curva di limitazione dell'interruttore alla tensione di esercizio. Sotto l'inizio della curva l'interruttore non limita e vale il picco presunto.">i</span></div><div class="v" style="font-size:19px"><span id="cb_cut">—</span></div></div>
     <div class="kpi accent"><div class="k">I²t passante a I″<sub>k</sub><span class="tip r" tabindex="0" data-tip="Energia specifica lasciata passare alla I″k massima. Nella zona di intervento magnetico vale la curva I²t di catalogo alla tensione di esercizio; nella zona termica, o dove la curva manca, vale I²·t con il tempo massimo di intervento.">i</span></div><div class="v" style="font-size:19px"><span id="cb_i2t">—</span></div></div>
     <div class="kpi"><div class="k">Sezione minima protetta<span class="tip r" tabindex="0" data-tip="Sezione minima del conduttore che sopporta l'energia lasciata passare dall'interruttore in cortocircuito: S min = √(I²t)/K (CEI 64-8, 434.3.2), con il valore più alto di I²t tra I″k minima e I″k massima del punto. La formula vale per interruzioni entro 5 s: le correnti a cui il dispositivo interviene più tardi sono un sovraccarico e non entrano nel calcolo. È solo la verifica al cortocircuito: per il sovraccarico la portata del cavo Iz deve essere almeno la corrente nominale o regolata del dispositivo, e di solito è questa a decidere la sezione. K è quello del cavo protetto, cioè il tratto che parte dalla posizione del dispositivo; se a valle non c'è un cavo, il valore è dato per il rame, con isolante in PVC (K 115) e in EPR/XLPE (K 143).">i</span></div><div class="v" style="font-size:15px"><span id="cb_Smin">—</span></div></div>
-      <div class="kpi"><div class="k">Linea protetta<span class="tip r" tabindex="0" data-tip="Portata Iz della linea che parte dalla posizione del dispositivo (CEI-UNEL 35024/1 o 35026), caduta di tensione totale dall'origine e sezione consigliata. I dati si scrivono nella riga della linea, scheda Linee del modulo Impianto («Portata e caduta di tensione»); le verifiche sono nell'elenco sotto.">i</span></div><div class="v" style="font-size:14px"><span id="cb_zres">—</span></div></div>
+      <div class="kpi"><div class="k">Linea protetta<span class="tip r" tabindex="0" data-tip="Portata Iz della linea che parte dalla posizione del dispositivo (CEI-UNEL 35024/1 o 35026), caduta di tensione totale dall'origine e sezione consigliata. I dati si scrivono nella riga della linea, scheda «Linee e cavi» del modulo Impianto («Portata e caduta di tensione»); le verifiche sono nell'elenco sotto.">i</span></div><div class="v" style="font-size:14px"><span id="cb_zres">—</span></div></div>
   </template>
   <div id="cb_res"></div>
   <div id="cb_checks" style="margin-top:10px"></div>
@@ -888,14 +898,14 @@ details.adv>.in{margin-top:10px}
     <div class="kpi accent"><div class="k">Picco lasciato passare<span class="tip" tabindex="0" data-tip="Corrente di picco limitata (cut-off) alla I″k massima, dalla curva di limitazione del fusibile. È il valore da confrontare con Ipk del quadro e con la soglia di 17 kA dell'esenzione IEC 61439-1 §10.11.2.">i</span></div><div class="v" style="font-size:19px"><span id="fu_cut">—</span></div></div>
     <div class="kpi accent"><div class="k">I²t passante a I″<sub>k</sub><span class="tip r" tabindex="0" data-tip="Energia specifica lasciata passare alla I″k massima. Per tempi di intervento ≥ 10 ms vale I²·t dalla curva tempo-corrente; nella zona di limitazione (< 10 ms) si usa la curva I²t di catalogo. Si assume il maggiore dei due.">i</span></div><div class="v" style="font-size:19px"><span id="fu_i2t">—</span></div></div>
     <div class="kpi"><div class="k">Sezione minima protetta<span class="tip r" tabindex="0" data-tip="Sezione minima del conduttore che sopporta l'energia lasciata passare dal fusibile in cortocircuito: S min = √(I²t)/K (CEI 64-8, 434.3.2), con il valore più alto di I²t tra I″k minima e I″k massima del punto. La formula vale per interruzioni entro 5 s: le correnti a cui il dispositivo interviene più tardi sono un sovraccarico e non entrano nel calcolo. È solo la verifica al cortocircuito: per il sovraccarico la portata del cavo Iz deve essere almeno la corrente nominale o regolata del dispositivo, e di solito è questa a decidere la sezione. K è quello del cavo protetto, cioè il tratto che parte dalla posizione del dispositivo; se a valle non c'è un cavo, il valore è dato per il rame, con isolante in PVC (K 115) e in EPR/XLPE (K 143).">i</span></div><div class="v" style="font-size:15px"><span id="fu_Smin">—</span></div></div>
-      <div class="kpi"><div class="k">Linea protetta<span class="tip r" tabindex="0" data-tip="Portata Iz della linea che parte dalla posizione del dispositivo (CEI-UNEL 35024/1 o 35026), caduta di tensione totale dall'origine e sezione consigliata. I dati si scrivono nella riga della linea, scheda Linee del modulo Impianto («Portata e caduta di tensione»); le verifiche sono nell'elenco sotto.">i</span></div><div class="v" style="font-size:14px"><span id="fu_zres">—</span></div></div>
+      <div class="kpi"><div class="k">Linea protetta<span class="tip r" tabindex="0" data-tip="Portata Iz della linea che parte dalla posizione del dispositivo (CEI-UNEL 35024/1 o 35026), caduta di tensione totale dall'origine e sezione consigliata. I dati si scrivono nella riga della linea, scheda «Linee e cavi» del modulo Impianto («Portata e caduta di tensione»); le verifiche sono nell'elenco sotto.">i</span></div><div class="v" style="font-size:14px"><span id="fu_zres">—</span></div></div>
   </template>
   <div id="fu_res"></div>
   <div id="fu_checks" style="margin-top:10px"></div>
   </div>
-  <p class="hint" style="margin:12px 0 0">Il circuito di ogni dispositivo è ciò che sta a valle della sua posizione nell'impianto: il cavo protetto è il tratto che parte da lì (sezione, materiale e isolante dalla scheda «Linee e cavi»), lo spunto è quello dei motori, l'inserzione riguarda i dispositivi ai capi dei trasformatori.</p>
+  <p class="hint" style="margin:12px 0 0">Il circuito di ogni dispositivo è ciò che sta a valle della sua posizione nell'impianto: la linea protetta è il tratto che parte da lì (sezione, materiale e isolante dalla sua riga nella scheda «Linee e cavi»; corrente d'impiego, posa e temperatura dalla stessa riga, in «Portata e caduta di tensione»), lo spunto è quello dei motori, l'inserzione riguarda i dispositivi ai capi dei trasformatori.</p>
 
-  <p class="note">Tempo di intervento per interpolazione lineare su assi log‑log tra i punti della curva; sotto il primo punto il fusibile non interviene in tempi utili, oltre l'ultimo il tempo è inferiore al minimo della curva (zona di limitazione). Fonte dei dati: curve di catalogo Eaton-Bussmann (BT) e catalogo Italweber «Fusibili e portafusibili media tensione» (serie FMT).</p>
+  <p class="note">Tempo di intervento per interpolazione lineare su assi log‑log tra i punti della curva; sotto il primo punto il fusibile non interviene in tempi utili, oltre l'ultimo il tempo è inferiore al minimo della curva (zona di limitazione). Per gli interruttori valgono le bande di catalogo, tempo massimo per l'interruzione e minimo per avviamenti e inserzioni. Fonte dei dati dei fusibili: curve di catalogo Eaton-Bussmann (BT) e catalogo Italweber «Fusibili e portafusibili media tensione» (serie FMT). Portate e cadute di tensione delle linee: CEI-UNEL 35024/1, 35026 e 35023.</p>
   <p class="note"><b>Fusibili MT serie FMT</b> — fusibili limitatori di back‑up (IEC 60282‑1): interrompono le correnti comprese tra la corrente minima di interruzione e il potere di interruzione; il valore è riportato nei dati di targa e nel grafico. Il catalogo dà una sola curva tempo‑corrente e una sola retta di limitazione per taglia, valide per tutte le tensioni; potere di interruzione, corrente minima e I²t sono quelli della tabella di ogni tensione. L'I²t nella zona di limitazione è il valore totale di catalogo, assunto costante. I codici sono quelli con percussore 50N; le versioni 80N (suffisso S) hanno le stesse tabelle. La taglia 200&nbsp;A (12 e 24&nbsp;kV) non è inclusa: il catalogo non ne riporta la curva tempo‑corrente. Le verifiche del tempo massimo di interruzione automatica e dell'esenzione dei 17&nbsp;kA riguardano la bassa tensione e non sono mostrate per questi fusibili.</p>
   <div class="cbnotes">
     <div class="fblk"><h4>Per tutti gli interruttori</h4>
@@ -1187,7 +1197,14 @@ details.adv>.in{margin-top:10px}
       <h4>Curve dei fusibili (dati di catalogo)</h4>
       <p>Tempo di intervento: interpolazione lineare su assi logaritmici tra i punti della curva, ln t = ln t<sub>1</sub> + (ln t<sub>2</sub> − ln t<sub>1</sub>)·(ln I − ln I<sub>1</sub>)/(ln I<sub>2</sub> − ln I<sub>1</sub>). Sotto il primo punto il fusibile non interviene in tempi utili; oltre l'ultimo il tempo è inferiore al minimo della curva.</p>
       <p>Picco lasciato passare: curva di limitazione in funzione di I″<sub>k</sub>, limitata al picco presunto i<sub>p</sub>. Energia passante: I²t = I²·t dalla curva tempo‑corrente sui tempi della curva, curva I²t di catalogo nella zona di limitazione; si assume il valore maggiore.</p>
-      <p>Cavo protetto: K²S² ≥ I²t (K = 115 Cu/PVC · 143 Cu/EPR‑XLPE · 76 Al/PVC · 94 Al/EPR‑XLPE), da verificare alla corrente massima e alla minima. Inserzione del trasformatore: inviluppo efficace indicativo I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup>.</p>
+      <p>Cavo protetto: K²S² ≥ I²t (K = 115 Cu/PVC · 143 Cu/EPR‑XLPE · 76 Al/PVC · 94 Al/EPR‑XLPE), da verificare alla corrente massima e alla minima, per interruzioni entro 5 s. Inserzione del trasformatore: inviluppo efficace indicativo I(t) = k·I<sub>n</sub>/√2·e<sup>−t/τ</sup>.</p>
+    </div>
+    <div class="fblk">
+      <h4>Linee: portata, sovraccarico e caduta di tensione</h4>
+      <p>Portata in aria (CEI-UNEL 35024/1): I<sub>z</sub> = n·I<sub>0</sub>·k<sub>1</sub>·k<sub>2</sub>, con I<sub>0</sub> dalle tabelle 1 e 2 a 30 °C, k<sub>1</sub> per la temperatura ambiente, k<sub>2</sub> per i circuiti raggruppati, n cavi in parallelo; alluminio × 0,78. Posa interrata (CEI-UNEL 35026): I<sub>0</sub> a 20 °C, 0,8 m e 1,5 K·m/W, con i fattori per temperatura del terreno, circuiti affiancati, profondità e resistività termica.</p>
+      <p>Sovraccarico (CEI 64-8, 433.2): I<sub>b</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> e I<sub>2</sub> ≤ 1,45·I<sub>z</sub>, con I<sub>2</sub> = 1,3·I<sub>r</sub> per gli interruttori CEI EN 60947-2, 1,45·I<sub>n</sub> per i modulari CEI EN 60898, 1,6·I<sub>n</sub> per i fusibili gG da 16 A (1,9 sotto 16 A, 2,1 fino a 4 A).</p>
+      <p>Caduta di tensione (CEI-UNEL 35023): ΔU = k·I<sub>b</sub>·L·(R·cos φ + X·sen φ), k = 2 monofase e 1,73 trifase, R e X di tabella alla temperatura massima dell'isolante. Temperatura di lavoro stimata: θ ≈ θ<sub>a</sub> + (θ<sub>max</sub> − θ<sub>a</sub>)·(I<sub>b</sub>/I<sub>z</sub>)². Con una θ massima di lavoro impostata la portata si riduce di √((θ − θ<sub>a</sub>)/(θ<sub>max</sub> − θ<sub>a</sub>)) e la resistenza diventa R(θ) = R·(1 + α(θ − 20))/(1 + α(θ<sub>max</sub> − 20)), α = 0,00393 rame e 0,00403 alluminio.</p>
+      <p>Guasto minimo a fondo linea: intervento entro il tempo della tabella 41.1 della CEI 64-8 (0,4 s a 230 V verso terra) per i dispositivi fino a 63 A, entro 5 s oltre.</p>
     </div>
     <div class="fblk">
       <h4>Curve degli interruttori (dati di catalogo)</h4>
@@ -1235,7 +1252,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati ciascuno nel punto scelto (di solito la fine dell'ultima linea), aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.24 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.25 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1276,7 +1293,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.24";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.25";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -2987,7 +3004,7 @@ function computeFus(){
     $("fu_tIk"+x).textContent  = r.Ik>0?fusTimeTxt(r.tk):"—";
     $("fu_tImin"+x).textContent= r.Imin>0?fusTimeTxt(r.tm):"—";
     $("fu_cut"+x).textContent  = r.cut!=null?fmt(r.cut/1000,2)+" kA":"—";
-    $("fu_i2t"+x).textContent  = r.e?fusFmtE(r.e.v):"—"; r.sm=devSminCalc(r); $("fu_Smin"+x).innerHTML=devSmin(r); });
+    $("fu_i2t"+x).textContent  = r.e?fusFmtE(r.e.v):"—"; r.sm=devSminCalc(r); r.cab=ccDown(parseInt(($("fu_pt"+x)||{}).value,10)).cab; $("fu_Smin"+x).innerHTML=devSmin(r); });   // il cavo protetto serve già qui: K e rimando alla verifica della linea
   const st={res,Ik,ip,Imin,tmax,mot:null,inr:null,K2S2:0};
   if(!res.length){ FUS_ST=st; $("fu_checks").innerHTML=""; computeCoo(); return; }   // nessun fusibile nell'impianto
   const a=res[0], checks=[], pre=i=>res.length>1?res[i].s+" · ":"";
@@ -3466,7 +3483,7 @@ function computeCb(){
     $("cb_tIk"+x).textContent  = r.Ik>0?cbTripTxt(r.tk):"—";
     $("cb_tImin"+x).textContent= r.Imin>0?cbTripTxt(r.tm):"—";
     $("cb_cut"+x).textContent  = r.cut?fmt(r.cut.v/1000,2)+" kA":"—";
-    $("cb_i2t"+x).textContent  = r.e?(r.e.src==='i'?"≤ ":"")+fusFmtE(r.e.v):"—"; r.sm=devSminCalc(r); $("cb_Smin"+x).innerHTML=devSmin(r); });
+    $("cb_i2t"+x).textContent  = r.e?(r.e.src==='i'?"≤ ":"")+fusFmtE(r.e.v):"—"; r.sm=devSminCalc(r); r.cab=ccDown(parseInt(($("cb_pt"+x)||{}).value,10)).cab; $("cb_Smin"+x).innerHTML=devSmin(r); });   // il cavo protetto serve già qui: K e rimando alla verifica della linea
   const st={res,U,Ik,ip,Imin,tmax,mot:null,inr:null,fus:null,ovl:null,K2S2:0};
   if(!res.length){ CB_ST=st; $("cb_checks").innerHTML=""; computeCoo(); return; }   // nessun interruttore nell'impianto
   const a=res[0], checks=[], pre=i=>res.length>1?res[i].s+" · ":"";
@@ -3892,7 +3909,7 @@ function devDel(p,s){ const i=DEV[p].indexOf(s); if(i<0) return; DEV[p].splice(i
 function devSet(p,list){ DEV[p].slice().forEach(s=>{ if(list.indexOf(s)<0){ DEV[p].splice(DEV[p].indexOf(s),1); [$(p+"_row"+s),$(p+"_box"+s)].forEach(d=>{ if(d) d.remove(); }); } }); list.forEach(s=>devAdd(p,s,true)); }
 // riquadri dei risultati di una famiglia, uno per dispositivo, dal modello nella pagina
 /* ---- portata dei cavi BT e dimensionamento del cavo protetto (CEI 64-8, 433 e 434; CEI-UNEL 35024/1:2020 e 35026:2000) ----
-   I dati per la portata sono un'estensione di ogni riga della scheda «Linee» (corrente d'impiego, cos φ, posa, temperatura, raggruppamento,
+   I dati per la portata sono un'estensione di ogni riga della scheda «Linee e cavi» (corrente d'impiego, cos φ, posa, temperatura, raggruppamento,
    caduta di tensione ammessa): lì si vedono portata e caduta di tensione (questa con R e X della CEI-UNEL 35023). Le verifiche di protezione sono nel Coordinamento, sul dispositivo
    posizionato all'inizio della linea. Fuori dalle tabelle i fattori usano il valore estremo più vicino e lo dicono; la portata si può scrivere a mano.
    Portate I0 in A per 2 e 3 conduttori caricati, PVC (P) ed EPR/XLPE (E), alle sezioni di CAB_SEZ (0 = valore non dato dalla tabella).
@@ -4037,7 +4054,7 @@ const cabSn=(S,n)=>(n>1?n+" × ":"")+fusNum(S)+" mm²";
 function cabCheck(p,r,dn,checks){
   const cab=dn.cab, L=cab&&cab.start!=null?cabLine(cab.start):null; if(!L) return {txt:cab?(cab.mt?"cavo MT: portata non calcolata":"portata non calcolata: il cavo non è una riga delle Linee"):"nessuna linea a valle"};
   const {c,z,U}=L, nm=`Linea «${escH(cab.desc)}» ${cabSn(cab.S,cab.n)} ${L.al?"alluminio":"rame"} ${cab.iso}`, cv=cabI2(r); let txt="";
-  const tip=`Portata secondo la CEI-UNEL ${c.posa.rif}, con i fattori di correzione per temperatura${c.terra?", circuiti vicini, profondità e resistività del terreno (CEI-UNEL 35026)":" e raggruppamento (CEI-UNEL 35024/1, tabelle 3 e 4)"}. Condizioni della CEI 64-8, 433.2: Ib ≤ In ≤ Iz e I2 ≤ 1,45·Iz. I dati si scrivono nella riga della linea, scheda Linee del modulo Impianto.`;
+  const tip=`Portata secondo la CEI-UNEL ${c.posa.rif}, con i fattori di correzione per temperatura${c.terra?", circuiti vicini, profondità e resistività del terreno (CEI-UNEL 35026)":" e raggruppamento (CEI-UNEL 35024/1, tabelle 3 e 4)"}. Condizioni della CEI 64-8, 433.2: Ib ≤ In ≤ Iz e I2 ≤ 1,45·Iz. I dati si scrivono nella riga della linea, scheda «Linee e cavi» del modulo Impianto.`;
   // 1. portata e protezione dal sovraccarico
   if(z.none){ checks.push({l:`${nm}: portata`, dis:true, disTxt:z.tmp?"temperatura":(z.noTab?"non da tabella":"fuori tabella"), extra:z.none, tip}); txt=z.tmp?"I<sub>z</sub> non calcolabile":(z.noTab?"I<sub>z</sub> da scrivere a mano":"I<sub>z</sub> fuori tabella"); }
   else {
@@ -4060,7 +4077,7 @@ function cabCheck(p,r,dn,checks){
     checks.push({l:`${nm}: caduta di tensione ${L.nUp?`${fmt(L.du,2)} %, totale dall'origine <b>${fmt(L.tot,2)} %</b>`:`<b>${fmt(L.du,2)} %</b>`} ≤ ${fusNum(c.du)} %`, ok:L.tot<=c.du+1e-9,
       extra:`I<sub>b</sub> ${fusNum(c.Ib)} A, cos φ ${fusNum(c.cos)}, ${fusNum(cab.L)} m · R ${fusNum(+L.rx.R.toPrecision(3))} Ω/km a ${fmt(L.rx.th,0)} °C${L.rx.lav?" (temperatura massima di lavoro impostata)":""}, X ${fusNum(+L.rx.X.toPrecision(3))} Ω/km`+(L.rx.tab?" dalla CEI-UNEL 35023":" · "+L.rx.nt.join("; "))+(L.miss?` · tratti a monte senza I<sub>b</sub> non conteggiati: ${L.miss}`:"")+" · la caduta nel trasformatore non è compresa",
       tip:"Caduta di tensione ΔU = √3·Ib·L·(R cos φ + X sen φ)/U in trifase (2·Ib·…/U0 con due conduttori caricati), con la resistenza e la reattanza della CEI-UNEL 35023, secondo sezione, materiale, isolante e formazione del cavo. La resistenza è alla temperatura massima dell'isolante (90 °C EPR/XLPE, 70 °C PVC), come nella norma; se nella riga della linea è impostata una temperatura massima di lavoro più bassa, è riportata a quella. È sommata a quella dei tratti a monte che hanno la corrente d'impiego nella loro riga. La CEI 64-8 (525) raccomanda di non superare il 4 % dall'origine dell'impianto."}); }
-  else checks.push({l:`${nm}: caduta di tensione`, dis:true, disTxt:"manca Ib", extra:"inserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione»)"});
+  else checks.push({l:`${nm}: caduta di tensione`, dis:true, disTxt:"manca Ib", extra:"inserire la corrente d'impiego nella riga della linea (scheda «Linee e cavi», «Portata e caduta di tensione»)"});
   // 4. sezione consigliata
   if(c.noTab){ checks.push({l:`${nm}: sezione consigliata`, dis:true, disTxt:"non calcolata", extra:"per i cavi MT e le linee aeree le tabelle delle portate non valgono: la sezione consigliata non è calcolata"}); return {txt}; }
   const rec=cabRec(r,L), more=rec&&rec.n>cab.n, okS=rec&&!more&&rec.S<=cab.S;
@@ -4136,7 +4153,7 @@ function devSminCalc(r){
   return {best,over};
 }
 function devSmin(r){ const m=r.sm, In=(r.b?(r.b.Ir||r.b.In):r.f.In);
-  const ol=`<div class="mini" style="font-weight:400">${m&&m.over?`a ${fmtAs(m.over.I)} e sotto interviene oltre 5 s: lì protegge il sovraccarico. `:""}Per il sovraccarico serve anche I<sub>z</sub> del cavo ≥ ${fusNum(In)} A.</div>`;
+  const ol=`<div class="mini" style="font-weight:400">${m&&m.over?`a ${fmtAs(m.over.I)} e sotto interviene oltre 5 s: lì protegge il sovraccarico. `:""}${r.cab&&r.cab.start!=null&&!r.cab.mt?"Per il sovraccarico vale la verifica di «Linea protetta».":`Per il sovraccarico serve anche I<sub>z</sub> del cavo ≥ ${fusNum(In)} A.`}</div>`;
   if(!m||!m.best) return m&&m.over?"—"+ol:"—";
   const e=m.best.v, le=m.best.src==='i'?"≤ ":"", q=K=>le+fmt(Math.sqrt(e)/K,2)+" mm²", at=`<div class="mini" style="font-weight:400">energia massima a ${fmtAs(m.best.I)}</div>`;
   return (r.cab?q(r.cab.K)+`<div class="mini" style="font-weight:400">${/^al/i.test(r.cab.mat)?"alluminio":"rame"} ${r.cab.iso}, K ${r.cab.K}</div>`:q(115)+` <span class="mini" style="font-weight:400">rame PVC</span><br>`+q(143)+` <span class="mini" style="font-weight:400">rame EPR/XLPE</span>`)+at+ol; }
@@ -4409,12 +4426,15 @@ async function pcmRead(buf,step){
 const PCM_FAB={PHLPTOC:{s:0.05,t:40,c:15,k:1,d:1,mt:20},DPHLPTOC:{s:0.05,t:40,c:15,k:1,d:2,ca:60,an:80,mt:20},PHHPTOC:{s:0.10,t:40,c:15,k:1,d:1,mt:20},DPHHPTOC:{s:0.10,t:40,c:15,k:1,d:2,ca:60,an:80,mt:20},
   PHIPTOC:{s:1.00,t:20,c:15,k:1,d:1},EFLPTOC:{s:0.010,t:40,c:15,k:1,d:1,mt:20},EFHPTOC:{s:0.10,t:40,c:15,k:1,d:1,mt:20},DEFLPTOC:{s:0.010,t:50,c:15,k:1,d:2,u:0.010,ca:-90,an:80,mt:50},DEFHPTOC:{s:0.10,t:40,c:15,k:1,d:2,u:0.010,ca:-90,an:80,mt:20}};
 const PCM_CRV={15:"DT",5:"DT",9:"IEC_NI",11:"IEC_NI",10:"IEC_VI",12:"IEC_EI",13:"IEC_STI",14:"IEC_LTI",1:"ANSI_EI",2:"ANSI_VI",3:"ANSI_NI",4:"ANSI_MI",6:"LT_EI",7:"LT_VI",8:"LT_I",18:"RI",19:"RD"};
+const PCM_NOTI=["StrVal","OpDlTmms","TmACrv","TmMult","DirMod","ChrAng","MaxFwdAng","MinFwdAng","MaxRvAng","MinRvAng","VStr","AllwNonDir","EnaVLim","BlkValV","AResSigSel","MinOpTmms"];   // impostazioni che l'importazione interpreta
 const PCM_LN={DPHLPDOC:"DPHLPTOC",DPHHPDOC:"DPHHPTOC",DEFLPDEF:"DEFLPTOC",DEFHPDEF:"DEFHPTOC"};
 // tarature di un relè nel gruppo sg: soglie del programma, con l'origine di ogni valore (progetto o fabbrica)
 function pcmSettings(d,sg){
   const P=d.P, note=[], fab=[];
   const ta=P["LD0.IL1TCTR1.ARtg.setMag.f"], toK=Object.keys(P).find(k=>/^LD0\.(?!IL1)\w*TCTR\d\.ARtg\.setMag\.f$/.test(k));
   const r={inp:ta?parseFloat(ta):100,ienp:toK?parseFloat(P[toK]):100,taF:!ta,toF:!toK,th:{},note,fab};
+  if(d.tipo&&!/615$/.test(d.tipo)) note.push(`il relè è un ${escH(d.tipo)}: i valori non salvati nel progetto sono presi dal manuale della serie 615 e vanno controllati`);
+  if(d.warn) note.push(`${d.warn} blocc${d.warn>1?"hi":"o"} di parametri del progetto non ${d.warn>1?"sono stati letti":"è stato letto"}: le impostazioni che conteneva${d.warn>1?"no":""} risultano di fabbrica, controllare tutti i valori`);
   const fun=[...new Map(d.fun.map(f=>[f.n,f])).values()].map(f=>{ const b=f.n.replace(/\d+$/,""), i=f.n.slice(b.length), ln=(PCM_LN[b]||b)+i; return {nome:f.n,sig:f.sig,ln,base:PCM_LN[b]||b}; }).filter(f=>PCM_FAB[f.base]);
   const val=(ln,base,par,key,dirLn)=>{ for(const k of [`LD0.${ln}.${par}_SG_${sg}`,`LD0.${ln}.${par}`]) if(k in P) return [parseFloat(P[k]),false];
     if(dirLn) for(const k of [`LD0.${dirLn}.${par}_SG_${sg}`,`LD0.${dirLn}.${par}`]) if(k in P) return [parseFloat(P[k]),false];
@@ -4422,16 +4442,26 @@ function pcmSettings(d,sg){
   const st=fun.map(f=>{ const on=(P[`LD0.${f.ln}.Beh.stVal`]||P[`LD0.${f.ln}.Mod.Oper.ctlVal`]||"1")!=="5", rd=f.ln.replace("PTOC","RDIR");
     const [s,sF]=val(f.ln,f.base,"StrVal.setMag.f","s"), [t,tF]=val(f.ln,f.base,"OpDlTmms.setVal","t"), [c,cF]=val(f.ln,f.base,"TmACrv.setCharact","c"), [k,kF]=val(f.ln,f.base,"TmMult.setMag.f","k");
     const [dm]=val(f.ln,f.base,"DirMod.setVal","d"), [ca]=val(f.ln,f.base,"ChrAng.setMag.f","ca",rd), [an]=val(f.ln,f.base,"MaxFwdAng.setMag.f","an",rd), [mn]=val(f.ln,f.base,"MinFwdAng.setMag.f","an",rd), [u,uF]=val(f.ln,f.base,"VStr.setMag.f","u");
-    const allw=P[`LD0.${f.ln}.AllwNonDir.setVal`]==="1";
-    return {...f,on,s,sF,t,tF,c,cF,k,kF,dm,ca,an,mn,u,uF,allw,fase:/^D?PH/.test(f.base),dirE:/^DEF/.test(f.base)&&dm!==1}; });
+    const gv=(ln,par)=>{ for(const q of [`LD0.${ln}.${par}_SG_${sg}`,`LD0.${ln}.${par}`]) if(q in P) return P[q]; return null; }, g2=par=>{ const a=gv(f.ln,par); return a!=null?a:gv(rd,par); };
+    const allw=g2("AllwNonDir.setVal")==="1", [xr]=val(f.ln,f.base,"MaxRvAng.setMag.f","an",rd), [nr]=val(f.ln,f.base,"MinRvAng.setMag.f","an",rd);
+    const bv=g2("BlkValV.setMag.f"), mo=gv(f.ln,"MinOpTmms.setVal");   /* consenso di tensione, tensione minima di polarizzazione, I0 misurata o calcolata, tempo minimo */
+    const noti=new RegExp("^LD0\\.(?:"+f.ln+"|"+rd+")\\.(\\w+)\\.(?:setVal|setMag\\.f|setCharact)(?:_SG_"+sg+")?$"), altri=[...new Set(Object.keys(P).map(q=>(noti.exec(q)||[])[1]).filter(q=>q&&!PCM_NOTI.includes(q)))];
+    return {...f,on,s,sF,t,tF,c,cF,k,kF,dm,ca,an,mn,xr,nr,u,uF,allw,ena:gv(f.ln,"EnaVLim.setVal")!=="0",umin:bv!=null?parseFloat(bv):0.01,ioCalc:gv(f.ln,"AResSigSel.setVal")==="2",mo:mo!=null?parseFloat(mo):null,altri,fase:/^D?PH/.test(f.base),dirE:/^DEF/.test(f.base)&&dm!==1}; });
   const pick=(list,key,lab)=>{ const a=list.filter(x=>x.on).sort((x,y)=>x.s-y.s); if(!a.length) return; const x=a[0];
     if(a.length>1) note.push(`${lab}: attive anche ${a.slice(1).map(y=>y.nome).join(", ")}, non importate (il programma ha una soglia ${lab})`);
     const crv=PCM_CRV[x.c]; if(!crv){ note.push(`${lab} (${x.nome}): curva ${x.c===17?"programmabile":"n. "+x.c} non gestita, importata a tempo indipendente`); }
     const dt=!crv||crv==="DT", o={on:true,v:x.s,c:crv||"DT",t:dt?x.t/1000:x.k,src:x.nome}; if(/^DEF/.test(x.base)&&!x.dirE) note.push(`${lab}: ${x.nome} è una direzionale impostata «Non-directional», importata come soglia di terra non direzionale`);
-    if(x.fase){ o.dm=x.dm===1?"":(x.dm===3?"rev":"fwd"); if(o.dm){ o.ca=x.ca; o.sf=x.mn===x.an?`±${x.an}`:`−${x.mn}/+${x.an}`; if(x.allw) note.push(`${lab} (${x.nome}): «Allow non-dir» attivo, interviene anche senza direzione quando la tensione di polarizzazione manca`); } }
-    if(key[0]==="D"){ o.u=+(x.u*100).toFixed(2); o.abb=`angolo caratteristico ${x.ca}° · settore −${x.mn}°/+${x.an}° (convenzione ABB)`; }
+    if(x.fase){ o.dm=x.dm===1?"":(x.dm===3?"rev":"fwd"); if(o.dm){ const a1=o.dm==="rev"?x.nr:x.mn, a2=o.dm==="rev"?x.xr:x.an; o.ca=x.ca; o.sf=a1===a2?`±${a2}`:`−${a1}/+${a2}`; if(x.allw) note.push(`${lab} (${x.nome}): «Allow non-dir» attivo, interviene anche senza direzione quando la tensione di polarizzazione manca`); } }
+    if(key[0]==="D"){ o.u=+((x.ena?Math.max(x.u,x.umin):x.umin)*100).toFixed(2);
+      if(!x.ena) note.push(`${lab} (${x.nome}): «Enable voltage limit» è disattivato, la soglia di tensione non è usata. Come U<sub>0</sub> è importata la tensione minima di polarizzazione («Min operate voltage», ${fusNum(x.umin)} × Un)`);
+      else if(x.umin>x.u) note.push(`${lab} (${x.nome}): la tensione minima di polarizzazione (${fusNum(x.umin)} × Un) supera la soglia di tensione (${fusNum(x.u)} × Un): come U<sub>0</sub> vale la prima`);
+      if(x.allw) note.push(`${lab} (${x.nome}): «Allow non-dir» attivo, sotto la tensione minima di polarizzazione interviene anche senza direzione`);
+      o.abb=`angolo caratteristico ${x.ca}° · settore −${x.mn}°/+${x.an}° (convenzione ABB)`; }
+    if(!x.fase&&x.ioCalc&&r.ienp>0&&r.inp!==r.ienp){ o.v=+(x.s*r.inp/r.ienp).toPrecision(6); note.push(`${lab} (${x.nome}): lavora sulla I<sub>0</sub> calcolata dalle tre correnti di fase («Io signal Sel»). La soglia, riferita al TA di fase, è stata riportata al primario del TO (${fusNum(x.s)} × ${fusNum(r.inp)} A)`); }
+    if(!dt&&x.mo!=null) r.tmin=Math.max(r.tmin||0,x.mo);
+    if(x.altri.length) note.push(`${lab} (${x.nome}): altre impostazioni cambiate rispetto alla fabbrica, non interpretate dal programma: ${x.altri.join(", ")}`);
     r.th[key]=o;
-    [["soglia",x.sF],[dt?"ritardo":"moltiplicatore",dt?x.tF:x.kF],["curva",x.cF&&!dt]].forEach(([w,f2])=>{ if(f2) fab.push(`${x.nome} ${w}`); });
+    [["tensione U0",key[0]==="D"&&x.ena&&x.uF],["soglia",x.sF],[dt?"ritardo":"moltiplicatore",dt?x.tF:x.kF],["curva",x.cF&&!dt]].forEach(([w,f2])=>{ if(f2) fab.push(`${x.nome} ${w}`); });
     if(x.sF) note.push(`${lab} (${x.nome}) è attiva con la soglia di fabbrica (${fusNum(x.s)} × In): controllare se è voluta`); };
   pick(st.filter(x=>/^D?PHLP/.test(x.base)),"I1","I&gt;"); pick(st.filter(x=>/^D?PHHP/.test(x.base)),"I2","I&gt;&gt;"); pick(st.filter(x=>x.base==="PHIPTOC"),"I3","I&gt;&gt;&gt;");
   const nd=st.filter(x=>/^EF|^DEF/.test(x.base)&&!x.dirE&&x.on).sort((a,b)=>a.s-b.s), dir=st.filter(x=>x.dirE&&x.on).sort((a,b)=>a.s-b.s);
@@ -4453,7 +4483,8 @@ function pmtImpList(){
   const byName=(a,b)=>a.x.lab.localeCompare(b.x.lab,"it",{numeric:true,sensitivity:"base"});   // in ordine di nome (SC2 prima di SC10)
   if(P) P.ieds.map((x,i)=>({x,i})).sort(byName).forEach(({x,i})=>{ const key="pcm:"+x.g, d=pmtBySrc(key), ag=parseInt(x.P["LD0.LLN0.Act1SetGr.stVal"]||"1",10)||1, sg=d?(parseInt(d.querySelector('[data-k=src]').value.split("|")[1],10)||ag):ag;
     let info=""; if(x.err) info=`<b>${escH(x.err)}</b>`; else { const r=pcmSettings(x,sg), on=PMT_TH.filter(([k])=>r.th[k]).map(([k,lab])=>lab+(r.th[k].dm?" 67"+(r.th[k].dm==="rev"?"←":"→"):""));
-      info=`TA ${fmtAs(r.inp)} · ${on.length?on.join(", "):"nessuna soglia attiva"}`; const nf=r.fab.length+(r.taF?1:0)+(r.toF?1:0); if(nf) info+=` · <span style="color:var(--warn)" title="${escH((r.taF?["TA primario"]:[]).concat(r.toF?["TO primario"]:[],r.fab).join(", "))}">${nf} valor${nf>1?"i":"e"} di fabbrica</span>`; }
+      info=`TA ${fmtAs(r.inp)} · ${on.length?on.join(", "):"nessuna soglia attiva"}`; if(x.tipo&&!/615$/.test(x.tipo)) info+=` · <span style="color:var(--warn)">${escH(x.tipo)}</span>`; if(x.warn) info+=` · <span style="color:var(--crit)">${x.warn} blocc${x.warn>1?"hi":"o"} di parametri non lett${x.warn>1?"i":"o"}</span>`;
+      const nf=r.fab.length+(r.taF?1:0)+(r.toF?1:0); if(nf) info+=` · <span style="color:var(--warn)" title="${escH((r.taF?["TA primario"]:[]).concat(r.toF?["TO primario"]:[],r.fab).join(", "))}">${nf} valor${nf>1?"i":"e"} di fabbrica</span>`; }
     rows.push(`<tr><td><input type="checkbox" data-imp="${i}" ${d?"checked":""} ${x.err?"disabled":""} aria-label="mostra tra le protezioni"></td><td><b>${escH(x.lab)}</b></td>
       <td>gruppo <select data-imps="${i}">${[1,2,3,4,5,6].map(g=>`<option value="${g}" ${g===sg?"selected":""}>${g}${g===ag?" (attivo)":""}</option>`).join("")}</select></td><td>${info}</td></tr>`); });
   PMT_IMP.na.map((x,i)=>({x,i})).sort(byName).forEach(({x,i})=>{ const d=pmtBySrc(x.key);
@@ -4483,6 +4514,7 @@ function pmtPcmApply(d,x,sg){
   if(x.err||!x.fun.length){ pmtNa016Msg(d,"Relè non importato: "+escH(x.err||"nessuna funzione di protezione trovata")+". Le regolazioni non sono state toccate.",true); return; }
   const r=pcmSettings(x,sg), g=k=>d.querySelector(`[data-k=${k}]`);
   if(g("mod").value!=="ref615"){ g("mod").value="ref615"; g("tmin").value=Math.round(PMT_MOD.ref615.tmin*1000); pmtTolDef(d); }
+  if(r.tmin>0) g("tmin").value=Math.round(r.tmin);   // «Minimum operate time» delle curve dipendenti, se è salvato nel progetto
   g("desc").value=x.nome; g("src").value="pcm:"+x.g+"|"+sg; g("inp").value=r.inp; g("ienp").value=r.ienp; g("unit").value="mult";
   const lst=[];
   PMT_TH.forEach(([k,lab,fam])=>{ const t=r.th[k]; g("on_"+k).checked=!!t; if(fam==="F") g("dm_"+k).value=t&&t.dm||"";
@@ -4602,7 +4634,7 @@ function pmtLegend(st,fam,pal){
   if(st.prot.some(p=>p.bmax&&p.bmax[fam])) it.push(`<svg width="26" height="8" style="vertical-align:middle;margin-right:5px" aria-hidden="true"><rect width="26" height="8" fill="${pal.p[0]}" fill-opacity="0.22"/></svg>fasce di tolleranza (relè, ${fam==="F"?"TA":"TO"})`);
   if(st.dso[fam]) it.push(pmtSw(pal.dso,"8 4")+"limite del distributore"+(fam==="F"&&st.dsoNit?" con la I&gt;":""));
   if(fam==="F"&&st.dsoAlt) it.push(pmtSw(pal.dso,"2 3")+"limite senza la I&gt;");
-  if(fam==="F"){ if(st.inr) it.push(pmtSw(pal.inr,"9 3 2 3")+`inserzione totale (${st.inr.n} trasformator${st.inr.n===1?"e":"i"}, cresta ${fmtA(st.inr.peak)})`); if(st.fus) st.fus.forEach(z=>it.push(pmtSw(pal.fz,FUS_DASH[z.i%FUS_DASH.length])+`<span style="white-space:normal">fusibile ${z.n} · ${escH(z.type)} ${fusNum(z.In)} A`+(Math.abs(z.k-1)>1e-9?` riportato alla MT (${fusU(z.U)} → ${fusU(z.U/z.k)})`:"")+`</span>`));
+  if(fam==="F"){ if(st.inr) it.push(pmtSw(pal.inr,"9 3 2 3")+`<span style="white-space:normal">inserzione totale (${st.inr.n} trasformator${st.inr.n===1?"e":"i"}, cresta ${fmtA(st.inr.peak)})</span>`); if(st.fus) st.fus.forEach(z=>it.push(pmtSw(pal.fz,FUS_DASH[z.i%FUS_DASH.length])+`<span style="white-space:normal">fusibile ${z.n} · ${escH(z.type)} ${fusNum(z.In)} A`+(Math.abs(z.k-1)>1e-9?` riportato alla MT (${fusU(z.U)} → ${fusU(z.U/z.k)})`:"")+`</span>`));
     if(st.wth) it.push(pmtSw(pal.wth,TR_DASH)+`<span style="white-space:normal">tenuta di ${escH(st.wth.tr.desc)}: ${st.wth.n>1?"somma ":""}${fmtAs(st.wth.Ikt)} per 2 s`+(st.wth.c?" e sovraccarico ammesso (ANSI C57.92)":"")+`</span>`);
     if(st.cb) st.cb.list.forEach((q,i)=>it.push(pmtSw(pal.cb[i%pal.cb.length],PMT_CBDASH)+`<span style="white-space:normal">interruttore BT ${escH(q.name)} · ${q.min?"banda min–max":"curva massima"} riportata alla MT (${fusU(q.U)} → ${fusU(st.cb.Un)}, guasto trifase)</span>`)); }
   return it.map(x=>`<span style="white-space:nowrap">${x}</span>`).join("");
