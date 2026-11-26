@@ -42122,7 +42122,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "46a87f13"
+"pdf": "23fbb9a0"
 },
 "note": [],
 "riquadri": [
@@ -42533,7 +42533,7 @@
 "C · I″k = 5,0 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✓ ok",
 "C · Intervento a I″k min 8,50 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 14,98 kA ≤ 17 kA l'interruttore limita: picco presunto 46,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,50 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 376,60 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
@@ -44392,7 +44392,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "1da8d7b1"
+"pdf": "9bf11709"
 },
 "note": [],
 "riquadri": [
@@ -44779,7 +44779,7 @@
 "B · I″k = 16,1 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✗ no",
 "B · Intervento a I″k min 8,50 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 15,44 kA ≤ 17 kA l'interruttore limita: picco presunto 49,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,50 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 376,60 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
 "A · Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
@@ -44792,7 +44792,7 @@
 "A · Sovraccarico ammesso dal trasformatore (ANSI C57.92): margine minimo ×90,69 a 2,97 kA la banda massima dell'interruttore resta sotto la curva di sovraccarico ammesso, da 2 × In a 22,73 kA → ✓ ok",
 "A · Tenuta termica del trasformatore (22,73 kA per 2 s): a 24,50 kA intervento in 10 ms ≤ 2 s corrente I″k massima nel punto di installazione · tempo massimo della banda → ✓ ok",
 "B · Picco lasciato passare 7,19 kA ≤ 17 kA l'interruttore limita: picco presunto 25,3 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: In 32 A ≤ Iz 100 A I0 100 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: In 32 A ≤ Iz 100 A I0 100 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: I2 = 1,45 × 32 = 46 A ≤ 1,45·Iz 145 A corrente convenzionale di intervento con il fattore 1,45 (CEI EN 60898) → ✓ ok",
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: guasto minimo a fondo linea 2,50 kA: intervento in 6,6 ms ≤ 400 ms (fino a 63 A, CEI 64-8 tab. 41.1 con U0 231 V), I²t 9,94 kA²s ≤ K²S² 5,23 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
 "B · Linea «Tratto 2» 16 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
@@ -51161,7 +51161,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "f824e2ae"
+"pdf": "57656c2b"
 },
 "note": [],
 "riquadri": [
@@ -51412,7 +51412,7 @@
 "I″k = 21,7 kA ≤ Icu 50 kA potere di interruzione di NZMN2-A250 a 415 V → ✓ ok",
 "Intervento a I″k min 18,90 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 3,00 kA) → ✓ ok",
 "Picco lasciato passare 14,71 kA ≤ 17 kA l'interruttore limita: picco presunto 42,7 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
+"Linea «Tratto 2» 95 mm² rame EPR/XLPE: In 250 A ≤ Iz 298 A I0 298 A · k1 temperatura ambiente 1,00 · corrente d'impiego Ib non inserita nella riga della linea → ✓ ok",
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 432 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: guasto minimo a fondo linea 10,40 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 417,77 kA²s ≤ K²S² 184,55 MA²s corrente di guasto più bassa alla fine della linea (bifase) → ✓ ok",
 "Linea «Tratto 2» 95 mm² rame EPR/XLPE: caduta di tensioneinserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione») → manca Ib",
@@ -52556,7 +52556,7 @@
 "esportazioni": {
 "excel": "1417e4d1",
 "excel · foglio Punti": "b2fd1091",
-"pdf": "6111d088",
+"pdf": "1bbb8bba",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -53186,7 +53186,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "c6709701"
+"pdf": "46af8e26"
 },
 "note": [],
 "riquadri": [
@@ -53584,7 +53584,7 @@
 "B · I″k = 19,8 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✗ no",
 "B · Intervento a I″k min 13,70 kA: ≤ 6,6 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
 "A · Picco lasciato passare 15,11 kA ≤ 17 kA l'interruttore limita: picco presunto 47,3 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: Ib 150 A ≤ In 250 A ≤ Iz 906 A I0 607 A × 2 · k1 temperatura 0,91 · k2 raggruppamento 0,82 → ✓ ok",
+"A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: Ib 150 A ≤ In 250 A ≤ Iz 906 A I0 607 A × 2 · k1 temperatura ambiente 0,91 · k2 raggruppamento 0,82 → ✓ ok",
 "A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 1314 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: guasto minimo a fondo linea 13,70 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 478,54 kA²s ≤ K²S² 4711,45 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
 "A · Linea «Montante» 2 × 240 mm² rame EPR/XLPE: caduta di tensione 0,13 % ≤ 4 % Ib 150 A, cos φ 0,85, 30 m · R 0,11 Ω/km a 90 °C, X 0,078 Ω/km dalla CEI-UNEL 35023 · la caduta nel trasformatore non è compresa → ✓ ok",
@@ -53592,7 +53592,7 @@
 "A · Cavo «Montante» 2 × 240 mm² rame EPR/XLPE a I″k: I²t = 599,78 kA²s ≤ K²S² 4711,45 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Cavo «Montante» 2 × 240 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 4711,45 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "B · Picco lasciato passare 7,99 kA ≤ 17 kA l'interruttore limita: picco presunto 38,4 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Linea «Dorsale» 95 mm² alluminio PVC: Ib 120 A ≤ In 32 A ≤ Iz 112 A I0 175 A · k1 temperatura 1,00 · k2 circuiti sullo stesso piano 0,90 · k3 profondità 1,00 · k4 resistività del terreno 0,91 · conduttori di alluminio 0,78 · la corrente d'impiego supera quella del dispositivo → ✗ no",
+"B · Linea «Dorsale» 95 mm² alluminio PVC: Ib 120 A ≤ In 32 A ≤ Iz 112 A I0 175 A · k1 temperatura ambiente 1,00 · k2 circuiti sullo stesso piano 0,90 · k3 profondità 1,00 · k4 resistività del terreno 0,91 · conduttori di alluminio 0,78 · la corrente d'impiego supera quella del dispositivo → ✗ no",
 "B · Linea «Dorsale» 95 mm² alluminio PVC: I2 = 1,45 × 32 = 46 A ≤ 1,45·Iz 162 A corrente convenzionale di intervento con il fattore 1,45 (CEI EN 60898) → ✓ ok",
 "B · Linea «Dorsale» 95 mm² alluminio PVC: guasto minimo a fondo linea 2,30 kA: intervento in 6,6 ms ≤ 400 ms (fino a 63 A, CEI 64-8 tab. 41.1 con U0 231 V), I²t 9,04 kA²s ≤ K²S² 52,13 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
 "B · Linea «Dorsale» 95 mm² alluminio PVC: caduta di tensione 1,19 %, totale dall'origine 1,32 % ≤ 1 % Ib 120 A, cos φ 0,9, 60 m · R 0,384 Ω/km a 70 °C, X 0,08 Ω/km · R della tabella per l'isolante a 90 °C riportata a 70 °C (la CEI-UNEL 35023 non dà l'alluminio in PVC); X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione) · la caduta nel trasformatore non è compresa → ✗ no",
@@ -53602,7 +53602,7 @@
 "I″k = 19,8 kA ≤ Icn 120 kA potere di interruzione del fusibile 160NHG01B → ✓ ok",
 "Intervento a I″k min 13,70 kA: < 10 ms ≤ 5 s interruzione entro il tempo massimo ammesso → ✓ ok",
 "Picco lasciato passare 12,95 kA ≤ 17 kA il fusibile limita: picco presunto 38,4 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"Linea «Dorsale» 95 mm² alluminio PVC: Ib 120 A ≤ In 160 A ≤ Iz 112 A I0 175 A · k1 temperatura 1,00 · k2 circuiti sullo stesso piano 0,90 · k3 profondità 1,00 · k4 resistività del terreno 0,91 · conduttori di alluminio 0,78 → ✗ no",
+"Linea «Dorsale» 95 mm² alluminio PVC: Ib 120 A ≤ In 160 A ≤ Iz 112 A I0 175 A · k1 temperatura ambiente 1,00 · k2 circuiti sullo stesso piano 0,90 · k3 profondità 1,00 · k4 resistività del terreno 0,91 · conduttori di alluminio 0,78 → ✗ no",
 "Linea «Dorsale» 95 mm² alluminio PVC: I2 = 1,6 × 160 = 256 A ≤ 1,45·Iz 162 A corrente convenzionale di intervento con il fattore 1,6 (CEI EN 60269-2, gG) → ✗ no",
 "Linea «Dorsale» 95 mm² alluminio PVC: guasto minimo a fondo linea 2,30 kA: intervento in 57,1 ms ≤ 5 s (oltre 63 A), I²t 302,21 kA²s ≤ K²S² 52,13 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
 "Linea «Dorsale» 95 mm² alluminio PVC: caduta di tensione 1,19 %, totale dall'origine 1,32 % ≤ 1 % Ib 120 A, cos φ 0,9, 60 m · R 0,384 Ω/km a 70 °C, X 0,08 Ω/km · R della tabella per l'isolante a 90 °C riportata a 70 °C (la CEI-UNEL 35023 non dà l'alluminio in PVC); X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione) · la caduta nel trasformatore non è compresa → ✗ no",
@@ -53629,7 +53629,7 @@
 "esportazioni": {
 "excel": "3345dcce",
 "excel · foglio Punti": "8d14358c",
-"pdf": "99f775ed",
+"pdf": "a0615ed2",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -54259,7 +54259,7 @@
 ]
 },
 "esportazioni": {
-"pdf": "b2f642ae"
+"pdf": "a04f85f0"
 },
 "note": [],
 "riquadri": [
@@ -54562,7 +54562,7 @@
 "B · I″k = 18,4 kA ≤ Icu 50 kA potere di interruzione di NZMN1-A100 a 415 V → ✓ ok",
 "B · Intervento a I″k min 12,70 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 1,20 kA) → ✓ ok",
 "A · Picco lasciato passare 15,11 kA ≤ 17 kA l'interruttore limita: picco presunto 47,3 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"A · Linea «Montante» 400 mm² rame EPR/XLPE: Ib 900 A ≤ In 250 A ≤ Iz 247 A I0 500 A · k1 temperatura 1,07 · k2 circuiti sullo stesso piano 0,60 · k3 profondità 0,94 · k4 resistività del terreno 0,82 · sotto 10 °C la tabella non dà valori: usato il fattore di 10 °C, a favore della sicurezza; oltre 6 circuiti la tabella III non dà valori: usato quello di 6; profondità 2 m fuori dalla tabella IV (0,5…1,5 m): usato il valore estremo; resistività 3 K·m/W fuori dalla tabella V (1…2,5): usato il valore estremo · la corrente d'impiego supera quella del dispositivo → ✗ no",
+"A · Linea «Montante» 400 mm² rame EPR/XLPE: Ib 900 A ≤ In 250 A ≤ Iz 247 A I0 500 A · k1 temperatura ambiente 1,07 · k2 circuiti sullo stesso piano 0,60 · k3 profondità 0,94 · k4 resistività del terreno 0,82 · sotto 10 °C la tabella non dà valori: usato il fattore di 10 °C, a favore della sicurezza; oltre 6 circuiti la tabella III non dà valori: usato quello di 6; profondità 2 m fuori dalla tabella IV (0,5…1,5 m): usato il valore estremo; resistività 3 K·m/W fuori dalla tabella V (1…2,5): usato il valore estremo · la corrente d'impiego supera quella del dispositivo → ✗ no",
 "A · Linea «Montante» 400 mm² rame EPR/XLPE: I2 = 1,3 × 250 = 325 A ≤ 1,45·Iz 359 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "A · Linea «Montante» 400 mm² rame EPR/XLPE: guasto minimo a fondo linea 12,70 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 461,31 kA²s ≤ K²S² 3271,84 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
 "A · Linea «Montante» 400 mm² rame EPR/XLPE: caduta di tensione 0,91 % ≤ 4 % Ib 900 A, cos φ 0,9, 25 m · R 0,067 Ω/km a 90 °C, X 0,076 Ω/km dalla CEI-UNEL 35023 · la caduta nel trasformatore non è compresa → ✓ ok",
@@ -54570,13 +54570,1277 @@
 "A · Cavo «Montante» 400 mm² rame EPR/XLPE a I″k: I²t = 599,78 kA²s ≤ K²S² 3271,84 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "A · Cavo «Montante» 400 mm² rame EPR/XLPE a I″k min: I²t = 578,41 kA²s ≤ K²S² 3271,84 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "B · Picco lasciato passare 14,17 kA ≤ 17 kA l'interruttore limita: picco presunto 36,4 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
-"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: Ib 100 A ≤ In 100 A ≤ Iz 715 A I0 1100 A · k1 temperatura 0,65 · portata I0 scritta a mano → ✓ ok",
+"B · Linea «Dorsale» 800 mm² rame EPR/XLPE: Ib 100 A ≤ In 100 A ≤ Iz 715 A I0 1100 A · k1 temperatura ambiente 0,65 · portata I0 scritta a mano → ✓ ok",
 "B · Linea «Dorsale» 800 mm² rame EPR/XLPE: I2 = 1,3 × 100 = 130 A ≤ 1,45·Iz 1037 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
 "B · Linea «Dorsale» 800 mm² rame EPR/XLPE: guasto minimo a fondo linea 8,60 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 283,13 kA²s ≤ K²S² 13.087,36 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
 "B · Linea «Dorsale» 800 mm² rame EPR/XLPE: caduta di tensione 0,11 %, totale dall'origine 1,02 % ≤ 4 % Ib 100 A, cos φ 0,9, 40 m · R 0,03 Ω/km a 90 °C, X 0,08 Ω/km · R calcolata dalla resistività a 90 °C (sezione non data dalla CEI-UNEL 35023); X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione) · la caduta nel trasformatore non è compresa → ✓ ok",
 "B · Linea «Dorsale» 800 mm² rame EPR/XLPE: sezione consigliata 35 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · corrente a fondo linea stimata per ogni sezione · calcolata con le portate di tabella, non con quella scritta a mano → ✓ ok",
 "B · Cavo «Dorsale» 800 mm² rame EPR/XLPE a I″k: I²t = 546,66 kA²s ≤ K²S² 13.087,36 MA²s curva I²t di catalogo a 415 V → ✓ ok",
 "B · Cavo «Dorsale» 800 mm² rame EPR/XLPE a I″k min: I²t = 418,07 kA²s ≤ K²S² 13.087,36 MA²s curva I²t di catalogo a 415 V → ✓ ok"
+]
+}
+},
+"co16_linee_il_tipo_decide_la_posa": {
+"apertura": {
+"mancanti": [],
+"nota": null,
+"saltati": []
+},
+"errori": [],
+"modCC": {
+"aspetto": {
+"grafici": [
+"cc_wave linee f66870a2 scritte b0c0f5fd"
+],
+"legende": []
+},
+"esportazioni": {
+"excel": "e096e75b",
+"excel · foglio Punti": "106efe87",
+"pdf": "c47d53ca",
+"righe": 101
+},
+"excel_ricalcolato": {
+"100 · Corrente a vuoto I0 — primario": 0.36373067,
+"61 · I″k · simmetrica iniziale": 3.51949434,
+"62 · ip · picco": 5.1322145,
+"63 · Ib · interruzione": 3.51949434,
+"64 · Ik · regime": 3.51949434,
+"65 · Ith · termica equivalente": 3.52456218,
+"68 · I″k2 · bifase iniziale": 3.0479715,
+"69 · ip2 · picco bifase": 4.44462813,
+"78 · I″k1 · fase-terra iniziale": 1.77968814,
+"79 · ip1 · picco fase-terra": 2.59518567,
+"99 · Corrente di inserzione — primario": 266.735824,
+"Punti · P1 · Ib (kA)": 12.5,
+"Punti · P1 · Ib dei motori (A)": 0.0,
+"Punti · P1 · Ith (kA)": 12.7115015,
+"Punti · P1 · I″k (kA)": 12.5,
+"Punti · P1 · I″k dalla rete (A)": 12500.0,
+"Punti · P1 · I″k dei motori (A)": 0.0,
+"Punti · P1 · I″k min (kA)": 12.5,
+"Punti · P1 · I″k2 (kA)": 10.8253175,
+"Punti · P1 · I″k2 min (kA)": 10.8253175,
+"Punti · P1 · R (Ω)": 0.0758320186,
+"Punti · P1 · R/X": 0.1,
+"Punti · P1 · Un (V)": 15000.0,
+"Punti · P1 · X (Ω)": 0.758320186,
+"Punti · P1 · Z (Ω)": 0.762102355,
+"Punti · P1 · c max": 1.1,
+"Punti · P1 · c min": 1.0,
+"Punti · P1 · ip (kA)": 30.8652438,
+"Punti · P1 · ip dei motori (A)": 0.0,
+"Punti · P1 · κ": 1.74600186,
+"Punti · P1 · κ per il picco": 1.74600186,
+"Punti · P2 · Ib (kA)": 23.230481,
+"Punti · P2 · Ib dei motori (A)": 0.0,
+"Punti · P2 · Ith (kA)": 23.3711358,
+"Punti · P2 · I″k (kA)": 23.230481,
+"Punti · P2 · I″k dalla rete (A)": 23230.481,
+"Punti · P2 · I″k dei motori (A)": 0.0,
+"Punti · P2 · I″k min (kA)": 20.6132603,
+"Punti · P2 · I″k1 (kA)": 23.9888048,
+"Punti · P2 · I″k1 min (kA)": 21.247378,
+"Punti · P2 · I″k2 (kA)": 20.1181867,
+"Punti · P2 · I″k2 min (kA)": 17.8516071,
+"Punti · P2 · R (Ω)": 0.00284468653,
+"Punti · P2 · R/X": 0.283244552,
+"Punti · P2 · Un (V)": 400.0,
+"Punti · P2 · X (Ω)": 0.0100432171,
+"Punti · P2 · Z (Ω)": 0.0104383165,
+"Punti · P2 · c max": 1.05,
+"Punti · P2 · c min": 0.95,
+"Punti · P2 · ip (kA)": 47.2745516,
+"Punti · P2 · ip dei motori (A)": 0.0,
+"Punti · P2 · κ": 1.43897821,
+"Punti · P2 · κ per il picco": 1.43897821,
+"Punti · P3 · Ib (kA)": 15.6305471,
+"Punti · P3 · Ib dei motori (A)": 0.0,
+"Punti · P3 · Ith (kA)": 15.662943,
+"Punti · P3 · I″k (kA)": 15.6305471,
+"Punti · P3 · I″k dalla rete (A)": 15630.5471,
+"Punti · P3 · I″k dei motori (A)": 0.0,
+"Punti · P3 · I″k min (kA)": 10.5349517,
+"Punti · P3 · I″k1 (kA)": 8.60544376,
+"Punti · P3 · I″k1 min (kA)": 4.62740661,
+"Punti · P3 · I″k2 (kA)": 13.5364509,
+"Punti · P3 · I″k2 min (kA)": 9.12353577,
+"Punti · P3 · R (Ω)": 0.0102522865,
+"Punti · P3 · R/X": 0.880537264,
+"Punti · P3 · Un (V)": 400.0,
+"Punti · P3 · X (Ω)": 0.0116432171,
+"Punti · P3 · Z (Ω)": 0.0155136676,
+"Punti · P3 · c max": 1.05,
+"Punti · P3 · c min": 0.95,
+"Punti · P3 · ip (kA)": 24.090428,
+"Punti · P3 · ip dei motori (A)": 0.0,
+"Punti · P3 · κ": 1.08982142,
+"Punti · P3 · κ per il picco": 1.08982142,
+"Punti · P4 · Ib (kA)": 4.85279136,
+"Punti · P4 · Ib dei motori (A)": 0.0,
+"Punti · P4 · Ith (kA)": 4.86197632,
+"Punti · P4 · I″k (kA)": 4.85279136,
+"Punti · P4 · I″k dalla rete (A)": 4852.79136,
+"Punti · P4 · I″k dei motori (A)": 0.0,
+"Punti · P4 · I″k min (kA)": 2.96669446,
+"Punti · P4 · I″k1 (kA)": 2.51821021,
+"Punti · P4 · I″k1 min (kA)": 1.4304579,
+"Punti · P4 · I″k2 (kA)": 4.2026406,
+"Punti · P4 · I″k2 min (kA)": 2.56923277,
+"Punti · P4 · R (Ω)": 0.0350202865,
+"Punti · P4 · R/X": 0.982523166,
+"Punti · P4 · Un (V)": 400.0,
+"Punti · P4 · X (Ω)": 0.0356432171,
+"Punti · P4 · Z (Ω)": 0.0499685841,
+"Punti · P4 · c max": 1.05,
+"Punti · P4 · c min": 0.95,
+"Punti · P4 · ip (kA)": 7.35301491,
+"Punti · P4 · ip dei motori (A)": 0.0,
+"Punti · P4 · κ": 1.07141773,
+"Punti · P4 · κ per il picco": 1.07141773,
+"Punti · P5 · Ib (kA)": 3.51949434,
+"Punti · P5 · Ib dei motori (A)": 0.0,
+"Punti · P5 · Ith (kA)": 3.52456218,
+"Punti · P5 · I″k (kA)": 3.51949434,
+"Punti · P5 · I″k dalla rete (A)": 3519.49434,
+"Punti · P5 · I″k dei motori (A)": 0.0,
+"Punti · P5 · I″k min (kA)": 2.05871522,
+"Punti · P5 · I″k1 (kA)": 1.77968814,
+"Punti · P5 · I″k1 min (kA)": 0.99593883,
+"Punti · P5 · I″k2 (kA)": 3.0479715,
+"Punti · P5 · I″k2 min (kA)": 1.78289968,
+"Punti · P5 · R (Ω)": 0.0572430865,
+"Punti · P5 · R/X": 1.49291298,
+"Punti · P5 · Un (V)": 400.0,
+"Punti · P5 · X (Ω)": 0.0383432171,
+"Punti · P5 · Z (Ω)": 0.0688982819,
+"Punti · P5 · c max": 1.05,
+"Punti · P5 · c min": 0.95,
+"Punti · P5 · ip (kA)": 5.1322145,
+"Punti · P5 · ip dei motori (A)": 0.0,
+"Punti · P5 · κ": 1.03112076,
+"Punti · P5 · κ per il picco": 1.03112076
+},
+"note": [
+"guasto trifase BT",
+"Trasf. 1 · 630 kVA · τ inserzione 0,30 s"
+],
+"riquadri": [
+"I″k · simmetrica iniziale3,5 kA",
+"ip · corrente di picco5,1 kA",
+"Ib · interruzione3,5 kA",
+"Ik · permanente3,5 kA",
+"R/X1,493",
+"κ (picco)1,031",
+"Ith (Tk=1s)3,5 kA",
+"I″k2 · bifase iniziale3,0 kA",
+"ip2 · picco bifase4,4 kA",
+"I″k1 · fase-terra1,8 kA",
+"ip1 · picco2,6 kA",
+"I″k min · trifase2,1 kA",
+"I″k2 min · bifase1,8 kA",
+"I″k1 min · fase-terra1,0 kA",
+"In · primario24,2 A",
+"In · secondario909 A",
+"Iinserzione · primario (cresta)267 A",
+"I0 · a vuoto (primario)0,36 A"
+],
+"tabelle": [
+"Puntomassime (kA)minime (kA) I″kipIpkIthI″kI″k2I″k1 P1 Punto di consegna15.000 V12,530,9—12,712,510,8—P2 Secondario del trasformatore400 V23,247,3—23,420,617,921,2P3 Fine «Montante»400 V15,624,1—15,710,59,14,6P4 Fine «Aerea»400 V4,97,4—4,93,02,61,4P5 Fine «Speciale»400 V3,55,1—3,52,11,81,0",
+"ComponenteR (mΩ)X (mΩ)Z (mΩ) Rete0,050,540,54Trasformatore2,799,509,91Cavi/linee54,4028,3061,32 Totale al guasto57,2438,3468,90"
+],
+"valori": {
+"brs": [],
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.03112076,
+"kappaIp": 1.03112076,
+"le": {
+"Ik1": 1779.688137,
+"R0": 0.2426071615,
+"X0": 0.1222287688,
+"ip1": 2595.185668,
+"k1": 1.03112076,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 3519.494337,
+"oIk": 3519.494337,
+"oIkSt": 3519.494337,
+"oIp": 5132.2145,
+"oIth": 3524.562181,
+"oKappa": 1.03112076,
+"oRk": 0.05724308653,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0543984,
+"X": 0.0283,
+"name": "Cavi/linee"
+}
+],
+"oRx": 1.492912981,
+"oXk": 0.0383432171,
+"oZk": 0.06889828193,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.02042872,
+"kappaIp": 1.02042872,
+"le": {
+"Ik1": 995.93883,
+"R0": 0.4313088379,
+"X0": 0.1224598305,
+"ip1": 1437.243444,
+"k1": 1.02042872,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 2058.71522,
+"oIk": 2058.71522,
+"oIkSt": 2058.71522,
+"oIp": 2970.940448,
+"oIth": 2061.359132,
+"oKappa": 1.02042872,
+"oRk": 0.09935592463,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.09644472,
+"X": 0.0283,
+"name": "Cavi/linee"
+}
+],
+"oRx": 2.578167709,
+"oXk": 0.0385374172,
+"oZk": 0.1065679703,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"pts": [
+{
+"Un": 15000,
+"cmax": 1.1,
+"cmin": 1,
+"cond": null,
+"frac": 0,
+"i": 0,
+"id": "P1",
+"kind": "cons",
+"lvl": "MT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.07583201863,
+"oRows": [
+{
+"R": 0.07583201863,
+"X": 0.7583201863,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.7583201863,
+"oZk": 0.7621023553,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1,
+"ipMot": 0,
+"kappaC": 1.746001856,
+"kappaIp": 1.746001856,
+"le": null,
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 12500,
+"oIk": 12500,
+"oIkSt": 12500,
+"oIp": 30865.24381,
+"oIth": 12711.50147,
+"oKappa": 1.746001856,
+"oRk": 0.06893819875,
+"oRows": [
+{
+"R": 0.06893819875,
+"X": 0.6893819875,
+"name": "Rete"
+}
+],
+"oRx": 0.1,
+"oXk": 0.6893819875,
+"oZk": 0.692820323,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": false,
+"scCab": false,
+"trCab": false,
+"trN": 0,
+"trRx": 0
+},
+"nCab": 0,
+"name": "Punto di consegna",
+"sc": false,
+"tr": false
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0,
+"i": 1,
+"id": "P2",
+"kind": "bus",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.438978211,
+"kappaIp": 1.438978211,
+"le": {
+"Ik1": 23988.80484,
+"R0": 0.002790761534,
+"X0": 0.009028768828,
+"ip1": 48817.75765,
+"k1": 1.438978211,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 23230.48102,
+"oIk": 23230.48102,
+"oIkSt": 23230.48102,
+"oIp": 47274.55161,
+"oIth": 23371.13577,
+"oKappa": 1.438978211,
+"oRk": 0.002844686525,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2832445518,
+"oXk": 0.0100432171,
+"oZk": 0.01043831649,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.437567169,
+"kappaIp": 1.437567169,
+"le": {
+"Ik1": 21247.37804,
+"R0": 0.00286218191,
+"X0": 0.009259830513,
+"ip1": 43196.49296,
+"k1": 1.437567169,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 20613.26031,
+"oIk": 20613.26031,
+"oIkSt": 20613.26031,
+"oIp": 41907.31449,
+"oIth": 20737.58373,
+"oKappa": 1.437567169,
+"oRk": 0.002911204629,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+}
+],
+"oRx": 0.2843690524,
+"oXk": 0.0102374172,
+"oZk": 0.01064329946,
+"onCab": false,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 0,
+"name": "Secondario del trasformatore",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0.1538461538,
+"i": 2,
+"id": "P3",
+"kind": "cab",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.089821416,
+"kappaIp": 1.089821416,
+"le": {
+"Ik1": 8605.443757,
+"R0": 0.05464396153,
+"X0": 0.01542876883,
+"ip1": 13263.05609,
+"k1": 1.089821416,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 15630.54713,
+"oIk": 15630.54713,
+"oIkSt": 15630.54713,
+"oIp": 24090.428,
+"oIth": 15662.943,
+"oKappa": 1.089821416,
+"oRk": 0.01025228653,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0074076,
+"X": 0.0016,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.8805372638,
+"oXk": 0.0116432171,
+"oZk": 0.01551366763,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.032746691,
+"kappaIp": 1.032746691,
+"le": {
+"Ik1": 4627.406606,
+"R0": 0.1024203259,
+"X0": 0.01565983051,
+"ip1": 6758.440152,
+"k1": 1.032746691,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 10534.95167,
+"oIk": 10534.95167,
+"oIkSt": 10534.95167,
+"oIp": 15386.55373,
+"oIth": 10550.34711,
+"oKappa": 1.032746691,
+"oRk": 0.01713379663,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.014222592,
+"X": 0.0016,
+"name": "Cavi/linee"
+}
+],
+"oRx": 1.447426946,
+"oXk": 0.0118374172,
+"oZk": 0.02082525949,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 1,
+"name": "Fine «Montante»",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 0.7692307692,
+"i": 3,
+"id": "P4",
+"kind": "cab",
+"lvl": "BT",
+"max": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 1.05,
+"ipMot": 0,
+"kappaC": 1.071417731,
+"kappaIp": 1.071417731,
+"le": {
+"Ik1": 2518.210206,
+"R0": 0.1537159615,
+"X0": 0.1114287688,
+"ip1": 3815.626065,
+"k1": 1.071417731,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 4852.791361,
+"oIk": 4852.791361,
+"oIkSt": 4852.791361,
+"oIp": 7353.014915,
+"oIth": 4861.976316,
+"oKappa": 1.071417731,
+"oRk": 0.03502028653,
+"oRows": [
+{
+"R": 5.392499103e-05,
+"X": 0.0005392499103,
+"name": "Rete"
+},
+{
+"R": 0.002790761534,
+"X": 0.009503967187,
+"name": "Trasformatore"
+},
+{
+"R": 0.0321756,
+"X": 0.0256,
+"name": "Cavi/linee"
+}
+],
+"oRx": 0.9825231665,
+"oXk": 0.0356432171,
+"oZk": 0.04996858406,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"min": {
+"IbMot": 0,
+"IkMot": 0,
+"Tk": 1,
+"c": 0.95,
+"ipMot": 0,
+"kappaC": 1.024359687,
+"kappaIp": 1.024359687,
+"le": {
+"Ik1": 1430.457903,
+"R0": 0.2926385659,
+"X0": 0.1116598305,
+"ip1": 2072.251955,
+"k1": 1.024359687,
+"mot": false,
+"ok": true
+},
+"meshNote": "",
+"meshed": false,
+"monoFault": false,
+"motN": 0,
+"oIb": 2966.694463,
+"oIk": 2966.694463,
+"oIkSt": 2966.694463,
+"oIp": 4297.741577,
+"oIth": 2970.684826,
+"oKappa": 1.024359687,
+"oRk": 0.06468835663,
+"oRows": [
+{
+"R": 4.902271911e-05,
+"X": 0.0004902271911,
+"name": "Rete"
+},
+{
+"R": 0.00286218191,
+"X": 0.009747190013,
+"name": "Trasformatore"
+},
+{
+"R": 0.061777152,
+"X": 0.0256,
+"name": "Cavi/linee"
+}
+],
+"oRx": 1.805050745,
+"oXk": 0.0358374172,
+"oZk": 0.07395203821,
+"onCab": true,
+"onGrid": true,
+"onMot": false,
+"onTr": true,
+"scCab": false,
+"trCab": false,
+"trN": 1,
+"trRx": 0.2936417476
+},
+"nCab": 2,
+"name": "Fine «Aerea»",
+"sc": true,
+"tr": true
+},
+{
+"Un": 400,
+"cmax": 1.05,
+"cmin": 0.95,
+"cond": null,
+"frac": 1,
+"hv": false,
+"i": 4,
+"id": "P5",
+"kind": "cab",
+"last": true,
+"lvl": "BT",
+"max": "(già visto)",
+"min": "(già visto)",
+"nCab": "Infinity",
+"name": "Fine «Speciale»",
+"noLv": false,
+"sc": true,
+"tr": true
+}
+],
+"sy": {
+"Un": 400,
+"auto": 400,
+"lvl": "BT",
+"src": "secondario del trasformatore"
+}
+},
+"verifiche": []
+},
+"modCOO": {
+"aspetto": {
+"grafici": [
+"co_chart linee b3e85aee scritte 9320d8ba",
+"co_chartL linee 21ca5890 scritte b181ac3c",
+"co_chartE linee cd742e02 scritte 077c48ce"
+],
+"legende": [
+"interruttore A · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxinterruttore C · FAZ-C32/3 (32 A) · banda min–maxI″k massimaI″k minima"
+]
+},
+"esportazioni": {
+"pdf": "23688ffc"
+},
+"note": [],
+"riquadri": [
+"A · Intervento a I″k≤ 10 ms",
+"A · Intervento a I″k min≤ 10 ms",
+"A · Picco lasciato passare15,69 kA",
+"A · I²t passante a I″k623,19 kA²s",
+"A · Sezione minima protetta6,86 mm² rame PVC5,52 mm² rame EPR/XLPEenergia massima a 23,20 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"A · Linea protettaIz 157 A · ΔU 0,39 % · consigliata 25 mm²",
+"B · Intervento a I″k≤ 10 ms",
+"B · Intervento a I″k min≤ 10 ms",
+"B · Picco lasciato passare13,12 kA",
+"B · I²t passante a I″k489,70 kA²s",
+"B · Sezione minima protetta6,09 mm² rame PVC4,89 mm² rame EPR/XLPEenergia massima a 15,60 kAPer il sovraccarico serve anche Iz del cavo ≥ 100 A.",
+"B · Linea protettaIz 270 A · ΔU 1,74 %",
+"C · Intervento a I″k≤ 6,6 ms",
+"C · Intervento a I″k min≤ 7,5 ms",
+"C · Picco lasciato passare3,86 kA",
+"C · I²t passante a I″k21,30 kA²s",
+"C · Sezione minima protetta1,27 mm² rame PVC1,02 mm² rame EPR/XLPEenergia massima a 4,90 kAPer il sovraccarico serve anche Iz del cavo ≥ 32 A.",
+"C · Linea protettaIz 110 A · ΔU 2,31 % · consigliata 10 mm²"
+],
+"tabelle": [],
+"valori": {
+"C": [
+{
+"Ik": 23200,
+"Imin": 21200,
+"U": 400,
+"b": {
+"Ii": 1000,
+"Ir": 100,
+"Iu": 100,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": {
+"log": 203.0217807,
+"n": 22,
+"somma": 313212.4
+},
+"over": false
+},
+"e": {
+"Un": 415,
+"c": {
+"log": 290.6580741,
+"n": 26,
+"somma": 6799341
+},
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrA",
+"k": 2.0324,
+"lab": "I<sub>r</sub>",
+"x": 203.24,
+"y": 55.883
+},
+{
+"ax": "x",
+"id": "cb_IiA",
+"k": 1.2,
+"lab": "I<sub>i</sub>",
+"x": 1200,
+"y": 0.1059056184
+}
+],
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 195.3624797,
+"n": 44,
+"somma": 28743.4484
+},
+"min": {
+"log": 203.576864,
+"n": 48,
+"somma": 28842.9626
+},
+"slot": "A",
+"thE": 1200,
+"thMax": 1200,
+"thMin": 800,
+"type": "NZMN1-A100"
+},
+"back": 0,
+"cab": {
+"K": 143,
+"L": 20,
+"S": 50,
+"desc": "Montante",
+"end": 2,
+"endMin": 4600,
+"endTxt": "fase-terra",
+"iso": "EPR/XLPE",
+"mat": "Cu",
+"mt": false,
+"n": 1,
+"ri": 0,
+"start": 1,
+"up": [],
+"x": 0.08
+},
+"cut": {
+"lim": true,
+"v": 15688.23458
+},
+"e": {
+"src": "c",
+"v": 623189.5213
+},
+"em": {
+"src": "c",
+"v": 593981.4218
+},
+"ip": 47300,
+"s": "A",
+"sm": {
+"best": {
+"I": 23200,
+"src": "c",
+"v": 623189.5213
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+},
+{
+"Ik": 15600,
+"Imin": 4600,
+"U": 400,
+"b": {
+"Ii": 1000,
+"Ir": 100,
+"Iu": 100,
+"Un": 690,
+"adjIi": true,
+"adjIr": true,
+"cat": 1,
+"ch": "LineProtection",
+"d": {
+"Un": 415,
+"c": "(già visto)",
+"over": false
+},
+"e": {
+"Un": 415,
+"c": "(già visto)",
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrB",
+"k": 2.0324,
+"lab": "I<sub>r</sub>",
+"x": 203.24,
+"y": 55.883
+},
+{
+"ax": "x",
+"id": "cb_IiB",
+"k": 1.2,
+"lab": "I<sub>i</sub>",
+"x": 1200,
+"y": 0.1059056184
+}
+],
+"icu": {
+"U": 415,
+"ics": 50,
+"v": 50
+},
+"lsi": null,
+"max": {
+"log": 195.3624797,
+"n": 44,
+"somma": 28743.4484
+},
+"min": {
+"log": 203.576864,
+"n": 48,
+"somma": 28842.9626
+},
+"slot": "B",
+"thE": 1200,
+"thMax": 1200,
+"thMin": 800,
+"type": "NZMN1-A100"
+},
+"back": 0,
+"cab": {
+"K": 94,
+"L": 80,
+"S": 95,
+"desc": "Aerea",
+"end": 3,
+"endMin": 1400,
+"endTxt": "fase-terra",
+"iso": "EPR/XLPE",
+"mat": "Al",
+"mt": false,
+"n": 1,
+"ri": 1,
+"start": 2,
+"up": [
+2
+],
+"x": 0.3
+},
+"cut": {
+"lim": true,
+"v": 13117.94954
+},
+"e": {
+"src": "c",
+"v": 489702.6963
+},
+"em": {
+"src": "c",
+"v": 136329.4993
+},
+"ip": 24100,
+"s": "B",
+"sm": {
+"best": {
+"I": 15600,
+"src": "c",
+"v": 489702.6963
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+},
+"tm": {
+"mn": {
+"st": "fast",
+"t": 0.01
+},
+"mx": {
+"st": "fast",
+"t": 0.01
+}
+}
+},
+{
+"Ik": 4900,
+"Imin": 1400,
+"U": 400,
+"b": {
+"Ii": 320,
+"Ir": 32,
+"Iu": 32,
+"Un": 415,
+"adjIi": false,
+"adjIr": false,
+"cat": 0,
+"ch": "C",
+"d": {
+"Un": 0,
+"c": {
+"log": 139.3844001,
+"n": 18,
+"somma": 62606.19
+},
+"over": false
+},
+"e": {
+"Un": 0,
+"c": {
+"log": 119.3968311,
+"n": 14,
+"somma": 185400.39
+},
+"over": false
+},
+"hasL": true,
+"hd": [
+{
+"ax": "x",
+"id": "cb_IrC",
+"k": 2.36690625,
+"lab": "I<sub>r</sub>",
+"x": 75.741,
+"y": 43.66
+},
+{
+"ax": "x",
+"id": "cb_IiC",
+"k": 1,
+"lab": "I<sub>i</sub>",
+"x": 320,
+"y": 0.2445011452
+}
+],
+"icu": {
+"U": 415,
+"icn": 10,
+"std": "EN 60947-2",
+"v": 15
+},
+"lsi": null,
+"max": {
+"log": 247.5931667,
+"n": 80,
+"somma": 31759.9491
+},
+"min": {
+"log": 162.1418059,
+"n": 72,
+"somma": 27902.3817
+},
+"slot": "C",
+"thE": 320,
+"thMax": 320,
+"thMin": 160,
+"type": "FAZ-C32/3"
+},
+"back": 0,
+"cab": {
+"K": 115,
+"L": 30,
+"S": 25,
+"desc": "Speciale",
+"end": 4,
+"endMin": 1000,
+"endTxt": "fase-terra",
+"iso": "PVC",
+"mat": "Cu",
+"mt": false,
+"n": 1,
+"ri": 2,
+"start": 3,
+"up": [
+2,
+3
+],
+"x": 0.09
+},
+"cut": {
+"lim": true,
+"v": 3861.598612
+},
+"e": {
+"src": "c",
+"v": 21300.20545
+},
+"em": {
+"src": "c",
+"v": 5068.932976
+},
+"ip": 7400,
+"s": "C",
+"sm": {
+"best": {
+"I": 4900,
+"src": "c",
+"v": 21300.20545
+},
+"over": null
+},
+"tk": {
+"mn": {
+"st": "fast",
+"t": 0.0012
+},
+"mx": {
+"st": "fast",
+"t": 0.0066
+}
+},
+"tm": {
+"mn": {
+"st": "ok",
+"t": 0.001407947547
+},
+"mx": {
+"st": "ok",
+"t": 0.00754095856
+}
+}
+}
+],
+"F": [],
+"Uref": 400,
+"inr": null,
+"kf": 1,
+"mot": null,
+"onC": true,
+"onF": false
+},
+"verifiche": [
+"A · I″k = 23,2 kA ≤ Icu 50 kA potere di interruzione di NZMN1-A100 a 415 V → ✓ ok",
+"A · Intervento a I″k min 21,20 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 1,20 kA) → ✓ ok",
+"B · I″k = 15,6 kA ≤ Icu 50 kA potere di interruzione di NZMN1-A100 a 415 V → ✓ ok",
+"B · Intervento a I″k min 4,60 kA: ≤ 10 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 1,20 kA) → ✓ ok",
+"C · I″k = 4,9 kA ≤ Icu 15 kA potere di interruzione di FAZ-C32/3 a 415 V (EN 60947-2) → ✓ ok",
+"C · Intervento a I″k min 1,40 kA: ≤ 7,5 ms ≤ 5 s interviene lo sganciatore magnetico (soglia massima 320 A) → ✓ ok",
+"A · Picco lasciato passare 15,69 kA ≤ 17 kA l'interruttore limita: picco presunto 47,3 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"A · Linea «Montante» 50 mm² rame EPR/XLPE: Ib 100 A ≤ In 100 A ≤ Iz 157 A I0 192 A · k1 temperatura ambiente 1,00 · temperatura massima di lavoro 70 °C 0,82 → ✓ ok",
+"A · Linea «Montante» 50 mm² rame EPR/XLPE: I2 = 1,3 × 100 = 130 A ≤ 1,45·Iz 227 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"A · Linea «Montante» 50 mm² rame EPR/XLPE: guasto minimo a fondo linea 4,60 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 136,33 kA²s ≤ K²S² 51,12 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"A · Linea «Montante» 50 mm² rame EPR/XLPE: caduta di tensione 0,39 % ≤ 4 % Ib 100 A, cos φ 0,9, 20 m · R 0,46 Ω/km a 70 °C (temperatura massima di lavoro impostata), X 0,071 Ω/km dalla CEI-UNEL 35023 · la caduta nel trasformatore non è compresa → ✓ ok",
+"A · Linea «Montante» 50 mm² rame EPR/XLPE: sezione consigliata 25 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · corrente a fondo linea stimata per ogni sezione → ✓ ok",
+"A · Cavo «Montante» 50 mm² rame EPR/XLPE a I″k: I²t = 623,19 kA²s ≤ K²S² 51,12 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"A · Cavo «Montante» 50 mm² rame EPR/XLPE a I″k min: I²t = 593,98 kA²s ≤ K²S² 51,12 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"B · Picco lasciato passare 13,12 kA ≤ 17 kA l'interruttore limita: picco presunto 24,1 kA · curva a 415 V · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"B · Linea «Aerea» 95 mm² alluminio EPR/XLPE: Ib 80 A ≤ In 100 A ≤ Iz 270 A I0 300 A · fattore aggiuntivo 0,90 · portata I0 scritta a mano → ✓ ok",
+"B · Linea «Aerea» 95 mm² alluminio EPR/XLPE: I2 = 1,3 × 100 = 130 A ≤ 1,45·Iz 392 A corrente convenzionale di intervento con il fattore 1,3 (CEI EN 60947-2) → ✓ ok",
+"B · Linea «Aerea» 95 mm² alluminio EPR/XLPE: guasto minimo a fondo linea 1,40 kA: intervento in 10 ms ≤ 5 s (oltre 63 A), I²t 19,48 kA²s ≤ K²S² 79,74 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"B · Linea «Aerea» 95 mm² alluminio EPR/XLPE: caduta di tensione 1,35 %, totale dall'origine 1,74 % ≤ 4 % Ib 80 A, cos φ 0,9, 80 m · R 0,396 Ω/km a 90 °C, X 0,3 Ω/km · la CEI-UNEL 35023 vale per i cavi fino a 1 kV: R calcolata dalla resistività e X della riga della linea · la caduta nel trasformatore non è compresa → ✓ ok",
+"B · Linea «Aerea» 95 mm² alluminio EPR/XLPE: sezione consigliataper i cavi MT e le linee aeree le tabelle delle portate non valgono: la sezione consigliata non è calcolata → non calcolata",
+"B · Cavo «Aerea» 95 mm² alluminio EPR/XLPE a I″k: I²t = 489,70 kA²s ≤ K²S² 79,74 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"B · Cavo «Aerea» 95 mm² alluminio EPR/XLPE a I″k min: I²t = 136,33 kA²s ≤ K²S² 79,74 MA²s curva I²t di catalogo a 415 V → ✓ ok",
+"C · Picco lasciato passare 3,86 kA ≤ 17 kA l'interruttore limita: picco presunto 7,4 kA · soglia dell'esenzione dalla verifica di cc del quadro → ✓ ok",
+"C · Linea «Speciale» 25 mm² rame PVC: Ib 50 A ≤ In 32 A ≤ Iz 110 A I0 110 A · k1 temperatura ambiente 1,00 · la corrente d'impiego supera quella del dispositivo → ✗ no",
+"C · Linea «Speciale» 25 mm² rame PVC: I2 = 1,45 × 32 = 46 A ≤ 1,45·Iz 160 A corrente convenzionale di intervento con il fattore 1,45 (CEI EN 60898) → ✓ ok",
+"C · Linea «Speciale» 25 mm² rame PVC: guasto minimo a fondo linea 1,00 kA: intervento in 8,8 ms ≤ 400 ms (fino a 63 A, CEI 64-8 tab. 41.1 con U0 231 V), I²t 3,40 kA²s ≤ K²S² 8,27 MA²s corrente di guasto più bassa alla fine della linea (fase-terra) → ✓ ok",
+"C · Linea «Speciale» 25 mm² rame PVC: caduta di tensione 0,57 %, totale dall'origine 2,31 % ≤ 4 % Ib 50 A, cos φ 0,9, 30 m · R 0,93 Ω/km a 70 °C, X 0,097 Ω/km dalla CEI-UNEL 35023 · la caduta nel trasformatore non è compresa → ✓ ok",
+"C · Linea «Speciale» 25 mm² rame PVC: sezione consigliata 10 mm² la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta · corrente a fondo linea stimata per ogni sezione → ✓ ok",
+"C · Cavo «Speciale» 25 mm² rame PVC a I″k: I²t = 21,30 kA²s ≤ K²S² 8,27 MA²s curva I²t di catalogo → ✓ ok",
+"C · Cavo «Speciale» 25 mm² rame PVC a I″k min: I²t = 5,07 kA²s ≤ K²S² 8,27 MA²s curva I²t di catalogo → ✓ ok"
 ]
 }
 },
@@ -73216,6 +74480,6 @@
 }
 }
 },
-"programma": "0.2.23",
+"programma": "0.2.24",
 "riferimento_scritto_il": "26/11/2026"
 }

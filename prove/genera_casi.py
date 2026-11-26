@@ -568,6 +568,20 @@ async def main():
         for m in M.values():
             for k in ('fu_nmA', 'fu_UA', 'fu_IkA', 'fu_ipA', 'fu_IminA'): (m.get('campi') or {}).pop(k, None)
 
+    # dalla 0.2.24 il Tipo della riga decide le pose: posa dell'altra formazione convertita, cavo MT con portata a mano, tipo personalizzato libero
+    @caso('co16_linee_il_tipo_decide_la_posa', ['modCC', 'modCOO'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['cavi'] = [cav(desc='Montante', tipo='mult', mat='Cu', S=50, L=20, n=1, x=0.08, te=250, Sn=25, zIb=100, zposa='U5', ztw=70),   # temperatura massima di lavoro impostata: portata ridotta e caduta di tensione a 70 °C
+                          cav(desc='Aerea', tipo='aerea', mat='Al', S=95, L=80, n=1, x=0.30, te=250, Sn=95, zIb=80, zI0=300, zkx=0.9),
+                          cav(desc='Speciale', tipo='pers', mat='Cu', S=25, L=30, n=1, x=0.09, te=160, Sn=25, zIb=50, zposa='U4')]
+        campi(s, 'modCC', onCab=True)
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
+        M['modCB']['elenco'] = ['A', 'B', 'C']; cb(s)['A'] = intr('NZMN1-A100'); cb(s)['B'] = intr('NZMN1-A100'); cb(s)['C'] = intr('FAZ-C32/3'); M['modCB']['punti'] = {'A': 1, 'B': 2, 'C': 3}
+        M['modFUS']['elenco'] = []
+        for m in M.values():
+            for k in ('fu_nmA', 'fu_UA', 'fu_IkA', 'fu_ipA', 'fu_IminA'): (m.get('campi') or {}).pop(k, None)
+
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
 
