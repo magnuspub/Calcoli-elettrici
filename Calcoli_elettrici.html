@@ -431,7 +431,7 @@ details.adv>.in{margin-top:10px}
   <div id="drDevW" hidden><div class="subh">Curve</div><div id="drChart"></div><div id="drLeg" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px"></div></div>
 </aside>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.20</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.21</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -1216,7 +1216,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati ciascuno nel punto scelto (di solito la fine dell'ultima linea), aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.20 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.21 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1257,7 +1257,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.20";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.21";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -4270,22 +4270,49 @@ function computePMT(){
   { const el=$("pm_refU"); if(el) el.textContent=Un>0?`Tutte le curve sono riportate alla tensione della rete MT del modulo: ${fusU(Un)}.`:"Indicare la tensione della rete MT: senza, le curve non sono riportate."; }
   // verifiche
   const cmp=(cv,dso,from)=>{ if(!cv||!dso) return null; let bad=null; for(let k=0;k<=160&&!bad;k++){ const I=from*Math.pow(Math.max(Imax,from*40)/from,k/160)*1.0001, a=fusTime(cv,I), b=fusTime(dso,I); if(b.st!=="none"&&(a.st==="none"||a.t>b.t+1e-6)) bad={I,ta:a.st==="none"?Infinity:a.t,tb:b.t}; } return {bad}; };
+  // Tolleranze secondo la CEI 0-16: la conformità ai limiti del distributore si giudica sulle tarature (C.3.2.5, Allegato G: valori minori o uguali);
+  // gli errori del relè e dei trasduttori sono limiti di precisione dell'apparecchiatura (C.2.4.1: soglie ≤ 5 %, tempi ≤ 3 % ± 20 ms) e le prove
+  // si valutano al netto di essi. Il caso peggiore della fascia è quindi un'informazione, con le tarature che lo terrebbero sotto il limite.
+  const dsoVal={F:[["I&gt;&gt;","pm_L2","pm_T2"],["I&gt;&gt;&gt;","pm_L3","pm_T3"]],E:[["I<sub>0</sub>&gt;","pm_L0","pm_T0"],["I<sub>0</sub>&gt;&gt;","pm_L00","pm_T00"]]};
+  const tolInfo=(p,fam,bad)=>{ const e=p.tol["e"+fam], tr=p.tol.et, tm=p.tol.tm, err=`errori ±${fusNum(+(e*100).toFixed(2))} % sulle soglie (relè e ${fam==="F"?"TA":"TO"}), ±${fusNum(p.tol.etp)} % ± ${fusNum(p.tol.etm)} ms sui tempi`;
+    if(!bad) return `<br>Con le tolleranze (${err}) anche il bordo più lento della fascia resta sotto il limite.`;
+    const sug=dsoVal[fam].filter(([l,a,b])=>num(a)>0&&num(b)>0).map(([l,a,b])=>{ const t=(num(b)-p.tcb-tm)/(1+tr);
+      return `${l} ≤ ${fmtAs(num(a)/(1+e))} con ritardo del relè ≤ ${t>0?fusFmtT(t):"— (apertura troppo lunga)"}`; }).join(" · ");
+    const thUp=PMT_TH.filter(([k,l,f])=>f===fam&&p.th[k].on&&p.th[k].Is>0&&p.th[k].Is<=bad.I*1.0001&&p.th[k].Is*(1+e)>bad.I).map(([k])=>p.th[k].Is*(1+e))[0];
+    const dove=isFinite(bad.ta)?`a <b>${fmtAs(bad.I)}</b> l'estinzione può arrivare a ${fusFmtT(bad.ta)}, oltre i ${fusFmtT(bad.tb)} del limite`
+      :`a <b>${fmtAs(bad.I)}</b> la protezione può non intervenire${thUp?`, perché con l'errore la soglia può salire a ${fmtAs(thUp)}`:""}, mentre il limite chiede l'estinzione entro ${fusFmtT(bad.tb)}`;
+    return `<br>Con le tolleranze (${err}) il bordo più lento della fascia esce dal limite: ${dove}. `+
+      `La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1).`+
+      (sug?` Per restare sotto il limite anche nel caso peggiore: ${sug} (apertura ${fusNum(Math.round(p.tcb*1000))} ms).`:""); };
   prot.forEach((p,i)=>{ const nm=escH(p.desc);
+    if(p.dg){   // errori dichiarati del relè rispetto ai limiti della CEI 0-16 per la protezione generale
+      const over=[]; if(p.tol.ei>5+1e-9) over.push(`soglie ±${fusNum(p.tol.ei)} % &gt; 5 %`);
+      PMT_TH.forEach(([k,lab])=>{ const t=p.th[k]; if(!t.on||!(t.Is>0)||t.c!=="DT"||!(t.t>0)) return; const a=p.tol.et*t.t+p.tol.tm, b=0.03*t.t+0.02;
+        if(a>b+1e-9) over.push(`${lab} a ${fusFmtT(t.t)}: ±${fusNum(Math.round(a*1000))} ms &gt; ${fusNum(Math.round(b*1000))} ms`); });
+      checks.push({l:`${nm} · precisione del relè (CEI 0-16): `+(over.length?"<b>oltre i limiti della norma</b>":"<b>entro i limiti</b>"),ok:!over.length,warn:!!over.length,
+        extra:over.length?`valori inseriti: ${over.join(" · ")}. Controllare la dichiarazione di conformità del relè alla CEI 0-16, che riporta gli errori provati.`
+          :`soglie ±${fusNum(p.tol.ei)} % (limite 5 %) · tempi ±${fusNum(p.tol.etp)} % ± ${fusNum(p.tol.etm)} ms (limite 3 % ± 20 ms, ai tempi impostati)`,
+        tip:"La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la terra) fissa per la protezione generale un errore limite di 5 % sulle correnti e di 3 % ± 20 ms sui tempi; il controllo sui tempi è fatto per ogni soglia a tempo indipendente al ritardo impostato, sommando la parte percentuale e la quota fissa. I TA di fase devono essere di classe 5P e lineari fino ad almeno 9 kA primari nelle condizioni reali di installazione (C.2.1.1): l'errore del TA entra nella fascia di tolleranza ma la sua idoneità si verifica a parte."}); }
     if(p.dg&&nit){   // limite di fase con la I> a tempo dipendente: confronto sui tempi esatti, punto per punto
       const tPG=I=>pmtTime(p,"F",I)+p.tcb, from=L1*1.1, top=Math.max(Imax,from*40), grid=[];
       for(let k=0;k<=200;k++) grid.push(from*Math.pow(top/from,k/200)*1.0001);
       dtF.concat(dtAlt||[]).forEach(x=>grid.push(x[0]*1.0001)); PMT_TH.forEach(([k,l,f])=>{ const t=p.th[k]; if(f==="F"&&t.on&&t.Is>0){ grid.push(t.Is*1.0001); grid.push(t.Is*p.mod.m0*1.0001); } }); grid.sort((a,b)=>a-b);
       const scan=fL=>{ for(const I of grid){ const b=fL(I); if(!isFinite(b)) continue; const a=tPG(I); if(!(a<=b*(1+1e-9)+1e-6)) return {I,ta:a,tb:b}; } return null; };
       const bA=scan(I=>Math.min(tDT(dtF,I),nit(I)+p.tcb)), bB=(dtAlt&&dtAlt.length)?scan(I=>tDT(dtAlt,I)):undefined, ok=!bA||bB===null, r=(bB===undefined||(p.th.I1.on&&p.th.I1.c!=="DT"))?bA:bB;
+      let wInfo="";   // caso peggiore della fascia, con lo stesso criterio scelto per la curva nominale
+      if(tolOn){ const tW=I=>pmtTimeB(p,"F",I,1)+p.tcb, g2=grid.concat(PMT_TH.filter(([k,l,f])=>f==="F"&&p.th[k].on&&p.th[k].Is>0).map(([k])=>p.th[k].Is*(1+p.tol.eF)*1.0001)).sort((a,b)=>a-b);
+        const scanW=fL=>{ for(const I of g2){ const b=fL(I); if(!isFinite(b)) continue; const a=tW(I); if(!(a<=b*(1+1e-9)+1e-6)) return {I,ta:a,tb:b}; } return null; };
+        const wA=scanW(I=>Math.min(tDT(dtF,I),nit(I)+p.tcb)), wB=(dtAlt&&dtAlt.length)?scanW(I=>tDT(dtAlt,I)):undefined, wOk=!wA||wB===null;
+        wInfo=tolInfo(p,"F",wOk?null:((wB===undefined||(p.th.I1.on&&p.th.I1.c!=="DT"))?wA:wB)); }
       checks.push({l:`${nm} · limiti del distributore (fase): `+(ok?`<b>curva sotto il limite</b>`:`a <b>${fmtAs(r.I)}</b> estinzione ${isFinite(r.ta)?fusFmtT(r.ta):"assente"} &gt; ${fusFmtT(r.tb)}`),ok,
-        extra:ok?(!bA?"con la I&gt; a tempo dipendente: soglie e tempi entro i valori comunicati dal distributore":`senza la I&gt; a tempo dipendente: I&gt;&gt; entro ${fmtAs(L2p)}, come il distributore ammette in alternativa`)
-          :(bB===undefined?"il distributore comunica la I&gt; a tempo dipendente: la protezione generale deve restare sotto quella curva e sotto le soglie I&gt;&gt; e I&gt;&gt;&gt;":`la protezione generale deve restare sotto la curva con la I&gt; a tempo dipendente oppure, senza la I&gt;, avere la I&gt;&gt; entro ${fmtAs(L2p)}`),
+        extra:(ok?(!bA?"con la I&gt; a tempo dipendente: soglie e tempi entro i valori comunicati dal distributore":`senza la I&gt; a tempo dipendente: I&gt;&gt; entro ${fmtAs(L2p)}, come il distributore ammette in alternativa`)
+          :(bB===undefined?"il distributore comunica la I&gt; a tempo dipendente: la protezione generale deve restare sotto quella curva e sotto le soglie I&gt;&gt; e I&gt;&gt;&gt;":`la protezione generale deve restare sotto la curva con la I&gt; a tempo dipendente oppure, senza la I&gt;, avere la I&gt;&gt; entro ${fmtAs(L2p)}`))+(ok?wInfo:""),
         tip:"Le regolazioni comunicate dal distributore sono il limite superiore per la protezione generale: l'utente può impostare soglie più basse e tempi più brevi (CEI 0-16, 8.5.12.3). Per le soglie a tempo indipendente il confronto è sul tempo di estinzione: intervento del relè più apertura dell'interruttore. La I> a tempo dipendente è un tempo del relè: le si somma il tempo di apertura dell'interruttore di questa protezione."}); }
     if(p.dg){ [["F",nit?null:dsoF,"fase",Math.min(num("pm_L2")||Infinity,num("pm_L3")||Infinity)],["E",dsoE,"terra",Math.min(num("pm_L0")||Infinity,num("pm_L00")||Infinity)]].forEach(([fam,dso,txt,from])=>{
         if(!dso||!isFinite(from)) return; const r=cmp(p.cv[fam],dso,from);
         if(!r) checks.push({l:`${nm} · limiti del distributore (${txt})`,ok:false,extra:"nessuna soglia attiva: la protezione generale deve avere le soglie richieste"});
         else checks.push({l:`${nm} · limiti del distributore (${txt}): `+(r.bad?`a <b>${fmtAs(r.bad.I)}</b> estinzione ${isFinite(r.bad.ta)?fusFmtT(r.bad.ta):"assente"} &gt; ${fusFmtT(r.bad.tb)}`:`<b>curva sotto il limite</b>`),ok:!r.bad,
-          extra:r.bad?"la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati":"soglie e tempi di estinzione entro i valori comunicati dal distributore",
+          extra:r.bad?"la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati":"soglie e tempi di estinzione entro i valori comunicati dal distributore"+(tolOn&&p.bmax&&p.bmax[fam]?tolInfo(p,fam,(cmp(p.bmax[fam],dso,from)||{}).bad):""),
           tip:"Le regolazioni comunicate dal distributore sono il limite superiore per la protezione generale: l'utente può impostare soglie più basse e tempi più brevi (CEI 0-16, 8.5.12.3). Il confronto è sul tempo di estinzione: intervento del relè più apertura dell'interruttore."}); }); }
     if(st.inr&&p.op.F){
       if(p.h2) checks.push({l:`${nm} · inserzione dei trasformatori`,dis:true,disTxt:"blocco 2ª armonica",extra:"le soglie di fase sono bloccate durante l'inserzione: nessuna verifica del margine"});

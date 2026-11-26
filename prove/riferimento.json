@@ -13237,9 +13237,9 @@
 ]
 },
 "esportazioni": {
-"excel": "bfdcfbe3",
-"pdf": "7c156b82",
-"righe": 106
+"excel": "71281f11",
+"pdf": "97d42056",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -13260,13 +13260,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -13484,8 +13491,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
 ]
 },
@@ -24496,9 +24504,9 @@
 ]
 },
 "esportazioni": {
-"excel": "2e6fb141",
-"pdf": "ec61dbc2",
-"righe": 171
+"excel": "3d75dfff",
+"pdf": "4e7b897a",
+"righe": 172
 },
 "excel_ricalcolato": {},
 "note": [
@@ -24609,13 +24617,20 @@
 },
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -24892,8 +24907,9 @@
 }
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 770 A): margine minimo ×1,17 a 30 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività PG — protezione generale → interruttore BT A · NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA): margine minimo -12,10 s a 244 A (9,14 kA in BT) margine inferiore a 0,10 s: per quel guasto in bassa tensione può aprire anche la protezione MT → verifica",
 "Tenuta termica di Trasf. 1 + Trasf. 2 (1,28 kA per 2 s): guasto sulle sbarre BT, 1,20 kA al primario, estinto in 141 ms da PG — protezione generale entro i 2 s che il trasformatore sopporta → ✓ ok",
@@ -38578,9 +38594,9 @@
 ]
 },
 "esportazioni": {
-"excel": "b8dbf467",
-"pdf": "b233fc04",
-"righe": 106
+"excel": "e6b1634d",
+"pdf": "51200c84",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -38601,13 +38617,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -38848,8 +38871,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
 ]
 }
@@ -41817,9 +41841,9 @@
 ]
 },
 "esportazioni": {
-"excel": "e6e22a85",
-"pdf": "f576c447",
-"righe": 183
+"excel": "9c4df211",
+"pdf": "797fb7c7",
+"righe": 184
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42011,13 +42035,20 @@
 },
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -42270,8 +42301,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività PG — protezione generale → interruttore BT A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) per i guasti in bassa tensione considerati la protezione MT non interviene · campo esteso a tutta la curva dell'interruttore: indicare il guasto sulle sbarre BT riportato al primario per limitarlo → ✓ ok",
 "Selettività PG — protezione generale → interruttore BT C · FAZ-C32/3 (32 A) per i guasti in bassa tensione considerati la protezione MT non interviene · campo esteso a tutta la curva dell'interruttore: indicare il guasto sulle sbarre BT riportato al primario per limitarlo → ✓ ok"
@@ -42655,9 +42687,9 @@
 ]
 },
 "esportazioni": {
-"excel": "909cd126",
-"pdf": "7f511f30",
-"righe": 106
+"excel": "75099e62",
+"pdf": "e4156228",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -42678,13 +42710,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -42925,8 +42964,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
 ]
 },
@@ -44643,9 +44683,9 @@
 ]
 },
 "esportazioni": {
-"excel": "2ae92724",
-"pdf": "3b3ded35",
-"righe": 110
+"excel": "a6ac3c80",
+"pdf": "343a320f",
+"righe": 111
 },
 "excel_ricalcolato": {},
 "note": [
@@ -44666,13 +44706,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -44939,8 +44986,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto massimo sulle sbarre BT (590 A al primario, 22,13 kA nel cavo): I²t = 256,65 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto minimo sulle sbarre BT (500 A al primario, 18,75 kA nel cavo): I²t = 184,32 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
@@ -45657,9 +45705,9 @@
 ]
 },
 "esportazioni": {
-"excel": "6ca24bfc",
-"pdf": "847007dd",
-"righe": 111
+"excel": "cbebe338",
+"pdf": "43f38b23",
+"righe": 112
 },
 "excel_ricalcolato": {},
 "note": [
@@ -45680,13 +45728,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -45960,8 +46015,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto massimo sulle sbarre BT (590 A al primario, 22,13 kA nel cavo): I²t = 256,65 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto minimo sulle sbarre BT (300 A al primario, 11,25 kA nel cavo): I²t = 66,36 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
@@ -46680,9 +46736,9 @@
 ]
 },
 "esportazioni": {
-"excel": "ff277a33",
-"pdf": "8b9353e7",
-"righe": 112
+"excel": "a864ec07",
+"pdf": "f4e9cc8d",
+"righe": 113
 },
 "excel_ricalcolato": {},
 "note": [
@@ -46703,13 +46759,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -46990,8 +47053,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto massimo sulle sbarre BT (590 A al primario, 22,13 kA nel cavo): I²t = 256,65 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
 "Cavo al secondario 2 × 150 mm² rame EPR/XLPE · guasto minimo sulle sbarre BT (300 A al primario, 11,25 kA nel cavo): I²t = 66,36 MA²s ≤ K²S² 1840,41 MA²s estinto in 524 ms da PG — protezione generale → ✓ ok",
@@ -58760,9 +58824,9 @@
 ]
 },
 "esportazioni": {
-"excel": "fa37b422",
-"pdf": "6e41cc97",
-"righe": 106
+"excel": "7c651cee",
+"pdf": "3a25b388",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -58783,7 +58847,14 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -59010,7 +59081,8 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): a 2,00 A estinzione 450 ms > 170 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
 "PG — protezione generale · inserzione totale (cresta 200 A): margine minimo ×4,60 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
 ]
@@ -59035,9 +59107,9 @@
 ]
 },
 "esportazioni": {
-"excel": "d90afe6a",
-"pdf": "aa2a51fb",
-"righe": 139
+"excel": "7c6bfc1c",
+"pdf": "3ff26715",
+"righe": 140
 },
 "excel_ricalcolato": {},
 "note": [
@@ -59063,13 +59135,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -59514,8 +59593,9 @@
 }
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Linea trasformatore · inserzione totale (cresta 267 A): margine minimo ×1,92 a 194 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività PG — protezione generale → Linea trasformatore (fase): margine minimo -0,09 s a 585 A margine inferiore a 0,10 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) → verifica",
@@ -59545,9 +59625,9 @@
 ]
 },
 "esportazioni": {
-"excel": "5c25fb91",
-"pdf": "7e7dc4e0",
-"righe": 142
+"excel": "5b71c155",
+"pdf": "487c9a56",
+"righe": 143
 },
 "excel_ricalcolato": {},
 "note": [
@@ -59574,13 +59654,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±5 % (limite 5 %) · tempi ±3 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "Arrivo · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#74b1ddff",
 "l": "Arrivo · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#e53a9b36",
 "l": "Arrivo · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -60161,8 +60248,9 @@
 "wth": null
 },
 "verifiche": [
-"Arrivo · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"Arrivo · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"Arrivo · precisione del relè (CEI 0-16): entro i limiti soglie ±5 % (limite 5 %) · tempi ±3 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"Arrivo · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6 % sulle soglie (relè e TA), ±3 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A l'estinzione può arrivare a 2,21 s, oltre i 500 ms del limite. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 236 A con ritardo del relè ≤ 398 ms · I>>> ≤ 566 A con ritardo del relè ≤ 29,1 ms (apertura 70 ms). → ✓ ok",
+"Arrivo · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±10 % sulle soglie (relè e TO), ±3 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,20 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,82 A con ritardo del relè ≤ 350 ms · I0>> ≤ 50,9 A con ritardo del relè ≤ 77,7 ms (apertura 70 ms). → ✓ ok",
 "Arrivo · inserzione totale (cresta 267 A): margine minimo ×3,30 a 29,2 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Partenza 1 · inserzione totale (cresta 267 A): margine minimo ×1,81 a 179 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività Arrivo → Partenza 1 (fase): margine minimo -0,88 s a 161 A margine inferiore a 0,15 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) → verifica",
@@ -60191,9 +60279,9 @@
 ]
 },
 "esportazioni": {
-"excel": "1a7bb8c7",
-"pdf": "a24c6310",
-"righe": 146
+"excel": "22378f87",
+"pdf": "a8f8624f",
+"righe": 147
 },
 "excel_ricalcolato": {},
 "note": [
@@ -60225,13 +60313,20 @@
 "cb": null,
 "checks": [
 {
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "A · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
 "extra": "la protezione generale deve intervenire a correnti…#4e94d0a4",
 "l": "A · limiti del distributore (fase): a <b>250 A</b> estinzione 3,41 s &gt; 500 ms",
 "ok": false,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "A · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -60824,8 +60919,9 @@
 "wth": null
 },
 "verifiche": [
+"A · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
 "A · limiti del distributore (fase): a 250 A estinzione 3,41 s > 500 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
-"A · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"A · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "A · inserzione totale (cresta 267 A): margine minimo ×4,60 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "B · inserzione totale (cresta 267 A): margine minimo ×9,27 a 522 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività A → B (fase): margine minimo -0,43 s a 780 A margine inferiore a 0,10 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) → verifica",
@@ -60857,9 +60953,9 @@
 ]
 },
 "esportazioni": {
-"excel": "82b9f5bd",
-"pdf": "6e7f9d09",
-"righe": 108
+"excel": "611e1eaf",
+"pdf": "60ffb1fe",
+"righe": 109
 },
 "excel_ricalcolato": {},
 "note": [
@@ -60881,7 +60977,14 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -61142,7 +61245,8 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): a 58,5 A estinzione 190 ms > 170 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · guasto a terra interno all'impianto con neutro compensato (angolo atteso tra 90° e 240°, tipico 180°): campo coperto dalla 67N.S1 campo indicativo: l'angolo dipende dal grado di compensazione della bobina, l'ampiezza non è verificata → ✓ ok"
@@ -61168,9 +61272,9 @@
 ]
 },
 "esportazioni": {
-"excel": "73ffb919",
-"pdf": "8bc0e6cf",
-"righe": 114
+"excel": "36d04e25",
+"pdf": "436201d7",
+"righe": 115
 },
 "excel_ricalcolato": {},
 "note": [
@@ -61194,6 +61298,13 @@
 "IkMin": 0,
 "cb": null,
 "checks": [
+{
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
 {
 "extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
@@ -61566,6 +61677,7 @@
 "wth": null
 },
 "verifiche": [
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
 "PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,78 a 52 ms la curva del relè resta sopra l'inviluppo di inserzione → ✓ ok",
@@ -62527,9 +62639,9 @@
 ]
 },
 "esportazioni": {
-"excel": "763cc5d5",
-"pdf": "140a411a",
-"righe": 215
+"excel": "59e13557",
+"pdf": "f4e694dc",
+"righe": 216
 },
 "excel_ricalcolato": {},
 "note": [
@@ -62725,13 +62837,20 @@
 },
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -63190,8 +63309,9 @@
 }
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Linea · inserzione totale (cresta 267 A): margine minimo ×1,50 a 179 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività PG — protezione generale → Linea (fase): margine minimo -0,11 s a 585 A margine inferiore a 0,10 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) → verifica",
@@ -63537,9 +63657,9 @@
 ]
 },
 "esportazioni": {
-"excel": "6cf92664",
-"pdf": "22a309a6",
-"righe": 107
+"excel": "bcbc4b38",
+"pdf": "51c9a3f8",
+"righe": 108
 },
 "excel_ricalcolato": {},
 "note": [
@@ -63560,13 +63680,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -63828,8 +63955,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · guasto sulle sbarre BT (605 A al primario): estinzione in 120 msla protezione vede il guasto in bassa tensione → ✓ ok"
 ]
@@ -64379,9 +64507,9 @@
 ]
 },
 "esportazioni": {
-"excel": "3e9e63e7",
-"pdf": "3b93a8d9",
-"righe": 153
+"excel": "8437ff9b",
+"pdf": "48c6826c",
+"righe": 154
 },
 "excel_ricalcolato": {},
 "note": [
@@ -64402,13 +64530,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#22cd9f0d",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -64644,8 +64779,9 @@
 }
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 607 A l'estinzione può arrivare a 393 ms, oltre i 120 ms del limite. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione dei trasformatorile soglie di fase sono bloccate durante l'inserzione: nessuna verifica del margine → blocco 2ª armonica",
 "Tenuta termica di Trasf. 1 + Trasf. 2 (1,25 kA per 2 s): cortocircuito ai morsetti BT con rete di potenza infinita, 1,25 kA al primario, estinto in 141 ms da PG — protezione generale entro i 2 s che il trasformatore sopporta → ✓ ok"
 ]
@@ -64903,9 +65039,9 @@
 ]
 },
 "esportazioni": {
-"excel": "65389e70",
-"pdf": "13c33838",
-"righe": 106
+"excel": "4759277c",
+"pdf": "250195c8",
+"righe": 107
 },
 "excel_ricalcolato": {},
 "note": [
@@ -64925,6 +65061,13 @@
 "IkMin": 0,
 "cb": null,
 "checks": [
+{
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
 {
 "extra": "la protezione generale deve intervenire a correnti…#4e94d0a4",
 "l": "PG — protezione generale · limiti del distributore…#1fe322f0",
@@ -65150,6 +65293,7 @@
 "wth": null
 },
 "verifiche": [
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
 "PG — protezione generale · limiti del distributore (fase): a 250 A estinzione assente > 500 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
 "PG — protezione generale · limiti del distributore (terra): a 2,00 A estinzione assente > 450 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×5,15 a 85,2 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok"
@@ -65175,9 +65319,9 @@
 ]
 },
 "esportazioni": {
-"excel": "7d04590d",
-"pdf": "32ce5987",
-"righe": 109
+"excel": "1299ae73",
+"pdf": "d49b34c7",
+"righe": 110
 },
 "excel_ricalcolato": {},
 "note": [
@@ -65198,13 +65342,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -65440,8 +65591,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · guasto sulle sbarre BT (602 A al primario): estinzione in 120 msla protezione vede il guasto in bassa tensione → ✓ ok",
 "PG — protezione generale · I″k minima sul lato MT (9,75 kA): estinzione in 141 ms la protezione interviene anche con la corrente di guasto più bassa (bordo più lento della fascia di tolleranza) → ✓ ok",
@@ -65468,9 +65620,9 @@
 ]
 },
 "esportazioni": {
-"excel": "c36e65d3",
-"pdf": "5f077fca",
-"righe": 104
+"excel": "a4e291b7",
+"pdf": "770193cc",
+"righe": 105
 },
 "excel_ricalcolato": {},
 "note": [
@@ -65490,6 +65642,13 @@
 "IkMin": 200,
 "cb": null,
 "checks": [
+{
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
 {
 "extra": "la protezione generale deve intervenire a correnti…#4e94d0a4",
 "l": "PG — protezione generale · limiti del distributore…#b28a7c71",
@@ -65711,6 +65870,7 @@
 "wth": null
 },
 "verifiche": [
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
 "PG — protezione generale · limiti del distributore (fase): a 250 A estinzione 570 ms > 500 ms la protezione generale deve intervenire a correnti uguali o minori e in tempi uguali o minori di quelli comunicati → ✗ no",
 "PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×4,88 a 129 ms la curva del relè resta sopra l'inviluppo di inserzione → ✓ ok",
@@ -65739,9 +65899,9 @@
 ]
 },
 "esportazioni": {
-"excel": "0188a825",
-"pdf": "f51dfcc6",
-"righe": 107
+"excel": "3a8652b7",
+"pdf": "3755f2ac",
+"righe": 108
 },
 "excel_ricalcolato": {},
 "note": [
@@ -65762,13 +65922,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "senza la I&gt; a tempo dipendente: I&gt;&gt; entro…#9ac2a6a9",
+"extra": "soglie ±4 % (limite 5 %) · tempi ±5 % ± 10 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "senza la I&gt; a tempo dipendente: I&gt;&gt; entro…#f2fcfbd2",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#f234505e"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#6bfc89be",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -65996,8 +66163,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite senza la I> a tempo dipendente: I>> entro 104 A, come il distributore ammette in alternativa → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±4 % (limite 5 %) · tempi ±5 % ± 10 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite senza la I> a tempo dipendente: I>> entro 104 A, come il distributore ammette in alternativaCon le tolleranze (errori ±5 % sulle soglie (relè e TA), ±5 % ± 10 ms sui tempi) il bordo più lento della fascia esce dal limite: a 104 A l'estinzione può arrivare a 532 ms, oltre i 500 ms del limite. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 238 A con ritardo del relè ≤ 400 ms · I>>> ≤ 571 A con ritardo del relè ≤ 38,1 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±9 % sulle soglie (relè e TO), ±5 % ± 10 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,18 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,83 A con ritardo del relè ≤ 352 ms · I0>> ≤ 51,4 A con ritardo del relè ≤ 85,7 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×1,76 a 408 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · I″k minima sul lato MT (1,20 kA): estinzione in 133 ms la protezione interviene anche con la corrente di guasto più bassa (bordo più lento della fascia di tolleranza) → ✓ ok"
 ]
@@ -66022,9 +66190,9 @@
 ]
 },
 "esportazioni": {
-"excel": "ceb5f844",
-"pdf": "86e40691",
-"righe": 107
+"excel": "a7f06a80",
+"pdf": "b2e60e8f",
+"righe": 108
 },
 "excel_ricalcolato": {},
 "note": [
@@ -66045,13 +66213,20 @@
 "cb": null,
 "checks": [
 {
+"extra": "soglie ±4 % (limite 5 %) · tempi ±5 % ± 10 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
 "extra": "la protezione generale deve restare sotto la curva…#c6c2ec34",
 "l": "PG — protezione generale · limiti del distributore…#c2d3d874",
 "ok": false,
 "tip": "Le regolazioni comunicate dal distributore sono il…#f234505e"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#6bfc89be",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -66279,8 +66454,9 @@
 "wth": null
 },
 "verifiche": [
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±4 % (limite 5 %) · tempi ±5 % ± 10 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
 "PG — protezione generale · limiti del distributore (fase): a 104 A estinzione assente > 500 ms la protezione generale deve restare sotto la curva con la I> a tempo dipendente oppure, senza la I>, avere la I>> entro 104 A → ✗ no",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±9 % sulle soglie (relè e TO), ±5 % ± 10 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,18 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,83 A con ritardo del relè ≤ 352 ms · I0>> ≤ 51,4 A con ritardo del relè ≤ 85,7 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,46 a 40,6 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · I″k minima sul lato MT (1,20 kA): estinzione in 133 ms la protezione interviene anche con la corrente di guasto più bassa (bordo più lento della fascia di tolleranza) → ✓ ok"
 ]
@@ -66305,9 +66481,9 @@
 ]
 },
 "esportazioni": {
-"excel": "c78a4d78",
-"pdf": "7d309a98",
-"righe": 108
+"excel": "2ce4ac72",
+"pdf": "1969d1d3",
+"righe": 109
 },
 "excel_ricalcolato": {},
 "note": [
@@ -66328,13 +66504,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "con la I&gt; a tempo dipendente: soglie e tempi entro i valori comunicati dal distributore",
+"extra": "soglie ±5 % (limite 5 %) · tempi ±3 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "con la I&gt; a tempo dipendente: soglie e tempi en…#1dc6df07",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#f234505e"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#e53a9b36",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -66557,8 +66740,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite con la I> a tempo dipendente: soglie e tempi entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±5 % (limite 5 %) · tempi ±3 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite con la I> a tempo dipendente: soglie e tempi entro i valori comunicati dal distributoreCon le tolleranze (errori ±6 % sulle soglie (relè e TA), ±3 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 64,9 A l'estinzione può arrivare a 23,4 s, oltre i 8,87 s del limite. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 236 A con ritardo del relè ≤ 398 ms · I>>> ≤ 566 A con ritardo del relè ≤ 29,1 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±10 % sulle soglie (relè e TO), ±3 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,20 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,82 A con ritardo del relè ≤ 350 ms · I0>> ≤ 50,9 A con ritardo del relè ≤ 77,7 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,30 a 29,2 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · I″k minima sul lato MT (1,20 kA): estinzione in 142 ms la protezione interviene anche con la corrente di guasto più bassa (bordo più lento della fascia di tolleranza) → ✓ ok"
 ]
@@ -66583,9 +66767,9 @@
 ]
 },
 "esportazioni": {
-"excel": "e160534f",
-"pdf": "e1ba2e0e",
-"righe": 108
+"excel": "6d0eb5db",
+"pdf": "eac3dd03",
+"righe": 109
 },
 "excel_ricalcolato": {},
 "note": [
@@ -66606,13 +66790,20 @@
 "cb": null,
 "checks": [
 {
+"extra": "soglie ±5 % (limite 5 %) · tempi ±3 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
 "extra": "il distributore comunica la I&gt; a tempo dipenden…#207d4d19",
 "l": "PG — protezione generale · limiti del distributore…#6b089cf1",
 "ok": false,
 "tip": "Le regolazioni comunicate dal distributore sono il…#f234505e"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#acf6089d",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -66835,8 +67026,9 @@
 "wth": null
 },
 "verifiche": [
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±5 % (limite 5 %) · tempi ±3 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
 "PG — protezione generale · limiti del distributore (fase): a 64,9 A estinzione 14,7 s > 8,87 s il distributore comunica la I> a tempo dipendente: la protezione generale deve restare sotto quella curva e sotto le soglie I>> e I>>> → ✗ no",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±10 % sulle soglie (relè e TO), ±3 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 57,8 A l'estinzione può arrivare a 193 ms, oltre i 170 ms del limite. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,82 A con ritardo del relè ≤ 350 ms · I0>> ≤ 50,9 A con ritardo del relè ≤ 77,7 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,30 a 29,2 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · I″k minima sul lato MT (1,20 kA): estinzione in 142 ms la protezione interviene anche con la corrente di guasto più bassa (bordo più lento della fascia di tolleranza) → ✓ ok"
 ]
@@ -66863,9 +67055,9 @@
 ]
 },
 "esportazioni": {
-"excel": "ecc45cda",
-"pdf": "eff52d59",
-"righe": 112
+"excel": "59e99188",
+"pdf": "5b4a8b41",
+"righe": 113
 },
 "excel_ricalcolato": {},
 "note": [
@@ -66888,13 +67080,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -67166,8 +67365,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Contributo capacitivo della rete MT dell'utente (3,20 A) rispetto all'80 % della soglia I0> del distributore (1,60 A): serve la direzionale di terra 67N la 67N è attiva sulla protezione generale → ✓ ok",
 "PG — protezione generale · 67N.S1 · guasto a terra esterno all'impianto (3,20 A a 270°): nessun intervento il vettore cade fuori dal settore 60°–250° → ✓ ok",
@@ -67197,9 +67397,9 @@
 ]
 },
 "esportazioni": {
-"excel": "492175dc",
-"pdf": "f6a97379",
-"righe": 132
+"excel": "721bf178",
+"pdf": "de6d9d4f",
+"righe": 133
 },
 "excel_ricalcolato": {},
 "note": [
@@ -67227,13 +67427,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -67698,8 +67905,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Linea · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "Selettività PG — protezione generale → Linea (fase): margine minimo -0,49 s a 585 A margine inferiore a 0,10 s: selettività cronometrica non garantita a quella corrente (valutare la selettività logica) · la soglia più bassa a monte non supera quella a valle → verifica",
@@ -67733,9 +67941,9 @@
 ]
 },
 "esportazioni": {
-"excel": "6b3d16d1",
-"pdf": "f954dc4a",
-"righe": 111
+"excel": "8a47369d",
+"pdf": "430cbb7e",
+"righe": 112
 },
 "excel_ricalcolato": {},
 "note": [
@@ -67758,13 +67966,20 @@
 "cb": null,
 "checks": [
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati)",
+"l": "PG — protezione generale · precisione del relè (CEI 0-16): <b>entro i limiti</b>",
+"ok": true,
+"tip": "La CEI 0-16 (C.2.4.1 per la fase, C.2.4.2 per la t…#6e1bb6c7",
+"warn": false
+},
+{
+"extra": "soglie e tempi di estinzione entro i valori comuni…#b8659a64",
 "l": "PG — protezione generale · limiti del distributore (fase): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
 },
 {
-"extra": "soglie e tempi di estinzione entro i valori comunicati dal distributore",
+"extra": "soglie e tempi di estinzione entro i valori comuni…#423e78d2",
 "l": "PG — protezione generale · limiti del distributore (terra): <b>curva sotto il limite</b>",
 "ok": true,
 "tip": "Le regolazioni comunicate dal distributore sono il…#68e9079b"
@@ -68054,8 +68269,9 @@
 "wth": null
 },
 "verifiche": [
-"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
-"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributore → ✓ ok",
+"PG — protezione generale · precisione del relè (CEI 0-16): entro i limiti soglie ±1,5 % (limite 5 %) · tempi ±1 % ± 20 ms (limite 3 % ± 20 ms, ai tempi impostati) → ✓ ok",
+"PG — protezione generale · limiti del distributore (fase): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±2,5 % sulle soglie (relè e TA), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 250 A la protezione può non intervenire, perché con l'errore la soglia può salire a 256 A, mentre il limite chiede l'estinzione entro 500 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I>> ≤ 244 A con ritardo del relè ≤ 406 ms · I>>> ≤ 585 A con ritardo del relè ≤ 29,7 ms (apertura 70 ms). → ✓ ok",
+"PG — protezione generale · limiti del distributore (terra): curva sotto il limite soglie e tempi di estinzione entro i valori comunicati dal distributoreCon le tolleranze (errori ±6,5 % sulle soglie (relè e TO), ±1 % ± 20 ms sui tempi) il bordo più lento della fascia esce dal limite: a 2,00 A la protezione può non intervenire, perché con l'errore la soglia può salire a 2,13 A, mentre il limite chiede l'estinzione entro 450 ms. La norma lo ammette: le tarature sono conformi se uguali o minori dei valori comunicati, e le prove del relè si valutano al netto delle tolleranze (CEI 0-16, C.2.4.1). Per restare sotto il limite anche nel caso peggiore: I0> ≤ 1,88 A con ritardo del relè ≤ 356 ms · I0>> ≤ 52,6 A con ritardo del relè ≤ 79,2 ms (apertura 70 ms). → ✓ ok",
 "PG — protezione generale · inserzione totale (cresta 267 A): margine minimo ×3,45 a 31,7 ms anche il bordo più rapido della fascia del relè resta sopra l'inviluppo di inserzione → ✓ ok",
 "PG — protezione generale · 67N.S1 · taratura richiesta dal distributore: I0 3,00 A > 2,00 A; U0 519,62 V primari (6 V al relè) > 5 V; estinzione 570 ms > 450 ms richiesta: I0 fino a 2,00 A, U0 fino a 5 V primari, settore 60°–250°, estinzione entro 450 ms → ✗ no",
 "PG — protezione generale · 67N.S2 · taratura richiesta dal distributore: U0 173,21 V primari (2 V al relè) > 2 V; settore 60°–130° diverso da 60°–120° richiesta: I0 fino a 2,00 A, U0 fino a 2 V primari, settore 60°–120°, estinzione entro 170 ms → ✗ no",
@@ -68308,6 +68524,6 @@
 }
 }
 },
-"programma": "0.2.19",
-"riferimento_scritto_il": "24/11/2026"
+"programma": "0.2.21",
+"riferimento_scritto_il": "26/11/2026"
 }
