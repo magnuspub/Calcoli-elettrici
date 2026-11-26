@@ -129,6 +129,9 @@ input:disabled{opacity:.45}
 .rowbtn:hover{border-color:var(--accent);color:var(--accent)}
 .cable-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) auto;gap:8px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
 .cable-row .del{grid-column:6;grid-row:1 / span 2;align-self:end}
+.cab-ext{grid-column:1/-1;border-top:1px dashed var(--grid);margin-top:2px}.cab-ext>summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--text-secondary);padding:5px 0 3px}.cab-ext>summary small{font-weight:400}
+.cabz{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:end;margin-top:4px}.cabz .zw2,.cabz .toggle{grid-column:span 2}.cab-ext [hidden]{display:none!important}.drawer .cabz{grid-template-columns:1fr 1fr}
+@media (max-width:760px){.cabz{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.cable-row{grid-template-columns:1fr 1fr}.cable-row .del{grid-column:1 / -1;grid-row:auto;justify-self:end}}
 .mot-row .motpos{grid-column:1/-1}
 .mot-row{display:grid;grid-template-columns:1fr .6fr .6fr .62fr .6fr .55fr .45fr .75fr auto;gap:7px;align-items:end;border:1px solid var(--grid);border-radius:9px;padding:10px 10px 6px;margin-bottom:10px;background:var(--surface-2)}
@@ -436,7 +439,7 @@ details.adv>.in{margin-top:10px}
   <div id="drDevW" hidden><div class="subh">Curve</div><div id="drChart"></div><div id="drLeg" class="mini" style="display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:2px"></div></div>
 </aside>
 <header class="top">
-  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.22</span></span></div>
+  <div class="toprow"><h1>Calcoli elettrici</h1><span class="topact"><span class="expbtns"><button type="button" id="foldAll" title="Apre o chiude tutti i moduli della pagina">Espandi tutti i moduli</button><button type="button" id="allOpen" title="Apre un file .json salvato con «Salva tutto» e ripristina i parametri di tutti i moduli">Apri tutto…</button><button type="button" id="allSave" title="Salva in un unico file .json i parametri di tutti i moduli">Salva tutto</button></span><span class="ver" title="Versione del programma">v 0.2.23</span></span></div>
   <input type="file" id="allFile" accept=".json,application/json" style="display:none">
   <p class="mini" id="allMsg" style="margin:2px 0 4px;text-align:right" hidden></p>
   <p class="sub">Correnti di guasto trifase, bifase e fase-terra secondo <b>IEC&nbsp;EN&nbsp;60909</b> (con contributo dei motori), verifica dei quadri <b>IEC&nbsp;EN&nbsp;61439</b>, curve di fusibili e interruttori, protezioni MT e sicurezza del guasto a terra MT (<b>CEI&nbsp;0-16</b> · <b>CEI&nbsp;EN&nbsp;50522</b>), rischio da fulmine (<b>CEI&nbsp;EN&nbsp;IEC&nbsp;62305-2</b>) · BT e MT · calcolo in locale, nessun dato inviato</p>
@@ -871,7 +874,8 @@ details.adv>.in{margin-top:10px}
     <div class="kpi"><div class="k">Intervento a I″<sub>k</sub> min</div><div class="v" style="font-size:19px"><span id="cb_tImin">—</span></div></div>
     <div class="kpi accent"><div class="k">Picco lasciato passare<span class="tip" tabindex="0" data-tip="Corrente di picco lasciata passare alla I″k massima, dalla curva di limitazione dell'interruttore alla tensione di esercizio. Sotto l'inizio della curva l'interruttore non limita e vale il picco presunto.">i</span></div><div class="v" style="font-size:19px"><span id="cb_cut">—</span></div></div>
     <div class="kpi accent"><div class="k">I²t passante a I″<sub>k</sub><span class="tip r" tabindex="0" data-tip="Energia specifica lasciata passare alla I″k massima. Nella zona di intervento magnetico vale la curva I²t di catalogo alla tensione di esercizio; nella zona termica, o dove la curva manca, vale I²·t con il tempo massimo di intervento.">i</span></div><div class="v" style="font-size:19px"><span id="cb_i2t">—</span></div></div>
-    <div class="kpi"><div class="k">Sezione minima protetta<span class="tip r" tabindex="0" data-tip="Sezione minima del conduttore che sopporta l'energia lasciata passare dall'interruttore in cortocircuito: S min = √(I²t)/K (CEI 64-8, 434.3.2), con il valore più alto di I²t tra I″k minima e I″k massima del punto. La formula vale per interruzioni entro 5 s: le correnti a cui il dispositivo interviene più tardi sono un sovraccarico e non entrano nel calcolo. È solo la verifica al cortocircuito: per il sovraccarico la portata del cavo I<sub>z</sub> deve essere almeno la corrente nominale o regolata del dispositivo, e di solito è questa a decidere la sezione. K è quello del cavo protetto, cioè il tratto che parte dalla posizione del dispositivo; se a valle non c'è un cavo, il valore è dato per il rame, con isolante in PVC (K 115) e in EPR/XLPE (K 143).">i</span></div><div class="v" style="font-size:15px"><span id="cb_Smin">—</span></div></div>
+    <div class="kpi"><div class="k">Sezione minima protetta<span class="tip r" tabindex="0" data-tip="Sezione minima del conduttore che sopporta l'energia lasciata passare dall'interruttore in cortocircuito: S min = √(I²t)/K (CEI 64-8, 434.3.2), con il valore più alto di I²t tra I″k minima e I″k massima del punto. La formula vale per interruzioni entro 5 s: le correnti a cui il dispositivo interviene più tardi sono un sovraccarico e non entrano nel calcolo. È solo la verifica al cortocircuito: per il sovraccarico la portata del cavo Iz deve essere almeno la corrente nominale o regolata del dispositivo, e di solito è questa a decidere la sezione. K è quello del cavo protetto, cioè il tratto che parte dalla posizione del dispositivo; se a valle non c'è un cavo, il valore è dato per il rame, con isolante in PVC (K 115) e in EPR/XLPE (K 143).">i</span></div><div class="v" style="font-size:15px"><span id="cb_Smin">—</span></div></div>
+      <div class="kpi"><div class="k">Linea protetta<span class="tip r" tabindex="0" data-tip="Portata Iz della linea che parte dalla posizione del dispositivo (CEI-UNEL 35024/1 o 35026), caduta di tensione totale dall'origine e sezione consigliata. I dati si scrivono nella riga della linea, scheda Linee del modulo Impianto («Portata e caduta di tensione»); le verifiche sono nell'elenco sotto.">i</span></div><div class="v" style="font-size:14px"><span id="cb_zres">—</span></div></div>
   </template>
   <div id="cb_res"></div>
   <div id="cb_checks" style="margin-top:10px"></div>
@@ -883,7 +887,8 @@ details.adv>.in{margin-top:10px}
     <div class="kpi"><div class="k">Intervento a I″<sub>k</sub> min</div><div class="v" style="font-size:19px"><span id="fu_tImin">—</span></div></div>
     <div class="kpi accent"><div class="k">Picco lasciato passare<span class="tip" tabindex="0" data-tip="Corrente di picco limitata (cut-off) alla I″k massima, dalla curva di limitazione del fusibile. È il valore da confrontare con Ipk del quadro e con la soglia di 17 kA dell'esenzione IEC 61439-1 §10.11.2.">i</span></div><div class="v" style="font-size:19px"><span id="fu_cut">—</span></div></div>
     <div class="kpi accent"><div class="k">I²t passante a I″<sub>k</sub><span class="tip r" tabindex="0" data-tip="Energia specifica lasciata passare alla I″k massima. Per tempi di intervento ≥ 10 ms vale I²·t dalla curva tempo-corrente; nella zona di limitazione (< 10 ms) si usa la curva I²t di catalogo. Si assume il maggiore dei due.">i</span></div><div class="v" style="font-size:19px"><span id="fu_i2t">—</span></div></div>
-    <div class="kpi"><div class="k">Sezione minima protetta<span class="tip r" tabindex="0" data-tip="Sezione minima del conduttore che sopporta l'energia lasciata passare dal fusibile in cortocircuito: S min = √(I²t)/K (CEI 64-8, 434.3.2), con il valore più alto di I²t tra I″k minima e I″k massima del punto. La formula vale per interruzioni entro 5 s: le correnti a cui il dispositivo interviene più tardi sono un sovraccarico e non entrano nel calcolo. È solo la verifica al cortocircuito: per il sovraccarico la portata del cavo I<sub>z</sub> deve essere almeno la corrente nominale o regolata del dispositivo, e di solito è questa a decidere la sezione. K è quello del cavo protetto, cioè il tratto che parte dalla posizione del dispositivo; se a valle non c'è un cavo, il valore è dato per il rame, con isolante in PVC (K 115) e in EPR/XLPE (K 143).">i</span></div><div class="v" style="font-size:15px"><span id="fu_Smin">—</span></div></div>
+    <div class="kpi"><div class="k">Sezione minima protetta<span class="tip r" tabindex="0" data-tip="Sezione minima del conduttore che sopporta l'energia lasciata passare dal fusibile in cortocircuito: S min = √(I²t)/K (CEI 64-8, 434.3.2), con il valore più alto di I²t tra I″k minima e I″k massima del punto. La formula vale per interruzioni entro 5 s: le correnti a cui il dispositivo interviene più tardi sono un sovraccarico e non entrano nel calcolo. È solo la verifica al cortocircuito: per il sovraccarico la portata del cavo Iz deve essere almeno la corrente nominale o regolata del dispositivo, e di solito è questa a decidere la sezione. K è quello del cavo protetto, cioè il tratto che parte dalla posizione del dispositivo; se a valle non c'è un cavo, il valore è dato per il rame, con isolante in PVC (K 115) e in EPR/XLPE (K 143).">i</span></div><div class="v" style="font-size:15px"><span id="fu_Smin">—</span></div></div>
+      <div class="kpi"><div class="k">Linea protetta<span class="tip r" tabindex="0" data-tip="Portata Iz della linea che parte dalla posizione del dispositivo (CEI-UNEL 35024/1 o 35026), caduta di tensione totale dall'origine e sezione consigliata. I dati si scrivono nella riga della linea, scheda Linee del modulo Impianto («Portata e caduta di tensione»); le verifiche sono nell'elenco sotto.">i</span></div><div class="v" style="font-size:14px"><span id="fu_zres">—</span></div></div>
   </template>
   <div id="fu_res"></div>
   <div id="fu_checks" style="margin-top:10px"></div>
@@ -1230,7 +1235,7 @@ details.adv>.in{margin-top:10px}
   <p><b>Metodo.</b> Tensione equivalente al punto di guasto (IEC&nbsp;60909-0): I″<sub>k</sub> = c·U<sub>n</sub>/(√3·Z<sub>k</sub>), con U<sub>n</sub> tensione nominale della rete (non la tensione di targa del secondario, che serve per le impedenze) e Z<sub>k</sub> somma vettoriale delle impedenze di rete, trasformatori e cavi riferite alla tensione di guasto. Impedenza di rete Z<sub>Q</sub> = c<sub>Q</sub>·U<sub>nQ</sub>²/S″<sub>kQ</sub> (c<sub>Q</sub>=1,10 a monte del trasformatore) riportata al punto di guasto tramite il rapporto reale di targa t<sub>r</sub>=U<sub>prim</sub>/U<sub>second</sub> (Z<sub>Nt</sub>=Z<sub>N</sub>/t<sub>r</sub>², Formula 25 della 60909-0), come il cavo lato rete e il cavo a monte di ogni trasformatore; trasformatore con correzione K<sub>T</sub> = 0,95·c<sub>max</sub>/(1+0,6·x<sub>T</sub>). Con più trasformatori ogni ramo (cavo a monte + trasformatore + cavo a valle) è combinato in parallelo e il picco è calcolato col metodo B o C delle reti magliate. I motori asincroni, collegati ciascuno nel punto scelto (di solito la fine dell'ultima linea), aggiungono il proprio contributo, sommato su tutti i motori inseriti e, nei punti a monte, ridotto dalle impedenze interposte e riportato alla tensione del punto (I″<sub>kM</sub>, i<sub>pM</sub>, I<sub>bM</sub> con i fattori μ·q). Oltre al guasto trifase sono calcolati il bifase, il fase-terra in BT (dal gruppo vettoriale e dall'impedenza omopolare) e, con la connessione CEI&nbsp;0-21 monofase, il guasto fase-neutro sull'impedenza d'anello. Formule e coefficienti del calcolo (κ, i<sub>p</sub>, I<sub>th</sub>=I″<sub>k</sub>√(m+n), fattori μ·q dei motori) verificati sulla CEI&nbsp;IEC&nbsp;TR&nbsp;60909-1 e sugli esempi della CEI&nbsp;IEC&nbsp;TR&nbsp;60909-4; la verifica del quadro (I<sub>cw</sub>+I<sub>pk</sub> oppure I<sub>cc</sub>, relazione I²t, fattore n, esenzioni) segue IEC&nbsp;61439-1:2020 §5.3, §9.3, §10.11 e Tab.&nbsp;7.</p>
   <p><b>Grafici.</b> Occupano la larghezza della pagina. Un doppio clic su un grafico lo apre in un'altra finestra, che resta aggiornata a ogni modifica dei dati: si può tenere su un secondo schermo. La finestra si chiude con la pagina.</p>
   <p><b>Avvertenza.</b> Strumento di supporto al predimensionamento. Non sostituisce il calcolo di progetto né le verifiche di targa del costruttore del quadro. Verificare sempre i dati con le norme vigenti: IEC&nbsp;EN&nbsp;60909-0 (correnti di cc), IEC&nbsp;EN&nbsp;61439-1/-2 (quadri BT), IEC&nbsp;60947-1/-2 (dispositivi), CEI&nbsp;0-21 §5.1.3 (valori convenzionali di cc per le forniture BT).</p>
-  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.22 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
+  <p class="credit"><b>Calcoli elettrici</b> · versione 0.2.23 · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026</p>
   <p class="credit updrow"><button type="button" id="updNow">cerca aggiornamenti</button><button type="button" id="edGet" title="Scarica dal repository «Gestione curve», il programma per modificare curve e tabelle di questo file">scarica Gestione curve</button> <span id="updMsg"></span></p>
 <div id="updBar" class="updbar" hidden>
   <div><b>È disponibile la versione <span id="updVer"></span></b> <span id="updDate" class="mini"></span><div id="updNews" class="mini"></div>
@@ -1271,7 +1276,7 @@ details.adv>.in{margin-top:10px}
 
 /* ======================== 1 · STRUMENTI COMUNI ========================
    Versione, scorciatoie e formattazione usate da tutti i moduli. */
-const APP_NAME="Calcoli elettrici", APP_VER="0.2.22";
+const APP_NAME="Calcoli elettrici", APP_VER="0.2.23";
 const $=id=>document.getElementById(id);
 const num=id=>{const e=$(id);const v=parseFloat((e.value+"").replace(",","."));return isFinite(v)?v:0;};
 const SQ3=Math.sqrt(3), SQ2=Math.sqrt(2);
@@ -1470,7 +1475,7 @@ function cableRow(def={}){
     <label class="f">θ<sub>e</sub> (°C)<span class="tip r" tabindex="0" data-tip="Temperatura del conduttore a fine guasto, usata solo per le correnti minime: R = [1 + α·(θe − 20)]·R20 (IEC 60909-0, 7.1.3). Valori usuali: 250 °C per EPR e XLPE, 160 °C per il PVC. Le correnti massime sono calcolate a 20 °C, come prescrive la norma.">i</span><input type="number" data-k="te" value="${def.te!=null?def.te:250}" step="any"></label>
     <label class="f">N/PE <span style="white-space:nowrap">(mm²)<span class="tip r" tabindex="0" data-tip="Sezione del conduttore di ritorno del guasto a terra (neutro o PE) di questo tratto, con materiale, lunghezza, numero di conduttori e temperatura delle fasi. Serve solo al guasto fase-terra: R0 = R + 3·R del ritorno; la reattanza omopolare viene dal campo X0/X. Vuoto o 0: da questo tratto in giù il guasto fase-terra non è calcolato.">i</span></span><input type="number" data-k="Sn" value="${def.Sn!=null?def.Sn:""}" step="any"></label>
     <label class="f">X<sub>0</sub>/X<span class="tip r" tabindex="0" data-tip="Rapporto tra la reattanza omopolare e la reattanza diretta del cavo, usato solo nel guasto fase-terra: X0 = (X0/X)·X. Vale 4 per i cavi con il ritorno nel conduttore N/PE (IEC TR 60909-2). Per le linee aeree e per i cavi di cui si conosce Z0 si indica il valore del costruttore: nell'esempio di IEC TR 60909-4 la linea aerea ha 3. Vuoto o 0: 4.">i</span><input type="number" data-k="kx0" value="${def.kx0!=null?def.kx0:4}" step="0.1"></label>
-    <button class="del" title="elimina">✕</button>`;
+    <button class="del" title="elimina">✕</button>${cabExtHTML(def)}`;
   div.querySelector(".del").onclick=()=>{div.remove();recompute();};
   div.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",recompute));
   const tipoSel=div.querySelector('[data-k=tipo]'), xIn=div.querySelector('[data-k=x]');
@@ -1482,7 +1487,7 @@ function cableRow(def={}){
 // isMin: correnti minime, con ogni tratto alla sua temperatura a fine guasto; altrimenti 20 °C (IEC 60909-0, 7.1.2 e 7.1.3)
 function readCables(isMin,nMax){   // nMax: solo i primi nMax tratti validi (punto intermedio della catena)
   let R=0,X=0,R0=0,X0=0,miss=null; const rows=[];   // R0, X0: sequenza zero; miss: primo tratto senza la sezione N/PE (da lì il fase-terra non si calcola)
-  document.querySelectorAll("#cableList .cable-row").forEach(d=>{
+  document.querySelectorAll("#cableList .cable-row").forEach((d,ri)=>{   // ri: posizione della riga nell'elenco, per ritrovarne i dati di portata
     if(nMax!=null&&rows.length>=nMax) return;
     const g=k=>d.querySelector(`[data-k=${k}]`);
     const mat=g("mat").value, S=parseFloat(g("S").value)||0, L=parseFloat(g("L").value)||0;
@@ -1495,7 +1500,7 @@ function readCables(isMin,nMax){   // nMax: solo i primi nMax tratti validi (pun
     // sequenza zero del tratto, per il guasto fase-terra: R0 = R + 3·R del conduttore di ritorno (N/PE), X0 = (X0/X)·X
     const sn=parseFloat(g("Sn").value)||0, rn=sn>0?rho*L/(n*sn):0, kx=cabKx0(g("kx0"));
     if(sn>0){ R0+=r+3*rn; X0+=kx*x; } else if(miss==null) miss=g("desc").value;
-    R+=r; X+=x; rows.push({desc:g("desc").value,mat,S,n,te:g("te").value,R:r,X:x,L:L,R0:sn>0?r+3*rn:null,X0:sn>0?kx*x:null});
+    R+=r; X+=x; rows.push({desc:g("desc").value,mat,S,n,te:g("te").value,R:r,X:x,L:L,xpm,ri,R0:sn>0?r+3*rn:null,X0:sn>0?kx*x:null});
   });
   return {R,X,rows,R0,X0,okN:miss==null,miss};
 }
@@ -2322,11 +2327,14 @@ function ccLvCabs(only){ const P=CC_ST&&CC_ST.pts, rows=[...document.querySelect
       txt:`${many?"Trasformatore "+(mx[j].row+1)+" · cavo":"Cavo"} al secondario ${n>1?n+" × ":""}${fusNum(S)} mm² ${al?"alluminio":"rame"} ${iso}`}; }).filter(Boolean); }
 function ccDown(k){ const P=CC_ST&&CC_ST.pts, no={cab:null,side:"",lv:[],rev:null}; if(!P||!P.length||k===-1) return no;   // -1: dispositivo non collegato all'impianto
   const p=ccP(k), nx=p.kind==="br"?null:P[p.i+1], trOn=$("onTr").checked&&P.some(x=>x.kind==="bus");
-  const mk=(desc,mat,S,n,te)=>{ if(!(S>0)) return null; const al=/^al/i.test(mat), hot=ccTe(te)>=200; return {desc,S,n:Math.max(1,n||1),K:al?(hot?94:76):(hot?143:115),iso:hot?"EPR/XLPE":"PVC",mat}; };
+  const mk=(desc,mat,S,n,te,L,x,mt)=>{ if(!(S>0)) return null; const al=/^al/i.test(mat), hot=ccTe(te)>=200; return {desc,S,n:Math.max(1,n||1),K:al?(hot?94:76):(hot?143:115),iso:hot?"EPR/XLPE":"PVC",mat,L:L||0,x:x||0,mt:!!mt}; };
   let cab=null;
-  if(nx&&nx.kind==="sc") cab=mk("cavo dalla sorgente",$("sc_mat").value,num("sc_S"),num("sc_n"),$("sc_te").value);
-  else if(nx&&nx.kind==="hv"){ const d=document.querySelector("#trList .tr-branch"), g=x=>d&&d.querySelector(`[data-k=${x}]`); if(g("hvS")) cab=mk("cavo a monte del trasformatore",g("hvmat").value,parseFloat(g("hvS").value)||0,parseFloat(g("hvn").value)||1,g("hvte").value); }
-  else if(nx&&nx.kind==="cab"){ const rows=$("onCab").checked?readCables(false).rows:[], r=rows[nx.nCab===Infinity?rows.length-1:nx.nCab-1]; if(r) cab=mk(r.desc||"tratto",r.mat,r.S,r.n,r.te); }
+  if(nx&&nx.kind==="sc") cab=mk("cavo dalla sorgente",$("sc_mat").value,num("sc_S"),num("sc_n"),$("sc_te").value,num("sc_L"),num("sc_x"),trOn);
+  else if(nx&&nx.kind==="hv"){ const d=document.querySelector("#trList .tr-branch"), g=x=>d&&d.querySelector(`[data-k=${x}]`); if(g("hvS")) cab=mk("cavo a monte del trasformatore",g("hvmat").value,parseFloat(g("hvS").value)||0,parseFloat(g("hvn").value)||1,g("hvte").value,0,0,true); }
+  else if(nx&&nx.kind==="cab"){ const rows=$("onCab").checked?readCables(false).rows:[], r=rows[nx.nCab===Infinity?rows.length-1:nx.nCab-1]; if(r){ cab=mk(r.desc||"tratto",r.mat,r.S,r.n,r.te,r.L,r.xpm); if(cab) cab.ri=r.ri; } }
+  // per il cavo protetto: corrente di guasto più bassa alla fine del cavo e tratti BT a monte (per la caduta di tensione totale)
+  if(cab&&nx){ const v=ccPtVals(p.i+1); cab.start=p.i; cab.end=p.i+1; if(v){ cab.endMin=(v.min||0)*1000; cab.endTxt=v.Ik1Min?"fase-terra":"bifase"; }
+    cab.up=[]; for(let j=1;j<=p.i;j++){ const q=P[j]; if(q.kind==="cab"||(q.kind==="sc"&&!trOn)) cab.up.push(j); } }
   const rw=p.kind==="br"?document.querySelectorAll("#trList .tr-branch")[p.br]:null, rg=x=>rw&&rw.querySelector(`[data-k=${x}]`);
   const lvc=()=>rw&&rg("hascab").checked&&parseFloat(rg("cL").value)>0?mk("cavo al secondario del trasformatore "+(p.br+1),rg("cmat").value,parseFloat(rg("cS").value)||0,parseFloat(rg("cn").value)||1,rg("cte").value):null;
   if(p.kind==="br"){   // punto di un ramo in parallelo
@@ -3019,6 +3027,7 @@ function computeFus(){
   } else if(Ik>0) checks.push({l:`Picco lasciato passare`, dis:true, disTxt:"curva assente", extra:`curva di limitazione non disponibile per ${a.f.type}`});
   // tenuta termica del cavo: K²S² ≥ I²t alla corrente massima e alla minima
   const cab=dn.cab, K=cab?cab.K:115, S=cab?cab.S*cab.n:0, K2S2=K*K*S*S, cavo=cab?`Cavo «${escH(cab.desc)}» ${cab.n>1?cab.n+" × ":""}${fusNum(cab.S)} mm² ${cab.mat==="Al"?"alluminio":"rame"} ${cab.iso}`:""; a.cab=cab; if(di===0) st.K2S2=K2S2;
+  { const o=cabCheck("fu",a,dn,checks), e=$("fu_zres"+a.s); if(e) e.innerHTML=o.txt; }   // portata, guasto a fondo linea, caduta di tensione e sezione consigliata del cavo protetto
   const eMax=Math.max(a.e?a.e.v:0, a.em?a.em.v:0);
   if(S>0){
     [[Ik,a.e,a.tk,"I″<sub>k</sub>"],[Imin,a.em,a.tm,"I″<sub>k</sub> min"]].forEach(([I,e,tr,nm])=>{
@@ -3490,6 +3499,7 @@ function computeCb(){
   } else if(Ik>0) checks.push({l:`Picco lasciato passare`, dis:true, disTxt:a.b.d?"dato mancante":"curva assente", extra:a.b.d?`sotto l'inizio della curva di limitazione (${fmtA(a.b.d.c[0])}) l'interruttore non limita: inserire il picco presunto`:`curva di limitazione non disponibile per ${a.b.type}`});
   // tenuta termica del cavo: K²S² ≥ I²t alla corrente massima e alla minima
   const cab=dn.cab, K=cab?cab.K:115, S=cab?cab.S*cab.n:0, K2S2=K*K*S*S, cavo=cab?`Cavo «${escH(cab.desc)}» ${cab.n>1?cab.n+" × ":""}${fusNum(cab.S)} mm² ${cab.mat==="Al"?"alluminio":"rame"} ${cab.iso}`:""; a.cab=cab; if(di===0) st.K2S2=K2S2;
+  { const o=cabCheck("cb",a,dn,checks), e=$("cb_zres"+a.s); if(e) e.innerHTML=o.txt; }   // portata, guasto a fondo linea, caduta di tensione e sezione consigliata del cavo protetto
   const eMax=Math.max(a.e?a.e.v:0, a.em?a.em.v:0);
   const eEst=(a.e&&a.e.src==='i'&&a.e.v>=eMax)||(a.em&&a.em.src==='i'&&a.em.v>=eMax);   // valore stimato per eccesso, senza curva I²t di catalogo
   if(S>0){
@@ -3763,7 +3773,8 @@ function cooLegendItems(pal,txt){
   if(q.onC&&CB_ST.ovl){ const o=CB_ST.ovl; it.push(sw(pal.wth,TR_DASH)+`${escH(o.desc||"trasformatore")}: I<sub>n</sub> ${fmtA(o.In)} al ${o.lato}, tenuta ${fmtA(o.Ikt)} per 2 s`+(o.c?" e sovraccarico ammesso (ANSI C57.92)":"")); }
   return it;
 }
-function computeCoo(){
+function computeCoo(){ cabLinesUi();   // portata e caduta di tensione nelle righe delle Linee, con il dispositivo che le protegge (qui: dopo ogni ricalcolo di fusibili e interruttori)
+ 
   if(!$("co_chart")) return;
   const wF=$("co_onFus").checked, wC=$("co_onCb").checked, F=wF&&FUS_ST?FUS_ST.res:[], C=wC&&CB_ST?CB_ST.res:[];
   $("modFUS").hidden=!(FUS_ST&&FUS_ST.res.length); $("modCB").hidden=!(CB_ST&&CB_ST.res.length);   // le levette nascondono solo le curve: risultati e verifiche restano
@@ -3880,6 +3891,202 @@ function devDel(p,s){ const i=DEV[p].indexOf(s); if(i<0) return; DEV[p].splice(i
 // porta l'elenco a quello indicato (apertura di un file), senza ricalcolare
 function devSet(p,list){ DEV[p].slice().forEach(s=>{ if(list.indexOf(s)<0){ DEV[p].splice(DEV[p].indexOf(s),1); [$(p+"_row"+s),$(p+"_box"+s)].forEach(d=>{ if(d) d.remove(); }); } }); list.forEach(s=>devAdd(p,s,true)); }
 // riquadri dei risultati di una famiglia, uno per dispositivo, dal modello nella pagina
+/* ---- portata dei cavi BT e dimensionamento del cavo protetto (CEI 64-8, 433 e 434; CEI-UNEL 35024/1:2020 e 35026:2000) ----
+   I dati per la portata sono un'estensione di ogni riga della scheda «Linee» (corrente d'impiego, cos φ, posa, temperatura, raggruppamento,
+   caduta di tensione ammessa): lì si vedono portata e caduta di tensione (questa con R e X della CEI-UNEL 35023). Le verifiche di protezione sono nel Coordinamento, sul dispositivo
+   posizionato all'inizio della linea. Fuori dalle tabelle i fattori usano il valore estremo più vicino e lo dicono; la portata si può scrivere a mano.
+   Portate I0 in A per 2 e 3 conduttori caricati, PVC (P) ed EPR/XLPE (E), alle sezioni di CAB_SEZ (0 = valore non dato dalla tabella). */
+const CAB_SEZ=[1,1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400,500,630];
+const CAB_POSE=[
+ {id:"U1",g:"a",uni:1,t:"Unipolari in tubo incassato in parete isolante",rif:"35024/1 tab. 1 · rif. 1-51-71-73-74",P2:[0,14.5,19.5,26,34,46,61,80,99,119,151,182,210,240,273,320,0,0,0,0],P3:[0,13.5,18,24,31,42,56,73,89,108,136,164,188,216,245,286,0,0,0,0],E2:[0,19,26,36,45,61,81,106,131,158,200,241,278,318,362,424,0,0,0,0],E3:[0,17,23,31,40,54,73,95,117,141,179,216,249,285,324,380,0,0,0,0]},
+ {id:"U2",g:"a",uni:1,t:"Unipolari in tubo o canale in aria o su parete",rif:"35024/1 tab. 1 · rif. 3-4-5-22-23-24-31-32-33-34-41-42-72",P2:[13.5,17.5,24,32,41,57,76,101,125,151,192,232,269,309,353,415,0,0,0,0],P3:[12,15.5,21,28,36,50,68,89,110,134,171,207,239,275,314,369,0,0,0,0],E2:[17,23,31,42,54,75,100,133,164,198,253,306,354,402,472,555,0,0,0,0],E3:[15,20,28,37,48,66,88,117,144,175,222,269,312,355,417,490,0,0,0,0]},
+ {id:"U3",g:"a",uni:1,t:"Unipolari in aria libera, non a portata di mano",rif:"35024/1 tab. 1 · rif. 18",P2:[0,19.5,26,35,46,63,85,112,138,168,213,258,299,344,392,461,0,0,0,0],P3:[0,15.5,21,28,36,57,76,101,125,151,192,232,269,309,353,415,0,0,0,0],E2:[0,24,33,45,58,80,107,142,175,212,270,327,0,0,0,0,0,0,0,0],E3:[0,20,28,37,48,71,96,127,157,190,242,293,0,0,0,0,0,0,0,0]},
+ {id:"U4",g:"a",uni:1,t:"Unipolari in aria libera a trifoglio",rif:"35024/1 tab. 1 · rif. 11-12-21-25-43-52-53",P3:[0,19.5,26,35,46,63,85,110,137,167,216,264,308,356,409,485,561,656,749,855],E3:[0,24,33,45,58,80,107,135,169,207,268,328,383,444,510,607,703,823,946,1088]},
+ {id:"U5",g:"a",uni:1,t:"Unipolari in aria libera in piano a contatto",rif:"35024/1 tab. 1 · rif. 13-14-15-16-17",P2:[0,22,30,40,52,71,96,131,162,196,251,304,352,406,463,546,629,754,868,1005],P3:[0,19.5,26,35,46,63,85,114,143,174,225,275,321,372,427,507,587,689,789,905],E2:[0,27,37,50,64,88,119,161,200,242,310,377,437,504,575,679,783,940,1083,1254],E3:[0,24,33,45,58,80,107,141,176,216,279,342,400,464,533,634,736,868,998,1151]},
+ {id:"U6",g:"a",uni:1,t:"Unipolari in aria libera distanziati in piano orizzontale",rif:"35024/1 tab. 1 · rif. 14-15-16",P2:[0,0,0,0,0,0,0,146,181,219,281,341,396,456,521,615,709,852,982,1138],P3:[0,0,0,0,0,0,0,146,181,219,281,341,396,456,521,615,709,852,982,1138],E2:[0,0,0,0,0,0,0,182,226,275,353,430,500,577,661,781,902,1085,1253,1454],E3:[0,0,0,0,0,0,0,182,226,275,353,430,500,577,661,781,902,1085,1253,1454]},
+ {id:"U7",g:"a",uni:1,t:"Unipolari in aria libera distanziati in piano verticale",rif:"35024/1 tab. 1 · rif. 13-14-15-16",P2:[0,0,0,0,0,0,0,130,162,197,254,311,362,419,480,569,659,795,920,1070],P3:[0,0,0,0,0,0,0,130,162,197,254,311,362,419,480,569,659,795,920,1070],E2:[0,0,0,0,0,0,0,161,201,246,318,389,454,527,605,719,833,1008,1169,1362],E3:[0,0,0,0,0,0,0,161,201,246,318,389,454,527,605,719,833,1008,1169,1362]},
+ {id:"M1",g:"a",uni:0,t:"Multipolare in tubo incassato in parete isolante",rif:"35024/1 tab. 2 · rif. 2-51-73-74",P2:[0,14,18.5,25,32,43,57,75,92,110,139,167,192,219,248,291,334,0,0,0],P3:[0,13,17.5,23,29,39,52,68,83,99,125,150,172,196,223,261,298,0,0,0],E2:[0,18.5,25,33,42,57,76,99,121,145,183,220,253,290,329,386,442,0,0,0],E3:[0,16.5,22,30,38,51,68,89,109,130,164,197,227,259,295,346,396,0,0,0]},
+ {id:"M2",g:"a",uni:0,t:"Multipolare in tubo o canale in aria",rif:"35024/1 tab. 2 · rif. 3A-4A-21-22A-5A-24A-25-33A-31-34A-43-32",P2:[13.5,16.5,23,30,38,52,69,90,111,133,168,201,232,258,294,344,394,0,0,0],P3:[12,15,20,27,34,46,62,80,99,118,149,179,206,225,255,297,339,0,0,0],E2:[17,22,30,40,51,69,91,119,146,175,221,265,305,334,384,459,532,0,0,0],E3:[15,19.5,26,35,44,60,80,105,128,154,194,233,268,300,340,398,455,0,0,0]},
+ {id:"M3",g:"a",uni:0,t:"Multipolare in aria libera, distanziato dalla parete o su passerella",rif:"35024/1 tab. 2 · rif. 13-14-15-16-17",P2:[15,22,30,40,51,70,94,119,148,180,232,282,328,379,434,514,593,0,0,0],P3:[13.6,18.5,25,34,43,60,80,101,126,153,196,238,276,319,364,430,497,0,0,0],E2:[19,26,36,49,63,86,115,149,185,225,289,352,410,473,542,641,741,0,0,0],E3:[17,23,32,42,54,75,100,127,158,192,246,298,346,399,456,538,621,0,0,0]},
+ {id:"M4",g:"a",uni:0,t:"Multipolare in aria libera, fissato alla parete o al soffitto",rif:"35024/1 tab. 2 · rif. 11-11A-12-52-53",P2:[15,19.5,27,36,46,63,85,112,138,168,213,258,299,344,392,461,530,0,0,0],P3:[13.5,17.5,24,32,41,57,76,96,119,144,184,223,259,299,341,403,464,0,0,0],E2:[19,24,33,45,58,80,107,138,171,209,269,328,382,441,506,599,693,0,0,0],E3:[17,22,30,40,52,71,96,119,147,179,229,278,322,371,424,500,576,0,0,0]},
+ {id:"I1",g:"t",uni:1,t:"Unipolari in tubi interrati, un cavo per tubo",rif:"35026 tab. I",P2:[0,22,29,38,47,63,82,105,127,157,191,225,259,294,330,386,0,0,0,0],P3:[0,20,26,34,43,57,74,95,115,141,171,201,231,262,293,342,0,0,0,0],E2:[0,26,34,44,54,73,95,122,148,182,222,261,301,343,385,450,509,592,666,759],E3:[0,23,31,40,49,67,85,110,133,163,198,233,268,304,340,397,448,519,583,663]},
+ {id:"I2",g:"t",uni:1,t:"Unipolari in un solo tubo interrato",rif:"35026 tab. I · rif. 61",P2:[0,21,27,36,45,61,78,101,123,153,187,222,256,292,328,385,0,0,0,0],P3:[0,18,23,30,38,51,66,86,104,129,158,187,216,246,277,325,0,0,0,0],E2:[0,24,32,41,52,70,91,118,144,178,218,258,298,340,383,450,510,595,671,767],E3:[0,21,27,35,44,59,77,100,121,150,184,217,251,287,323,379,429,500,565,645]},
+ {id:"I3",g:"t",uni:0,t:"Multipolare in tubo interrato",rif:"35026 tab. I · rif. 61",P2:[0,19,25,33,41,56,73,94,115,143,175,208,240,273,307,360,0,0,0,0],P3:[0,16,21,28,35,47,61,79,97,120,148,175,202,231,259,304,0,0,0,0],E2:[0,23,30,39,49,66,86,111,136,168,207,245,284,324,364,428,0,0,0,0],E3:[0,19,25,32,41,55,72,93,114,141,174,206,238,272,306,360,0,0,0,0]}];
+// k1: temperatura dell'aria (35024/1 tab. 3, riferimento 30 °C) e del terreno (35026 tab. II, riferimento 20 °C); 0 = oltre il limite dell'isolante
+const CAB_K1={T:[10,15,20,25,30,35,40,45,50,55,60,65,70,75,80],aP:[1.22,1.17,1.12,1.06,1,0.94,0.87,0.79,0.71,0.61,0.5,0,0,0,0],aE:[1.15,1.12,1.08,1.04,1,0.96,0.91,0.87,0.82,0.76,0.71,0.65,0.58,0.5,0.41],tP:[1.1,1.05,1,0.95,0.89,0.84,0.77,0.71,0.63,0.55,0.45,0,0,0,0],tE:[1.07,1.04,1,0.96,0.93,0.89,0.85,0.8,0.76,0.71,0.65,0.6,0.53,0.46,0.38]};
+// k2 in aria (35024/1 tab. 4): circuiti o cavi multipolari 1…9, 12, 16, 20; per gli strati oltre 9 nessuna ulteriore riduzione
+const CAB_K2A={N:[1,2,3,4,5,6,7,8,9,12,16,20],
+ f:{t:"a fascio o annegati (caso 1)",v:[1,0.8,0.7,0.65,0.6,0.57,0.54,0.52,0.5,0.45,0.41,0.38]},
+ m:{t:"strato su muro, pavimento o passerella non perforata (caso 2)",v:[1,0.85,0.79,0.75,0.73,0.72,0.72,0.71,0.7]},
+ s:{t:"strato a soffitto (caso 3)",v:[0.95,0.81,0.72,0.68,0.66,0.64,0.63,0.62,0.61]},
+ p:{t:"strato su passerella perforata, orizzontale o verticale (caso 4)",v:[1,0.88,0.82,0.77,0.75,0.73,0.73,0.72,0.72]},
+ l:{t:"strato su scala posacavi o graffato a un sostegno (caso 5)",v:[1,0.87,0.82,0.8,0.8,0.79,0.79,0.78,0.78]}};
+// interrati (35026): k2 per circuiti sullo stesso piano (tab. III, 2…6 circuiti × distanza a contatto, 0,25, 0,5, 1 m), k3 profondità, k4 resistività termica
+const CAB_K2T={D:[0,0.25,0.5,1],m:[[0.85,0.9,0.95,0.95],[0.75,0.85,0.9,0.95],[0.7,0.8,0.85,0.9],[0.65,0.8,0.85,0.9],[0.6,0.8,0.8,0.9]],u:[[0.8,0.9,0.9,0.95],[0.7,0.8,0.85,0.9],[0.65,0.75,0.8,0.9],[0.6,0.7,0.8,0.9],[0.6,0.7,0.8,0.9]]};
+const CAB_K3={D:[0.5,0.8,1,1.2,1.5],k:[1.02,1,0.98,0.96,0.94]};
+const CAB_K4={R:[1,1.2,1.5,2,2.5],u:[1.08,1.05,1,0.9,0.82],m:[1.06,1.04,1,0.91,0.84]};
+// CEI-UNEL 35023:2020 — resistenza in corrente alternata R (Ω/km, a 90 °C per EPR/XLPE e a 70 °C per PVC) e reattanza X a 50 Hz (Ω/km) dei cavi fino a 1 kV:
+// rame EPR (CuE), rame PVC (CuP), alluminio EPR (AlE); Xu cavi unipolari, Xb bipolari, Xt tripolari; 0 = la tabella non dà il valore
+const CAB_DU={S:[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400,500,630],CuE:{R:[16.96,10.17,6.31,4.21,2.44,1.54,0.99,0.71,0.49,0.35,0.26,0.21,0.17,0.14,0.11,0.085,0.067,0.053,0.043],Xu:[0.144,0.132,0.122,0.114,0.105,0.098,0.093,0.089,0.085,0.084,0.083,0.08,0.08,0.08,0.078,0.076,0.076,0.074,0.073],Xb:[0.1,0.094,0.087,0.083,0.078,0.075,0.074,0.072,0.071,0.07,0.069,0.069,0.069,0,0,0,0,0,0],Xt:[0.1,0.094,0.087,0.083,0.078,0.075,0.074,0.072,0.071,0.07,0.069,0.069,0.069,0.069,0.069,0.068,0.068,0,0]},CuP:{R:[15.91,9.55,5.92,3.95,2.29,1.45,0.93,0.66,0.46,0.33,0.25,0.19,0.16,0.13,0.099,0,0,0,0],Xu:[0.145,0.132,0.127,0.119,0.11,0.102,0.097,0.092,0.089,0.085,0.085,0.082,0.082,0.081,0.08,0,0,0,0],Xb:[0.105,0.096,0.096,0.091,0.085,0.08,0.079,0.076,0.076,0.074,0,0,0,0,0,0,0,0,0],Xt:[0.105,0.096,0.096,0.091,0.085,0.08,0.079,0.076,0.076,0.074,0.074,0,0,0,0,0,0,0,0]},AlE:{R:[0,0,0,0,3.95,2.45,1.54,1.11,0.82,0.57,0.41,0.32,0.26,0.21,0.16,0.13,0.101,0.08,0.063],Xu:[0,0,0,0,0.105,0.098,0.093,0.089,0.085,0.084,0.083,0.08,0.08,0.08,0.078,0.076,0.076,0.074,0.073]}};
+// valore di tabella con interpolazione lineare; fuori dal campo il valore estremo (clamp: true nel risultato)
+function cabLin(xs,ys,x){ const n=xs.length-1; if(x<=xs[0]) return {v:ys[0],clamp:x<xs[0]}; if(x>=xs[n]) return {v:ys[n],clamp:x>xs[n]};
+  for(let i=0;i<n;i++) if(x>=xs[i]&&x<=xs[i+1]) return {v:ys[i]+(ys[i+1]-ys[i])*(x-xs[i])/(xs[i+1]-xs[i]),clamp:false}; return {v:ys[n],clamp:true}; }
+// dati di portata scritti sulla riga della linea (d: elemento .cable-row)
+function cabIn(d){ const g=k=>d&&d.querySelector(`[data-k=z${k}]`), v=k=>{ const e=g(k); return e&&e.value.trim()!==""?parseFloat(e.value):NaN; };
+  const posa=CAB_POSE.find(x=>x.id===(g("posa")||{}).value)||CAB_POSE[9], terra=posa.g==="t", cos=v("cos");
+  return {Ib:v("Ib")>0?v("Ib"):0,cos:cos>0&&cos<=1?cos:0.9,nc:(g("nc")||{}).value==="2"?2:3,posa,terra,ta:isFinite(v("ta"))?v("ta"):(terra?20:30),
+    gr:(g("gr")||{}).value||"0",nr:Math.max(1,Math.round(v("nr")||1)),dist:isFinite(v("dist"))?v("dist"):0,dep:v("dep")>0?v("dep"):0.8,rho:v("rho")>0?v("rho"):1.5,
+    dir:!!(g("dir")&&g("dir").checked),kx:v("kx")>0?v("kx"):1,du:v("du")>0?v("du"):4,I0:v("I0")>0?v("I0"):0}; }
+// sezioni per cui la tabella della posa dà la portata, con l'isolante e i conduttori caricati scelti
+function cabCol(c,iso){ return c.posa[iso+c.nc]||c.posa[iso+(c.nc===2?3:2)]; }
+function cabRange(c,iso){ const col=cabCol(c,iso), a=CAB_SEZ.filter((S,i)=>col[i]>0); return [a[0],a[a.length-1]]; }
+/* fattori di correzione e portata di una sezione: Iz = I0·k·n (n cavi in parallelo per fase); iso "E" EPR/XLPE, "P" PVC; man: usa la portata
+   scritta a mano. Risultato: {I0,k,Iz,f:[[nome,valore]],nt:[note],warn} oppure {none:testo} se la portata non si può dare. warn: un fattore è
+   fuori tabella dal lato non cautelativo. */
+function cabIz(c,S,iso,al,n,man){ const nt=[], f=[]; let warn=false, I0=0;
+  const lim=iso==="E"?90:70, K=CAB_K1, ys=K[(c.terra?"t":"a")+iso], tmax=K.T[ys.filter(v=>v>0).length-1];   // prima la temperatura: se è fuori dal campo dell'isolante nessuna sezione ha una portata
+  if(c.ta>=lim) return {tmp:true,none:`temperatura ambiente ${fusNum(c.ta)} °C non inferiore alla temperatura massima dell'isolante (${lim} °C)`};
+  if(c.ta>tmax) return {tmp:true,none:`a ${fusNum(c.ta)} °C la tabella non dà il fattore di temperatura per l'isolante ${iso==="E"?"EPR/XLPE":"PVC"} (arriva a ${tmax} °C): serve un cavo con isolante per temperatura più alta`};
+  if(man&&c.I0>0){ I0=c.I0; nt.push("portata I0 scritta a mano"); }
+  else { const col=cabCol(c,iso), i=CAB_SEZ.indexOf(S); I0=i>=0?col[i]:0;
+    if(!(I0>0)){ const r=cabRange(c,iso); return {none:`la tabella dà le portate da ${fusNum(r[0])} a ${fusNum(r[1])} mm² per questa posa (${iso==="E"?"EPR/XLPE":"PVC"}, ${c.nc} conduttori caricati): per ${fusNum(S)} mm² scrivere la portata I0 del costruttore nei dati della linea, oppure usare più cavi in parallelo`}; }
+    if(!c.posa[iso+c.nc]) nt.push(`la tabella non ha la colonna per ${c.nc} conduttori caricati con questa posa: usata quella per ${c.nc===2?3:2}`); }
+  { const q=cabLin(K.T,ys,c.ta); f.push(["k1 temperatura",q.v]); if(q.clamp) nt.push("sotto 10 °C la tabella non dà valori: usato il fattore di 10 °C, a favore della sicurezza"); }
+  if(c.terra){
+    if(c.nr>1){ const tb=c.posa.id==="I1"?CAB_K2T.u:CAB_K2T.m, r=tb[Math.min(c.nr,6)-2], j=Math.max(0,CAB_K2T.D.indexOf(c.dist)); f.push(["k2 circuiti sullo stesso piano",r[j]]); if(c.nr>6){ nt.push("oltre 6 circuiti la tabella III non dà valori: usato quello di 6"); warn=true; } }
+    { const q=cabLin(CAB_K3.D,CAB_K3.k,c.dep); f.push(["k3 profondità",q.v]); if(q.clamp){ nt.push(`profondità ${fusNum(c.dep)} m fuori dalla tabella IV (0,5…1,5 m): usato il valore estremo`); if(c.dep>1.5) warn=true; } }
+    { const q=cabLin(CAB_K4.R,CAB_K4[c.posa.uni?"u":"m"],c.rho); f.push(["k4 resistività del terreno",q.v]); if(q.clamp){ nt.push(`resistività ${fusNum(c.rho)} K·m/W fuori dalla tabella V (1…2,5): usato il valore estremo`); if(c.rho>2.5) warn=true; } }
+    if(c.dir) f.push(["posa direttamente interrata (indicativo)",1.15]);
+  } else if(c.gr!=="0"&&c.nr>1){ const t=CAB_K2A[c.gr]; if(t){ const N=CAB_K2A.N; let j=N.findIndex(x=>x>=c.nr); if(j<0) j=N.length-1;   /* numero non in tabella: la riga successiva, più cautelativa */
+      f.push(["k2 raggruppamento",t.v[Math.min(j,t.v.length-1)]]); if(c.gr==="f"&&c.nr>20){ nt.push("oltre 20 circuiti la tabella 4 non dà valori: usato quello di 20"); warn=true; } } }
+  if(c.kx!==1) f.push(["fattore aggiuntivo",c.kx]);
+  if(al&&!(man&&c.I0>0)) f.push(["conduttori di alluminio",0.78]);
+  const k=f.reduce((a,x)=>a*x[1],1); return {I0,k,Iz:I0*k*n,f,nt,warn}; }
+// corrente convenzionale di intervento I2 (CEI 64-8, 433.2): interruttori 1,3·Ir (CEI EN 60947-2) o 1,45·In (modulari CEI EN 60898); fusibili gG 1,6…2,1·In
+function cabI2(r){ if(r.b){ const b=r.b, I=b.Ir||b.In; if(b.hasL===false) return {In:I,I2:0,no:"l'interruttore non ha la protezione dal sovraccarico"}; return b.cat===0?{In:I,I2:1.45*I,k:"1,45",std:"CEI EN 60898"}:{In:I,I2:1.3*I,k:"1,3",std:"CEI EN 60947-2"}; }
+  const f=r.f, In=f.In, ch=(f.ch||"")+" "+f.type; if(f.Un>1000) return {In,I2:0,no:"fusibile MT"}; if(/aM/.test(ch)) return {In,I2:0,no:"il fusibile aM protegge solo dal cortocircuito"};
+  const k=In<=4?2.1:(In<16?1.9:1.6); return {In,I2:k*In,k:fusNum(k),std:"CEI EN 60269-2, gG"}; }
+/* resistenza e reattanza per la caduta di tensione (Ω/km di un cavo), dalla CEI-UNEL 35023 quando la tabella le dà:
+   R per materiale, isolante e sezione; X per la formazione (unipolari, bipolare, tripolare, secondo la posa e i conduttori caricati).
+   Se manca la R per l'isolante ma c'è per l'altro, quella si riporta alla temperatura giusta (alluminio in PVC, rame PVC oltre 240 mm²);
+   se manca del tutto si calcola dalla resistività. Se manca la X si usa quella scritta nella riga. nt: le note su ciò che non viene dalla tabella. */
+function cabRX(cab,c,S){ const al=/^al/i.test(cab.mat), pvc=cab.iso==="PVC", th=pvc?70:90, i=CAB_DU.S.indexOf(S), M=al?"Al":"Cu", T=CAB_DU[M+(pvc?"P":"E")], O=CAB_DU[M+(pvc?"E":"P")], nt=[];
+  const a=al?0.00403:0.00393, m=MAT[cab.mat]||MAT.Cu; let Rk, Xk;
+  if(i>=0&&T&&T.R[i]>0) Rk=T.R[i];
+  else if(i>=0&&O&&O.R[i]>0){ const tho=pvc?90:70; Rk=O.R[i]*(1+a*(th-20))/(1+a*(tho-20)); nt.push(`R della tabella per l'isolante a ${tho} °C riportata a ${th} °C (la CEI-UNEL 35023 non dà ${al?"l'alluminio":"il rame"} ${pvc?"in PVC":"in EPR"}${T?" a questa sezione":""})`); }
+  else { Rk=m.rho*(1+m.a*(th-20))*1000/S; nt.push(`R calcolata dalla resistività a ${th} °C (sezione non data dalla CEI-UNEL 35023)`); }
+  const f=c.posa.uni?"Xu":(c.nc===2?"Xb":"Xt");
+  if(i>=0&&T&&T[f]&&T[f][i]>0) Xk=T[f][i]; else { Xk=cab.x||0; nt.push(`X della riga della linea (la CEI-UNEL 35023 non dà la reattanza per questa formazione)`); }
+  return {R:Rk,X:Xk,th,nt,tab:!nt.length}; }
+// caduta di tensione percentuale (CEI-UNEL 35023, art. 3): trifase √3·Ib·L·(R cos φ + X sen φ)/U; con due conduttori caricati 2·Ib·L·(…)/U0
+function cabDu(c,cab,S,n,U){ if(!(c.Ib>0)||!(cab.L>0)||!(U>0)) return null; const q=cabRX(cab,c,S), z=(q.R*c.cos+q.X*Math.sqrt(1-c.cos*c.cos))*cab.L/1000/n;
+  return c.nc===2?200*c.Ib*z/(U/Math.sqrt(3)):100*Math.sqrt(3)*c.Ib*z/U; }
+// intervento e energia di un dispositivo a una corrente: tempo massimo della banda (interruttori) o della curva (fusibili)
+function cabTrip(r,I){ const cv=r.b?r.b.max:r.f.t, tr=fusTime(cv,I), e=tr.st==='none'?null:(r.b?cbI2t(r.b,I):fusI2t(r.f,I)); return {tr,e}; }
+const cabRowEl=ri=>document.querySelectorAll("#cableList .cable-row")[ri]||null;
+// linea che parte dal punto i dell'impianto: cavo, dati, portata e caduta di tensione (del tratto e dei tratti a monte); null se non è una riga delle Linee
+function cabLine(i){ const dn=ccDown(i), cab=dn.cab; if(!cab||cab.ri==null||cab.mt) return null;
+  const d=cabRowEl(cab.ri), c=cabIn(d), iso=cab.iso==="PVC"?"P":"E", al=/^al/i.test(cab.mat), U=ccP(i).Un, z=cabIz(c,cab.S,iso,al,cab.n,true);
+  const ups=(cab.up||[]).map(j=>{ const q=ccDown(j-1).cab; if(!q||q.ri==null) return null; return cabDu(cabIn(cabRowEl(q.ri)),q,q.S,q.n,U); });
+  const du=cabDu(c,cab,cab.S,cab.n,U), up=ups.reduce((a,v)=>a+(v||0),0), rx=cabRX(cab,c,cab.S);
+  return {i,dn,cab,d,c,iso,al,U,z,du,up,rx,nUp:ups.length,miss:ups.filter(v=>v==null).length,tot:du!=null?up+du:null}; }
+// tempo massimo di interruzione al guasto minimo a fondo linea: fino a 63 A la tabella 41.1 della CEI 64-8 (sistemi TN, secondo U0), oltre 5 s
+function cabTmax(In,U){ const U0=U/Math.sqrt(3), small=In<=63, t=small?(U0<=120?0.8:(U0<=230*1.1?0.4:(U0<=400*1.1?0.2:0.1))):5;
+  return {t,txt:small?`${fusFmtT(t)} (fino a 63 A, CEI 64-8 tab. 41.1 con U<sub>0</sub> ${fmt(U0,0)} V)`:"5 s (oltre 63 A)"}; }
+/* sezione consigliata per la linea L protetta dal dispositivo r: la più piccola delle tabelle che soddisfa insieme portata, sovraccarico, I²t al
+   cortocircuito, guasto minimo a fondo linea e caduta di tensione. Prima con il numero di cavi in parallelo della linea, poi aumentandolo. */
+function cabRec(r,L){ const {cab,c,iso,al,U}=L, cv=cabI2(r), tl=cabTmax(cv.In,U).t, eMax=r.sm&&r.sm.best?r.sm.best.v:0, Iend=cab.endMin>0?cab.endMin:0, Z0=Iend>0?U/(Math.sqrt(3)*Iend):0,
+    m=MAT[cab.mat]||MAT.Cu, rh=m.rho*(1+m.a*((cab.iso==="PVC"?160:250)-20)/2);
+  for(let n=cab.n;n<=Math.max(cab.n,6);n++) for(const S of CAB_SEZ){ if(S<1.5) continue; const z=cabIz(c,S,iso,al,n,false); if(z.none||!(z.Iz>0)) continue;
+    if(z.Iz<Math.max(cv.In,c.Ib)) continue; if(!cv.no&&cv.I2>1.45*z.Iz) continue;
+    if(eMax>Math.pow(cab.K*S*n,2)) continue;
+    if(Iend>0){ const dR=rh*cab.L*(1/(n*S)-1/(cab.n*cab.S)), I=U/(Math.sqrt(3)*Math.max(Z0+(dR>0?2*dR:dR),1e-6)), q=cabTrip(r,I);   // sezione più piccola: fase e ritorno crescono insieme
+      if(q.tr.st==='none'||q.tr.t>tl||(q.e&&q.e.v>Math.pow(cab.K*S*n,2))) continue; }
+    const d=cabDu(c,cab,S,n,U); if(d!=null&&L.up+d>c.du+1e-9) continue;
+    return {S,n}; }
+  return null; }
+const cabSn=(S,n)=>(n>1?n+" × ":"")+fusNum(S)+" mm²";
+/* verifiche del cavo protetto da un dispositivo (p: fu o cb; r: risultati del dispositivo; dn: ciò che sta a valle della sua posizione).
+   Scrive le voci in checks e restituisce il testo per il riquadro dei risultati. */
+function cabCheck(p,r,dn,checks){
+  const cab=dn.cab, L=cab&&cab.start!=null?cabLine(cab.start):null; if(!L) return {txt:cab?(cab.mt?"cavo MT: portata non calcolata":"portata non calcolata: il cavo non è una riga delle Linee"):"nessuna linea a valle"};
+  const {c,z,U}=L, nm=`Linea «${escH(cab.desc)}» ${cabSn(cab.S,cab.n)} ${L.al?"alluminio":"rame"} ${cab.iso}`, cv=cabI2(r); let txt="";
+  const tip=`Portata secondo la CEI-UNEL ${c.posa.rif}, con i fattori di correzione per temperatura${c.terra?", circuiti vicini, profondità e resistività del terreno (CEI-UNEL 35026)":" e raggruppamento (CEI-UNEL 35024/1, tabelle 3 e 4)"}. Condizioni della CEI 64-8, 433.2: Ib ≤ In ≤ Iz e I2 ≤ 1,45·Iz. I dati si scrivono nella riga della linea, scheda Linee del modulo Impianto.`;
+  // 1. portata e protezione dal sovraccarico
+  if(z.none){ checks.push({l:`${nm}: portata`, dis:true, disTxt:z.tmp?"temperatura":"fuori tabella", extra:z.none, tip}); txt=z.tmp?"I<sub>z</sub> non calcolabile":"I<sub>z</sub> fuori tabella"; }
+  else {
+    const base=`I<sub>0</sub> ${fusNum(z.I0)} A${cab.n>1?" × "+cab.n:""} · ${z.f.map(x=>`${x[0]} ${fmt(x[1],2)}`).join(" · ")}`+(z.nt.length?" · "+z.nt.join("; "):"");
+    txt=`I<sub>z</sub> ${fmt(z.Iz,0)} A`;
+    if(!(c.Ib>0)) checks.push({l:`${nm}: I<sub>n</sub> ${fusNum(cv.In)} A ≤ I<sub>z</sub> <b>${fmt(z.Iz,0)} A</b>`, ok:cv.In<=z.Iz*1.0001, warn:z.warn&&cv.In<=z.Iz*1.0001, extra:base+" · corrente d'impiego I<sub>b</sub> non inserita nella riga della linea", tip});
+    else checks.push({l:`${nm}: I<sub>b</sub> ${fusNum(c.Ib)} A ≤ I<sub>n</sub> ${fusNum(cv.In)} A ≤ I<sub>z</sub> <b>${fmt(z.Iz,0)} A</b>`, ok:c.Ib<=cv.In*1.0001&&cv.In<=z.Iz*1.0001, warn:z.warn&&c.Ib<=cv.In*1.0001&&cv.In<=z.Iz*1.0001, extra:base+(c.Ib>cv.In?" · la corrente d'impiego supera quella del dispositivo":""), tip});
+    if(cv.no) checks.push({l:`${nm}: protezione dal sovraccarico`, dis:true, disTxt:"non svolta", extra:cv.no+": il sovraccarico va protetto da un altro dispositivo, oppure escluso per la natura del carico (CEI 64-8, 433.3)", tip});
+    else checks.push({l:`${nm}: I<sub>2</sub> = ${cv.k} × ${fusNum(cv.In)} = <b>${fmt(cv.I2,0)} A</b> ≤ 1,45·I<sub>z</sub> ${fmt(1.45*z.Iz,0)} A`, ok:cv.I2<=1.45*z.Iz*1.0001, extra:`corrente convenzionale di intervento con il fattore ${cv.k} (${cv.std})`, tip});
+  }
+  // 2. guasto minimo a fondo linea: intervento entro il tempo massimo e I²t ≤ K²S² (CEI 64-8, 434.3)
+  const K2S2=Math.pow(cab.K*cab.S*cab.n,2), Iend=cab.endMin>0?cab.endMin:0, tm=cabTmax(cv.In,U), tl=tm.t;
+  if(Iend>0){ const q=cabTrip(r,Iend), t=q.tr.st==='none'?Infinity:q.tr.t;
+    checks.push({l:`${nm}: guasto minimo a fondo linea ${fmtA(Iend)}: intervento in <b>${t===Infinity?"nessun intervento":fusFmtT(t)}</b> ≤ ${tm.txt}`+(q.e&&t<=tl?`, I²t ${fusFmtE(q.e.v)} ≤ K²S² ${fusFmtE(K2S2)}`:""),
+      ok:t<=tl&&(!q.e||q.e.v<=K2S2), extra:`corrente di guasto più bassa alla fine della linea (${cab.endTxt||"fase-terra o bifase"})`+(t>5&&t<Infinity?": oltre 5 s la formula adiabatica non vale e il cavo non è protetto dal cortocircuito":(t>tl&&t<Infinity?": intervento più lento del tempo massimo ammesso":"")),
+      tip:"Alla corrente di guasto più bassa, a fondo linea, il dispositivo deve intervenire entro il tempo massimo e l'energia lasciata passare non deve superare K²S² (CEI 64-8, 434.3.2). Per dispositivi fino a 63 A si usa il tempo della tabella 41.1 per i sistemi TN secondo la tensione verso terra U0 (0,4 s a 230 V; la norma lo chiede per i circuiti terminali fino a 63 A con prese e fino a 32 A con soli apparecchi fissi); oltre 63 A 5 s."}); }
+  else checks.push({l:`${nm}: guasto minimo a fondo linea`, dis:true, disTxt:"non calcolato", extra:"la corrente di guasto minima alla fine della linea non è disponibile"});
+  // 3. caduta di tensione del tratto e totale dall'origine
+  if(L.du!=null){ txt+=` · ΔU ${fmt(L.tot,2)} %`;
+    checks.push({l:`${nm}: caduta di tensione ${L.nUp?`${fmt(L.du,2)} %, totale dall'origine <b>${fmt(L.tot,2)} %</b>`:`<b>${fmt(L.du,2)} %</b>`} ≤ ${fusNum(c.du)} %`, ok:L.tot<=c.du+1e-9,
+      extra:`I<sub>b</sub> ${fusNum(c.Ib)} A, cos φ ${fusNum(c.cos)}, ${fusNum(cab.L)} m · R ${fusNum(+L.rx.R.toPrecision(3))} Ω/km a ${L.rx.th} °C, X ${fusNum(+L.rx.X.toPrecision(3))} Ω/km`+(L.rx.tab?" dalla CEI-UNEL 35023":" · "+L.rx.nt.join("; "))+(L.miss?` · tratti a monte senza I<sub>b</sub> non conteggiati: ${L.miss}`:"")+" · la caduta nel trasformatore non è compresa",
+      tip:"Caduta di tensione ΔU = √3·Ib·L·(R cos φ + X sen φ)/U in trifase (2·Ib·…/U0 con due conduttori caricati), con la resistenza alla temperatura massima dell'isolante e la reattanza della CEI-UNEL 35023, secondo sezione, materiale, isolante e formazione del cavo. È sommata a quella dei tratti a monte che hanno la corrente d'impiego nella loro riga. La CEI 64-8 (525) raccomanda di non superare il 4 % dall'origine dell'impianto."}); }
+  else checks.push({l:`${nm}: caduta di tensione`, dis:true, disTxt:"manca Ib", extra:"inserire la corrente d'impiego nella riga della linea (scheda Linee, «Portata e caduta di tensione»)"});
+  // 4. sezione consigliata
+  const rec=cabRec(r,L), more=rec&&rec.n>cab.n, okS=rec&&!more&&rec.S<=cab.S;
+  if(rec) txt+=` · consigliata ${cabSn(rec.S,rec.n)}`;
+  checks.push({l:`${nm}: sezione consigliata <b>${rec?cabSn(rec.S,rec.n):"—"}</b>`, ok:!!okS, dis:!rec, disTxt:"da rivedere",
+    extra:!rec?(z.tmp?z.none:"nessuna sezione delle tabelle soddisfa tutte le condizioni, nemmeno con 6 cavi in parallelo per fase: rivedere posa, dispositivo o lunghezza")
+      :(more?`con ${cab.n>1?cab.n+" cavi":"un cavo"} per fase nessuna sezione delle tabelle basta: servono ${rec.n} cavi in parallelo (ogni gruppo conta come un circuito in più nel raggruppamento)`:(rec.S>cab.S?"la sezione scelta è insufficiente":(rec.S<cab.S?"la sezione scelta è sovrabbondante: va bene, ma potrebbe essere ridotta":"coincide con la sezione scelta")))
+        +(c.Ib>0?"":" · senza I<sub>b</sub> la caduta di tensione non è considerata")+(Iend>0?" · corrente a fondo linea stimata per ogni sezione":"")+(c.I0>0?" · calcolata con le portate di tabella, non con quella scritta a mano":""),
+    tip:"La più piccola sezione delle tabelle CEI-UNEL, con la stessa posa e lo stesso isolante, per cui valgono insieme: In ≤ Iz e I2 ≤ 1,45·Iz; I²t ≤ K²S² sulla corrente di cortocircuito più gravosa; intervento entro il tempo massimo al guasto minimo a fondo linea (corrente stimata cambiando la resistenza del cavo); caduta di tensione totale entro il limite scelto. Prima con il numero di cavi in parallelo della linea; se non basta, con più cavi."});
+  return {txt}; }
+// estensione di una riga delle Linee: dati per portata, caduta di tensione e sezione consigliata
+function cabExtHTML(def){ const v=(k,d)=>def["z"+k]!=null?def["z"+k]:d, sel=(k,o,d)=>`<select data-k="z${k}">${o.map(([a,b])=>`<option value="${a}"${String(a)===String(v(k,d))?" selected":""}>${b}</option>`).join("")}</select>`;
+  const pose=g=>CAB_POSE.filter(x=>x.g===g).map(x=>`<option value="${x.id}"${x.id===v("posa","M3")?" selected":""}>${x.t}</option>`).join(""), num=(k,d,a)=>`<input type="number" data-k="z${k}" value="${v(k,d)}" step="any" ${a||""}>`;
+  return `<details class="cab-ext"><summary>Portata e caduta di tensione<small data-o="zres"></small></summary>
+  <div class="cabz">
+    <label class="f">I<sub>b</sub> impiego <span class="u">(A)</span><span class="tip" tabindex="0" data-tip="Corrente che la linea porta nel servizio ordinario, con i fattori di utilizzazione e contemporaneità (CEI 64-8, 25.4). Serve per Ib ≤ In ≤ Iz e per la caduta di tensione.">i</span>${num("Ib","",'min="0"')}</label>
+    <label class="f">cos φ${num("cos",0.9,'min="0" max="1"')}</label>
+    <label class="f">Conduttori caricati${sel("nc",[[3,"3 (trifase)"],[2,"2 (monofase)"]],3)}</label>
+    <label class="f">ΔU massima<span class="tip r" tabindex="0" data-tip="Caduta di tensione ammessa dall'origine dell'impianto alla fine di questa linea. La CEI 64-8 (525) raccomanda il 4 %. La caduta è calcolata con resistenza e reattanza della CEI-UNEL 35023.">i</span>${sel("du",[0.5,1,1.5,2,2.5,3,3.5,4].map(x=>[x,fusNum(x)+" %"]),4)}</label>
+    <label class="f zw2">Posa<span class="tip" tabindex="0" data-tip="Metodo di installazione delle tabelle CEI-UNEL 35024/1 (in aria) e 35026 (interrati). Le pose degli esempi della CEI 64-8/5, tabella 52C, si assimilano a queste.">i</span><select data-k="zposa"><optgroup label="In aria (CEI-UNEL 35024/1)">${pose("a")}</optgroup><optgroup label="Interrati (CEI-UNEL 35026)">${pose("t")}</optgroup></select></label>
+    <label class="f">Temperatura <span class="u">(°C)</span><span class="tip r" tabindex="0" data-tip="Temperatura dell'aria (riferimento 30 °C) o del terreno (20 °C) quando i cavi non sono sotto carico. Vuoto: il valore di riferimento. Per cavi al sole la CEI-UNEL 35024/1 indica in prima approssimazione 55 °C.">i</span><input type="number" data-k="zta" value="${v("ta","")}" step="any" placeholder="riferimento"></label>
+    <label class="f">Circuiti vicini<span class="tip r" tabindex="0" data-tip="Numero di circuiti o di cavi multipolari del fascio, dello strato o dello stesso piano interrato, compreso questo. Con più cavi in parallelo per fase ogni gruppo trifase conta come un circuito.">i</span>${num("nr",1,'min="1" step="1"')}</label>
+    <label class="f zw2 cab-a">Raggruppamento${sel("gr",[["0","nessuno o distanziati (k2 = 1)"],...["f","m","s","p","l"].map(k=>[k,CAB_K2A[k].t])],"0")}</label>
+    <label class="f cab-t">Distanza tra i circuiti${sel("dist",[[0,"a contatto"],[0.25,"0,25 m"],[0.5,"0,5 m"],[1,"1 m"]],0)}</label>
+    <label class="f cab-t">Profondità <span class="u">(m)</span>${num("dep",0.8,'min="0"')}</label>
+    <label class="f cab-t">Resistività termica <span class="u">(K·m/W)</span><span class="tip r" tabindex="0" data-tip="1,5 K·m/W per terreno compatto e umido; se non è nota la CEI-UNEL 35026 consiglia 2,0.">i</span>${num("rho",1.5,'min="0"')}</label>
+    <label class="toggle cab-t"><input type="checkbox" data-k="zdir"${v("dir",false)===true||v("dir",false)==="true"?" checked":""}><span>direttamente interrato (× 1,15 indicativo)</span></label>
+    <label class="f">Fattore aggiuntivo<span class="tip" tabindex="0" data-tip="Moltiplica la portata: per esempio 0,8 per cavi senza guaina in ambienti a maggior rischio in caso di incendio, o i fattori per più passerelle sovrapposte (CEI-UNEL 35024/1, tabelle 5 e 6).">i</span>${num("kx",1,'min="0"')}</label>
+    <label class="f">I<sub>0</sub> a mano <span class="u">(A)</span><span class="tip r" tabindex="0" data-tip="Portata di un cavo nelle condizioni di riferimento, dal costruttore o calcolata con la CEI 20-21. Vuoto: dalle tabelle CEI-UNEL. Serve per cavi e sezioni che le tabelle non danno; i fattori di correzione si applicano comunque (non quello dell'alluminio).">i</span><input type="number" data-k="zI0" value="${v("I0","")}" step="any" min="0" placeholder="da tabella"></label>
+  </div><div class="mini" data-o="zmsg" style="margin-top:6px"></div></details>`; }
+// aggiorna le estensioni delle righe: campi secondo la posa, portata, caduta di tensione e dispositivo che protegge la linea
+function cabLinesUi(){ if(!CC_ST||!$("cableList")) return; const rows=[...document.querySelectorAll("#cableList .cable-row")], P=CC_ST&&CC_ST.pts||[], by={};
+  for(let i=0;i<P.length-1;i++) if(P[i+1].kind==="cab"){ const L=cabLine(i); if(L) by[L.cab.ri]=L; }
+  const devs=[]; [["cb",CB_ST,"Interruttore"],["fu",FUS_ST,"Fusibile"]].forEach(([p,st,nm])=>((st&&st.res)||[]).forEach(r=>{ const q=ccP(parseInt(($(p+"_pt"+r.s)||{}).value,10)); if(q&&q.kind!=="br") devs.push({r,i:q.i,nm:nm+" "+r.s+(devNm(p,r.s)?" «"+escH(devNm(p,r.s))+"»":"")}); }));
+  rows.forEach((d,ri)=>{ const ex=d.querySelector(".cab-ext"); if(!ex) return; const t=(CAB_POSE.find(x=>x.id===d.querySelector("[data-k=zposa]").value)||{}).g==="t";
+    ex.querySelectorAll(".cab-a").forEach(e=>{ e.hidden=t; }); ex.querySelectorAll(".cab-t").forEach(e=>{ e.hidden=!t; });
+    if(!ex.dataset.t&&d.querySelector("[data-k=zIb]").value.trim()!==""){ ex.open=true; ex.dataset.t="1"; }   // linea con i dati inseriti: aperta, così entra nei dati di ingresso delle esportazioni
+    const L=by[ri], hd=ex.querySelector("[data-o=zres]"), ms=ex.querySelector("[data-o=zmsg]"), bad=x=>`<span style="color:var(--crit)">${x}</span>`;
+    if(!L){ hd.textContent=""; ms.textContent=$("onCab").checked?"Linea non calcolata: servono sezione e lunghezza, e una linea BT.":"Scheda Linee non inclusa nel calcolo."; return; }
+    const {z,c,cab}=L, a=[], b=[];
+    if(z.none){ a.push(z.tmp?"Iz non calcolabile":"Iz fuori tabella"); b.push(bad("Portata non calcolata: "+z.none+".")); }
+    else { a.push(`Iz ${fmt(z.Iz,0)} A`); const o=c.Ib>z.Iz*1.0001;
+      b.push(`Portata I<sub>z</sub> = <b>${fmt(z.Iz,0)} A</b> (I<sub>0</sub> ${fusNum(z.I0)} A${cab.n>1?" × "+cab.n:""} · ${z.f.map(x=>`${x[0]} ${fmt(x[1],2)}`).join(" · ")})`+(c.Ib>0?(o?bad(` — I<sub>b</sub> ${fusNum(c.Ib)} A supera la portata`):` ≥ I<sub>b</sub> ${fusNum(c.Ib)} A`):"")+"."+(z.nt.length?" "+z.nt.map(x=>x.charAt(0).toUpperCase()+x.slice(1)).join(". ")+".":"")); }
+    if(L.du!=null){ const o=L.tot>c.du+1e-9; a.push(`ΔU ${fmt(L.tot,2)} %`);
+      b.push(`Caduta di tensione ${L.nUp?`${fmt(L.du,2)} %, totale dall'origine <b>${fmt(L.tot,2)} %</b>`:`<b>${fmt(L.du,2)} %</b>`} `+(o?bad(`oltre il limite scelto (${fusNum(c.du)} %)`):`≤ ${fusNum(c.du)} %`)+(L.miss?` (tratti a monte senza I<sub>b</sub>: ${L.miss})`:"")+` — R ${fusNum(+L.rx.R.toPrecision(3))} e X ${fusNum(+L.rx.X.toPrecision(3))} Ω/km`+(L.rx.tab?" dalla CEI-UNEL 35023.":". "+L.rx.nt.map(x=>x.charAt(0).toUpperCase()+x.slice(1)).join(". ")+".")); }
+    else b.push("Caduta di tensione: inserire la corrente d'impiego I<sub>b</sub>.");
+    const dv=devs.filter(x=>x.i===L.i);
+    if(!dv.length) b.push("Nessun fusibile o interruttore posizionato all'inizio di questa linea: le verifiche di protezione (sovraccarico, guasto a fondo linea, sezione consigliata) compaiono nel Coordinamento quando c'è.");
+    let top=null, none=false;   // nel titolo la sezione più grande tra quelle chieste dai dispositivi
+    dv.forEach(x=>{ const rec=cabRec(x.r,L), cv=cabI2(x.r); if(!rec) none=true; else if(!top||rec.S*rec.n>top.S*top.n) top=rec;
+      b.push(`Protetta da ${x.nm} (I<sub>n</sub> ${fusNum(cv.In)} A): sezione consigliata <b>${rec?cabSn(rec.S,rec.n):"—"}</b>`+(rec&&(rec.n>cab.n||rec.S>cab.S)?bad(" — la sezione scelta è insufficiente"):"")+". Le verifiche sono nel Coordinamento."); });
+    if(dv.length) a.push(none?"sezione da rivedere":`consigliata ${cabSn(top.S,top.n)}`);
+    hd.textContent=" — "+a.join(" · "); ms.innerHTML=b.join("<br>"); }); }
 // sezione minima che sopporta l'energia lasciata passare (CEI 64-8, 434.3.2): S ≥ √(I²t)/K per ogni corrente di cortocircuito
 // tra la minima e la massima del punto. La formula adiabatica vale per interruzioni entro 5 s: le correnti per cui il dispositivo
 // interviene più tardi sono nel campo del sovraccarico (protezione del cavo con In ≤ Iz) e non entrano nel calcolo.
@@ -5224,6 +5431,7 @@ function collectModule(id){ drawerClose(true);
     const inp=lab.querySelector('input,select'); if(!inp) return;
     const sf=inp.closest('.subfold.shut');   // sotto-modulo chiuso: i suoi campi sono dati di ingresso come gli altri
     const dv=lab.closest('.devrow,.codev'), dm=dv&&/^(fu|cb)_(?:row|box)([A-H])$/.exec(dv.id), pre=dm?(dm[1]==="fu"?"Fusibile ":"Interruttore ")+dm[2]+" · ":"";   // campo di un dispositivo: la sua sigla davanti
+    { const ce=inp.closest('.cab-ext'); if(ce&&!ce.open) return; }   // dati di portata di una linea: solo se il riquadro è aperto (si apre da solo quando c'è la corrente d'impiego)
     if((inp.offsetParent===null&&!(sf&&sf.offsetParent!==null))||(inp.classList.contains('ccpt')&&!dm)) return;   // campo nascosto, scheda chiusa o scelta del punto da copiare (la posizione di un dispositivo invece è un dato)
     let val;
     if(inp.type==='checkbox') val=inp.checked?'sì':'no';

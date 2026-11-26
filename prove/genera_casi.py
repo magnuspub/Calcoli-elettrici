@@ -543,6 +543,31 @@ async def main():
         M['modFUS']['elenco'] = ['A']; fu(s)['A'] = fusn('Un = 24 kV', 40); M['modFUS']['punti'] = {'A': 0}
         campi(s, 'modPMT', pm_Ibt=590, pm_IbtMin=300)
 
+    # dalla 0.2.23: cavo protetto da ogni dispositivo (portata CEI-UNEL, guasto a fondo linea, caduta di tensione, sezione consigliata)
+    @caso('co14_linee_portata_caduta_di_tensione_e_sezione_consigliata', ['modCC', 'modCOO'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['cavi'] = [cav(desc='Montante', tipo='uni', mat='Cu', S=240, L=30, n=2, x=0.10, te=250, Sn=120, zIb=150, zcos=0.85, zposa='U4', zta=40, znr=3, zgr='p'),
+                          cav(desc='Dorsale', tipo='mult', mat='Al', S=95, L=60, n=1, x=0.08, te=160, Sn=50, zIb=120, zposa='I3', znr=2, zdist=0.25, zrho=2, zdu=1)]
+        campi(s, 'modCC', onCab=True)
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
+        for k in ('fu_Ik', 'fu_ip', 'fu_Imin'): M['modFUS']['campi'].pop(k, None)
+        M['modCB']['elenco'] = ['A', 'B']; cb(s)['B'] = intr('FAZ-C32/3'); M['modCB']['punti'] = {'A': 1, 'B': 2}   # B: fino a 63 A, 0,4 s a fondo linea
+        M['modFUS']['elenco'] = ['A']; M['modFUS']['punti'] = {'A': 2}
+
+    # fuori tabella: sezione che la posa non dà, fattori oltre il campo, portata a mano, più cavi in parallelo consigliati
+    @caso('co15_linee_fuori_tabella_portata_a_mano_e_cavi_in_parallelo', ['modCC', 'modCOO'])
+    def _(s):
+        M = s['moduli']
+        ccm(s)['cavi'] = [cav(desc='Montante', tipo='uni', mat='Cu', S=400, L=25, n=1, x=0.10, te=250, Sn=240, zIb=900, zposa='I2', zta=5, zdep=2, zrho=3, znr=8),
+                          cav(desc='Dorsale', tipo='mult', mat='Cu', S=800, L=40, n=1, x=0.08, te=250, Sn=400, zIb=100, zposa='M3', zI0=1100, zta=65)]
+        campi(s, 'modCC', onCab=True)
+        for k in ('cb_Ik', 'cb_ip', 'cb_Imin'): M['modCB']['campi'].pop(k, None)
+        M['modCB']['elenco'] = ['A', 'B']; cb(s)['B'] = intr('NZMN1-A100'); M['modCB']['punti'] = {'A': 1, 'B': 2}
+        M['modFUS']['elenco'] = []
+        for m in M.values():
+            for k in ('fu_nmA', 'fu_UA', 'fu_IkA', 'fu_ipA', 'fu_IminA'): (m.get('campi') or {}).pop(k, None)
+
     @caso('co03_solo_fusibili', ['modCOO'])
     def _(s): campi(s, 'modFUS', fu_onB=True, co_onCb=False, fu_Imin=2)
 
