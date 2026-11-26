@@ -1,8 +1,8 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.20",
-  "data": "25/11/2026",
-  "novita": "Scheda laterale con apertura e chiusura animate: il riquadro scorre dal bordo e la pagina si stringe e si allarga gradualmente, restando ferma sulla zona che si sta guardando (anche al cambio di scheda). Con la riduzione del movimento attiva nel sistema le animazioni sono disattivate."
+  "versione": "0.2.21",
+  "data": "26/11/2026",
+  "novita": "Protezioni MT, tolleranze secondo la CEI 0-16: nuova verifica degli errori del relè della protezione generale rispetto ai limiti della norma (5 % sulle soglie, 3 % ± 20 ms sui tempi impostati). La conformità ai limiti del distributore resta sulle tarature; con le fasce di tolleranza attive si indica anche se il caso peggiore esce dal limite e con quali tarature ci si resterebbe."
  },
  "Gestione_curve.html": {
   "versione": "0.2.9",
