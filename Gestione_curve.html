@@ -222,7 +222,7 @@ dialog textarea{width:100%;height:210px;font-family:ui-monospace,Consolas,monosp
       <div id="kLog" class="mini"></div>
     </section>
   </div>
-  <p class="foot"><b>Gestione curve</b> · versione 0.2.9 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026
+  <p class="foot"><b>Gestione curve</b> · versione 0.2.10 · strumento di servizio per «Calcoli elettrici» · Federico Magnani · <a id="repoLnk" href="https://github.com/magnuspub/Calcoli-elettrici" target="_blank" rel="noopener" title="Repository del programma: github.com/magnuspub/Calcoli-elettrici">GitHub</a> · 2026
     &nbsp;·&nbsp; <button class="btn sm" id="updNow">cerca aggiornamenti</button> <span id="updMsg"></span></p>
   <div class="card" id="updBar" hidden style="border-color:var(--accent);border-left:4px solid var(--accent)">
     <div class="acts" style="justify-content:space-between"><span><b>È disponibile la versione <span id="updVer"></span> di «Gestione curve»</b> <span class="mini" id="updDate"></span><br><span class="mini" id="updNews"></span></span>
@@ -763,7 +763,7 @@ function delG(gi){ const D=S.C; D.p=D.p.filter(p=>p[1]!==gi); D.p.forEach(p=>{ i
 /* Tabelle di Calcoli elettrici scritte su una riga in formato JSON (const NOME=…;). Ogni definizione converte la tabella in righe e viceversa. */
 const TNAMES=["TR_TYP","INRUSH","GRID_PRESETS","MAT","CABLE_X","CABLE_K","FMT_TR","UTP_TABLE","LP_EX"];
 const colN=(l,o)=>Object.assign({l,t:"n"},o||{}), colS=(l,o)=>Object.assign({l,t:"s"},o||{});
-const KEYNOTE="Le chiavi sono scritte nei file salvati con «Salva tutto»: cambiando o togliendo una chiave, i file che la usano non la ritrovano.";
+const KEYNOTE="Le chiavi sono scritte nei file salvati con «Salva»: cambiando o togliendo una chiave, i file che la usano non la ritrovano.";
 const zipI=o=>o.S.map((v,i)=>[v,o.k[i],o.tau[i]]), unzipI=r=>({S:r.map(x=>x[0]),k:r.map(x=>x[1]),tau:r.map(x=>x[2])});
 const FMT_KV=["6","10","15","20","30"];
 const TDEF=[
@@ -879,7 +879,7 @@ function drawTList(d){
   host.innerHTML=`<div class="acts" style="margin-top:10px"><button type="button" class="btn sm" id="lxImp">Importa da file…</button><input type="file" id="lxFile" accept=".json" hidden><span class="mini">${keys.length} voci</span></div>
     <div class="gr"><table><thead><tr><th>n.</th><th>Chiave</th><th>Nome nel menu</th><th>Linee</th><th>Zone</th><th></th></tr></thead><tbody>${keys.map((k,i)=>`<tr data-k="${esc(k)}"><td class="n">${i+1}</td><td style="padding:4px 8px">${esc(k)}</td><td style="padding:4px 8px">${esc(X[k].name||"")}</td><td style="padding:4px 8px">${X[k].svc.length}</td><td style="padding:4px 8px">${X[k].zones.length}</td>
       <td style="padding:3px 6px;white-space:nowrap"><button type="button" class="btn sm" data-a="up">▲</button> <button type="button" class="btn sm" data-a="dn">▼</button> <button type="button" class="btn sm" data-a="ren">Rinomina…</button> <button type="button" class="btn sm" data-a="exp">Esporta</button> <button type="button" class="btn sm dan" data-a="del">Elimina</button></td></tr>`).join("")}</tbody></table></div><div class="msg" id="lxMsg"></div>
-    <p class="note">Il nome compare nel menu senza la parola iniziale «Esempio». Il file da importare è quello salvato dal «Salva» del modulo Rischio da fulmine, oppure un file di «Salva tutto» (se ne prende la parte dei fulmini).</p>`;
+    <p class="note">Il nome compare nel menu senza la parola iniziale «Esempio». Il file da importare è quello salvato dal «Salva» del modulo Rischio da fulmine, oppure un file salvato con «Salva» dalla barra degli strumenti (se ne prende la parte dei fulmini).</p>`;
   const say=(t,ok)=>{ $("lxMsg").className="msg "+(ok?"ok":"bad"); $("lxMsg").textContent=t; };
   const reorder=ks=>{ const o={}; ks.forEach(k=>{ o[k]=S.T.LP_EX[k]; }); S.T.LP_EX=o; };
   $("lxImp").onclick=()=>{ $("lxFile").value=""; $("lxFile").click(); };
@@ -917,7 +917,7 @@ function runChecks(){
     if(!F.t[p[6]]) E(`${nm}: curva tempo‑corrente mancante`,go); else { const pr=curveProblems(F.t[p[6]],"t"); if(pr.length) E(`${nm}, curva tempo‑corrente: ${pr[0]}`,()=>{ UI.f.k="t"; go(); }); }
     [["l",7,"di limitazione"],["i",8,"I²t"]].forEach(([k,c,n])=>{ if(p[c]<0) return; if(!F[k][p[c]]){ E(`${nm}: curva ${n} inesistente`,go); return; } const pr=curveProblems(F[k][p[c]],"x"); if(pr.length) E(`${nm}, curva ${n}: ${pr[0]}`,()=>{ UI.f.k=k; go(); }); });
     if(p[9]>0&&p[9]>=p[4]*1000) W(`${nm}: la corrente minima di interruzione supera il potere di interruzione`,go);
-    const key=p[1]+"|"+p[0]; if(seen.has(key)) W(`${nm}: nome ripetuto nella stessa famiglia (il programma riapre il primo quando si usa «Apri tutto»)`,go); else seen.set(key,i); });
+    const key=p[1]+"|"+p[0]; if(seen.has(key)) W(`${nm}: nome ripetuto nella stessa famiglia (il programma riapre il primo quando si usa «Apri»)`,go); else seen.set(key,i); });
   const gU=new Set(F.p.map(p=>p[1])); const eg=F.g.filter((g,i)=>!gU.has(i)); if(eg.length) I(`${eg.length} famigli${eg.length===1?"a":"e"} di fusibili senza fusibili (${eg.map(g=>g[1]).join("; ")}): non saranno salvate`);
   ["t","l","i"].forEach(k=>{ const u=new Set(F.p.map(p=>p[FCOL[k]])); const n=F[k].filter((c,i)=>!u.has(i)).length; if(n) I(`${n} curv${n===1?"a":"e"} ${FNAME[k]} dei fusibili non più usat${n===1?"a":"e"}: saranno tolte al salvataggio`); });
   // interruttori

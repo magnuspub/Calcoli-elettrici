@@ -4,7 +4,7 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
 
 ## Cosa c'è
 
-- `casi/` — 119 casi campione nel formato di «Salva tutto» (si possono aprire anche a mano con «Apri tutto»):
+- `casi/` — 119 casi campione nel formato di «Salva» (si possono aprire anche a mano con «Apri»):
   44 di cortocircuito, 11 di fusibili, 13 di interruttori, 13 di coordinamento delle protezioni BT, 20 di protezioni MT,
   4 di verifica quadro, 5 di guasto a terra MT, 3 di relazioni tra grandezze, 5 di rischio da fulmine.
   I primi 77 sono stati salvati con la versione 0.1.15: riaperti dalle versioni successive provano anche che
@@ -25,8 +25,8 @@ Servono a capire se una versione nuova di `Calcoli_elettrici.html` dà gli stess
 - `banca.js` — che cosa viene raccolto della banca dati.
 - `genera_casi.py` — come sono stati costruiti i casi; per aggiungerne si usa `--solo prefisso`, che scrive
   solo i casi nuovi e lascia gli altri come sono.
-- `fumetti.py` — controllo a parte, non legato al riferimento: apre tutti i fumetti delle informazioni a varie
-  larghezze di finestra e verifica che restino dentro la pagina.
+- `fumetti.py` — controllo a parte, non legato al riferimento: apre tutte le nuvolette delle descrizioni a varie
+  larghezze di finestra e verifica che compaiano, con il testo giusto, dentro la finestra.
 
 ## Senza Python
 
@@ -57,12 +57,13 @@ Servono Python con Playwright e Chromium; per `--excel` anche LibreOffice e open
 Il comando elenca i casi diversi con il valore di riferimento e quello attuale, e termina con 1 se cambiano
 risultati o valori.
 
-## I fumetti delle informazioni
+## Le nuvolette delle descrizioni
 
-Le «i» accanto ai campi aprono un fumetto disegnato dal foglio di stile, che non sa dove si trova: su una finestra
-stretta uno vicino al bordo ne uscirebbe. `fumetti.py` li apre uno per uno e misura dove finisce quello disegnato,
-confrontando due immagini della pagina (fumetto nascosto e fumetto aperto). Segnala quelli che escono dal bordo,
-quelli tagliati e quelli che allargano la pagina.
+Dalla 0.2.26 ogni descrizione compare passando sul nome, in un'unica nuvoletta che il programma mette vicino al
+nome. Le «i» restano nella pagina senza ingombro, per la tastiera: `fumetti.py` le mette a fuoco una per una e
+misura dove finisce la nuvoletta, confrontando due immagini della pagina (prima e con la nuvoletta aperta). Segnala
+quelle che non compaiono, quelle con un testo diverso da quello della «i», quelle che escono dalla finestra e
+quelle che allargano la pagina.
 
     python3 prove/fumetti.py                                   larghezze abituali (da 320 a 1400 px)
     python3 prove/fumetti.py --largh 390                       solo una larghezza
@@ -70,10 +71,10 @@ quelli tagliati e quelli che allargano la pagina.
     python3 prove/fumetti.py --salva /tmp/fumetti              salva l'immagine di quelli che non vanno
 
 Servono Python con Playwright, Chromium e Pillow. Con un caso ricco di righe (trasformatori, cavi, motori) i
-fumetti controllati sono circa 150; senza, una decina in meno. Il comando termina con 1 se almeno uno non va.
+nuvolette controllate sono circa 150; senza, una decina in meno. Il comando termina con 1 se almeno una non va.
 
 Va eseguito dopo le modifiche all'aspetto della pagina: `prova.py` non se ne accorge, perché confronta i risultati
-e non la posizione dei fumetti.
+e non la posizione delle nuvolette.
 
 ## Quando cambia qualcosa
 

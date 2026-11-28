@@ -1,13 +1,13 @@
 {
  "Calcoli_elettrici.html": {
-  "versione": "0.2.25",
-  "data": "27/11/2026",
-  "novita": "Revisione generale. Importazione REF615: una 67N con «Enable voltage limit» disattivato importa come U0 la tensione minima di polarizzazione; le soglie di terra che lavorano sulla I0 calcolata sono riportate al primario del TO; le 67 all'indietro usano gli angoli «reverse»; il «Minimum operate time» salvato nel progetto diventa il tempo minimo delle curve; nuovi avvisi per i relè che non sono della serie 615, per i blocchi di parametri non letti e per le impostazioni cambiate che il programma non interpreta. Testi: la scheda si chiama «Linee e cavi» ovunque, tra le formule ci sono portata, sovraccarico e caduta di tensione, la nota della sezione minima rimanda a «Linea protetta». Telefono: titoli, pulsanti di esportazione, nomi dei dispositivi e tabelle restano dentro le schede."
+  "versione": "0.2.26",
+  "data": "28/11/2026",
+  "novita": "Nuova interfaccia. In alto la barra degli strumenti (Apri, Salva, PDF, Excel, Descrizioni, Aggiornamenti) e le schede dei moduli, uno alla volta; «Tutti i moduli» riporta la pagina lunga. A sinistra lo schema dell'impianto: «+ Aggiungi» per trasformatori, linee, interruttori, fusibili e motori; un clic su un oggetto apre la sua finestra con i soli suoi dati; cavi, trasformatore, dispositivi e motori si spostano trascinandoli o con le frecce della finestra; dopo ogni cavo e trasformatore il punto di guasto con la sua corrente, dopo ogni interruttore o fusibile il picco che lascia passare; trasformatori in parallelo affiancati. Tutti i cavi si scrivono in «Linee e cavi», ognuno con la sua Posizione. Nomi dei campi più chiari e una descrizione per ogni campo, titolo, pulsante, scheda e voce di menù al passaggio del mouse, sempre nella stessa nuvoletta; le spiegazioni estese si mostrano e si nascondono con «Descrizioni». Calcolo e file salvati non cambiano."
  },
  "Gestione_curve.html": {
-  "versione": "0.2.9",
-  "data": "22/11/2026",
-  "novita": "Torna l'icona semplice: la linea spezzata bianca su fondo pieno."
+  "versione": "0.2.10",
+  "data": "28/11/2026",
+  "novita": "Testi allineati alla nuova interfaccia di «Calcoli elettrici»: i pulsanti si chiamano «Salva» e «Apri»."
  },
  "Manutenzione.html": {
   "versione": "0.1.5",

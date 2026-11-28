@@ -4800,7 +4800,7 @@
 },
 "esportazioni": {
 "excel": "d8caf556",
-"pdf": "b909065f",
+"pdf": "fb541232",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -4958,15 +4958,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 564d4449 scritte 7745ee03",
-"co_chartL linee aee4ae03 scritte 37793704",
-"co_chartE linee dd756c99 scritte d3ef9d94"
+"co_chartL linee 059fc258 scritte 37793704",
+"co_chartE linee 488d722f scritte d3ef9d94"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "2e62ef4e"
+"pdf": "8388b5bd"
 },
 "note": [],
 "riquadri": [
@@ -5206,7 +5206,7 @@
 },
 "esportazioni": {
 "excel": "347991e0",
-"pdf": "4f4980b7",
+"pdf": "dd19025f",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -5494,15 +5494,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 27a034f0 scritte 86e0dcfd",
-"co_chartL linee e4c1e91b scritte 00fe74b3",
-"co_chartE linee 5cd4c3d9 scritte dca6fa30"
+"co_chartL linee 0c88a918 scritte 1f38ed3e",
+"co_chartE linee cd71874c scritte dca6fa30"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · FAZ-C32/3 (32 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "289c8a82"
+"pdf": "fc6bc4ba"
 },
 "note": [],
 "riquadri": [
@@ -5872,7 +5872,7 @@
 },
 "esportazioni": {
 "excel": "5fcf17b0",
-"pdf": "dd21bb9e",
+"pdf": "79cd1c7f",
 "righe": 164
 },
 "excel_ricalcolato": {
@@ -6030,15 +6030,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 71355c92 scritte 7ab661d5",
-"co_chartL linee 43b4b69f scritte 05c7caf3",
-"co_chartE linee bec27191 scritte afcf8722"
+"co_chartL linee 553d1168 scritte 05c7caf3",
+"co_chartE linee 5b8846dc scritte afcf8722"
 ],
 "legende": [
 "interruttore A · PLSM-C16/1N-IN (16 A) · banda min–maxfusibile A · 160NHG01B (160 A gG) riportato a 230 VI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "8187d080"
+"pdf": "b55c928f"
 },
 "note": [],
 "riquadri": [
@@ -6278,7 +6278,7 @@
 },
 "esportazioni": {
 "excel": "68f26483",
-"pdf": "e9857058",
+"pdf": "2fa5dc89",
 "righe": 85
 },
 "excel_ricalcolato": {
@@ -6452,15 +6452,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee bdec5569 scritte b32248c5",
-"co_chartL linee 59fa202b scritte 959755a0",
-"co_chartE linee d96c1c64 scritte d43831f1"
+"co_chartL linee 49daf4c4 scritte 959755a0",
+"co_chartE linee d9477a1b scritte d43831f1"
 ],
 "legende": [
 "interruttore A · NZMN4-AX1000 (1000 A · Ir 900 A · tr 10 s · Ii 12,00 kA) · banda LSI calcolatafusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimaTrasf. 1: In 909 A al secondario, tenuta 22,73 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
 ]
 },
 "esportazioni": {
-"pdf": "b4a3d4f7"
+"pdf": "dd5cdb9c"
 },
 "note": [],
 "riquadri": [
@@ -6707,7 +6707,7 @@
 },
 "esportazioni": {
 "excel": "88d789da",
-"pdf": "f2dcc540",
+"pdf": "6dd3b8b5",
 "righe": 92
 },
 "excel_ricalcolato": {
@@ -6905,14 +6905,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 7286b2e2 scritte 86c7b5c3"
+"cc_wave linee ba6eee77 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "50e80217",
 "excel · foglio Punti": "ceba5876",
-"pdf": "65c8f151",
+"pdf": "a94480ee",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -7232,15 +7232,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee aef06cc3 scritte f7735bb0",
-"co_chartL linee 59fa202b scritte 959755a0",
-"co_chartE linee a8d14da6 scritte 76474d35"
+"co_chartL linee 49daf4c4 scritte 959755a0",
+"co_chartE linee c0530336 scritte 76474d35"
 ],
 "legende": [
 "interruttore A · IZMX16B3-V16F-1 (1600 A · Ir 1600 A · tr 24 s · Isd 16,00 kA · tsd 500 ms · Ii 24,00 kA) · banda LSI calcolatafusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimainserzione trasformatoreTrasf. 1: In 1,44 kA al secondario, tenuta 24,06 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
 ]
 },
 "esportazioni": {
-"pdf": "54ca366b"
+"pdf": "a932bfba"
 },
 "note": [],
 "riquadri": [
@@ -7511,7 +7511,7 @@
 },
 "esportazioni": {
 "excel": "b1ccc2d3",
-"pdf": "456e7a63",
+"pdf": "26b90ba0",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -7669,15 +7669,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 1e6a6232 scritte 38104356",
-"co_chartL linee 61287b8f scritte 0b5f4320",
-"co_chartE linee a03d5848 scritte 0df935d8"
+"co_chartL linee 4ae171a1 scritte 0b5f4320",
+"co_chartE linee fd9b7fd2 scritte 0df935d8"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 250NHG02B (250 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "fb2966b8"
+"pdf": "a8aae29d"
 },
 "note": [],
 "riquadri": [
@@ -8027,7 +8027,7 @@
 },
 "esportazioni": {
 "excel": "ad7da2d9",
-"pdf": "8d2ecd8b",
+"pdf": "ba6522c0",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -8185,15 +8185,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee befa245d scritte 3ae10d4c",
-"co_chartL linee e0f2db59 scritte 7068f32e",
-"co_chartE linee 095a10eb scritte a5ae2cde"
+"co_chartL linee f76983e5 scritte 7068f32e",
+"co_chartE linee 90efedab scritte a5ae2cde"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 17,5kV 1901040 (40 A back‑up)I″k massimaI″k minimacorrente minima di interruzione 140 A"
 ]
 },
 "esportazioni": {
-"pdf": "ffc1ff6e"
+"pdf": "4d20ba59"
 },
 "note": [],
 "riquadri": [
@@ -8537,7 +8537,7 @@
 },
 "esportazioni": {
 "excel": "9d21850a",
-"pdf": "1051da81",
+"pdf": "ea40c690",
 "righe": 161
 },
 "excel_ricalcolato": {
@@ -8688,14 +8688,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 69a0ab20 scritte dc3218a1"
+"cc_wave linee 7a8a171d scritte dc3218a1"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "b935e74c",
 "excel · foglio Punti": "21d6afd6",
-"pdf": "fe2c4d5c",
+"pdf": "98e8c4f1",
 "righe": 114
 },
 "excel_ricalcolato": {
@@ -9027,15 +9027,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 3c6894d1 scritte d15e3ac0",
-"co_chartL linee 59fa202b scritte 959755a0",
-"co_chartE linee 60dd5c42 scritte cf85ca5f"
+"co_chartL linee 49daf4c4 scritte 959755a0",
+"co_chartE linee b81258d6 scritte cf85ca5f"
 ],
 "legende": [
 "interruttore A · PKZM0-20 (20 A, Ir 20 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimaavviamento motore"
 ]
 },
 "esportazioni": {
-"pdf": "9f843c09"
+"pdf": "df56a4c2"
 },
 "note": [],
 "riquadri": [
@@ -9271,7 +9271,7 @@
 },
 "esportazioni": {
 "excel": "72f6f4e2",
-"pdf": "3dda3c88",
+"pdf": "2161da9f",
 "righe": 128
 },
 "excel_ricalcolato": {
@@ -9446,14 +9446,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 140d03f4 scritte 3d78bf71"
+"cc_wave linee f6b47ed5 scritte 3d78bf71"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "56c519d3",
 "excel · foglio Punti": "ac4aadf1",
-"pdf": "29ba8930",
+"pdf": "5c05a677",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -9773,15 +9773,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee b2ecf16e scritte a56055f3",
-"co_chartL linee c7e2e1a4 scritte d57224b4",
-"co_chartE linee 4ef62453 scritte 4306ed85"
+"co_chartL linee acfd404b scritte d57224b4",
+"co_chartE linee 8c5d675b scritte 4306ed85"
 ],
 "legende": [
 "interruttore A · NZMN3-AE630 (630 A, Ir 630 A, Ii 5040 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimainserzione trasformatoreTrasf. 1: In 577 A al secondario, tenuta 9,62 kA per 2 s"
 ]
 },
 "esportazioni": {
-"pdf": "7d9e5d67"
+"pdf": "036b357a"
 },
 "note": [],
 "riquadri": [
@@ -10032,7 +10032,7 @@
 },
 "esportazioni": {
 "excel": "63bfb84e",
-"pdf": "777234aa",
+"pdf": "f67cab11",
 "righe": 130
 },
 "excel_ricalcolato": {
@@ -10190,15 +10190,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 032df69e scritte 53613fbb",
-"co_chartL linee 43e7e80f scritte c2d9cc5c",
-"co_chartE linee 519d0344 scritte fd4b9a97"
+"co_chartL linee fd7cef03 scritte c2d9cc5c",
+"co_chartE linee 4a2445e0 scritte fd4b9a97"
 ],
 "legende": [
 "interruttore A · NZMH2-4-A80-SVE (80 A, Ir 80 A, Ii 800 A) · banda min–maxfusibile A · 160NHG01B (160 A gG) riportato a 690 VI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "1a90b519"
+"pdf": "f3ad38c8"
 },
 "note": [],
 "riquadri": [
@@ -10438,7 +10438,7 @@
 },
 "esportazioni": {
 "excel": "a00c9e07",
-"pdf": "4c288cc0",
+"pdf": "6ae78e40",
 "righe": 137
 },
 "excel_ricalcolato": {
@@ -10747,15 +10747,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 1ef4e274 scritte e6f10fac",
-"co_chartL linee 3fe36e61 scritte 7c316a1f",
-"co_chartE linee 8866d6bd scritte 17e894d1"
+"co_chartL linee 7d204e79 scritte 7c316a1f",
+"co_chartE linee 4031ddcf scritte 17e894d1"
 ],
 "legende": [
 "interruttore A · XT4H 250 TMA 225 (225 A, Ir 225 A, Ii 2250 A) · banda min–maxinterruttore B · XT2N 160 Ekip Dip LSI 10 (10 A · Ir 10 A · tr 60 s · Isd 100 A · tsd 400 ms · Ii 100 A) · banda LSI calcolatafusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "69284837"
+"pdf": "04134ed7"
 },
 "note": [],
 "riquadri": [
@@ -11146,7 +11146,7 @@
 },
 "esportazioni": {
 "excel": "a5c6f23d",
-"pdf": "d8c3a161",
+"pdf": "5ffd933f",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -11410,15 +11410,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 4d03ace2 scritte 489a547b",
-"co_chartL linee 6d6d7920 scritte 138e2aa8",
-"co_chartE linee fe8814ef scritte f468796c"
+"co_chartL linee ba2c4f26 scritte 138e2aa8",
+"co_chartE linee 9f0ae94e scritte d2a32836"
 ],
 "legende": [
 "interruttore A · NZMC2-S125 (125 A, Ii 1750 A) · curva massimainterruttore B · CL-PKZ0 + FAZ-C3,5/1 (3,5 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimaTrasf. 1: In 909 A al secondario, tenuta 22,73 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
 ]
 },
 "esportazioni": {
-"pdf": "e5d63ab4"
+"pdf": "861783ce"
 },
 "note": [],
 "riquadri": [
@@ -11754,7 +11754,7 @@
 },
 "esportazioni": {
 "excel": "d0457579",
-"pdf": "e4afac73",
+"pdf": "7d71d592",
 "righe": 132
 },
 "excel_ricalcolato": {
@@ -11916,14 +11916,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 711ef894 scritte 887920f5"
+"cc_wave linee 91127f6a scritte 887920f5"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "daf0c8c5",
 "excel · foglio Punti": "4f29891d",
-"pdf": "cd2e855c",
+"pdf": "95b6cfb9",
 "righe": 114
 },
 "excel_ricalcolato": {
@@ -12255,15 +12255,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 28acebfe scritte 70a1fed4",
-"co_chartL linee edb833f6 scritte e4de0b98",
-"co_chartE linee 96acfe1d scritte 340f763c"
+"co_chartL linee ed136ed2 scritte e4de0b98",
+"co_chartE linee bc531238 scritte 340f763c"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimaavviamento motore (riportato a 15.000 V)"
 ]
 },
 "esportazioni": {
-"pdf": "5f68898c"
+"pdf": "7c42dd31"
 },
 "note": [],
 "riquadri": [
@@ -12625,7 +12625,7 @@
 },
 "esportazioni": {
 "excel": "68d52f58",
-"pdf": "46419879",
+"pdf": "d5e043e0",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -12782,14 +12782,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "eeba203a",
 "excel · foglio Punti": "48cb1723",
-"pdf": "7134ad3a",
+"pdf": "be54c1db",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -13109,15 +13109,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 564d4449 scritte bed7490e",
-"co_chartL linee aee4ae03 scritte 37793704",
-"co_chartE linee dd756c99 scritte e7ea0d57"
+"co_chartL linee 059fc258 scritte 37793704",
+"co_chartE linee 488d722f scritte e7ea0d57"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "f349b838"
+"pdf": "0c49fda3"
 },
 "note": [],
 "riquadri": [
@@ -14081,14 +14081,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee a1276944 scritte 86c7b5c3"
+"cc_wave linee 0a24c9df scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "0e3482b9",
 "excel · foglio Punti": "48cb1723",
-"pdf": "086508ad",
+"pdf": "c7cc6e86",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -14415,14 +14415,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 0d6f5c19 scritte 86c7b5c3"
+"cc_wave linee 2aa3460a scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "dbab0f14",
 "excel · foglio Punti": "ddcfe507",
-"pdf": "2b8aad99",
+"pdf": "d751f4ea",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -14749,14 +14749,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f67084bf scritte 2f515afb"
+"cc_wave linee 883f8fb8 scritte 2f515afb"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "aeed78bd",
 "excel · foglio Punti": "ae62b07d",
-"pdf": "0327b7da",
+"pdf": "18d98835",
 "righe": 106
 },
 "excel_ricalcolato": {
@@ -15214,14 +15214,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 7a3ad433 scritte 5c4c0aaa"
+"cc_wave linee 2bd090ee scritte 5c4c0aaa"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "8908ac6b",
 "excel · foglio Punti": "8974c1d9",
-"pdf": "856b9213",
+"pdf": "1bc55284",
 "righe": 106
 },
 "excel_ricalcolato": {
@@ -15679,14 +15679,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 21ef9c87 scritte de6672bc"
+"cc_wave linee ab791efe scritte de6672bc"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "43bc615c",
 "excel · foglio Punti": "0a59723e",
-"pdf": "233cdfd5",
+"pdf": "bd661686",
 "righe": 119
 },
 "excel_ricalcolato": {
@@ -16212,14 +16212,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "d4eabf62",
 "excel · foglio Punti": "59b210ae",
-"pdf": "c3d73212",
+"pdf": "35d1a92d",
 "righe": 75
 },
 "excel_ricalcolato": {
@@ -16530,14 +16530,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee df34de96 scritte 86c7b5c3"
+"cc_wave linee 812aa925 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "249d423e",
 "excel · foglio Punti": "226fc0ef",
-"pdf": "87fbadcc",
+"pdf": "3fc66632",
 "righe": 100
 },
 "excel_ricalcolato": {
@@ -16997,14 +16997,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee cf31bbca scritte 86c7b5c3"
+"cc_wave linee 018fb4eb scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "583b1325",
 "excel · foglio Punti": "c904103e",
-"pdf": "3dc36846",
+"pdf": "41b87b2f",
 "righe": 90
 },
 "excel_ricalcolato": {
@@ -17597,14 +17597,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee c206e098 scritte abde4075"
+"cc_wave linee 7aa21bfb scritte abde4075"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "62a88b90",
 "excel · foglio Punti": "b2fd1091",
-"pdf": "bb379307",
+"pdf": "23f4d8ec",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -18233,14 +18233,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 790dc192 scritte 496043c6"
+"cc_wave linee fa16945b scritte 496043c6"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "b0fccdba",
 "excel · foglio Punti": "de90d004",
-"pdf": "a1f87879",
+"pdf": "c24474f8",
 "righe": 138
 },
 "excel_ricalcolato": {
@@ -18593,14 +18593,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 47080054 scritte 5f546efe"
+"cc_wave linee ae7eb8d7 scritte 5f546efe"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "c47096c7",
 "excel · foglio Punti": "d8bcf071",
-"pdf": "98675e4b",
+"pdf": "ce7a21d0",
 "righe": 97
 },
 "excel_ricalcolato": {
@@ -19078,14 +19078,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 1be38396 scritte 5f546efe"
+"cc_wave linee 38c9e67d scritte 5f546efe"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "d2c35905",
 "excel · foglio Punti": "5a4e4465",
-"pdf": "04d0ceea",
+"pdf": "ebb89fa7",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -19700,14 +19700,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 32c57399 scritte 2e06a6d3"
+"cc_wave linee f14c90c6 scritte 2e06a6d3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "27e1bfb0",
 "excel · foglio Punti": "48cb1723",
-"pdf": "0ed22916",
+"pdf": "7e5cc2ab",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -20034,14 +20034,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "837699b4",
 "excel · foglio Punti": "48cb1723",
-"pdf": "5e008f34",
+"pdf": "1dd935ad",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -20368,14 +20368,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 548536be scritte 5f546efe"
+"cc_wave linee 1adc01ff scritte 5f546efe"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "76012251",
 "excel · foglio Punti": "60890682",
-"pdf": "373bd281",
+"pdf": "d00fc1e3",
 "righe": 61
 },
 "excel_ricalcolato": {
@@ -20672,14 +20672,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 503946df scritte 2b7af0a1"
+"cc_wave linee 29c2ea6f scritte 2b7af0a1"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "0f385bcf",
 "excel · foglio Punti": "0e3392f0",
-"pdf": "90b75537",
+"pdf": "3d76814e",
 "righe": 52
 },
 "excel_ricalcolato": {
@@ -20853,14 +20853,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 9f4dec7d scritte 0aeb3ac8"
+"cc_wave linee 8b644a06 scritte 0aeb3ac8"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "b475c6e1",
 "excel · foglio Punti": "4735a387",
-"pdf": "e89fb97c",
+"pdf": "5b4ec546",
 "righe": 43
 },
 "excel_ricalcolato": {
@@ -21148,14 +21148,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 7ce12639 scritte 013ae234"
+"cc_wave linee 4aff1c8a scritte 013ae234"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "1ed0c141",
 "excel · foglio Punti": "c069877b",
-"pdf": "51e4cfe4",
+"pdf": "3da21e65",
 "righe": 61
 },
 "excel_ricalcolato": {
@@ -21452,14 +21452,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 40866bc3 scritte 23a22fb5"
+"cc_wave linee 33a97c60 scritte 23a22fb5"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "e17422a1",
 "excel · foglio Punti": "f171a5ef",
-"pdf": "db5d7e9a",
+"pdf": "3883e243",
 "righe": 79
 },
 "excel_ricalcolato": {
@@ -21768,14 +21768,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "c306f2ed",
 "excel · foglio Punti": "45a7ad86",
-"pdf": "4bcc956a",
+"pdf": "492a360b",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -22102,14 +22102,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 587b14d1 scritte 284c2d7f"
+"cc_wave linee 8b480be2 scritte 284c2d7f"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "4d08147a",
 "excel · foglio Punti": "ac02cefe",
-"pdf": "79a2aa9d",
+"pdf": "acba2bda",
 "righe": 77
 },
 "excel_ricalcolato": {
@@ -22413,14 +22413,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 806a56c6 scritte c1d06600"
+"cc_wave linee 968fa359 scritte c1d06600"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "f48f004b",
 "excel · foglio Punti": "ae5fe256",
-"pdf": "fb372b3e",
+"pdf": "d11804f5",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -22747,14 +22747,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 23122d82 scritte cfd8940a"
+"cc_wave linee 2b7985a4 scritte cfd8940a"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "b3a935f9",
 "excel · foglio Punti": "90420688",
-"pdf": "0ca22acf",
+"pdf": "eedb3030",
 "righe": 126
 },
 "excel_ricalcolato": {
@@ -23100,14 +23100,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 5d63d590 scritte 86c7b5c3"
+"cc_wave linee ac1696a3 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "06ca34ae",
 "excel · foglio Punti": "c4840d52",
-"pdf": "1d6d05b1",
+"pdf": "5310bbf9",
 "righe": 77
 },
 "excel_ricalcolato": {
@@ -23315,7 +23315,7 @@
 },
 "esportazioni": {
 "excel": "769e2f77",
-"pdf": "39928f0f",
+"pdf": "654c5fa8",
 "righe": 70
 },
 "excel_ricalcolato": {
@@ -23481,14 +23481,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee e3b7cc17 scritte 3923a94c"
+"cc_wave linee 2a91a4c2 scritte 3923a94c"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "1f8d9cc3",
 "excel · foglio Punti": "bdc4a7a0",
-"pdf": "a1472bb9",
+"pdf": "2f6be9ea",
 "righe": 171
 },
 "excel_ricalcolato": {
@@ -24663,15 +24663,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 3d3b1f66 scritte c4e9af27",
-"co_chartL linee 59fa202b scritte 18b1dea7",
-"co_chartE linee a44f8289 scritte 6065cbe7"
+"co_chartL linee 49daf4c4 scritte 18b1dea7",
+"co_chartE linee 02d76765 scritte 6065cbe7"
 ],
 "legende": [
 "interruttore A · NZMN4-AX1600 (1600 A · Ir 1440 A · tr 10 s · Ii 19,20 kA) · banda LSI calcolatafusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimaavviamento motore"
 ]
 },
 "esportazioni": {
-"pdf": "f8a83dc3"
+"pdf": "10d2945a"
 },
 "note": [],
 "riquadri": [
@@ -25567,14 +25567,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 73be26c5 scritte 016b15d8"
+"cc_wave linee d3629ad4 scritte 016b15d8"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "378fe8bc",
 "excel · foglio Punti": "bd36f1cd",
-"pdf": "7feb180b",
+"pdf": "62b67b2b",
 "righe": 152
 },
 "excel_ricalcolato": {
@@ -26698,14 +26698,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 1392b2cb scritte f588c6bd"
+"cc_wave linee 07901494 scritte f588c6bd"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "a669fa5a",
 "excel · foglio Punti": "3d0724f5",
-"pdf": "a83bcb6e",
+"pdf": "5e7c3706",
 "righe": 130
 },
 "excel_ricalcolato": {
@@ -27679,14 +27679,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 84fe4a08 scritte 391b9aec"
+"cc_wave linee b8cec389 scritte 391b9aec"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "8fa366b0",
 "excel · foglio Punti": "a748f132",
-"pdf": "2de79816",
+"pdf": "e8a2eb0d",
 "righe": 93
 },
 "excel_ricalcolato": {
@@ -28265,14 +28265,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee c64a87cf scritte 505d02d2"
+"cc_wave linee fe40eae8 scritte 505d02d2"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "e9c88a65",
 "excel · foglio Punti": "b65f5657",
-"pdf": "fac57e69",
+"pdf": "45187045",
 "righe": 57
 },
 "excel_ricalcolato": {
@@ -28822,14 +28822,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 552945d0 scritte 30f01c81"
+"cc_wave linee b2159d3b scritte 30f01c81"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "8875e013",
 "excel · foglio Punti": "4d29caf7",
-"pdf": "9e9f3a0b",
+"pdf": "30eb5388",
 "righe": 111
 },
 "excel_ricalcolato": {
@@ -29611,14 +29611,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee a6d5b6f3 scritte 35db4ebe"
+"cc_wave linee 9fdfdcd2 scritte 35db4ebe"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "4cfff057",
 "excel · foglio Punti": "38cac6db",
-"pdf": "091cd3e2",
+"pdf": "31dcad2f",
 "righe": 151
 },
 "excel_ricalcolato": {
@@ -30715,14 +30715,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 9cc87b04 scritte baff666e"
+"cc_wave linee 45065969 scritte baff666e"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "02b93567",
 "excel · foglio Punti": "c9f8592c",
-"pdf": "ff61d672",
+"pdf": "5daa30e6",
 "righe": 119
 },
 "excel_ricalcolato": {
@@ -31604,14 +31604,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 979c6f90 scritte 77341ce8"
+"cc_wave linee ccef93e0 scritte 77341ce8"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "5bf507f6",
 "excel · foglio Punti": "8a651dfd",
-"pdf": "90b0514a",
+"pdf": "0bd8db5c",
 "righe": 151
 },
 "excel_ricalcolato": {
@@ -32201,14 +32201,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 60144c59 scritte 35db4ebe"
+"cc_wave linee 96731e14 scritte 35db4ebe"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "f0a9ec85",
 "excel · foglio Punti": "7a03e4ee",
-"pdf": "f76f9b03",
+"pdf": "7438753f",
 "righe": 151
 },
 "excel_ricalcolato": {
@@ -33305,14 +33305,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 4e7f6266 scritte f588c6bd"
+"cc_wave linee dae89b01 scritte f588c6bd"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "278fc920",
 "excel · foglio Punti": "526ab38e",
-"pdf": "3544fcd2",
+"pdf": "593226c9",
 "righe": 97
 },
 "excel_ricalcolato": {
@@ -33790,14 +33790,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f70f7ea3 scritte 23a22fb5"
+"cc_wave linee e8db6090 scritte 23a22fb5"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "dfbd31de",
 "excel · foglio Punti": "5d026a44",
-"pdf": "4ba61299",
+"pdf": "b0630614",
 "righe": 106
 },
 "excel_ricalcolato": {
@@ -34418,14 +34418,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee faf00c0d scritte 768b0358"
+"cc_wave linee 38f99d05 scritte 768b0358"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "54638749",
 "excel · foglio Punti": "b2332eb8",
-"pdf": "1c24a148",
+"pdf": "e80ee730",
 "righe": 97
 },
 "excel_ricalcolato": {
@@ -34982,14 +34982,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 81002445 scritte babbc410"
+"cc_wave linee 2ebd8236 scritte babbc410"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "553801ba",
 "excel · foglio Punti": "7ca0c8d5",
-"pdf": "886bb582",
+"pdf": "9b8c0239",
 "righe": 106
 },
 "excel_ricalcolato": {
@@ -35447,14 +35447,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee ee0c3dcf scritte 83561977"
+"cc_wave linee 5de3cadc scritte 83561977"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "c0f606bc",
 "excel · foglio Punti": "c09d3543",
-"pdf": "3054af28",
+"pdf": "e1d762de",
 "righe": 157
 },
 "excel_ricalcolato": {
@@ -36359,14 +36359,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee cd1fd8ea scritte 44bd90cc"
+"cc_wave linee 668f194f scritte 44bd90cc"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "15158fe9",
 "excel · foglio Punti": "6178c6e4",
-"pdf": "0f9ac745",
+"pdf": "82fb05cf",
 "righe": 117
 },
 "excel_ricalcolato": {
@@ -37097,14 +37097,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 8ef2f1a5 scritte e2d67d65"
+"cc_wave linee c5bf9f5a scritte e2d67d65"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "8b5686fa",
 "excel · foglio Punti": "6684603a",
-"pdf": "5ade2e0c",
+"pdf": "2711aeba",
 "righe": 87
 },
 "excel_ricalcolato": {
@@ -37835,14 +37835,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee d1e5a850 scritte 6c744de2"
+"cc_wave linee 5996c62b scritte 6c744de2"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "f95dfc72",
 "excel · foglio Punti": "6a6a9667",
-"pdf": "455010f4",
+"pdf": "e04612d2",
 "righe": 100
 },
 "excel_ricalcolato": {
@@ -38613,14 +38613,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee ffae0bb9 scritte babbc410"
+"cc_wave linee c7094942 scritte babbc410"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "d9d5a547",
 "excel · foglio Punti": "6bdada5d",
-"pdf": "68c14639",
+"pdf": "a589587c",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -38941,15 +38941,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 2ae75b58 scritte bed7490e",
-"co_chartL linee aee4ae03 scritte 4fc08848",
-"co_chartE linee dd756c99 scritte 8b516b04"
+"co_chartL linee 059fc258 scritte 4fc08848",
+"co_chartE linee 488d722f scritte 8b516b04"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minimainserzione trasformatore"
 ]
 },
 "esportazioni": {
-"pdf": "1bdc6b7d"
+"pdf": "454c7cf8"
 },
 "note": [],
 "riquadri": [
@@ -39509,14 +39509,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f7600f59 scritte dac6b968"
+"cc_wave linee 60e8daf9 scritte dac6b968"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "cfb68bec",
 "excel · foglio Punti": "30288d88",
-"pdf": "2cf9ae98",
+"pdf": "7b332240",
 "righe": 142
 },
 "excel_ricalcolato": {
@@ -40302,14 +40302,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "eeba203a",
 "excel · foglio Punti": "48cb1723",
-"pdf": "7134ad3a",
+"pdf": "be54c1db",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -40629,15 +40629,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 564d4449 scritte bed7490e",
-"co_chartL linee aee4ae03 scritte 13b4a4f0",
-"co_chartE linee dd756c99 scritte cc4a34ec"
+"co_chartL linee 059fc258 scritte 13b4a4f0",
+"co_chartE linee 488d722f scritte cc4a34ec"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "cc81e449"
+"pdf": "7aef6380"
 },
 "note": [],
 "riquadri": [
@@ -40873,14 +40873,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "eeba203a",
 "excel · foglio Punti": "48cb1723",
-"pdf": "7134ad3a",
+"pdf": "be54c1db",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -41200,15 +41200,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 4cc92731 scritte efc4b582",
-"co_chartL linee 914e7731 scritte 3ac5d125",
-"co_chartE linee 0e87c0d5 scritte 41cedbd3"
+"co_chartL linee be889d2b scritte 3ac5d125",
+"co_chartE linee 9d81dbbb scritte 41cedbd3"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 Ainserzione trasformatore"
 ]
 },
 "esportazioni": {
-"pdf": "fd932e8f"
+"pdf": "859b8d80"
 },
 "note": [],
 "riquadri": [
@@ -41449,15 +41449,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 3a8d7c95 scritte a254e1c7",
-"co_chartL linee 7b185de2 scritte 2472cd1d",
-"co_chartE linee 96989532 scritte cc6f6216"
+"co_chartL linee ae2f87e6 scritte 2472cd1d",
+"co_chartE linee f843e4dc scritte cc6f6216"
 ],
 "legende": [
 "fusibile A · 160NHG01B (160 A gG)fusibile B · 250NHG1B (250 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "d481aa65"
+"pdf": "2f8577e2"
 },
 "note": [],
 "riquadri": [
@@ -41650,14 +41650,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 8278dfb8 scritte f588c6bd"
+"cc_wave linee ebed500f scritte f588c6bd"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "54275d5c",
 "excel · foglio Punti": "44d56bfb",
-"pdf": "2bdf7fd6",
+"pdf": "b61d4309",
 "righe": 86
 },
 "excel_ricalcolato": {
@@ -42114,15 +42114,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee d3a24301 scritte b7da7239",
-"co_chartL linee 422ac335 scritte 75922568",
-"co_chartE linee 06ed16fb scritte c73e2e42"
+"co_chartL linee 8db017af scritte 75922568",
+"co_chartE linee b73daaa0 scritte c73e2e42"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxinterruttore C · FAZ-C32/3 (32 A) · banda min–maxI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "73539af9"
+"pdf": "ddab3ada"
 },
 "note": [],
 "riquadri": [
@@ -43058,14 +43058,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "eeba203a",
 "excel · foglio Punti": "48cb1723",
-"pdf": "7134ad3a",
+"pdf": "be54c1db",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -43763,14 +43763,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 52d682bd scritte cffec398"
+"cc_wave linee 33be28f5 scritte cffec398"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "b975fb68",
 "excel · foglio Punti": "5fef0ed8",
-"pdf": "4e449db8",
+"pdf": "4b4539af",
 "righe": 106
 },
 "excel_ricalcolato": {
@@ -44384,15 +44384,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 198c77c4 scritte 855b2c5a",
-"co_chartL linee d3ae25bc scritte 6fc41e02",
-"co_chartE linee 498f0a90 scritte 8e0fae86"
+"co_chartL linee bd77b303 scritte 6fc41e02",
+"co_chartE linee be3af1fe scritte 8e0fae86"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · FAZ-C32/3 (32 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 Aavviamento motoreinserzione trasformatoreTrasf. 1: In 909 A al secondario, tenuta 22,73 kA per 2 s e sovraccarico ammesso (ANSI C57.92)"
 ]
 },
 "esportazioni": {
-"pdf": "65fa6004"
+"pdf": "cf9a5cb4"
 },
 "note": [],
 "riquadri": [
@@ -44818,14 +44818,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 06d59638 scritte 86c7b5c3"
+"cc_wave linee 988d7bc1 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "a13ee604",
 "excel · foglio Punti": "e7d71894",
-"pdf": "433f3776",
+"pdf": "6480c4e8",
 "righe": 76
 },
 "excel_ricalcolato": {
@@ -45271,15 +45271,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 538a6bf6 scritte efc4b582",
-"co_chartL linee 914e7731 scritte 9281d5a3",
-"co_chartE linee 0e87c0d5 scritte 78b78dfa"
+"co_chartL linee be889d2b scritte 9281d5a3",
+"co_chartE linee 9d81dbbb scritte 78b78dfa"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 A"
 ]
 },
 "esportazioni": {
-"pdf": "f3917d54"
+"pdf": "8520b301"
 },
 "note": [],
 "riquadri": [
@@ -45862,14 +45862,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 06d59638 scritte 86c7b5c3"
+"cc_wave linee 988d7bc1 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "8fcb74f2",
 "excel · foglio Punti": "dad95178",
-"pdf": "646b9828",
+"pdf": "e53ada16",
 "righe": 89
 },
 "excel_ricalcolato": {
@@ -46331,15 +46331,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 538a6bf6 scritte efc4b582",
-"co_chartL linee 914e7731 scritte 9281d5a3",
-"co_chartE linee 0e87c0d5 scritte 0b37850a"
+"co_chartL linee be889d2b scritte 9281d5a3",
+"co_chartE linee 9d81dbbb scritte 0b37850a"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 A"
 ]
 },
 "esportazioni": {
-"pdf": "1f09fe00"
+"pdf": "c206984f"
 },
 "note": [],
 "riquadri": [
@@ -46931,14 +46931,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 06d59638 scritte 86c7b5c3"
+"cc_wave linee 988d7bc1 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "d144c899",
 "excel · foglio Punti": "c6a6eaa8",
-"pdf": "4a4af4aa",
+"pdf": "8a7fd7fa",
 "righe": 89
 },
 "excel_ricalcolato": {
@@ -47400,15 +47400,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 538a6bf6 scritte efc4b582",
-"co_chartL linee 914e7731 scritte 9281d5a3",
-"co_chartE linee 0e87c0d5 scritte ddab013e"
+"co_chartL linee be889d2b scritte 9281d5a3",
+"co_chartE linee 9d81dbbb scritte ddab013e"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 A"
 ]
 },
 "esportazioni": {
-"pdf": "1ec2a4e3"
+"pdf": "4f838a7e"
 },
 "note": [],
 "riquadri": [
@@ -48009,14 +48009,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee cf1cc86b scritte 2f515afb"
+"cc_wave linee 3f66ea30 scritte 2f515afb"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "32b27633",
 "excel · foglio Punti": "9c64b6d9",
-"pdf": "6aa772c7",
+"pdf": "ac795aeb",
 "righe": 108
 },
 "excel_ricalcolato": {
@@ -48589,15 +48589,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee eafcc945 scritte 274fcad2",
-"co_chartL linee 2eb7bb8f scritte 855b869b",
-"co_chartE linee fc419478 scritte e10bc75b"
+"co_chartL linee e3b4066f scritte 855b869b",
+"co_chartE linee 19cca9d3 scritte e10bc75b"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxfusibile A · 160NHG01B (160 A gG) riportato a 400 VI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "1e060604"
+"pdf": "14261464"
 },
 "note": [],
 "riquadri": [
@@ -48993,14 +48993,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 42df9a29 scritte 3bd8799c"
+"cc_wave linee 8c19d096 scritte 3bd8799c"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "f322fa66",
 "excel · foglio Punti": "6599be0c",
-"pdf": "6aa90c2b",
+"pdf": "94d263e2",
 "righe": 122
 },
 "excel_ricalcolato": {
@@ -49702,15 +49702,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee eafcc945 scritte b9f27484",
-"co_chartL linee 2eb7bb8f scritte b006ad4a",
-"co_chartE linee fc419478 scritte 86d0644b"
+"co_chartL linee e3b4066f scritte b006ad4a",
+"co_chartE linee 19cca9d3 scritte 16634bbc"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxfusibile A · 160NHG01B (160 A gG) riportato a 400 VI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "f344dafc"
+"pdf": "98ef503c"
 },
 "note": [],
 "riquadri": [
@@ -50109,14 +50109,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee b19a4e6c scritte 3d78bf71"
+"cc_wave linee 0e7e782b scritte 3d78bf71"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "2ccb56aa",
 "excel · foglio Punti": "013657fc",
-"pdf": "abb7772c",
+"pdf": "1061ea66",
 "righe": 102
 },
 "excel_ricalcolato": {
@@ -51153,15 +51153,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee d245321d scritte f97e3d22",
-"co_chartL linee f557d879 scritte b4def2af",
-"co_chartE linee 345356e7 scritte d5cfcaf1"
+"co_chartL linee 1d493cdd scritte b4def2af",
+"co_chartE linee 48fbd688 scritte d5cfcaf1"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG) riportato a 400 VI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "b790927c"
+"pdf": "b317aa2d"
 },
 "note": [],
 "riquadri": [
@@ -51463,14 +51463,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 55527503 scritte 2f515afb"
+"cc_wave linee 2b8f4bd0 scritte 2f515afb"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "90074032",
 "excel · foglio Punti": "a4c9f1b6",
-"pdf": "838d313a",
+"pdf": "b1b150f5",
 "righe": 110
 },
 "excel_ricalcolato": {
@@ -52165,15 +52165,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 782dd2cc scritte 82597e64",
-"co_chartL linee 12554fd0 scritte 650797bd",
-"co_chartE linee 071801d2 scritte f168fed4"
+"co_chartL linee ca4df99b scritte 650797bd",
+"co_chartE linee afdd3aca scritte f168fed4"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up) riportato a 400 VI″k massimaI″k minimacorrente minima di interruzione 140 A"
 ]
 },
 "esportazioni": {
-"pdf": "6d434e14"
+"pdf": "2a4edc2e"
 },
 "note": [],
 "riquadri": [
@@ -52549,14 +52549,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 9d522b74 scritte abde4075"
+"cc_wave linee c2afc403 scritte abde4075"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "1417e4d1",
 "excel · foglio Punti": "b2fd1091",
-"pdf": "1bbb8bba",
+"pdf": "2b1de991",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -53178,15 +53178,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 27a034f0 scritte 6bb69bc4",
-"co_chartL linee e4c1e91b scritte 3b955aae",
-"co_chartE linee 7c784bf3 scritte 5c0ba2a6"
+"co_chartL linee 0c88a918 scritte 5ccf0f81",
+"co_chartE linee ddfae119 scritte 5c0ba2a6"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · FAZ-C32/3 (32 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "fc8d7169"
+"pdf": "7d0c1d2d"
 },
 "note": [],
 "riquadri": [
@@ -53622,14 +53622,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee d4c65524 scritte f588c6bd"
+"cc_wave linee 215759b5 scritte f588c6bd"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "3345dcce",
 "excel · foglio Punti": "8d14358c",
-"pdf": "a0615ed2",
+"pdf": "84b40879",
 "righe": 99
 },
 "excel_ricalcolato": {
@@ -54251,15 +54251,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 02458b17 scritte bc34befa",
-"co_chartL linee 7f8a38fa scritte bc926741",
-"co_chartE linee a0347d34 scritte f4018d50"
+"co_chartL linee 4be4afdf scritte bc926741",
+"co_chartE linee 55ea911b scritte f4018d50"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "7ddc77ab"
+"pdf": "54902e8f"
 },
 "note": [],
 "riquadri": [
@@ -54590,14 +54590,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f66870a2 scritte b0c0f5fd"
+"cc_wave linee 87fdfaa9 scritte b0c0f5fd"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "e096e75b",
 "excel · foglio Punti": "106efe87",
-"pdf": "c47d53ca",
+"pdf": "bfd133f3",
 "righe": 101
 },
 "excel_ricalcolato": {
@@ -55370,15 +55370,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee b3e85aee scritte 9320d8ba",
-"co_chartL linee 21ca5890 scritte b181ac3c",
-"co_chartE linee cd742e02 scritte 077c48ce"
+"co_chartL linee 136de35e scritte b181ac3c",
+"co_chartE linee b1545c34 scritte ec017bf9"
 ],
 "legende": [
 "interruttore A · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxinterruttore B · NZMN1-A100 (100 A, Ir 100 A, Ii 1000 A) · banda min–maxinterruttore C · FAZ-C32/3 (32 A) · banda min–maxI″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "15ddbe2d"
+"pdf": "f537d036"
 },
 "note": [],
 "riquadri": [
@@ -55855,15 +55855,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 564d4449 scritte 26cd581e",
-"co_chartL linee aee4ae03 scritte 37793704",
-"co_chartE linee dd756c99 scritte 09ff3fcc"
+"co_chartL linee 059fc258 scritte 37793704",
+"co_chartE linee 488d722f scritte 09ff3fcc"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "25c53a75"
+"pdf": "be98926a"
 },
 "note": [],
 "riquadri": [
@@ -56210,15 +56210,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 1401e64c scritte bfe0e88c",
-"co_chartL linee 414e11b0 scritte c23f80fd",
-"co_chartE linee ac8690ad scritte 77e3549e"
+"co_chartL linee 419cef24 scritte c23f80fd",
+"co_chartE linee 4e251d93 scritte 77e3549e"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)fusibile B · 250NHG1B (250 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "8f74804c"
+"pdf": "2e1a58bb"
 },
 "note": [],
 "riquadri": [
@@ -56714,14 +56714,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee efc9bea1 scritte 3923a94c"
+"cc_wave linee 0577c128 scritte 3923a94c"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "6b609681",
 "excel · foglio Punti": "3dfb18c0",
-"pdf": "9eef1da0",
+"pdf": "f748929b",
 "righe": 114
 },
 "excel_ricalcolato": {
@@ -57053,15 +57053,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee c5b7c694 scritte 284c183d",
-"co_chartL linee ef7d7a60 scritte 4e23fadc",
-"co_chartE linee 4e2de8a1 scritte eb9c9b9e"
+"co_chartL linee 4b315bb4 scritte 4e23fadc",
+"co_chartE linee d8dd44d6 scritte eb9c9b9e"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 100NHM00B-690 (100 A aM)I″k massimaI″k minimaavviamento motore"
 ]
 },
 "esportazioni": {
-"pdf": "2e398c36"
+"pdf": "905cde85"
 },
 "note": [],
 "riquadri": [
@@ -57406,15 +57406,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 0096711a scritte 54e4edb8",
-"co_chartL linee 16085d1d scritte 9354c792",
-"co_chartE linee 8fc62e2b scritte 6def797b"
+"co_chartL linee dad95695 scritte 9354c792",
+"co_chartE linee 5718be31 scritte 6def797b"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · C10G32 (32 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "35b36e65"
+"pdf": "577fb47e"
 },
 "note": [],
 "riquadri": [
@@ -57761,15 +57761,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee eb1bc69b scritte 37f3fd48",
-"co_chartL linee 78b3486c scritte 52cb8697",
-"co_chartE linee 7741a9b1 scritte 68e86dd3"
+"co_chartL linee 6e20d574 scritte 52cb8697",
+"co_chartE linee 73eaa94e scritte 68e86dd3"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 289 NH gTr 3 (200kVA) (289 A gTr)I″k massimaI″k minimainserzione trasformatore"
 ]
 },
 "esportazioni": {
-"pdf": "3acf7660"
+"pdf": "0b8c9977"
 },
 "note": [],
 "riquadri": [
@@ -58109,15 +58109,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 43a67781 scritte 89f8644f",
-"co_chartL linee 964a4b2c scritte 666b70ca",
-"co_chartE linee 61c9cdf5 scritte 5bab9792"
+"co_chartL linee 267b2ae6 scritte 666b70ca",
+"co_chartE linee 607544b4 scritte 5bab9792"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 170M3813D/125A (125 A aR)fusibile B · 170M1560D/20A (20 A gR)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "cd720f90"
+"pdf": "f9fc311b"
 },
 "note": [],
 "riquadri": [
@@ -58628,15 +58628,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 48c0642a scritte 03803c07",
-"co_chartL linee 69e3a5c1 scritte ac13fd95",
-"co_chartE linee 3d22eb2e scritte 9bc8df57"
+"co_chartL linee 840a245e scritte ac13fd95",
+"co_chartE linee d36036d4 scritte 9bc8df57"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 20D27 (20 A gG)fusibile B · 35NZ02 (35 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "4234b408"
+"pdf": "330f113d"
 },
 "note": [],
 "riquadri": [
@@ -59139,15 +59139,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 90d85359 scritte 210e4738",
-"co_chartL linee e0f2db59 scritte 7c851759",
-"co_chartE linee 095a10eb scritte 4291d7d2"
+"co_chartL linee f76983e5 scritte 7c851759",
+"co_chartE linee 90efedab scritte 4291d7d2"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 24kV 1902040 (40 A back‑up)I″k massimaI″k minimacorrente minima di interruzione 140 Ainserzione trasformatore"
 ]
 },
 "esportazioni": {
-"pdf": "6c89b10b"
+"pdf": "5e6b10c4"
 },
 "note": [],
 "riquadri": [
@@ -59501,15 +59501,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 423b838c scritte 78dbfb15",
-"co_chartL linee f110566c scritte 36427a36",
-"co_chartE linee 9976ddd4 scritte 9d6196a5"
+"co_chartL linee d314eed5 scritte 36427a36",
+"co_chartE linee f28976ad scritte 9d6196a5"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 12kV 1900100 (100 A back‑up)fusibile B · FMT 12kV 1900063 (63 A back‑up)I″k massimaI″k minimacorrente minima di interruzione 360 A (A)corrente minima di interruzione 220 A (B)"
 ]
 },
 "esportazioni": {
-"pdf": "6b2a1148"
+"pdf": "89a1aa07"
 },
 "note": [],
 "riquadri": [
@@ -59994,15 +59994,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 433838c7 scritte 39df3860",
-"co_chartL linee 906ce324 scritte 01c7a5ff",
-"co_chartE linee 7da5a16e scritte 9a737de1"
+"co_chartL linee 4d73964d scritte 01c7a5ff",
+"co_chartE linee d7de084d scritte 9a737de1"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 400NHG3B-690 (400 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "c588d536"
+"pdf": "8230869d"
 },
 "note": [],
 "riquadri": [
@@ -60349,15 +60349,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee f2f2aadf scritte 51174934",
-"co_chartL linee 46e5f6c9 scritte b577c178",
-"co_chartE linee 2f098e44 scritte 0309d6a2"
+"co_chartL linee 51ef5bbd scritte b577c178",
+"co_chartE linee 65c5bd28 scritte 0309d6a2"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · 35D33 (35 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "e15635be"
+"pdf": "ffccd8a3"
 },
 "note": [],
 "riquadri": [
@@ -66690,7 +66690,7 @@
 },
 "esportazioni": {
 "excel": "68d52f58",
-"pdf": "1b21287c",
+"pdf": "eda4cf8e",
 "righe": 134
 },
 "excel_ricalcolato": {
@@ -66974,14 +66974,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee f9e6b45d scritte 86c7b5c3"
+"cc_wave linee d91c4432 scritte 86c7b5c3"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "eeba203a",
 "excel · foglio Punti": "48cb1723",
-"pdf": "7134ad3a",
+"pdf": "be54c1db",
 "righe": 88
 },
 "excel_ricalcolato": {
@@ -67301,15 +67301,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee 27a034f0 scritte 6f56dedc",
-"co_chartL linee e4c1e91b scritte eaf57f1c",
-"co_chartE linee c080f1c8 scritte c6c9e43a"
+"co_chartL linee 0c88a918 scritte 66658e31",
+"co_chartE linee 4a52e263 scritte c6c9e43a"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxinterruttore B · FAZ-C32/3 (32 A) · banda min–maxfusibile A · 160NHG01B (160 A gG)I″k massimaI″k minima"
 ]
 },
 "esportazioni": {
-"pdf": "30f93233"
+"pdf": "7f103991"
 },
 "note": [],
 "riquadri": [
@@ -68411,15 +68411,15 @@
 "aspetto": {
 "grafici": [
 "co_chart linee a5b672b6 scritte 1e7f4cee",
-"co_chartL linee 8daae78e scritte 8de50bcc",
-"co_chartE linee 3b21c8fc scritte 88ffa257"
+"co_chartL linee f2bb4423 scritte 8de50bcc",
+"co_chartE linee 41f53e5c scritte 88ffa257"
 ],
 "legende": [
 "interruttore A · NZMN2-A250 (250 A, Ir 250 A, Ii 2500 A) · banda min–maxfusibile A · FMT 17,5kV 1901063 (63 A back‑up)I″k massimaI″k minimacorrente minima di interruzione 220 A"
 ]
 },
 "esportazioni": {
-"pdf": "e52717c2"
+"pdf": "0f3d3643"
 },
 "note": [],
 "riquadri": [
@@ -69097,14 +69097,14 @@
 "modCC": {
 "aspetto": {
 "grafici": [
-"cc_wave linee 648b9d1e scritte 6687b396"
+"cc_wave linee b58a9beb scritte 6687b396"
 ],
 "legende": []
 },
 "esportazioni": {
 "excel": "fb4ea3c5",
 "excel · foglio Punti": "0045ece2",
-"pdf": "1c8acaf3",
+"pdf": "3eeef402",
 "righe": 119
 },
 "excel_ricalcolato": {
@@ -74480,6 +74480,6 @@
 }
 }
 },
-"programma": "0.2.25",
-"riferimento_scritto_il": "27/11/2026"
+"programma": "0.2.26",
+"riferimento_scritto_il": "28/11/2026"
 }

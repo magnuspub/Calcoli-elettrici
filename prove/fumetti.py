@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Controllo dei fumetti delle informazioni (le «i» accanto ai campi) di Calcoli_elettrici.html.
+"""Controllo delle nuvolette delle descrizioni (le «i» dei campi, dei titoli e delle verifiche) di Calcoli_elettrici.html.
 
-Mette a fuoco ogni fumetto, una larghezza di finestra alla volta, e misura dove finisce davvero quello disegnato
-confrontando due immagini della pagina: una con il fumetto nascosto e una con il fumetto aperto. Segnala quelli che
-escono dal bordo, quelli tagliati da un contenitore e quelli che allargano la pagina. Serve soprattutto per gli
-schermi stretti, dove un fumetto vicino al bordo ne uscirebbe.
+Dalla 0.2.26 la descrizione compare passando sul nome, in un'unica nuvoletta (#ttBox) che il programma mette vicino al
+nome. Lo script mette a fuoco ogni «i», una larghezza di finestra alla volta, e misura dove finisce davvero la nuvoletta
+confrontando due immagini della pagina: una prima e una con la nuvoletta aperta. Segnala quelle che non compaiono, che
+hanno un testo diverso da quello della «i», che escono dalla finestra o che allargano la pagina. Serve soprattutto per
+gli schermi stretti.
 
     python3 prove/fumetti.py                                   larghezze abituali, stato predefinito del programma
     python3 prove/fumetti.py altro.html                        controlla un altro file
@@ -16,7 +17,7 @@ Con un caso di prova compaiono anche i fumetti delle righe aggiunte (trasformato
 uno ricco. Lo script apre da sé tutti i moduli, i sotto-moduli e i pannelli «avanzate», così quasi tutti i fumetti
 sono raggiungibili; restano fuori quelli dei campi che compaiono solo con certe scelte.
 
-Richiede Python con Playwright (Chromium) e Pillow. Esce con 1 se almeno un fumetto non va.
+Richiede Python con Playwright (Chromium) e Pillow. Esce con 1 se almeno una nuvoletta non va.
 """
 import asyncio, io, json, os, sys
 from PIL import Image, ImageChops
@@ -52,6 +53,12 @@ APRI = '''() => {
   return document.querySelectorAll(".tip").length;
 }'''
 
+# la nuvoletta aperta: dov'è e che cosa dice
+LEGGI = '''() => {
+  const b = document.getElementById("ttBox"); if (!b || b.hidden) return null;
+  const r = b.getBoundingClientRect(); return { x0: r.left, y0: r.top, x1: r.right, y1: r.bottom, t: b.textContent };
+}'''
+
 DOVE = '''(i) => {
   const e = document.querySelector(`.tip[data-idx="${i}"]`);
   if (!e || e.offsetParent === null) return null;
@@ -83,7 +90,7 @@ async def una_larghezza(browser, largh, stato):
     await p.wait_for_timeout(300)
     # la pagina può già essere più larga della finestra per conto suo: quella larghezza non va addebitata ai fumetti
     base = await p.evaluate('document.documentElement.scrollWidth')
-    atteso = min(230, int(0.66 * largh))      # come .tip::after: width 230px, max-width 66vw, box-sizing border-box
+    alto = 880                                # l'altezza della finestra aperta qui sopra
     guai, visti = [], 0
     for i in range(n):
         info = await p.evaluate(DOVE, i)
@@ -99,23 +106,27 @@ async def una_larghezza(browser, largh, stato):
         dopo = await p.screenshot()
         largo_ora = await p.evaluate('document.documentElement.scrollWidth')
         rq = riquadro(prima, dopo)
+        box = await p.evaluate(LEGGI)
+        testo = await el.evaluate('e => e.dataset.tip || ""')
         await p.evaluate('() => document.activeElement && document.activeElement.blur()')
-        if not rq:
-            guai.append((i, info, 'il fumetto non compare')); continue
+        if not rq or not box:
+            guai.append((i, info, 'la nuvoletta non compare')); continue
         x0, y0, x1, y1 = rq
-        if x0 <= MARGINE or x1 >= largh - MARGINE:
-            msg = f'esce dal bordo: da {x0} a {x1} in {largh} px'
+        if box['t'] != testo:
+            msg = 'il testo della nuvoletta non è quello della «i»'
+        elif box['x0'] < MARGINE or box['x1'] > largh - MARGINE or box['y0'] < MARGINE or box['y1'] > alto - MARGINE:
+            msg = f'esce dalla finestra: da {box["x0"]:.0f},{box["y0"]:.0f} a {box["x1"]:.0f},{box["y1"]:.0f} in {largh}×{alto} px'
         elif largo_ora > max(base, largh) + 1:
             msg = f'allarga la pagina a {largo_ora} px (era {base})'
-        elif x1 - x0 < atteso - 24:
-            msg = f'tagliato: largo {x1 - x0} px invece di circa {atteso}'
+        elif x1 - x0 < (box['x1'] - box['x0']) - 24:
+            msg = f'coperta: se ne vedono {x1 - x0} px su {box["x1"] - box["x0"]:.0f}'
         else:
             continue
         guai.append((i, info, msg))
         if SALVA:
             os.makedirs(SALVA, exist_ok=True)
             Image.open(io.BytesIO(dopo)).save(os.path.join(SALVA, f'{largh}_{i}.png'))
-    print(f'{largh} px: {visti} fumetti visibili su {n} · da sistemare {len(guai)}')
+    print(f'{largh} px: {visti} nuvolette controllate su {n} · da sistemare {len(guai)}')
     for i, info, msg in guai:
         print(f'   #{i} [{info["dove"]}] «{info["eti"]}» class="{info["cls"]}" → {msg}')
     if errori:
@@ -133,7 +144,7 @@ async def esegui():
         for largh in LARGHEZZE:
             tot += await una_larghezza(b, largh, stato)
         await b.close()
-    print(('nessun fumetto fuori posto' if not tot else f'fumetti da sistemare: {tot}')
+    print(('nessuna nuvoletta fuori posto' if not tot else f'nuvolette da sistemare: {tot}')
           + (f' · immagini in {SALVA}' if SALVA and tot else ''))
     return 1 if tot else 0
 
